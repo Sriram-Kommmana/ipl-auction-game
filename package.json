@@ -1,0 +1,8 @@
+{
+  "name": "ipl-auction",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:server": "pnpm --filter server dev"
+  }
+}
