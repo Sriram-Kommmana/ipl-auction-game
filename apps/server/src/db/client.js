@@ -1,6 +1,6 @@
-require('dotenv').config()
-const {DB_NAME} = require('../constants')
-const mongoose = require('mongoose')
+import 'dotenv/config';
+import { DB_NAME } from '../constants.js';
+import mongoose from 'mongoose';
 
 const dns = require("dns")
 dns.setServers([
@@ -19,4 +19,4 @@ const connectMongoDB = async () => {
     }
 }
 
-module.exports = connectMongoDB;
+export default connectMongoDB;

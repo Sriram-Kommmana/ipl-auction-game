@@ -1,12 +1,12 @@
-require('dotenv').config()
+import 'dotenv/config';
 
-require('./redis/client');
-const connectMongoDB = require('./db/client')
-const express = require('express');
-const http = require('node:http');
-const cors = require('cors');
-const { Server } = require('socket.io');
-const roomRoutes = require('./http/roomRoutes')
+import './redis/client.js';
+import connectMongoDB from './db/client.js';
+import express from 'express';
+import http from 'node:http';
+import cors from 'cors';
+import { Server } from 'socket.io';
+import roomRoutes from './http/roomRoutes.js';
 
 
 const app = express();

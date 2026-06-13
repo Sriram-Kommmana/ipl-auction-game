@@ -1,9 +1,9 @@
-require('dotenv').config()
-const csvtojson = require('csvtojson')
-const path = require('path')
-const mongoose = require('mongoose')
-const Player = require('./models/Player')
-const connectMongoDB = require('./client')
+import 'dotenv/config';
+import csvtojson from 'csvtojson';
+import path from 'path';
+import mongoose from 'mongoose';
+import Player from './models/Player';
+import connectMongoDB from './client';
 
 const seedPlayers = async () => {
     await connectMongoDB()

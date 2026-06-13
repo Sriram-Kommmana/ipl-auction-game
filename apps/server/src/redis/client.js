@@ -1,5 +1,5 @@
-require('dotenv').config()
-const Redis = require('ioredis');
+import 'dotenv/config';
+import Redis from 'ioredis';
 
 const redis = new Redis(process.env.REDIS_URL)
 
@@ -11,4 +11,4 @@ redis.on('error', (err) => {
     console.error('Redis background error:', err)
 })
 
-module.exports = redis
+export default redis
