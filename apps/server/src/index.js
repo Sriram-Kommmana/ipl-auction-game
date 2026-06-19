@@ -7,6 +7,7 @@ import http from 'node:http';
 import cors from 'cors';
 import { Server } from 'socket.io';
 import roomRoutes from './http/roomRoutes.js';
+import { errorHandler } from './middlewares/errorHandler.js'
 
 
 const app = express();
@@ -30,6 +31,10 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/room', roomRoutes);
+
+
+//after all routes
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 3001;
 
