@@ -1,8 +1,11 @@
 import express from 'express';
+import {createRoom} from './createRoom.js'
+import {joinRoom} from './joinRoom.js'
+
 const router = express.Router();
 
-router.post('/create', (req, res) => res.json({ message: 'ok' }))
-router.post('/join', (req, res) => res.json({ message: 'ok' }))
+router.post('/create', createRoom)
+router.post('/join', joinRoom)
 router.get('/:roomId', (req, res) => res.json({ message: 'ok' }))
 
 export default router;
