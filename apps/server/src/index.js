@@ -8,6 +8,7 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import roomRoutes from './http/roomRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js'
+import { registerSocketHandlers } from './socket/index.js'
 
 
 const app = express();
@@ -16,9 +17,12 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: process.env.CLIENT_URL,
+        // origin: "*",
         methods: ['GET', 'POST']
     }
 });
+
+registerSocketHandlers(io)
 
 app.use(cors({
     origin: process.env.CLIENT_URL
