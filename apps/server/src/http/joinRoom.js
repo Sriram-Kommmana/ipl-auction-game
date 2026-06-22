@@ -76,22 +76,22 @@ const joinRoom = asyncHandler(async (req, res) => {
         const isManager = existingPlayerData[3] === 'true'
         const isBot     = existingPlayerData[5]
 
+        // status stays "online" here — this represents an active rejoin attempt
+        // happening right now, immediately followed by a socket connection
         const updatedValue = [
             cleanNickname,
             playerPinHash,
             teamId,
             String(isManager),
-            'online',
+            'offline',
             isBot
         ].join(':')
 
         const pipeline = redis.pipeline()
 
-        // Same playerId — just overwrite value, refresh TTL
         pipeline.hset(`room:${roomId}:players`, { [existingPlayerId]: updatedValue })
         pipeline.expire(`room:${roomId}:players`, FOUR_DAYS_IN_SECONDS)
 
-        // Same session key — just refresh fields and TTL
         pipeline.hset(`session:${existingPlayerId}`, {
             playerId:    existingPlayerId,
             roomId,
@@ -129,8 +129,9 @@ const joinRoom = asyncHandler(async (req, res) => {
 
     const pipeline = redis.pipeline()
 
+    // status is now "offline" — only onReconnect (actual socket connection) sets "online"
     pipeline.hset(`room:${roomId}:players`, {
-        [playerId]: `${cleanNickname}:${playerPinHash}::false:online:false`
+        [playerId]: `${cleanNickname}:${playerPinHash}::false:offline:false`
     })
     pipeline.expire(`room:${roomId}:players`, FOUR_DAYS_IN_SECONDS)
 

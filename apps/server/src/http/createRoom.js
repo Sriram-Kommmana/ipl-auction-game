@@ -148,8 +148,9 @@ const createRoom = asyncHandler(async (req, res) => {
         pipeline.del(`room:${roomId}:chat`)
         pipeline.expire(`room:${roomId}:chat`, FOUR_DAYS_IN_SECONDS)
 
+        // status is now "offline" — only onReconnect (actual socket connection) sets "online"
         pipeline.hset(`room:${roomId}:players`, {
-            [managerId]: `${managerNickname.trim()}:${managerPinHash}::true:online:false`
+            [managerId]: `${managerNickname.trim()}:${managerPinHash}::true:offline:false`
         })
         pipeline.expire(`room:${roomId}:players`, FOUR_DAYS_IN_SECONDS)
 
@@ -164,7 +165,6 @@ const createRoom = asyncHandler(async (req, res) => {
         })
         pipeline.expire(`room:${roomId}:current`, FOUR_DAYS_IN_SECONDS)
 
-        // Session key — includes isManager + userPinHash
         pipeline.hset(`session:${managerId}`, {
             playerId:    managerId,
             roomId,
