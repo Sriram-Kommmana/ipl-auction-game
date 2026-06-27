@@ -2,6 +2,8 @@ import { onReconnect } from '../handlers/onReconnect.js'
 import { onSelectTeam } from '../handlers/onSelectTeam.js'
 import { onStartAuction } from '../handlers/onStartAuction.js'
 import { onChat } from '../handlers/onChat.js'
+import { onPause } from '../handlers/onPause.js'
+import { onResume } from '../handlers/onResume.js'
 
 const registerSocketHandlers = (io) => {
     io.on('connection', (socket) => {
@@ -11,6 +13,8 @@ const registerSocketHandlers = (io) => {
         socket.on('selectTeam', (data) => onSelectTeam(io, socket, data))
         socket.on('startAuction', (data) => onStartAuction(io, socket, data))
         socket.on('sendChat', (data) => onChat(io, socket, data))
+        socket.on('pauseAuction', (data) => onPause(io, socket, data))
+        socket.on('resumeAuction', (data) => onResume(io, socket, data))
 
         socket.on('disconnect', () => {
             console.log(`[Socket] Disconnected: ${socket.id}`)
