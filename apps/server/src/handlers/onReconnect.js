@@ -79,6 +79,10 @@ const buildStateSnapshot = async (roomId) => {
         teams,
         current: {
             iplPlayerId:         current.iplPlayerId || '',
+            playerName:          current.playerName || '',
+            role:                current.role || '',
+            nationality:         current.nationality || '',
+            country:             current.country || '',
             basePrice:           current.basePrice ? Number(current.basePrice) : null,
             currentBid:          current.currentBid ? Number(current.currentBid) : null,
             currentBidderId:     current.currentBidderId || '',

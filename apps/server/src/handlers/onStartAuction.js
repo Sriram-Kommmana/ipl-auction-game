@@ -51,12 +51,19 @@ const onStartAuction = async (io, socket, data) => {
     }
 
     const now = Math.floor(Date.now() / 1000)
-
     const pipeline = redis.pipeline()
 
-    // Set up the auction slot — timer fields left IDLE, timerManager owns them
+    // Set up the auction slot — enriched with immutable player fields
+    // (nationality, role, country, playerName) so onBid's Lua script
+    // can read everything it needs from this single key, with zero
+    // MongoDB calls and no separate cache. Timer fields left IDLE,
+    // timerManager owns them.
     pipeline.hset(`room:${roomId}:current`, {
         iplPlayerId:         String(playerDoc.slNo),
+        playerName:          playerDoc.playerName,
+        role:                playerDoc.role,
+        nationality:         playerDoc.nationality,
+        country:             playerDoc.country,
         basePrice:           String(playerDoc.basePrice),
         currentBid:          String(playerDoc.basePrice),
         currentBidderId:     '',
