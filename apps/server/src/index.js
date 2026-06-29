@@ -9,6 +9,7 @@ import { Server } from 'socket.io';
 import roomRoutes from './http/roomRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js'
 import { registerSocketHandlers } from './socket/index.js'
+import './redis/registerLuaScripts.js'
 
 
 const app = express();
