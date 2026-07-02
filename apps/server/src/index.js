@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
 import './redis/client.js';
+import './redis/registerLuaScripts.js'
 import connectMongoDB from './db/client.js';
 import express from 'express';
 import http from 'node:http';
@@ -9,7 +10,7 @@ import { Server } from 'socket.io';
 import roomRoutes from './http/roomRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js'
 import { registerSocketHandlers } from './socket/index.js'
-import './redis/registerLuaScripts.js'
+
 
 
 const app = express();
