@@ -1,6 +1,6 @@
 import redis from '../redis/client.js'
-import Player from '../db/models/Player.js'
 import { startTimer } from '../room/timerManager.js'
+import { loadPlayerIntoCurrent } from '../room/loadPlayerIntoCurrent.js'
 
 const onStartAuction = async (io, socket, data) => {
     const { playerId } = data || {}
@@ -16,7 +16,6 @@ const onStartAuction = async (io, socket, data) => {
 
     const { roomId } = session
 
-    // Membership validation — consistent with onReconnect/onSelectTeam
     const isMember = await redis.hexists(`room:${roomId}:players`, playerId)
     if (!isMember) {
         return socket.emit('startAuctionError', { message: 'You are no longer part of this room.' })
@@ -45,45 +44,22 @@ const onStartAuction = async (io, socket, data) => {
         return socket.emit('startAuctionError', { message: 'Auction pool is empty. Please contact support.' })
     }
 
-    const playerDoc = await Player.findOne({ slNo: Number(firstSlNo) }).lean()
-    if (!playerDoc) {
-        return socket.emit('startAuctionError', { message: 'First player data not found in database.' })
-    }
-
     const now = Math.floor(Date.now() / 1000)
-    const pipeline = redis.pipeline()
 
-    // Set up the auction slot — enriched with immutable player fields
-    // (nationality, role, country, playerName) so onBid's Lua script
-    // can read everything it needs from this single key, with zero
-    // MongoDB calls and no separate cache. Timer fields left IDLE,
-    // timerManager owns them.
-    pipeline.hset(`room:${roomId}:current`, {
-        iplPlayerId:         String(playerDoc.slNo),
-        playerName:          playerDoc.playerName,
-        role:                playerDoc.role,
-        nationality:         playerDoc.nationality,
-        country:             playerDoc.country,
-        basePrice:           String(playerDoc.basePrice),
-        currentBid:          String(playerDoc.basePrice),
-        currentBidderId:     '',
-        timerState:          'IDLE',
-        timerEndsAt:         '',
-        pausedTimeRemaining: ''
-    })
+    // Both Redis writes are independent — run them concurrently
+    // loadPlayerIntoCurrent writes to room:{roomId}:current
+    // the second write updates room:{roomId} status/startedAt/index
+    // no ordering dependency between them, Promise.all saves one
+    // network round trip versus awaiting them sequentially
+    const [playerDoc] = await Promise.all([
+        loadPlayerIntoCurrent(roomId, firstSlNo),
+        redis.hset(`room:${roomId}`, {
+            status:             'active',
+            startedAt:          String(now),
+            currentPlayerIndex: '0'
+        })
+    ])
 
-    pipeline.hset(`room:${roomId}`, {
-        status:             'active',
-        startedAt:          String(now),
-        currentPlayerIndex: '0'
-    })
-
-    // pool:status stays "pending" — room:{roomId}:current is the single
-    // source of truth for which player is live right now
-
-    await pipeline.exec()
-
-    // Only player/bid data here — no timer fields, timerManager broadcasts those separately
     io.to(roomId).emit('auctionStarted', {
         currentPlayerIndex: 0,
         player: {
@@ -100,7 +76,6 @@ const onStartAuction = async (io, socket, data) => {
         currentBidderId: ''
     })
 
-    // timerManager owns all timer state and broadcasts 'timerStarted' itself
     await startTimer(io, roomId)
 }
 
