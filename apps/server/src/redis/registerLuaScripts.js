@@ -32,16 +32,22 @@ redis.defineCommand('placeBidAtomic', {
         end
         local currentBid = tonumber(currentBidRaw)
 
-        local increment
-        if currentBid < 200 then
-            increment = 10
-        elseif currentBid < 300 then
-            increment = 20
+        local newBid
+        if currentBidderId == '' then
+            -- First bid on this player — claim at base price, no increment
+            newBid = currentBid
         else
-            increment = 50
+            -- Subsequent bids — apply tiered increment
+            local increment
+            if currentBid < 200 then
+                increment = 10
+            elseif currentBid < 300 then
+                increment = 20
+            else
+                increment = 50
+            end
+            newBid = currentBid + increment
         end
-
-        local newBid = currentBid + increment
 
         local purseLeftRaw = redis.call('HGET', teamKey, 'purseLeft')
         if not purseLeftRaw then
