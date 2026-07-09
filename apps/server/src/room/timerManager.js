@@ -10,8 +10,8 @@
  * Responsibilities:
  * - Create, clear, pause, and resume timers
  * - Maintain timer-related Redis state
- * - Fire timer expiry — decide sold/unsold, advance to next player,
- *   handle re-auction phase transition, detect auction completion
+ * - Fire timer expiry — decide sold/unsold, then delegate
+ *   advancement to auctionProgression.advanceAuction()
  *
  * It should NOT contain bid validation, session handling,
  * or socket membership logic — those belong in handlers.
@@ -19,7 +19,7 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import redis from '../redis/client.js'
-import { loadPlayerIntoCurrent } from './loadPlayerIntoCurrent.js'
+import { advanceAuction } from './auctionProgression.js'
 
 const TIMER_DURATION       = 30
 const FOUR_DAYS_IN_SECONDS = 4 * 24 * 60 * 60
@@ -36,28 +36,24 @@ const clearExistingTimer = (roomId) => {
 }
 
 const onTimerExpiry = async (io, roomId) => {
-    // Read everything needed in parallel
     const [room, current, poolLength] = await Promise.all([
         redis.hgetall(`room:${roomId}`),
         redis.hgetall(`room:${roomId}:current`),
         redis.llen(`room:${roomId}:pool`)
     ])
 
-    // Guard — if timerState is not RUNNING, something already handled this
-    if (!current || current.timerState !== 'RUNNING') {
-        console.log(`[TimerManager] onTimerExpiry: room ${roomId} timerState is ${current?.timerState}, skipping`)
+    if (!current || Object.keys(current).length === 0) {
+        console.log(`[TimerManager] onTimerExpiry: no current state for room ${roomId}`)
         return
     }
 
-    // Lock immediately — flip to PROCESSING_EXPIRY FIRST.
-    // This single write prevents any further bids from being accepted
-    // because the Lua script rejects bids when timerState !== 'RUNNING'.
-    // timerState stays as PROCESSING_EXPIRY if anything below fails —
-    // that's an honest recoverable signal, not a fake ENDED state.
-    await redis.hset(`room:${roomId}:current`, {
-        timerState:  'PROCESSING_EXPIRY',
-        timerEndsAt: ''
-    })
+    // Atomically acquire the lock — returns 0 if onSkip already grabbed it
+    // or if timerState is already past RUNNING/PAUSED
+    const acquired = await redis.acquireExpiryLock(`room:${roomId}:current`)
+    if (!acquired) {
+        console.log(`[TimerManager] onTimerExpiry: lock not acquired for room ${roomId}, skipping`)
+        return
+    }
 
     const {
         iplPlayerId,
@@ -71,17 +67,11 @@ const onTimerExpiry = async (io, roomId) => {
     const auctionPhase       = room.auctionPhase
     const isSold             = currentBidderId !== ''
 
-    // Everything after the lock is wrapped in one try/catch —
-    // sold pipeline, unsold pipeline, AND advancement all need protection.
-    // If the sold pipeline fails halfway, the room should not be left in
-    // PROCESSING_EXPIRY with no recovery path and no error surfaced.
     try {
         if (isSold) {
             const teamKey  = `room:${roomId}:team:${currentBidderId}`
             const teamData = await redis.hgetall(teamKey)
 
-            // Guard against missing team data — prevents NaN from
-            // propagating into purse/squad calculations silently
             if (!teamData || Object.keys(teamData).length === 0) {
                 throw new Error(`Team data not found for ${currentBidderId} in room ${roomId}`)
             }
@@ -172,115 +162,7 @@ const onTimerExpiry = async (io, roomId) => {
             })
         }
 
-        // Advance to next player
-        const newIndex = currentPlayerIndex + 1
-
-        if (newIndex < poolLength) {
-            // More players left in current phase
-            const nextSlNo = await redis.lindex(`room:${roomId}:pool`, newIndex)
-
-            await redis.hset(`room:${roomId}`, {
-                currentPlayerIndex: String(newIndex)
-            })
-
-            const playerDoc = await loadPlayerIntoCurrent(roomId, nextSlNo)
-
-            io.to(roomId).emit('nextPlayer', {
-                currentPlayerIndex: newIndex,
-                player: {
-                    slNo:        playerDoc.slNo,
-                    playerName:  playerDoc.playerName,
-                    country:     playerDoc.country,
-                    nationality: playerDoc.nationality,
-                    role:        playerDoc.role,
-                    basePrice:   playerDoc.basePrice,
-                    rating:      playerDoc.rating,
-                    stats:       playerDoc.stats
-                },
-                currentBid:      playerDoc.basePrice,
-                currentBidderId: ''
-            })
-
-            await startTimer(io, roomId)
-
-        } else if (auctionPhase === 'main') {
-            // Main pool exhausted — check for unsold players to re-auction
-            const unsoldList = await redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
-
-            if (unsoldList.length > 0) {
-                // Shuffle the unsold list (Fisher-Yates)
-                const shuffled = [...unsoldList]
-                for (let i = shuffled.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-                }
-
-                // Reset pool:status back to 'pending' for re-auctioned players
-                const statusUpdates = {}
-                for (const slNo of shuffled) {
-                    statusUpdates[slNo] = 'pending'
-                }
-
-                const pipeline = redis.pipeline()
-                pipeline.del(`room:${roomId}:pool`)
-                pipeline.rpush(`room:${roomId}:pool`, ...shuffled)
-                pipeline.expire(`room:${roomId}:pool`, FOUR_DAYS_IN_SECONDS)
-                pipeline.hset(`room:${roomId}:pool:status`, statusUpdates)
-                pipeline.del(`room:${roomId}:pool:unsold`)
-                pipeline.hset(`room:${roomId}`, {
-                    auctionPhase:       'reauction',
-                    currentPlayerIndex: '0'
-                })
-                await pipeline.exec()
-
-                const playerDoc = await loadPlayerIntoCurrent(roomId, shuffled[0])
-
-                io.to(roomId).emit('nextPlayer', {
-                    currentPlayerIndex: 0,
-                    player: {
-                        slNo:        playerDoc.slNo,
-                        playerName:  playerDoc.playerName,
-                        country:     playerDoc.country,
-                        nationality: playerDoc.nationality,
-                        role:        playerDoc.role,
-                        basePrice:   playerDoc.basePrice,
-                        rating:      playerDoc.rating,
-                        stats:       playerDoc.stats
-                    },
-                    currentBid:      playerDoc.basePrice,
-                    currentBidderId: '',
-                    isReauction:     true
-                })
-
-                await startTimer(io, roomId)
-
-            } else {
-                // Main pool exhausted, no unsold players — auction complete
-                await redis.hset(`room:${roomId}`, {
-                    status:      'completed',
-                    completedAt: String(Math.floor(Date.now() / 1000))
-                })
-                await redis.hset(`room:${roomId}:current`, { timerState: 'ENDED' })
-
-                io.to(roomId).emit('auctionCompleted', {
-                    roomId,
-                    message: 'Auction has ended. All players have been auctioned.'
-                })
-            }
-
-        } else {
-            // Re-auction phase exhausted — auction fully complete
-            await redis.hset(`room:${roomId}`, {
-                status:      'completed',
-                completedAt: String(Math.floor(Date.now() / 1000))
-            })
-            await redis.hset(`room:${roomId}:current`, { timerState: 'ENDED' })
-
-            io.to(roomId).emit('auctionCompleted', {
-                roomId,
-                message: 'Auction has ended. Re-auction complete.'
-            })
-        }
+        await advanceAuction(io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimer)
 
     } catch (err) {
         console.error(`[TimerManager] onTimerExpiry failed for room ${roomId}:`, err)

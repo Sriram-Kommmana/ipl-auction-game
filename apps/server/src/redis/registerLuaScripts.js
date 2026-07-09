@@ -1,5 +1,27 @@
 import redis from './client.js'
 
+// Atomically acquires the expiry lock by flipping timerState to PROCESSING_EXPIRY.
+// Returns 1 if lock acquired (timerState was RUNNING or PAUSED).
+// Returns 0 if not acquired (already locked or wrong state).
+// Used by both onTimerExpiry and onSkip to prevent double-advance race condition.
+// KEYS[1] = room:{roomId}:current
+redis.defineCommand('acquireExpiryLock', {
+    numberOfKeys: 1,
+    lua: `
+        local timerState = redis.call('HGET', KEYS[1], 'timerState')
+        if timerState == 'RUNNING' or timerState == 'PAUSED' then
+            redis.call(
+                'HSET', KEYS[1],
+                'timerState', 'PROCESSING_EXPIRY',
+                'timerEndsAt', '',
+                'pausedTimeRemaining', ''
+            )
+            return 1
+        end
+        return 0
+    `
+})
+
 // KEYS[1] = room:{roomId}:current        → currentBid, currentBidderId, timerState, nationality
 // KEYS[2] = room:{roomId}:team:{teamId}  → purseLeft, playerCount, overseasCount
 // KEYS[3] = room:{roomId}                → maxPlayers, maxOverseas
@@ -34,10 +56,8 @@ redis.defineCommand('placeBidAtomic', {
 
         local newBid
         if currentBidderId == '' then
-            -- First bid on this player — claim at base price, no increment
             newBid = currentBid
         else
-            -- Subsequent bids — apply tiered increment
             local increment
             if currentBid < 200 then
                 increment = 10
