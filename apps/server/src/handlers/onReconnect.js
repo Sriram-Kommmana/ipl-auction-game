@@ -1,5 +1,9 @@
 import redis from '../redis/client.js'
-import { registerSocket } from '../socket/socketRegistry.js'
+import {
+    registerSocket,
+    cancelGraceTimer,
+    hasGraceTimer
+} from '../socket/socketRegistry.js'
 
 const parsePlayerData = (data) => {
     const parts = data.split(':')
@@ -29,14 +33,12 @@ const buildStateSnapshot = async (roomId) => {
 
     const teamIds = Object.keys(teamsMap || {})
 
-    // Fetch all teams in parallel — fixes N+1 query problem
     const teams = await Promise.all(
         teamIds.map(async (teamId) => {
             const [teamData, squad] = await Promise.all([
                 redis.hgetall(`room:${roomId}:team:${teamId}`),
                 redis.lrange(`room:${roomId}:team:${teamId}:squad`, 0, -1)
             ])
-
             return {
                 teamId,
                 name:          teamData.name,
@@ -51,16 +53,11 @@ const buildStateSnapshot = async (roomId) => {
         })
     )
 
-    // Safe JSON parsing — one corrupted entry won't break reconnect
     const safeParse = (entry) => {
-        try {
-            return JSON.parse(entry)
-        } catch {
-            return null
-        }
+        try { return JSON.parse(entry) } catch { return null }
     }
 
-    const chat = (chatRaw || []).map(safeParse).filter(Boolean).reverse()
+    const chat    = (chatRaw    || []).map(safeParse).filter(Boolean).reverse()
     const history = (historyRaw || []).map(safeParse).filter(Boolean).reverse()
 
     return {
@@ -103,7 +100,6 @@ const onReconnect = async (io, socket, data) => {
     }
 
     const session = await redis.hgetall(`session:${playerId}`)
-
     if (!session || Object.keys(session).length === 0) {
         return socket.emit('reconnectError', {
             message: 'Session not found. Please join the room again.'
@@ -122,9 +118,20 @@ const onReconnect = async (io, socket, data) => {
     socket.join(roomId)
     registerSocket(socket.id, playerId)
 
+    // Mark player online
     const parts = playerData.split(':')
     parts[4] = 'online'
     await redis.hset(`room:${roomId}:players`, { [playerId]: parts.join(':') })
+
+    // If manager is reconnecting within the grace period, cancel auto-pause
+    const isManager = parts[3] === 'true'
+    if (isManager && hasGraceTimer(roomId)) {
+        cancelGraceTimer(roomId)
+        console.log(`[onReconnect] Manager reconnected for room ${roomId} — grace timer cancelled`)
+        io.to(roomId).emit('managerReconnected', {
+            message: 'Manager reconnected. Auction continues.'
+        })
+    }
 
     const snapshot = await buildStateSnapshot(roomId)
     socket.emit('stateSync', snapshot)
