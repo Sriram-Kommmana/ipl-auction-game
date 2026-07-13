@@ -1,5 +1,6 @@
 import redis from '../redis/client.js'
 import { loadPlayerIntoCurrent } from './loadPlayerIntoCurrent.js'
+import { persistAuctionResults } from '../db/persistAuctionResults.js'
 
 const FOUR_DAYS_IN_SECONDS = 4 * 24 * 60 * 60
 
@@ -29,13 +30,21 @@ const buildPlayerPayload = (playerDoc, index, extra = {}) => ({
     ...extra
 })
 
-// Shared advancement logic — called by both onTimerExpiry and onSkip
-// after they've handled their own sold/unsold/skipped pipeline.
-//
-// startTimerFn is passed as a parameter to avoid circular dependency:
-// timerManager.js imports advanceAuction from here,
-// and we need startTimer from timerManager.js.
-// Passing it as a parameter breaks the cycle cleanly.
+const completeAuction = async (io, roomId, message) => {
+    await redis.hset(`room:${roomId}`, {
+        status:      'completed',
+        completedAt: String(Math.floor(Date.now() / 1000))
+    })
+    await redis.hset(`room:${roomId}:current`, { timerState: 'ENDED' })
+
+    io.to(roomId).emit('auctionCompleted', { roomId, message })
+
+    // Fire and forget — never block auctionCompleted waiting for MongoDB
+    persistAuctionResults(roomId).catch(err =>
+        console.error(`[persistAuctionResults] Failed for room ${roomId}:`, err)
+    )
+}
+
 const advanceAuction = async (io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimerFn) => {
     const newIndex = currentPlayerIndex + 1
 
@@ -77,28 +86,12 @@ const advanceAuction = async (io, roomId, currentPlayerIndex, auctionPhase, pool
 
         } else {
             // No unsold players — auction complete
-            await redis.hset(`room:${roomId}`, {
-                status:      'completed',
-                completedAt: String(Math.floor(Date.now() / 1000))
-            })
-            await redis.hset(`room:${roomId}:current`, { timerState: 'ENDED' })
-            io.to(roomId).emit('auctionCompleted', {
-                roomId,
-                message: 'Auction has ended. All players have been auctioned.'
-            })
+            await completeAuction(io, roomId, 'Auction has ended. All players have been auctioned.')
         }
 
     } else {
         // Re-auction phase exhausted — fully complete
-        await redis.hset(`room:${roomId}`, {
-            status:      'completed',
-            completedAt: String(Math.floor(Date.now() / 1000))
-        })
-        await redis.hset(`room:${roomId}:current`, { timerState: 'ENDED' })
-        io.to(roomId).emit('auctionCompleted', {
-            roomId,
-            message: 'Auction has ended. Re-auction complete.'
-        })
+        await completeAuction(io, roomId, 'Auction has ended. Re-auction complete.')
     }
 }
 
