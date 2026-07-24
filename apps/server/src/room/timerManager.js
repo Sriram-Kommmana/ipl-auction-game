@@ -123,7 +123,8 @@ const onTimerExpiry = async (io, roomId) => {
                 playerName,
                 soldTo:   currentBidderId,
                 teamName: teamData.name,
-                soldFor:  Number(currentBid)
+                soldFor:  Number(currentBid),
+                isOverseas: nationality === 'Overseas'
             })
 
         } else {
