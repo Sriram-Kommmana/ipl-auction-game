@@ -20,9 +20,14 @@
 import { v4 as uuidv4 } from 'uuid'
 import redis from '../redis/client.js'
 import { advanceAuction } from './auctionProgression.js'
+import {RESULT_DISPLAY_DURATION} from '../constants.js'
 
-const TIMER_DURATION       = 30
+const TIMER_DURATION = 30
 const FOUR_DAYS_IN_SECONDS = 4 * 24 * 60 * 60
+
+const delay = (ms) =>{
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // Module-level Map — must persist across calls for the life of the process.
 // Not exported — nothing outside this file should ever touch it directly.
@@ -162,6 +167,8 @@ const onTimerExpiry = async (io, roomId) => {
                 playerName
             })
         }
+        
+        await delay(RESULT_DISPLAY_DURATION)
 
         await advanceAuction(io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimer)
 
