@@ -1,4 +1,3 @@
-// apps/web/src/lib/socket.js
 import { io } from 'socket.io-client'
 
 // transports intentionally left unspecified (not forced to ['websocket']):
