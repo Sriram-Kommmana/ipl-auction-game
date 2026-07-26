@@ -83,6 +83,8 @@ const buildStateSnapshot = async (roomId) => {
             basePrice:           current.basePrice ? Number(current.basePrice) : null,
             currentBid:          current.currentBid ? Number(current.currentBid) : null,
             currentBidderId:     current.currentBidderId || '',
+            rating:              current.rating ? Number(current.rating) : null,
+            stats:               current.stats ? JSON.parse(current.stats) : null,
             timerState:          current.timerState || 'IDLE',
             timerEndsAt:         current.timerEndsAt ? Number(current.timerEndsAt) : null,
             pausedTimeRemaining: current.pausedTimeRemaining ? Number(current.pausedTimeRemaining) : null

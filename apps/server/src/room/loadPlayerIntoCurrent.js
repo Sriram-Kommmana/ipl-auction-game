@@ -16,6 +16,8 @@ const loadPlayerIntoCurrent = async (roomId, slNo) => {
         role:                playerDoc.role,
         nationality:         playerDoc.nationality,
         country:             playerDoc.country,
+        rating:              String(playerDoc.rating),
+        stats:               JSON.stringify(playerDoc.stats),
         basePrice:           String(playerDoc.basePrice),
         currentBid:          String(playerDoc.basePrice),
         currentBidderId:     '',
