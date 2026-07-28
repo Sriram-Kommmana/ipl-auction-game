@@ -1,6 +1,6 @@
 // apps/web/src/hooks/useSession.js
 import { useEffect, useState } from 'react'
-import socket from '../lib/socket'
+import { connectAndReconnect } from '../lib/socket'
 import { getSession, hasActiveSession } from '../lib/session'
 import { useSessionStore } from '../store/sessionStore'
 
@@ -37,20 +37,7 @@ export const useSession = () => {
       isManager: session.isManager
     })
 
-    const emitReconnect = () => {
-      socket.emit('reconnect', { playerId: session.uuid })
-    }
-
-    if (socket.connected) {
-      emitReconnect()
-    } else {
-      socket.once('connect', emitReconnect)
-      socket.connect()
-    }
-
-    return () => {
-      socket.off('connect', emitReconnect)
-    }
+    connectAndReconnect(session.uuid)
   }, [hasSession, setSession])
 
   return { hasSession }
