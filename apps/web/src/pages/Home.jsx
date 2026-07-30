@@ -1,0 +1,75 @@
+import { useState } from 'react'
+import CreateRoomForm from '../components/home/CreateRoomForm'
+import JoinRoomForm from '../components/home/JoinRoomForm'
+
+const Home = () => {
+  const [mode, setMode] = useState('create')
+
+  return (
+    <div
+      className="relative min-h-screen overflow-hidden flex items-center justify-center px-4"
+      style={{
+        background: `
+          radial-gradient(
+            circle at center,
+            rgba(228, 38, 44, 0.08) 0%,
+            rgba(228, 38, 44, 0.03) 30%,
+            transparent 70%
+          ),
+          #F2F2F2
+        `,
+      }}
+    >
+      {/* Background Blobs */}
+      <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-brand-red/7 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full bg-brand-red/7 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/4 -right-24 h-64 w-64 rounded-full bg-brand-red/5 blur-3xl" />
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-lg">
+        <div className="text-center mb-10">
+          <h1 className="font-display text-6xl tracking-wide leading-none text-ink">
+            CRICKET <span className="text-brand-red">AUCTION</span>
+          </h1>
+
+          <p className="mt-3 font-body text-sm text-ink/60">
+            Build your dream IPL squad. No login. Just a room code and your
+            friends.
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-line bg-paper shadow-xl">
+          <div className="grid grid-cols-2">
+            <button
+              onClick={() => setMode('create')}
+              className={`py-3 font-display text-xl tracking-wide transition-all duration-200 ${
+                mode === 'create'
+                  ? 'bg-brand-red text-paper'
+                  : 'text-ink/50 hover:bg-mist hover:text-ink'
+              }`}
+            >
+              CREATE ROOM
+            </button>
+
+            <button
+              onClick={() => setMode('join')}
+              className={`py-3 font-display text-xl tracking-wide transition-all duration-200 ${
+                mode === 'join'
+                  ? 'bg-brand-red text-paper'
+                  : 'text-ink/50 hover:bg-mist hover:text-ink'
+              }`}
+            >
+              JOIN ROOM
+            </button>
+          </div>
+
+          <div className="p-8">
+            {mode === 'create' ? <CreateRoomForm /> : <JoinRoomForm />}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Home
