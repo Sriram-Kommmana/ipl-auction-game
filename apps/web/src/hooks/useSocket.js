@@ -1,4 +1,3 @@
-// apps/web/src/hooks/useSocket.js
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../lib/socket'
@@ -45,6 +44,7 @@ export const useSocket = () => {
   const setRoomState = useRoomStore((s) => s.setRoomState)
   const applyTeamSelection = useRoomStore((s) => s.applyTeamSelection)
   const setPlayerStatus = useRoomStore((s) => s.setPlayerStatus)
+  const upsertPlayerOnline = useRoomStore((s) => s.upsertPlayerOnline)
   const updateTeamAfterPurchase = useRoomStore((s) => s.updateTeamAfterPurchase)
 
   const setAuctionState = useAuctionStore((s) => s.setAuctionState)
@@ -176,7 +176,7 @@ export const useSocket = () => {
     // Presence
     // ---------------------------------------------------------------
 
-    const onPlayerOnline = ({ playerId: pid }) => setPlayerStatus(pid, 'online')
+    const onPlayerOnline = ({ playerId: pid, nickname }) => upsertPlayerOnline(pid, nickname)
     const onPlayerOffline = ({ playerId: pid }) => setPlayerStatus(pid, 'offline')
 
     // ---------------------------------------------------------------
