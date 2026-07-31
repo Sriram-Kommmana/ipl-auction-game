@@ -1,5 +1,3 @@
-// apps/web/src/lib/session.js
-
 const SESSION_KEY = 'ipl-auction-session'
 
 // Shape:

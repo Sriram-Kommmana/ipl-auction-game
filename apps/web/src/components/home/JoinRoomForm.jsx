@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { joinRoom } from '../../lib/api'
@@ -112,18 +113,29 @@ const JoinRoomForm = () => {
   return (
     <div>
       {recents.length > 0 && (
-        <div className="mb-5">
+        <div className="mb-6">
           <p className="text-xs uppercase tracking-wider text-ink/50 mb-2">Continue Playing</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="space-y-2">
             {recents.map((recent) => (
               <button
                 key={recent.roomId}
                 type="button"
                 onClick={() => handleRecentClick(recent)}
-                className="text-xs bg-mist border border-line rounded-full px-3 py-1.5
-                           text-ink/70 hover:border-brand-red hover:text-brand-red transition-colors"
+                className="w-full flex items-center justify-between bg-paper border border-line
+                           rounded-xl px-4 py-3 text-left hover:border-brand-red transition-colors group"
               >
-                {recent.roomId} · {recent.nickname}
+                <div>
+                  <p className="font-display text-2xl tracking-wide text-ink leading-none">
+                    {recent.roomId}
+                  </p>
+                  <p className="text-xs text-ink/50 mt-1">
+                    {recent.nickname}{recent.isManager ? ' · Manager' : ''}
+                  </p>
+                </div>
+                <ChevronRight
+                  size={20}
+                  className="text-ink/30 group-hover:text-brand-red transition-colors"
+                />
               </button>
             ))}
           </div>
