@@ -1,8 +1,7 @@
-// apps/web/src/components/home/JoinRoomForm.jsx
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { joinRoom } from '../../lib/api'
-import { saveSession } from '../../lib/session'
+import { saveSession, getSession, switchToRecentSession } from '../../lib/session'
 import { connectAndReconnect } from '../../lib/socket'
 import { useSessionStore } from '../../store/sessionStore'
 
@@ -22,6 +21,33 @@ const JoinRoomForm = () => {
   const [playerPin, setPlayerPin] = useState('')
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const recents = getSession()?.recents || []
+
+  // True one-tap rejoin — no PIN, no REST call. We already have this
+  // room's playerId (UUID) from recents, on THIS device. Same exact
+  // mechanism as the automatic reconnect-on-page-load flow, just
+  // triggered manually here instead of by useSession on mount.
+  // PINs only matter for a genuinely different device/browser, which
+  // is what the manual form below is still for.
+  const handleRecentClick = (recent) => {
+    switchToRecentSession(recent)
+
+    setSession({
+      playerId: recent.playerId,
+      roomId: recent.roomId,
+      teamId: '',
+      nickname: recent.nickname,
+      isManager: recent.isManager
+    })
+
+    connectAndReconnect(recent.playerId)
+
+    // Navigate to "/" rather than guessing /lobby or /auction — App.jsx's
+    // redirect effect will route to the correct page once stateSync
+    // confirms the room's actual current status.
+    navigate('/')
+  }
 
   const validate = () => {
     if (!roomId.trim()) return 'Room code is required.'
@@ -84,65 +110,89 @@ const JoinRoomForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className={labelClass}>Room Code</label>
-        <input
-          type="text"
-          value={roomId}
-          onChange={(e) => setRoomId(e.target.value.toUpperCase().slice(0, 6))}
-          placeholder="e.g. X7K2AB"
-          className={`${inputClass} tracking-widest uppercase`}
-        />
-      </div>
+    <div>
+      {recents.length > 0 && (
+        <div className="mb-5">
+          <p className="text-xs uppercase tracking-wider text-ink/50 mb-2">Continue Playing</p>
+          <div className="flex flex-wrap gap-2">
+            {recents.map((recent) => (
+              <button
+                key={recent.roomId}
+                type="button"
+                onClick={() => handleRecentClick(recent)}
+                className="text-xs bg-mist border border-line rounded-full px-3 py-1.5
+                           text-ink/70 hover:border-brand-red hover:text-brand-red transition-colors"
+              >
+                {recent.roomId} · {recent.nickname}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-ink/40 mt-2">
+            Tap to rejoin instantly. New device? Use the form below.
+          </p>
+        </div>
+      )}
 
-      <div>
-        <label className={labelClass}>Room PIN</label>
-        <input
-          type="password"
-          inputMode="numeric"
-          value={roomPin}
-          onChange={(e) => setRoomPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
-          placeholder="4 digits"
-          className={`${inputClass} tracking-widest`}
-        />
-      </div>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className={labelClass}>Room Code</label>
+          <input
+            type="text"
+            value={roomId}
+            onChange={(e) => setRoomId(e.target.value.toUpperCase().slice(0, 6))}
+            placeholder="e.g. X7K2AB"
+            className={`${inputClass} tracking-widest uppercase`}
+          />
+        </div>
 
-      <div>
-        <label className={labelClass}>Your Name</label>
-        <input
-          type="text"
-          value={nickname}
-          onChange={(e) => setNickname(e.target.value)}
-          placeholder="e.g. Rahul"
-          maxLength={20}
-          className={inputClass}
-        />
-      </div>
+        <div>
+          <label className={labelClass}>Room PIN</label>
+          <input
+            type="password"
+            inputMode="numeric"
+            value={roomPin}
+            onChange={(e) => setRoomPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
+            placeholder="4 digits"
+            className={`${inputClass} tracking-widest`}
+          />
+        </div>
 
-      <div>
-        <label className={labelClass}>Your PIN</label>
-        <input
-          type="password"
-          inputMode="numeric"
-          value={playerPin}
-          onChange={(e) => setPlayerPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
-          placeholder="4 digits"
-          className={`${inputClass} tracking-widest`}
-        />
-      </div>
+        <div>
+          <label className={labelClass}>Your Name</label>
+          <input
+            type="text"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+            placeholder="e.g. Rahul"
+            maxLength={20}
+            className={inputClass}
+          />
+        </div>
 
-      {error && <p className="text-sm text-brand-red-dark" role="alert">{error}</p>}
+        <div>
+          <label className={labelClass}>Your PIN</label>
+          <input
+            type="password"
+            inputMode="numeric"
+            value={playerPin}
+            onChange={(e) => setPlayerPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
+            placeholder="4 digits"
+            className={`${inputClass} tracking-widest`}
+          />
+        </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-50 disabled:cursor-not-allowed
-                   text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors"
-      >
-        {isSubmitting ? 'JOINING…' : 'JOIN ROOM'}
-      </button>
-    </form>
+        {error && <p className="text-sm text-brand-red-dark" role="alert">{error}</p>}
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-50 disabled:cursor-not-allowed
+                     text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors"
+        >
+          {isSubmitting ? 'JOINING…' : 'JOIN ROOM'}
+        </button>
+      </form>
+    </div>
   )
 }
 
