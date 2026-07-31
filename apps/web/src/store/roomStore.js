@@ -43,12 +43,42 @@ export const useRoomStore = create((set) => ({
     })
   })),
 
-  // Used on playerOnline / playerOffline events
+  // Used on playerOnline/playerOffline for players ALREADY known locally
+  // (e.g. a manager going offline briefly, then reconnecting).
   setPlayerStatus: (playerId, status) => set((state) => ({
     players: state.players.map((p) =>
       p.playerId === playerId ? { ...p, status } : p
     )
   })),
+
+  // Used specifically on playerOnline — this is an UPSERT, not just an
+  // update. Bug this fixes: joinRoom is a plain REST endpoint with no
+  // Socket.IO access, so nothing broadcasts when a brand-new player joins.
+  // The FIRST the room hears about them is playerOnline, fired once their
+  // socket actually connects. If we only updated existing array entries
+  // (like setPlayerStatus does), a genuinely new player's playerId would
+  // match nothing in the array and silently vanish — which is exactly
+  // what was happening until a manual refresh re-fetched the full list
+  // via stateSync. New joiners always start with these exact defaults
+  // per joinRoom.js's REST handler (teamId '', isManager false, isBot false).
+  upsertPlayerOnline: (playerId, nickname) => set((state) => {
+    const exists = state.players.some((p) => p.playerId === playerId)
+
+    if (exists) {
+      return {
+        players: state.players.map((p) =>
+          p.playerId === playerId ? { ...p, status: 'online' } : p
+        )
+      }
+    }
+
+    return {
+      players: [
+        ...state.players,
+        { playerId, nickname, teamId: '', isManager: false, status: 'online', isBot: false }
+      ]
+    }
+  }),
 
   // Used on playerSold event — updates the buying team's purse, squad count,
   // and overseas count (if applicable) all in one atomic state update.
