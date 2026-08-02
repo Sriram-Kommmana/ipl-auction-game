@@ -1,4 +1,3 @@
-// apps/web/src/hooks/useSocket.js
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../lib/socket'
@@ -43,6 +42,8 @@ export const useSocket = () => {
   const playerId = useSessionStore((s) => s.playerId)
 
   const setRoomState = useRoomStore((s) => s.setRoomState)
+  const setRoomStatus = useRoomStore((s) => s.setRoomStatus)
+  const roomId = useRoomStore((s) => s.roomId)
   const applyTeamSelection = useRoomStore((s) => s.applyTeamSelection)
   const setPlayerStatus = useRoomStore((s) => s.setPlayerStatus)
   const upsertPlayerOnline = useRoomStore((s) => s.upsertPlayerOnline)
@@ -142,7 +143,14 @@ export const useSocket = () => {
     // Auction lifecycle
     // ---------------------------------------------------------------
 
-    const onAuctionStarted = (data) => startAuction(data)
+    // auctionStarted's payload doesn't include the room's new status, so we
+    // set it explicitly — without this, roomStore.roomStatus stays 'lobby'
+    // forever and nothing ever navigates anyone to the Auction page.
+    const onAuctionStarted = (data) => {
+      startAuction(data)
+      setRoomStatus('active')
+      navigate(`/auction/${roomId}`)
+    }
 
     const onTimerStarted = ({ timerEndsAt }) => setTimerRunning(timerEndsAt)
     const onTimerPaused = ({ pausedTimeRemaining }) => setTimerPaused(pausedTimeRemaining)
@@ -238,7 +246,7 @@ export const useSocket = () => {
       listeners.forEach(([event, handler]) => socket.off(event, handler))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigate, playerId])
+  }, [navigate, playerId, roomId])
 
   return {
     managerNotice,
