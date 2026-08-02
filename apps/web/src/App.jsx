@@ -38,8 +38,8 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/lobby/:roomId" element={<Lobby />} />
-      <Route path="/auction/:roomId" element={<Auction />} />
+      <Route path="/lobby/:roomId" element={<Lobby socketError={socketError} />} />
+      <Route path="/auction/:roomId" element={<Auction socketError={socketError} managerNotice={managerNotice} />} />
       <Route path="/results/:roomId" element={<PostAuction />} />
     </Routes>
   )

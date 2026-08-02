@@ -30,18 +30,47 @@ export const useRoomStore = create((set) => ({
   setRoomStatus: (roomStatus) => set({ roomStatus }),
 
   // Used on teamSelected event — one player claims a team (or switches teams).
-  // Updates BOTH players[] (their new teamId) and teams[] (ownerId claimed,
-  // and previous team's ownerId cleared if they were switching teams).
-  applyTeamSelection: (playerId, teamId, previousTeamId) => set((state) => ({
-    players: state.players.map((p) =>
-      p.playerId === playerId ? { ...p, teamId } : p
-    ),
-    teams: state.teams.map((t) => {
-      if (t.teamId === teamId) return { ...t, ownerId: playerId }
-      if (previousTeamId && t.teamId === previousTeamId) return { ...t, ownerId: null }
-      return t
-    })
-  })),
+  // This is an UPSERT, not just an update: teams[] starts EMPTY in a fresh
+  // room (room:{roomId}:teams only gets an entry once a team is first
+  // claimed), so the very first claim of any team won't match anything via
+  // .map() alone — same bug class as playerOnline needing upsertPlayerOnline.
+  // teamName comes straight from the event so a brand-new entry can be built
+  // with the same shape as stateSync's teams[] (purseLeft/playerCount/etc.
+  // start at their room defaults since nobody's bought anything yet).
+  applyTeamSelection: (playerId, teamId, previousTeamId, teamName) => set((state) => {
+    const teamExists = state.teams.some((t) => t.teamId === teamId)
+
+    const clearPrevious = (list) =>
+      previousTeamId
+        ? list.map((t) => (t.teamId === previousTeamId ? { ...t, ownerId: null } : t))
+        : list
+
+    const teams = teamExists
+      ? clearPrevious(state.teams).map((t) =>
+          t.teamId === teamId ? { ...t, ownerId: playerId } : t
+        )
+      : [
+          ...clearPrevious(state.teams),
+          {
+            teamId,
+            name: teamName,
+            ownerId: playerId,
+            purseLeft: state.pursePerTeam,
+            purseSpent: 0,
+            playerCount: 0,
+            overseasCount: 0,
+            isBot: false,
+            squad: []
+          }
+        ]
+
+    return {
+      players: state.players.map((p) =>
+        p.playerId === playerId ? { ...p, teamId } : p
+      ),
+      teams
+    }
+  }),
 
   // Used on playerOnline/playerOffline for players ALREADY known locally
   // (e.g. a manager going offline briefly, then reconnecting).
@@ -95,5 +124,20 @@ export const useRoomStore = create((set) => ({
           }
         : t
     )
-  }))
+  })),
+
+  // Used when leaving a room — without this, Zustand's global store would
+  // keep stale data from the abandoned room (e.g. browser back button into
+  // an old /lobby/:roomId would render off leftover state, never cleared).
+  resetRoom: () => set({
+    roomId: null,
+    roomStatus: 'lobby',
+    auctionPhase: 'main',
+    players: [],
+    teams: [],
+    pursePerTeam: 12500,
+    managerPlayerId: null,
+    maxPlayers: 25,
+    maxOverseas: 8
+  })
 }))

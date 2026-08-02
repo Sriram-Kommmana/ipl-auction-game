@@ -1,26 +1,33 @@
-// TEMPORARY placeholder — real Lobby UI (TeamGrid, PlayerList, LobbyControls)
-// comes next in the build order. This just proves data flows correctly.
 import { useParams } from 'react-router-dom'
 import { useRoomStore } from '../store/roomStore'
+import TeamGrid from '../components/lobby/TeamGrid'
+import PlayerList from '../components/lobby/PlayerList'
+import LobbyControls from '../components/lobby/LobbyControls'
 
-const Lobby = () => {
+const Lobby = ({ socketError }) => {
   const { roomId } = useParams()
-  const roomStatus = useRoomStore((s) => s.roomStatus)
-  const players = useRoomStore((s) => s.players)
-  const teams = useRoomStore((s) => s.teams)
+  const pursePerTeam = useRoomStore((s) => s.pursePerTeam)
 
   return (
-    <div className="min-h-screen bg-mist p-8">
-      <h1 className="font-display text-4xl text-ink">LOBBY — {roomId}</h1>
-      <p className="text-ink/60 mt-1">status: {roomStatus}</p>
-      <h2 className="font-display text-xl mt-6">Players</h2>
-      <pre className="text-xs mt-2 bg-paper p-4 rounded-lg border border-line overflow-auto">
-        {JSON.stringify(players, null, 2)}
-      </pre>
-      <h2 className="font-display text-xl mt-6">Teams</h2>
-      <pre className="text-xs mt-2 bg-paper p-4 rounded-lg border border-line overflow-auto">
-        {JSON.stringify(teams, null, 2)}
-      </pre>
+    <div className="min-h-screen bg-mist px-4 py-8 sm:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-6">
+          <p className="text-xs uppercase tracking-wider text-ink/50">Room Code</p>
+          <p className="font-display text-4xl text-ink tracking-widest">{roomId}</p>
+          <p className="text-xs text-ink/40 mt-1">Purse per team: ₹{pursePerTeam}L</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="md:col-span-2">
+            <TeamGrid />
+          </div>
+          <div>
+            <PlayerList />
+          </div>
+        </div>
+
+        <LobbyControls socketError={socketError} />
+      </div>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+// apps/web/src/hooks/useSocket.js
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../lib/socket'
@@ -130,8 +131,8 @@ export const useSocket = () => {
     // Lobby — team selection
     // ---------------------------------------------------------------
 
-    const onTeamSelected = ({ playerId: selectedPlayerId, teamId, previousTeamId }) => {
-      applyTeamSelection(selectedPlayerId, teamId, previousTeamId)
+    const onTeamSelected = ({ playerId: selectedPlayerId, teamId, teamName, previousTeamId }) => {
+      applyTeamSelection(selectedPlayerId, teamId, previousTeamId, teamName)
       if (selectedPlayerId === playerId) {
         setTeamId(teamId)
       }

@@ -1,4 +1,3 @@
-// apps/web/src/store/auctionStore.js
 import { create } from 'zustand'
 
 export const useAuctionStore = create((set) => ({
@@ -33,27 +32,35 @@ export const useAuctionStore = create((set) => ({
     isReauction: auctionData.isReauction || false
   }),
 
-  // Used on auctionStarted — the very first player of the auction
+  // Used on auctionStarted — the very first player of the auction.
+  // isReauction explicitly false — starting the auction always begins main phase.
   startAuction: ({ currentPlayerIndex, player, currentBid, currentBidderId }) => set({
     currentPlayerIndex,
     currentPlayer: player,
     currentBid,
     currentBidderId,
+    isReauction: false,
     bidFeed: [],
     lastResult: null
   }),
 
   // Used on nextPlayer — advancing to a new lot resets bid-specific fields
-  // and clears the bid feed, since it only ever shows the CURRENT player's bids
-  goToNextPlayer: ({ currentPlayerIndex, player, currentBid, currentBidderId, isReauction }) => set({
+  // and clears the bid feed, since it only ever shows the CURRENT player's bids.
+  //
+  // isReauction is STICKY: the backend only sends `isReauction: true` on the
+  // FIRST player of a re-auction round — every subsequent nextPlayer in that
+  // same round omits the flag entirely. So we only update it when the event
+  // explicitly includes it; otherwise we keep whatever it already was. This
+  // avoids incorrectly flipping back to false for reauction players 2, 3, etc.
+  goToNextPlayer: ({ currentPlayerIndex, player, currentBid, currentBidderId, isReauction }) => set((state) => ({
     currentPlayerIndex,
     currentPlayer: player,
     currentBid,
     currentBidderId,
-    isReauction: isReauction || false,
+    isReauction: isReauction !== undefined ? isReauction : state.isReauction,
     bidFeed: [],
     lastResult: null
-  }),
+  })),
 
   // Used on bidPlaced
   applyBid: (teamId, newBid) => set((state) => ({
@@ -80,5 +87,19 @@ export const useAuctionStore = create((set) => ({
   // useSocket.js clears this itself (setTimeout) or nextPlayer clears it
   // automatically via goToNextPlayer above.
   setLastResult: (result) => set({ lastResult: result }),
-  clearLastResult: () => set({ lastResult: null })
+  clearLastResult: () => set({ lastResult: null }),
+
+  // Used when leaving a room — same reasoning as roomStore.resetRoom
+  resetAuction: () => set({
+    currentPlayerIndex: 0,
+    currentPlayer: null,
+    currentBid: 0,
+    currentBidderId: '',
+    timerState: 'IDLE',
+    timerEndsAt: null,
+    pausedTimeRemaining: null,
+    isReauction: false,
+    bidFeed: [],
+    lastResult: null
+  })
 }))
