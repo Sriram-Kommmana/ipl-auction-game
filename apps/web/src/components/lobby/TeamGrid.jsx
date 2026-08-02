@@ -29,7 +29,11 @@ const TeamGrid = () => {
         {TEAMS.map((team) => {
           const claim = claimedByTeamId[team.teamId]
           const isMine = team.teamId === myTeamId
-          const isTakenByOther = !!claim && !isMine
+          // Check claim?.ownerId, NOT just whether an entry exists — switching
+          // teams clears ownerId to null but leaves the array entry in place
+          // (see roomStore.applyTeamSelection's clearPrevious), so "entry
+          // exists" alone would wrongly treat an unclaimed team as taken.
+          const isTakenByOther = !!claim?.ownerId && !isMine
           const isDisabled = isTakenByOther || !isConnected
 
           return (
@@ -48,7 +52,7 @@ const TeamGrid = () => {
                 {team.name}
               </p>
               <p className="text-xs text-white/70 mt-0.5 tracking-widest">{team.teamId}</p>
-              {claim && (
+              {claim?.ownerId && (
                 <p className="text-xs text-white mt-2 font-semibold truncate">
                   {isMine ? 'YOUR TEAM' : (nicknameByPlayerId[claim.ownerId] ?? 'Loading...')}
                 </p>

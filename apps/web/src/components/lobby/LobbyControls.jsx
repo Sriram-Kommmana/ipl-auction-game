@@ -20,7 +20,11 @@ const LobbyControls = ({ socketError }) => {
 
   const isConnected = useSocketConnected()
 
-  const claimedCount = teams.length
+  // teams[] can contain entries for teams someone SWITCHED AWAY from
+  // (ownerId cleared to null, but the entry itself isn't removed) — so
+  // teams.length alone overcounts. Filter to entries that actually have
+  // an owner right now.
+  const claimedCount = teams.filter((t) => t.ownerId).length
   const isStartDisabled = claimedCount < 2 || !isConnected
 
   const handleStartAuction = () => {
