@@ -1,20 +1,68 @@
-// TEMPORARY placeholder — real Auction UI comes next in the build order.
 import { useParams } from 'react-router-dom'
 import { useAuctionStore } from '../store/auctionStore'
+import PlayerCard from '../components/auction/PlayerCard'
+import Timer from '../components/auction/Timer'
+import CurrentBid from '../components/auction/CurrentBid'
+import BidButton from '../components/auction/BidButton'
 
-const Auction = () => {
+const Auction = ({ socketError, managerNotice }) => {
   const { roomId } = useParams()
-  const currentPlayer = useAuctionStore((s) => s.currentPlayer)
-  const currentBid = useAuctionStore((s) => s.currentBid)
-  const timerState = useAuctionStore((s) => s.timerState)
+  const lastResult = useAuctionStore((s) => s.lastResult)
 
   return (
-    <div className="min-h-screen bg-mist p-8">
-      <h1 className="font-display text-4xl text-ink">AUCTION — {roomId}</h1>
-      <p className="text-ink/60 mt-1">timerState: {timerState}</p>
-      <pre className="text-xs mt-4 bg-paper p-4 rounded-lg border border-line overflow-auto">
-        {JSON.stringify({ currentPlayer, currentBid }, null, 2)}
-      </pre>
+    <div className="min-h-screen bg-mist px-4 py-6 sm:px-8 relative">
+      {/* max-w-3xl for now — will restructure into a proper multi-column
+          dashboard grid once BidFeed/PurseTracker/SquadViewer/ChatPanel
+          actually exist and their real proportions are known */}
+      <div className="max-w-3xl mx-auto">
+        <p className="text-xs uppercase tracking-wider text-ink/50 text-center mb-2">
+          Room {roomId}
+        </p>
+
+        {managerNotice && (
+          <div className="bg-brand-red text-paper text-sm text-center py-2 rounded-lg mb-4">
+            {managerNotice.message}
+          </div>
+        )}
+
+        {/* Timer is the focal point during live bidding — centered and
+            large, not tucked into a corner */}
+        <div className="flex justify-center mb-4">
+          <Timer />
+        </div>
+
+        <PlayerCard />
+
+        <div className="mt-4">
+          <CurrentBid />
+        </div>
+
+        <div className="mt-4">
+          <BidButton />
+        </div>
+
+        {socketError && (
+          <p className="text-sm text-brand-red-dark text-center mt-3">{socketError.message}</p>
+        )}
+      </div>
+
+      {lastResult && (
+        <div className="fixed inset-0 bg-ink/80 flex items-center justify-center z-50">
+          <div className="bg-paper rounded-2xl p-8 text-center max-w-sm mx-4">
+            <p className={`font-display text-5xl ${
+              lastResult.status === 'sold' ? 'text-brand-red' : 'text-ink/40'
+            }`}>
+              {lastResult.status === 'sold' ? 'SOLD!' : 'UNSOLD'}
+            </p>
+            <p className="font-display text-2xl text-ink mt-2">{lastResult.playerName}</p>
+            {lastResult.status === 'sold' && (
+              <p className="text-ink/60 mt-1">
+                to {lastResult.teamName} for ₹{lastResult.soldFor}L
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

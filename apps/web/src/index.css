@@ -1,3 +1,4 @@
+/* apps/web/src/index.css */
 @import "tailwindcss";
 
 @theme {
@@ -5,6 +6,7 @@
      Two reds mirror the landing hero — coral for headline/highlight text,
      deep red for CTAs and high-emphasis panels. */
   --color-ink: #0A0A0A;
+  --color-charcoal: #1F1F1F;
   --color-paper: #FFFFFF;
   --color-mist: #F2F2F2;
   --color-line: #E5E5E5;
@@ -13,7 +15,6 @@
   --color-brand-red: #E4262C;
   --color-brand-red-dark: #B01E23;
 
-  /*We have to change this later. The needs to be decided. Not sure what font to be used */
   --font-display: "Bebas Neue", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 }

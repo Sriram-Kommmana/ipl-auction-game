@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useSessionStore } from '../store/sessionStore'
 import { useRoomStore } from '../store/roomStore'
 import { useAuctionStore } from '../store/auctionStore'
+import { useSocketConnected } from './useSocketConnected'
 import { getNextBidAmount } from '../lib/bidIncrement'
 
 /**
@@ -28,9 +29,16 @@ export const useBidButton = () => {
   const currentBidderId = useAuctionStore((s) => s.currentBidderId)
   const currentPlayer = useAuctionStore((s) => s.currentPlayer)
 
+  const isConnected = useSocketConnected()
+
   return useMemo(() => {
     const nextBidAmount = getNextBidAmount(currentBid, currentBidderId)
     const myTeam = teams.find((t) => t.teamId === myTeamId)
+
+    // Checked first — if disconnected, nothing else matters
+    if (!isConnected) {
+      return { disabled: true, nextBidAmount, reason: 'disconnected' }
+    }
 
     // Spectating (no team picked yet) or no active lot to bid on
     if (!myTeam || !currentPlayer) {
@@ -58,5 +66,5 @@ export const useBidButton = () => {
     }
 
     return { disabled: false, nextBidAmount, reason: null }
-  }, [myTeamId, teams, maxPlayers, maxOverseas, timerState, currentBid, currentBidderId, currentPlayer])
+  }, [myTeamId, teams, maxPlayers, maxOverseas, timerState, currentBid, currentBidderId, currentPlayer, isConnected])
 }
