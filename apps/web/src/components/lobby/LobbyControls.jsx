@@ -1,29 +1,17 @@
-import { useNavigate } from 'react-router-dom'
+// apps/web/src/components/lobby/LobbyControls.jsx
 import { useSessionStore } from '../../store/sessionStore'
 import { useRoomStore } from '../../store/roomStore'
-import { useAuctionStore } from '../../store/auctionStore'
-import { useChatStore } from '../../store/chatStore'
 import { useSocketConnected } from '../../hooks/useSocketConnected'
+import { useLeaveRoom } from '../../hooks/useLeaveRoom'
 import socket from '../../lib/socket'
-import { clearSession } from '../../lib/session'
 
 const LobbyControls = ({ socketError }) => {
-  const navigate = useNavigate()
   const isManager = useSessionStore((s) => s.isManager)
   const playerId = useSessionStore((s) => s.playerId)
-  const clearSessionStore = useSessionStore((s) => s.clearSession)
-
   const teams = useRoomStore((s) => s.teams)
-  const resetRoom = useRoomStore((s) => s.resetRoom)
-  const resetAuction = useAuctionStore((s) => s.resetAuction)
-  const clearMessages = useChatStore((s) => s.clearMessages)
-
   const isConnected = useSocketConnected()
+  const leaveRoom = useLeaveRoom()
 
-  // teams[] can contain entries for teams someone SWITCHED AWAY from
-  // (ownerId cleared to null, but the entry itself isn't removed) — so
-  // teams.length alone overcounts. Filter to entries that actually have
-  // an owner right now.
   const claimedCount = teams.filter((t) => t.ownerId).length
   const isStartDisabled = claimedCount < 2 || !isConnected
 
@@ -31,21 +19,11 @@ const LobbyControls = ({ socketError }) => {
     socket.emit('startAuction', { playerId })
   }
 
-  const handleLeaveRoom = () => {
-    clearSession()
-    clearSessionStore()
-    resetRoom()
-    resetAuction()
-    clearMessages()
-    socket.disconnect()
-    navigate('/')
-  }
-
   return (
     <div className="mt-6 flex items-center justify-between">
       <button
         type="button"
-        onClick={handleLeaveRoom}
+        onClick={leaveRoom}
         className="text-sm text-ink/50 hover:text-brand-red transition-colors"
       >
         ← Leave Room

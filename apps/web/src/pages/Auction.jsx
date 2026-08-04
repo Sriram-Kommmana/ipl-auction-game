@@ -4,6 +4,7 @@ import PlayerCard from '../components/auction/PlayerCard'
 import Timer from '../components/auction/Timer'
 import CurrentBid from '../components/auction/CurrentBid'
 import BidButton from '../components/auction/BidButton'
+import ManagerControls from '../components/auction/ManagerControls'
 
 const Auction = ({ socketError, managerNotice }) => {
   const { roomId } = useParams()
@@ -40,6 +41,8 @@ const Auction = ({ socketError, managerNotice }) => {
         <div className="mt-4">
           <BidButton />
         </div>
+
+        <ManagerControls />
 
         {socketError && (
           <p className="text-sm text-brand-red-dark text-center mt-3">{socketError.message}</p>
