@@ -125,14 +125,35 @@ const onReconnect = async (io, socket, data) => {
     parts[4] = 'online'
     await redis.hset(`room:${roomId}:players`, { [playerId]: parts.join(':') })
 
-    // If manager is reconnecting within the grace period, cancel auto-pause
     const isManager = parts[3] === 'true'
-    if (isManager && hasGraceTimer(roomId)) {
-        cancelGraceTimer(roomId)
-        console.log(`[onReconnect] Manager reconnected for room ${roomId} — grace timer cancelled`)
-        io.to(roomId).emit('managerReconnected', {
-            message: 'Manager reconnected. Auction continues.'
-        })
+
+    if (isManager) {
+        if (hasGraceTimer(roomId)) {
+            // Manager reconnected WHILE the grace period was still counting
+            // down — cancel it, auction never actually paused.
+            cancelGraceTimer(roomId)
+            console.log(`[onReconnect] Manager reconnected for room ${roomId} — grace timer cancelled`)
+            io.to(roomId).emit('managerReconnected', {
+                message: 'Manager reconnected. Auction continues.'
+            })
+        } else {
+            // Grace period may have ALREADY expired and auto-paused the
+            // auction before the manager came back. hasGraceTimer() is
+            // false in that case too (the timer deletes itself once it
+            // fires), so we can't distinguish "no timer was ever running"
+            // from "timer already fired" without checking room status
+            // directly. Only emit if the room is actually paused — this
+            // is what clears the "manager did not reconnect in time"
+            // notice on clients. Deliberately does NOT auto-resume the
+            // timer; the manager must press Resume explicitly.
+            const roomStatus = await redis.hget(`room:${roomId}`, 'status')
+            if (roomStatus === 'paused') {
+                console.log(`[onReconnect] Manager reconnected for room ${roomId} after auto-pause`)
+                io.to(roomId).emit('managerReconnected', {
+                    message: 'Manager reconnected. Auction is paused — resume when ready.'
+                })
+            }
+        }
     }
 
     const snapshot = await buildStateSnapshot(roomId)
