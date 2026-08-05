@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-ro
 import { useSession } from './hooks/useSession'
 import { useSocket } from './hooks/useSocket'
 import { useRoomStore } from './store/roomStore'
+import { getRoomRoute } from './lib/routing'
 import Home from './pages/Home'
 import Lobby from './pages/Lobby'
 import Auction from './pages/Auction'
@@ -30,9 +31,7 @@ const AppRoutes = () => {
     if (!hasSession || !roomId || !roomStatus) return
     if (location.pathname !== '/') return
 
-    if (roomStatus === 'lobby') navigate(`/lobby/${roomId}`)
-    else if (roomStatus === 'active' || roomStatus === 'paused') navigate(`/auction/${roomId}`)
-    else if (roomStatus === 'completed') navigate(`/results/${roomId}`)
+    navigate(getRoomRoute(roomStatus, roomId))
   }, [hasSession, roomId, roomStatus, location.pathname, navigate])
 
   return (

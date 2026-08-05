@@ -5,11 +5,6 @@ const SESSION_KEY = 'ipl-auction-session'
 //   uuid, roomId, nickname, playerPin, roomPin, isManager,
 //   recents: [{ roomId, nickname, playerId, isManager, lastSeen }]
 // }
-//
-// recents now stores playerId (the UUID assigned in that room) so a past
-// room can be rejoined with ONE click on the SAME device — no PIN needed.
-// PINs remain a fallback ONLY for recovering a session on a different
-// device/browser where localStorage never had this data to begin with.
 
 export const saveSession = ({ uuid, roomId, nickname, playerPin, roomPin, isManager }) => {
   const existing = getSession()
@@ -25,7 +20,7 @@ export const saveSession = ({ uuid, roomId, nickname, playerPin, roomPin, isMana
     playerPin,
     roomPin,
     isManager,
-    recents: filteredRecents.slice(0, 5) // keep last 5 rooms
+    recents: filteredRecents.slice(0, 5)
   }
 
   localStorage.setItem(SESSION_KEY, JSON.stringify(session))
@@ -41,8 +36,17 @@ export const getSession = () => {
   }
 }
 
+// BUG FIX: previously this did localStorage.removeItem(SESSION_KEY),
+// which wiped the ENTIRE blob — including recents, which lives inside
+// the same object. "Leave the current room" should not mean "forget every
+// room I've ever played in". Now preserves recents, only clears identity.
 export const clearSession = () => {
-  localStorage.removeItem(SESSION_KEY)
+  const existing = getSession()
+  if (existing?.recents?.length) {
+    localStorage.setItem(SESSION_KEY, JSON.stringify({ recents: existing.recents }))
+  } else {
+    localStorage.removeItem(SESSION_KEY)
+  }
 }
 
 export const hasActiveSession = () => {
@@ -50,15 +54,6 @@ export const hasActiveSession = () => {
   return !!(session?.uuid && session?.roomId)
 }
 
-// Switches the "current" session to a room from recents — one click, no
-// PIN. This only works because we're on the same device/browser that
-// already holds that room's playerId. Note: playerPin/roomPin are NOT
-// carried over for the newly-current room (recents never stored them,
-// deliberately, to avoid stockpiling PINs in localStorage) — so if THIS
-// device's storage gets wiped later, cross-device recovery for this
-// specific room would need the PIN re-entered manually via JoinRoomForm.
-// Acceptable tradeoff: that's a rare edge case, and the common path (same
-// device, normal use) stays PIN-free as intended.
 export const switchToRecentSession = (recent) => {
   const existing = getSession()
   const recents = existing?.recents || []

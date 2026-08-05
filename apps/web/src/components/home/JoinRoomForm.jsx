@@ -1,9 +1,11 @@
+// apps/web/src/components/home/JoinRoomForm.jsx
 import { ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { joinRoom } from '../../lib/api'
 import { saveSession, getSession, switchToRecentSession } from '../../lib/session'
 import { connectAndReconnect } from '../../lib/socket'
+import { getRoomRoute } from '../../lib/routing'
 import { useSessionStore } from '../../store/sessionStore'
 
 const inputClass =
@@ -81,7 +83,11 @@ const JoinRoomForm = () => {
         playerPin
       })
 
-      const { playerId, teamId, isManager } = res.data
+      // roomStatus tells us if this is a rejoin into an already-active
+      // auction (e.g. after Leave Room mid-auction) — previously this
+      // always navigated to /lobby regardless, stranding rejoining
+      // players who should have landed on /auction instead.
+      const { playerId, teamId, isManager, roomStatus } = res.data
 
       saveSession({
         uuid: playerId,
@@ -102,7 +108,7 @@ const JoinRoomForm = () => {
 
       connectAndReconnect(playerId)
 
-      navigate(`/lobby/${cleanRoomId}`)
+      navigate(getRoomRoute(roomStatus, cleanRoomId))
     } catch (err) {
       setError(err.message)
     } finally {
