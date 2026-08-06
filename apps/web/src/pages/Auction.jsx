@@ -5,6 +5,8 @@ import Timer from '../components/auction/Timer'
 import CurrentBid from '../components/auction/CurrentBid'
 import BidButton from '../components/auction/BidButton'
 import ManagerControls from '../components/auction/ManagerControls'
+import BidFeed from '../components/auction/BidFeed'
+import PurseTracker from '../components/auction/PurseTracker'
 
 const Auction = ({ socketError, managerNotice }) => {
   const { roomId } = useParams()
@@ -12,10 +14,10 @@ const Auction = ({ socketError, managerNotice }) => {
 
   return (
     <div className="min-h-screen bg-mist px-4 py-6 sm:px-8 relative">
-      {/* max-w-3xl for now — will restructure into a proper multi-column
-          dashboard grid once BidFeed/PurseTracker/SquadViewer/ChatPanel
-          actually exist and their real proportions are known */}
-      <div className="max-w-3xl mx-auto">
+      {/* Widened to a real two-column dashboard now that BidFeed and
+          PurseTracker exist to fill the sidebar. SquadViewer/ChatPanel
+          will join the sidebar next. */}
+      <div className="max-w-5xl mx-auto">
         <p className="text-xs uppercase tracking-wider text-ink/50 text-center mb-2">
           Room {roomId}
         </p>
@@ -26,27 +28,27 @@ const Auction = ({ socketError, managerNotice }) => {
           </div>
         )}
 
-        {/* Timer is the focal point during live bidding — centered and
-            large, not tucked into a corner */}
         <div className="flex justify-center mb-4">
           <Timer />
         </div>
 
-        <PlayerCard />
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="md:col-span-2 space-y-4">
+            <PlayerCard />
+            <CurrentBid />
+            <BidButton />
+            <ManagerControls />
 
-        <div className="mt-4">
-          <CurrentBid />
+            {socketError && (
+              <p className="text-sm text-brand-red-dark text-center">{socketError.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-4">
+            <BidFeed />
+            <PurseTracker />
+          </div>
         </div>
-
-        <div className="mt-4">
-          <BidButton />
-        </div>
-
-        <ManagerControls />
-
-        {socketError && (
-          <p className="text-sm text-brand-red-dark text-center mt-3">{socketError.message}</p>
-        )}
       </div>
 
       {lastResult && (
