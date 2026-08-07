@@ -71,6 +71,11 @@ const onSkip = async (io, socket, data) => {
     const auctionPhase       = room.auctionPhase
     const poolLength         = await redis.llen(`room:${roomId}:pool`)
 
+    // soldAt computed once, reused everywhere — same single-source-of-truth
+    // pattern as timerManager.js, so the frontend never has to generate its
+    // own timestamp (which would drift from the server's clock).
+    const soldAt = Math.floor(Date.now() / 1000)
+
     // history records status as "skipped" (distinct from "unsold")
     // pool:unsold receives the player regardless — both go to re-auction
     const historyEntry = JSON.stringify({
@@ -79,7 +84,7 @@ const onSkip = async (io, socket, data) => {
         soldTo:  null,
         soldFor: null,
         status:  'skipped',
-        soldAt:  Math.floor(Date.now() / 1000)
+        soldAt
     })
 
     const chatEntry = JSON.stringify({
@@ -88,7 +93,7 @@ const onSkip = async (io, socket, data) => {
         nickname:  'Auction',
         type:      'broadcast',
         text:      `${playerName} was skipped`,
-        sentAt:    Math.floor(Date.now() / 1000)
+        sentAt:    soldAt
     })
 
     try {
@@ -107,7 +112,8 @@ const onSkip = async (io, socket, data) => {
 
         io.to(roomId).emit('playerSkipped', {
             iplPlayerId,
-            playerName
+            playerName,
+            soldAt
         })
 
         await advanceAuction(io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimer)

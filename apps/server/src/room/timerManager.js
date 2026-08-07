@@ -64,6 +64,7 @@ const onTimerExpiry = async (io, roomId) => {
         iplPlayerId,
         playerName,
         nationality,
+        role,
         currentBid,
         currentBidderId
     } = current
@@ -88,13 +89,16 @@ const onTimerExpiry = async (io, roomId) => {
                 ? Number(teamData.overseasCount) + 1
                 : Number(teamData.overseasCount)
 
+            const soldAt = Math.floor(Date.now() / 1000)
+
             const historyEntry = JSON.stringify({
                 iplPlayerId,
                 playerName,
+                role,
                 soldTo:  currentBidderId,
                 soldFor: Number(currentBid),
                 status:  'sold',
-                soldAt:  Math.floor(Date.now() / 1000)
+                soldAt
             })
 
             const chatEntry = JSON.stringify({
@@ -103,7 +107,7 @@ const onTimerExpiry = async (io, roomId) => {
                 nickname:  'Auction',
                 type:      'broadcast',
                 text:      `${playerName} sold to ${teamData.name} for ₹${currentBid}L`,
-                sentAt:    Math.floor(Date.now() / 1000)
+                sentAt:    soldAt
             })
 
             const pipeline = redis.pipeline()
@@ -126,20 +130,24 @@ const onTimerExpiry = async (io, roomId) => {
             io.to(roomId).emit('playerSold', {
                 iplPlayerId,
                 playerName,
-                soldTo:   currentBidderId,
-                teamName: teamData.name,
-                soldFor:  Number(currentBid),
-                isOverseas: nationality === 'Overseas'
+                role,
+                soldTo:     currentBidderId,
+                teamName:   teamData.name,
+                soldFor:    Number(currentBid),
+                isOverseas: nationality === 'Overseas',
+                soldAt
             })
 
         } else {
+            const soldAt = Math.floor(Date.now() / 1000)
+
             const historyEntry = JSON.stringify({
                 iplPlayerId,
                 playerName,
                 soldTo:  null,
                 soldFor: null,
                 status:  'unsold',
-                soldAt:  Math.floor(Date.now() / 1000)
+                soldAt
             })
 
             const chatEntry = JSON.stringify({
@@ -148,7 +156,7 @@ const onTimerExpiry = async (io, roomId) => {
                 nickname:  'Auction',
                 type:      'broadcast',
                 text:      `${playerName} went unsold`,
-                sentAt:    Math.floor(Date.now() / 1000)
+                sentAt:    soldAt
             })
 
             const pipeline = redis.pipeline()
@@ -164,10 +172,11 @@ const onTimerExpiry = async (io, roomId) => {
 
             io.to(roomId).emit('playerUnsold', {
                 iplPlayerId,
-                playerName
+                playerName,
+                soldAt
             })
         }
-        
+
         await delay(RESULT_DISPLAY_DURATION)
 
         await advanceAuction(io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimer)
@@ -211,11 +220,14 @@ const startTimer = async (io, roomId) => {
     })
 }
 
+// Returns true if it actually paused something, false if it silently no-op'd
+// (e.g. timerState wasn't RUNNING — see onDisconnect.js's grace-timer retry
+// logic, which depends on this to avoid emitting a false "paused" message).
 const pauseTimer = async (io, roomId) => {
     const current = await redis.hgetall(`room:${roomId}:current`)
 
     if (Object.keys(current).length === 0 || current.timerState !== 'RUNNING') {
-        return
+        return false
     }
 
     const now              = Math.floor(Date.now() / 1000)
@@ -237,6 +249,8 @@ const pauseTimer = async (io, roomId) => {
         timerState:          'PAUSED',
         pausedTimeRemaining: remainingSeconds
     })
+
+    return true
 }
 
 const resumeTimer = async (io, roomId) => {
