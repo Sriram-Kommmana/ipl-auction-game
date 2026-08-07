@@ -30,7 +30,7 @@ const SquadViewer = () => {
               <div className="flex items-center gap-1.5 min-w-0">
                 <span className="text-ink truncate">{entry.playerName}</span>
                 {entry.role && (
-                  <span className="text-[10px] font-display bg-mist text-ink/50 px-1.5 py-0.5 rounded shrink-0 min-w-[48px] text-center">
+                  <span className="text-[10px] font-display bg-mist text-ink/50 px-1.5 py-0.5 rounded shrink-0 min-w-12 text-center">
                     {entry.role}
                   </span>
                 )}
