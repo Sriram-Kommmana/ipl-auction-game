@@ -48,6 +48,8 @@ export const useSocket = () => {
   const setPlayerStatus = useRoomStore((s) => s.setPlayerStatus)
   const upsertPlayerOnline = useRoomStore((s) => s.upsertPlayerOnline)
   const updateTeamAfterPurchase = useRoomStore((s) => s.updateTeamAfterPurchase)
+  const setHistory = useRoomStore((s) => s.setHistory)
+  const addHistoryEntry = useRoomStore((s) => s.addHistoryEntry)
 
   const setAuctionState = useAuctionStore((s) => s.setAuctionState)
   const startAuction = useAuctionStore((s) => s.startAuction)
@@ -108,6 +110,12 @@ export const useSocket = () => {
       setMessages(data.chat || [])
     }
 
+    // history already arrives in the right shape from buildStateSnapshot —
+    // used by SquadViewer (filtered to my team) and later PostAuction
+    const syncHistory = (data) => {
+      setHistory(data.history || [])
+    }
+
     // teamId isn't a separate top-level field on stateSync — find our own
     // entry inside the players[] array that's already sent
     const syncSession = (data) => {
@@ -119,6 +127,7 @@ export const useSocket = () => {
       syncRoom(data)
       syncAuction(data)
       syncChat(data)
+      syncHistory(data)
       syncSession(data)
     }
 
@@ -158,18 +167,39 @@ export const useSocket = () => {
 
     const onBidPlaced = ({ teamId, newBid }) => applyBid(teamId, newBid)
 
-    const onPlayerSold = ({ playerName, soldTo, teamName, soldFor, isOverseas }) => {
+    const onPlayerSold = ({ iplPlayerId, playerName, role, soldTo, teamName, soldFor, isOverseas, soldAt }) => {
       updateTeamAfterPurchase(soldTo, soldFor, isOverseas)
       setLastResult({ status: 'sold', playerName, soldTo, teamName, soldFor })
+      addHistoryEntry({ iplPlayerId, playerName, role, soldTo, soldFor, status: 'sold', soldAt })
     }
 
-    const onPlayerUnsold = ({ playerName }) => {
+    const onPlayerUnsold = ({ iplPlayerId, playerName, soldAt }) => {
       setLastResult({ status: 'unsold', playerName })
+      addHistoryEntry({
+        iplPlayerId,
+        playerName,
+        role: null,
+        soldTo: null,
+        soldFor: null,
+        status: 'unsold',
+        soldAt
+      })
     }
 
-    // No store update, no banner — skip is a manager action, not a sale
-    // outcome. Left as a no-op hook for now.
-    const onPlayerSkipped = () => {}
+    // Skip still gets NO banner (see original no-op reasoning), but IS
+    // recorded in history — PostAuction's AuctionHistory will want to
+    // show skipped lots too, distinct from unsold.
+    const onPlayerSkipped = ({ iplPlayerId, playerName, soldAt }) => {
+      addHistoryEntry({
+        iplPlayerId,
+        playerName,
+        role: null,
+        soldTo: null,
+        soldFor: null,
+        status: 'skipped',
+        soldAt
+      })
+    }
 
     const onNextPlayer = (data) => goToNextPlayer(data)
 
@@ -185,7 +215,22 @@ export const useSocket = () => {
     // Presence
     // ---------------------------------------------------------------
 
-    const onPlayerOnline = ({ playerId: pid, nickname }) => upsertPlayerOnline(pid, nickname)
+    // If the manager is the one reconnecting, clear any stale "manager
+    // disconnected/auto-paused" notice. playerOnline fires for ANY
+    // reconnect — unlike managerReconnected, which the backend currently
+    // only emits if reconnecting WHILE the grace timer is still pending.
+    // Once the grace timer has already fired (auto-pause happened),
+    // managerReconnected never fires again, so this is what actually
+    // clears the banner when the manager comes back late.
+    // useRoomStore.getState() here is a one-off read, not a subscription —
+    // we don't want this component re-rendering on managerPlayerId changes.
+    const onPlayerOnline = ({ playerId: pid, nickname }) => {
+      upsertPlayerOnline(pid, nickname)
+      const managerPlayerId = useRoomStore.getState().managerPlayerId
+      if (pid === managerPlayerId) {
+        setManagerNotice(null)
+      }
+    }
     const onPlayerOffline = ({ playerId: pid }) => setPlayerStatus(pid, 'offline')
 
     // ---------------------------------------------------------------

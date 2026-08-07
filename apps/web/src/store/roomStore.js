@@ -11,6 +11,10 @@ export const useRoomStore = create((set) => ({
   managerPlayerId: null,
   maxPlayers: 25,
   maxOverseas: 8,
+  history: [], // [{ iplPlayerId, playerName, role, soldTo, soldFor, status, soldAt }]
+             // status: 'sold' | 'unsold' | 'skipped' — used by SquadViewer
+             // (filtered to my team's sold entries) and later PostAuction's
+             // AuctionHistory (full list)
 
   // ---- actions ----
 
@@ -126,6 +130,15 @@ export const useRoomStore = create((set) => ({
     )
   })),
 
+  // Used on stateSync — data.history arrives already in the right shape
+  setHistory: (history) => set({ history }),
+
+  // Used on playerSold/playerUnsold/playerSkipped — appends one live entry
+  // rather than waiting for a future stateSync to bring it in
+  addHistoryEntry: (entry) => set((state) => ({
+    history: [...state.history, entry]
+  })),
+
   // Used when leaving a room — without this, Zustand's global store would
   // keep stale data from the abandoned room (e.g. browser back button into
   // an old /lobby/:roomId would render off leftover state, never cleared).
@@ -138,6 +151,7 @@ export const useRoomStore = create((set) => ({
     pursePerTeam: 12500,
     managerPlayerId: null,
     maxPlayers: 25,
-    maxOverseas: 8
+    maxOverseas: 8,
+    history: []
   })
 }))

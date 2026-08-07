@@ -7,6 +7,7 @@ import BidButton from '../components/auction/BidButton'
 import ManagerControls from '../components/auction/ManagerControls'
 import BidFeed from '../components/auction/BidFeed'
 import PurseTracker from '../components/auction/PurseTracker'
+import SquadViewer from '../components/auction/SquadViewer'
 
 const Auction = ({ socketError, managerNotice }) => {
   const { roomId } = useParams()
@@ -47,6 +48,7 @@ const Auction = ({ socketError, managerNotice }) => {
           <div className="space-y-4">
             <BidFeed />
             <PurseTracker />
+            <SquadViewer />
           </div>
         </div>
       </div>
