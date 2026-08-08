@@ -1,12 +1,15 @@
+// apps/web/src/pages/PostAuction.jsx
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuctionResults } from '../lib/api'
+import { useLeaveRoom } from '../hooks/useLeaveRoom'
 
 const MAX_RETRIES = 5
 const RETRY_DELAY_MS = 1500
 
 const PostAuction = () => {
   const { roomId } = useParams()
+  const leaveRoom = useLeaveRoom()
   const [results, setResults] = useState(null)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -56,8 +59,15 @@ const PostAuction = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-mist flex items-center justify-center px-4">
+      <div className="min-h-screen bg-mist flex flex-col items-center justify-center px-4 gap-4">
         <p className="text-brand-red-dark text-center">{error}</p>
+        <button
+          type="button"
+          onClick={leaveRoom}
+          className="text-sm text-ink/50 hover:text-brand-red transition-colors"
+        >
+          ← Back to Home
+        </button>
       </div>
     )
   }
@@ -65,6 +75,16 @@ const PostAuction = () => {
   return (
     <div className="min-h-screen bg-mist px-4 py-8 sm:px-8">
       <div className="max-w-5xl mx-auto space-y-6">
+        <div className="flex items-center justify-between">
+          <button
+            type="button"
+            onClick={leaveRoom}
+            className="text-sm text-ink/50 hover:text-brand-red transition-colors"
+          >
+            ← Back to Home
+          </button>
+        </div>
+
         <h1 className="font-display text-4xl text-ink text-center tracking-wide">
           AUCTION RESULTS
         </h1>
