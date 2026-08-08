@@ -1,8 +1,9 @@
-// apps/web/src/pages/PostAuction.jsx
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuctionResults } from '../lib/api'
 import { useLeaveRoom } from '../hooks/useLeaveRoom'
+import AuctionSummary from '../components/post-auction/AuctionSummary'
+import TeamLeaderboard from '../components/post-auction/TeamLeaderboard'
 
 const MAX_RETRIES = 5
 const RETRY_DELAY_MS = 1500
@@ -89,9 +90,10 @@ const PostAuction = () => {
           AUCTION RESULTS
         </h1>
 
-        {/* TEMPORARY — replaced by the 6 real components, built next:
-            <AuctionSummary results={results} />
-            <TeamLeaderboard teams={results.teams} />
+        <AuctionSummary results={results} />
+        <TeamLeaderboard teams={results.teams} />
+
+        {/* TEMPORARY — replaced by the remaining 4 components, built next:
             <TeamDetails teams={results.teams} />
             <BestXI teams={results.teams} />
             <TopPurchases teams={results.teams} />
