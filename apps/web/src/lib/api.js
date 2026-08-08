@@ -23,5 +23,6 @@ api.interceptors.response.use(
 export const createRoom = (payload) => api.post('/room/create', payload)
 export const joinRoom = (payload) => api.post('/room/join', payload)
 export const getRoomState = (roomId) => api.get(`/room/${roomId}`)
+export const getAuctionResults = (roomId) => api.get(`/room/${roomId}/results`)
 
 export default api
