@@ -3,6 +3,7 @@ import { useRoomStore } from '../store/roomStore'
 import TeamGrid from '../components/lobby/TeamGrid'
 import PlayerList from '../components/lobby/PlayerList'
 import LobbyControls from '../components/lobby/LobbyControls'
+import RoomCode from '../components/shared/RoomCode'
 
 const Lobby = () => {
   const { roomId } = useParams()
@@ -13,7 +14,7 @@ const Lobby = () => {
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
           <p className="text-xs uppercase tracking-wider text-ink/50">Room Code</p>
-          <p className="font-display text-4xl text-ink tracking-widest">{roomId}</p>
+          <RoomCode roomId={roomId} size="lg" />
           <p className="text-xs text-ink/40 mt-1">Purse per team: ₹{pursePerTeam}L</p>
         </div>
 

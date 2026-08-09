@@ -9,6 +9,7 @@ import BidFeed from '../components/auction/BidFeed'
 import PurseTracker from '../components/auction/PurseTracker'
 import SquadViewer from '../components/auction/SquadViewer'
 import ChatPanel from '../components/auction/ChatPanel'
+import RoomCode from '../components/shared/RoomCode'
 
 const Auction = ({ managerNotice }) => {
   const { roomId } = useParams()
@@ -20,9 +21,9 @@ const Auction = ({ managerNotice }) => {
           PurseTracker exist to fill the sidebar. SquadViewer/ChatPanel
           will join the sidebar next. */}
       <div className="max-w-5xl mx-auto">
-        <p className="text-xs uppercase tracking-wider text-ink/50 text-center mb-2">
-          Room {roomId}
-        </p>
+        <div className="flex justify-center mb-2">
+          <RoomCode roomId={roomId} size="sm" />
+        </div>
 
         {managerNotice && (
           <div className="bg-brand-red text-paper text-sm text-center py-2 rounded-lg mb-4">
