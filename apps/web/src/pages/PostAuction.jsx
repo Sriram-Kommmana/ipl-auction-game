@@ -1,3 +1,4 @@
+// apps/web/src/pages/PostAuction.jsx
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuctionResults } from '../lib/api'
@@ -7,6 +8,8 @@ import AuctionSummary from '../components/post-auction/AuctionSummary'
 import TeamLeaderboard from '../components/post-auction/TeamLeaderboard'
 import TeamDetails from '../components/post-auction/TeamDetails'
 import BestXI from '../components/post-auction/BestXI'
+import TopPurchases from '../components/post-auction/TopPurchases'
+import AuctionHistory from '../components/post-auction/AuctionHistory'
 
 const MAX_RETRIES = 5
 const RETRY_DELAY_MS = 1500
@@ -50,8 +53,6 @@ const PostAuction = () => {
     }
   }, [roomId])
 
-  // Default to the first team once results actually load — can't do this
-  // at useState init time since results starts null
   useEffect(() => {
     if (results && !selectedTeamId) {
       setSelectedTeamId(results.teams[0]?.teamId ?? null)
@@ -102,10 +103,8 @@ const PostAuction = () => {
 
         <AuctionSummary results={results} />
         <TeamLeaderboard teams={results.teams} />
+        <TopPurchases teams={results.teams} />
 
-        {/* Shared team switcher — feeds both TeamDetails and BestXI so they
-            always show the SAME team, rather than each having its own
-            separate (and potentially inconsistent) selector. */}
         <div>
           <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">View Team</p>
           <div className="flex flex-wrap gap-2">
@@ -129,13 +128,7 @@ const PostAuction = () => {
           <BestXI team={selectedTeam} />
         </div>
 
-        {/* TEMPORARY — replaced by the remaining 2 components, built next:
-            <TopPurchases teams={results.teams} />
-            <AuctionHistory history={results.history} />
-        */}
-        <pre className="text-xs bg-paper p-4 rounded-lg border border-line overflow-auto">
-          {JSON.stringify(results, null, 2)}
-        </pre>
+        <AuctionHistory history={results.history} />
       </div>
     </div>
   )
