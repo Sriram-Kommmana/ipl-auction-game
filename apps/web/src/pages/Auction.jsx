@@ -10,7 +10,7 @@ import PurseTracker from '../components/auction/PurseTracker'
 import SquadViewer from '../components/auction/SquadViewer'
 import ChatPanel from '../components/auction/ChatPanel'
 
-const Auction = ({ socketError, managerNotice }) => {
+const Auction = ({ managerNotice }) => {
   const { roomId } = useParams()
   const lastResult = useAuctionStore((s) => s.lastResult)
 
@@ -40,10 +40,6 @@ const Auction = ({ socketError, managerNotice }) => {
             <CurrentBid />
             <BidButton />
             <ManagerControls />
-
-            {socketError && (
-              <p className="text-sm text-brand-red-dark text-center">{socketError.message}</p>
-            )}
           </div>
 
           <div className="space-y-4">

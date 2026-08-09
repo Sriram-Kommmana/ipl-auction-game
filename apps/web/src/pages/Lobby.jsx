@@ -4,7 +4,7 @@ import TeamGrid from '../components/lobby/TeamGrid'
 import PlayerList from '../components/lobby/PlayerList'
 import LobbyControls from '../components/lobby/LobbyControls'
 
-const Lobby = ({ socketError }) => {
+const Lobby = () => {
   const { roomId } = useParams()
   const pursePerTeam = useRoomStore((s) => s.pursePerTeam)
 
@@ -26,7 +26,7 @@ const Lobby = ({ socketError }) => {
           </div>
         </div>
 
-        <LobbyControls socketError={socketError} />
+        <LobbyControls />
       </div>
     </div>
   )

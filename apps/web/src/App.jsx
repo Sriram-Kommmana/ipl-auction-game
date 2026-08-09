@@ -1,10 +1,10 @@
-// apps/web/src/App.jsx
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { useSession } from './hooks/useSession'
 import { useSocket } from './hooks/useSocket'
 import { useRoomStore } from './store/roomStore'
 import { getRoomRoute } from './lib/routing'
+import Toast from './components/shared/Toast'
 import Home from './pages/Home'
 import Lobby from './pages/Lobby'
 import Auction from './pages/Auction'
@@ -18,9 +18,11 @@ const AppRoutes = () => {
   // boolean is no longer used here, since it goes stale after mount (see
   // note below).
   useSession()
-  // managerNotice/socketError not rendered yet — Toast.jsx doesn't exist
-  // until Phase 5. Destructured here so it's obvious they're available.
-  const { managerNotice, socketError } = useSocket()
+  // managerNotice stays prop-drilled to Auction — it's a persistent,
+  // Auction-specific banner (different purpose/styling than a transient
+  // dismissible toast). socketError now feeds the global Toast instead
+  // of being drilled through routes.
+  const { managerNotice, socketError, clearSocketError } = useSocket()
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -46,12 +48,15 @@ const AppRoutes = () => {
   }, [roomId, roomStatus, location.pathname, navigate])
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/lobby/:roomId" element={<Lobby socketError={socketError} />} />
-      <Route path="/auction/:roomId" element={<Auction socketError={socketError} managerNotice={managerNotice} />} />
-      <Route path="/results/:roomId" element={<PostAuction />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/lobby/:roomId" element={<Lobby />} />
+        <Route path="/auction/:roomId" element={<Auction managerNotice={managerNotice} />} />
+        <Route path="/results/:roomId" element={<PostAuction />} />
+      </Routes>
+      <Toast message={socketError?.message} onDismiss={clearSocketError} />
+    </>
   )
 }
 
