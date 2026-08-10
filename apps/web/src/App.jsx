@@ -51,6 +51,7 @@ const AppRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/join/:roomId" element={<Home />} />
         <Route path="/lobby/:roomId" element={<Lobby />} />
         <Route path="/auction/:roomId" element={<Auction managerNotice={managerNotice} />} />
         <Route path="/results/:roomId" element={<PostAuction />} />

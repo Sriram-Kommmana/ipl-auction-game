@@ -1,12 +1,12 @@
-// apps/web/src/components/home/JoinRoomForm.jsx
 import { ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { joinRoom } from '../../lib/api'
-import { saveSession, getSession, switchToRecentSession } from '../../lib/session'
+import { saveSession, getSession } from '../../lib/session'
 import { connectAndReconnect } from '../../lib/socket'
 import { getRoomRoute } from '../../lib/routing'
 import { useSessionStore } from '../../store/sessionStore'
+import { useRejoinRecent } from '../../hooks/useRejoinRecent'
 
 const inputClass =
   'w-full bg-mist border border-line rounded-lg px-3 py-2 text-ink ' +
@@ -14,11 +14,12 @@ const inputClass =
 
 const labelClass = 'block text-xs uppercase tracking-wider text-ink/50 mb-1'
 
-const JoinRoomForm = () => {
+const JoinRoomForm = ({ initialRoomId = '' }) => {
   const navigate = useNavigate()
   const setSession = useSessionStore((s) => s.setSession)
+  const rejoinRecent = useRejoinRecent()
 
-  const [roomId, setRoomId] = useState('')
+  const [roomId, setRoomId] = useState(initialRoomId.toUpperCase())
   const [roomPin, setRoomPin] = useState('')
   const [nickname, setNickname] = useState('')
   const [playerPin, setPlayerPin] = useState('')
@@ -26,31 +27,6 @@ const JoinRoomForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const recents = getSession()?.recents || []
-
-  // True one-tap rejoin — no PIN, no REST call. We already have this
-  // room's playerId (UUID) from recents, on THIS device. Same exact
-  // mechanism as the automatic reconnect-on-page-load flow, just
-  // triggered manually here instead of by useSession on mount.
-  // PINs only matter for a genuinely different device/browser, which
-  // is what the manual form below is still for.
-  const handleRecentClick = (recent) => {
-    switchToRecentSession(recent)
-
-    setSession({
-      playerId: recent.playerId,
-      roomId: recent.roomId,
-      teamId: '',
-      nickname: recent.nickname,
-      isManager: recent.isManager
-    })
-
-    connectAndReconnect(recent.playerId)
-
-    // Navigate to "/" rather than guessing /lobby or /auction — App.jsx's
-    // redirect effect will route to the correct page once stateSync
-    // confirms the room's actual current status.
-    navigate('/')
-  }
 
   const validate = () => {
     if (!roomId.trim()) return 'Room code is required.'
@@ -126,7 +102,7 @@ const JoinRoomForm = () => {
               <button
                 key={recent.roomId}
                 type="button"
-                onClick={() => handleRecentClick(recent)}
+                onClick={() => rejoinRecent(recent)}
                 className="w-full flex items-center justify-between bg-paper border border-line
                            rounded-xl px-4 py-3 text-left hover:border-brand-red transition-colors group"
               >

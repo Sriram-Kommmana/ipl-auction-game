@@ -5,7 +5,12 @@ const RoomCode = ({ roomId, size = 'lg' }) => {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(roomId)
+      // Copies the full join link, not just the bare code — a link auto-
+      // fills the Join form for whoever opens it, while a bare code still
+      // requires typing it in manually. The code itself is still shown
+      // visually below, for anyone who wants to read/type it by hand.
+      const joinLink = `${window.location.origin}/join/${roomId}`
+      await navigator.clipboard.writeText(joinLink)
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
     } catch {
@@ -25,7 +30,7 @@ const RoomCode = ({ roomId, size = 'lg' }) => {
     >
       <span className={`font-display ${textSize} text-ink tracking-widest`}>{roomId}</span>
       <span className="text-xs text-ink/30 group-hover:text-ink/60 transition-colors">
-        {copied ? '✓ Copied' : '⧉'}
+        {copied ? '✓ Link Copied' : '⧉ Copy Link'}
       </span>
     </button>
   )
