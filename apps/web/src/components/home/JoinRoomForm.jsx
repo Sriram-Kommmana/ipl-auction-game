@@ -94,39 +94,6 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
 
   return (
     <div>
-      {recents.length > 0 && (
-        <div className="mb-6">
-          <p className="text-xs uppercase tracking-wider text-ink/50 mb-2">Continue Playing</p>
-          <div className="space-y-2">
-            {recents.map((recent) => (
-              <button
-                key={recent.roomId}
-                type="button"
-                onClick={() => rejoinRecent(recent)}
-                className="w-full flex items-center justify-between bg-paper border border-line
-                           rounded-xl px-4 py-3 text-left hover:border-brand-red transition-colors group"
-              >
-                <div>
-                  <p className="font-display text-2xl tracking-wide text-ink leading-none">
-                    {recent.roomId}
-                  </p>
-                  <p className="text-xs text-ink/50 mt-1">
-                    {recent.nickname}{recent.isManager ? ' · Manager' : ''}
-                  </p>
-                </div>
-                <ChevronRight
-                  size={20}
-                  className="text-ink/30 group-hover:text-brand-red transition-colors"
-                />
-              </button>
-            ))}
-          </div>
-          <p className="text-xs text-ink/40 mt-2">
-            Tap to rejoin instantly. New device? Use the form below.
-          </p>
-        </div>
-      )}
-
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className={labelClass}>Room Code</label>
@@ -181,11 +148,46 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
           type="submit"
           disabled={isSubmitting}
           className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-50 disabled:cursor-not-allowed
-                     text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors"
+                      text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors"
         >
           {isSubmitting ? 'JOINING…' : 'JOIN ROOM'}
         </button>
       </form>
+
+      {recents.length > 0 && (
+        
+        <div className="mb-6">
+          <br />
+          <p className="text-xs uppercase tracking-wider text-ink/50 mb-2">Continue Playing</p>
+          <div className="space-y-2">
+            {recents.map((recent) => (
+              <button
+                key={recent.roomId}
+                type="button"
+                onClick={() => rejoinRecent(recent)}
+                className="w-full flex items-center justify-between bg-paper border border-line
+                           rounded-xl px-4 py-3 text-left hover:border-brand-red transition-colors group"
+              >
+                <div>
+                  <p className="font-display text-2xl tracking-wide text-ink leading-none">
+                    {recent.roomId}
+                  </p>
+                  <p className="text-xs text-ink/50 mt-1">
+                    {recent.nickname}{recent.isManager ? ' · Manager' : ''}
+                  </p>
+                </div>
+                <ChevronRight
+                  size={20}
+                  className="text-ink/30 group-hover:text-brand-red transition-colors"
+                />
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-ink/40 mt-2">
+            Returning player? Tap a room above to rejoin instantly. New here? Use the form above.
+          </p>
+        </div>
+      )}
     </div>
   )
 }
