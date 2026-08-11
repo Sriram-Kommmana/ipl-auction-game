@@ -87,14 +87,15 @@ const onSkip = async (io, socket, data) => {
         soldAt
     })
 
-    const chatEntry = JSON.stringify({
+    const chatObj = {
         messageId: uuidv4(),
         playerId:  'system',
         nickname:  'Auction',
         type:      'broadcast',
         text:      `${playerName} was skipped`,
         sentAt:    soldAt
-    })
+    }
+    const chatEntry = JSON.stringify(chatObj)
 
     try {
         const pipeline = redis.pipeline()
@@ -115,6 +116,7 @@ const onSkip = async (io, socket, data) => {
             playerName,
             soldAt
         })
+        io.to(roomId).emit('newChatMessage', chatObj)
 
         await advanceAuction(io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimer)
 

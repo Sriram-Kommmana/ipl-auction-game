@@ -101,14 +101,15 @@ const onTimerExpiry = async (io, roomId) => {
                 soldAt
             })
 
-            const chatEntry = JSON.stringify({
+            const chatObj = {
                 messageId: uuidv4(),
                 playerId:  'system',
                 nickname:  'Auction',
                 type:      'broadcast',
                 text:      `${playerName} sold to ${teamData.name} for ₹${currentBid}L`,
                 sentAt:    soldAt
-            })
+            }
+            const chatEntry = JSON.stringify(chatObj)
 
             const pipeline = redis.pipeline()
             pipeline.hset(teamKey, {
@@ -138,6 +139,8 @@ const onTimerExpiry = async (io, roomId) => {
                 soldAt
             })
 
+            io.to(roomId).emit('newChatMessage', chatObj)
+
         } else {
             const soldAt = Math.floor(Date.now() / 1000)
 
@@ -150,14 +153,15 @@ const onTimerExpiry = async (io, roomId) => {
                 soldAt
             })
 
-            const chatEntry = JSON.stringify({
+            const chatObj = {
                 messageId: uuidv4(),
                 playerId:  'system',
                 nickname:  'Auction',
                 type:      'broadcast',
                 text:      `${playerName} went unsold`,
                 sentAt:    soldAt
-            })
+            }
+            const chatEntry = JSON.stringify(chatObj)
 
             const pipeline = redis.pipeline()
             pipeline.hset(`room:${roomId}:pool:status`, { [iplPlayerId]: 'unsold' })
@@ -175,6 +179,8 @@ const onTimerExpiry = async (io, roomId) => {
                 playerName,
                 soldAt
             })
+
+            io.to(roomId).emit('newChatMessage', chatObj)
         }
 
         await delay(RESULT_DISPLAY_DURATION)
