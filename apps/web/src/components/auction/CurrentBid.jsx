@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { TEAMS_BY_ID } from '../../constants/teams'
 import { useAuctionStore } from '../../store/auctionStore'
 import { useRoomStore } from '../../store/roomStore'
@@ -17,7 +18,22 @@ const CurrentBid = () => {
   return (
     <div className="bg-paper border border-line rounded-2xl p-5 text-center">
       <p className="text-xs uppercase tracking-widest text-ink/50">Current Bid</p>
-      <p className="font-display text-5xl text-ink mt-1">₹{currentBid}L</p>
+
+      {/* Keyed by currentBid — every new bid amount re-mounts this element,
+          giving a distinct pulse rather than the number just silently
+          swapping in place. */}
+      <AnimatePresence mode="popLayout">
+        <motion.p
+          key={currentBid}
+          initial={{ scale: 1.25, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="font-display text-5xl text-ink mt-1"
+        >
+          ₹{currentBid}L
+        </motion.p>
+      </AnimatePresence>
+
       {team ? (
         <>
           <p className="text-xs uppercase tracking-widest text-ink/40 mt-4">Highest Bidder</p>

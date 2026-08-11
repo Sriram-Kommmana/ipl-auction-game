@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { useParams } from 'react-router-dom'
 import { useAuctionStore } from '../store/auctionStore'
 import PlayerCard from '../components/auction/PlayerCard'
@@ -52,23 +53,37 @@ const Auction = ({ managerNotice }) => {
         </div>
       </div>
 
-      {lastResult && (
-        <div className="fixed inset-0 bg-ink/80 flex items-center justify-center z-50">
-          <div className="bg-paper rounded-2xl p-8 text-center max-w-sm mx-4">
-            <p className={`font-display text-5xl ${
-              lastResult.status === 'sold' ? 'text-brand-red' : 'text-ink/40'
-            }`}>
-              {lastResult.status === 'sold' ? 'SOLD!' : 'UNSOLD'}
-            </p>
-            <p className="font-display text-2xl text-ink mt-2">{lastResult.playerName}</p>
-            {lastResult.status === 'sold' && (
-              <p className="text-ink/60 mt-1">
-                to {lastResult.teamName} for ₹{lastResult.soldFor}L
+      <AnimatePresence>
+        {lastResult && (
+          <motion.div
+            key="result-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-ink/80 flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.6, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="bg-paper rounded-2xl p-8 text-center max-w-sm mx-4"
+            >
+              <p className={`font-display text-5xl ${
+                lastResult.status === 'sold' ? 'text-brand-red' : 'text-ink/40'
+              }`}>
+                {lastResult.status === 'sold' ? 'SOLD!' : 'UNSOLD'}
               </p>
-            )}
-          </div>
-        </div>
-      )}
+              <p className="font-display text-2xl text-ink mt-2">{lastResult.playerName}</p>
+              {lastResult.status === 'sold' && (
+                <p className="text-ink/60 mt-1">
+                  to {lastResult.teamName} for ₹{lastResult.soldFor}L
+                </p>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

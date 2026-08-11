@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useBidButton } from '../../hooks/useBidButton'
 import { useSessionStore } from '../../store/sessionStore'
 import { useAuctionStore } from '../../store/auctionStore'
@@ -22,15 +23,10 @@ const BidButton = () => {
 
   const [isPending, setIsPending] = useState(false)
 
-  // Any change to bid state means the server processed SOME outcome for
-  // this lot (ours or someone else's) — safe to re-enable immediately,
-  // rather than waiting out the full safety timeout below.
   useEffect(() => {
     setIsPending(false)
   }, [currentBid, currentBidderId])
 
-  // Safety net: if nothing comes back within a few seconds (dropped
-  // packet, brief disconnect), don't leave the button stuck disabled.
   useEffect(() => {
     if (!isPending) return
     const timeout = setTimeout(() => setIsPending(false), 3000)
@@ -47,15 +43,30 @@ const BidButton = () => {
 
   return (
     <div className="text-center">
-      <button
+      <motion.button
         type="button"
         onClick={handleBid}
         disabled={isDisabled}
+        whileTap={isDisabled ? {} : { scale: 0.96 }}
         className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-40 disabled:cursor-not-allowed
-                   text-paper font-display text-3xl tracking-wide py-5 rounded-2xl transition-colors"
+                   text-paper font-display text-3xl tracking-wide py-5 rounded-2xl transition-colors overflow-hidden"
       >
-        {isPending ? 'BIDDING…' : `BID ₹${nextBidAmount}L`}
-      </button>
+        {/* Keyed by the label content itself — pulses whenever the target
+            bid amount changes (or pending state toggles), signaling
+            "the price you'd pay just moved, look here". */}
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={isPending ? 'pending' : nextBidAmount}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.15 }}
+            className="inline-block"
+          >
+            {isPending ? 'BIDDING…' : `BID ₹${nextBidAmount}L`}
+          </motion.span>
+        </AnimatePresence>
+      </motion.button>
       {isDisabled && !isPending && reason && REASON_LABELS[reason] && (
         <p className="text-xs text-ink/40 mt-2">{REASON_LABELS[reason]}</p>
       )}
