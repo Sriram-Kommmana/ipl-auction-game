@@ -1,0 +1,535 @@
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= VARIABLES ================= */
+
+:root {
+
+    --primary-color: #ff4d4d;
+
+    --dark-color: #0f172a;
+    --light-color: #ffffff;
+
+    --text-color: #cbd5e1;
+
+    --border-color: rgba(255,255,255,0.08);
+
+    --container-width: 1200px;
+
+    --transition: 0.3s ease;
+
+    --radius: 12px;
+}
+
+/* ================= GLOBAL ================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f5f5f5;
+
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.05) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.05) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    animation: moveGrid 12s linear infinite;
+
+    overflow-x: hidden;
+}
+
+@keyframes moveGrid {
+
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 200px 200px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+
+    border: none;
+    outline: none;
+    background: none;
+
+    cursor: pointer;
+
+    font: inherit;
+}
+
+.page-transition {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: black;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.5s ease;
+}
+
+.page-transition.active {
+
+    opacity: 1;
+}
+/* ================= WRAPPER ================= */
+
+.wrapper {
+    min-height: 100vh;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: var(--container-width);
+
+    margin: 0 auto;
+
+    padding: 0 1rem;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    background: black;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ================= NAVBAR CONTAINER ================= */
+
+.navbar-container {
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: white;
+}
+
+.logo span {
+
+    color: var(--primary-color);
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 2rem;
+}
+
+.nav-link {
+
+    position: relative;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+
+    color: white;
+}
+
+/* UNDERLINE EFFECT */
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--primary-color);
+
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+
+    width: 100%;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+
+    text-align: center;
+
+    padding: 1.5rem 2rem 2rem;
+}
+
+.page-header h1 {
+
+    font-size: clamp(3rem, 8vw, 5rem);
+
+    font-weight: 900;
+
+    color: black;
+
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+
+    color: #666;
+
+    letter-spacing: 2px;
+}
+
+.page-header::after {
+
+    content: "";
+
+    display: block;
+
+    width: 80px;
+
+    height: 4px;
+
+    background: red;
+
+    margin: 1.5rem auto 0;
+}
+
+/* ================= PLAYER COUNT ================= */
+
+.players-count {
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 2rem;
+}
+
+/* ================= CONTROLS ================= */
+
+.controls {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 2rem 3rem;
+}
+
+/* ================= SEARCH ================= */
+
+#searchInput {
+
+    width: 100%;
+
+    padding: 1rem 1.25rem;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    margin-bottom: 1.5rem;
+
+    transition: 0.3s ease;
+}
+
+#searchInput:focus {
+
+    border-color: red;
+
+    box-shadow:
+        0 0 0 3px rgba(255,0,0,0.08);
+}
+
+/* ================= FILTERS ================= */
+
+.filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+}
+
+.filter-btn {
+
+    padding: 0.9rem 1.5rem;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+
+    background: red;
+
+    color: white;
+
+    border-color: red;
+}
+
+.filter-btn.active {
+
+    background: red;
+
+    color: white;
+
+    border-color: red;
+}
+
+/* ================= TABLE SECTION ================= */
+
+.table-section {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 2rem 6rem;
+}
+
+/* ================= TABLE ================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border: 1px solid rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* ================= TABLE HEADER ================= */
+
+thead {
+
+    background: black;
+
+    color: white;
+}
+
+th {
+
+    padding: 1.25rem;
+
+    text-align: left;
+
+    letter-spacing: 1px;
+}
+
+/* ================= TABLE BODY ================= */
+
+td {
+
+    padding: 1rem 1.25rem;
+
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr {
+
+    transition: 0.3s ease;
+}
+
+tbody tr:hover {
+
+    background: #fff4f4;
+}
+
+/* ================= ROLE BADGE ================= */
+
+.role-badge {
+
+    display: inline-block;
+
+    padding: 0.4rem 0.9rem;
+
+    border-radius: 20px;
+
+    background: rgba(255,0,0,0.08);
+
+    color: red;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+}
+
+/* ================= PRICE ================= */
+
+.price {
+
+    color: red;
+
+    font-weight: 700;
+}
+
+/* ================= SORT BUTTON ================= */
+
+#sortBtn {
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    margin-left: 8px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+
+    background: black;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 1rem;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer p {
+
+    color: rgba(255,255,255,0.7);
+
+    letter-spacing: 1px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .page-header {
+
+        padding: 4rem 1rem 3rem;
+    }
+
+    .page-header h1 {
+
+        font-size: 2.5rem;
+    }
+
+    .filters {
+
+        justify-content: center;
+    }
+
+    .table-section {
+
+        overflow-x: auto;
+    }
+
+    table {
+
+        min-width: 700px;
+    }
+}

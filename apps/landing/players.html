@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player List | Cricket Auction</title>
+
+    <link rel="stylesheet" href="players.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <span>CRICKET</span>
+                <span>AUCTION</span>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index2.html" class="nav-link">HOME</a></li>
+                    <li><a href="#" class="nav-link">PLAYER LIST</a></li>
+                    <li><a href="index2.html#stats" class="nav-link">HOW TO PLAY</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <section class="page-header">
+
+        <h1>PLAYER LIST</h1>
+
+        <p>
+            Browse all available players for the auction.
+        </p>
+
+    </section>
+
+    <!-- ================= CONTROLS ================= -->
+
+    <section class="controls">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Player..."
+        >
+
+        <div class="filters">
+
+            <button class="filter-btn active"
+                data-role="All">
+                ALL
+            </button>
+
+            <button class="filter-btn"
+                data-role="Batter">
+                BATTERS
+            </button>
+
+            <button class="filter-btn"
+                data-role="Bowler">
+                BOWLERS
+            </button>
+
+            <button class="filter-btn"
+                data-role="All-Rounder">
+                ALL-ROUNDERS
+            </button>
+
+            <button class="filter-btn"
+                data-role="Wicket Keeper">
+                WK
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TABLE ================= -->
+
+    <section class="table-section">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Country</th>
+
+                    <th>Role</th>
+
+                    <th>
+                        Base Price
+                        <button id="sortBtn">
+                            ↑↓
+                        </button>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="playersTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+            Designed & Developed with ❤️ by Sriram
+        </p>
+
+    </footer>
+
+    <script src="players.js"></script>
+
+</body>
+</html>
