@@ -129,7 +129,7 @@ const CreateRoomForm = () => {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <label className={labelClass}>Purse Per Team (lakhs)</label>
         <input
           type="number"
@@ -140,7 +140,7 @@ const CreateRoomForm = () => {
           onChange={(e) => setPursePerTeam(e.target.value)}
           className={inputClass}
         />
-      </div>
+      </div> */}
 
       {error && <p className="text-sm text-brand-red-dark" role="alert">{error}</p>}
 

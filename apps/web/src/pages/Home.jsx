@@ -85,7 +85,7 @@ const Home = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-lg">
-        <div className="text-center mb-10">
+        <div className="text-center mb-5">
           <h1 className="font-display text-6xl tracking-wide leading-none text-ink">
             CRICKET <span className="text-brand-red">AUCTION</span>
           </h1>
