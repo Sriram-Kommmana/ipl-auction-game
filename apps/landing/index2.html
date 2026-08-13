@@ -48,12 +48,12 @@
                             OUTBID. OUTTHINK. OUTPLAY.
                         </p>
                         <div class="hero-buttons">
-                            <button class="primary-btn">
+                            <a href="http://localhost:5173/?mode=join" class="primary-btn">
                                 ENTER AUCTION
-                            </button>
-                            <button class="secondary-btn">
+                            </a>
+                            <a href="http://localhost:5173/" class="secondary-btn">
                                 CREATE ROOM
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -511,17 +511,16 @@
             const href = link.getAttribute("href");
 
             if(href && !href.startsWith("#")) {
-
                 e.preventDefault();
-
                 transition.classList.add("active");
-
                 setTimeout(() => {
-
                     window.location.href = href;
-
                 }, 500);
             }
+
+            window.addEventListener("pageshow", () => {
+                transition.classList.remove("active");
+            });
 
         });
 

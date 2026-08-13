@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import CreateRoomForm from '../components/home/CreateRoomForm'
 import JoinRoomForm from '../components/home/JoinRoomForm'
 import { getSession } from '../lib/session'
@@ -7,7 +7,13 @@ import { useRejoinRecent } from '../hooks/useRejoinRecent'
 
 const Home = () => {
   const { roomId: linkedRoomId } = useParams()
-  const [mode, setMode] = useState(linkedRoomId ? 'join' : 'create')
+  // Supports two distinct link types from the landing page:
+  //   /join/:roomId    → pre-filled room code (share link, "Continue Playing")
+  //   /?mode=join       → Join tab open, but empty (landing page's generic
+  //                        "ENTER AUCTION" button — no specific room in mind)
+  const [searchParams] = useSearchParams()
+  const wantsJoinTab = Boolean(linkedRoomId) || searchParams.get('mode') === 'join'
+  const [mode, setMode] = useState(wantsJoinTab ? 'join' : 'create')
   const [showManualJoin, setShowManualJoin] = useState(false)
   const rejoinRecent = useRejoinRecent()
 
@@ -85,7 +91,7 @@ const Home = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-lg">
-        <div className="text-center mb-5">
+        <div className="text-center mb-10">
           <h1 className="font-display text-6xl tracking-wide leading-none text-ink">
             CRICKET <span className="text-brand-red">AUCTION</span>
           </h1>
