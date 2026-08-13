@@ -49,6 +49,13 @@ const Home = () => {
         <div className="pointer-events-none absolute top-1/4 -right-24 h-64 w-64 rounded-full bg-brand-red/5 blur-3xl" />
 
         <div className="relative z-10 w-full max-w-md text-center">
+          <a
+            href={import.meta.env.VITE_LANDING_URL}
+            className="inline-block text-sm text-ink/50 hover:text-brand-red transition-colors mb-4"
+          >
+            ← Back to Home
+          </a>
+
           <h1 className="font-display text-5xl tracking-wide leading-none text-ink mb-2">
             WELCOME <span className="text-brand-red">BACK</span>
           </h1>
@@ -90,7 +97,14 @@ const Home = () => {
       <div className="pointer-events-none absolute top-1/4 -right-24 h-64 w-64 rounded-full bg-brand-red/5 blur-3xl" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-lg">
+      <div className="relative z-10 w-full max-w-lg mt-5">
+        <a
+          href={import.meta.env.VITE_LANDING_URL}
+          className="inline-block text-sm text-ink/50 hover:text-brand-red transition-colors mb-4"
+        >
+          ← Back to Home
+        </a>
+
         <div className="text-center mb-10">
           <h1 className="font-display text-6xl tracking-wide leading-none text-ink">
             CRICKET <span className="text-brand-red">AUCTION</span>
