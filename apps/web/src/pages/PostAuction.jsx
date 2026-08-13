@@ -10,6 +10,7 @@ import TeamDetails from '../components/post-auction/TeamDetails'
 import BestXI from '../components/post-auction/BestXI'
 import TopPurchases from '../components/post-auction/TopPurchases'
 import AuctionHistory from '../components/post-auction/AuctionHistory'
+import Spinner from '../components/shared/Spinner'
 
 const MAX_RETRIES = 5
 const RETRY_DELAY_MS = 1500
@@ -61,7 +62,8 @@ const PostAuction = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-mist flex items-center justify-center">
+      <div className="min-h-screen bg-mist flex items-center justify-center gap-4">
+        <Spinner size={32} />
         <p className="font-display text-2xl text-ink/40">Finalizing results…</p>
       </div>
     )

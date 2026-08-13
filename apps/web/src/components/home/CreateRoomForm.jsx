@@ -4,6 +4,7 @@ import { createRoom } from '../../lib/api'
 import { saveSession } from '../../lib/session'
 import { connectAndReconnect } from '../../lib/socket'
 import { useSessionStore } from '../../store/sessionStore'
+import Spinner from '../shared/Spinner'
 
 const inputClass =
   'w-full bg-mist border border-line rounded-lg px-3 py-2 text-ink ' +
@@ -148,8 +149,10 @@ const CreateRoomForm = () => {
         type="submit"
         disabled={isSubmitting}
         className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-50 disabled:cursor-not-allowed
-                   text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors"
+                   text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
       >
+        
+        {isSubmitting && <Spinner size={20} variant="light" />}
         {isSubmitting ? 'CREATING…' : 'CREATE ROOM'}
       </button>
     </form>
