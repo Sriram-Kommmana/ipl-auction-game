@@ -1,4 +1,3 @@
-// apps/web/src/pages/PostAuction.jsx
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuctionResults } from '../lib/api'
