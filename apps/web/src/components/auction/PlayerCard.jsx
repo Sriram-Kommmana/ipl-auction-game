@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion'
 import { useAuctionStore } from '../../store/auctionStore'
 
 const STATS = [
@@ -22,6 +22,34 @@ const StatBar = ({ label, value }) => (
 const PlayerCard = () => {
   const player = useAuctionStore((s) => s.currentPlayer)
 
+  // --- 3D Tilt & Spotlight State ---
+  const mouseX = useMotionValue(0.5) // normalized 0-1
+  const mouseY = useMotionValue(0.5)
+
+  const rotateX = useSpring(useTransform(mouseY, [0, 1], [8, -8]), {
+    stiffness: 150,
+    damping: 20,
+  })
+  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-8, 8]), {
+    stiffness: 150,
+    damping: 20,
+  })
+
+  const spotX = useTransform(mouseX, [0, 1], [0, 300])
+  const spotY = useTransform(mouseY, [0, 1], [0, 400])
+  const spotlightBackground = useMotionTemplate`radial-gradient(circle at ${spotX}px ${spotY}px, rgba(255,255,255,0.15), transparent 70%)`
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    mouseX.set((e.clientX - rect.left) / rect.width)
+    mouseY.set((e.clientY - rect.top) / rect.height)
+  }
+
+  const handleMouseLeave = () => {
+    mouseX.set(0.5)
+    mouseY.set(0.5)
+  }
+
   return (
     <AnimatePresence mode="wait">
       {!player ? (
@@ -37,17 +65,27 @@ const PlayerCard = () => {
         </motion.div>
       ) : (
         <motion.div
-          // Keyed by slNo — a new player loading in gets a fresh mount,
-          // so the old card exits and the new one enters distinctly
-          // rather than just re-rendering its text in place.
           key={player.slNo}
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -24 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="bg-charcoal text-paper rounded-2xl p-6 shadow-xl"
+          className="bg-charcoal text-paper rounded-2xl p-6 shadow-xl relative overflow-hidden"
+          style={{
+            rotateX,
+            rotateY,
+            transformPerspective: 1000,
+            transformStyle: 'preserve-3d',
+          }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
         >
-          <div className="flex items-start justify-between gap-4">
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: spotlightBackground }}
+          />
+
+          <div className="flex items-start justify-between gap-4 relative z-10">
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-widest text-paper/50">{player.role}</p>
               <h1 className="font-display text-4xl tracking-wide leading-tight truncate">
@@ -67,14 +105,14 @@ const PlayerCard = () => {
           </div>
 
           {player.stats && Object.keys(player.stats).length > 0 && (
-            <div className="mt-5 grid grid-cols-1 gap-2">
+            <div className="mt-5 grid grid-cols-1 gap-2 relative z-10">
               {STATS.map(({ label, key }) => (
                 <StatBar key={key} label={label} value={player.stats[key] ?? 0} />
               ))}
             </div>
           )}
 
-          <div className="mt-5 pt-4 border-t border-paper/10">
+          <div className="mt-5 pt-4 border-t border-paper/10 relative z-10">
             <p className="text-xs text-paper/50">BASE PRICE</p>
             <p className="font-display text-2xl text-paper">₹{player.basePrice}L</p>
           </div>
