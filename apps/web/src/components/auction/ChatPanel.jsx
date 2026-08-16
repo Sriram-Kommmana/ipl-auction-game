@@ -47,13 +47,13 @@ const ChatPanel = () => {
   }
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-4">
+    <div className="bg-paper border border-line rounded-2xl p-4 h-full flex flex-col">
       <h2 className="font-display text-lg text-ink mb-2 tracking-wide">CHAT</h2>
 
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="space-y-1.5 max-h-80 overflow-y-auto mb-3"
+        className="space-y-1.5 flex-1 min-h-0 overflow-y-auto mb-3"
       >
         {messages.length === 0 && (
           <p className="text-xs text-ink/30 text-center py-4">Be the first to say something.</p>
