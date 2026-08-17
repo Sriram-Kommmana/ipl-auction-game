@@ -16,7 +16,7 @@ const CurrentBid = () => {
     : null
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-5 text-center">
+    <div className="bg-paper border border-line rounded-2xl p-2 text-center">
       <p className="text-xs uppercase tracking-widest text-ink/50">Current Bid</p>
 
       {/* Keyed by currentBid — every new bid amount re-mounts this element,
@@ -36,13 +36,15 @@ const CurrentBid = () => {
 
       {team ? (
         <>
-          <p className="text-xs uppercase tracking-widest text-ink/40 mt-4">Highest Bidder</p>
-          <div
-            className="inline-flex items-center gap-2 mt-1 px-3 py-1 rounded-full"
-            style={{ backgroundColor: team.color }}
-          >
-            <span className="text-xs font-display text-white tracking-wide">{team.teamId}</span>
-            {ownerNickname && <span className="text-xs text-white/80">· {ownerNickname}</span>}
+          <div className="flex items-baseline justify-center gap-2 mt-3">
+            <p className="text-xs uppercase tracking-widest text-ink/40 mt-4">Highest Bidder</p>
+            <div
+              className="inline-flex items-center gap-2 mt-1 px-3 py-1 rounded-full"
+              style={{ backgroundColor: team.color }}
+            >
+              <span className="text-xs font-display text-white tracking-wide">{team.teamId}</span>
+              {ownerNickname && <span className="text-xs text-white/80">· {ownerNickname}</span>}
+            </div>
           </div>
         </>
       ) : (

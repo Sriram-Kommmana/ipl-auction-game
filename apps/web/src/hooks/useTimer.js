@@ -1,16 +1,23 @@
+// apps/web/src/hooks/useTimer.js
 import { useState, useEffect } from 'react'
 import { useAuctionStore } from '../store/auctionStore'
+import { useRoomStore } from '../store/roomStore'
 
 /**
  * Turns auctionStore's static timerEndsAt (a unix timestamp, seconds since
  * epoch) into a live, ticking secondsLeft value — entirely in LOCAL state,
  * never written into Zustand. If this lived in a store, every subscribed
  * component would re-render every single second during the whole auction.
+ *
+ * Also returns totalDuration (from roomStore, sourced from the backend's
+ * own timerDuration — not a hardcoded frontend constant) so consumers like
+ * BidButton's progress bar can compute % time remaining, not just seconds.
  */
 export const useTimer = () => {
   const timerState = useAuctionStore((s) => s.timerState)
   const timerEndsAt = useAuctionStore((s) => s.timerEndsAt)
   const pausedTimeRemaining = useAuctionStore((s) => s.pausedTimeRemaining)
+  const totalDuration = useRoomStore((s) => s.timerDuration)
 
   const [secondsLeft, setSecondsLeft] = useState(0)
 
@@ -38,5 +45,5 @@ export const useTimer = () => {
     return () => clearInterval(intervalId)
   }, [timerState, timerEndsAt, pausedTimeRemaining])
 
-  return { secondsLeft, timerState }
+  return { secondsLeft, timerState, totalDuration }
 }

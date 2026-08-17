@@ -1,10 +1,32 @@
+// apps/web/src/components/auction/Timer.jsx
 import { useTimer } from '../../hooks/useTimer'
 
-const Timer = () => {
+// variant="full" — the big centered number (used elsewhere if needed)
+// variant="compact" — small inline box, used next to BidButton
+const Timer = ({ variant = 'full' }) => {
   const { secondsLeft, timerState } = useTimer()
 
   const isLow = secondsLeft <= 10 && timerState === 'RUNNING'
   const isPaused = timerState === 'PAUSED'
+
+  if (variant === 'compact') {
+    return (
+      <div
+        className={`flex flex-col items-center justify-center rounded-lg border px-3 py-1.5 shrink-0
+          ${isLow ? 'border-brand-red' : 'border-line'}`}
+      >
+        <span
+          className={`font-display text-xl leading-none tabular-nums
+            ${isLow ? 'text-brand-red' : 'text-ink'}`}
+        >
+          {secondsLeft}
+        </span>
+        <span className="text-[10px] text-ink/40 uppercase tracking-wide">
+          {isPaused ? 'Paused' : 'Seconds'}
+        </span>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col items-center">

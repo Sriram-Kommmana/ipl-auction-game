@@ -11,6 +11,8 @@ export const useRoomStore = create((set) => ({
   managerPlayerId: null,
   maxPlayers: 25,
   maxOverseas: 8,
+  timerDuration: 30, // total seconds per bidding round — needed by BidButton's
+                     // progress bar to compute % time remaining, not just seconds left
   history: [], // [{ iplPlayerId, playerName, role, soldTo, soldFor, status, soldAt }]
              // status: 'sold' | 'unsold' | 'skipped' — used by SquadViewer
              // (filtered to my team's sold entries) and later PostAuction's
@@ -28,7 +30,8 @@ export const useRoomStore = create((set) => ({
     pursePerTeam: roomData.pursePerTeam,
     managerPlayerId: roomData.managerPlayerId,
     maxPlayers: roomData.maxPlayers,
-    maxOverseas: roomData.maxOverseas
+    maxOverseas: roomData.maxOverseas,
+    timerDuration: roomData.timerDuration
   }),
 
   setRoomStatus: (roomStatus) => set({ roomStatus }),
@@ -152,6 +155,7 @@ export const useRoomStore = create((set) => ({
     managerPlayerId: null,
     maxPlayers: 25,
     maxOverseas: 8,
+    timerDuration: 30,
     history: []
   })
 }))

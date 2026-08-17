@@ -1,3 +1,4 @@
+// apps/web/src/hooks/useSocket.js
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../lib/socket'
@@ -77,7 +78,8 @@ export const useSocket = () => {
         pursePerTeam: data.room.pursePerTeam,
         managerPlayerId: data.room.managerPlayerId,
         maxPlayers: data.room.maxPlayers,
-        maxOverseas: data.room.maxOverseas
+        maxOverseas: data.room.maxOverseas,
+        timerDuration: data.room.timerDuration
       })
     }
 
