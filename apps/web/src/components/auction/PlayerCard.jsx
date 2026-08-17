@@ -22,8 +22,7 @@ const StatBar = ({ label, value }) => (
 const PlayerCard = () => {
   const player = useAuctionStore((s) => s.currentPlayer)
 
-  // --- 3D Tilt & Spotlight State ---
-  const mouseX = useMotionValue(0.5) // normalized 0-1
+  const mouseX = useMotionValue(0.5)
   const mouseY = useMotionValue(0.5)
 
   const rotateX = useSpring(useTransform(mouseY, [0, 1], [8, -8]), {
