@@ -2,14 +2,19 @@
 @import "tailwindcss";
 
 @theme {
-  /* Matches the landing page: light background, black text, red accents.
-     Two reds mirror the landing hero — coral for headline/highlight text,
-     deep red for CTAs and high-emphasis panels. */
-  --color-ink: #0A0A0A;
-  --color-charcoal: #1F1F1F;
-  --color-paper: #FFFFFF;
-  --color-mist: #F2F2F2;
-  --color-line: #E5E5E5;
+  /* Dark neobrutalist palette. Same token names as before — every
+     component's existing bg-X/text-Y pairing is preserved, only which
+     end is "light" vs "dark" has flipped, so no component files need
+     to change at all.
+
+     Old:  mist(light bg) / paper(white card) / ink(dark text)
+     New:  mist(dark bg)  / paper(dark card)   / ink(light text)
+  */
+  --color-mist: #0A0A0A;      /* page background — was light grey, now near-black */
+  --color-paper: #1A1A1A;     /* card/panel surface — was white, now dark elevated surface */
+  --color-charcoal: #000000;  /* PlayerCard's special deeper accent — pure black, darker than paper */
+  --color-ink: #F5F5F5;       /* primary text — was near-black, now soft white */
+  --color-line: #333333;      /* borders — was light grey, now visible against dark bg */
 
   --color-coral: #FF4D4D;
   --color-brand-red: #E4262C;

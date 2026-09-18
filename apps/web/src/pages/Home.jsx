@@ -30,11 +30,11 @@ const Home = () => {
     background: `
       radial-gradient(
         circle at center,
-        rgba(228, 38, 44, 0.08) 0%,
-        rgba(228, 38, 44, 0.03) 30%,
+        rgba(228, 38, 44, 0.12) 0%,
+        rgba(228, 38, 44, 0.05) 30%,
         transparent 70%
       ),
-      #F2F2F2
+      var(--color-mist)
     `,
   }
 
@@ -97,7 +97,7 @@ const Home = () => {
       <div className="pointer-events-none absolute top-1/4 -right-24 h-64 w-64 rounded-full bg-brand-red/5 blur-3xl" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-lg mt-5">
+      <div className="relative z-10 w-full max-w-lg">
         <a
           href={import.meta.env.VITE_LANDING_URL}
           className="inline-block text-sm text-ink/50 hover:text-brand-red transition-colors mb-4"
