@@ -2,14 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark neobrutalist palette. Same token names as before — every
-     component's existing bg-X/text-Y pairing is preserved, only which
-     end is "light" vs "dark" has flipped, so no component files need
-     to change at all.
 
-     Old:  mist(light bg) / paper(white card) / ink(dark text)
-     New:  mist(dark bg)  / paper(dark card)   / ink(light text)
-  */
   --color-mist: #0A0A0A;      /* page background — was light grey, now near-black */
   --color-paper: #1A1A1A;     /* card/panel surface — was white, now dark elevated surface */
   --color-charcoal: #000000;  /* PlayerCard's special deeper accent — pure black, darker than paper */
