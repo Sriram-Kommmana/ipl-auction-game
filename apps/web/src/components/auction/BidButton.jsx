@@ -57,8 +57,11 @@ const BidButton = () => {
         onClick={handleBid}
         disabled={isDisabled}
         whileTap={isDisabled ? {} : { scale: 0.96 }}
-        className="relative w-full h-16 bg-brand-red hover:bg-brand-red-dark disabled:opacity-40 disabled:cursor-not-allowed
-           text-paper font-display text-3xl tracking-wide rounded-2xl transition-colors overflow-hidden"
+        className="relative w-full h-16 bg-red hover:bg-red-glow border-2 border-red hover:border-red-glow text-bone
+           font-display text-3xl tracking-wide uppercase transition-colors overflow-hidden
+           shadow-[4px_4px_0_0_var(--color-bone)]
+           disabled:bg-raised disabled:border-line-strong disabled:text-bone/35 disabled:cursor-not-allowed
+           disabled:shadow-[4px_4px_0_0_var(--color-line)]"
       >
         {/* Keyed by the label content itself — pulses whenever the target
             bid amount changes (or pending state toggles), signaling
@@ -81,14 +84,14 @@ const BidButton = () => {
             useTimer so it animates smoothly rather than jumping. */}
         {timerState === 'RUNNING' && (
           <motion.div
-            className="absolute left-0 bottom-0 h-1 bg-paper/60"
+            className="absolute left-0 bottom-0 h-1 bg-bone/80"
             animate={{ width: `${progressPercent}%` }}
             transition={{ duration: 1, ease: 'linear' }}
           />
         )}
       </motion.button>
       {isDisabled && !isPending && reason && REASON_LABELS[reason] && (
-        <p className="text-xs text-ink/40 mt-2">{REASON_LABELS[reason]}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone/40 mt-2.5">// {REASON_LABELS[reason]}</p>
       )}
     </div>
   )

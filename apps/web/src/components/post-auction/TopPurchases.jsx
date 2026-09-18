@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { TEAMS_BY_ID } from '../../constants/teams'
+import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 
-const MEDALS = ['🥇', '🥈', '🥉']
+const RANK_STYLES = ['text-amber', 'text-bone', 'text-red']
 
 const TopPurchases = ({ teams }) => {
   // Reads from each team's FINAL squad (not history) — a player appears
@@ -15,11 +15,15 @@ const TopPurchases = ({ teams }) => {
   }, [teams])
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-6">
-      <h2 className="font-display text-2xl text-ink mb-4 tracking-wide">TOP PURCHASES</h2>
+    <div className="panel p-6">
+      <div className="section-head">
+        <span className="section-num">03</span>
+        <h2 className="section-title">Top Purchases</h2>
+        <span className="section-jp">高額契約</span>
+      </div>
 
       {top10.length === 0 ? (
-        <p className="text-xs text-ink/30 text-center py-4">No players bought yet</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 text-center py-4">No players bought yet</p>
       ) : (
         <div className="space-y-1.5">
           {top10.map((p, i) => {
@@ -28,21 +32,18 @@ const TopPurchases = ({ teams }) => {
             return (
               <div
                 key={p.slNo}
-                className="flex items-center justify-between text-sm bg-mist rounded-lg px-3 py-2"
+                className="row flex items-center justify-between text-sm px-3 py-2"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="font-display text-ink/40 w-6 text-center shrink-0">
-                    {MEDALS[i] ?? i + 1}
+                  <span className={`num text-xl w-7 shrink-0 ${RANK_STYLES[i] ?? 'text-bone/25'}`}>
+                    {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-ink truncate">{p.playerName}</span>
-                  <span
-                    className="text-xs font-display px-2 py-0.5 rounded text-white shrink-0"
-                    style={{ backgroundColor: team?.color }}
-                  >
+                  <span className="text-bone truncate">{p.playerName}</span>
+                  <span className="team-chip shrink-0" style={teamChipStyle(team)}>
                     {p.teamId}
                   </span>
                 </div>
-                <span className="font-display text-ink shrink-0">₹{p.boughtFor}L</span>
+                <span className={`num text-xl shrink-0 ${i === 0 ? 'text-red' : 'text-bone'}`}>₹{p.boughtFor}L</span>
               </div>
             )
           })}

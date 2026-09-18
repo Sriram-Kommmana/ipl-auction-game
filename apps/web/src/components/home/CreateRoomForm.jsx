@@ -6,11 +6,9 @@ import { connectAndReconnect } from '../../lib/socket'
 import { useSessionStore } from '../../store/sessionStore'
 import Spinner from '../shared/Spinner'
 
-const inputClass =
-  'w-full bg-mist border border-line rounded-lg px-3 py-2 text-ink ' +
-  'placeholder:text-ink/30 focus:outline-none focus:ring-2 focus:ring-brand-red'
+const inputClass = 'field'
 
-const labelClass = 'block text-xs uppercase tracking-wider text-ink/50 mb-1'
+const labelClass = 'label-mono block mb-1.5'
 
 const CreateRoomForm = () => {
   const navigate = useNavigate()
@@ -114,7 +112,7 @@ const CreateRoomForm = () => {
             value={managerPin}
             onChange={(e) => setManagerPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
             placeholder="4 digits"
-            className={`${inputClass} tracking-widest`}
+            className={`${inputClass} tracking-[0.4em]`}
           />
         </div>
         <div>
@@ -125,7 +123,7 @@ const CreateRoomForm = () => {
             value={roomPin}
             onChange={(e) => setRoomPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
             placeholder="4 digits"
-            className={`${inputClass} tracking-widest`}
+            className={`${inputClass} tracking-[0.4em]`}
           />
         </div>
       </div>
@@ -143,15 +141,13 @@ const CreateRoomForm = () => {
         />
       </div> */}
 
-      {error && <p className="text-sm text-brand-red-dark" role="alert">{error}</p>}
+      {error && <p className="font-mono text-xs text-red border-l-2 border-red bg-red/10 px-3 py-2" role="alert">! {error}</p>}
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-50 disabled:cursor-not-allowed
-                   text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+        className="btn-primary w-full text-2xl py-3 flex items-center justify-center gap-3 !mt-6"
       >
-        
         {isSubmitting && <Spinner size={20} variant="light" />}
         {isSubmitting ? 'CREATING…' : 'CREATE ROOM'}
       </button>

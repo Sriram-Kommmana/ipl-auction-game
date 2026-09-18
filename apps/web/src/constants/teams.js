@@ -76,3 +76,29 @@ export const TEAMS = [
 export const TEAMS_BY_ID = Object.fromEntries(
   TEAMS.map((team) => [team.teamId, team])
 )
+
+// Picks black or white text for a given hex background, so team chips stay
+// readable on light brand colors (CSK yellow, SRH orange) as well as dark
+// ones (GT navy, KKR purple).
+const readableTextOn = (hex) => {
+  if (!hex) return '#FFFFFF'
+  const n = parseInt(hex.slice(1), 16)
+  const r = (n >> 16) & 255
+  const g = (n >> 8) & 255
+  const b = n & 255
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+  return luminance > 0.6 ? '#0A0A0A' : '#FFFFFF'
+}
+
+// Inline style for a team chip/badge: brand color fill, readable text, and
+// a thin accent-color underline so very dark brand colors (GT) still read
+// against the black UI.
+export const teamChipStyle = (team) =>
+  team
+    ? {
+        backgroundColor: team.color,
+        color: readableTextOn(team.color),
+        textShadow: 'none',
+        boxShadow: `inset 0 -2px 0 ${team.accent}`
+      }
+    : undefined

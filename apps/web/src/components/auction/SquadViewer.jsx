@@ -15,27 +15,23 @@ const SquadViewer = () => {
   if (!myTeamId) return null
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-4">
-      <div className="flex items-center justify-between mb-2">
-        <h2 className="font-display text-lg text-ink tracking-wide">MY SQUAD</h2>
-        <span className="text-xs text-ink/40">{mySquad.length} players</span>
-      </div>
+    <div>
 
       {mySquad.length === 0 ? (
-        <p className="text-xs text-ink/30 text-center py-4">No players bought yet</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 text-center py-4">No players bought yet</p>
       ) : (
-        <div className="space-y-1.5 max-h-72 overflow-y-auto">
+        <div className="space-y-1.5">
           {mySquad.map((entry) => (
-            <div key={entry.iplPlayerId} className="flex items-center justify-between text-sm">
+            <div key={entry.iplPlayerId} className="row flex items-center justify-between text-sm px-2.5 py-1.5">
               <div className="flex items-center gap-1.5 min-w-0">
-                <span className="text-ink truncate">{entry.playerName}</span>
+                <span className="text-bone truncate">{entry.playerName}</span>
                 {entry.role && (
-                  <span className="text-[10px] font-display bg-mist text-ink/50 px-1.5 py-0.5 rounded shrink-0 min-w-12 text-center">
+                  <span className="font-mono text-[9px] uppercase tracking-wider border border-line-strong text-bone/50 px-1.5 py-0.5 shrink-0 min-w-12 text-center">
                     {entry.role}
                   </span>
                 )}
               </div>
-              <span className="font-display text-ink shrink-0">₹{entry.soldFor}L</span>
+              <span className="num text-lg text-bone shrink-0">₹{entry.soldFor}L</span>
             </div>
           ))}
         </div>

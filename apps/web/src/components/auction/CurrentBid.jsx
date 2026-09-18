@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { TEAMS_BY_ID } from '../../constants/teams'
+import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 import { useAuctionStore } from '../../store/auctionStore'
 import { useRoomStore } from '../../store/roomStore'
 
@@ -16,8 +16,11 @@ const CurrentBid = () => {
     : null
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-2 text-center">
-      <p className="text-xs uppercase tracking-widest text-ink/50">Current Bid</p>
+    <div className="panel p-3 text-center">
+      <div className="flex items-center justify-center gap-2">
+        <span className="h-1.5 w-1.5 bg-red animate-blink" />
+        <p className="label-mono">Current Bid // 現在価格</p>
+      </div>
 
       {/* Keyed by currentBid — every new bid amount re-mounts this element,
           giving a distinct pulse rather than the number just silently
@@ -28,27 +31,28 @@ const CurrentBid = () => {
           initial={{ scale: 1.25, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="font-display text-5xl text-ink mt-1"
+          className="num text-6xl text-bone mt-1 leading-none"
         >
-          ₹{currentBid}L
+          <span className="text-bone/50">₹</span>{currentBid}<span className="text-red">L</span>
         </motion.p>
       </AnimatePresence>
 
       {team ? (
         <>
-          <div className="flex items-baseline justify-center gap-2 mt-3">
-            <p className="text-xs uppercase tracking-widest text-ink/40 mt-4">Highest Bidder</p>
-            <div
-              className="inline-flex items-center gap-2 mt-1 px-3 py-1 rounded-full"
-              style={{ backgroundColor: team.color }}
-            >
-              <span className="text-xs font-display text-white tracking-wide">{team.teamId}</span>
-              {ownerNickname && <span className="text-xs text-white/80">· {ownerNickname}</span>}
+          <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-line">
+            <p className="label-mono">Highest Bidder</p>
+            <div className="inline-flex items-stretch">
+              <span className="team-chip" style={teamChipStyle(team)}>{team.teamId}</span>
+              {ownerNickname && (
+                <span className="font-mono text-[11px] text-bone bg-raised border border-line px-2 flex items-center">
+                  {ownerNickname}
+                </span>
+              )}
             </div>
           </div>
         </>
       ) : (
-        <p className="text-xs text-ink/30 mt-3">No bids yet</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 mt-3 pt-3 border-t border-line">— No bids yet —</p>
       )}
     </div>
   )

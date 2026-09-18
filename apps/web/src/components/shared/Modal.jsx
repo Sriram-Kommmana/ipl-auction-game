@@ -12,31 +12,42 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 bg-ink/60 flex items-center justify-center z-50 px-4"
+      className="fixed inset-0 bg-void/80 backdrop-blur-sm flex items-center justify-center z-50 px-4"
       onClick={onCancel}
     >
       <div
-        className="bg-paper rounded-2xl p-6 max-w-sm w-full"
+        className={`panel max-w-sm w-full ${danger ? 'shadow-brutal' : 'shadow-brutal-bone'}`}
         onClick={(e) => e.stopPropagation()}
       >
-        {title && <h2 className="font-display text-xl text-ink mb-2">{title}</h2>}
-        {message && <p className="text-sm text-ink/60 mb-5">{message}</p>}
-        <div className="flex gap-3 justify-end">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="text-sm text-ink/50 hover:text-ink px-4 py-2 transition-colors"
-          >
-            {cancelLabel}
-          </button>
-          <button
-            type="button"
-            onClick={onConfirm}
-            className={`font-display text-sm px-4 py-2 rounded-lg transition-colors text-paper
-              ${danger ? 'bg-brand-red hover:bg-brand-red-dark' : 'bg-ink hover:bg-charcoal'}`}
-          >
-            {confirmLabel}
-          </button>
+        <div className={`flex items-center justify-between px-5 py-2 border-b border-line
+          ${danger ? 'bg-red text-bone' : 'bg-raised text-bone/60'}`}
+        >
+          <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
+            {danger ? '⚠ Warning' : 'System'}
+          </span>
+          <span className="font-jp text-[10px] tracking-[0.3em] opacity-70">
+            {danger ? '警告' : '確認'}
+          </span>
+        </div>
+        <div className="p-5">
+          {title && <h2 className="font-display text-2xl uppercase tracking-wide text-bone mb-2">{title}</h2>}
+          {message && <p className="text-sm text-bone/60 leading-relaxed mb-6">{message}</p>}
+          <div className="flex gap-3 justify-end">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="font-mono text-xs uppercase tracking-[0.18em] text-bone/50 hover:text-bone px-4 py-2 transition-colors"
+            >
+              {cancelLabel}
+            </button>
+            <button
+              type="button"
+              onClick={onConfirm}
+              className={`text-base px-5 py-2 ${danger ? 'btn-primary' : 'btn-outline'}`}
+            >
+              {confirmLabel}
+            </button>
+          </div>
         </div>
       </div>
     </div>

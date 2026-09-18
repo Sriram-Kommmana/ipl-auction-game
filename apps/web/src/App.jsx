@@ -57,6 +57,8 @@ const AppRoutes = () => {
         <Route path="/results/:roomId" element={<PostAuction />} />
       </Routes>
       <Toast message={socketError?.message} onDismiss={clearSocketError} />
+      {/* Global CRT scanline veil — purely decorative, never intercepts clicks */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-[100] scanlines opacity-50" />
     </>
   )
 }

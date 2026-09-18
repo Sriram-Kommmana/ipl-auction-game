@@ -1,4 +1,4 @@
-import { TEAMS_BY_ID } from '../../constants/teams'
+import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 
 const formatDuration = (startedAt, completedAt) => {
   const ms = new Date(completedAt) - new Date(startedAt)
@@ -32,34 +32,35 @@ const AuctionSummary = ({ results }) => {
   ]
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-6">
-      <h2 className="font-display text-2xl text-ink mb-4 tracking-wide">AUCTION SUMMARY</h2>
+    <div className="panel p-6">
+      <div className="section-head">
+        <span className="section-num">01</span>
+        <h2 className="section-title">Auction Summary</h2>
+        <span className="section-jp">概要</span>
+      </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 mb-4">
+      <div className="grid grid-cols-3 sm:grid-cols-5 border-l border-t border-line mb-5">
         {stats.map((s) => (
-          <div key={s.label} className="text-center">
-            <p className="font-display text-3xl text-ink">{s.value}</p>
-            <p className="text-xs text-ink/50 uppercase tracking-wide mt-1">{s.label}</p>
+          <div key={s.label} className="border-r border-b border-line px-3 py-4">
+            <p className="label-mono">{s.label}</p>
+            <p className="num text-3xl sm:text-4xl text-bone mt-2 leading-none whitespace-nowrap">{s.value}</p>
           </div>
         ))}
       </div>
 
       {mostExpensive && (
-        <div className="border-t border-line pt-4 flex items-center justify-between flex-wrap gap-2">
+        <div className="bg-red/10 border border-red/40 border-l-4 border-l-red px-4 py-3 flex items-center justify-between flex-wrap gap-2">
           <div>
-            <p className="text-xs uppercase tracking-wide text-ink/50">Most Expensive Buy</p>
-            <p className="font-display text-xl text-ink">{mostExpensive.playerName}</p>
+            <p className="label-mono text-red">★ Most Expensive Buy // 最高額</p>
+            <p className="font-display text-3xl uppercase tracking-wide text-bone mt-1">{mostExpensive.playerName}</p>
           </div>
           <div className="flex items-center gap-2">
             {mostExpensiveTeam && (
-              <span
-                className="text-xs font-display px-2 py-0.5 rounded text-white"
-                style={{ backgroundColor: TEAMS_BY_ID[mostExpensiveTeam.teamId]?.color }}
-              >
+              <span className="team-chip" style={teamChipStyle(TEAMS_BY_ID[mostExpensiveTeam.teamId])}>
                 {mostExpensiveTeam.teamId}
               </span>
             )}
-            <span className="font-display text-2xl text-brand-red">
+            <span className="num text-4xl text-red glow-red">
               ₹{mostExpensive.soldFor}L
             </span>
           </div>

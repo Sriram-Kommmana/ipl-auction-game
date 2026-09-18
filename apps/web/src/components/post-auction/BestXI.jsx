@@ -49,26 +49,31 @@ const BestXI = ({ team }) => {
   if (!team) return null
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-6">
-      <h2 className="font-display text-2xl text-ink mb-4 tracking-wide">BEST XI</h2>
+    <div className="panel p-6">
+      <div className="section-head">
+        <span className="section-num">06</span>
+        <h2 className="section-title">Best XI</h2>
+        <span className="section-jp">最強布陣</span>
+      </div>
 
       {xi.length === 0 ? (
-        <p className="text-xs text-ink/30 text-center py-4">Not enough players for a Best XI yet</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 text-center py-4">Not enough players for a Best XI yet</p>
       ) : (
         <div className="space-y-1.5">
-          {xi.map((p) => (
+          {xi.map((p, i) => (
             <div
               key={p.slNo}
-              className="flex items-center justify-between text-sm bg-mist rounded-lg px-3 py-2"
+              className="row flex items-center justify-between text-sm px-3 py-2"
             >
               <div className="flex items-center gap-2 min-w-0">
+                <span className="font-mono text-[10px] text-bone/30 w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
                 {/*min-w-[48px] => min-w-12 */}
-                <span className="text-[10px] font-display bg-ink text-paper px-1.5 py-0.5 rounded shrink-0 min-w-12 text-center">
+                <span className="font-mono text-[10px] font-bold bg-bone text-void px-1.5 py-0.5 shrink-0 min-w-12 text-center">
                   {ROLE_SHORT[p.role] ?? p.role}
                 </span>
-                <span className="text-ink truncate">{p.playerName}</span>
+                <span className="text-bone truncate">{p.playerName}</span>
               </div>
-              <span className="text-xs text-ink/40 shrink-0">⭐ {p.rating}</span>
+              <span className="font-mono text-[11px] text-amber/80 shrink-0">★ {p.rating}</span>
             </div>
           ))}
         </div>

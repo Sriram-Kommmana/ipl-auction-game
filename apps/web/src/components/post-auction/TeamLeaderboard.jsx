@@ -1,13 +1,18 @@
-import { TEAMS_BY_ID } from '../../constants/teams'
+import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 
-const MEDALS = ['🥇', '🥈', '🥉']
+// Podium tints — gold / bone / red for the top three, muted after that
+const RANK_STYLES = ['text-amber', 'text-bone', 'text-red']
 
 const TeamLeaderboard = ({ teams }) => {
   const sorted = [...teams].sort((a, b) => b.teamRating - a.teamRating)
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-6">
-      <h2 className="font-display text-2xl text-ink mb-4 tracking-wide">LEADERBOARD</h2>
+    <div className="panel p-6">
+      <div className="section-head">
+        <span className="section-num">02</span>
+        <h2 className="section-title">Leaderboard</h2>
+        <span className="section-jp">順位</span>
+      </div>
       <div className="space-y-2">
         {sorted.map((team, i) => {
           const meta = TEAMS_BY_ID[team.teamId]
@@ -15,27 +20,25 @@ const TeamLeaderboard = ({ teams }) => {
           return (
             <div
               key={team.teamId}
-              className="flex items-center justify-between bg-mist border border-line rounded-xl px-4 py-3"
+              className={`row flex items-center justify-between px-4 py-3
+                ${i === 0 ? '!border-amber/50 !border-l-4 !border-l-amber' : ''}`}
             >
               <div className="flex items-center gap-3 min-w-0">
-                <span className="font-display text-lg text-ink/40 w-6 text-center shrink-0">
-                  {MEDALS[i] ?? i + 1}
+                <span className={`num text-3xl w-10 shrink-0 leading-none ${RANK_STYLES[i] ?? 'text-bone/25'}`}>
+                  {String(i + 1).padStart(2, '0')}
                 </span>
-                <span
-                  className="text-xs font-display px-2 py-1 rounded text-white shrink-0"
-                  style={{ backgroundColor: meta?.color }}
-                >
+                <span className="team-chip shrink-0" style={teamChipStyle(meta)}>
                   {team.teamId}
                 </span>
                 <div className="min-w-0">
-                  <p className="text-ink truncate">{team.teamName}</p>
-                  <p className="text-xs text-ink/50 truncate">{team.ownerNickname}</p>
+                  <p className="font-display text-lg uppercase tracking-wide text-bone truncate leading-tight">{team.teamName}</p>
+                  <p className="font-mono text-[11px] text-bone/45 truncate">{team.ownerNickname}</p>
                 </div>
               </div>
               <div className="text-right shrink-0">
-                <p className="font-display text-xl text-ink">{team.teamRating}</p>
-                <p className="text-xs text-ink/40">
-                  {team.playerCount} players · {team.overseasCount} 🌍
+                <p className={`num text-3xl leading-none ${i === 0 ? 'text-amber' : 'text-bone'}`}>{team.teamRating}</p>
+                <p className="font-mono text-[10px] text-bone/40 mt-1">
+                  {team.playerCount} PLR · {team.overseasCount} OS
                 </p>
               </div>
             </div>

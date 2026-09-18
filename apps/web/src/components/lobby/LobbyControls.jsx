@@ -25,11 +25,11 @@ const LobbyControls = () => {
 
   return (
     <>
-      <div className="mt-6 flex items-center justify-between">
+      <div className="mt-8 pt-6 border-t border-line flex items-center justify-between gap-4">
         <button
           type="button"
           onClick={() => setShowLeaveConfirm(true)}
-          className="text-sm text-ink/50 hover:text-brand-red transition-colors"
+          className="link-back"
         >
           ← Leave Room
         </button>
@@ -40,13 +40,14 @@ const LobbyControls = () => {
               type="button"
               onClick={handleStartAuction}
               disabled={isStartDisabled}
-              className="bg-brand-red hover:bg-brand-red-dark disabled:opacity-40 disabled:cursor-not-allowed
-                         text-paper font-display text-xl tracking-wide px-6 py-3 rounded-lg transition-colors"
+              className="btn-primary text-2xl px-8 py-3"
             >
-              {!isConnected ? 'RECONNECTING…' : 'START AUCTION'}
+              {!isConnected ? 'Reconnecting…' : 'Start Auction →'}
             </button>
             {isConnected && claimedCount < 2 && (
-              <p className="text-xs text-ink/40 mt-1">Need at least 2 teams claimed</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-bone/40 mt-3">
+                <span className="text-red">{claimedCount}/2</span> · Need at least 2 teams claimed
+              </p>
             )}
           </div>
         )}

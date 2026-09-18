@@ -1,6 +1,6 @@
 const VARIANTS = {
-  default: 'border-ink/20 border-t-brand-red',
-  light: 'border-paper/30 border-t-paper'
+  default: 'border-bone/15 border-t-red',
+  light: 'border-bone/30 border-t-bone'
 }
 
 const Spinner = ({ size = 20, variant = 'default', className = '' }) => (

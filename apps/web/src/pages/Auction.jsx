@@ -45,24 +45,27 @@ const Auction = ({ managerNotice }) => {
   const MobileActiveComponent = MOBILE_TABS.find((t) => t.id === mobileTab)?.Component
 
   return (
-    <div className="min-h-screen md:h-screen md:overflow-hidden bg-mist px-4 py-4 sm:px-8 relative">
+    <div className="min-h-screen md:h-screen md:overflow-hidden bg-city px-4 py-4 sm:px-8 relative">
       {/* ================= MOBILE (below md) ================= */}
       <div className="md:hidden">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <button
             type="button"
             onClick={() => setShowLeaveConfirm(true)}
-            className="text-sm text-ink/50 hover:text-brand-red transition-colors"
+            className="link-back whitespace-nowrap"
           >
-            ← Leave Room
+            ← Leave
           </button>
           <RoomCode roomId={roomId} size="sm" />
           <ManagerControls />
         </div>
 
         {managerNotice && (
-          <div className="bg-brand-red text-paper text-sm text-center py-2 rounded-lg mb-4">
-            {managerNotice.message}
+          <div className="flex items-stretch border-2 border-red bg-red/10 mb-4">
+            <div className="hazard w-3 shrink-0" />
+            <p className="flex-1 font-mono text-xs uppercase tracking-wider text-bone text-center py-2 px-3">
+              {managerNotice.message}
+            </p>
           </div>
         )}
 
@@ -87,8 +90,9 @@ const Auction = ({ managerNotice }) => {
         <button
           type="button"
           onClick={() => setIsMobileDrawerOpen(true)}
-          className="fixed bottom-5 right-5 z-30 bg-brand-red text-paper rounded-full p-4 shadow-lg
-                     flex items-center justify-center"
+          className="fixed bottom-5 right-5 z-30 bg-red text-bone border-2 border-red p-4
+                     shadow-[4px_4px_0_0_var(--color-bone)] active:translate-x-1 active:translate-y-1 active:shadow-none
+                     transition-transform flex items-center justify-center"
           aria-label="Open Chat, Bids, Purse & Squad"
         >
           <Menu size={22} />
@@ -96,9 +100,9 @@ const Auction = ({ managerNotice }) => {
 
         <Drawer.Root open={isMobileDrawerOpen} onOpenChange={setIsMobileDrawerOpen}>
           <Drawer.Portal>
-            <Drawer.Overlay className="fixed inset-0 bg-ink/60 z-40" />
-            <Drawer.Content className="fixed bottom-0 left-0 right-0 bg-paper rounded-t-2xl border-t border-line z-50 flex flex-col h-[75vh]">
-              <div className="mx-auto mt-2 h-1.5 w-10 rounded-full bg-ink/20 shrink-0" />
+            <Drawer.Overlay className="fixed inset-0 bg-void/80 backdrop-blur-sm z-40" />
+            <Drawer.Content className="fixed bottom-0 left-0 right-0 bg-panel border-t-2 border-red z-50 flex flex-col h-[75vh] outline-none">
+              <div className="mx-auto mt-2.5 h-1 w-12 bg-bone/25 shrink-0" />
 
               <div className="flex border-b border-line shrink-0 mt-2">
                 {MOBILE_TABS.map((tab) => (
@@ -106,10 +110,8 @@ const Auction = ({ managerNotice }) => {
                     key={tab.id}
                     type="button"
                     onClick={() => setMobileTab(tab.id)}
-                    className={`flex-1 text-xs font-display tracking-wide py-2.5 transition-colors
-                      ${mobileTab === tab.id
-                        ? 'bg-brand-red text-paper'
-                        : 'text-ink/50 hover:text-ink hover:bg-mist'}`}
+                    data-active={mobileTab === tab.id}
+                    className="tab flex-1 text-sm py-2.5"
                   >
                     {tab.label}
                   </button>
@@ -130,7 +132,7 @@ const Auction = ({ managerNotice }) => {
           <button
             type="button"
             onClick={() => setShowLeaveConfirm(true)}
-            className="text-sm text-ink/50 hover:text-brand-red transition-colors"
+            className="link-back"
           >
             ← Leave Room
           </button>
@@ -141,17 +143,23 @@ const Auction = ({ managerNotice }) => {
         </div>
 
         {managerNotice && (
-          <div className="bg-brand-red text-paper text-sm text-center py-2 rounded-lg mb-4 md:shrink-0">
-            {managerNotice.message}
+          <div className="flex items-stretch border-2 border-red bg-red/10 mb-4 md:shrink-0">
+            <div className="hazard w-3 shrink-0" />
+            <p className="flex-1 font-mono text-xs uppercase tracking-wider text-bone text-center py-2 px-3">
+              {managerNotice.message}
+            </p>
+            <div className="hazard w-3 shrink-0" />
           </div>
         )}
 
         <div className="grid md:grid-cols-3 gap-4 md:flex-1 md:min-h-0">
           <div className="flex flex-col gap-4 md:min-h-0">
-            <div className="md:flex-1 md:min-h-0 md:overflow-y-auto">
+            {/* 50/50 split — each panel fills its half (h-full inside) and
+                scrolls its own list, so there's no dead gap between them. */}
+            <div className="md:flex-1 md:min-h-0 md:overflow-hidden">
               <PurseTracker />
             </div>
-            <div className="md:flex-1 md:min-h-0 md:overflow-y-auto">
+            <div className="md:flex-1 md:min-h-0 md:overflow-hidden">
               <BidFeed />
             </div>
           </div>
@@ -174,17 +182,15 @@ const Auction = ({ managerNotice }) => {
             <CurrentBid />
           </div>
 
-          <div className="md:flex md:flex-col md:min-h-0 bg-paper border border-line rounded-2xl overflow-hidden">
+          <div className="md:flex md:flex-col md:min-h-0 panel overflow-hidden">
             <div className="flex border-b border-line shrink-0">
               {TABS.map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex-1 text-xs font-display tracking-wide py-2.5 transition-colors
-                    ${activeTab === tab.id
-                      ? 'bg-brand-red text-paper'
-                      : 'text-ink/50 hover:text-ink hover:bg-mist'}`}
+                  data-active={activeTab === tab.id}
+                  className="tab flex-1 text-sm py-2.5"
                 >
                   {tab.label}
                 </button>
@@ -214,26 +220,37 @@ const Auction = ({ managerNotice }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-ink/80 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-void/85 backdrop-blur-sm flex items-center justify-center z-50"
           >
             <motion.div
-              initial={{ scale: 0.6, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0.6, opacity: 0, rotate: -4 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="bg-paper rounded-2xl p-8 text-center max-w-sm mx-4"
+              className={`relative bg-panel border-2 text-center max-w-sm w-full mx-4 overflow-hidden
+                ${lastResult.status === 'sold'
+                  ? 'border-red shadow-[8px_8px_0_0_var(--color-red)]'
+                  : 'border-line-strong shadow-[8px_8px_0_0_var(--color-line-strong)]'}`}
             >
-              <p className={`font-display text-5xl ${
-                lastResult.status === 'sold' ? 'text-brand-red' : 'text-ink/40'
-              }`}>
-                {lastResult.status === 'sold' ? 'SOLD!' : 'UNSOLD'}
-              </p>
-              <p className="font-display text-2xl text-ink mt-2">{lastResult.playerName}</p>
-              {lastResult.status === 'sold' && (
-                <p className="text-ink/60 mt-1">
-                  to {lastResult.teamName} for ₹{lastResult.soldFor}L
+              <div className={`h-3 ${lastResult.status === 'sold' ? 'hazard' : 'bg-line-strong'}`} />
+              <div className="px-8 pt-6 pb-8">
+                <p className="font-jp font-black text-sm tracking-[0.5em] text-bone/40">
+                  {lastResult.status === 'sold' ? '落札' : '不落札'}
                 </p>
-              )}
+                <p className={`font-display text-7xl uppercase leading-none mt-1 ${
+                  lastResult.status === 'sold' ? 'text-red glow-red' : 'text-bone/35'
+                }`}>
+                  {lastResult.status === 'sold' ? 'Sold!' : 'Unsold'}
+                </p>
+                <div className="h-px bg-line my-4" />
+                <p className="font-display text-3xl uppercase tracking-wide text-bone">{lastResult.playerName}</p>
+                {lastResult.status === 'sold' && (
+                  <p className="font-mono text-xs uppercase tracking-wider text-bone/55 mt-2">
+                    to <span className="text-bone">{lastResult.teamName}</span> for{' '}
+                    <span className="text-red">₹{lastResult.soldFor}L</span>
+                  </p>
+                )}
+              </div>
             </motion.div>
           </motion.div>
         )}

@@ -13,12 +13,16 @@ const Toast = ({ message, onDismiss, duration = 4000 }) => {
 
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-4 w-full max-w-sm">
-      <div className="bg-brand-red text-paper rounded-xl px-4 py-3 shadow-lg flex items-center justify-between gap-3">
-        <p className="text-sm">{message}</p>
+      <div className="bg-panel border-2 border-red shadow-brutal flex items-stretch">
+        <div className="hazard w-2 shrink-0" />
+        <div className="flex-1 px-4 py-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-red mb-0.5">Error // エラー</p>
+          <p className="text-sm text-bone">{message}</p>
+        </div>
         <button
           type="button"
           onClick={onDismiss}
-          className="text-paper/70 hover:text-paper text-lg leading-none"
+          className="px-3 text-bone/50 hover:text-red text-xl leading-none transition-colors"
           aria-label="Dismiss"
         >
           ×

@@ -1,11 +1,11 @@
 // apps/web/src/components/post-auction/AuctionHistory.jsx
 import { useMemo, useState } from 'react'
-import { TEAMS_BY_ID } from '../../constants/teams'
+import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 
 const STATUS_STYLES = {
-  sold: { label: 'SOLD', className: 'bg-brand-red text-paper' },
-  unsold: { label: 'UNSOLD', className: 'bg-ink/10 text-ink/50' },
-  skipped: { label: 'SKIPPED', className: 'bg-mist text-ink/40 border border-line' }
+  sold: { label: 'SOLD', className: 'bg-red text-bone border border-red' },
+  unsold: { label: 'UNSOLD', className: 'text-bone/50 border border-line-strong' },
+  skipped: { label: 'SKIPPED', className: 'text-amber/80 border border-amber/40 border-dashed' }
 }
 
 const FILTERS = ['all', 'sold', 'unsold', 'skipped']
@@ -23,36 +23,38 @@ const AuctionHistory = ({ history }) => {
   }, [history, query, statusFilter])
 
   return (
-    <div className="bg-paper border border-line rounded-2xl p-6">
-      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-        <h2 className="font-display text-2xl text-ink tracking-wide">AUCTION HISTORY</h2>
+    <div className="panel p-6">
+      <div className="section-head">
+        <span className="section-num">07</span>
+        <h2 className="section-title">Auction History</h2>
+        <span className="section-jp">入札履歴</span>
+      </div>
+
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-3">
+        <div className="flex">
+          {FILTERS.map((s) => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => setStatusFilter(s)}
+              data-active={statusFilter === s}
+              className="tab text-xs px-3 py-1.5 border border-line -ml-px first:ml-0"
+            >
+              {s}
+            </button>
+          ))}
+        </div>
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search player…"
-          className="bg-mist border border-line rounded-lg px-3 py-1.5 text-sm text-ink
-                     placeholder:text-ink/30 focus:outline-none focus:ring-2 focus:ring-brand-red"
+          className="field !w-auto !py-1.5 !text-sm"
         />
       </div>
 
-      <div className="flex gap-2 mb-3">
-        {FILTERS.map((s) => (
-          <button
-            key={s}
-            type="button"
-            onClick={() => setStatusFilter(s)}
-            className={`text-xs font-display px-3 py-1 rounded-full transition-colors ${
-              statusFilter === s ? 'bg-ink text-paper' : 'bg-mist text-ink/50 hover:text-ink'
-            }`}
-          >
-            {s.toUpperCase()}
-          </button>
-        ))}
-      </div>
-
       {filtered.length === 0 ? (
-        <p className="text-xs text-ink/30 text-center py-4">No matching players</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 text-center py-4">No matching players</p>
       ) : (
         <div className="space-y-1.5 max-h-96 overflow-y-auto">
           {filtered.map((h) => {
@@ -64,25 +66,22 @@ const AuctionHistory = ({ history }) => {
               // appears twice in history with the same slNo.
               <div
                 key={h.auctionOrder}
-                className="flex items-center justify-between text-sm bg-mist rounded-lg px-3 py-2"
+                className="row flex items-center justify-between text-sm px-3 py-2"
               >
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-xs text-ink/30 w-6 shrink-0">#{h.auctionOrder}</span>
-                  <span className="text-ink truncate">{h.playerName}</span>
+                  <span className="font-mono text-[10px] text-bone/30 w-8 shrink-0">#{String(h.auctionOrder).padStart(3, '0')}</span>
+                  <span className="text-bone truncate">{h.playerName}</span>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   {team && (
-                    <span
-                      className="text-xs font-display px-2 py-0.5 rounded text-white"
-                      style={{ backgroundColor: team.color }}
-                    >
+                    <span className="team-chip" style={teamChipStyle(team)}>
                       {team.teamId}
                     </span>
                   )}
                   {h.soldFor != null && (
-                    <span className="font-display text-ink">₹{h.soldFor}L</span>
+                    <span className="num text-lg text-bone">₹{h.soldFor}L</span>
                   )}
-                  <span className={`text-[10px] font-display px-1.5 py-0.5 rounded ${statusStyle.className}`}>
+                  <span className={`font-mono text-[9px] tracking-wider px-1.5 py-0.5 min-w-14 text-center ${statusStyle.className}`}>
                     {statusStyle.label}
                   </span>
                 </div>

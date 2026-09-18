@@ -1,24 +1,346 @@
-/* apps/web/src/index.css */
+/* apps/web/src/index.css
+   ─────────────────────────────────────────────────────────────────────
+   DESIGN SYSTEM — Dystopian Japanese Cyberpunk × Neo-Brutalist Swiss
+   Core palette: RED + BLACK + OFF-WHITE ("bone").
+   Support accents (used sparingly, for state only):
+     cyan  → live / online / "yours" / success
+     amber → warnings, ratings, medals
+   ───────────────────────────────────────────────────────────────────── */
 @import "tailwindcss";
 
 @theme {
+  /* Blacks — layered surfaces, darkest first */
+  --color-void: #060607;     /* page background */
+  --color-panel: #0D0D0F;    /* card / panel surface */
+  --color-raised: #151518;   /* inset rows, inputs, hover fills */
+  --color-carbon: #000000;   /* deepest — PlayerCard body */
 
-  --color-mist: #0A0A0A;      /* page background — was light grey, now near-black */
-  --color-paper: #1A1A1A;     /* card/panel surface — was white, now dark elevated surface */
-  --color-charcoal: #000000;  /* PlayerCard's special deeper accent — pure black, darker than paper */
-  --color-ink: #F5F5F5;       /* primary text — was near-black, now soft white */
-  --color-line: #333333;      /* borders — was light grey, now visible against dark bg */
+  /* Off-white — primary text */
+  --color-bone: #EFE9DD;
 
-  --color-coral: #FF4D4D;
-  --color-brand-red: #E4262C;
-  --color-brand-red-dark: #B01E23;
+  /* Lines */
+  --color-line: #232327;
+  --color-line-strong: #3A3A41;
 
-  --font-display: "Bebas Neue", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  /* Reds */
+  --color-red: #FF1F3D;
+  --color-red-deep: #B3001E;
+  --color-red-glow: #FF4D63;
+
+  /* Support accents */
+  --color-cyan: #2FF3E0;
+  --color-amber: #FFB020;
+
+  --font-display: "Anton", "Bebas Neue", Impact, sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-jp: "Noto Sans JP", sans-serif;
+
+  --animate-blink: blink 1s steps(2, start) infinite;
+  --animate-scan: scan 7s linear infinite;
+  --animate-flicker: flicker 4s linear infinite;
+
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes flicker {
+    0%, 19%, 21%, 62%, 64%, 100% { opacity: 1; }
+    20%, 63% { opacity: 0.55; }
+  }
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────── */
+html {
+  color-scheme: dark;
 }
 
 body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
+  background-color: var(--color-void);
+  color: var(--color-bone);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-red);
+  color: var(--color-bone);
+}
+
+/* Thin, sharp scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--color-line-strong); }
+*::-webkit-scrollbar-thumb:hover { background: var(--color-red); }
+
+:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}
+
+/* ─── Components ───────────────────────────────────────────────────── */
+@layer components {
+  /* Page backdrop: faint grid + red horizon glow + noise-ish scanlines */
+  .bg-city {
+    background-color: var(--color-void);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 115%, rgb(255 31 61 / 0.16), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 100% 0%, rgb(255 31 61 / 0.06), transparent 70%),
+      linear-gradient(to right, rgb(239 233 221 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(239 233 221 / 0.035) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  }
+
+  /* CRT scanline veil — put on a fixed, pointer-events-none overlay */
+  .scanlines {
+    background: repeating-linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0) 0px,
+      rgb(0 0 0 / 0) 2px,
+      rgb(0 0 0 / 0.22) 3px
+    );
+  }
+
+  /* Panel — flat black slab, hairline border, red corner ticks */
+  .panel {
+    position: relative;
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-line);
+  }
+  .panel::before,
+  .panel::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+  }
+  /* Ticks sit inside the border box (not at -1px) so panels inside
+     overflow-auto columns never trigger a horizontal scrollbar. */
+  .panel::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid var(--color-red);
+    border-left: 2px solid var(--color-red);
+  }
+  .panel::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid var(--color-red);
+    border-right: 2px solid var(--color-red);
+  }
+
+  /* Brutalist hard shadow */
+  .shadow-brutal {
+    box-shadow: 6px 6px 0 0 var(--color-red);
+  }
+  .shadow-brutal-bone {
+    box-shadow: 6px 6px 0 0 var(--color-bone);
+  }
+
+  /* Primary — solid red slab with hard bone offset that collapses on press */
+  .btn-primary {
+    background-color: var(--color-red);
+    color: var(--color-bone);
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 2px solid var(--color-red);
+    box-shadow: 4px 4px 0 0 var(--color-bone);
+    transition: transform 120ms ease, box-shadow 120ms ease, background-color 150ms ease;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--color-red-glow);
+    border-color: var(--color-red-glow);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 0 var(--color-bone);
+  }
+  .btn-primary:disabled {
+    background-color: var(--color-raised);
+    border-color: var(--color-line-strong);
+    color: rgb(239 233 221 / 0.35);
+    box-shadow: 4px 4px 0 0 var(--color-line);
+    cursor: not-allowed;
+  }
+
+  /* Secondary — outlined bone */
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-bone);
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 2px solid var(--color-bone);
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+  .btn-outline:hover:not(:disabled) {
+    background-color: var(--color-bone);
+    color: var(--color-void);
+  }
+  .btn-outline:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  /* Text link — mono, uppercase */
+  .link-back {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(239 233 221 / 0.5);
+    transition: color 150ms ease;
+  }
+  .link-back:hover {
+    color: var(--color-red);
+  }
+
+  /* Inputs — inset black well, red caret/focus bar */
+  .field {
+    width: 100%;
+    background-color: var(--color-void);
+    border: 1px solid var(--color-line-strong);
+    border-left: 3px solid var(--color-line-strong);
+    padding: 0.7rem 0.85rem;
+    color: var(--color-bone);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    caret-color: var(--color-red);
+    transition: border-color 150ms ease, background-color 150ms ease;
+  }
+  .field::placeholder {
+    color: rgb(239 233 221 / 0.25);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--color-bone);
+    border-left-color: var(--color-red);
+    background-color: var(--color-raised);
+  }
+  .field:disabled {
+    opacity: 0.5;
+  }
+
+  /* Micro label — mono caps metadata */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(239 233 221 / 0.5);
+  }
+
+  /* Section heading row: "01 / TITLE ———— カタカナ" */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--color-red);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-bone);
+  }
+  .section-jp {
+    margin-left: auto;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgb(239 233 221 / 0.28);
+    white-space: nowrap;
+  }
+
+  /* Team chip — square, bold, uses inline backgroundColor for team color */
+  .team-chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    padding: 0.3rem 0.45rem;
+    color: #fff;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 0.45);
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.35);
+  }
+
+  /* Rows inside panels */
+  .row {
+    background-color: var(--color-raised);
+    border: 1px solid transparent;
+    transition: border-color 150ms ease;
+  }
+  .row:hover {
+    border-color: var(--color-line-strong);
+  }
+
+  /* Tabs */
+  .tab {
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(239 233 221 / 0.45);
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+  .tab:hover {
+    color: var(--color-bone);
+    background-color: var(--color-raised);
+  }
+  .tab[data-active='true'] {
+    color: var(--color-bone);
+    background-color: var(--color-red);
+  }
+
+  /* Big numeric money readout */
+  .num {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+
+  /* Red neon text glow */
+  .glow-red {
+    text-shadow: 0 0 18px rgb(255 31 61 / 0.55), 0 0 2px rgb(255 31 61 / 0.9);
+  }
+
+  /* Diagonal hazard stripe (for banners) */
+  .hazard {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-red) 0 10px,
+      var(--color-red-deep) 10px 20px
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scan,
+  .animate-flicker,
+  .animate-blink {
+    animation: none !important;
+  }
 }

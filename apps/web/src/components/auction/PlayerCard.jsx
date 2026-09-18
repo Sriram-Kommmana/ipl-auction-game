@@ -11,11 +11,11 @@ const STATS = [
 
 const StatBar = ({ label, value }) => (
   <div className="flex items-center gap-2">
-    <span className="text-xs text-paper/50 w-8">{label}</span>
-    <div className="flex-1 h-1.5 bg-paper/10 rounded-full overflow-hidden">
-      <div className="h-full bg-brand-red rounded-full" style={{ width: `${value}%` }} />
+    <span className="text-xs font-mono text-bone/50 w-8">{label}</span>
+    <div className="flex-1 h-1.5 bg-bone/10 rounded-full overflow-hidden">
+      <div className="h-full bg-red rounded-full" style={{ width: `${value}%` }} />
     </div>
-    <span className="text-xs text-paper/70 w-6 text-right">{value}</span>
+    <span className="text-xs font-mono text-bone/70 w-6 text-right">{value}</span>
   </div>
 )
 
@@ -58,9 +58,9 @@ const PlayerCard = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="bg-paper border border-line rounded-2xl p-8 text-center"
+          className="bg-panel border border-line rounded-2xl p-8 text-center"
         >
-          <p className="text-ink/40 font-display text-2xl">Waiting for next player…</p>
+          <p className="text-bone/40 font-display text-2xl">Waiting for next player…</p>
         </motion.div>
       ) : (
         <motion.div
@@ -69,7 +69,7 @@ const PlayerCard = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -24 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="bg-charcoal text-paper rounded-2xl p-6 shadow-xl relative overflow-hidden"
+          className="bg-linear-to-br from-red-deep/30 via-carbon to-carbon text-bone rounded-2xl p-6 shadow-xl shadow-red/15 relative overflow-hidden"
           style={{
             rotateX,
             rotateY,
@@ -86,19 +86,19 @@ const PlayerCard = () => {
 
           <div className="flex items-start justify-between gap-4 relative z-10">
             <div className="min-w-0">
-              <p className="text-xs uppercase tracking-widest text-paper/50">{player.role}</p>
+              <p className="text-xs font-mono uppercase tracking-widest text-red">{player.role}</p>
               <h1 className="font-display text-4xl tracking-wide leading-tight truncate">
                 {player.playerName}
               </h1>
-              <p className="text-sm text-paper/60 mt-1">
+              <p className="text-sm font-mono text-bone/60 mt-1">
                 {player.country}
                 {player.nationality === 'Overseas' && ' · Overseas'}
               </p>
             </div>
             {player.rating != null && (
               <div className="text-right shrink-0">
-                <p className="text-xs text-paper/50">RATING</p>
-                <p className="font-display text-3xl text-brand-red">{player.rating}</p>
+                <p className="text-xs font-mono text-bone/50">RATING</p>
+                <p className="font-display text-3xl text-red">{player.rating}</p>
               </div>
             )}
           </div>
@@ -111,9 +111,9 @@ const PlayerCard = () => {
             </div>
           )}
 
-          <div className="mt-5 pt-4 border-t border-paper/10 relative z-10">
-            <p className="text-xs text-paper/50">BASE PRICE</p>
-            <p className="font-display text-2xl text-paper">₹{player.basePrice}L</p>
+          <div className="mt-5 pt-4 border-t border-bone/10 relative z-10">
+            <p className="text-xs font-mono text-bone/50">BASE PRICE</p>
+            <p className="font-display text-2xl text-bone">₹{player.basePrice}L</p>
           </div>
         </motion.div>
       )}

@@ -11,7 +11,7 @@ import Modal from '../shared/Modal'
 import socket from '../../lib/socket'
 
 const btnClass =
-  'font-display text-sm tracking-wide px-4 py-2 rounded-lg transition-colors ' +
+  'font-display text-sm tracking-[0.08em] whitespace-nowrap px-3 sm:px-4 py-1.5 border-2 transition-colors ' +
   'disabled:opacity-40 disabled:cursor-not-allowed'
 
 const ManagerControls = () => {
@@ -78,9 +78,9 @@ const ManagerControls = () => {
             type="button"
             onClick={handlePause}
             disabled={!isConnected}
-            className={`${btnClass} bg-ink text-paper hover:bg-charcoal`}
+            className={`${btnClass} border-amber text-amber hover:bg-amber hover:text-void`}
           >
-            PAUSE
+            <span className="hidden sm:inline">❚❚ </span>PAUSE
           </button>
         )}
 
@@ -89,9 +89,9 @@ const ManagerControls = () => {
             type="button"
             onClick={handleResume}
             disabled={!isConnected}
-            className={`${btnClass} bg-ink text-paper hover:bg-charcoal`}
+            className={`${btnClass} border-cyan text-cyan hover:bg-cyan hover:text-void`}
           >
-            RESUME
+            <span className="hidden sm:inline">▶ </span>RESUME
           </button>
         )}
 
@@ -100,9 +100,9 @@ const ManagerControls = () => {
             type="button"
             onClick={handleSkipClick}
             disabled={!isConnected || isSkipping}
-            className={`${btnClass} bg-mist text-ink border border-line hover:border-brand-red`}
+            className={`${btnClass} border-line-strong text-bone/80 hover:border-red hover:text-red`}
           >
-            {isSkipping ? 'SKIPPING…' : 'SKIP'}
+            {isSkipping ? 'SKIPPING…' : <>SKIP<span className="hidden sm:inline"> ▸▸</span></>}
           </button>
         )}
       </div>

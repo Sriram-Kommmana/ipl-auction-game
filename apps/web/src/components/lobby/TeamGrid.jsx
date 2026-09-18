@@ -20,12 +20,18 @@ const TeamGrid = () => {
   }
 
   return (
-    <div>
-      <h2 className="font-display text-2xl text-ink mb-3 tracking-wide">CHOOSE YOUR TEAM</h2>
+    <div className="panel p-4">
+      <div className="section-head">
+        <span className="section-num">01</span>
+        <h2 className="section-title">Choose Your Team</h2>
+        <span className="section-jp">チーム選択</span>
+      </div>
       {!isConnected && (
-        <p className="text-xs text-brand-red-dark mb-2">Reconnecting… team selection is paused.</p>
+        <p className="font-mono text-xs text-red border-l-2 border-red bg-red/10 px-3 py-2 mb-3">
+          ! Reconnecting… team selection is paused.
+        </p>
       )}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
         {TEAMS.map((team) => {
           const claim = claimedByTeamId[team.teamId]
           const isMine = team.teamId === myTeamId
@@ -42,21 +48,45 @@ const TeamGrid = () => {
               type="button"
               disabled={isDisabled}
               onClick={() => handleSelect(team.teamId)}
-              className={`relative rounded-xl p-4 text-left border-2 transition-all
-                ${isMine ? 'border-ink shadow-lg' : 'border-transparent'}
-                ${isDisabled ? 'opacity-40 cursor-not-allowed' : 'hover:scale-[1.03] cursor-pointer'}
+              className={`group relative overflow-hidden text-left border bg-void transition-all min-h-[118px] flex flex-col
+                ${isMine
+                  ? 'border-cyan shadow-[4px_4px_0_0_var(--color-cyan)] -translate-x-0.5 -translate-y-0.5'
+                  : 'border-line-strong'}
+                ${isDisabled
+                  ? 'opacity-35 grayscale-[60%] cursor-not-allowed'
+                  : isMine ? '' : 'hover:border-bone hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--color-red)] cursor-pointer'}
               `}
-              style={{ backgroundColor: team.color }}
+              style={{
+                backgroundImage: `linear-gradient(160deg, ${team.color}40 0%, transparent 65%)`
+              }}
             >
-              <p className="font-display text-lg text-white drop-shadow leading-tight truncate">
-                {team.name}
-              </p>
-              <p className="text-xs text-white/70 mt-0.5 tracking-widest">{team.teamId}</p>
-              {claim?.ownerId && (
-                <p className="text-xs text-white mt-2 font-semibold truncate">
-                  {isMine ? 'YOUR TEAM' : (nicknameByPlayerId[claim.ownerId] ?? 'Loading...')}
+              {/* Brand stripe: primary + accent */}
+              <div className="flex h-1.5 shrink-0">
+                <div className="flex-[3]" style={{ backgroundColor: team.color }} />
+                <div className="flex-1" style={{ backgroundColor: team.accent }} />
+              </div>
+
+              <div className="p-3 flex flex-col flex-1">
+                <p className="font-display text-3xl leading-none text-bone tracking-wide">
+                  {team.teamId}
                 </p>
-              )}
+                <p className="text-[11px] leading-tight text-bone/55 mt-1 line-clamp-2">
+                  {team.name}
+                </p>
+                <div className="mt-auto pt-2">
+                  {claim?.ownerId ? (
+                    <p className={`font-mono text-[10px] uppercase tracking-wider truncate
+                      ${isMine ? 'text-cyan' : 'text-bone/70'}`}
+                    >
+                      {isMine ? '● Your Team' : `◆ ${nicknameByPlayerId[claim.ownerId] ?? 'Loading...'}`}
+                    </p>
+                  ) : (
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-bone/25 group-hover:text-red transition-colors">
+                      ○ Open
+                    </p>
+                  )}
+                </div>
+              </div>
             </button>
           )
         })}

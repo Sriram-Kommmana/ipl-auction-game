@@ -19,18 +19,31 @@ const RoomCode = ({ roomId, size = 'lg' }) => {
     }
   }
 
-  const textSize = size === 'lg' ? 'text-4xl' : 'text-sm'
+  const isLarge = size === 'lg'
 
   return (
     <button
       type="button"
       onClick={handleCopy}
-      className="group inline-flex items-center gap-2 text-left"
+      className={`group inline-flex items-center text-left border transition-colors
+        ${isLarge
+          ? 'gap-4 border-line-strong bg-void pl-4 pr-3 py-2 hover:border-red'
+          : 'gap-2 border-line bg-panel px-2.5 py-1.5 hover:border-red'}`}
       title="Click to copy"
     >
-      <span className={`font-display ${textSize} text-ink tracking-widest`}>{roomId}</span>
-      <span className="text-xs text-ink/30 group-hover:text-ink/60 transition-colors">
-        {copied ? '✓ Link Copied' : '⧉ Copy Link'}
+      <span
+        className={`font-display tracking-[0.18em] text-bone leading-none
+          ${isLarge ? 'text-5xl' : 'text-base'}`}
+      >
+        {roomId}
+      </span>
+      <span
+        className={`font-mono uppercase tracking-[0.15em] whitespace-nowrap transition-colors
+          ${isLarge ? 'text-[10px]' : 'text-[9px]'}
+          ${copied ? 'text-cyan' : 'text-bone/35 group-hover:text-red'}`}
+      >
+        {copied ? '✓' : '⧉'}
+        <span className={isLarge ? 'ml-1' : 'hidden sm:inline ml-1'}>{copied ? 'Copied' : 'Copy Link'}</span>
       </span>
     </button>
   )

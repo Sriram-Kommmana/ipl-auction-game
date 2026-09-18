@@ -9,11 +9,9 @@ import { useSessionStore } from '../../store/sessionStore'
 import { useRejoinRecent } from '../../hooks/useRejoinRecent'
 import Spinner from '../shared/Spinner'
 
-const inputClass =
-  'w-full bg-mist border border-line rounded-lg px-3 py-2 text-ink ' +
-  'placeholder:text-ink/30 focus:outline-none focus:ring-2 focus:ring-brand-red'
+const inputClass = 'field'
 
-const labelClass = 'block text-xs uppercase tracking-wider text-ink/50 mb-1'
+const labelClass = 'label-mono block mb-1.5'
 
 const JoinRoomForm = ({ initialRoomId = '' }) => {
   const navigate = useNavigate()
@@ -103,7 +101,7 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
             value={roomId}
             onChange={(e) => setRoomId(e.target.value.toUpperCase().slice(0, 6))}
             placeholder="e.g. X7K2AB"
-            className={`${inputClass} tracking-widest uppercase`}
+            className={`${inputClass} tracking-[0.3em] uppercase`}
           />
         </div>
 
@@ -115,7 +113,7 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
             value={roomPin}
             onChange={(e) => setRoomPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
             placeholder="4 digits"
-            className={`${inputClass} tracking-widest`}
+            className={`${inputClass} tracking-[0.4em]`}
           />
         </div>
 
@@ -139,17 +137,16 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
             value={playerPin}
             onChange={(e) => setPlayerPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
             placeholder="4 digits"
-            className={`${inputClass} tracking-widest`}
+            className={`${inputClass} tracking-[0.4em]`}
           />
         </div>
 
-        {error && <p className="text-sm text-brand-red-dark" role="alert">{error}</p>}
+        {error && <p className="font-mono text-xs text-red border-l-2 border-red bg-red/10 px-3 py-2" role="alert">! {error}</p>}
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-brand-red hover:bg-brand-red-dark disabled:opacity-50 disabled:cursor-not-allowed
-                      text-paper font-display text-xl tracking-wide py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+          className="btn-primary w-full text-2xl py-3 flex items-center justify-center gap-3 !mt-6"
         >
           {isSubmitting && <Spinner size={20} variant="light" />}
           {isSubmitting ? 'JOINING…' : 'JOIN ROOM'}
@@ -157,35 +154,38 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
       </form>
 
       {recents.length > 0 && (
-        
-        <div className="mb-6">
-          <br />
-          <p className="text-xs uppercase tracking-wider text-ink/50 mb-2">Continue Playing</p>
+        <div className="mt-8 pt-6 border-t border-dashed border-line-strong">
+          <div className="flex items-baseline justify-between mb-3">
+            <p className="label-mono text-bone/70">Continue Playing</p>
+            <p className="font-jp text-[10px] tracking-[0.3em] text-bone/25">続行</p>
+          </div>
           <div className="space-y-2">
             {recents.map((recent) => (
               <button
                 key={recent.roomId}
                 type="button"
                 onClick={() => rejoinRecent(recent)}
-                className="w-full flex items-center justify-between bg-paper border border-line
-                           rounded-xl px-4 py-3 text-left hover:border-brand-red transition-colors group"
+                className="w-full flex items-center justify-between bg-void border border-line
+                           border-l-[3px] border-l-red px-4 py-3 text-left
+                           hover:bg-raised hover:border-line-strong hover:border-l-red transition-colors group"
               >
                 <div>
-                  <p className="font-display text-2xl tracking-wide text-ink leading-none">
+                  <p className="font-display text-2xl tracking-[0.15em] text-bone leading-none">
                     {recent.roomId}
                   </p>
-                  <p className="text-xs text-ink/50 mt-1">
-                    {recent.nickname}{recent.isManager ? ' · Manager' : ''}
+                  <p className="font-mono text-[11px] text-bone/45 mt-1.5 uppercase tracking-wider">
+                    {recent.nickname}
+                    {recent.isManager && <span className="text-amber"> · Manager</span>}
                   </p>
                 </div>
                 <ChevronRight
-                  size={20}
-                  className="text-ink/30 group-hover:text-brand-red transition-colors"
+                  size={22}
+                  className="text-bone/30 group-hover:text-red group-hover:translate-x-1 transition-all"
                 />
               </button>
             ))}
           </div>
-          <p className="text-xs text-ink/40 mt-2">
+          <p className="text-xs text-bone/40 mt-3 leading-relaxed">
             Returning player? Tap a room above to rejoin instantly. New here? Use the form above.
           </p>
         </div>
