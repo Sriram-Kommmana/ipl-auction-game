@@ -1,3 +1,14 @@
+/* =====================================================================
+   CRICKET AUCTION — LANDING
+   Dystopian Japanese Cyberpunk × Neo-Brutalist Swiss Editorial
+   Palette matches the game app (apps/web/src/index.css):
+     RED + BLACK + OFF-WHITE ("bone"), cyan/amber only as tiny accents.
+   Layout (widths, flex/grid, breakpoints) is unchanged from the
+   original — only color, type, borders and decoration are restyled.
+   Decorative Japanese text lives in CSS pseudo-elements on purpose:
+   it's visual only and never pollutes the indexed page text (SEO).
+   ===================================================================== */
+
 /* ================= RESET ================= */
 
 * {
@@ -9,87 +20,124 @@
 /* ================= VARIABLES ================= */
 
 :root {
-    --primary-color: #ff4d4d;
+    --void: #060607;
+    --panel: #0d0d0f;
+    --raised: #151518;
+    --bone: #efe9dd;
+    --line: #232327;
+    --line-strong: #3a3a41;
+    --red: #ff1f3d;
+    --red-deep: #b3001e;
+    --red-glow: #ff4d63;
+    --cyan: #2ff3e0;
+    --amber: #ffb020;
 
-    --dark-color: #0f172a;
-    --light-color: #ffffff;
-
-    --text-color: #cbd5e1;
-
-    --border-color: rgba(255, 255, 255, 0.94);
+    --font-display: "Anton", Impact, sans-serif;
+    --font-body: "Archivo", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --font-jp: "Noto Sans JP", sans-serif;
 
     --container-width: 1200px;
+    --transition: 0.25s ease;
 
-    --transition: 0.3s ease;
-
-    --radius: 12px;
+    /* legacy names kept so nothing else breaks */
+    --primary-color: var(--red);
+    --light-color: var(--bone);
+    --text-color: rgba(239, 233, 221, 0.6);
+    --border-color: var(--line);
 }
 
 /* ================= GLOBAL ================= */
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
 }
 
-
-
 body {
-    font-family: Arial, sans-serif;
-
-    background-color: #f5f5f5;
-
+    font-family: var(--font-body);
+    color: var(--bone);
+    background-color: var(--void);
     position: relative;
 
     background-image:
-        linear-gradient(
-            rgba(0,0,0,0.05) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.05) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(239, 233, 221, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 233, 221, 0.035) 1px, transparent 1px);
     background-size: 40px 40px;
     animation: moveGrid 12s linear infinite;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-.page-transition {
-
+/* CRT scanline veil over everything — decorative, never blocks clicks */
+body::after {
+    content: "";
     position: fixed;
-
     inset: 0;
-
-    background: black;
-
-    z-index: 9999;
-
-    opacity: 0;
-
     pointer-events: none;
+    z-index: 9000;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 2px,
+        rgba(0, 0, 0, 0.18) 3px
+    );
+}
 
+::selection {
+    background: var(--red);
+    color: var(--bone);
+}
+
+:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+}
+
+/* Thin, sharp scrollbars */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) var(--void);
+}
+*::-webkit-scrollbar { width: 8px; }
+*::-webkit-scrollbar-track { background: var(--void); }
+*::-webkit-scrollbar-thumb { background: var(--line-strong); }
+*::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+/* Page transition — black curtain with a red scan bar */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: var(--void);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.5s ease;
 }
 
-.page-transition.active {
+.page-transition::after {
+    content: "LOADING // 読込中";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+}
 
+.page-transition.active {
     opacity: 1;
 }
 
 @keyframes moveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 200px; }
+}
 
-    0% {
-
-        background-position: 0 0;
-    }
-
-    100% {
-
-        background-position: 200px 200px;
-    }
+@keyframes blink {
+    to { visibility: hidden; }
 }
 
 a {
@@ -105,9 +153,7 @@ button {
     border: none;
     outline: none;
     background: none;
-
     cursor: pointer;
-
     font: inherit;
 }
 
@@ -120,7 +166,6 @@ img {
 
 .wrapper {
     min-height: 100vh;
-
 }
 
 /* ================= CONTAINER ================= */
@@ -128,9 +173,7 @@ img {
 .container {
     width: 100%;
     max-width: var(--container-width);
-
     margin: 0 auto;
-
     padding: 0 1rem;
 }
 
@@ -138,24 +181,28 @@ img {
 
 .navbar {
     width: 100%;
-
     position: sticky;
     top: 0;
-
     z-index: 1000;
-
-    background: rgb(0, 0, 0);
-
+    background: rgba(6, 6, 7, 0.92);
     backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--bone);
 }
 
-/* ================= NAVBAR CONTAINER ================= */
+/* Thin red hairline under the bone rule */
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.6;
+}
 
 .navbar-container {
     height: 80px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -164,14 +211,42 @@ img {
 /* ================= LOGO ================= */
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-
-    letter-spacing: 1px;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-.logo span {
-    color: var(--primary-color);
+.logo::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: var(--red);
+    margin-right: 0.4rem;
+    animation: blink 1.2s steps(2, start) infinite;
+}
+
+.logo span:first-child {
+    color: var(--bone);
+}
+
+.logo span:last-child {
+    color: var(--red);
+}
+
+.logo::after {
+    content: "競売";
+    font-family: var(--font-jp);
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: rgba(239, 233, 221, 0.35);
+    margin-left: 0.6rem;
+    padding-left: 0.6rem;
+    border-left: 1px solid var(--line-strong);
 }
 
 /* ================= NAV LINKS ================= */
@@ -180,40 +255,39 @@ img {
     display: flex;
     flex-direction: row;
     align-items: center;
-
     gap: 2rem;
+    counter-reset: nav;
 }
 
 .nav-link {
     position: relative;
-
-    font-size: 0.95rem;
-    font-weight: 500;
-
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     color: var(--text-color);
-
     transition: var(--transition);
+    counter-increment: nav;
+}
+
+/* Swiss index numbers: 01 HOME, 02 PLAYER LIST … */
+.nav-link::before {
+    content: counter(nav, decimal-leading-zero) " ";
+    color: var(--red);
+    margin-right: 0.3rem;
 }
 
 .nav-link:hover {
-    color: var(--light-color);
+    color: var(--bone);
 }
-
-/* UNDERLINE EFFECT */
 
 .nav-link::after {
     content: "";
-
     position: absolute;
-
     left: 0;
-    bottom: -6px;
-
+    bottom: -8px;
     width: 0%;
     height: 2px;
-
-    background: var(--primary-color);
-
+    background: var(--red);
     transition: var(--transition);
 }
 
@@ -221,30 +295,9 @@ img {
     width: 100%;
 }
 
-/* ================= NAV ACTIONS ================= */
-
-.primary-btn {
-    padding: 0.8rem 1.4rem;
-
-    border-radius: var(--radius);
-
-    background: var(--primary-color);
-
-    color: var(--light-color);
-
-    font-weight: 600;
-
-    transition: var(--transition);
-}
-
-/* .primary-btn:hover {
-    transform: translateY(-2px);
-} */
-
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-
     .nav-links,
     .nav-actions {
         display: none;
@@ -253,81 +306,69 @@ img {
     .menu-btn {
         display: block;
     }
-
 }
-
-
-
-
 
 .main-layout {
-
     display: flex;
-
     flex-direction: column;
 }
-
-
-
-
 
 /* ================= HERO ================= */
 
 .hero {
     height: calc(100vh - 81px);
-
     position: relative;
     display: flex;
     align-items: stretch;
+    overflow: hidden;
 }
-
 
 /* ================= LEFT SECTION ================= */
 
 .hero-left {
     width: 40%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 4rem;
-
-    background-color: transparent;
-
+    background:
+        radial-gradient(ellipse 90% 60% at 0% 110%, rgba(255, 31, 61, 0.14), transparent 70%);
     position: relative;
+}
 
-    /* background-image:
-        linear-gradient(
-            rgba(0,0,0,0.03) 1px,
-            transparent 1px
-        ),
+/* Editorial meta line, top-left of the hero */
+.hero-left::before {
+    content: "SEASON // 2026 — LIVE MULTIPLAYER AUCTION";
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: rgba(239, 233, 221, 0.45);
+}
 
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.03) 1px,
-            transparent 1px
-        );
-
-    background-size: 40px 40px; */
-    /* animation: moveGrid 12s linear infinite; */
+/* Registration marks, bottom-left */
+.hero-left::after {
+    content: "N°001 / 入札開始";
+    position: absolute;
+    bottom: 2rem;
+    left: 4rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--red);
 }
 
 /* ================= CONTENT ================= */
 
 @keyframes heroFade {
-
     from {
-
         opacity: 0;
-
         transform: translateY(40px);
     }
-
     to {
-
         opacity: 1;
-
         transform: translateY(0);
     }
 }
@@ -339,188 +380,145 @@ img {
 }
 
 .hero-side-text {
-
     position: absolute;
-
     left: 20px;
-
     top: 36%;
-
-    transform:
-        translateY(-50%)
-        rotate(180deg);
-
+    transform: translateY(-50%) rotate(180deg);
     writing-mode: vertical-rl;
 }
+
 #scramble-text {
-
-    font-size: 1rem;
-
-    font-weight: 900;
-
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 10px;
-
-    color: rgba(0,0,0,0.2);
-
+    color: rgba(255, 31, 61, 0.55);
     text-transform: uppercase;
-
-    font-family: monospace;
 }
 
 /* ================= SUBTITLE ================= */
 
 .hero-subtitle {
-    font-size: 0.9rem;
-
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     letter-spacing: 6px;
-
-    color: #666;
-
+    color: rgba(239, 233, 221, 0.5);
     margin-bottom: 2rem;
 }
 
 /* ================= TITLE ================= */
 
 .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-
-    line-height: 0.9;
-
-    font-weight: 900;
-
-    color: black;
-
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.86;
+    letter-spacing: 0.01em;
+    color: var(--bone);
     margin-bottom: 2rem;
 }
 
 .hero-title span {
-    color: red;
+    color: var(--red);
+    text-shadow:
+        0 0 24px rgba(255, 31, 61, 0.55),
+        0 0 2px rgba(255, 31, 61, 0.9);
 }
 
 /* ================= DESCRIPTION ================= */
 
 .hero-description {
-    font-size: 1rem;
-
-    line-height: 1.8;
-
-    letter-spacing: 2px;
-
-    color: #444;
-
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.9;
+    letter-spacing: 0.2em;
+    color: rgba(239, 233, 221, 0.65);
     margin-bottom: 3rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--red);
 }
 
 /* ================= BUTTONS ================= */
 
-/* ================= BUTTON CONTAINER ================= */
-
 .hero-buttons {
-
     display: flex;
-
     align-items: center;
-
-    gap: 1rem;
+    gap: 1.25rem;
 }
-
-/* ================= COMMON BUTTON STYLES ================= */
 
 .primary-btn,
 .secondary-btn {
-
     position: relative;
-
     overflow: hidden;
-
     padding: 1rem 2rem;
-
-    font-weight: 600;
-
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
     cursor: pointer;
-
     z-index: 1;
-
     transition:
-        color 0.4s ease,
-        border-color 0.4s ease;
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.12s ease,
+        box-shadow 0.12s ease;
 }
 
-/* ================= PRIMARY BUTTON ================= */
-
+/* PRIMARY — red slab with hard bone offset that collapses on press */
 .primary-btn {
-
-    background: red;
-
-    color: white;
-
-    border: none;
+    background: var(--red);
+    color: var(--bone);
+    border: 2px solid var(--red);
+    box-shadow: 5px 5px 0 0 var(--bone);
 }
 
-/* BLACK SWEEP EFFECT */
-
+/* Bone sweep on hover */
 .primary-btn::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
     left: -100%;
-
     width: 100%;
     height: 100%;
-
-    background: black;
-
-    transition: left 0.4s ease;
-
+    background: var(--bone);
+    transition: left 0.35s ease;
     z-index: -1;
+}
+
+.primary-btn:hover {
+    color: var(--void);
 }
 
 .primary-btn:hover::before {
-
     left: 0;
 }
 
-/* ================= SECONDARY BUTTON ================= */
-
-.secondary-btn {
-
-    background: white;
-
-    color: black;
-
-    border: 1px solid #ccc;
+.primary-btn:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 0 var(--bone);
 }
 
-/* BLACK SWEEP EFFECT */
+/* SECONDARY — outlined bone, red sweep on hover */
+.secondary-btn {
+    background: transparent;
+    color: var(--bone);
+    border: 2px solid var(--bone);
+}
 
 .secondary-btn::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
     left: -100%;
-
     width: 100%;
     height: 100%;
-
-    background: black;
-
-    transition: left 0.4s ease;
-
+    background: var(--red);
+    transition: left 0.35s ease;
     z-index: -1;
 }
 
-/* HOVER */
-
 .secondary-btn:hover {
-
-    color: white;
-    border-color: black;
+    color: var(--bone);
+    border-color: var(--red);
 }
 
 .secondary-btn:hover::before {
@@ -531,138 +529,139 @@ img {
 
 .hero-red {
     width: 40%;
-
     position: relative;
-
     display: flex;
     align-items: flex-end;
     justify-content: center;
-
     overflow: hidden;
 }
+
 .hero-red::before {
     content: "";
-
     position: absolute;
-
     inset: 0;
-
-    background: linear-gradient(
-        180deg,
-        #ff1a1a 0%,
-        #e00000 100%
-    );
-
-    clip-path: polygon(
-        40% 0,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
-
+    background:
+        radial-gradient(circle at 70% 30%, rgba(255, 77, 99, 0.6), transparent 55%),
+        linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
     z-index: 1;
 }
 
-/* @keyframes moveTexture {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(80px);
-    }
-} */
-
+/* Diagonal hatching + halftone dots over the red slab */
 .hero-red::after {
     content: "";
-
     position: absolute;
-
     inset: 0;
-
     background:
         repeating-linear-gradient(
             -20deg,
-
-            rgba(255,255,255,0.18) 0px,
-            rgba(255,255,255,0.18) 2px,
-
+            rgba(0, 0, 0, 0.22) 0px,
+            rgba(0, 0, 0, 0.22) 2px,
             transparent 2px,
             transparent 24px
-        );
-
-    clip-path: polygon(
-        40% 0,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
-
-    opacity: 0.67;
-
+        ),
+        radial-gradient(rgba(0, 0, 0, 0.35) 1px, transparent 1.5px) 0 0 / 7px 7px;
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.75;
     z-index: 2;
-    /* animation: moveTexture 10s linear infinite; */
-
     pointer-events: none;
 }
 
-
+/* Giant vertical katakana stamped into the red slab (behind the player) */
+.hero::before {
+    content: "オークション";
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    font-family: var(--font-jp);
+    font-weight: 900;
+    font-size: clamp(4rem, 9vh, 7rem);
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.28);
+    z-index: 3;
+    pointer-events: none;
+    user-select: none;
+}
 
 .hero-player {
     position: relative;
-
     height: 98%;
-
     width: auto;
     object-fit: contain;
-
     transform: translateX(6%);
-
     z-index: 5;
-
     pointer-events: none;
-    
-
-    filter: drop-shadow(
-        0 0 25px rgba(0,0,0,0.35)
-    );
+    filter:
+        grayscale(1)
+        contrast(1.15)
+        drop-shadow(10px 0 0 rgba(0, 0, 0, 0.55))
+        drop-shadow(0 0 25px rgba(0, 0, 0, 0.45));
 }
-
 
 /* ================= RIGHT SECTION ================= */
 
 .hero-right {
     width: 25%;
-
-    background: #000;
-
+    background: var(--void);
+    border-left: 2px solid var(--bone);
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 1rem;
-
     position: relative;
+}
+
+/* Vertical mono ticker on the right edge */
+.hero-right::after {
+    content: "LOT 018 — 現在入札中 — LOT 018";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    color: rgba(239, 233, 221, 0.25);
+    pointer-events: none;
 }
 
 /* ================= BID CARD ================= */
 
 .bid-card {
     width: 100%;
+    padding: 1.25rem;
+    position: relative;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+    box-shadow: 8px 8px 0 0 var(--red);
+}
 
-    padding: 1rem;
+/* Red corner ticks (matches the game's .panel) */
+.bid-card::before,
+.bid-card::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+}
 
-    border: 1px solid rgba(255, 255, 255, 0.42);
+.bid-card::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid var(--red);
+    border-left: 2px solid var(--red);
+}
 
-    background: rgba(255,255,255,0.02);
-
-    backdrop-filter: blur(10px);
-    box-shadow:
-
-        0 0 20px rgba(255, 0, 0, 0.35),
-
-        0 10px 40px rgba(255, 0, 0, 0.15);
+.bid-card::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid var(--red);
+    border-right: 2px solid var(--red);
 }
 
 /* ================= LIVE BADGE ================= */
@@ -670,40 +669,34 @@ img {
 .live-badge {
     display: flex;
     align-items: center;
-
-    gap: 0.5rem;
-
-    color: white;
-
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--bone);
     margin-bottom: 1.5rem;
 }
 
+.live-badge::after {
+    content: "入札";
+    margin-left: auto;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: rgba(239, 233, 221, 0.3);
+}
+
 @keyframes pulse {
-
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.4);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0% { box-shadow: 0 0 0 0 rgba(255, 31, 61, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(255, 31, 61, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 31, 61, 0); }
 }
 
 .live-dot {
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
+    width: 9px;
+    height: 9px;
     animation: pulse 1.5s infinite;
-
-    background: red;
+    background: var(--red);
 }
 
 /* ================= DIVIDER ================= */
@@ -711,70 +704,80 @@ img {
 .card-divider {
     width: 100%;
     height: 1px;
-
-    background: rgba(255,255,255,0.4);
-
+    background: var(--line-strong);
     margin: 1.2rem 0;
 }
 
 /* ================= PLAYER NAME ================= */
 
 .player-name {
-    font-size: clamp(2rem, 4vw, 3rem);
-
-    line-height: 1;
-
-    color: white;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--bone);
 }
 
 .player-name span {
-    color: red;
+    color: var(--red);
 }
 
 /* ================= PLAYER ROLE ================= */
 
 .player-role {
     margin-top: 1rem;
-
-    color: rgba(255,255,255,0.7);
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--red);
+    border: 1px solid rgba(255, 31, 61, 0.5);
+    padding: 0.25rem 0.5rem;
 }
 
 /* ================= BID ================= */
 
 .bid-label {
-    color: rgba(255,255,255,0.7);
-
-    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: rgba(239, 233, 221, 0.5);
+    margin-bottom: 0.6rem;
 }
 
 .bid-price {
-    font-size: clamp(2rem, 4vw, 3rem);
-
-    color: red;
-
-    font-weight: 800;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    letter-spacing: 0.02em;
+    color: var(--bone);
 }
 
 /* ================= BUTTON ================= */
 
 .view-auction-btn {
     width: 100%;
-
     padding: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--bone);
+    color: var(--bone);
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
 
-    border: 1px solid rgba(255,255,255,0.15);
-
-    color: white;
+.view-auction-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 992px) {
-
     .hero {
         flex-direction: column;
         height: auto;
-
         min-height: 100vh;
     }
 
@@ -784,12 +787,30 @@ img {
         width: 100%;
     }
 
+    .hero-left {
+        padding: 5rem 1.5rem 4rem;
+    }
+
+    .hero-left::before,
+    .hero-left::after {
+        left: 1.5rem;
+    }
+
     .hero-red {
         height: 250px;
     }
 
+    /* Katakana stamp + side ticker would overlap stacked content — hide */
+    .hero::before,
+    .hero-right::after,
+    .hero-side-text {
+        display: none;
+    }
+
     .hero-right {
         padding: 4rem 2rem;
+        border-left: none;
+        border-top: 2px solid var(--bone);
     }
 
     .hero-buttons {
@@ -800,219 +821,228 @@ img {
     .primary-btn,
     .secondary-btn {
         width: 100%;
+        text-align: center;
     }
-
 }
 
 /* ================= STATS SECTION ================= */
 
 .stats-section {
-
-    background: #050505;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
+    background: var(--red);
+    border-top: 2px solid var(--bone);
+    border-bottom: 2px solid var(--bone);
     padding: 2rem 4rem;
+    position: relative;
 }
 
-/* ================= STATS CONTAINER ================= */
-
 .stats-container {
-
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 2rem;
 }
 
-/* ================= STAT ITEM ================= */
-
 .stat-item {
-
     display: flex;
     align-items: center;
-
     gap: 1rem;
-
     padding-right: 2rem;
-
-    border-right: 1px solid rgba(255,255,255,0.08);
+    border-right: 1px solid rgba(6, 6, 7, 0.35);
 }
 
 .stat-item:last-child {
     border-right: none;
 }
 
-/* ================= ICON ================= */
-
 .stat-icon {
-
     font-size: 2rem;
 }
 
-/* ================= CONTENT ================= */
+/* Icons carry inline red filters in the HTML — on the red band we
+   override them to solid black silhouettes. */
+.stat-icon img {
+    filter: brightness(0) !important;
+}
 
 .stat-content h3 {
-
-    font-size: 2rem;
-
-    color: white;
-
-    margin-bottom: 0.4rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.2rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--void);
+    margin-bottom: 0.35rem;
 }
 
 .stat-content p {
-
-    font-size: 0.9rem;
-
-    letter-spacing: 1px;
-
-    color: rgba(255,255,255,0.7);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(6, 6, 7, 0.75);
 }
-
-
 
 /* ================= HOW SECTION ================= */
 
 .how-section {
-
-    padding: 3rem 4rem;
-
-    background: #f5f5f5;
+    padding: 4rem 4rem;
+    background: transparent;
 }
 
-/* ================= CONTAINER ================= */
-
 .how-container {
-
     max-width: 1400px;
-
     margin: 0 auto;
 }
 
-/* ================= HEADING ================= */
+/* ================= HEADINGS (shared editorial style) ================= */
 
-.section-heading1 {
-
+.section-heading1,
+.section-heading {
     text-align: center;
-
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
 }
 
-.section-heading1 h2 {
-
-    font-size: 2.5rem;
-
-    color: black;
-
+.section-heading1 h2,
+.section-heading h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--bone);
     margin-bottom: 1rem;
 }
 
-.heading-line {
+/* Japanese kicker above each heading */
+.section-heading1::before,
+.section-heading::before {
+    display: block;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+}
 
+.section-heading1::before {
+    content: "遊び方 // HOW TO PLAY";
+}
+
+.section-heading::before {
+    content: "仕組み // THE SYSTEM";
+}
+
+.heading-line {
     width: 80px;
     height: 4px;
-
-    background: red;
-
+    background: var(--red);
     margin: 0 auto;
+    box-shadow: 88px 0 0 -1px var(--bone), -88px 0 0 -1px var(--bone);
+    transform: scaleX(1);
 }
 
 /* ================= GRID ================= */
 
 .how-grid {
-
     display: grid;
-
     grid-template-columns: repeat(5, 1fr);
-
     gap: 1.5rem;
 }
 
 /* ================= CARD ================= */
 
 .how-card {
-
     position: relative;
-
-    background: black;
+    background: var(--panel);
     padding: 3rem 2rem;
-    border: 1px solid rgba(255, 0, 0, 0.25);
-    font-family:'Rajdhani',sans-serif;
+    border: 1px solid var(--line-strong);
     text-align: center;
-    border-radius: 5%;
-
-    transition: 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .how-card:hover {
+    transform: translate(-4px, -4px);
+    border-color: var(--bone);
+    box-shadow: 8px 8px 0 0 var(--red);
+}
 
-    transform: translateY(-8px);
-
-    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+/* Red corner tick, bottom-right */
+.how-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
 }
 
 /* ================= STEP NUMBER ================= */
 
 .step-number {
-
     position: absolute;
-
-    top: 15px;
-    left: 15px;
-
-    font-size: 2.5rem;
-
-    font-weight: 800;
-
-    color: rgba(255, 0, 0, 0.81);
-
+    top: 14px;
+    left: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--red);
     line-height: 1;
-
     pointer-events: none;
-
     user-select: none;
+}
+
+.step-number::before {
+    content: "STEP ";
+    color: rgba(239, 233, 221, 0.35);
 }
 
 /* ================= ICON ================= */
 
 .how-icon {
-
     font-size: 3rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
+
 .how-icon img {
     margin: auto;
-    width: 55%;
-} 
+    width: 45%;
+    opacity: 0.9;
+    transition: filter 0.2s ease;
+}
+
+/* Icon flips from bone to red on hover */
+.how-card:hover .how-icon img {
+    filter: invert(22%) sepia(97%) saturate(5000%) hue-rotate(343deg) brightness(101%) contrast(104%) !important;
+}
 
 /* ================= TITLE ================= */
 
 .how-card h3 {
-
-    font-size: 1.25rem;
-    font-family:'Rajdhani',sans-serif;
-    margin-bottom: 1rem;
-    color: rgba(255, 0, 0, 1);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+    color: var(--bone);
 }
 
 /* ================= DESCRIPTION ================= */
 
 .how-card p {
-
-    color: #ffffff;
-    font-family:'Rajdhani',sans-serif;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(239, 233, 221, 0.6);
     line-height: 1.6;
 }
-
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1200px) {
-
     .stats-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1020,248 +1050,180 @@ img {
     .how-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 @media (max-width: 768px) {
-
     .stats-container,
     .how-grid {
-
         grid-template-columns: 1fr;
     }
 
     .stats-section,
     .how-section {
-
         padding: 4rem 1.5rem;
     }
 
     .stat-item {
-
         border-right: none;
-
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-
+        border-bottom: 1px solid rgba(6, 6, 7, 0.35);
         padding-bottom: 1.5rem;
     }
-
 }
-
-
-
-
-
 
 /* ================= AUCTION LOGIC ================= */
 
 .auction-logic {
-
     padding: 6rem 4rem;
-
-    background: #ffffff;
+    background: var(--panel);
+    border-top: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
 }
 
-/* ================= CONTAINER ================= */
+/* Huge faint kanji watermark */
+.auction-logic::before {
+    content: "戦略";
+    position: absolute;
+    right: -2rem;
+    top: 3rem;
+    font-family: var(--font-jp);
+    font-weight: 900;
+    font-size: clamp(8rem, 20vw, 16rem);
+    line-height: 1;
+    color: rgba(239, 233, 221, 0.02);
+    pointer-events: none;
+    user-select: none;
+}
 
 .auction-container {
-
     max-width: 1200px;
-
     margin: 0 auto;
-}
-
-/* ================= SECTION HEADING ================= */
-
-.section-heading {
-
-    text-align: center;
-
-    margin-bottom: 3rem;
-}
-
-.section-heading h2 {
-
-    font-size: 2.5rem;
-
-    font-weight: 800;
-
-    color: #000;
-
-    margin-bottom: 1rem;
-}
-
-.heading-line {
-
-    width: 80px;
-
-    height: 4px;
-
-    background: red;
-
-    margin: 0 auto;
+    position: relative;
 }
 
 /* ================= ITEM ================= */
 
 .logic-item {
-
     display: flex;
-
     gap: 3rem;
-
     padding: 3rem 0;
+    border-bottom: 1px solid var(--line-strong);
+    transition: padding 0.3s ease, background 0.3s ease;
+}
 
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+.section-heading + .logic-item {
+    border-top: 2px solid var(--bone);
 }
 
 /* ================= NUMBER ================= */
 
 .logic-number {
-
     min-width: 120px;
-
-    font-size: 4rem;
-
-    font-weight: 900;
-
-    color: rgba(255,0,0,0.15);
-
-    line-height: 1;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 31, 61, 0.55);
+    transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
 }
 
 /* ================= CONTENT ================= */
 
 .logic-content {
-
     flex: 1;
 }
 
 .logic-content h3 {
-
-    font-size: 1.6rem;
-
-    font-weight: 700;
-
-    margin-bottom: 1rem;
-
-    color: #000;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+    color: var(--bone);
 }
 
 .logic-content p {
-
     font-size: 1rem;
-
-    line-height: 1.9;
-
-    color: #555;
+    line-height: 1.85;
+    color: rgba(239, 233, 221, 0.62);
+    max-width: 62ch;
 }
 
 /* ================= HOVER ================= */
 
-.logic-item {
-
-    transition: 0.3s ease;
-}
-
 .logic-item:hover {
-
     padding-left: 1rem;
+    background: linear-gradient(90deg, rgba(255, 31, 61, 0.07), transparent 60%);
 }
 
 .logic-item:hover .logic-number {
-
-    color: rgba(255,0,0,0.3);
+    color: var(--red);
+    -webkit-text-stroke-color: var(--red);
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-
     .auction-logic {
-
         padding: 4rem 1.5rem;
     }
 
     .logic-item {
-
         flex-direction: column;
-
         gap: 1rem;
     }
 
     .logic-number {
-
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .logic-content h3 {
-
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 }
-
-
-
-
 
 /* ================= FOOTER ================= */
 
 .footer {
-
-    background: #000;
-
-    color: white;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-
+    background: var(--void);
+    color: var(--bone);
+    border-top: 2px solid var(--bone);
     margin-top: 0;
+    position: relative;
 }
 
-/* ================= CONTAINER ================= */
-
 .footer-container {
-
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 4rem 2rem;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: flex-start;
-
     gap: 3rem;
 }
 
 /* ================= BRAND ================= */
 
 .footer-brand {
-
     max-width: 400px;
 }
 
 .footer-brand h2 {
-
-    font-size: 2rem;
-
-    font-weight: 900;
-
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.6rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
     margin-bottom: 1rem;
 }
 
 .footer-brand span {
-
-    color: red;
+    color: var(--red);
 }
 
 .footer-brand p {
-
-    color: rgba(255,255,255,0.65);
-
+    color: rgba(239, 233, 221, 0.55);
     line-height: 1.8;
 }
 
@@ -1269,64 +1231,86 @@ img {
 
 .footer-links,
 .footer-socials {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 1rem;
+}
+
+/* Mono column labels */
+.footer-links::before,
+.footer-socials::before {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--line-strong);
+}
+
+.footer-links::before {
+    content: "NAVIGATE // 案内";
+}
+
+.footer-socials::before {
+    content: "CONNECT // 接続";
 }
 
 .footer-links a,
 .footer-socials a {
-
-    color: rgba(255,255,255,0.7);
-
-    transition: 0.3s ease;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(239, 233, 221, 0.65);
+    transition: color 0.2s ease, padding 0.2s ease;
 }
 
 .footer-links a:hover,
 .footer-socials a:hover {
-
-    color: red;
+    color: var(--red);
+    padding-left: 0.4rem;
 }
 
 /* ================= BOTTOM ================= */
 
 .footer-bottom {
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-
+    border-top: 1px solid var(--line);
     text-align: center;
-
     padding: 1.5rem;
 }
 
 .footer-bottom p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(239, 233, 221, 0.5);
+}
 
-    color: rgba(255,255,255,0.6);
-
-    font-size: 0.95rem;
-
-    letter-spacing: 1px;
+.footer-bottom .creator {
+    color: var(--bone);
+    border-bottom: 1px solid var(--red);
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-
     .footer-container {
-
         flex-direction: column;
-
         align-items: center;
-
         text-align: center;
     }
 
     .footer-links,
     .footer-socials {
-
         align-items: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .logo::before,
+    .live-dot,
+    .hero-content {
+        animation: none !important;
     }
 }

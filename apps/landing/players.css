@@ -1,3 +1,9 @@
+/* =====================================================================
+   CRICKET AUCTION — PLAYER LIST
+   Dystopian Japanese Cyberpunk × Neo-Brutalist Swiss Editorial
+   Same tokens as styles2.css / the game app. Layout unchanged.
+   ===================================================================== */
+
 /* ================= RESET ================= */
 
 * {
@@ -9,66 +15,90 @@
 /* ================= VARIABLES ================= */
 
 :root {
+    --void: #060607;
+    --panel: #0d0d0f;
+    --raised: #151518;
+    --bone: #efe9dd;
+    --line: #232327;
+    --line-strong: #3a3a41;
+    --red: #ff1f3d;
+    --red-deep: #b3001e;
+    --cyan: #2ff3e0;
+    --amber: #ffb020;
 
-    --primary-color: #ff4d4d;
-
-    --dark-color: #0f172a;
-    --light-color: #ffffff;
-
-    --text-color: #cbd5e1;
-
-    --border-color: rgba(255,255,255,0.08);
+    --font-display: "Anton", Impact, sans-serif;
+    --font-body: "Archivo", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --font-jp: "Noto Sans JP", sans-serif;
 
     --container-width: 1200px;
+    --transition: 0.25s ease;
 
-    --transition: 0.3s ease;
-
-    --radius: 12px;
+    --primary-color: var(--red);
+    --text-color: rgba(239, 233, 221, 0.6);
 }
 
 /* ================= GLOBAL ================= */
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
 }
-
 
 body {
-
-    font-family: Arial, sans-serif;
-
-    background-color: #f5f5f5;
-
+    font-family: var(--font-body);
+    color: var(--bone);
+    background-color: var(--void);
     position: relative;
-
     background-image:
-        linear-gradient(
-            rgba(0,0,0,0.05) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.05) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(239, 233, 221, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 233, 221, 0.035) 1px, transparent 1px);
     background-size: 40px 40px;
-
     animation: moveGrid 12s linear infinite;
-
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9000;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 2px,
+        rgba(0, 0, 0, 0.18) 3px
+    );
+}
+
+::selection {
+    background: var(--red);
+    color: var(--bone);
+}
+
+:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) var(--void);
+}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: var(--void); }
+*::-webkit-scrollbar-thumb { background: var(--line-strong); }
+*::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
 @keyframes moveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 200px; }
+}
 
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 200px 200px;
-    }
+@keyframes blink {
+    to { visibility: hidden; }
 }
 
 a {
@@ -81,37 +111,40 @@ ul {
 }
 
 button {
-
     border: none;
     outline: none;
     background: none;
-
     cursor: pointer;
-
     font: inherit;
+    color: inherit;
 }
 
 .page-transition {
-
     position: fixed;
-
     inset: 0;
-
-    background: black;
-
+    background: var(--void);
     z-index: 9999;
-
     opacity: 0;
-
     pointer-events: none;
-
     transition: opacity 0.5s ease;
 }
 
-.page-transition.active {
+.page-transition::after {
+    content: "LOADING // 読込中";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+}
 
+.page-transition.active {
     opacity: 1;
 }
+
 /* ================= WRAPPER ================= */
 
 .wrapper {
@@ -121,415 +154,429 @@ button {
 /* ================= CONTAINER ================= */
 
 .container {
-
     width: 100%;
-
     max-width: var(--container-width);
-
     margin: 0 auto;
-
     padding: 0 1rem;
 }
 
 /* ================= NAVBAR ================= */
 
 .navbar {
-
     width: 100%;
-
     position: sticky;
     top: 0;
-
     z-index: 1000;
-
-    background: black;
-
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: rgba(6, 6, 7, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--bone);
 }
 
-/* ================= NAVBAR CONTAINER ================= */
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.6;
+}
 
 .navbar-container {
-
     height: 80px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
 /* ================= LOGO ================= */
 
 .logo {
-
-    font-size: 1.5rem;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    color: white;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-.logo span {
+.logo::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: var(--red);
+    margin-right: 0.4rem;
+    animation: blink 1.2s steps(2, start) infinite;
+}
 
-    color: var(--primary-color);
+.logo span:first-child {
+    color: var(--bone);
+}
+
+.logo span:last-child {
+    color: var(--red);
+}
+
+.logo::after {
+    content: "競売";
+    font-family: var(--font-jp);
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: rgba(239, 233, 221, 0.35);
+    margin-left: 0.6rem;
+    padding-left: 0.6rem;
+    border-left: 1px solid var(--line-strong);
 }
 
 /* ================= NAV LINKS ================= */
 
 .nav-links {
-
     display: flex;
-
     align-items: center;
-
     gap: 2rem;
+    counter-reset: nav;
 }
 
 .nav-link {
-
     position: relative;
-
-    font-size: 0.95rem;
-
-    font-weight: 500;
-
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     color: var(--text-color);
-
     transition: var(--transition);
+    counter-increment: nav;
+}
+
+.nav-link::before {
+    content: counter(nav, decimal-leading-zero) " ";
+    color: var(--red);
+    margin-right: 0.3rem;
 }
 
 .nav-link:hover {
-
-    color: white;
+    color: var(--bone);
 }
 
-/* UNDERLINE EFFECT */
-
 .nav-link::after {
-
     content: "";
-
     position: absolute;
-
     left: 0;
-    bottom: -6px;
-
+    bottom: -8px;
     width: 0;
-
     height: 2px;
-
-    background: var(--primary-color);
-
+    background: var(--red);
     transition: var(--transition);
 }
 
 .nav-link:hover::after {
+    width: 100%;
+}
 
+/* Current page (PLAYER LIST is the 2nd link) stays lit */
+.nav-links li:nth-child(2) .nav-link {
+    color: var(--bone);
+}
+
+.nav-links li:nth-child(2) .nav-link::after {
     width: 100%;
 }
 
 /* ================= PAGE HEADER ================= */
 
 .page-header {
-
     text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+}
 
-    padding: 1.5rem 2rem 2rem;
+/* Japanese kicker */
+.page-header::before {
+    content: "選手名簿 // PLAYER REGISTRY";
+    display: block;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--red);
+    margin-bottom: 1rem;
 }
 
 .page-header h1 {
-
-    font-size: clamp(3rem, 8vw, 5rem);
-
-    font-weight: 900;
-
-    color: black;
-
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--bone);
     margin-bottom: 1rem;
 }
 
 .page-header p {
-
-    color: #666;
-
-    letter-spacing: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: rgba(239, 233, 221, 0.55);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 .page-header::after {
-
     content: "";
-
     display: block;
-
     width: 80px;
-
     height: 4px;
-
-    background: red;
-
+    background: var(--red);
     margin: 1.5rem auto 0;
+    box-shadow: 88px 0 0 -1px var(--bone), -88px 0 0 -1px var(--bone);
 }
 
 /* ================= PLAYER COUNT ================= */
 
 .players-count {
-
     text-align: center;
-
-    color: #666;
-
-    font-size: 0.9rem;
-
+    font-family: var(--font-mono);
+    color: rgba(239, 233, 221, 0.5);
+    font-size: 0.75rem;
     letter-spacing: 4px;
-
     margin-bottom: 2rem;
 }
 
 /* ================= CONTROLS ================= */
 
 .controls {
-
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 0 2rem 3rem;
 }
 
 /* ================= SEARCH ================= */
 
 #searchInput {
-
     width: 100%;
-
     padding: 1rem 1.25rem;
-
-    border: 1px solid #ddd;
-
-    background: white;
-
-    font-size: 1rem;
-
+    border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--line-strong);
+    background: var(--panel);
+    color: var(--bone);
+    caret-color: var(--red);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
     outline: none;
-
     margin-bottom: 1.5rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
 
-    transition: 0.3s ease;
+#searchInput::placeholder {
+    color: rgba(239, 233, 221, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 }
 
 #searchInput:focus {
-
-    border-color: red;
-
-    box-shadow:
-        0 0 0 3px rgba(255,0,0,0.08);
+    border-color: var(--bone);
+    border-left-color: var(--red);
+    background: var(--raised);
 }
 
 /* ================= FILTERS ================= */
 
 .filters {
-
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 1rem;
 }
 
 .filter-btn {
-
-    padding: 0.9rem 1.5rem;
-
-    border: 1px solid #ddd;
-
-    background: white;
-
-    font-weight: 600;
-
-    transition: var(--transition);
+    padding: 0.8rem 1.4rem;
+    border: 2px solid var(--line-strong);
+    background: transparent;
+    color: rgba(239, 233, 221, 0.65);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    transition: background var(--transition), color var(--transition), border-color var(--transition),
+        transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .filter-btn:hover {
-
-    background: red;
-
-    color: white;
-
-    border-color: red;
+    color: var(--bone);
+    border-color: var(--bone);
 }
 
 .filter-btn.active {
-
-    background: red;
-
-    color: white;
-
-    border-color: red;
+    background: var(--red);
+    color: var(--bone);
+    border-color: var(--red);
+    box-shadow: 4px 4px 0 0 var(--bone);
+    transform: translate(-2px, -2px);
 }
 
 /* ================= TABLE SECTION ================= */
 
 .table-section {
-
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 0 2rem 6rem;
 }
 
 /* ================= TABLE ================= */
 
 table {
-
     width: 100%;
-
     border-collapse: collapse;
-
-    background: white;
-
-    border: 1px solid rgba(0,0,0,0.08);
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.08);
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    box-shadow: 8px 8px 0 0 var(--red);
 }
 
 /* ================= TABLE HEADER ================= */
 
 thead {
-
-    background: black;
-
-    color: white;
+    background: var(--bone);
+    color: var(--void);
 }
 
 th {
-
-    padding: 1.25rem;
-
+    padding: 1.1rem 1.25rem;
     text-align: left;
-
-    letter-spacing: 1px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
 }
 
 /* ================= TABLE BODY ================= */
 
 td {
+    padding: 0.95rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+    color: rgba(239, 233, 221, 0.85);
+}
 
-    padding: 1rem 1.25rem;
+td:first-child {
+    color: var(--bone);
+    font-weight: 600;
+}
 
-    border-bottom: 1px solid #eee;
+td:nth-child(2) {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(239, 233, 221, 0.55);
 }
 
 tbody tr {
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
 
-    transition: 0.3s ease;
+tbody tr:nth-child(even) {
+    background: rgba(239, 233, 221, 0.018);
 }
 
 tbody tr:hover {
-
-    background: #fff4f4;
+    background: rgba(255, 31, 61, 0.08);
+    box-shadow: inset 3px 0 0 var(--red);
 }
 
 /* ================= ROLE BADGE ================= */
 
 .role-badge {
-
     display: inline-block;
-
-    padding: 0.4rem 0.9rem;
-
-    border-radius: 20px;
-
-    background: rgba(255,0,0,0.08);
-
-    color: red;
-
-    font-size: 0.8rem;
-
-    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(255, 31, 61, 0.55);
+    background: rgba(255, 31, 61, 0.08);
+    color: var(--red);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 /* ================= PRICE ================= */
 
 .price {
-
-    color: red;
-
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.03em;
+    color: var(--bone);
 }
 
 /* ================= SORT BUTTON ================= */
 
 #sortBtn {
-
-    border: none;
-
+    border: 1px solid var(--void);
     background: none;
-
-    color: white;
-
+    color: var(--void);
     cursor: pointer;
-
     margin-left: 8px;
+    padding: 0.1rem 0.4rem;
+    font-family: var(--font-mono);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#sortBtn:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--bone);
 }
 
 /* ================= FOOTER ================= */
 
 .footer {
-
-    background: black;
-
-    color: white;
-
+    background: var(--void);
+    color: var(--bone);
     text-align: center;
-
-    padding: 1rem;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem;
+    border-top: 2px solid var(--bone);
 }
 
 .footer p {
-
-    color: rgba(255,255,255,0.7);
-
-    letter-spacing: 1px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: rgba(239, 233, 221, 0.55);
+    letter-spacing: 0.15em;
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-
     .nav-links {
         display: none;
     }
 
     .page-header {
-
         padding: 4rem 1rem 3rem;
     }
 
     .page-header h1 {
-
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .filters {
-
         justify-content: center;
     }
 
     .table-section {
-
         overflow-x: auto;
+        /* room for the hard shadow so it isn't clipped */
+        padding-right: calc(2rem + 8px);
+        padding-bottom: calc(6rem + 8px);
     }
 
     table {
-
         min-width: 700px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .logo::before {
+        animation: none !important;
     }
 }
