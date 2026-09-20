@@ -32,7 +32,7 @@ const AuctionSummary = ({ results }) => {
   ]
 
   return (
-    <div className="panel p-6">
+    <div className="panel p-4 sm:p-6">
       <div className="section-head">
         <span className="section-num">01</span>
         <h2 className="section-title">Auction Summary</h2>

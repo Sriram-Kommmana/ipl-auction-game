@@ -25,22 +25,22 @@ const LobbyControls = () => {
 
   return (
     <>
-      <div className="mt-8 pt-6 border-t border-line flex items-center justify-between gap-4">
+      <div className="mt-8 pt-6 border-t border-line flex flex-col-reverse items-stretch gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <button
           type="button"
           onClick={() => setShowLeaveConfirm(true)}
-          className="link-back"
+          className="link-back self-center sm:self-auto"
         >
           ← Leave Room
         </button>
 
         {isManager && (
-          <div className="text-right">
+          <div className="text-center sm:text-right">
             <button
               type="button"
               onClick={handleStartAuction}
               disabled={isStartDisabled}
-              className="btn-primary text-2xl px-8 py-3"
+              className="btn-primary w-full sm:w-auto text-2xl px-8 py-3"
             >
               {!isConnected ? 'Reconnecting…' : 'Start Auction →'}
             </button>

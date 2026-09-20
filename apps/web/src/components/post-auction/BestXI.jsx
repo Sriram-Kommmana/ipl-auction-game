@@ -49,7 +49,7 @@ const BestXI = ({ team }) => {
   if (!team) return null
 
   return (
-    <div className="panel p-6">
+    <div className="panel p-4 sm:p-6">
       <div className="section-head">
         <span className="section-num">06</span>
         <h2 className="section-title">Best XI</h2>

@@ -15,7 +15,7 @@ const TopPurchases = ({ teams }) => {
   }, [teams])
 
   return (
-    <div className="panel p-6">
+    <div className="panel p-4 sm:p-6">
       <div className="section-head">
         <span className="section-num">03</span>
         <h2 className="section-title">Top Purchases</h2>
@@ -32,16 +32,18 @@ const TopPurchases = ({ teams }) => {
             return (
               <div
                 key={p.slNo}
-                className="row flex items-center justify-between text-sm px-3 py-2"
+                className="row flex items-center justify-between gap-2 text-sm px-3 py-2"
               >
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                   <span className={`num text-xl w-7 shrink-0 ${RANK_STYLES[i] ?? 'text-bone/25'}`}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-bone truncate">{p.playerName}</span>
-                  <span className="team-chip shrink-0" style={teamChipStyle(team)}>
-                    {p.teamId}
-                  </span>
+                  <div className="flex flex-col items-start sm:flex-row sm:items-center gap-1 sm:gap-3 min-w-0">
+                    <span className="text-bone truncate max-w-full">{p.playerName}</span>
+                    <span className="team-chip shrink-0" style={teamChipStyle(team)}>
+                      {p.teamId}
+                    </span>
+                  </div>
                 </div>
                 <span className={`num text-xl shrink-0 ${i === 0 ? 'text-red' : 'text-bone'}`}>₹{p.boughtFor}L</span>
               </div>

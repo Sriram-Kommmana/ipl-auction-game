@@ -394,17 +394,17 @@ function renderPlayers(){
 
             <tr>
 
-                <td>${player.name}</td>
+                <td data-label="Name">${player.name}</td>
 
-                <td>${player.country}</td>
+                <td data-label="Country">${player.country}</td>
 
-                <td>
+                <td data-label="Role">
                     <span class="role-badge">
                         ${player.role}
                     </span>
                 </td>
 
-                <td class="price">
+                <td class="price" data-label="Base Price">
                     ${formatPrice(player.basePrice)}
                 </td>
 

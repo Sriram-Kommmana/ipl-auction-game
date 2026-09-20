@@ -45,9 +45,9 @@ const Auction = ({ managerNotice }) => {
   const MobileActiveComponent = MOBILE_TABS.find((t) => t.id === mobileTab)?.Component
 
   return (
-    <div className="min-h-screen md:h-screen md:overflow-hidden bg-city px-4 py-4 sm:px-8 relative">
-      {/* ================= MOBILE (below md) ================= */}
-      <div className="md:hidden">
+    <div className="min-h-screen lg:h-screen lg:overflow-hidden bg-city px-4 pt-4 pb-24 lg:pb-4 sm:px-8 relative">
+      {/* ============ PHONE + TABLET (below lg / 1024px) ============ */}
+      <div className="lg:hidden max-w-xl mx-auto">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <button
             type="button"
@@ -85,7 +85,7 @@ const Auction = ({ managerNotice }) => {
         </div>
 
         {/* Floating button — the ONLY thing that opens the drawer. Being
-            md:hidden here works correctly since this is a plain DOM
+            lg:hidden here works correctly since this is a plain DOM
             element, not portaled content. */}
         <button
           type="button"
@@ -101,7 +101,7 @@ const Auction = ({ managerNotice }) => {
         <Drawer.Root open={isMobileDrawerOpen} onOpenChange={setIsMobileDrawerOpen}>
           <Drawer.Portal>
             <Drawer.Overlay className="fixed inset-0 bg-void/80 backdrop-blur-sm z-40" />
-            <Drawer.Content className="fixed bottom-0 left-0 right-0 bg-panel border-t-2 border-red z-50 flex flex-col h-[75vh] outline-none">
+            <Drawer.Content className="fixed bottom-0 left-0 right-0 bg-panel border-t-2 border-red z-50 flex flex-col h-[75dvh] outline-none">
               <div className="mx-auto mt-2.5 h-1 w-12 bg-bone/25 shrink-0" />
 
               <div className="flex border-b border-line shrink-0 mt-2">
@@ -118,7 +118,7 @@ const Auction = ({ managerNotice }) => {
                 ))}
               </div>
 
-              <div className="p-3 overflow-y-auto flex-1">
+              <div className="p-3 overflow-y-auto flex-1 [&_.section-head]:hidden">
                 {MobileActiveComponent && <MobileActiveComponent />}
               </div>
             </Drawer.Content>
@@ -126,9 +126,9 @@ const Auction = ({ managerNotice }) => {
         </Drawer.Root>
       </div>
 
-      {/* ================= DESKTOP (md and up) — unchanged ================= */}
-      <div className="hidden md:flex md:flex-col md:h-full md:min-h-0 max-w-6xl w-full mx-auto">
-        <div className="flex items-center justify-between mb-4 md:shrink-0">
+      {/* ============ DESKTOP (lg and up) — 3 columns need ≥1024px ============ */}
+      <div className="hidden lg:flex lg:flex-col lg:h-full lg:min-h-0 max-w-6xl w-full mx-auto">
+        <div className="flex items-center justify-between mb-4 lg:shrink-0">
           <button
             type="button"
             onClick={() => setShowLeaveConfirm(true)}
@@ -143,7 +143,7 @@ const Auction = ({ managerNotice }) => {
         </div>
 
         {managerNotice && (
-          <div className="flex items-stretch border-2 border-red bg-red/10 mb-4 md:shrink-0">
+          <div className="flex items-stretch border-2 border-red bg-red/10 mb-4 lg:shrink-0">
             <div className="hazard w-3 shrink-0" />
             <p className="flex-1 font-mono text-xs uppercase tracking-wider text-bone text-center py-2 px-3">
               {managerNotice.message}
@@ -152,20 +152,20 @@ const Auction = ({ managerNotice }) => {
           </div>
         )}
 
-        <div className="grid md:grid-cols-3 gap-4 md:flex-1 md:min-h-0">
-          <div className="flex flex-col gap-4 md:min-h-0">
+        <div className="grid lg:grid-cols-3 gap-4 lg:flex-1 lg:min-h-0">
+          <div className="flex flex-col gap-4 lg:min-h-0">
             {/* 50/50 split — each panel fills its half (h-full inside) and
                 scrolls its own list, so there's no dead gap between them. */}
-            <div className="md:flex-1 md:min-h-0 md:overflow-hidden">
+            <div className="lg:flex-1 lg:min-h-0 lg:overflow-hidden">
               <PurseTracker />
             </div>
-            <div className="md:flex-1 md:min-h-0 md:overflow-hidden">
+            <div className="lg:flex-1 lg:min-h-0 lg:overflow-hidden">
               <BidFeed />
             </div>
           </div>
 
           <div
-            className="space-y-3 md:overflow-y-auto md:overflow-x-hidden md:min-h-0"
+            className="space-y-3 lg:overflow-y-auto lg:overflow-x-hidden lg:min-h-0"
             style={{ scrollbarGutter: 'stable' }}
           >
             <div className="px-4 py-1">
@@ -182,7 +182,7 @@ const Auction = ({ managerNotice }) => {
             <CurrentBid />
           </div>
 
-          <div className="md:flex md:flex-col md:min-h-0 panel overflow-hidden">
+          <div className="lg:flex lg:flex-col lg:min-h-0 panel overflow-hidden">
             <div className="flex border-b border-line shrink-0">
               {TABS.map((tab) => (
                 <button
@@ -196,7 +196,7 @@ const Auction = ({ managerNotice }) => {
                 </button>
               ))}
             </div>
-            <div className="p-3 md:overflow-y-auto md:min-h-0 flex-1">
+            <div className="p-3 lg:overflow-y-auto lg:min-h-0 flex-1">
               {ActiveTabComponent && <ActiveTabComponent />}
             </div>
           </div>

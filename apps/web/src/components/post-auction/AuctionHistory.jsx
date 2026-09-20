@@ -23,7 +23,7 @@ const AuctionHistory = ({ history }) => {
   }, [history, query, statusFilter])
 
   return (
-    <div className="panel p-6">
+    <div className="panel p-4 sm:p-6">
       <div className="section-head">
         <span className="section-num">07</span>
         <h2 className="section-title">Auction History</h2>
@@ -66,13 +66,13 @@ const AuctionHistory = ({ history }) => {
               // appears twice in history with the same slNo.
               <div
                 key={h.auctionOrder}
-                className="row flex items-center justify-between text-sm px-3 py-2"
+                className="row flex flex-wrap sm:flex-nowrap items-center justify-between gap-x-2 gap-y-1.5 text-sm px-3 py-2"
               >
-                <div className="flex items-center gap-2 min-w-0">
+                <div className="flex items-center gap-2 min-w-0 basis-full sm:basis-auto">
                   <span className="font-mono text-[10px] text-bone/30 w-8 shrink-0">#{String(h.auctionOrder).padStart(3, '0')}</span>
                   <span className="text-bone truncate">{h.playerName}</span>
                 </div>
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-2 shrink-0 ml-10 sm:ml-0">
                   {team && (
                     <span className="team-chip" style={teamChipStyle(team)}>
                       {team.teamId}

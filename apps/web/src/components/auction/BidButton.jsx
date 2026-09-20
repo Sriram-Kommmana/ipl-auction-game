@@ -58,7 +58,7 @@ const BidButton = () => {
         disabled={isDisabled}
         whileTap={isDisabled ? {} : { scale: 0.96 }}
         className="relative w-full h-16 bg-red hover:bg-red-glow border-2 border-red hover:border-red-glow text-bone
-           font-display text-3xl tracking-wide uppercase transition-colors overflow-hidden
+           font-display text-2xl min-[360px]:text-3xl tracking-wide uppercase transition-colors overflow-hidden
            shadow-[4px_4px_0_0_var(--color-bone)]
            disabled:bg-raised disabled:border-line-strong disabled:text-bone/35 disabled:cursor-not-allowed
            disabled:shadow-[4px_4px_0_0_var(--color-line)]"

@@ -17,7 +17,7 @@ const TeamDetails = ({ team }) => {
     .filter((g) => g.players.length > 0)
 
   return (
-    <div className="panel p-6">
+    <div className="panel p-4 sm:p-6">
       <div className="section-head">
         <span className="section-num">05</span>
         <h2 className="section-title">Squad Details</h2>

@@ -230,6 +230,12 @@ body {
   .field:disabled {
     opacity: 0.5;
   }
+  /* iOS Safari auto-zooms on focus when an input's font-size < 16px */
+  @media (max-width: 639px) {
+    .field {
+      font-size: 16px !important;
+    }
+  }
 
   /* Micro label — mono caps metadata */
   .label-mono {
@@ -263,6 +269,7 @@ body {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-bone);
+    white-space: nowrap;
   }
   .section-jp {
     margin-left: auto;
@@ -272,6 +279,12 @@ body {
     letter-spacing: 0.3em;
     color: rgb(239 233 221 / 0.28);
     white-space: nowrap;
+  }
+  /* Tiny phones: drop the decorative JP caption so titles never wrap */
+  @media (max-width: 399px) {
+    .section-jp {
+      display: none;
+    }
   }
 
   /* Team chip — square, bold, uses inline backgroundColor for team color */

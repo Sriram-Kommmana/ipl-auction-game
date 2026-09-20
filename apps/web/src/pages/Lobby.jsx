@@ -13,7 +13,7 @@ const Lobby = () => {
     <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8 overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none select-none absolute -right-4 top-10 font-jp font-black
+        className="hidden sm:block pointer-events-none select-none absolute -right-4 top-10 font-jp font-black
                    text-[8rem] sm:text-[12rem] leading-none text-bone/[0.025]"
       >
         待機

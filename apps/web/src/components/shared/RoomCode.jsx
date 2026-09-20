@@ -27,13 +27,13 @@ const RoomCode = ({ roomId, size = 'lg' }) => {
       onClick={handleCopy}
       className={`group inline-flex items-center text-left border transition-colors
         ${isLarge
-          ? 'gap-4 border-line-strong bg-void pl-4 pr-3 py-2 hover:border-red'
+          ? 'gap-3 sm:gap-4 max-w-full border-line-strong bg-void pl-3 sm:pl-4 pr-3 py-2 hover:border-red'
           : 'gap-2 border-line bg-panel px-2.5 py-1.5 hover:border-red'}`}
       title="Click to copy"
     >
       <span
-        className={`font-display tracking-[0.18em] text-bone leading-none
-          ${isLarge ? 'text-5xl' : 'text-base'}`}
+        className={`font-display text-bone leading-none
+          ${isLarge ? 'text-4xl sm:text-5xl tracking-[0.12em] sm:tracking-[0.18em]' : 'text-base tracking-[0.18em]'}`}
       >
         {roomId}
       </span>

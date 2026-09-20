@@ -87,7 +87,7 @@ const PlayerCard = () => {
           <div className="flex items-start justify-between gap-4 relative z-10">
             <div className="min-w-0">
               <p className="text-xs font-mono uppercase tracking-widest text-red">{player.role}</p>
-              <h1 className="font-display text-4xl tracking-wide leading-tight truncate">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-3xl xl:text-4xl tracking-wide leading-tight truncate">
                 {player.playerName}
               </h1>
               <p className="text-sm font-mono text-bone/60 mt-1">

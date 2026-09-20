@@ -31,7 +31,7 @@ const TeamGrid = () => {
           ! Reconnecting… team selection is paused.
         </p>
       )}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
         {TEAMS.map((team) => {
           const claim = claimedByTeamId[team.teamId]
           const isMine = team.teamId === myTeamId

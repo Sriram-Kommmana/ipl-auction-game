@@ -31,7 +31,7 @@ const CurrentBid = () => {
           initial={{ scale: 1.25, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="num text-6xl text-bone mt-1 leading-none"
+          className="num text-5xl min-[400px]:text-6xl text-bone mt-1 leading-none"
         >
           <span className="text-bone/50">₹</span>{currentBid}<span className="text-red">L</span>
         </motion.p>

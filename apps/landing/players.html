@@ -24,12 +24,16 @@
             </div>
 
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="index2.html" class="nav-link">HOME</a></li>
                     <li><a href="#" class="nav-link">PLAYER LIST</a></li>
                     <li><a href="index2.html#stats" class="nav-link">HOW TO PLAY</a></li>
                 </ul>
             </nav>
+
+                <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                    <span></span><span></span><span></span>
+                </button>
 
         </div>
     </header>
@@ -133,6 +137,22 @@
     </footer>
 
     <script src="players.js"></script>
+<script>
+    /* Mobile nav toggle */
+    (() => {
+        const navbar = document.querySelector(".navbar");
+        const btn = document.querySelector(".menu-btn");
+        if (!navbar || !btn) return;
+        const setOpen = (open) => {
+            navbar.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", String(open));
+            btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        };
+        btn.addEventListener("click", () => setOpen(!navbar.classList.contains("open")));
+        document.querySelectorAll(".nav-link").forEach((l) => l.addEventListener("click", () => setOpen(false)));
+        window.addEventListener("resize", () => { if (window.innerWidth > 768) setOpen(false); });
+    })();
+</script>
 
 </body>
 </html>
