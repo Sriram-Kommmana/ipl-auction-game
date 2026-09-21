@@ -3,13 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cricket Auction — Live IPL-Style Auction Game With Friends</title>
-    <meta name="description" content="Host a real-time IPL-style cricket auction with friends. Create a private room, claim a franchise, bid live on 300+ players and build your dream XI. No login needed.">
+    <meta name="description" content="Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.">
+    <link rel="canonical" href="https://cricket-auction.example.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cricket Auction">
+    <meta property="og:url" content="https://cricket-auction.example.com/">
+    <meta property="og:title" content="Cricket Auction — Live IPL-Style Auction Game With Friends">
+    <meta property="og:description" content="Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.">
+    <meta property="og:image" content="https://cricket-auction.example.com/assets/og-cover.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cricket Auction — create a room, claim a franchise and outbid your friends live">
+    <meta property="og:locale" content="en_IN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cricket Auction — Live IPL-Style Auction Game With Friends">
+    <meta name="twitter:description" content="Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.">
+    <meta name="twitter:image" content="https://cricket-auction.example.com/assets/og-cover.jpg">
+    <meta name="twitter:image:alt" content="Cricket Auction — create a room, claim a franchise and outbid your friends live">
+    <meta name="twitter:creator" content="@kommana_sriram">
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#060607">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
-    <meta name="theme-color" content="#060607">
-    <link rel="stylesheet" href="styles2.css" />
+    <link rel="stylesheet" href="styles2.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://cricket-auction.example.com/#website",
+          "url": "https://cricket-auction.example.com/",
+          "name": "Cricket Auction",
+          "description": "Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "VideoGame",
+          "@id": "https://cricket-auction.example.com/#game",
+          "name": "Cricket Auction",
+          "url": "https://cricket-auction.example.com/",
+          "description": "Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.",
+          "image": "https://cricket-auction.example.com/assets/og-cover.jpg",
+          "inLanguage": "en",
+          "genre": ["Sports", "Strategy", "Multiplayer"],
+          "gamePlatform": "Web browser",
+          "playMode": "MultiPlayer",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Any browser",
+          "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock" },
+          "author": { "@type": "Person", "name": "Sriram Kommana", "url": "https://github.com/Sriram-Kommmana" },
+          "isPartOf": { "@id": "https://cricket-auction.example.com/#website" }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <div class="wrapper">
@@ -24,9 +86,9 @@
 
                 <nav>
                     <ul class="nav-links" id="nav-links">
-                        <li><a href="#" class="nav-link">HOME</a></li>
-                        <li><a href="players.html" class="nav-link">PLAYER LIST</a></li>
-                        <li><a href="#stats" class="nav-link">HOW TO PLAY</a></li>
+                        <li><a href="/" class="nav-link">HOME</a></li>
+                        <li><a href="/players.html" class="nav-link">PLAYER LIST</a></li>
+                        <li><a href="/#how-to-play" class="nav-link">HOW TO PLAY</a></li>
                     </ul>
                 </nav>
 
@@ -43,9 +105,9 @@
                 <!-- LEFT SECTION -->
                 <div class="hero-left">
                     <div class="hero-side-text">
-                        <h2 id="scramble-text">
+                        <div id="scramble-text" aria-hidden="true">
                             ₹ 20000000
-                        </h2>
+                        </div>
                     </div>
                     <div class="hero-content">
                         <h1 class="hero-title">
@@ -69,9 +131,15 @@
                 <!-- RED SECTION -->
                 <div class="hero-red">
                     <img
-                        src="assets/10294799727.png"
-                        alt="Cricket Batter"
+                        src="assets/hero-batter.webp"
+                        srcset="assets/hero-batter-480.webp 480w, assets/hero-batter.webp 804w"
+                        sizes="(max-width: 992px) 160px, 63vh"
+                        alt="Cricket batsman playing a shot"
                         class="hero-player"
+                        width="804"
+                        height="1256"
+                        fetchpriority="high"
+                        decoding="async"
                     />
                 </div>
                 
@@ -84,10 +152,10 @@
                             LIVE BID
                         </div>
                         <div class="card-divider"></div>
-                        <h2 class="player-name">
+                        <p class="player-name">
                             VIRAT <br>
                             <span>KOHLI</span>
-                        </h2>
+                        </p>
                         <p class="player-role">
                             BATTER
                         </p>
@@ -96,9 +164,9 @@
                             <p class="bid-label">
                                 BASE PRICE
                             </p>
-                            <h3 class="bid-price">
+                            <p class="bid-price">
                                 ₹ 2.00 CR
-                            </h3>
+                            </p>
                         </div>
                         <div class="card-divider"></div>
                         <button class="view-auction-btn">
@@ -111,20 +179,27 @@
 
             <section class="stats-section" id="stats">
 
+                <h2 class="visually-hidden">Cricket Auction by the numbers</h2>
+
                 <div class="stats-container">
 
                     <!-- ITEM 1 -->
                     <div class="stat-item">
                         <div class="stat-icon">
                             <img
-                                src="assets/icons8-user-groups-100.png"
-                                alt="Users"
+                                src="assets/icons8-user-groups-100.webp"
+                                alt=""
+                                aria-hidden="true"
+                                width="60"
+                                height="60"
+                                loading="lazy"
+                                decoding="async"
                                 style="filter: invert(13%) sepia(100%) saturate(7491%) hue-rotate(0deg) brightness(102%) contrast(118%); width: 60px; height: 60px;"
                             >
                         </div>
 
                         <div class="stat-content">
-                            <h3 id="stat-rooms" data-stat="roomsCreated">100+</h3>
+                            <p class="stat-value" id="stat-rooms" data-stat="roomsCreated">100+</p>
                             <p>ROOMS CREATED</p>
                         </div>
                     </div>
@@ -133,14 +208,19 @@
                     <div class="stat-item">
                         <div class="stat-icon">
                             <img
-                                src="assets/icons8-lightning-100.png"
-                                alt="LIVE PLAYER BIDDING"
+                                src="assets/icons8-lightning-100.webp"
+                                alt=""
+                                aria-hidden="true"
+                                width="60"
+                                height="60"
+                                loading="lazy"
+                                decoding="async"
                                 style="filter: invert(13%) sepia(100%) saturate(7491%) hue-rotate(0deg) brightness(102%) contrast(118%); width: 60px; height: 60px;"
                             >
                         </div>
 
                         <div class="stat-content">
-                            <h3>LIVE</h3>
+                            <p class="stat-value">LIVE</p>
                             <p>PLAYER BIDDING</p>
                         </div>
                     </div>
@@ -149,14 +229,19 @@
                     <div class="stat-item">
                         <div class="stat-icon">
                             <img
-                                src="assets/icons8-player-96.png"
-                                alt="PLAYERS FOR AUCTION"
+                                src="assets/icons8-player-96.webp"
+                                alt=""
+                                aria-hidden="true"
+                                width="60"
+                                height="60"
+                                loading="lazy"
+                                decoding="async"
                                 style="filter: invert(13%) sepia(100%) saturate(7491%) hue-rotate(0deg) brightness(102%) contrast(118%); width: 60px; height: 60px;"
                             >
                         </div>
 
                         <div class="stat-content">
-                            <h3 id="stat-players" data-stat="playersAvailable">300+</h3>
+                            <p class="stat-value" id="stat-players" data-stat="playersAvailable">300+</p>
                             <p>PLAYERS FOR AUCTION</p>
                         </div>
                     </div>
@@ -165,14 +250,19 @@
                     <div class="stat-item">
                         <div class="stat-icon">
                             <img
-                                src="assets/icons8-youtube-live-100.png"
-                                alt="REAL-TIME BIDDING"
+                                src="assets/icons8-youtube-live-100.webp"
+                                alt=""
+                                aria-hidden="true"
+                                width="55"
+                                height="55"
+                                loading="lazy"
+                                decoding="async"
                                 style="filter: invert(13%) sepia(100%) saturate(7491%) hue-rotate(0deg) brightness(102%) contrast(118%); width: 55px; height: 55px;"
                             >
                         </div>
 
                         <div class="stat-content">
-                            <h3>REAL-TIME</h3>
+                            <p class="stat-value">REAL-TIME</p>
                             <p>BIDDING SYSTEM</p>
                         </div>
                     </div>
@@ -211,7 +301,12 @@
                             <div class="how-icon">
                                 <img
                                     src="assets/opened-door-aperture-svgrepo-com.svg"
-                                    alt="Create Room"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
                                     style="filter: invert(1);"
                                 >
                             </div>
@@ -236,7 +331,12 @@
                             <div class="how-icon">
                                 <img
                                     src="assets/meeting-svgrepo-com.svg"
-                                    alt="INVITE FRIENDS"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
                                     style="filter: invert(1);"
                                 >
                             </div>
@@ -261,7 +361,12 @@
                             <div class="how-icon">
                                 <img
                                     src="assets/gavel-svgrepo-com.svg"
-                                    alt="START AUCTION"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
                                     style="filter: invert(1);"
                                 >
                             </div>
@@ -286,7 +391,12 @@
                             <div class="how-icon">
                                 <img
                                     src="assets/rupee-svgrepo-com.svg"
-                                    alt="BID LIVE"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
                                     style="filter: invert(1);"
                                 >
                             </div>
@@ -311,7 +421,12 @@
                             <div class="how-icon">
                                 <img
                                     src="assets/trophy-free-material-6-svgrepo-com.svg"
-                                    alt="WIN TEAM"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
                                     style="filter: invert(1);"
                                 >
                             </div>
@@ -468,9 +583,9 @@
 
                 <div class="footer-brand">
 
-                    <h2>
+                    <div class="footer-logo">
                         CRICKET <span>AUCTION</span>
-                    </h2>
+                    </div>
 
                     <p>
                         Experience the thrill of building your dream squad through live cricket auctions.
@@ -480,9 +595,9 @@
 
                 <div class="footer-links">
 
-                    <a href="#">Home</a>
-                    <a href="#">Player List</a>
-                    <a href="#">How To Play</a>
+                    <a href="/">Home</a>
+                    <a href="/players.html">Player List</a>
+                    <a href="/#how-to-play">How To Play</a>
 
                 </div>
 

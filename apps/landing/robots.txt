@@ -1,0 +1,10 @@
+# Cricket Auction — landing site
+# The real domain is written in by tools/set-domain.mjs before deploying.
+
+User-agent: *
+Allow: /
+
+# Build tooling that happens to sit inside the served folder — no content.
+Disallow: /tools/
+
+Sitemap: https://cricket-auction.example.com/sitemap.xml

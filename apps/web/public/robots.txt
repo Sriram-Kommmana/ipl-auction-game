@@ -1,0 +1,14 @@
+# app.<domain> — the game client.
+#
+# Crawling is deliberately ALLOWED here even though nothing should be
+# indexed. Every page of this SPA carries <meta name="robots" content=
+# "noindex, follow">, and a crawler has to be able to fetch the page to
+# see that tag. Blocking with "Disallow: /" would do the opposite of what
+# it looks like: Google would stop fetching, never see the noindex, and
+# could still list the bare URL because the landing site links here
+# ("Indexed, though blocked by robots.txt").
+#
+# Everything worth ranking lives on the landing site.
+
+User-agent: *
+Allow: /

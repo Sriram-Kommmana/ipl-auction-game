@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--
+  Source artwork for assets/og-cover.png (1200x630), the image that appears
+  when the site is shared on WhatsApp, X, Slack, iMessage and friends.
+  Rendered to PNG by tools/build-icons.mjs via headless Chrome.
+  Edit here, re-run the script, never hand-edit the PNG.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #060607;
+    }
+
+    .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        font-family: 'Archivo', sans-serif;
+    }
+
+    /* faint editorial grid, same trick as the site's .bg-city */
+    .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            repeating-linear-gradient(90deg, rgba(239,233,221,0.045) 0 1px, transparent 1px 64px),
+            repeating-linear-gradient(0deg,  rgba(239,233,221,0.045) 0 1px, transparent 1px 64px);
+    }
+
+    /* red horizon glow bleeding up from the lower left */
+    .card::after {
+        content: "";
+        position: absolute;
+        left: -180px;
+        bottom: -320px;
+        width: 900px;
+        height: 620px;
+        background: radial-gradient(circle, rgba(255,31,61,0.30), transparent 62%);
+    }
+
+    /* angled red slab on the right, echoing the hero */
+    .slab {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 430px;
+        height: 100%;
+        background:
+            radial-gradient(circle at 70% 28%, rgba(255,77,99,0.62), transparent 56%),
+            linear-gradient(180deg, #FF1F3D 0%, #B3001E 100%);
+        clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* diagonal hatching + halftone over the slab */
+    .slab::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            repeating-linear-gradient(-20deg, rgba(0,0,0,0.22) 0 2px, transparent 2px 24px),
+            radial-gradient(rgba(0,0,0,0.33) 1px, transparent 1.5px) 0 0 / 7px 7px;
+        clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 0.75;
+    }
+
+    .ball {
+        position: absolute;
+        right: 74px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 268px;
+        height: 268px;
+        z-index: 2; /* above the slab's halftone overlay */
+        filter: drop-shadow(0 18px 40px rgba(0,0,0,0.55));
+    }
+
+    .content {
+        position: relative;
+        z-index: 3;
+        padding: 62px 0 0 76px;
+        width: 760px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(239,233,221,0.62);
+    }
+
+    .eyebrow i { width: 13px; height: 13px; background: #FF1F3D; display: block; }
+
+    .wordmark {
+        font-family: 'Anton', sans-serif;
+        font-weight: 400;
+        font-size: 128px;
+        line-height: 0.84;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+        color: #EFE9DD;
+        margin-top: 28px;
+    }
+
+    .wordmark span {
+        color: #FF1F3D;
+        text-shadow: 0 0 46px rgba(255,31,61,0.55);
+    }
+
+    .rule { width: 132px; height: 8px; background: #FF1F3D; margin-top: 32px; }
+
+    .tagline {
+        font-size: 29px;
+        font-weight: 600;
+        line-height: 1.36;
+        color: rgba(239,233,221,0.82);
+        margin-top: 24px;
+        max-width: 600px;
+    }
+
+    .footer-strip {
+        position: absolute;
+        left: 76px;
+        bottom: 54px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(239,233,221,0.52);
+        z-index: 3;
+    }
+
+    .footer-strip b { width: 7px; height: 7px; background: #FF1F3D; display: block; }
+</style>
+</head>
+<body>
+<div class="card">
+    <div class="slab">
+        <svg class="ball" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="13" fill="#0A0A0A"/>
+            <circle cx="16" cy="16" r="11.6" fill="#EFE9DD"/>
+            <path d="M16 4.4a11.6 11.6 0 0 0 0 23.2z" fill="#D9D2C4"/>
+            <path d="M11.6 5.6Q6.7 16 11.6 26.4" fill="none" stroke="#0A0A0A" stroke-width="1.15" stroke-linecap="round"/>
+            <path d="M11.6 5.6Q6.7 16 11.6 26.4" fill="none" stroke="#0A0A0A" stroke-width="3.7" stroke-dasharray="0.85 3.05"/>
+        </svg>
+    </div>
+
+    <div class="content">
+        <div class="eyebrow"><i></i> Real-time multiplayer</div>
+
+        <h1 class="wordmark">Cricket<br><span>Auction</span></h1>
+
+        <div class="rule"></div>
+
+        <p class="tagline">
+            Create a room, claim a franchise and outbid your friends live.
+        </p>
+    </div>
+
+    <div class="footer-strip">
+        <span>10 Franchises</span><b></b>
+        <span>323 Players</span><b></b>
+        <span>No Login</span>
+    </div>
+</div>
+</body>
+</html>

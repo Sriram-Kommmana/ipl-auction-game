@@ -945,7 +945,7 @@ img {
     filter: brightness(0) !important;
 }
 
-.stat-content h3 {
+.stat-content .stat-value {
     font-family: var(--font-display);
     font-weight: 400;
     font-size: 2.2rem;
@@ -1291,7 +1291,7 @@ img {
     max-width: 400px;
 }
 
-.footer-brand h2 {
+.footer-brand .footer-logo {
     font-family: var(--font-display);
     font-weight: 400;
     font-size: 2.6rem;
@@ -1395,4 +1395,19 @@ img {
     .hero-content {
         animation: none !important;
     }
+}
+
+/* Available to screen readers and to the document outline, invisible on
+   screen — used for section headings the design conveys visually. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
