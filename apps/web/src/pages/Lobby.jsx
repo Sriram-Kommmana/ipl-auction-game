@@ -3,6 +3,7 @@ import { useRoomStore } from '../store/roomStore'
 import TeamGrid from '../components/lobby/TeamGrid'
 import PlayerList from '../components/lobby/PlayerList'
 import LobbyControls from '../components/lobby/LobbyControls'
+import ChatPanel from '../components/shared/ChatPanel'
 import RoomCode from '../components/shared/RoomCode'
 
 const Lobby = () => {
@@ -10,13 +11,16 @@ const Lobby = () => {
   const pursePerTeam = useRoomStore((s) => s.pursePerTeam)
 
   return (
-    <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8 overflow-hidden">
-      <div
-        aria-hidden
-        className="hidden sm:block pointer-events-none select-none absolute -right-4 top-10 font-jp font-black
-                   text-[8rem] sm:text-[12rem] leading-none text-bone/[0.025]"
-      >
-        待機
+    <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8">
+      {/* Watermark clips itself — the page wrapper must NOT be
+          overflow-hidden, or the sticky action bar below can't stick. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="hidden sm:block select-none absolute -right-4 top-10 font-jp font-black
+                     text-[8rem] sm:text-[12rem] leading-none text-bone/[0.025]"
+        >
+          待機
+        </div>
       </div>
 
       <div className="relative max-w-5xl mx-auto">
@@ -49,12 +53,27 @@ const Lobby = () => {
           Purse per team: <span className="text-bone">₹{pursePerTeam}L</span>
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="md:col-span-2">
+        {/* Teams + Players stack in the left column so the right column is
+            free for chat — that keeps the page short enough that Start
+            Auction / Leave Room stay reachable without a long scroll. */}
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+          <div className="md:col-span-2 flex flex-col gap-6">
             <TeamGrid />
-          </div>
-          <div>
             <PlayerList />
+          </div>
+
+          {/* Same ChatPanel the auction uses — chat is room-wide, so the
+              backend accepts messages while the room is still waiting and
+              the history carries straight over into the auction. */}
+          <div className="panel p-4 flex flex-col h-96 md:h-full">
+            <div className="section-head">
+              <span className="section-num">03</span>
+              <h2 className="section-title">Chat</h2>
+              <span className="section-jp">通信</span>
+            </div>
+            <div className="flex-1 min-h-0">
+              <ChatPanel />
+            </div>
           </div>
         </div>
 

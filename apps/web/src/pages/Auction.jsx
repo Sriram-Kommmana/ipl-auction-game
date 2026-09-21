@@ -13,7 +13,7 @@ import ManagerControls from '../components/auction/ManagerControls'
 import BidFeed from '../components/auction/BidFeed'
 import PurseTracker from '../components/auction/PurseTracker'
 import SquadViewer from '../components/auction/SquadViewer'
-import ChatPanel from '../components/auction/ChatPanel'
+import ChatPanel from '../components/shared/ChatPanel'
 import RoomCode from '../components/shared/RoomCode'
 import Modal from '../components/shared/Modal'
 

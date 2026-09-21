@@ -25,7 +25,15 @@ const LobbyControls = () => {
 
   return (
     <>
-      <div className="mt-8 pt-6 border-t border-line flex flex-col-reverse items-stretch gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+      {/* Sticky: on short screens the page is a little taller than the
+          viewport, and the manager shouldn't have to scroll to find Start
+          Auction. It parks itself at the end of the page once everything
+          fits. */}
+      <div
+        className="md:sticky md:bottom-0 z-20 mt-8 pt-5 pb-4 -mx-4 px-4 sm:-mx-8 sm:px-8 border-t border-line
+                   bg-void/90 backdrop-blur-sm
+                   flex flex-col-reverse items-stretch gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+      >
         <button
           type="button"
           onClick={() => setShowLeaveConfirm(true)}
