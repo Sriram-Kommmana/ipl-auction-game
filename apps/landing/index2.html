@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="stat-content">
-                            <h3>2.5K+</h3>
+                            <h3 id="stat-rooms" data-stat="roomsCreated">100+</h3>
                             <p>ROOMS CREATED</p>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                         </div>
 
                         <div class="stat-content">
-                            <h3>300+</h3>
+                            <h3 id="stat-players" data-stat="playersAvailable">300+</h3>
                             <p>PLAYERS FOR AUCTION</p>
                         </div>
                     </div>
@@ -522,6 +522,73 @@
         btn.addEventListener("click", () => setOpen(!navbar.classList.contains("open")));
         document.querySelectorAll(".nav-link").forEach((l) => l.addEventListener("click", () => setOpen(false)));
         window.addEventListener("resize", () => { if (window.innerWidth > 768) setOpen(false); });
+    })();
+</script>
+<script>
+    /* ================= LIVE STATS =================
+       Pulls real counters from the API and swaps them into the stats band.
+       Pure vanilla JS — no framework, no build step. If the API is down or
+       slow, the hardcoded numbers already in the HTML simply stay put, so
+       the page never looks broken.
+
+       CHANGE THIS when you deploy — point it at your live API origin. */
+    const STATS_API = "http://localhost:3001";
+
+    (() => {
+        const nodes = document.querySelectorAll("[data-stat]");
+        if (!nodes.length) return;
+
+        /* Rounded DOWN to the nearest 100, with 100 as the floor:
+              0-199   -> "100+"
+              200-299 -> "200+"
+              1250    -> "1200+"
+           So the number only ticks over on each new hundred rooms. */
+        const STEP = 100;
+        const format = (n) => {
+            if (!Number.isFinite(n) || n < 0) return null;
+            const floored = Math.floor(n / STEP) * STEP;
+            return `${Math.max(floored, STEP)}+`;
+        };
+
+        /* Short count-up so the number feels live rather than swapped in. */
+        const countUp = (el, target, suffix) => {
+            const DURATION = 900;
+            const start = performance.now();
+            const step = (now) => {
+                const progress = Math.min((now - start) / DURATION, 1);
+                /* ease-out so it decelerates into the final value */
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(target * eased) + (progress === 1 ? suffix : "");
+                if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        };
+
+        const render = (el, value) => {
+            const text = format(value);
+            if (!text) return;
+
+            const prefersReducedMotion =
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (prefersReducedMotion) {
+                el.textContent = text;
+                return;
+            }
+
+            countUp(el, parseInt(text, 10), "+");
+        };
+
+        fetch(`${STATS_API}/stats`, { headers: { Accept: "application/json" } })
+            .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+            .then((body) => {
+                const stats = body && body.data;
+                if (!stats) return;
+                nodes.forEach((el) => render(el, stats[el.dataset.stat]));
+            })
+            .catch(() => {
+                /* Offline / API down — keep the numbers already in the HTML. */
+            });
     })();
 </script>
 </body>

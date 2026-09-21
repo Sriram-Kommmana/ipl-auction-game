@@ -8,6 +8,7 @@ import http from 'node:http';
 import cors from 'cors';
 import { Server } from 'socket.io';
 import roomRoutes from './http/roomRoutes.js';
+import { getStats } from './http/getStats.js';
 import { errorHandler } from './middlewares/errorHandler.js'
 import { registerSocketHandlers } from './socket/index.js'
 
@@ -35,6 +36,9 @@ app.use(express.json());
 app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
+
+// Public read-only counters for the static landing page
+app.get('/stats', getStats);
 
 app.use('/room', roomRoutes);
 
