@@ -1,5 +1,3 @@
-// apps/server/src/db/updateBasePrice.js
-//
 // One-off data migration: players seeded with a base price of 250 are
 // repriced to 200. Nothing else about the player documents is touched.
 //
