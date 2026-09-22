@@ -1,9 +1,14 @@
 import 'dotenv/config';
 import csvtojson from 'csvtojson';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
-import Player from './models/Player';
-import connectMongoDB from './client';
+import Player from './models/Player.js';
+import connectMongoDB from './client.js';
+
+// __dirname isn't defined under ESM ("type": "module" in package.json) —
+// this is the standard replacement, derived from the module's own URL.
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const seedPlayers = async () => {
     await connectMongoDB()

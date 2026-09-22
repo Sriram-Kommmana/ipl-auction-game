@@ -19,8 +19,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
-        // origin: "*",
+        // Same origin as the Express CORS below — the game client is the
+        // only thing that ever opens a socket connection.
+        origin: process.env.CLIENT_URL,
         methods: ['GET', 'POST']
     }
 });
