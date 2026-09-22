@@ -2,7 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Same mark as the landing site (apps/landing/favicon.svg), synced by
+         hand for now — see apps/landing/tools/build-icons.mjs for how
+         favicon.ico and apple-touch-icon.png are derived from it. These are
+         root-absolute on purpose: Vite serves everything in public/ at the
+         app's own root, in both dev and the production build, unlike the
+         landing site's plain-HTML pages. -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
