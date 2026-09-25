@@ -16,7 +16,7 @@ const CurrentBid = () => {
   const ownerNickname = owner?.nickname
 
   return (
-    <div className="panel p-3 text-center">
+    <div className="panel p-2.5 text-center">
       <div className="flex items-center justify-center gap-2">
         <span className="h-1.5 w-1.5 bg-red animate-blink" />
         <p className="label-mono">Current Bid // 現在価格</p>
