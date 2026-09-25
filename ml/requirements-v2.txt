@@ -1,0 +1,7 @@
+# Phase 2 (v2) RL infrastructure — ml/ipl_rl. CPU-only is enough.
+#   py -3.12 -m venv ml/.venv
+#   ml/.venv/Scripts/python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   ml/.venv/Scripts/python -m pip install -r ml/requirements-v2.txt
+torch>=2.2
+gymnasium>=0.29,<1.3
+numpy>=1.24

@@ -1,3 +1,7 @@
+> **Phase 2 (v2) supersedes this starter.** The frozen RL design is implemented in
+> [`ml/ipl_rl/`](ipl_rl/README.md) (obs-v2, act-v2, bridge v2, `IplAuctionEnv`).
+> The v1 files described below are legacy. Don't train against them.
+
 # Training the RL franchises
 
 Solo mode seats 9 AI franchises: 4 **rule-based** bots (hand-written, already

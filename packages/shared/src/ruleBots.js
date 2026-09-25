@@ -156,9 +156,8 @@ export const RULE_BOT_IDS = Object.freeze(Object.keys(RULE_PERSONAS))
 //             when spending runs ahead of the premium value already sold)…
 //   …except a critical requirement (at least (1 + requirementWeight) × fair
 //             value) and a final opportunity (a share of the safe maximum).
-// Everything is later capped by the planner's maxSafeBid. Pass a `trace`
-// object to receive the intermediate terms (diagnostics only).
-export const personalityValue = (personaId, ctx, f, plan, trace = null) => {
+// Everything is later capped by the planner's maxSafeBid.
+export const personalityValue = (personaId, ctx, f, plan) => {
     const P = PERSONALITIES[personaId]
     const s = botSignals(ctx, plan, f)
     const quality = s.gainQuality(P.gainSoftness)
@@ -196,7 +195,6 @@ export const personalityValue = (personaId, ctx, f, plan, trace = null) => {
     value = Math.min(value, perOpportunity * P.concentration(s, ctx) * (ahead ? 0.7 : 1))
     if (s.urgency >= 1) value = Math.max(value, s.fairValue * (1 + P.requirementWeight))
     if (s.finalOpportunity) value = Math.max(value, plan.budget.maxSafeBid * P.finalShare)
-    if (trace) Object.assign(trace, { s, quality, desire, worth, priority, perOpportunity, share, multiple, target, ahead, value })
     return value
 }
 

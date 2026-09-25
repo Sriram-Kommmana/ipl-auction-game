@@ -8,7 +8,8 @@
   "exports": {
     ".": "./src/index.js",
     "./sim": "./src/sim.js",
-    "./players-csv": "./src/playersCsv.js"
+    "./players-csv": "./src/playersCsv.js",
+    "./rl": "./src/rl/index.js"
   },
   "scripts": {
     "test": "node --test \"test/*.test.js\""
