@@ -23,7 +23,7 @@
 // that floor is unrealistic.
 
 import { DEFAULT_RULES, XI_SIZE, bidBlocker } from './rules.js'
-import { XI_RULES, xiGain } from './scoring.js'
+import { XI_RULES, selectBestXI, xiGain } from './scoring.js'
 
 export const REQUIREMENT_STATUS = Object.freeze({
     SAFE: 'SAFE', // already satisfied by the current squad
@@ -502,5 +502,61 @@ export const canCompleteXIAfterPurchase = (ctx, price, plan = planBid(ctx)) =>
     plan.completion.minimumCompletionCostAfterPurchase !== null &&
     plan.completion.reachableEmptySlots === 0 &&
     plan.completion.minimumCompletionCostAfterPurchase + price <= ctx.self.purseLeft
+
+// ── Opportunity classification ────────────────────────────────────────────
+// What KIND of opportunity the player on the block is for this team — facts,
+// not a decision. Personalities turn the category into a price.
+//   critical — fills a requirement the XI still lacks (keeper, bowling
+//              options, Indians, or an XI place)
+//   useful   — lifts the Best XI by ≥ 0.5 points
+//   marginal — lifts it by a little (0.05–0.5)
+//   depth    — doesn't make the XI but adds real cover, with the XI secure,
+//              a slot to spare and money that isn't needed elsewhere
+//   none     — anything else
+// The 0.05 and 0.5 cut-offs are the ones the rule bots already used ("no XI
+// improvement" and "small improvement").
+export const XI_GAIN = Object.freeze({ none: 0.05, useful: 0.5 })
+
+// Is `lot` real cover rather than a spare body? Either a backup for an XI
+// requirement the squad only just meets, or better than every bench player
+// (squad members outside the Best XI) in his role.
+const coverFor = (squad, lot, comp) => {
+    const cover = []
+    const lotIsIndian = !isOverseas(lot)
+    if (lot.role === 'WICKET KEEPER' && comp.keepers === XI_RULES.minKeepers) cover.push('keeper')
+    if (isBowlingOption(lot) && comp.bowlingOptions === XI_RULES.minBowlingOptions) cover.push('bowling')
+    if (lotIsIndian && comp.indians === XI_SIZE - XI_RULES.maxOverseas) cover.push('indians')
+    const inXI = new Set(selectBestXI(squad).players.map((p) => p.slNo))
+    const bench = squad.filter((p) => !inXI.has(p.slNo) && p.role === lot.role)
+    if (bench.every((p) => p.rating < lot.rating)) cover.push('bench')
+    return cover
+}
+
+export const classifyOpportunity = (ctx, plan = planBid(ctx)) => {
+    const { lot, self } = ctx
+    const gain = plan.playerImpact.xiGain
+    if (!plan.allowed) return { category: 'none', reason: plan.reason, gain }
+    // Belonging to a needed class isn't enough — he must actually take an XI
+    // place (an overseas player can't fill a gap the 4-overseas limit blocks).
+    const fills = plan.playerImpact.fillsRequirement.length > 0 && gain > XI_GAIN.none
+    if (fills || plan.playerImpact.unlocksRequirement) {
+        return {
+            category: 'critical',
+            reason: `fills ${plan.playerImpact.fillsRequirement.join(', ') || 'an XI requirement'}`,
+            finalOpportunity: plan.lotContext.finalOpportunity,
+            gain
+        }
+    }
+    if (gain >= XI_GAIN.useful) return { category: 'useful', reason: `XI +${gain.toFixed(2)}`, gain }
+    if (gain > XI_GAIN.none) return { category: 'marginal', reason: `XI +${gain.toFixed(2)}`, gain }
+    const secure = plan.teamNeeds.completion === REQUIREMENT_STATUS.SAFE
+    const spareSlot = plan.completion.slotsLeft > 1
+    const healthy = plan.budget.discretionaryBudget >= 2 * lot.basePrice
+    if (secure && spareSlot && healthy) {
+        const cover = coverFor(self.squad, lot, plan.teamNeeds.composition)
+        if (cover.length) return { category: 'depth', reason: `cover: ${cover.join(', ')}`, cover, gain }
+    }
+    return { category: 'none', reason: secure ? 'no XI gain and no useful cover' : 'no XI gain', gain }
+}
 
 export { STATUS_RANK }
