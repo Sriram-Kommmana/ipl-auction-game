@@ -3,3 +3,6 @@ dist
 .env
 .env.local
 .claude/
+# RL training output (models, snapshots, TensorBoard logs)
+ml/runs/
+__pycache__/

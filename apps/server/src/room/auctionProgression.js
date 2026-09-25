@@ -1,8 +1,8 @@
 import redis from '../redis/client.js'
 import { loadPlayerIntoCurrent } from './loadPlayerIntoCurrent.js'
 import { persistAuctionResults } from '../db/persistAuctionResults.js'
-
-const FOUR_DAYS_IN_SECONDS = 4 * 24 * 60 * 60
+import { emitToRoom } from '../services/roomEvents.js'
+import { FOUR_DAYS_IN_SECONDS } from '../constants.js'
 
 const shuffleArray = (array) => {
     const arr = [...array]
@@ -37,7 +37,7 @@ const completeAuction = async (io, roomId, message) => {
     })
     await redis.hset(`room:${roomId}:current`, { timerState: 'ENDED' })
 
-    io.to(roomId).emit('auctionCompleted', { roomId, message })
+    emitToRoom(io, roomId, 'auctionCompleted', { roomId, message })
 
     // Fire and forget — never block auctionCompleted waiting for MongoDB
     persistAuctionResults(roomId).catch(err =>
@@ -53,12 +53,16 @@ const advanceAuction = async (io, roomId, currentPlayerIndex, auctionPhase, pool
         const nextSlNo = await redis.lindex(`room:${roomId}:pool`, newIndex)
         await redis.hset(`room:${roomId}`, { currentPlayerIndex: String(newIndex) })
         const playerDoc = await loadPlayerIntoCurrent(roomId, nextSlNo)
-        io.to(roomId).emit('nextPlayer', buildPlayerPayload(playerDoc, newIndex))
+        emitToRoom(io, roomId, 'nextPlayer', buildPlayerPayload(playerDoc, newIndex))
         await startTimerFn(io, roomId)
 
     } else if (auctionPhase === 'main') {
-        // Main pool exhausted — check for unsold/skipped players to re-auction
-        const unsoldList = await redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
+        // Main pool exhausted — check for unsold/skipped players to re-auction.
+        // Quick solo pools skip the re-auction round to keep sessions short.
+        const reauction = await redis.hget(`room:${roomId}`, 'reauction')
+        const unsoldList = reauction === 'false'
+            ? []
+            : await redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
 
         if (unsoldList.length > 0) {
             const shuffled = shuffleArray(unsoldList)
@@ -81,7 +85,7 @@ const advanceAuction = async (io, roomId, currentPlayerIndex, auctionPhase, pool
             await pipeline.exec()
 
             const playerDoc = await loadPlayerIntoCurrent(roomId, shuffled[0])
-            io.to(roomId).emit('nextPlayer', buildPlayerPayload(playerDoc, 0, { isReauction: true }))
+            emitToRoom(io, roomId, 'nextPlayer', buildPlayerPayload(playerDoc, 0, { isReauction: true }))
             await startTimerFn(io, roomId)
 
         } else {

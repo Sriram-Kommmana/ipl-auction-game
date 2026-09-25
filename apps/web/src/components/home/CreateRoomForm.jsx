@@ -10,6 +10,40 @@ const inputClass = 'field'
 
 const labelClass = 'label-mono block mb-1.5'
 
+const MODES = [
+  { id: 'multiplayer', label: 'With Friends' },
+  { id: 'solo', label: 'Solo vs AI' }
+]
+
+const POOLS = [
+  { id: 'quick', label: 'Quick', detail: '140 players · 20–40 min' },
+  { id: 'full', label: 'Full', detail: '323 players + re-auction' }
+]
+
+// Small segmented control in the terminal's tab style.
+const Segmented = ({ options, value, onChange, label }) => (
+  <div role="radiogroup" aria-label={label} className="grid grid-cols-2 border border-line">
+    {options.map((opt, i) => (
+      <button
+        key={opt.id}
+        type="button"
+        role="radio"
+        aria-checked={value === opt.id}
+        data-active={value === opt.id}
+        onClick={() => onChange(opt.id)}
+        className={`tab py-2.5 px-2 text-base leading-tight ${i > 0 ? 'border-l border-line' : ''}`}
+      >
+        {opt.label}
+        {opt.detail && (
+          <span className="block font-mono text-[9px] tracking-[0.12em] normal-case opacity-70 mt-0.5">
+            {opt.detail}
+          </span>
+        )}
+      </button>
+    ))}
+  </div>
+)
+
 const CreateRoomForm = () => {
   const navigate = useNavigate()
   const setSession = useSessionStore((s) => s.setSession)
@@ -18,6 +52,9 @@ const CreateRoomForm = () => {
   const [managerPin, setManagerPin] = useState('')
   const [roomPin, setRoomPin] = useState('')
   const [pursePerTeam, setPursePerTeam] = useState(12500)
+  const [mode, setMode] = useState('multiplayer')
+  const [pool, setPool] = useState('quick')
+  const isSolo = mode === 'solo'
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -32,7 +69,7 @@ const CreateRoomForm = () => {
     if (!/^\d{4}$/.test(managerPin)) {
       return 'Your PIN must be exactly 4 digits.'
     }
-    if (!/^\d{4}$/.test(roomPin)) {
+    if (!isSolo && !/^\d{4}$/.test(roomPin)) {
       return 'Room PIN must be exactly 4 digits.'
     }
     if (pursePerTeam < 5000 || pursePerTeam > 50000) {
@@ -56,8 +93,10 @@ const CreateRoomForm = () => {
       const res = await createRoom({
         managerNickname: managerNickname.trim(),
         managerPin,
-        roomPin,
-        pursePerTeam: Number(pursePerTeam)
+        roomPin: isSolo ? undefined : roomPin,
+        pursePerTeam: Number(pursePerTeam),
+        mode,
+        pool: isSolo ? pool : 'full'
       })
 
       const { roomId, managerId, isManager } = res.data
@@ -67,7 +106,7 @@ const CreateRoomForm = () => {
         roomId,
         nickname: managerNickname.trim(),
         playerPin: managerPin,
-        roomPin,
+        roomPin: isSolo ? '' : roomPin,
         isManager
       })
 
@@ -92,6 +131,23 @@ const CreateRoomForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
+        <span className={labelClass}>Opponents</span>
+        <Segmented options={MODES} value={mode} onChange={setMode} label="Opponents" />
+        {isSolo && (
+          <p className="font-mono text-[10px] leading-relaxed text-bone/45 mt-2">
+            You vs 9 AI franchises — 4 rule-based, 5 reinforcement-learning.
+          </p>
+        )}
+      </div>
+
+      {isSolo && (
+        <div>
+          <span className={labelClass}>Player Pool</span>
+          <Segmented options={POOLS} value={pool} onChange={setPool} label="Player pool" />
+        </div>
+      )}
+
+      <div>
         <label className={labelClass}>Your Name</label>
         <input
           type="text"
@@ -103,7 +159,7 @@ const CreateRoomForm = () => {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className={`grid gap-3 ${isSolo ? 'grid-cols-1' : 'grid-cols-2'}`}>
         <div>
           <label className={labelClass}>Your PIN</label>
           <input
@@ -115,17 +171,19 @@ const CreateRoomForm = () => {
             className={`${inputClass} tracking-[0.4em]`}
           />
         </div>
-        <div>
-          <label className={labelClass}>Room PIN</label>
-          <input
-            type="password"
-            inputMode="numeric"
-            value={roomPin}
-            onChange={(e) => setRoomPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
-            placeholder="4 digits"
-            className={`${inputClass} tracking-[0.4em]`}
-          />
-        </div>
+        {!isSolo && (
+          <div>
+            <label className={labelClass}>Room PIN</label>
+            <input
+              type="password"
+              inputMode="numeric"
+              value={roomPin}
+              onChange={(e) => setRoomPin(e.target.value.replace(/\D/g, '').slice(0, 4))}
+              placeholder="4 digits"
+              className={`${inputClass} tracking-[0.4em]`}
+            />
+          </div>
+        )}
       </div>
 
       {/* <div>
@@ -149,7 +207,7 @@ const CreateRoomForm = () => {
         className="btn-primary w-full text-2xl py-3 flex items-center justify-center gap-3 !mt-6"
       >
         {isSubmitting && <Spinner size={20} variant="light" />}
-        {isSubmitting ? 'CREATING…' : 'CREATE ROOM'}
+        {isSubmitting ? 'CREATING…' : isSolo ? 'START SOLO GAME' : 'CREATE ROOM'}
       </button>
     </form>
   )

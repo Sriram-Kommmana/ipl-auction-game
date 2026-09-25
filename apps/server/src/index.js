@@ -11,6 +11,7 @@ import roomRoutes from './http/roomRoutes.js';
 import { getStats } from './http/getStats.js';
 import { errorHandler } from './middlewares/errorHandler.js'
 import { registerSocketHandlers } from './socket/index.js'
+import { initBots } from './bots/botManager.js'
 
 
 
@@ -27,6 +28,7 @@ const io = new Server(server, {
 });
 
 registerSocketHandlers(io)
+initBots(io)
 
 app.use(cors({
     origin: process.env.CLIENT_URL

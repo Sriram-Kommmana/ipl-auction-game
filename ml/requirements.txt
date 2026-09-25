@@ -1,0 +1,9 @@
+# CPU-only is plenty: the network is 2×64 and the simulator is the bottleneck.
+# Install the CPU build of PyTorch first (much smaller download):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+gymnasium>=0.29,<1.1
+stable-baselines3>=2.3
+sb3-contrib>=2.3
+numpy>=1.24
+tensorboard>=2.15

@@ -2,12 +2,16 @@
 // NOTE: "Leave Room" moved OUT of this component — it's now in Auction.jsx's
 // header row (available to every player, not just the manager). This
 // component now only renders the manager-only Pause/Resume/Skip group.
+// Solo rooms swap Skip for Pass: against the AI you don't need to throw a lot
+// away, you just step out of it and let it close.
 import { useEffect, useState } from 'react'
 import { useSessionStore } from '../../store/sessionStore'
 import { useAuctionStore } from '../../store/auctionStore'
+import { useRoomStore } from '../../store/roomStore'
 import { useSocketConnected } from '../../hooks/useSocketConnected'
 import { TEAMS_BY_ID } from '../../constants/teams'
 import Modal from '../shared/Modal'
+import PassButton from './PassButton'
 import socket from '../../lib/socket'
 
 const btnClass =
@@ -16,6 +20,7 @@ const btnClass =
 
 const ManagerControls = () => {
   const isManager = useSessionStore((s) => s.isManager)
+  const isSolo = useRoomStore((s) => s.mode === 'solo')
   const playerId = useSessionStore((s) => s.playerId)
   const timerState = useAuctionStore((s) => s.timerState)
   const currentPlayerIndex = useAuctionStore((s) => s.currentPlayerIndex)
@@ -95,7 +100,11 @@ const ManagerControls = () => {
           </button>
         )}
 
-        {timerState === 'RUNNING' && (
+        {timerState === 'RUNNING' && isSolo && (
+          <PassButton className={`${btnClass} border-line-strong text-bone/80 hover:border-red hover:text-red`} />
+        )}
+
+        {timerState === 'RUNNING' && !isSolo && (
           <button
             type="button"
             onClick={handleSkipClick}

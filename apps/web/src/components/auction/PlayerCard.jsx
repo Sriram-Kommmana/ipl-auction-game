@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion'
 import { useAuctionStore } from '../../store/auctionStore'
+import Marquee from '../shared/Marquee'
 
 const STATS = [
   { label: 'BAT', key: 'bat' },
@@ -85,10 +86,10 @@ const PlayerCard = () => {
           />
 
           <div className="flex items-start justify-between gap-4 relative z-10">
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <p className="text-xs font-mono uppercase tracking-widest text-red">{player.role}</p>
-              <h1 className="font-display text-3xl sm:text-4xl lg:text-3xl xl:text-4xl tracking-wide leading-tight truncate">
-                {player.playerName}
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-3xl xl:text-4xl tracking-wide leading-tight">
+                <Marquee text={player.playerName} />
               </h1>
               <p className="text-sm font-mono text-bone/60 mt-1">
                 {player.country}

@@ -23,11 +23,14 @@ const teamSchema = new mongoose.Schema({
     teamName:      String,
     ownerId:       String,
     ownerNickname: String,
+    isBot:         { type: Boolean, default: false },
+    botKind:       { type: String, default: null },   // 'rule' | 'rl'
+    botPersona:    { type: String, default: null },
     purseSpent:    Number,
     purseLeft:     Number,
     playerCount:   Number,
     overseasCount: Number,
-    teamRating:    Number,   // pre-calculated avg rating — instant leaderboard
+    teamRating:    Number,   // best-XI strength (v2; v1 was avg squad rating)
     squad:         [squadPlayerSchema]
 }, { _id: false })
 
@@ -48,6 +51,7 @@ const historyEntrySchema = new mongoose.Schema({
 const auctionResultSchema = new mongoose.Schema({
     roomId:      { type: String, required: true, unique: true },
     version:     { type: Number, default: 1 },   // schema version for future migrations
+    mode:        { type: String, default: 'multiplayer' },
     startedAt:   { type: Date,   required: true },
     completedAt: { type: Date,   required: true },
     teams:       [teamSchema],

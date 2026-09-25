@@ -2,23 +2,30 @@ import redis from '../redis/client.js'
 import Player from './models/Player.js'
 import AuctionResult from './models/AuctionResult.js'
 import Room from './models/Room.js'
+import { teamStrength } from '@ipl-auction/shared'
 
-const calculateTeamRating = (squadPlayers) => {
-    if (!squadPlayers || squadPlayers.length === 0) return 0
-    const total = squadPlayers.reduce((sum, p) => sum + p.rating, 0)
-    return Math.round((total / squadPlayers.length) * 10) / 10
-}
+// teamRating is the strength of the best playing XI the squad can field
+// (max 4 overseas, a keeper, 5 bowling options; empty slots count as 0) —
+// see packages/shared/src/scoring.js. It used to be the plain average of the
+// whole squad, which let one superstar and nothing else top the leaderboard.
+const calculateTeamRating = (squadPlayers) => teamStrength(squadPlayers)
 
 const persistAuctionResults = async (roomId) => {
     console.log(`[persistAuctionResults] Starting for room ${roomId}`)
 
     // Read all required Redis keys in parallel
-    const [room, teamIds, historyRaw, playersRaw] = await Promise.all([
+    const [room, teamIds, historyRaw, playersRaw, botsRaw] = await Promise.all([
         redis.hgetall(`room:${roomId}`),
         redis.hkeys(`room:${roomId}:teams`),
         redis.lrange(`room:${roomId}:history`, 0, -1),
-        redis.hgetall(`room:${roomId}:players`)
+        redis.hgetall(`room:${roomId}:players`),
+        redis.hgetall(`room:${roomId}:bots`)
     ])
+
+    const botSeats = {}
+    for (const [botId, raw] of Object.entries(botsRaw || {})) {
+        try { botSeats[botId] = JSON.parse(raw) } catch { /* ignore corrupt seat */ }
+    }
 
     if (!room || Object.keys(room).length === 0) {
         throw new Error(`Room ${roomId} not found in Redis`)
@@ -114,6 +121,9 @@ const persistAuctionResults = async (roomId) => {
             teamName:      teamData.name,
             ownerId:       teamData.ownerId,
             ownerNickname: playerNicknameMap[teamData.ownerId] || '',
+            isBot:         teamData.isBot === 'true',
+            botKind:       botSeats[teamData.ownerId]?.kind ?? null,
+            botPersona:    botSeats[teamData.ownerId]?.persona ?? null,
             purseSpent:    Number(teamData.purseSpent),
             purseLeft:     Number(teamData.purseLeft),
             playerCount:   Number(teamData.playerCount),
@@ -148,7 +158,8 @@ const persistAuctionResults = async (roomId) => {
 
     const auctionResult = {
         roomId,
-        version:     1,
+        version:     2,   // v2: teamRating = best-XI strength; bot owners recorded
+        mode:        room.mode || 'multiplayer',
         startedAt:   new Date(Number(room.startedAt)   * 1000),
         completedAt: new Date(Number(room.completedAt) * 1000),
         teams,

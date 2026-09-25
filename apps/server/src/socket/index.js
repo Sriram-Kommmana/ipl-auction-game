@@ -7,6 +7,7 @@ import { onResume } from '../handlers/onResume.js'
 import { onBid } from '../handlers/onBid.js'
 import { onSkip } from '../handlers/onSkip.js'
 import { onDisconnect } from '../handlers/onDisconnect.js'
+import { onPassLot } from '../handlers/onPassLot.js'
 
 const registerSocketHandlers = (io) => {
     io.on('connection', (socket) => {
@@ -20,6 +21,7 @@ const registerSocketHandlers = (io) => {
         socket.on('resumeAuction', (data) => onResume(io, socket, data))
         socket.on('placeBid', (data) => onBid(io, socket, data))
         socket.on('skipPlayer', (data) => onSkip(io, socket, data))
+        socket.on('passLot', (data) => onPassLot(io, socket, data))
         socket.on('disconnect', () => onDisconnect(io, socket))
 
         socket.on('disconnect', () => {

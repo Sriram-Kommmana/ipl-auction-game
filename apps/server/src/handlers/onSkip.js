@@ -2,8 +2,8 @@ import redis from '../redis/client.js'
 import { v4 as uuidv4 } from 'uuid'
 import { clearExistingTimer, startTimer } from '../room/timerManager.js'
 import { advanceAuction } from '../room/auctionProgression.js'
-
-const FOUR_DAYS_IN_SECONDS = 4 * 24 * 60 * 60
+import { emitToRoom } from '../services/roomEvents.js'
+import { FOUR_DAYS_IN_SECONDS } from '../constants.js'
 
 const onSkip = async (io, socket, data) => {
     const { playerId } = data || {}
@@ -59,7 +59,8 @@ const onSkip = async (io, socket, data) => {
 
     // Atomically acquire the lock — only one of onSkip/onTimerExpiry can proceed.
     // Returns 0 if onTimerExpiry already grabbed it in the same instant.
-    const acquired = await redis.acquireExpiryLock(`room:${roomId}:current`)
+    // Any timer ('') and paused lots allowed ('') — a skip can end a paused lot.
+    const acquired = await redis.acquireExpiryLock(`room:${roomId}:current`, '', '')
     if (!acquired) {
         return socket.emit('skipError', {
             message: 'Player transition already in progress. Please wait.'
@@ -111,12 +112,12 @@ const onSkip = async (io, socket, data) => {
         pipeline.hset(`room:${roomId}`, { status: 'active' })
         await pipeline.exec()
 
-        io.to(roomId).emit('playerSkipped', {
+        emitToRoom(io, roomId, 'playerSkipped', {
             iplPlayerId,
             playerName,
             soldAt
         })
-        io.to(roomId).emit('newChatMessage', chatObj)
+        emitToRoom(io, roomId, 'newChatMessage', chatObj)
 
         await advanceAuction(io, roomId, currentPlayerIndex, auctionPhase, poolLength, startTimer)
 

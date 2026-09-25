@@ -3,9 +3,11 @@ import { create } from 'zustand'
 export const useRoomStore = create((set) => ({
   // ---- state ----
   roomId: null,
+  mode: 'multiplayer',       // multiplayer | solo (1 human vs 9 AI franchises)
+  pool: 'full',              // full | quick (solo only: 140 players, no re-auction)
   roomStatus: 'lobby',       // lobby | active | paused | completed
   auctionPhase: 'main',      // main | reauction
-  players: [],               // [{ playerId, nickname, teamId, isManager, status, isBot }]
+  players: [],               // [{ playerId, nickname, teamId, isManager, status, isBot, botKind?, botPersona? }]
   teams: [],                 // [{ teamId, ownerId, purseLeft, playerCount, overseasCount }]
   pursePerTeam: 12500,
   managerPlayerId: null,
@@ -23,6 +25,8 @@ export const useRoomStore = create((set) => ({
   // Used once on stateSync — replaces everything at once
   setRoomState: (roomData) => set({
     roomId: roomData.roomId,
+    mode: roomData.mode || 'multiplayer',
+    pool: roomData.pool || 'full',
     roomStatus: roomData.status,
     auctionPhase: roomData.auctionPhase,
     players: roomData.players,
@@ -66,7 +70,7 @@ export const useRoomStore = create((set) => ({
             purseSpent: 0,
             playerCount: 0,
             overseasCount: 0,
-            isBot: false,
+            isBot: state.players.find((p) => p.playerId === playerId)?.isBot ?? false,
             squad: []
           }
         ]
@@ -97,6 +101,8 @@ export const useRoomStore = create((set) => ({
   // what was happening until a manual refresh re-fetched the full list
   // via stateSync. New joiners always start with these exact defaults
   // per joinRoom.js's REST handler (teamId '', isManager false, isBot false).
+  // Bots never come through here — they have no socket; they arrive with
+  // their isBot flag in stateSync.
   upsertPlayerOnline: (playerId, nickname) => set((state) => {
     const exists = state.players.some((p) => p.playerId === playerId)
 
@@ -147,6 +153,8 @@ export const useRoomStore = create((set) => ({
   // an old /lobby/:roomId would render off leftover state, never cleared).
   resetRoom: () => set({
     roomId: null,
+    mode: 'multiplayer',
+    pool: 'full',
     roomStatus: 'lobby',
     auctionPhase: 'main',
     players: [],

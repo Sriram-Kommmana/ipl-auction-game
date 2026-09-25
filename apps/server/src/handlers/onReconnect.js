@@ -17,18 +17,27 @@ const parsePlayerData = (data) => {
 }
 
 const buildStateSnapshot = async (roomId) => {
-    const [room, playersRaw, teamsMap, current, chatRaw, historyRaw] = await Promise.all([
+    const [room, playersRaw, teamsMap, current, chatRaw, historyRaw, botsRaw] = await Promise.all([
         redis.hgetall(`room:${roomId}`),
         redis.hgetall(`room:${roomId}:players`),
         redis.hgetall(`room:${roomId}:teams`),
         redis.hgetall(`room:${roomId}:current`),
         redis.lrange(`room:${roomId}:chat`, 0, -1),
-        redis.lrange(`room:${roomId}:history`, 0, -1)
+        redis.lrange(`room:${roomId}:history`, 0, -1),
+        redis.hgetall(`room:${roomId}:bots`)
     ])
+
+    const botSeats = {}
+    for (const [botId, raw] of Object.entries(botsRaw || {})) {
+        try { botSeats[botId] = JSON.parse(raw) } catch { /* ignore corrupt seat */ }
+    }
 
     const players = Object.entries(playersRaw || {}).map(([playerId, data]) => {
         const parsed = parsePlayerData(data)
-        return { playerId, ...parsed }
+        const seat = botSeats[playerId]
+        return seat
+            ? { playerId, ...parsed, botKind: seat.kind, botPersona: seat.persona }
+            : { playerId, ...parsed }
     })
 
     const teamIds = Object.keys(teamsMap || {})
@@ -63,6 +72,8 @@ const buildStateSnapshot = async (roomId) => {
     return {
         room: {
             roomId:             room.roomId,
+            mode:               room.mode || 'multiplayer',
+            pool:               room.pool || 'full',
             status:             room.status,
             auctionPhase:       room.auctionPhase,
             currentPlayerIndex: Number(room.currentPlayerIndex),
@@ -165,4 +176,4 @@ const onReconnect = async (io, socket, data) => {
     })
 }
 
-export { onReconnect }
+export { onReconnect, buildStateSnapshot }

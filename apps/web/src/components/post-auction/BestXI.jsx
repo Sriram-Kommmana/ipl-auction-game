@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { selectBestXI } from '@ipl-auction/shared'
 
 const ROLE_SHORT = {
   BATSMAN: 'BAT',
@@ -7,44 +8,13 @@ const ROLE_SHORT = {
   'WICKET KEEPER': 'WK'
 }
 
-// Greedy selection, per spec: 4 Batters (highest BAT), 1 WK (best rating),
-// 2 All-Rounders (best BAT+BWL combined), 3 Bowlers (highest BWL),
-// 1 extra (best remaining by rating). A Set tracks who's already picked
-// so nobody gets double-counted across categories. Gracefully handles
-// small squads — slice() on a short array just returns what's available.
-const pickBestXI = (squad) => {
-  const used = new Set()
-
-  const pick = (pool, count, sortFn) => {
-    const sorted = [...pool].filter((p) => !used.has(p.slNo)).sort(sortFn)
-    const picked = sorted.slice(0, count)
-    picked.forEach((p) => used.add(p.slNo))
-    return picked
-  }
-
-  const batters = squad.filter((p) => p.role === 'BATSMAN')
-  const bowlers = squad.filter((p) => p.role === 'BOWLER')
-  const allRounders = squad.filter((p) => p.role === 'ALL ROUNDER')
-  const keepers = squad.filter((p) => p.role === 'WICKET KEEPER')
-
-  const bestBatters = pick(batters, 4, (a, b) => (b.stats?.bat ?? 0) - (a.stats?.bat ?? 0))
-  const bestKeeper = pick(keepers, 1, (a, b) => (b.rating ?? 0) - (a.rating ?? 0))
-  const bestARs = pick(
-    allRounders,
-    2,
-    (a, b) =>
-      ((b.stats?.bat ?? 0) + (b.stats?.bwl ?? 0)) - ((a.stats?.bat ?? 0) + (a.stats?.bwl ?? 0))
-  )
-  const bestBowlers = pick(bowlers, 3, (a, b) => (b.stats?.bwl ?? 0) - (a.stats?.bwl ?? 0))
-
-  const remaining = squad.filter((p) => !used.has(p.slNo))
-  const extra = pick(remaining, 1, (a, b) => (b.rating ?? 0) - (a.rating ?? 0))
-
-  return [...bestBatters, ...bestKeeper, ...bestARs, ...bestBowlers, ...extra]
-}
-
+// The XI is chosen by the same optimiser the server scores with
+// (packages/shared/src/scoring.js): best total rating under the playing-XI
+// rules — max 4 overseas, at least 1 keeper and 5 bowling options. Roles
+// the squad can't cover show up as empty slots.
 const BestXI = ({ team }) => {
-  const xi = useMemo(() => (team ? pickBestXI(team.squad) : []), [team])
+  const result = useMemo(() => (team ? selectBestXI(team.squad) : null), [team])
+  const xi = result?.players ?? []
 
   if (!team) return null
 
@@ -76,6 +46,21 @@ const BestXI = ({ team }) => {
               <span className="font-mono text-[11px] text-amber/80 shrink-0">★ {p.rating}</span>
             </div>
           ))}
+          {Array.from({ length: result.emptySlots }, (_, i) => (
+            <div
+              key={`empty-${i}`}
+              className="row flex items-center justify-between text-sm px-3 py-2 opacity-50"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-mono text-[10px] text-bone/30 w-5 shrink-0">{String(xi.length + i + 1).padStart(2, '0')}</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-red">Empty slot</span>
+              </div>
+              <span className="font-mono text-[11px] text-bone/30 shrink-0">★ 0</span>
+            </div>
+          ))}
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone/45 text-right pt-1">
+            XI strength <span className="text-amber">{result.strength}</span>
+          </p>
         </div>
       )}
     </div>

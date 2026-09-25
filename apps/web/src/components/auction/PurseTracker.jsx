@@ -2,14 +2,15 @@ import { useMemo } from 'react'
 import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 import { useRoomStore } from '../../store/roomStore'
 import { useSessionStore } from '../../store/sessionStore'
+import AiBadge from '../shared/AiBadge'
 
 const PurseTracker = () => {
   const teams = useRoomStore((s) => s.teams)
   const players = useRoomStore((s) => s.players)
   const myTeamId = useSessionStore((s) => s.teamId)
 
-  const nicknameByPlayerId = useMemo(
-    () => Object.fromEntries(players.map((p) => [p.playerId, p.nickname])),
+  const playerById = useMemo(
+    () => Object.fromEntries(players.map((p) => [p.playerId, p])),
     [players]
   )
 
@@ -45,7 +46,8 @@ const PurseTracker = () => {
         {sorted.map((team) => {
           const meta = TEAMS_BY_ID[team.teamId]
           const isMine = team.teamId === myTeamId
-          const nickname = nicknameByPlayerId[team.ownerId]
+          const owner = playerById[team.ownerId]
+          const nickname = owner?.nickname
           const isLeader = team.purseLeft === topPurse
 
           return (
@@ -61,7 +63,10 @@ const PurseTracker = () => {
                 </span>
                 <div className="min-w-0">
                   {nickname && (
-                    <p className={`text-xs truncate leading-tight ${isMine ? 'text-cyan' : 'text-bone/80'}`}>{nickname}</p>
+                    <p className={`flex items-center gap-1.5 text-xs leading-tight min-w-0 ${isMine ? 'text-cyan' : 'text-bone/80'}`}>
+                      {owner?.isBot && <AiBadge kind={owner.botKind} persona={owner.botPersona} />}
+                      <span className="truncate">{nickname}</span>
+                    </p>
                   )}
                   <p className="font-mono text-[10px] text-bone/40 leading-tight mt-0.5">
                     {team.playerCount} PLR · {team.overseasCount} OS

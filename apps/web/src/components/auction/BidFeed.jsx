@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 import { useAuctionStore } from '../../store/auctionStore'
 import { useRoomStore } from '../../store/roomStore'
+import AiBadge from '../shared/AiBadge'
 
 const BidFeed = () => {
   const bidFeed = useAuctionStore((s) => s.bidFeed)
@@ -13,8 +14,8 @@ const BidFeed = () => {
     () => Object.fromEntries(teams.map((t) => [t.teamId, t.ownerId])),
     [teams]
   )
-  const nicknameByPlayerId = useMemo(
-    () => Object.fromEntries(players.map((p) => [p.playerId, p.nickname])),
+  const playerById = useMemo(
+    () => Object.fromEntries(players.map((p) => [p.playerId, p])),
     [players]
   )
   const feed = useMemo(() => [...bidFeed].reverse(), [bidFeed])
@@ -47,7 +48,8 @@ const BidFeed = () => {
           {feed.map((entry) => {
             const team = TEAMS_BY_ID[entry.teamId]
             const ownerId = ownerIdByTeamId[entry.teamId]
-            const nickname = ownerId ? nicknameByPlayerId[ownerId] : null
+            const owner = ownerId ? playerById[ownerId] : null
+            const nickname = owner?.nickname
 
             return (
               // key={entry.bid} — bid amounts strictly increase within one
@@ -67,6 +69,7 @@ const BidFeed = () => {
                   <span className="team-chip shrink-0" style={teamChipStyle(team)}>
                     {entry.teamId}
                   </span>
+                  {owner?.isBot && <AiBadge kind={owner.botKind} persona={owner.botPersona} />}
                   {nickname && <span className="font-mono text-[11px] text-bone/50 truncate">{nickname}</span>}
                 </div>
                 <span className="num text-lg text-bone shrink-0">₹{entry.bid}L</span>

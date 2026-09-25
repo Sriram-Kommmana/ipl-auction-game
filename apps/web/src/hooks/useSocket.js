@@ -71,6 +71,8 @@ export const useSocket = () => {
     const syncRoom = (data) => {
       setRoomState({
         roomId: data.room.roomId,
+        mode: data.room.mode,
+        pool: data.room.pool,
         status: data.room.status,
         auctionPhase: data.room.auctionPhase,
         players: data.players,
@@ -263,6 +265,7 @@ export const useSocket = () => {
       ['reconnectError', onReconnectError],
       ['teamSelected', onTeamSelected],
       ['selectTeamError', onSocketError],
+      ['passError', onSocketError],
       ['auctionStarted', onAuctionStarted],
       ['timerStarted', onTimerStarted],
       ['timerPaused', onTimerPaused],

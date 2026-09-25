@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ipl-auction/shared": "workspace:*",
     "@tailwindcss/vite": "^4.3.3",
     "axios": "^1.18.1",
     "framer-motion": "^13.1.0",

@@ -5,10 +5,13 @@ import PlayerList from '../components/lobby/PlayerList'
 import LobbyControls from '../components/lobby/LobbyControls'
 import ChatPanel from '../components/shared/ChatPanel'
 import RoomCode from '../components/shared/RoomCode'
+import OpponentsPanel from '../components/lobby/OpponentsPanel'
 
 const Lobby = () => {
   const { roomId } = useParams()
   const pursePerTeam = useRoomStore((s) => s.pursePerTeam)
+  const isSolo = useRoomStore((s) => s.mode === 'solo')
+  const pool = useRoomStore((s) => s.pool)
 
   return (
     <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8">
@@ -29,7 +32,9 @@ const Lobby = () => {
           <div>
             <div className="flex items-center gap-3 mb-2">
               <span className="h-2 w-2 bg-red animate-blink" />
-              <p className="label-mono text-bone/60">Lobby // 待機室 // Awaiting operators</p>
+              <p className="label-mono text-bone/60">
+                {isSolo ? 'Solo // 単独戦 // Pick your franchise' : 'Lobby // 待機室 // Awaiting operators'}
+              </p>
             </div>
             <h1 className="font-display text-6xl sm:text-7xl uppercase leading-[0.85] text-bone">
               The <span className="text-red glow-red">Lobby</span>
@@ -37,10 +42,22 @@ const Lobby = () => {
           </div>
 
           <div className="flex items-end gap-6">
-            <div>
-              <p className="label-mono mb-1.5">Room Code</p>
-              <RoomCode roomId={roomId} size="lg" />
-            </div>
+            {isSolo ? (
+              <div>
+                <p className="label-mono mb-1.5">Mode</p>
+                <p className="num text-3xl text-bone leading-none">
+                  Solo <span className="text-red">vs</span> 9 AI
+                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone/45 mt-1.5">
+                  {pool === 'quick' ? 'Quick pool · 140 players' : 'Full pool · 323 players'}
+                </p>
+              </div>
+            ) : (
+              <div>
+                <p className="label-mono mb-1.5">Room Code</p>
+                <RoomCode roomId={roomId} size="lg" />
+              </div>
+            )}
             <div className="hidden sm:block text-right">
               <p className="label-mono mb-1.5">Purse / Team</p>
               <p className="num text-3xl text-bone leading-none">
@@ -59,22 +76,27 @@ const Lobby = () => {
         <div className="grid md:grid-cols-3 gap-6 items-stretch">
           <div className="md:col-span-2 flex flex-col gap-6">
             <TeamGrid />
-            <PlayerList />
+            {!isSolo && <PlayerList />}
           </div>
 
-          {/* Same ChatPanel the auction uses — chat is room-wide, so the
-              backend accepts messages while the room is still waiting and
-              the history carries straight over into the auction. */}
-          <div className="panel p-4 flex flex-col h-96 md:h-full">
-            <div className="section-head">
-              <span className="section-num">03</span>
-              <h2 className="section-title">Chat</h2>
-              <span className="section-jp">通信</span>
+          {/* Solo: nobody to chat with, so show who you're up against.
+              Multiplayer: the same ChatPanel the auction uses — chat is
+              room-wide, so the backend accepts messages while the room is
+              still waiting and the history carries straight over. */}
+          {isSolo ? (
+            <OpponentsPanel />
+          ) : (
+            <div className="panel p-4 flex flex-col h-96 md:h-full">
+              <div className="section-head">
+                <span className="section-num">03</span>
+                <h2 className="section-title">Chat</h2>
+                <span className="section-jp">通信</span>
+              </div>
+              <div className="flex-1 min-h-0">
+                <ChatPanel />
+              </div>
             </div>
-            <div className="flex-1 min-h-0">
-              <ChatPanel />
-            </div>
-          </div>
+          )}
         </div>
 
         <LobbyControls />

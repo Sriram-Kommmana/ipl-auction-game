@@ -11,13 +11,17 @@ const LobbyControls = () => {
   const isManager = useSessionStore((s) => s.isManager)
   const playerId = useSessionStore((s) => s.playerId)
   const teams = useRoomStore((s) => s.teams)
+  const isSolo = useRoomStore((s) => s.mode === 'solo')
+  const myTeamId = useSessionStore((s) => s.teamId)
   const isConnected = useSocketConnected()
   const leaveRoom = useLeaveRoom()
 
   const [showLeaveConfirm, setShowLeaveConfirm] = useState(false)
 
   const claimedCount = teams.filter((t) => t.ownerId).length
-  const isStartDisabled = claimedCount < 2 || !isConnected
+  // Solo: the AI takes every team you don't, so all you need is your own.
+  const needsMore = isSolo ? !myTeamId : claimedCount < 2
+  const isStartDisabled = needsMore || !isConnected
 
   const handleStartAuction = () => {
     socket.emit('startAuction', { playerId })
@@ -52,9 +56,13 @@ const LobbyControls = () => {
             >
               {!isConnected ? 'Reconnecting…' : 'Start Auction →'}
             </button>
-            {isConnected && claimedCount < 2 && (
+            {isConnected && needsMore && (
               <p className="font-mono text-[10px] uppercase tracking-wider text-bone/40 mt-3">
-                <span className="text-red">{claimedCount}/2</span> · Need at least 2 teams claimed
+                {isSolo ? (
+                  <>Pick your franchise — the <span className="text-red">AI</span> takes the other nine</>
+                ) : (
+                  <><span className="text-red">{claimedCount}/2</span> · Need at least 2 teams claimed</>
+                )}
               </p>
             )}
           </div>

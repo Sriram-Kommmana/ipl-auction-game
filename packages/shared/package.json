@@ -1,0 +1,16 @@
+{
+  "name": "@ipl-auction/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Auction rules, scoring, valuation, bot logic and the headless simulator — shared by the server, the web app and the RL training bridge.",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./sim": "./src/sim.js",
+    "./players-csv": "./src/playersCsv.js"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  }
+}

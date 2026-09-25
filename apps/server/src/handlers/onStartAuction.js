@@ -1,6 +1,9 @@
 import redis from '../redis/client.js'
 import { startTimer } from '../room/timerManager.js'
 import { loadPlayerIntoCurrent } from '../room/loadPlayerIntoCurrent.js'
+import { emitToRoom } from '../services/roomEvents.js'
+import { seatBots } from '../bots/seatBots.js'
+import { buildStateSnapshot } from './onReconnect.js'
 
 const onStartAuction = async (io, socket, data) => {
     const { playerId } = data || {}
@@ -34,14 +37,45 @@ const onStartAuction = async (io, socket, data) => {
         return socket.emit('startAuctionError', { message: 'Auction has already started or ended.' })
     }
 
-    const totalTeams = await redis.hlen(`room:${roomId}:teams`)
-    if (totalTeams < 2) {
-        return socket.emit('startAuctionError', { message: 'At least 2 teams must be claimed before starting.' })
+    const isSolo = room.mode === 'solo'
+
+    if (isSolo) {
+        // Solo: the human must pick a franchise first; bots take the other nine.
+        const managerData = await redis.hget(`room:${roomId}:players`, playerId)
+        if (!managerData?.split(':')[2]) {
+            return socket.emit('startAuctionError', { message: 'Pick your franchise before starting.' })
+        }
+    } else {
+        const totalTeams = await redis.hlen(`room:${roomId}:teams`)
+        if (totalTeams < 2) {
+            return socket.emit('startAuctionError', { message: 'At least 2 teams must be claimed before starting.' })
+        }
     }
 
     const firstSlNo = await redis.lindex(`room:${roomId}:pool`, 0)
     if (!firstSlNo) {
         return socket.emit('startAuctionError', { message: 'Auction pool is empty. Please contact support.' })
+    }
+
+    // One start per room: a double-click must not run two start-ups at once.
+    // Taken only after every check has passed, so a failed check never
+    // locks the manager out.
+    const gotStartLock = await redis.set(`room:${roomId}:starting`, '1', 'EX', 30, 'NX')
+    if (!gotStartLock) {
+        return socket.emit('startAuctionError', { message: 'The auction is already starting.' })
+    }
+
+    if (isSolo) {
+        try {
+            await seatBots(roomId)
+        } catch (err) {
+            console.error(`[onStartAuction] Seating bots failed for room ${roomId}:`, err)
+            await redis.del(`room:${roomId}:starting`)
+            return socket.emit('startAuctionError', { message: 'Could not set up the AI franchises. Please try again.' })
+        }
+        // Push the full roster (bots included) before the auction begins, so
+        // every team chip and owner name is known when bidding starts.
+        io.to(roomId).emit('stateSync', await buildStateSnapshot(roomId))
     }
 
     const now = Math.floor(Date.now() / 1000)
@@ -60,7 +94,7 @@ const onStartAuction = async (io, socket, data) => {
         })
     ])
 
-    io.to(roomId).emit('auctionStarted', {
+    emitToRoom(io, roomId, 'auctionStarted', {
         currentPlayerIndex: 0,
         player: {
             slNo:        playerDoc.slNo,

@@ -7,46 +7,34 @@ import { v4 as uuidv4 } from 'uuid'
 import redis from '../redis/client.js'
 import Room from '../db/models/Room.js'
 import Player from '../db/models/Player.js'
+import { buildAuctionPool, hasReauction, POOL_MODES } from '@ipl-auction/shared'
+import {
+    FOUR_DAYS_IN_SECONDS,
+    MULTIPLAYER_TIMER_SECONDS,
+    SOLO_TIMER_SECONDS
+} from '../constants.js'
 
 const generateRoomId = customAlphabet('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)
 
-const FOUR_DAYS_IN_SECONDS = 4 * 24 * 60 * 60
-
 const hashPin = (pin) => crypto.createHash('sha256').update(pin).digest('hex')
 
-const shuffleArray = (array) => {
-    const arr = [...array]
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]]
-    }
-    return arr
-}
-
-const buildAuctionPool = (players) => {
-    const sets = {}
-    for (const player of players) {
-        if (!sets[player.setNo]) sets[player.setNo] = []
-        sets[player.setNo].push(player.slNo)
-    }
-
-    const sortedSetKeys = Object.keys(sets).sort((a, b) => Number(a) - Number(b))
-    const pool = []
-    for (const key of sortedSetKeys) {
-        const shuffled = shuffleArray(sets[key])
-        pool.push(...shuffled)
-    }
-
-    return pool
-}
+const ROOM_MODES = ['multiplayer', 'solo']
 
 const createRoom = asyncHandler(async (req, res) => {
     const {
         managerNickname,
         managerPin,
         roomPin,
-        pursePerTeam = 12500
+        pursePerTeam = 12500,
+        mode = 'multiplayer',
+        pool: poolMode = 'full'
     } = req.body
+
+    if (!ROOM_MODES.includes(mode))
+        throw new ApiError(400, "Mode must be 'multiplayer' or 'solo'")
+    if (!POOL_MODES.includes(poolMode))
+        throw new ApiError(400, "Pool must be 'full' or 'quick'")
+    const isSolo = mode === 'solo'
 
     if (!managerNickname?.trim())
         throw new ApiError(400, "Manager nickname is required")
@@ -62,10 +50,14 @@ const createRoom = asyncHandler(async (req, res) => {
     if (!/^\d{4}$/.test(String(managerPin)))
         throw new ApiError(400, "Manager PIN must be exactly 4 digits")
 
-    if (!roomPin)
-        throw new ApiError(400, "Room PIN is required")
-    if (!/^\d{4}$/.test(String(roomPin)))
-        throw new ApiError(400, "Room PIN must be exactly 4 digits")
+    // A solo room has no guests, so it has no room PIN either. It gets a
+    // random, unguessable hash instead — nobody can ever join it.
+    if (!isSolo) {
+        if (!roomPin)
+            throw new ApiError(400, "Room PIN is required")
+        if (!/^\d{4}$/.test(String(roomPin)))
+            throw new ApiError(400, "Room PIN must be exactly 4 digits")
+    }
 
     if (typeof pursePerTeam !== 'number' || pursePerTeam <= 0)
         throw new ApiError(400, "Purse per team must be a positive number")
@@ -78,7 +70,7 @@ const createRoom = asyncHandler(async (req, res) => {
     if (!players || players.length === 0)
         throw new ApiError(500, "No players found. Please seed the database first.")
 
-    const pool = buildAuctionPool(players)
+    const pool = buildAuctionPool(players, { mode: poolMode })
 
     let roomId
     let exists = true
@@ -89,7 +81,9 @@ const createRoom = asyncHandler(async (req, res) => {
 
     const managerId       = uuidv4()
     const managerPinHash  = hashPin(String(managerPin))
-    const roomPinHash     = hashPin(String(roomPin))
+    const roomPinHash     = isSolo
+        ? crypto.randomBytes(32).toString('hex')
+        : hashPin(String(roomPin))
 
     const now       = Math.floor(Date.now() / 1000)
     const expiresAt = now + FOUR_DAYS_IN_SECONDS
@@ -116,7 +110,10 @@ const createRoom = asyncHandler(async (req, res) => {
             auctionPhase:        'main',
             currentPlayerIndex:  0,
             pursePerTeam,
-            timerDuration:       30,
+            mode,
+            pool:                poolMode,
+            reauction:           String(hasReauction(poolMode)),
+            timerDuration:       isSolo ? SOLO_TIMER_SECONDS : MULTIPLAYER_TIMER_SECONDS,
             maxPlayers:          25,
             maxOverseas:         8,
             totalTeams:          0,
@@ -187,7 +184,9 @@ const createRoom = asyncHandler(async (req, res) => {
             roomId,
             managerId,
             teamId: '',
-            isManager: true
+            isManager: true,
+            mode,
+            pool: poolMode
         }, "Room created successfully")
     )
 })

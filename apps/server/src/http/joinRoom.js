@@ -43,6 +43,9 @@ const joinRoom = asyncHandler(async (req, res) => {
 
     const room = await redis.hgetall(`room:${roomId}`)
 
+    if (room.mode === 'solo')
+        throw new ApiError(403, "This is a single-player room — it can't be joined")
+
     const incomingRoomPinHash = hashPin(String(roomPin))
     if (incomingRoomPinHash !== room.roomPinHash)
         throw new ApiError(401, "Incorrect room PIN")

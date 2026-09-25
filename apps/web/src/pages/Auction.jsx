@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useParams } from 'react-router-dom'
 import { useAuctionStore } from '../store/auctionStore'
+import { useRoomStore } from '../store/roomStore'
 import { useLeaveRoom } from '../hooks/useLeaveRoom'
 import PlayerCard from '../components/auction/PlayerCard'
 import Timer from '../components/auction/Timer'
@@ -31,7 +32,15 @@ const MOBILE_TABS = [
   { id: 'squadViewer', label: 'Squad', Component: SquadViewer }
 ]
 
+// Solo rooms have no one to invite, so the header shows who you're up against.
+const SoloTag = () => (
+  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/60 border border-line px-2.5 py-1.5">
+    Solo <span className="text-red">vs</span> 9 AI
+  </span>
+)
+
 const Auction = ({ managerNotice }) => {
+  const isSolo = useRoomStore((s) => s.mode === 'solo')
   const { roomId } = useParams()
   const lastResult = useAuctionStore((s) => s.lastResult)
   const leaveRoom = useLeaveRoom()
@@ -56,7 +65,7 @@ const Auction = ({ managerNotice }) => {
           >
             ← Leave
           </button>
-          <RoomCode roomId={roomId} size="sm" />
+          {isSolo ? <SoloTag /> : <RoomCode roomId={roomId} size="sm" />}
           <ManagerControls />
         </div>
 
@@ -137,7 +146,7 @@ const Auction = ({ managerNotice }) => {
             ← Leave Room
           </button>
 
-          <RoomCode roomId={roomId} size="sm" />
+          {isSolo ? <SoloTag /> : <RoomCode roomId={roomId} size="sm" />}
 
           <ManagerControls />
         </div>
