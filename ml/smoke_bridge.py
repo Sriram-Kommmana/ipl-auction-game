@@ -33,7 +33,7 @@ def main():
                 total += step["reward"]
                 if step["done"]:
                     i = step["info"]
-                    print(f"episode {episode}: {i['poolMode']:5s} pool, XI strength {i['strength']:5.1f}, "
+                    print(f"episode {episode}: XI strength {i['strength']:5.1f}, "
                           f"rank {i['rank'] + 1}/10, reward {total:+.2f}")
                     break
         elapsed = time.time() - started

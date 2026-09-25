@@ -73,7 +73,6 @@ const buildStateSnapshot = async (roomId) => {
         room: {
             roomId:             room.roomId,
             mode:               room.mode || 'multiplayer',
-            pool:               room.pool || 'full',
             status:             room.status,
             auctionPhase:       room.auctionPhase,
             currentPlayerIndex: Number(room.currentPlayerIndex),

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { parsePlayersCsv } from '../src/playersCsv.js'
 import { fairValue } from '../src/valuation.js'
-import { buildAuctionPool, QUICK_POOL_QUOTAS } from '../src/pool.js'
+import { buildAuctionPool } from '../src/pool.js'
 import {
     ACTION_COUNT, OBSERVATION_FEATURES, OBSERVATION_SIZE, actionMask, buildObservation, capForAction
 } from '../src/observation.js'
@@ -35,12 +35,10 @@ test('fair value rises with rating, never drops below base price, favours all-ro
     assert.ok(at(85, 'ALL ROUNDER') > at(85))
 })
 
-test('quick pool is role-balanced and keeps set order', () => {
-    const pool = buildAuctionPool(players, { mode: 'quick', rng: createRng(7) })
-    const total = Object.values(QUICK_POOL_QUOTAS).reduce((s, n) => s + n, 0)
-    assert.equal(pool.length, total)
-    const keepers = pool.filter((slNo) => bySlNo.get(slNo).role === 'WICKET KEEPER').length
-    assert.equal(keepers, QUICK_POOL_QUOTAS['WICKET KEEPER'])
+test('the pool auctions every player once, in set order', () => {
+    const pool = buildAuctionPool(players, { rng: createRng(7) })
+    assert.equal(pool.length, players.length)
+    assert.equal(new Set(pool).size, players.length)
     const sets = pool.map((slNo) => bySlNo.get(slNo).setNo)
     assert.deepEqual(sets, [...sets].sort((a, b) => a - b))
 })
@@ -70,9 +68,9 @@ test('caps never exceed the bot spend limit', () => {
     for (const id of RULE_BOT_IDS) assert.ok(ruleBotCap(id, ctxFor(star, poor), createRng(3)) <= 200)
 })
 
-test('10 rule bots play a full quick auction without breaking any rule', () => {
+test('10 rule bots play a whole auction without breaking any rule', () => {
     const agents = Array.from({ length: 10 }, (_, i) => ({ kind: 'rule', persona: RULE_BOT_IDS[i % 4] }))
-    const { sim, capsLog } = playAuction({ players, agents, poolMode: 'quick', rules: RULES, seed: 11 })
+    const { sim, capsLog } = playAuction({ players, agents, rules: RULES, seed: 11 })
 
     assert.ok(sim.done)
     for (const team of sim.teams) {
@@ -92,8 +90,8 @@ test('10 rule bots play a full quick auction without breaking any rule', () => {
 
 test('the same seed replays the same auction', () => {
     const agents = Array.from({ length: 10 }, (_, i) => ({ kind: 'rule', persona: RULE_BOT_IDS[i % 4] }))
-    const a = playAuction({ players, agents, poolMode: 'quick', rules: RULES, seed: 5 })
-    const b = playAuction({ players, agents, poolMode: 'quick', rules: RULES, seed: 5 })
+    const a = playAuction({ players, agents, rules: RULES, seed: 5 })
+    const b = playAuction({ players, agents, rules: RULES, seed: 5 })
     assert.deepEqual(a.capsLog, b.capsLog)
 })
 

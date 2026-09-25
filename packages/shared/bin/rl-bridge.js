@@ -9,8 +9,7 @@
 //
 //   {"cmd":"info"}
 //       → { observationSize, actionCount, features, personaDims, capMultipliers, rlPersonas }
-//   {"cmd":"configure", "poolMode":"quick"|"full"|"mixed", "tremble":0.01,
-//    "snapshotShare":0.4, "humanProxyNoise":0.25}
+//   {"cmd":"configure", "tremble":0.01, "snapshotShare":0.4, "humanProxyNoise":0.25}
 //   {"cmd":"addSnapshot", "path":"…/snap.json"}  → load a frozen policy as a future opponent
 //   {"cmd":"reset", "seed":123, "persona":[5 numbers] (optional)}
 //       → { obs, mask, info }
@@ -44,7 +43,7 @@ const PLAYERS = parsePlayersCsv(readFileSync(csvPath, 'utf8'))
 const TEAM_COUNT = 10
 const MAX_SNAPSHOTS = 20
 
-const config = { poolMode: 'mixed', tremble: 0.01, snapshotShare: 0.4, humanProxyNoise: 0.25 }
+const config = { tremble: 0.01, snapshotShare: 0.4, humanProxyNoise: 0.25 }
 const snapshots = []
 
 let episode = null
@@ -124,17 +123,16 @@ const handlers = {
 
     reset: ({ seed = Date.now(), persona = null }) => {
         const rng = createRng(seed)
-        const poolMode = config.poolMode === 'mixed' ? (rng() < 0.5 ? 'quick' : 'full') : config.poolMode
-        const sim = new AuctionSim({ players: PLAYERS, teamCount: TEAM_COUNT, poolMode, rules: DEFAULT_RULES, rng })
+        const sim = new AuctionSim({ players: PLAYERS, teamCount: TEAM_COUNT, rules: DEFAULT_RULES, rng })
         const learner = Math.floor(rng() * TEAM_COUNT)
         const humanProxy = (learner + 1 + Math.floor(rng() * (TEAM_COUNT - 1))) % TEAM_COUNT
         const agents = Array.from({ length: TEAM_COUNT }, (_, i) =>
             i === learner ? null : buildOpponent(rng, i === humanProxy)
         )
-        episode = { sim, learner, agents, rng, persona: persona || samplePersona(rng), poolMode }
+        episode = { sim, learner, agents, rng, persona: persona || samplePersona(rng) }
         advanceToDecision()
         if (!episode.view) throw new Error('Learner never gets a decision in this auction')
-        return { obs: episode.view.obs, mask: episode.view.mask, info: { poolMode, seat: learner, persona: episode.persona } }
+        return { obs: episode.view.obs, mask: episode.view.mask, info: { seat: learner, persona: episode.persona } }
     },
 
     step: ({ action }) => {
@@ -151,7 +149,7 @@ const handlers = {
                 mask: [1, ...new Array(ACTION_COUNT - 1).fill(0)],
                 reward: reward + result.reward,
                 done: true,
-                info: { strength: result.strength, rank: result.rank, strengths: result.strengths, terms: result.terms, poolMode: episode.poolMode }
+                info: { strength: result.strength, rank: result.rank, strengths: result.strengths, terms: result.terms }
             }
         }
         return { obs: episode.view.obs, mask: episode.view.mask, reward, done: false, info: {} }

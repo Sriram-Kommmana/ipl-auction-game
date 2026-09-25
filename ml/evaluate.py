@@ -54,12 +54,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("model")
     parser.add_argument("--episodes", type=int, default=40)
-    parser.add_argument("--pool", default="mixed", choices=["quick", "full", "mixed"])
     parser.add_argument("--sample", action="store_true", help="sample actions instead of taking the best one")
     args = parser.parse_args()
 
     model = MaskablePPO.load(args.model, device="cpu")
-    env = AuctionEnv(pool_mode=args.pool, tremble=0.0, snapshot_share=0.0)
+    env = AuctionEnv(tremble=0.0, snapshot_share=0.0)
     try:
         print(f"{'persona':14s} {'XI':>6s} {'rank':>5s} {'win%':>5s}  {'spent':>6s} {'OS XI':>6s} {'stars':>6s}")
         for name, persona in PRESETS.items():

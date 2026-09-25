@@ -1,20 +1,9 @@
 // Auction order — which players come up, and in what sequence.
 //
 // Shared so the live server and the training simulator build pools the
-// same way. Order: sets ascending (set 1 = marquee), shuffled within each set.
-
-export const POOL_MODES = ['full', 'quick']
-
-// Quick pool: the best players in each role, not simply "sets 1-5".
-// Sets 1-5 hold 133 players but only 3 wicket keepers — with 10 teams and a
-// Best XI that needs a keeper, 7 teams could never field a complete side.
-// These quotas give 140 players with enough of every role to go round.
-export const QUICK_POOL_QUOTAS = Object.freeze({
-    'WICKET KEEPER': 20,
-    BATSMAN: 35,
-    'ALL ROUNDER': 35,
-    BOWLER: 50
-})
+// same way. Every game auctions the whole player list. Order: sets ascending
+// (set 1 = marquee), shuffled within each set. Unsold players get one
+// re-auction round at the end.
 
 export const shuffle = (array, rng = Math.random) => {
     const arr = [...array]
@@ -25,25 +14,10 @@ export const shuffle = (array, rng = Math.random) => {
     return arr
 }
 
-const selectQuickPlayers = (players) => {
-    const picked = []
-    for (const [role, quota] of Object.entries(QUICK_POOL_QUOTAS)) {
-        picked.push(
-            ...players
-                .filter((p) => p.role === role)
-                .sort((a, b) => (b.rating - a.rating) || (a.slNo - b.slNo))
-                .slice(0, quota)
-        )
-    }
-    return picked
-}
-
 // Returns an array of slNo in auction order.
-export const buildAuctionPool = (players, { mode = 'full', rng = Math.random } = {}) => {
-    const source = mode === 'quick' ? selectQuickPlayers(players) : players
-
+export const buildAuctionPool = (players, { rng = Math.random } = {}) => {
     const sets = new Map()
-    for (const p of source) {
+    for (const p of players) {
         if (!sets.has(p.setNo)) sets.set(p.setNo, [])
         sets.get(p.setNo).push(p.slNo)
     }
@@ -54,7 +28,3 @@ export const buildAuctionPool = (players, { mode = 'full', rng = Math.random } =
     }
     return pool
 }
-
-// Full pools re-auction unsold players once; quick pools don't (they exist
-// to keep solo sessions short).
-export const hasReauction = (mode) => mode !== 'quick'

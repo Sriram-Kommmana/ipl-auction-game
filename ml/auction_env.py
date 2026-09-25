@@ -30,7 +30,7 @@ from bridge import Bridge
 class AuctionEnv(gym.Env):
     metadata = {"render_modes": []}
 
-    def __init__(self, pool_mode="mixed", tremble=0.01, snapshot_share=0.0, persona=None):
+    def __init__(self, tremble=0.01, snapshot_share=0.0, persona=None):
         super().__init__()
         self.bridge = Bridge()
         info = self.bridge.call("info")
@@ -42,13 +42,11 @@ class AuctionEnv(gym.Env):
         )
         self.action_space = spaces.Discrete(info["actionCount"])
         self._mask = np.ones(info["actionCount"], dtype=bool)
-        self.configure(pool_mode=pool_mode, tremble=tremble, snapshot_share=snapshot_share)
+        self.configure(tremble=tremble, snapshot_share=snapshot_share)
 
     # ── Opponent pool controls (called by train.py via env_method) ─────────
-    def configure(self, pool_mode=None, tremble=None, snapshot_share=None):
+    def configure(self, tremble=None, snapshot_share=None):
         fields = {}
-        if pool_mode is not None:
-            fields["poolMode"] = pool_mode
         if tremble is not None:
             fields["tremble"] = tremble
         if snapshot_share is not None:

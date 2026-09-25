@@ -11,7 +11,6 @@ const Lobby = () => {
   const { roomId } = useParams()
   const pursePerTeam = useRoomStore((s) => s.pursePerTeam)
   const isSolo = useRoomStore((s) => s.mode === 'solo')
-  const pool = useRoomStore((s) => s.pool)
 
   return (
     <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8">
@@ -47,9 +46,6 @@ const Lobby = () => {
                 <p className="label-mono mb-1.5">Mode</p>
                 <p className="num text-3xl text-bone leading-none">
                   Solo <span className="text-red">vs</span> 9 AI
-                </p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone/45 mt-1.5">
-                  {pool === 'quick' ? 'Quick pool · 140 players' : 'Full pool · 323 players'}
                 </p>
               </div>
             ) : (

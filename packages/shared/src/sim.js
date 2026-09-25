@@ -9,7 +9,7 @@
 // That is exactly what the live runtime does, minus the waiting.
 
 import { DEFAULT_RULES, bidBlocker, nextBidAmount } from './rules.js'
-import { buildAuctionPool, hasReauction, shuffle } from './pool.js'
+import { buildAuctionPool, shuffle } from './pool.js'
 import { ACTION_COUNT, actionMask, buildObservation, capForAction, deriveLotFacts } from './observation.js'
 import { ruleBotCap } from './ruleBots.js'
 import { forward, sampleAction } from './mlp.js'
@@ -28,16 +28,15 @@ export const createRng = (seed = Date.now()) => {
 }
 
 export class AuctionSim {
-    constructor({ players, teamCount = 10, poolMode = 'full', rules = DEFAULT_RULES, rng = Math.random, teamIds = null }) {
+    constructor({ players, teamCount = 10, rules = DEFAULT_RULES, rng = Math.random, teamIds = null }) {
         this.rules = rules
         this.rng = rng
         this.players = new Map(players.map((p) => [p.slNo, p]))
-        this.pool = buildAuctionPool(players, { mode: poolMode, rng })
+        this.pool = buildAuctionPool(players, { rng })
         this.mainLength = this.pool.length
         this.phase = 'main'
         this.index = 0
         this.unsold = []
-        this.reauction = hasReauction(poolMode)
         this.done = this.pool.length === 0
         this.history = []
         this.teams = Array.from({ length: teamCount }, (_, i) => ({
@@ -112,7 +111,7 @@ export class AuctionSim {
     advance() {
         this.index++
         if (this.index < this.pool.length) return
-        if (this.phase === 'main' && this.reauction && this.unsold.length > 0) {
+        if (this.phase === 'main' && this.unsold.length > 0) {
             this.pool = shuffle(this.unsold, this.rng)
             this.unsold = []
             this.phase = 'reauction'
@@ -153,9 +152,9 @@ export const agentCap = (agent, ctx, rng = Math.random, { tremble = 0 } = {}) =>
 }
 
 // Play a whole auction with every seat controlled by an agent.
-export const playAuction = ({ players, agents, poolMode = 'quick', rules = DEFAULT_RULES, seed = 1, tremble = 0 }) => {
+export const playAuction = ({ players, agents, rules = DEFAULT_RULES, seed = 1, tremble = 0 }) => {
     const rng = createRng(seed)
-    const sim = new AuctionSim({ players, teamCount: agents.length, poolMode, rules, rng })
+    const sim = new AuctionSim({ players, teamCount: agents.length, rules, rng })
     const capsLog = []
     while (!sim.done) {
         const caps = agents.map((agent, i) => agentCap(agent, sim.contextFor(i), rng, { tremble }))

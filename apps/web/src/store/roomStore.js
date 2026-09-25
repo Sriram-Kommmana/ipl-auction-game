@@ -4,7 +4,6 @@ export const useRoomStore = create((set) => ({
   // ---- state ----
   roomId: null,
   mode: 'multiplayer',       // multiplayer | solo (1 human vs 9 AI franchises)
-  pool: 'full',              // full | quick (solo only: 140 players, no re-auction)
   roomStatus: 'lobby',       // lobby | active | paused | completed
   auctionPhase: 'main',      // main | reauction
   players: [],               // [{ playerId, nickname, teamId, isManager, status, isBot, botKind?, botPersona? }]
@@ -26,7 +25,6 @@ export const useRoomStore = create((set) => ({
   setRoomState: (roomData) => set({
     roomId: roomData.roomId,
     mode: roomData.mode || 'multiplayer',
-    pool: roomData.pool || 'full',
     roomStatus: roomData.status,
     auctionPhase: roomData.auctionPhase,
     players: roomData.players,
@@ -154,7 +152,6 @@ export const useRoomStore = create((set) => ({
   resetRoom: () => set({
     roomId: null,
     mode: 'multiplayer',
-    pool: 'full',
     roomStatus: 'lobby',
     auctionPhase: 'main',
     players: [],

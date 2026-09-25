@@ -15,11 +15,6 @@ const MODES = [
   { id: 'solo', label: 'Solo vs AI' }
 ]
 
-const POOLS = [
-  { id: 'quick', label: 'Quick', detail: '140 players · 20–40 min' },
-  { id: 'full', label: 'Full', detail: '323 players + re-auction' }
-]
-
 // Small segmented control in the terminal's tab style.
 const Segmented = ({ options, value, onChange, label }) => (
   <div role="radiogroup" aria-label={label} className="grid grid-cols-2 border border-line">
@@ -34,11 +29,6 @@ const Segmented = ({ options, value, onChange, label }) => (
         className={`tab py-2.5 px-2 text-base leading-tight ${i > 0 ? 'border-l border-line' : ''}`}
       >
         {opt.label}
-        {opt.detail && (
-          <span className="block font-mono text-[9px] tracking-[0.12em] normal-case opacity-70 mt-0.5">
-            {opt.detail}
-          </span>
-        )}
       </button>
     ))}
   </div>
@@ -53,7 +43,6 @@ const CreateRoomForm = () => {
   const [roomPin, setRoomPin] = useState('')
   const [pursePerTeam, setPursePerTeam] = useState(12500)
   const [mode, setMode] = useState('multiplayer')
-  const [pool, setPool] = useState('quick')
   const isSolo = mode === 'solo'
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -95,8 +84,7 @@ const CreateRoomForm = () => {
         managerPin,
         roomPin: isSolo ? undefined : roomPin,
         pursePerTeam: Number(pursePerTeam),
-        mode,
-        pool: isSolo ? pool : 'full'
+        mode
       })
 
       const { roomId, managerId, isManager } = res.data
@@ -139,13 +127,6 @@ const CreateRoomForm = () => {
           </p>
         )}
       </div>
-
-      {isSolo && (
-        <div>
-          <span className={labelClass}>Player Pool</span>
-          <Segmented options={POOLS} value={pool} onChange={setPool} label="Player pool" />
-        </div>
-      )}
 
       <div>
         <label className={labelClass}>Your Name</label>

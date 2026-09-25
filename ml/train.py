@@ -54,9 +54,9 @@ from export import actor_to_json
 ML_DIR = Path(__file__).resolve().parent
 
 
-def make_env(rank, seed, pool_mode):
+def make_env(rank, seed):
     def _init():
-        env = AuctionEnv(pool_mode=pool_mode, snapshot_share=0.0)
+        env = AuctionEnv(snapshot_share=0.0)
         env.reset(seed=seed + rank)
         return env
     return _init
@@ -93,7 +93,6 @@ def main():
     parser.add_argument("--steps", type=int, default=2_000_000)
     parser.add_argument("--n-envs", type=int, default=8)
     parser.add_argument("--seed", type=int, default=0)
-    parser.add_argument("--pool", default="mixed", choices=["quick", "full", "mixed"])
     parser.add_argument("--phase-a-steps", type=int, default=500_000,
                         help="train against rule bots only for this long before self-play")
     parser.add_argument("--snapshot-every", type=int, default=100_000)
@@ -102,7 +101,7 @@ def main():
     run_dir = ML_DIR / "runs" / args.name
     (run_dir / "snapshots").mkdir(parents=True, exist_ok=True)
 
-    envs = VecMonitor(SubprocVecEnv([make_env(i, args.seed, args.pool) for i in range(args.n_envs)]))
+    envs = VecMonitor(SubprocVecEnv([make_env(i, args.seed) for i in range(args.n_envs)]))
     features = envs.get_attr("feature_names")[0]
 
     # Hyper-parameters worth experimenting with first:

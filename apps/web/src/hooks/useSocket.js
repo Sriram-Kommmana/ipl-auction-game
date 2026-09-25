@@ -72,7 +72,6 @@ export const useSocket = () => {
       setRoomState({
         roomId: data.room.roomId,
         mode: data.room.mode,
-        pool: data.room.pool,
         status: data.room.status,
         auctionPhase: data.room.auctionPhase,
         players: data.players,

@@ -60,9 +60,8 @@ export const botSpendLimit = (team, reservePerSlot = MIN_BASE_PRICE) => {
 }
 
 // What a cheap signing costs in the players still to come: the 25th
-// percentile base price. In the full pool that's ₹20L; in the quick pool
-// (mostly top players) it's higher, and reserving only ₹20L per slot would
-// be fiction.
+// percentile base price. Early on that's ₹20L; late in the auction, when
+// only pricier players are left, reserving ₹20L per slot would be fiction.
 export const cheapSlotPrice = (upcoming) => {
     if (!upcoming || upcoming.length === 0) return MIN_BASE_PRICE
     const prices = upcoming.map((p) => p.basePrice).sort((a, b) => a - b)

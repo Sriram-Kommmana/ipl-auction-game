@@ -1,7 +1,8 @@
 // End-to-end checks against a RUNNING server (pnpm --filter server start).
 //
 //   node test/solo.integration.js                → solo game, first 8 lots
-//   node test/solo.integration.js --lots 140     → play a whole quick auction
+//   node test/solo.integration.js --lots 20      → solo game, first 20 lots
+//   node test/solo.integration.js --full         → play a whole auction, re-auction included
 //   node test/solo.integration.js --race         → deadline race check (multiplayer)
 //
 // SERVER_URL defaults to http://localhost:3001. Every run creates real rooms
@@ -22,7 +23,8 @@ import { io } from 'socket.io-client'
 
 const SERVER = process.env.SERVER_URL || 'http://localhost:3001'
 const args = process.argv.slice(2)
-const LOTS = Number(args[args.indexOf('--lots') + 1]) || 8
+const FULL = args.includes('--full')
+const LOTS = FULL ? Infinity : Number(args[args.indexOf('--lots') + 1]) || 8
 const RACE = args.includes('--race')
 
 const failures = []
@@ -65,11 +67,11 @@ const once = (socket, event, ms = 10000) => new Promise((resolve, reject) => {
 })
 
 const soloScenario = async () => {
-    console.log(`\n● Solo game — watching ${LOTS} lots`)
+    console.log(`\n● Solo game — ${FULL ? 'playing the whole auction' : `watching ${LOTS} lots`}`)
     const room = await post('/room/create', {
-        managerNickname: 'IntegrationTest', managerPin: '1234', mode: 'solo', pool: 'quick'
+        managerNickname: 'IntegrationTest', managerPin: '1234', mode: 'solo'
     })
-    console.log(`  room ${room.roomId} (${room.mode}, ${room.pool})`)
+    console.log(`  room ${room.roomId} (${room.mode})`)
     check(room.mode === 'solo', 'createRoom echoes solo mode')
 
     const { socket, snapshot } = await connect(room.managerId)
@@ -141,9 +143,12 @@ const soloScenario = async () => {
     // The human passes on every lot as soon as its timer starts.
     socket.on('timerStarted', () => socket.emit('passLot', { playerId: room.managerId }))
 
-    const deadline = Date.now() + LOTS * 90000
+    let completed = false
+    socket.once('auctionCompleted', () => { completed = true })
+
+    const deadline = Date.now() + (FULL ? 3 * 60 * 60 * 1000 : LOTS * 90000)
     let pauseTested = false
-    while (lotsDone < LOTS && Date.now() < deadline) {
+    while (!completed && lotsDone < LOTS && Date.now() < deadline) {
         await sleep(250)
         if (!pauseTested && lotsDone === 2 && lot.bids.length > 0) {
             pauseTested = true
@@ -161,15 +166,13 @@ const soloScenario = async () => {
             console.log('  pause/resume: bots stayed silent for 4s while paused')
         }
     }
-    check(lotsDone >= LOTS, `watched ${LOTS} lots (got ${lotsDone})`)
+    check(FULL ? completed : lotsDone >= LOTS, FULL ? `auction completed (after ${lotsDone} lots)` : `watched ${LOTS} lots (got ${lotsDone})`)
     check(errors.length === 0, `no server errors (${errors.join('; ')})`)
     summaries.forEach((s) => console.log(`  ${s}`))
     const avg = durations.reduce((a, b) => a + b, 0) / Math.max(1, durations.length)
     console.log(`  ${lotsDone} lots in ${((Date.now() - gameStarted) / 60000).toFixed(1)} min — ${avg.toFixed(1)}s per lot on average`)
 
-    if (LOTS >= 140) {
-        const done = await Promise.race([once(socket, 'auctionCompleted', 60000), sleep(60000).then(() => null)])
-        check(done, 'auction completed after the last lot')
+    if (FULL) {
         await sleep(3000)
         const res = await fetch(`${SERVER}/room/${room.roomId}/results`)
         const results = (await res.json()).data

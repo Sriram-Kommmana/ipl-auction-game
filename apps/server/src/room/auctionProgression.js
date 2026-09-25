@@ -58,11 +58,7 @@ const advanceAuction = async (io, roomId, currentPlayerIndex, auctionPhase, pool
 
     } else if (auctionPhase === 'main') {
         // Main pool exhausted — check for unsold/skipped players to re-auction.
-        // Quick solo pools skip the re-auction round to keep sessions short.
-        const reauction = await redis.hget(`room:${roomId}`, 'reauction')
-        const unsoldList = reauction === 'false'
-            ? []
-            : await redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
+        const unsoldList = await redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
 
         if (unsoldList.length > 0) {
             const shuffled = shuffleArray(unsoldList)

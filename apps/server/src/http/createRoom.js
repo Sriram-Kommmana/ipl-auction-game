@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 import redis from '../redis/client.js'
 import Room from '../db/models/Room.js'
 import Player from '../db/models/Player.js'
-import { buildAuctionPool, hasReauction, POOL_MODES } from '@ipl-auction/shared'
+import { buildAuctionPool } from '@ipl-auction/shared'
 import {
     FOUR_DAYS_IN_SECONDS,
     MULTIPLAYER_TIMER_SECONDS,
@@ -26,14 +26,11 @@ const createRoom = asyncHandler(async (req, res) => {
         managerPin,
         roomPin,
         pursePerTeam = 12500,
-        mode = 'multiplayer',
-        pool: poolMode = 'full'
+        mode = 'multiplayer'
     } = req.body
 
     if (!ROOM_MODES.includes(mode))
         throw new ApiError(400, "Mode must be 'multiplayer' or 'solo'")
-    if (!POOL_MODES.includes(poolMode))
-        throw new ApiError(400, "Pool must be 'full' or 'quick'")
     const isSolo = mode === 'solo'
 
     if (!managerNickname?.trim())
@@ -70,7 +67,7 @@ const createRoom = asyncHandler(async (req, res) => {
     if (!players || players.length === 0)
         throw new ApiError(500, "No players found. Please seed the database first.")
 
-    const pool = buildAuctionPool(players, { mode: poolMode })
+    const pool = buildAuctionPool(players)
 
     let roomId
     let exists = true
@@ -111,8 +108,6 @@ const createRoom = asyncHandler(async (req, res) => {
             currentPlayerIndex:  0,
             pursePerTeam,
             mode,
-            pool:                poolMode,
-            reauction:           String(hasReauction(poolMode)),
             timerDuration:       isSolo ? SOLO_TIMER_SECONDS : MULTIPLAYER_TIMER_SECONDS,
             maxPlayers:          25,
             maxOverseas:         8,
@@ -185,8 +180,7 @@ const createRoom = asyncHandler(async (req, res) => {
             managerId,
             teamId: '',
             isManager: true,
-            mode,
-            pool: poolMode
+            mode
         }, "Room created successfully")
     )
 })
