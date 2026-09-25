@@ -8,11 +8,14 @@ import { getPlayer } from './playerCache.js'
 // behave the same way in a real room.
 
 const readAuctionState = async (roomId) => {
-    const [room, current, teamsMap, pool] = await Promise.all([
+    const [room, current, teamsMap, pool, unsold] = await Promise.all([
         redis.hgetall(`room:${roomId}`),
         redis.hgetall(`room:${roomId}:current`),
         redis.hgetall(`room:${roomId}:teams`),
-        redis.lrange(`room:${roomId}:pool`, 0, -1)
+        redis.lrange(`room:${roomId}:pool`, 0, -1),
+        // Read-only: unsold players so far. During the main round they come
+        // back in the re-auction, so the planning layer counts them as supply.
+        redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
     ])
 
     const teams = await Promise.all(
@@ -34,7 +37,7 @@ const readAuctionState = async (roomId) => {
         })
     )
 
-    return { room, current, teams, pool }
+    return { room, current, teams, pool, unsold }
 }
 
 const rulesOf = (room) => ({
@@ -45,7 +48,7 @@ const rulesOf = (room) => ({
 
 // Returns (teamId) => context for the lot currently on the block.
 const contextBuilder = (state, players) => {
-    const { room, current, teams, pool } = state
+    const { room, current, teams, pool, unsold = [] } = state
     const rules = rulesOf(room)
     const lot = getPlayer(players, current.iplPlayerId)
 
@@ -59,8 +62,12 @@ const contextBuilder = (state, players) => {
     }))
 
     const index = Number(room.currentPlayerIndex)
+    const phase = room.auctionPhase === 'main' ? 'main' : 'reauction'
     const upcoming = pool.slice(index + 1).map((slNo) => getPlayer(players, slNo)).filter(Boolean)
-    const progress = room.auctionPhase === 'main' && pool.length ? index / pool.length : 1
+    const returning = phase === 'main'
+        ? unsold.filter((slNo) => slNo !== current.iplPlayerId).map((slNo) => getPlayer(players, slNo)).filter(Boolean)
+        : []
+    const progress = phase === 'main' && pool.length ? index / pool.length : 1
 
     return (teamId) => ({
         rules,
@@ -68,6 +75,8 @@ const contextBuilder = (state, players) => {
         self: teamViews.find((t) => t.teamId === teamId),
         rivals: teamViews.filter((t) => t.teamId !== teamId),
         upcoming,
+        returning,
+        phase,
         progress
     })
 }

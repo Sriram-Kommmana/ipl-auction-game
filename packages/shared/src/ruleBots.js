@@ -12,6 +12,7 @@
 // can't learn the exact walk-away price.
 
 import { deriveLotFacts, roleCounts, roleNeed } from './observation.js'
+import { planBid } from './planning.js'
 import { RULE_PERSONAS } from './personas.js'
 import { XI_SIZE } from './rules.js'
 import { XI_RULES } from './scoring.js'
@@ -75,12 +76,17 @@ const appetite = {
 
 export const RULE_BOT_IDS = Object.freeze(Object.keys(RULE_PERSONAS))
 
-export const ruleBotCap = (personaId, ctx, rng = Math.random, { noise = NOISE } = {}) => {
+// Personality desire (appetite + the shared adjustments below) is capped by
+// the shared planning layer: a bot may only bid if the purchase keeps the
+// best reachable XI reachable, and never more than `maxSafeBid` (purse minus
+// what completing that XI still costs). `plan` is exposed for callers that
+// want the reasoning; pass one in to avoid recomputing it.
+export const ruleBotCap = (personaId, ctx, rng = Math.random, { noise = NOISE, plan = planBid(ctx) } = {}) => {
     const decide = appetite[personaId]
     if (!decide) throw new Error(`Unknown rule persona: ${personaId}`)
 
+    if (!plan.allowed) return 0
     const f = deriveLotFacts(ctx)
-    if (!f.eligible) return 0
 
     const squadSize = ctx.self.playerCount
     const useful = f.xiGain > 0.05
@@ -116,6 +122,6 @@ export const ruleBotCap = (personaId, ctx, rng = Math.random, { noise = NOISE } 
     }
 
     value *= 1 + (rng() * 2 - 1) * noise
-    const cap = Math.min(Math.floor(value), f.spendLimit)
+    const cap = Math.min(Math.floor(value), plan.budget.maxSafeBid)
     return cap >= ctx.lot.basePrice ? cap : 0
 }

@@ -57,14 +57,34 @@ export class AuctionSim {
         return this.phase === 'main' ? this.index / this.mainLength : 1
     }
 
+    // Players still to come: the rest of this round, and — during the main
+    // round — the unsold players who return in the re-auction. Built once
+    // per lot and shared by every team, so the planning layer's supply cache
+    // (keyed on these arrays) is hit instead of rebuilt; a new lot, a new
+    // phase or a new unsold player produces fresh arrays.
+    market() {
+        const key = `${this.phase}:${this.index}:${this.unsold.length}`
+        if (this.marketCache?.key !== key) {
+            this.marketCache = {
+                key,
+                upcoming: this.pool.slice(this.index + 1).map((slNo) => this.players.get(slNo)),
+                returning: this.phase === 'main' ? this.unsold.map((slNo) => this.players.get(slNo)) : []
+            }
+        }
+        return this.marketCache
+    }
+
     contextFor(teamIndex) {
         const lot = this.currentLot()
+        const { upcoming, returning } = this.market()
         return {
             rules: this.rules,
             lot,
             self: this.teams[teamIndex],
             rivals: this.teams.filter((_, i) => i !== teamIndex),
-            upcoming: this.pool.slice(this.index + 1).map((slNo) => this.players.get(slNo)),
+            upcoming,
+            returning,
+            phase: this.phase,
             progress: this.progress()
         }
     }
@@ -132,9 +152,13 @@ export class AuctionSim {
 
 export const agentCap = (agent, ctx, rng = Math.random, { tremble = 0 } = {}) => {
     const facts = deriveLotFacts(ctx)
-    if (!facts.eligible) return 0
+    // RL agents keep the observation-side eligibility (their mask is built on
+    // it). Rule bots decide eligibility in ruleBotCap via the planning layer,
+    // which is requirement-aware — it may allow a bid the old spend limit
+    // refused (e.g. the last keeper) and refuse one it allowed.
+    if (!facts.eligible && agent.kind !== 'rule') return 0
 
-    if (tremble > 0 && rng() < tremble) {
+    if (tremble > 0 && facts.eligible && rng() < tremble) {
         const legal = actionMask(ctx, facts).flatMap((m, a) => (m ? [a] : []))
         return capForAction(ctx, legal[Math.floor(rng() * legal.length)], facts)
     }
