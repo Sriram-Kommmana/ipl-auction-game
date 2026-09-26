@@ -1,0 +1,7 @@
+# Phase 2C training additions (on top of requirements-v2.txt). Versions used
+# for the Phase 2C.0 pilot:
+#   ml/.venv/Scripts/python -m pip install -r ml/requirements-2c.txt
+tensorboard==2.21.0
+# Reference / cross-check only (ipl_rl/crosscheck) — never the production trainer.
+stable-baselines3==2.9.0
+sb3-contrib==2.9.0

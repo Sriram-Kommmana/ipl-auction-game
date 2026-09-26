@@ -64,3 +64,50 @@ test('a random-init rl-policy-v2 runs as a controller (inference only)', () => {
     const summary = runEpisode({ players, entry: validation[5], controller: policyController(validatePolicy(randomPolicy('d3qn', 51))) })
     assert.ok(summary.decisions > 0 && Number.isFinite(summary.xi))
 })
+
+test('Phase 2C: every evaluated episode passes the safety invariants; the auditor catches tampering', async () => {
+    const { RlEpisode, auditAuction } = await import('../src/rl/index.js')
+    const entry = validation[7]
+    const ep = new RlEpisode({ players, entry })
+    const rng = ep.learnerRng
+    ep.reset()
+    let step
+    do step = ep.step(BASELINES.randomLegal.act(ep, rng))
+    while (!step.done)
+    const summary = step.info.episode
+    assert.equal(summary.invariantViolations, 0, summary.violations.join('; '))
+    assert.equal(summary.actionCounts.reduce((s, c) => s + c, 0), summary.decisions)
+    assert.equal(summary.reauctionBuys, summary.reauctionCritical + summary.reauctionUseful + summary.reauctionMarginal + summary.reauctionDepth + summary.reauctionNone)
+    assert.deepEqual(auditAuction(ep.sim), [])
+
+    const t = ep.sim.teams[0]
+    const sold = ep.sim.history.find((h) => h.winner !== null)
+    const cases = [
+        ['negative purse', () => { t.purseLeft = -10 }, /purse -10/],
+        ['duplicate sale', () => { ep.sim.history.push({ ...sold, phase: 'reauction' }) }, /sold twice|re-auctioned without/],
+        ['overseas overflow', () => { t.overseasCount = 99 }, /overseas/],
+        ['squad mismatch', () => { t.playerCount += 1 }, /squad/],
+        ['below base', () => { ep.sim.history.find((h) => h.winner !== null).price = 1 }, /sold for 1/]
+    ]
+    for (const [name, tamper, pattern] of cases) {
+        const saved = structuredClone({ t: { ...t }, history: ep.sim.history.map((h) => ({ ...h })) })
+        tamper()
+        assert.ok(auditAuction(ep.sim).some((v) => pattern.test(v)), name)
+        Object.assign(t, saved.t)
+        ep.sim.history = saved.history
+    }
+    assert.deepEqual(auditAuction(ep.sim), [])
+})
+
+test('Phase 2C: the locked validation baselines still reproduce exactly (sampled seeds, every controller)', () => {
+    const lockedFile = fileURLToPath(new URL('../data/rl-baselines/validation.episodes.json', import.meta.url))
+    const locked = JSON.parse(readFileSync(lockedFile, 'utf8'))
+    assert.equal(locked.format, 'rl-baselines-v1')
+    assert.deepEqual(locked.controllers, Object.keys(BASELINES))
+    for (const k of [0, 250]) {
+        for (const name of locked.controllers) {
+            const again = runEpisode({ players, entry: validation[k], controller: BASELINES[name] })
+            assert.deepEqual(again, locked.episodes[name][k], `${name} seed ${validation[k].seed} no longer matches the locked baseline`)
+        }
+    }
+})

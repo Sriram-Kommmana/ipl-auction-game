@@ -10,7 +10,7 @@ import { agentCap, createRng } from '../sim.js'
 import { XI_SIZE } from '../rules.js'
 import { fairValue } from '../valuation.js'
 import { RULE_PERSONAS } from '../personas.js'
-import { PASS } from './actionSpec.js'
+import { ACTION_COUNT, PASS } from './actionSpec.js'
 import { RlEpisode } from './env.js'
 import { actionScores, selectAction } from './policy.js'
 
@@ -55,8 +55,8 @@ export const policyController = (policy) => ({
     act: (ep, rng) => selectAction(policy, actionScores(policy, ep.pending.obs), ep.pending.mask.mask, rng)
 })
 
-export const runEpisode = ({ players, entry, controller, snapshots = [], tremble = 0 }) => {
-    const ep = new RlEpisode({ players, entry, snapshots, tremble })
+export const runEpisode = ({ players, entry, controller, snapshots = [], tremble = 0, shield = 'v1', shieldDiagnostics = false, shieldTrace = false, shieldParams }) => {
+    const ep = new RlEpisode({ players, entry, snapshots, tremble, shield, shieldDiagnostics, shieldTrace, ...(shieldParams ? { shieldParams } : {}) })
     const rng = ep.learnerRng
     ep.reset()
     let step
@@ -66,7 +66,12 @@ export const runEpisode = ({ players, entry, controller, snapshots = [], tremble
     return step.info.episode
 }
 
-export const METRICS = ['xi', 'strength', 'legalXI', 'strongXI', 'rank', 'purseLeft', 'purseLeftShare', 'squadSize', 'overseas', 'buys', 'stars', 'marginalBuys', 'reauctionBuys', 'xiGainPer1000', 'contests', 'decisions', 'shieldActivations', 'shieldWins', 'return']
+export const METRICS = [
+    'xi', 'strength', 'legalXI', 'strongXI', 'rank', 'purseLeft', 'purseLeftShare', 'purseSpent', 'squadSize', 'overseas',
+    'buys', 'stars', 'marginalBuys', 'priceToFair', 'xiGainPer1000',
+    'reauctionBuys', 'reauctionCritical', 'reauctionUseful', 'reauctionMarginal', 'reauctionDepth', 'reauctionNone',
+    'bidRate', 'capToFair', 'contests', 'decisions', 'shieldActivations', 'shieldWins', 'return', 'invariantViolations'
+]
 
 const meanOf = (xs) => xs.reduce((s, x) => s + x, 0) / xs.length
 // Deterministic percentile bootstrap of the mean.
@@ -81,10 +86,55 @@ export const bootstrapCI = (xs, { iterations = 2000, seed = 7 } = {}) => {
     return [means[Math.floor(0.025 * iterations)], means[Math.floor(0.975 * iterations)]]
 }
 
+// Per-metric mean and CI. A metric that is undefined for an episode (null —
+// e.g. price / fair value with no purchases) is left out of that metric; `n`
+// says how many episodes it covers.
 export const summarise = (rows) => Object.fromEntries(METRICS.map((m) => {
-    const xs = rows.map((r) => Number(r[m]))
-    return [m, { mean: meanOf(xs), ci95: bootstrapCI(xs) }]
+    const xs = rows.filter((r) => r[m] !== null && r[m] !== undefined).map((r) => Number(r[m]))
+    return [m, { mean: xs.length ? meanOf(xs) : null, ci95: bootstrapCI(xs), n: xs.length }]
 }))
+
+// Share of learner decisions per act-v2 action (action controllers only;
+// raw-cap baselines have no act-v2 actions and report null).
+export const actionShares = (rows) => {
+    const totals = new Array(ACTION_COUNT).fill(0)
+    for (const r of rows) (r.actionCounts ?? []).forEach((c, a) => { totals[a] += c })
+    const all = totals.reduce((s, c) => s + c, 0)
+    return all ? totals.map((c) => c / all) : null
+}
+
+const pairedDiff = (rows, ref, metric) => {
+    const diffs = rows.map((r, i) => r[metric] - ref[i][metric])
+    return { mean: meanOf(diffs), ci95: bootstrapCI(diffs) }
+}
+
+// Report for already-played episodes: { name: [episode summaries] }, every
+// list over the same manifest entries in the same order.
+export const buildReport = (episodes, reference = 'moneyball') => {
+    const report = {}
+    const ref = episodes[reference]
+    for (const [name, rows] of Object.entries(episodes)) {
+        const strata = {}
+        for (const s of ['low', 'normal', 'high']) {
+            const sub = rows.filter((r) => r.stratum === s)
+            if (sub.length) strata[s] = { n: sub.length, ...summarise(sub), actionShares: actionShares(sub) }
+        }
+        let paired = null
+        if (ref && name !== reference) {
+            if (rows.some((r, i) => r.seed !== ref[i]?.seed)) throw new Error(`${name}: episodes not paired with ${reference}`)
+            const xi = pairedDiff(rows, ref, 'xi')
+            paired = {
+                reference,
+                xiDiffMean: xi.mean,
+                ci95: xi.ci95,
+                returnDiff: pairedDiff(rows, ref, 'return'),
+                xiWinTieLoss: [rows.filter((r, i) => r.xi > ref[i].xi).length, rows.filter((r, i) => r.xi === ref[i].xi).length, rows.filter((r, i) => r.xi < ref[i].xi).length]
+            }
+        }
+        report[name] = { n: rows.length, ...summarise(rows), actionShares: actionShares(rows), strata, paired }
+    }
+    return report
+}
 
 // Evaluate controllers on the same manifest entries (paired by seed).
 // Returns per-controller episodes, overall and per-purse-stratum summaries,
@@ -94,22 +144,7 @@ export const evaluate = ({ players, entries, controllers, reference = 'moneyball
     for (const [name, controller] of Object.entries(controllers)) {
         episodes[name] = entries.map((entry) => runEpisode({ players, entry, controller, snapshots }))
     }
-    const report = {}
-    for (const [name, rows] of Object.entries(episodes)) {
-        const strata = {}
-        for (const s of ['low', 'normal', 'high']) {
-            const sub = rows.filter((r) => r.stratum === s)
-            if (sub.length) strata[s] = { n: sub.length, ...summarise(sub) }
-        }
-        const paired = episodes[reference] && name !== reference
-            ? (() => {
-                const diffs = rows.map((r, i) => r.xi - episodes[reference][i].xi)
-                return { reference, xiDiffMean: meanOf(diffs), ci95: bootstrapCI(diffs) }
-            })()
-            : null
-        report[name] = { n: rows.length, ...summarise(rows), strata, paired }
-    }
-    return { episodes, report }
+    return { episodes, report: buildReport(episodes, reference) }
 }
 
 export const RULE_BASELINE_IDS = Object.freeze(Object.keys(RULE_PERSONAS))

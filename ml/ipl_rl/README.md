@@ -93,3 +93,27 @@ write_policy("ml/runs/<name>/policy.json", policy)
 
 ## Legacy v1 files
 `ml/{auction_env,train,evaluate,export,bridge,smoke_bridge}.py`, `packages/shared/bin/rl-bridge.js` and `packages/shared/src/{observation,mlp,rewards}.js` are the pre-Phase-2 RL starter. They are left untouched because the frozen rule bots and today's server import parts of `observation.js`. v2 replaces the rest; don't train against v1.
+
+## Training (Phase 2C)
+
+| Piece | File |
+|---|---|
+| Locked baseline reference (validation, 8 controllers × 500 auctions) | `packages/shared/data/rl-baselines/validation.{report,episodes}.json` |
+| Safety invariants checked at the end of every episode | `packages/shared/src/rl/invariants.js` |
+| Parallel environments (one Node process each), seed schedule, masking, logging, checkpoints, metadata, Node evaluation hook | `ml/ipl_rl/common/` |
+| Masked PPO (CleanRL-style) | `ml/ipl_rl/algos/ppo.py` |
+| Run configs | `ml/ipl_rl/configs/*.json` |
+| SB3 MaskablePPO cross-check (reference only, never production) | `ml/ipl_rl/crosscheck/sb3_maskable_ppo.py` |
+
+```bash
+cd ml
+.venv/Scripts/python -m pip install -r requirements-2c.txt
+.venv/Scripts/python -m ipl_rl.algos.ppo --config ipl_rl/configs/ppo_pilot.json
+.venv/Scripts/python -m ipl_rl.crosscheck.sb3_maskable_ppo --config ipl_rl/configs/ppo_pilot.json
+.venv/Scripts/tensorboard --logdir runs
+```
+
+- **Run directory** (`ml/runs/<name>/`, git-ignored): `metadata.json` (config, config hash, spec hashes, git commit and dirty files, source hashes, versions), `metrics.jsonl` (one line per update and per evaluation), `tb/` (TensorBoard), `summary.json`, `training_episodes.json`, and `checkpoints/update_NNNN/` with `checkpoint.pt`, the rl-policy-v2 `policy.json` and its `validation/` report.
+- **Seeds:** episode *k* of environment *i* plays train seed `episode_seed(run_seed, i, k)`, so runs are reproducible and two algorithms with the same run seed train on the same auctions.
+- **Evaluation:** every `eval_interval_updates`, the exported policy is played by the Node evaluator on the validation manifest, paired with the locked baselines (`--compare`). Training stops on any invariant violation, masked action, crash, deadlock or export-parity failure.
+- **Locked baselines** are written once with `node packages/shared/bin/rl-evaluate.js --split validation --workers 14 --lock`; the script refuses to overwrite them.

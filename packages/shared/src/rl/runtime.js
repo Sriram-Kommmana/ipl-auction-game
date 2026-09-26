@@ -8,6 +8,13 @@
 //   invalid cap, any exception             → rule persona for that lot;
 //                                           after FAILURE_LIMIT, for the room
 //   a decision slower than 20 ms          → rule persona for the rest of the room
+//   completionGuard (production only, opt-in): on a completion boundary —
+//   the lot fills an XI requirement the candidate shield-v2 analysis marks
+//   CRITICAL — the cap is raised to at least what the frozen rule persona
+//   would bid (and one increment over base when affordable), never above
+//   maxSafeBid. It only ever raises a cap, so every hard safety check still
+//   holds. Off by default: training, evaluation and league opponents never
+//   use it, so the raw policy's legal-XI performance is always measured.
 //
 // One instance per seat per room (the failure count is room state).
 
@@ -17,13 +24,15 @@ import { buildRlObservation } from './obsSpec.js'
 import { hasBidAction, rlActionMask, validateRlDecision } from './mask.js'
 import { actionScores, loadPolicy, selectAction } from './policy.js'
 import { PASS } from './actionSpec.js'
+import { SHIELD_STATE, analyseCompletion } from './shieldV2.js'
+import { bidIncrement } from '../rules.js'
 
 export const FAILURE_LIMIT = 3
 export const INFERENCE_BUDGET_MS = 20
 const defaultNow = () => globalThis.performance?.now?.() ?? Date.now()
 
 // `select` and `now` are injectable only so tests can simulate faults.
-export const createRlSeat = ({ policy = null, fallbackPersona, now = defaultNow, select = selectAction }) => {
+export const createRlSeat = ({ policy = null, fallbackPersona, now = defaultNow, select = selectAction, completionGuard = false }) => {
     if (!fallbackPersona) throw new Error('createRlSeat: fallbackPersona is required')
     const loaded = policy ? loadPolicy(policy) : { ok: false, error: 'no model' }
     const state = {
@@ -31,6 +40,7 @@ export const createRlSeat = ({ policy = null, fallbackPersona, now = defaultNow,
         disabled: !loaded.ok,
         disabledReason: loaded.ok ? null : loaded.error,
         failures: 0,
+        guardInterventions: 0,
         log: []
     }
     const fallback = (ctx, rng, reason) => ({ cap: agentCap({ kind: 'rule', persona: fallbackPersona }, ctx, rng), action: null, source: 'fallback', reason })
@@ -67,6 +77,19 @@ export const createRlSeat = ({ policy = null, fallbackPersona, now = defaultNow,
             if (invalid) return failure(ctx, rng, `invalid decision: ${invalid}`)
             const elapsed = now() - started
             if (elapsed > INFERENCE_BUDGET_MS) return failure(ctx, rng, `inference took ${elapsed.toFixed(1)} ms`, { wholeRoom: true })
+            if (completionGuard && plan.allowed) {
+                const boundary = Object.entries(analyseCompletion(ctx, plan).requirements)
+                    .filter(([, a]) => a.fillsNow && a.state === SHIELD_STATE.CRITICAL).map(([r]) => r)
+                if (boundary.length) {
+                    const ruleCap = agentCap({ kind: 'rule', persona: fallbackPersona }, ctx, rng)
+                    const over = ctx.lot.basePrice + bidIncrement(ctx.lot.basePrice)
+                    const guarded = Math.min(plan.budget.maxSafeBid, Math.max(cap, ruleCap, over <= plan.budget.maxSafeBid ? over : ctx.lot.basePrice))
+                    if (guarded > cap) {
+                        state.guardInterventions++
+                        return { cap: guarded, action, source: 'guard', reason: `completion boundary: ${boundary.join(', ')}` }
+                    }
+                }
+            }
             return { cap, action, source: 'rl', reason: null }
         }
     }

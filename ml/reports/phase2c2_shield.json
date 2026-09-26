@@ -1,0 +1,847 @@
+{
+ "phase": "2C.2 completion shield redesign + adversarial validation (evaluation only, no training)",
+ "candidate": "packages/shared/src/rl/shieldV2.js (shield-v2-candidate, NOT adopted; frozen mask.js / ACT_SPEC untouched)",
+ "frozenActSpec": {
+  "version": "act-v2",
+  "hash": "a0f075207054eaf7"
+ },
+ "proposedActSpec": {
+  "version": "act-v3",
+  "hash": "f3ed12a09cc87ba0",
+  "note": "hash of the proposed ACT_SPEC text; would change again if the shield text/params change"
+ },
+ "obsSpecHash": "629b25783f833af7 (unchanged)",
+ "replays_update081": {
+  "100254": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 83.45,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 89.91,
+    "keeperBought": "k118 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1000026": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 83.55,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 89.73,
+    "keeperBought": "k123 main \u00e2\u201a\u00b930L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1000266": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 84.36,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90.91,
+    "keeperBought": "k106 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1000450": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 82.73,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 89.09,
+    "keeperBought": "k111 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b930L, forced false)"
+   }
+  },
+  "1000563": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 84.18,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 91.36,
+    "keeperBought": "k83 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1001109": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 84.55,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90.73,
+    "keeperBought": "k103 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1001121": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 84.27,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90,
+    "keeperBought": "k110 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1001240": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 84,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90.18,
+    "keeperBought": "k116 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b930L, forced false)"
+   }
+  },
+  "1001293": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 84.27,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90.45,
+    "keeperBought": "k90 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1001352": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 83.91,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90.45,
+    "keeperBought": "k104 main \u00e2\u201a\u00b940L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  },
+  "1001357": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 83.82,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90,
+    "keeperBought": "k96 main \u00e2\u201a\u00b930L (purse before \u00e2\u201a\u00b930L, forced false)"
+   }
+  },
+  "1001524": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 83,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 89.18,
+    "keeperBought": "k123 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b930L, forced false)"
+   }
+  },
+  "1001870": {
+   "v1": {
+    "legalXI": false,
+    "emptySlots": 1,
+    "xi": 83.91,
+    "keeperBought": null
+   },
+   "v2": {
+    "legalXI": true,
+    "emptySlots": 0,
+    "xi": 90.09,
+    "keeperBought": "k128 main \u00e2\u201a\u00b920L (purse before \u00e2\u201a\u00b940L, forced false)"
+   }
+  }
+ },
+ "corpus": {
+  "train/v1-margin1": {
+   "advStarSpender": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 141596,
+    "xi": 82.736
+   },
+   "advSpendDown": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 74568,
+    "xi": 83.249
+   },
+   "advPassKeepers": {
+    "legalXI": "1603/2000",
+    "invariantViolations": 0,
+    "forced": 2004,
+    "decisions": 257689,
+    "xi": 87.578
+   },
+   "advPassRequirements": {
+    "legalXI": "1524/2000",
+    "invariantViolations": 0,
+    "forced": 14090,
+    "decisions": 648727,
+    "xi": 77.061
+   },
+   "advMaxStars": {
+    "legalXI": "1588/2000",
+    "invariantViolations": 0,
+    "forced": 10100,
+    "decisions": 690435,
+    "xi": 82.464
+   },
+   "advEarlySpender": {
+    "legalXI": "1888/2000",
+    "invariantViolations": 0,
+    "forced": 2599,
+    "decisions": 205105,
+    "xi": 83.126
+   },
+   "advWaitForReauction": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 696000,
+    "xi": 80.108
+   },
+   "randomLegal": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 148784,
+    "xi": 87.479
+   },
+   "PPO 245,760": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 2,
+    "decisions": 202085,
+    "xi": 91.498
+   },
+   "PPO 497,664": {
+    "legalXI": "1988/2000",
+    "invariantViolations": 0,
+    "forced": 55,
+    "decisions": 209589,
+    "xi": 91.677
+   }
+  },
+  "train/v2-margin1": {
+   "advStarSpender": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 3850,
+    "decisions": 166355,
+    "xi": 83.293
+   },
+   "advSpendDown": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 3107,
+    "decisions": 82036,
+    "xi": 83.4
+   },
+   "advPassKeepers": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 2453,
+    "decisions": 252010,
+    "xi": 88.905
+   },
+   "advPassRequirements": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 14065,
+    "decisions": 648727,
+    "xi": 79.577
+   },
+   "advMaxStars": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 9999,
+    "decisions": 824948,
+    "xi": 84.032
+   },
+   "advEarlySpender": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 3764,
+    "decisions": 194529,
+    "xi": 83.397
+   },
+   "advWaitForReauction": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 696000,
+    "xi": 80.108
+   },
+   "randomLegal": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 366,
+    "decisions": 157670,
+    "xi": 87.487
+   },
+   "PPO 245,760": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 425,
+    "decisions": 207747,
+    "xi": 91.506
+   },
+   "PPO 497,664": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 371,
+    "decisions": 212659,
+    "xi": 91.711
+   }
+  },
+  "validation/v1-margin1": {
+   "advStarSpender": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 34622,
+    "xi": 82.731
+   },
+   "advSpendDown": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 18659,
+    "xi": 83.204
+   },
+   "advPassKeepers": {
+    "legalXI": "413/500",
+    "invariantViolations": 0,
+    "forced": 500,
+    "decisions": 63907,
+    "xi": 87.742
+   },
+   "advPassRequirements": {
+    "legalXI": "363/500",
+    "invariantViolations": 0,
+    "forced": 3530,
+    "decisions": 162342,
+    "xi": 76.776
+   },
+   "advMaxStars": {
+    "legalXI": "407/500",
+    "invariantViolations": 0,
+    "forced": 2501,
+    "decisions": 173431,
+    "xi": 82.642
+   },
+   "advEarlySpender": {
+    "legalXI": "479/500",
+    "invariantViolations": 0,
+    "forced": 643,
+    "decisions": 50449,
+    "xi": 83.217
+   },
+   "advWaitForReauction": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 174000,
+    "xi": 80.147
+   },
+   "randomLegal": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 36604,
+    "xi": 87.452
+   },
+   "fairValue": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 52748,
+    "xi": 89.177
+   },
+   "plannerGreedy": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 228415,
+    "xi": 87.708
+   },
+   "PPO 245,760": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 49169,
+    "xi": 91.49
+   },
+   "PPO 497,664": {
+    "legalXI": "499/500",
+    "invariantViolations": 0,
+    "forced": 12,
+    "decisions": 52481,
+    "xi": 91.74
+   }
+  },
+  "validation/v2-margin1": {
+   "advStarSpender": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 847,
+    "decisions": 40426,
+    "xi": 83.303
+   },
+   "advSpendDown": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 744,
+    "decisions": 20676,
+    "xi": 83.399
+   },
+   "advPassKeepers": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 598,
+    "decisions": 62798,
+    "xi": 88.913
+   },
+   "advPassRequirements": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 3518,
+    "decisions": 162342,
+    "xi": 79.633
+   },
+   "advMaxStars": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 2466,
+    "decisions": 203582,
+    "xi": 84.073
+   },
+   "advEarlySpender": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 930,
+    "decisions": 48246,
+    "xi": 83.413
+   },
+   "advWaitForReauction": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 174000,
+    "xi": 80.147
+   },
+   "randomLegal": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 89,
+    "decisions": 38938,
+    "xi": 87.483
+   },
+   "fairValue": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 128,
+    "decisions": 53134,
+    "xi": 89.192
+   },
+   "plannerGreedy": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 228415,
+    "xi": 87.708
+   },
+   "PPO 245,760": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 112,
+    "decisions": 50485,
+    "xi": 91.491
+   },
+   "PPO 497,664": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 75,
+    "decisions": 52933,
+    "xi": 91.745
+   }
+  },
+  "train/v2-margin2": {
+   "advStarSpender": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 4255,
+    "decisions": 169461,
+    "xi": 83.451
+   },
+   "advSpendDown": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 2947,
+    "decisions": 83237,
+    "xi": 83.465
+   },
+   "advPassKeepers": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 2398,
+    "decisions": 256533,
+    "xi": 88.919
+   },
+   "advPassRequirements": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 14065,
+    "decisions": 648727,
+    "xi": 79.577
+   },
+   "advMaxStars": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 10031,
+    "decisions": 823941,
+    "xi": 84.069
+   },
+   "advEarlySpender": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 3370,
+    "decisions": 203086,
+    "xi": 83.397
+   },
+   "advWaitForReauction": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 696000,
+    "xi": 80.108
+   },
+   "randomLegal": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 332,
+    "decisions": 158031,
+    "xi": 87.497
+   },
+   "PPO 245,760": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 388,
+    "decisions": 208089,
+    "xi": 91.519
+   },
+   "PPO 497,664": {
+    "legalXI": "2000/2000",
+    "invariantViolations": 0,
+    "forced": 253,
+    "decisions": 212945,
+    "xi": 91.719
+   }
+  },
+  "validation/v2-margin2": {
+   "advStarSpender": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 1132,
+    "decisions": 40952,
+    "xi": 83.439
+   },
+   "advSpendDown": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 799,
+    "decisions": 20772,
+    "xi": 83.468
+   },
+   "advPassKeepers": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 622,
+    "decisions": 63460,
+    "xi": 88.915
+   },
+   "advPassRequirements": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 3518,
+    "decisions": 162342,
+    "xi": 79.633
+   },
+   "advMaxStars": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 2459,
+    "decisions": 203511,
+    "xi": 84.123
+   },
+   "advEarlySpender": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 888,
+    "decisions": 49876,
+    "xi": 83.392
+   },
+   "advWaitForReauction": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 174000,
+    "xi": 80.147
+   },
+   "randomLegal": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 95,
+    "decisions": 39066,
+    "xi": 87.503
+   },
+   "fairValue": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 151,
+    "decisions": 53174,
+    "xi": 89.213
+   },
+   "plannerGreedy": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 0,
+    "decisions": 228415,
+    "xi": 87.708
+   },
+   "PPO 245,760": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 99,
+    "decisions": 50732,
+    "xi": 91.514
+   },
+   "PPO 497,664": {
+    "legalXI": "500/500",
+    "invariantViolations": 0,
+    "forced": 48,
+    "decisions": 53164,
+    "xi": 91.75
+   }
+  }
+ },
+ "freshHoldout": {
+  "seeds 1,500,000-1,500,999 margin1": {
+   "advStarSpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advSpendDown": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassKeepers": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassRequirements": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advMaxStars": {
+    "legalXI": "998/1000",
+    "failSeeds": [
+     1500383,
+     1500336
+    ],
+    "invariantViolations": 0
+   },
+   "advEarlySpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advWaitForReauction": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "ppo497664": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   }
+  },
+  "seeds 1,500,000-1,500,999 margin2": {
+   "advStarSpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advSpendDown": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassKeepers": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassRequirements": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advMaxStars": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advEarlySpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advWaitForReauction": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "ppo497664": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   }
+  },
+  "seeds 1,600,000-1,600,999 margin1": {
+   "advStarSpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advSpendDown": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassKeepers": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassRequirements": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advMaxStars": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advEarlySpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advWaitForReauction": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "ppo497664": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   }
+  },
+  "seeds 1,600,000-1,600,999 margin2": {
+   "advStarSpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advSpendDown": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassKeepers": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advPassRequirements": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advMaxStars": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advEarlySpender": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "advWaitForReauction": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   },
+   "ppo497664": {
+    "legalXI": "1000/1000",
+    "failSeeds": [],
+    "invariantViolations": 0
+   }
+  }
+ }
+}
