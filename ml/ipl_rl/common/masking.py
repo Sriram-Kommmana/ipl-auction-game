@@ -1,4 +1,4 @@
-"""Action-mask helpers over act-v2 (20 actions).
+"""Action-mask helpers over the 20-action space (act-v3 masks come from JavaScript).
 
 Masked actions get a logit of MASKED_LOGIT, so their probability is exactly
 0 in float32 and they are never sampled; entropy is taken over the legal

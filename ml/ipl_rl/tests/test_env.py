@@ -59,7 +59,7 @@ class GymEnv(unittest.TestCase):
         self.assertEqual(self.env.action_space.n, ACTION_COUNT)
         self.assertEqual(self.env.gamma, 1.0)
         self.assertEqual(self.env.obs_spec["version"], "obs-v2")
-        self.assertEqual(self.env.act_spec["version"], "act-v2")
+        self.assertEqual(self.env.act_spec["version"], "act-v3")
 
     def test_check_env(self):
         env = IplAuctionEnv(split="train")

@@ -1,4 +1,4 @@
-// RL infrastructure (Phase 2B) — the canonical obs-v2 / act-v2 / reward /
+// RL infrastructure (Phase 2B; act-v3 since Phase 2C.2) — the canonical obs-v2 / act-v3 / reward /
 // mask / samplers / environment / policy runtime. Node-side only: imported
 // through '@ipl-auction/shared/rl', not the browser-safe package root.
 
@@ -13,5 +13,4 @@ export * from './runtime.js'
 export * from './env.js'
 export * from './evaluate.js'
 export * from './invariants.js'
-export * from './shieldV2.js'
 export * from './adversarial.js'

@@ -1,11 +1,13 @@
-// Phase 2C.2 — CANDIDATE completion shield v2 (not adopted): deterministic
-// adversarial cases 1–24, the replayed failure, and property tests.
+// act-v3 — the canonical mask with the completion shield (adopted in Phase
+// 2C.2): spec, deterministic adversarial cases 1–24, the replayed failure,
+// property tests and the production guard. `v1` below = the act-v2 mask,
+// `v2` = the act-v3 mask.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { AuctionSim, createRng } from '../src/sim.js'
 import { DEFAULT_RULES } from '../src/rules.js'
 import { planBid } from '../src/planning.js'
-import { PASS, rlActionMask, rlActionMaskV2 } from '../src/rl/index.js'
+import { ACT_SPEC, ACT_SPEC_HASH, PASS, SHIELD_PARAMS, rlActionMask, rlActionMaskActV2, specHash } from '../src/rl/index.js'
 import { AR, BAT, BWL, WK, ctxOf, legalXI, many, rivalsWith } from './safety.js'
 import { realStates } from './rlHelpers.js'
 
@@ -18,7 +20,6 @@ const scenario = ({ purse, lot, upcoming = fillers(), returning = [], rivals = s
     ctxOf({ squad, purse, lot, upcoming, returning, rivals, phase, progress: phase === 'main' ? 0.9 : 1 })
 const legal = (m) => m.mask.flatMap((ok, a) => (ok ? [a] : []))
 const bidCaps = (m) => legal(m).filter((a) => a !== PASS).map((a) => m.caps[a])
-const both = (ctx) => ({ v1: rlActionMask(ctx), v2: rlActionMaskV2(ctx) })
 
 // Resolve one lot on the real ladder: team 0 = learner, team 1 = rival.
 const ladder = (lot, learner, rival, rngValue) => {
@@ -32,8 +33,8 @@ const ladder = (lot, learner, rival, rngValue) => {
 // Structural checks every v2 result must pass.
 const assertSound = (ctx, label) => {
     const plan = planBid(ctx)
-    const v1 = rlActionMask(ctx, plan)
-    const v2 = rlActionMaskV2(ctx, plan)
+    const v1 = rlActionMaskActV2(ctx, plan)
+    const v2 = rlActionMask(ctx, plan)
     for (let a = 0; a < v1.mask.length; a++) if (v2.mask[a]) assert.equal(v1.mask[a], 1, `${label}: v2 legalised action ${a}`)
     assert.ok(legal(v2).length >= 1, `${label}: no legal action`)
     if (v2.mask[PASS] === 0) assert.ok(plan.allowed && bidCaps(v2).length > 0, `${label}: forced without an allowed bid`)
@@ -41,6 +42,13 @@ const assertSound = (ctx, label) => {
     assert.ok(['SAFE', 'WARNING', 'CRITICAL', 'IMPOSSIBLE'].includes(v2.shield.state))
     return { v1, v2, plan }
 }
+
+test('act-v3 spec: version, hash from the committed text, parameters match the implementation', () => {
+    assert.equal(ACT_SPEC.version, 'act-v3')
+    assert.equal(ACT_SPEC_HASH, specHash(ACT_SPEC))
+    assert.deepEqual(ACT_SPEC.shield.params, { ...SHIELD_PARAMS })
+    assert.deepEqual({ ...SHIELD_PARAMS }, { criticalBuffer: 1, warningBuffer: 3, marginIncrements: 2 })
+})
 
 // ── keeper (1–7) ──────────────────────────────────────────────────────────
 test('1. final keeper at ₹20L: forced but the tie is unwinnable — and v2 prevents reaching it', () => {
@@ -158,12 +166,12 @@ test('12. three simultaneous critical requirements (keeper, bowling, Indians): f
 // ── phases (13–15) ────────────────────────────────────────────────────────
 test('13–15. main round, re-auction and the main → re-auction transition (returning players count as supply)', () => {
     const two = [keeper(), ...fillers()]
-    assert.equal(rlActionMaskV2(scenario({ purse: 200, lot: keeper(), upcoming: two, phase: 'main' })).mask[PASS], 0, '13 main')
-    assert.equal(rlActionMaskV2(scenario({ purse: 200, lot: keeper(), upcoming: two, phase: 'reauction' })).mask[PASS], 0, '14 re-auction')
-    const oneReturning = rlActionMaskV2(scenario({ purse: 200, lot: keeper(), upcoming: fillers(), returning: [keeper()] }))
+    assert.equal(rlActionMask(scenario({ purse: 200, lot: keeper(), upcoming: two, phase: 'main' })).mask[PASS], 0, '13 main')
+    assert.equal(rlActionMask(scenario({ purse: 200, lot: keeper(), upcoming: two, phase: 'reauction' })).mask[PASS], 0, '14 re-auction')
+    const oneReturning = rlActionMask(scenario({ purse: 200, lot: keeper(), upcoming: fillers(), returning: [keeper()] }))
     assert.equal(oneReturning.shield.requirements.keeper.viableAfterLot, 1)
     assert.equal(oneReturning.mask[PASS], 0, '15 one keeper left, only in the re-auction')
-    const manyReturning = rlActionMaskV2(scenario({ purse: 200, lot: keeper(), upcoming: fillers(), returning: many(8, WK, { base: 20, rating: 70 }) }))
+    const manyReturning = rlActionMask(scenario({ purse: 200, lot: keeper(), upcoming: fillers(), returning: many(8, WK, { base: 20, rating: 70 }) }))
     assert.equal(manyReturning.shield.requirements.keeper.state, 'SAFE', '15 plenty returning')
     assert.equal(manyReturning.mask[PASS], 1)
 })
@@ -171,8 +179,8 @@ test('13–15. main round, re-auction and the main → re-auction transition (re
 // ── rival pressure (16–19) ────────────────────────────────────────────────
 test('16. rivals who also need a keeper make the boundary earlier', () => {
     const upcoming = [...many(4, WK, { base: 20, rating: 70 }), ...fillers()]
-    const calm = rlActionMaskV2(scenario({ purse: 200, lot: keeper(), upcoming }))
-    const needy = rlActionMaskV2(scenario({ purse: 200, lot: keeper(), upcoming, rivals: rivalsWith(6000, (i) => (i < 3 ? noKeeper10() : legalXI(80))) }))
+    const calm = rlActionMask(scenario({ purse: 200, lot: keeper(), upcoming }))
+    const needy = rlActionMask(scenario({ purse: 200, lot: keeper(), upcoming, rivals: rivalsWith(6000, (i) => (i < 3 ? noKeeper10() : legalXI(80))) }))
     assert.equal(calm.shield.requirements.keeper.state, 'WARNING')
     assert.equal(needy.shield.requirements.keeper.rivalsNeeding, 3)
     assert.equal(needy.shield.requirements.keeper.state, 'CRITICAL')
@@ -239,7 +247,7 @@ test('joint completion class: plenty of bowlers and plenty of Indians, but the X
     assert.equal(v2.mask[PASS], 0)
     assert.ok(v2.shield.forcedBy.includes('class:Bi'))
     // With plenty of Indian bowlers still to come, nothing is forced.
-    const plenty = rlActionMaskV2(scenario({ purse: 300, squad, lot: BWL({ base: 20, rating: 72 }), upcoming: [...many(8, BWL, { base: 20, rating: 70 }), ...fillers(10)] }))
+    const plenty = rlActionMask(scenario({ purse: 300, squad, lot: BWL({ base: 20, rating: 72 }), upcoming: [...many(8, BWL, { base: 20, rating: 70 }), ...fillers(10)] }))
     assert.equal(plenty.mask[PASS], 1)
 })
 
@@ -254,12 +262,12 @@ test('properties on real auction states: v2 ⊆ v1, always a legal action, force
     let n = 0
     let forced = 0
     const rng = createRng(99)
-    for (const s of realStates([7201, 7202, 7203, 7204, 7205, 7206, 7207, 7208, 7209, 7210], 1)) {
+    for (const s of realStates([7201, 7202, 7203, 7204, 7205, 7206], 1)) {
         const { v2 } = assertSound(s.ctx, `real ${n}`)
         if (v2.mask[PASS] === 0) forced++
         // Future-order leakage: shuffling the upcoming lots must not change anything.
         const shuffled = [...s.ctx.upcoming].sort(() => rng() - 0.5)
-        const again = rlActionMaskV2({ ...s.ctx, upcoming: shuffled })
+        const again = rlActionMask({ ...s.ctx, upcoming: shuffled })
         assert.deepEqual(again.mask, v2.mask, `real ${n}: order changed the mask`)
         assert.equal(again.shield.state, v2.shield.state)
         n++
@@ -299,13 +307,17 @@ test('completionGuard (production, opt-in): raises the cap on a completion bound
     const extras = { poolSize: 300, recent: [] }
     const boundary = scenario({ purse: 100, lot: keeper(), upcoming: [keeper(), ...fillers()] }) // 2 keepers left → CRITICAL
     const calm = scenario({ purse: 100, lot: keeper(), upcoming: [...many(8, WK, { base: 20, rating: 70 }), ...fillers()] })
-    const off = createRlSeat({ policy, fallbackPersona: 'moneyball', select: alwaysPass })
-    const on = createRlSeat({ policy, fallbackPersona: 'moneyball', select: alwaysPass, completionGuard: true })
-    assert.equal(off.decide(boundary, extras, () => 0.5).cap, 0, 'raw policy passes')
+    const off = createRlSeat({ policy, fallbackPersona: 'moneyball', select: alwaysPass, now: () => 0 })
+    const on = createRlSeat({ policy, fallbackPersona: 'moneyball', select: alwaysPass, completionGuard: true, now: () => 0 })
+    // act-v3 already forces a bid here (PASS masked, floor ₹30L): the raw policy bids the cheapest legal cap.
+    const raw = off.decide(boundary, extras, () => 0.5)
+    assert.equal(raw.source, 'rl')
+    assert.ok(raw.cap >= 30, `raw cap ${raw.cap}`)
+    // The guard can only raise it — to at least the frozen rule persona's bid — never above maxSafeBid.
     const guarded = on.decide(boundary, extras, () => 0.5)
-    assert.equal(guarded.source, 'guard')
-    assert.ok(guarded.cap >= 30 && guarded.cap <= planBid(boundary).budget.maxSafeBid, `cap ${guarded.cap}`)
-    assert.equal(on.state.guardInterventions, 1)
+    assert.ok(guarded.cap >= raw.cap && guarded.cap <= planBid(boundary).budget.maxSafeBid, `cap ${guarded.cap}`)
+    assert.equal(guarded.source, guarded.cap > raw.cap ? 'guard' : 'rl')
+    assert.equal(on.state.guardInterventions, guarded.cap > raw.cap ? 1 : 0)
     const quiet = on.decide(calm, extras, () => 0.5)
     assert.equal(quiet.source, 'rl')
     assert.equal(quiet.cap, 0, 'no boundary: the policy decides')

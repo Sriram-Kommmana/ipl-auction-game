@@ -1,4 +1,4 @@
-// Phase 2B — obs-v2 / act-v2 / reward specification integrity (A, B, C, D, K).
+// Phase 2B — obs-v2 / act-v3 (act-v2 until Phase 2C.2) / reward specification integrity (A, B, C, D, K).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { DEFAULT_RULES, nextBidAmount } from '../src/rules.js'
@@ -118,7 +118,7 @@ test('C2. purse invariance: money features are ratios — doubling purse and pri
 })
 
 // ── D. action mapping ─────────────────────────────────────────────────────
-test('D1. act-v2: 20 actions in the frozen order', () => {
+test('D1. act-v3: the same 20 actions in the frozen order', () => {
     assert.equal(ACTION_COUNT, 20)
     assert.deepEqual(FV_MULTIPLIERS, [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.25, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0])
     assert.equal(ACTIONS[PASS].name, 'PASS')
@@ -126,7 +126,7 @@ test('D1. act-v2: 20 actions in the frozen order', () => {
     assert.equal(ACTIONS[MAX_SAFE].name, 'MAX_SAFE')
     assert.equal(MAX_SAFE, 19)
     ACTIONS.slice(2, 19).forEach((a, i) => assert.equal(a.multiplier, FV_MULTIPLIERS[i]))
-    assert.equal(ACT_SPEC.version, 'act-v2')
+    assert.equal(ACT_SPEC.version, 'act-v3')
 })
 
 test('D2. effective cap = floor(min(level, maxSafeBid)); PASS = 0', () => {

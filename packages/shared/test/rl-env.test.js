@@ -19,7 +19,9 @@ const playEpisode = (entry, { snapshots = [], tremble = 0.01, pick = 'random' } 
     transcript.push({ obs: step.obs, mask: step.mask, info: step.info })
     for (;;) {
         const legal = step.mask.flatMap((ok, a) => (ok ? [a] : []))
-        const action = pick === 'pass' ? (step.mask[PASS] ? PASS : BASE) : legal[Math.floor(rng() * legal.length)]
+        // 'pass': PASS whenever legal, else the cheapest legal bid (act-v3 may mask BASE on a shielded lot).
+        const cheapest = () => legal.filter((a) => a !== PASS).reduce((b, a) => (ep.pending.mask.caps[a] < ep.pending.mask.caps[b] ? a : b))
+        const action = pick === 'pass' ? (step.mask[PASS] ? PASS : cheapest()) : legal[Math.floor(rng() * legal.length)]
         step = ep.step(action)
         transcript.push({ action, reward: step.reward, done: step.done, obs: step.obs, mask: step.mask, info: step.info })
         if (step.done) break
@@ -84,7 +86,8 @@ test('G4. the environment is exactly AuctionSim + the frozen agents (replayed in
             const caps = entry.seats.map((seat, i) => {
                 if (i === entry.learnerSeat) {
                     const m = rlActionMask(ctxs[i], planBid(ctxs[i]))
-                    return m.shieldActive ? m.caps[BASE] : 0
+                    if (!m.shieldActive) return 0
+                    return Math.min(...m.mask.flatMap((ok, a) => (ok && a !== PASS ? [m.caps[a]] : [])))
                 }
                 if (seat.type === 'human' && seat.proxy === 'passive') return 0
                 const agent = seat.type === 'human' ? { kind: 'rule', persona: seat.persona, noise: seat.noise } : { kind: 'rule', persona: seat.persona }

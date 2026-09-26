@@ -5,7 +5,9 @@ import { DEFAULT_RULES, bidBlocker } from '../src/rules.js'
 import { fairValue } from '../src/valuation.js'
 import { planBid } from '../src/planning.js'
 import { createRng } from '../src/sim.js'
-import { ACTION_COUNT, BASE, MAX_SAFE, PASS, ladderFloor, rlActionMask, shieldActiveFor, validateRlDecision } from '../src/rl/index.js'
+// The act-v2 mask (Phase 2A) — kept verbatim as rlActionMaskActV2 for the frozen
+// baseline controllers. The canonical act-v3 mask is tested in rl-mask-v3.test.js.
+import { ACTION_COUNT, BASE, MAX_SAFE, PASS, ladderFloor, rlActionMaskActV2 as rlActionMask, shieldActiveFor, validateRlDecision } from '../src/rl/index.js'
 import { BAT, BWL, WK, ctxOf, legalXI, many, rivalsWith, team } from './safety.js'
 import { players, realStates } from './rlHelpers.js'
 

@@ -9,7 +9,7 @@
 //                                           after FAILURE_LIMIT, for the room
 //   a decision slower than 20 ms          → rule persona for the rest of the room
 //   completionGuard (production only, opt-in): on a completion boundary —
-//   the lot fills an XI requirement the candidate shield-v2 analysis marks
+//   the lot fills an XI requirement the act-v3 completion analysis marks
 //   CRITICAL — the cap is raised to at least what the frozen rule persona
 //   would bid (and one increment over base when affordable), never above
 //   maxSafeBid. It only ever raises a cap, so every hard safety check still
@@ -21,10 +21,9 @@
 import { agentCap } from '../sim.js'
 import { planBid } from '../planning.js'
 import { buildRlObservation } from './obsSpec.js'
-import { hasBidAction, rlActionMask, validateRlDecision } from './mask.js'
+import { SHIELD_STATE, analyseCompletion, hasBidAction, rlActionMask, validateRlDecision } from './mask.js'
 import { actionScores, loadPolicy, selectAction } from './policy.js'
 import { PASS } from './actionSpec.js'
-import { SHIELD_STATE, analyseCompletion } from './shieldV2.js'
 import { bidIncrement } from '../rules.js'
 
 export const FAILURE_LIMIT = 3

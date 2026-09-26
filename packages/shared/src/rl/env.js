@@ -27,11 +27,10 @@ import { RL_PERSONAS } from '../personas.js'
 import { deriveSeed } from './hash.js'
 import { RECENT_WINDOW, buildRlObservation } from './obsSpec.js'
 import { ACTION_COUNT, PASS } from './actionSpec.js'
-import { hasBidAction, rlActionMask } from './mask.js'
+import { SHIELD_PARAMS, SHIELD_VERSION, hasBidAction, rlActionMask, rlActionMaskActV2 } from './mask.js'
 import { stepReward, terminalReward, xiPotential } from './reward.js'
 import { createRlSeat } from './runtime.js'
 import { auditAuction } from './invariants.js'
-import { SHIELD_V2_PARAMS, SHIELD_VERSION, rlActionMaskV2 } from './shieldV2.js'
 
 const STAR_RATING = 90
 const MARGINAL = [0.05, 0.5]
@@ -39,16 +38,18 @@ const MARGINAL = [0.05, 0.5]
 export class RlEpisode {
     // entry: a manifest / sampleEpisode entry. snapshots: rl-policy-v2 objects
     // for 'rlSnapshot' seats (entry.seats[i].snapshot indexes this list).
-    // shield: 'v1' = the frozen Phase 2A mask (default); 'v2' = the CANDIDATE
-    // completion shield (shieldV2.js, not adopted). shieldDiagnostics: under
-    // v1, also compute what v2 would have done (reporting only). Both extra
-    // modes add a `shield` block to the summary; the default summary is
-    // unchanged.
-    constructor({ players, entry, snapshots = [], tremble = 0.01, shield = 'v1', shieldDiagnostics = false, shieldTrace = false, shieldParams = SHIELD_V2_PARAMS }) {
-        if (shield !== 'v1' && shield !== 'v2') throw new Error(`unknown shield ${shield}`)
-        this.shieldMode = shield
+    // maskVersion: 'act-v3' = the canonical mask with the completion shield
+    // (default: training, evaluation, production); 'act-v2' = the Phase 2A
+    // mask, kept ONLY for the frozen baseline controllers, whose decision
+    // timing is part of the locked baseline reference (evaluate.runEpisode
+    // picks it for them). act-v3 episodes add a `shield` block to the
+    // summary; shieldDiagnostics adds it to an act-v2 episode as "what act-v3
+    // would have done" (reporting only). shieldParams: research runs only.
+    constructor({ players, entry, snapshots = [], tremble = 0.01, maskVersion = 'act-v3', shieldDiagnostics = false, shieldTrace = false, shieldParams = SHIELD_PARAMS }) {
+        if (maskVersion !== 'act-v3' && maskVersion !== 'act-v2') throw new Error(`unknown mask version ${maskVersion}`)
+        this.maskVersion = maskVersion
         this.shieldParams = shieldParams
-        this.shieldDiag = shield === 'v2' || shieldDiagnostics
+        this.shieldDiag = maskVersion === 'act-v3' || shieldDiagnostics
         this.shieldTrace = shieldTrace ? [] : null
         this.entry = entry
         this.rules = { ...DEFAULT_RULES, pursePerTeam: entry.purse }
@@ -150,32 +151,33 @@ export class RlEpisode {
         while (!this.sim.done) {
             const ctx = this.sim.contextFor(this.learner)
             const plan = planBid(ctx)
-            const mask = this.shieldMode === 'v2' ? rlActionMaskV2(ctx, plan, this.shieldParams) : rlActionMask(ctx, plan)
+            const mask = this.maskVersion === 'act-v3' ? rlActionMask(ctx, plan, this.shieldParams) : rlActionMaskActV2(ctx, plan)
             if (hasBidAction(mask.mask)) {
                 const obs = buildRlObservation(ctx, this.extras(), plan)
                 this.pending = { ctx, plan, mask, obs }
                 this.stats.decisions++
                 if (mask.shieldActive) this.stats.shieldActivations++
-                if (this.shieldDiag) this.pending.v2 = this.#recordShield(ctx, plan, mask)
+                if (this.shieldDiag) this.pending.v3 = this.#recordShield(ctx, plan, mask)
                 return reward
             }
-            if (this.shieldDiag && this.shieldMode === 'v2' && hasBidAction(mask.shield.v1Mask)) this.#recordShield(ctx, plan, mask, { lostDecision: true })
+            if (this.shieldDiag && this.maskVersion === 'act-v3' && hasBidAction(mask.shield.actV2Mask)) this.#recordShield(ctx, plan, mask, { lostDecision: true })
             reward += this.#resolve(0).reward
         }
         this.done = true
         return reward
     }
 
-    // Shield statistics per decision (v2 applied, or v2 computed alongside v1).
+    // Completion-shield statistics per decision (act-v3 applied, or computed
+    // alongside an act-v2 episode for comparison).
     #recordShield(ctx, plan, mask, { lostDecision = false } = {}) {
-        const v2 = mask.shield ? mask : rlActionMaskV2(ctx, plan, this.shieldParams)
-        const d = v2.shield
+        const v3 = mask.shield ? mask : rlActionMask(ctx, plan, this.shieldParams)
+        const d = v3.shield
         const st = (this.stats.shield ??= {
-            version: SHIELD_VERSION, applied: this.shieldMode === 'v2', decisions: 0,
+            version: SHIELD_VERSION, applied: this.maskVersion === 'act-v3', decisions: 0,
             states: { SAFE: 0, WARNING: 0, CRITICAL: 0, IMPOSSIBLE: 0 },
             forced: 0, forcedBeyondFrozen: 0, changed: 0, marginTrims: 0, floors: 0, bidsRemoved: 0,
             decisionsRemoved: 0, reauctionForced: 0, forcedByRequirement: {}, alreadyInfeasible: 0,
-            // v1 runs only: the learner's actual choice was not legal under v2.
+            // act-v2 runs only: the learner's actual choice was not legal under act-v3.
             wouldBlock: { pass: 0, margin: 0, floor: 0, noBidLeft: 0 },
             feasibleDecisions: [], lastFeasible: null
         })
@@ -185,7 +187,7 @@ export class RlEpisode {
         if (d.alreadyInfeasible) st.alreadyInfeasible++
         if (d.forced) {
             st.forced++
-            if (!d.forcedBy.includes('frozen-shield')) st.forcedBeyondFrozen++
+            if (!d.forcedBy.includes('act-v2-shield')) st.forcedBeyondFrozen++
             if (d.phase === 'reauction') st.reauctionForced++
             for (const r of d.forcedBy) st.forcedByRequirement[r] = (st.forcedByRequirement[r] ?? 0) + 1
         }
@@ -195,13 +197,13 @@ export class RlEpisode {
         st.bidsRemoved += d.removed.length
         if (d.feasibleBefore) st.lastFeasible = this.stats.decisions
         if (this.shieldTrace && (d.state !== 'SAFE' || d.changed)) {
-            const { v1Mask, requirements, ...rest } = d
+            const { actV2Mask, requirements, ...rest } = d
             this.shieldTrace.push({
                 decision: this.stats.decisions, ...rest, lotRole: ctx.lot.role, lotOverseas: ctx.lot.nationality === 'Overseas',
-                requirements, v1Legal: v1Mask.flatMap((m, a) => (m ? [a] : [])), v2Legal: v2.mask.flatMap((m, a) => (m ? [a] : []))
+                requirements, actV2Legal: actV2Mask.flatMap((m, a) => (m ? [a] : [])), actV3Legal: v3.mask.flatMap((m, a) => (m ? [a] : []))
             })
         }
-        return v2
+        return v3
     }
 
     reset() {
@@ -210,7 +212,7 @@ export class RlEpisode {
         return { obs: this.pending.obs, mask: this.pending.mask.mask, info: this.#info(null) }
     }
 
-    // Learner acts with an act-v2 action.
+    // Learner acts with an act-v3 action.
     step(action) {
         if (!this.pending) throw new Error(this.done ? 'episode is over — call reset' : 'call reset before step')
         if (!this.pending.mask.mask[action]) throw new Error(`action ${action} is masked`)
@@ -236,12 +238,12 @@ export class RlEpisode {
             this.stats.capToFairSum += cap / fairValue(lot, this.rules.pursePerTeam)
             if (!plan.allowed || cap > plan.budget.maxSafeBid) this.stats.capViolations++
         }
-        const v2 = this.pending.v2
-        if (v2 && this.shieldMode === 'v1' && action !== null && !v2.mask[action]) {
+        const v3 = this.pending.v3
+        if (v3 && this.maskVersion === 'act-v2' && action !== null && !v3.mask[action]) {
             const w = this.stats.shield.wouldBlock
-            if (!hasBidAction(v2.mask)) w.noBidLeft++
+            if (!hasBidAction(v3.mask)) w.noBidLeft++
             else if (action === PASS) w.pass++
-            else if (v2.shield.floor !== null && cap < v2.shield.floor) w.floor++
+            else if (v3.shield.floor !== null && cap < v3.shield.floor) w.floor++
             else w.margin++
         }
         const r = this.#resolve(cap)

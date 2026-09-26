@@ -1,5 +1,5 @@
 > **Phase 2 (v2) supersedes this starter.** The frozen RL design is implemented in
-> [`ml/ipl_rl/`](ipl_rl/README.md) (obs-v2, act-v2, bridge v2, `IplAuctionEnv`).
+> [`ml/ipl_rl/`](ipl_rl/README.md) (obs-v2, act-v3, bridge v2, `IplAuctionEnv`).
 > The v1 files described below are legacy. Don't train against them.
 
 # Training the RL franchises

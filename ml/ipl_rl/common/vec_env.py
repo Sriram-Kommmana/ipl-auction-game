@@ -66,7 +66,7 @@ class VecIplAuctionEnv:
         self.gamma = float(info["gamma"])
         self.lambda_rel = float(info["lambdaRel"])
         if self.obs_spec["size"] != OBS_SIZE or self.act_spec["count"] != ACTION_COUNT:
-            raise RuntimeError("bridge specs do not match obs-v2 / act-v2")
+            raise RuntimeError("bridge specs do not match obs-v2 / the 20-action space")
         for b in self.bridges:
             b.call("configure", tremble=float(tremble), snapshotShare=float(snapshot_share))
         self.episode_index = np.zeros(self.num_envs, dtype=np.int64)

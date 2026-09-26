@@ -2,7 +2,7 @@
 //
 // A controller plays the learner seat:
 //   { kind: 'cap',    cap(episode, rng) }      raw cap (a frozen rule bot in the chair)
-//   { kind: 'action', act(episode, rng) }      an act-v2 action (RL policies, grid baselines)
+//   { kind: 'action', act(episode, rng) }      an action (RL policies, grid baselines)
 // Every run is deterministic: manifests fix the auction, and the learner
 // seat's random stream is derived from the episode seed.
 
@@ -55,8 +55,15 @@ export const policyController = (policy) => ({
     act: (ep, rng) => selectAction(policy, actionScores(policy, ep.pending.obs), ep.pending.mask.mask, rng)
 })
 
-export const runEpisode = ({ players, entry, controller, snapshots = [], tremble = 0, shield = 'v1', shieldDiagnostics = false, shieldTrace = false, shieldParams }) => {
-    const ep = new RlEpisode({ players, entry, snapshots, tremble, shield, shieldDiagnostics, shieldTrace, ...(shieldParams ? { shieldParams } : {}) })
+// The eight locked baselines (Phase 2C.0) are frozen reference controllers:
+// they always play on the act-v2 mask, so their decision timing, part of
+// the locked baseline reference, never changes. Everything else (RL
+// policies, adversarial controllers) plays on the canonical act-v3 mask.
+const FROZEN_BASELINES = new Set(Object.values(BASELINES))
+export const maskVersionFor = (controller) => (FROZEN_BASELINES.has(controller) ? 'act-v2' : 'act-v3')
+
+export const runEpisode = ({ players, entry, controller, snapshots = [], tremble = 0, maskVersion = maskVersionFor(controller), shieldDiagnostics = false, shieldTrace = false, shieldParams }) => {
+    const ep = new RlEpisode({ players, entry, snapshots, tremble, maskVersion, shieldDiagnostics, shieldTrace, ...(shieldParams ? { shieldParams } : {}) })
     const rng = ep.learnerRng
     ep.reset()
     let step
@@ -94,8 +101,8 @@ export const summarise = (rows) => Object.fromEntries(METRICS.map((m) => {
     return [m, { mean: xs.length ? meanOf(xs) : null, ci95: bootstrapCI(xs), n: xs.length }]
 }))
 
-// Share of learner decisions per act-v2 action (action controllers only;
-// raw-cap baselines have no act-v2 actions and report null).
+// Share of learner decisions per action (action controllers only;
+// raw-cap baselines have no actions and report null).
 export const actionShares = (rows) => {
     const totals = new Array(ACTION_COUNT).fill(0)
     for (const r of rows) (r.actionCounts ?? []).forEach((c, a) => { totals[a] += c })

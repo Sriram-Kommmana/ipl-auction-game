@@ -5,8 +5,9 @@ One step = one lot where the learner has at least one legal bid; the Node
 side resolves every other lot with the learner passing.
 
   observation  Box(-1, 5, (80,), float32)   obs-v2, built in JavaScript
-  action       Discrete(20)                 act-v2 willingness-to-pay levels
-  action_masks()                            the canonical JavaScript mask
+  action       Discrete(20)                 act-v3 willingness-to-pay levels
+  action_masks()                            the canonical JavaScript act-v3 mask
+                                            (legality + completion shield)
   reward                                    ΔBestXI / 110, −2 terminal if an XI slot is empty
   gamma                                     1.0 (exposed as env.gamma)
 
@@ -53,7 +54,7 @@ class IplAuctionEnv(gym.Env):
         self.action_names = list(info["actSpec"]["actions"])
         self.gamma = float(info["gamma"])
         if self.obs_spec["size"] != OBS_SIZE or self.act_spec["count"] != ACTION_COUNT:
-            raise RuntimeError(f"bridge specs {self.obs_spec} / {self.act_spec} do not match obs-v2 / act-v2")
+            raise RuntimeError(f"bridge specs {self.obs_spec} / {self.act_spec} do not match obs-v2 / the 20-action space")
 
         self.observation_space = spaces.Box(low=-1.0, high=5.0, shape=(OBS_SIZE,), dtype=np.float32)
         self.action_space = spaces.Discrete(ACTION_COUNT)

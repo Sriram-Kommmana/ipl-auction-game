@@ -23,7 +23,7 @@ import { createInterface } from 'node:readline'
 import { fileURLToPath } from 'node:url'
 import { parsePlayersCsv } from '../src/playersCsv.js'
 import {
-    ACTIONS, ACTION_COUNT, ACT_SPEC, ACT_SPEC_HASH, GAMMA, LAMBDA_REL, OBS_FEATURES, OBS_SIZE, OBS_SPEC, OBS_SPEC_HASH,
+    ACTIONS, ACTION_COUNT, ACT_SPEC, ACT_SPEC_HASH, GAMMA, LAMBDA_REL, OBS_FEATURES, OBS_SIZE, OBS_SPEC, OBS_SPEC_HASH, SHIELD_PARAMS, SHIELD_VERSION,
     RlEpisode, SPLITS, loadPolicy, sampleEpisode, splitOfSeed
 } from '../src/rl/index.js'
 
@@ -39,7 +39,7 @@ const handlers = {
     info: () => ({
         protocol: PROTOCOL,
         obsSpec: { version: OBS_SPEC.version, hash: OBS_SPEC_HASH, size: OBS_SIZE, features: OBS_FEATURES },
-        actSpec: { version: ACT_SPEC.version, hash: ACT_SPEC_HASH, count: ACTION_COUNT, actions: ACTIONS.map((a) => a.name) },
+        actSpec: { version: ACT_SPEC.version, hash: ACT_SPEC_HASH, count: ACTION_COUNT, actions: ACTIONS.map((a) => a.name), shield: { version: SHIELD_VERSION, params: SHIELD_PARAMS } },
         gamma: GAMMA,
         lambdaRel: LAMBDA_REL,
         splits: Object.fromEntries(Object.entries(SPLITS).map(([k, v]) => [k, { start: v.start, count: Number.isFinite(v.count) ? v.count : null }]))

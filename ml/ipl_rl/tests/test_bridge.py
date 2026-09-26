@@ -30,7 +30,7 @@ class BridgeProtocol(unittest.TestCase):
             self.assertEqual(info["obsSpec"]["version"], "obs-v2")
             self.assertEqual(info["obsSpec"]["size"], 80)
             self.assertEqual(len(info["obsSpec"]["features"]), 80)
-            self.assertEqual(info["actSpec"]["version"], "act-v2")
+            self.assertEqual(info["actSpec"]["version"], "act-v3")
             self.assertEqual(info["actSpec"]["count"], 20)
             self.assertEqual(info["actSpec"]["actions"][0], "PASS")
             self.assertEqual(info["actSpec"]["actions"][19], "MAX_SAFE")

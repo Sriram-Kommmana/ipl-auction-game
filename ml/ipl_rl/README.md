@@ -8,8 +8,8 @@ model: training is Phase 2C.
 | Piece | File | Notes |
 |---|---|---|
 | obs-v2: the 80 features, normalisation, hash | `packages/shared/src/rl/obsSpec.js` | Canonical; the only definition |
-| act-v2: the 20 actions, cap rule, ladder price | `packages/shared/src/rl/actionSpec.js` | Canonical |
-| Action mask and completion shield | `packages/shared/src/rl/mask.js` | Canonical; used by training, evaluation and production |
+| act-v3: the 20 actions, cap rule, ladder price, legal set and completion shield (text inside the spec hash) | `packages/shared/src/rl/actionSpec.js` | Canonical |
+| Action mask and completion shield v2 (act-v3); the act-v2 mask kept only for the frozen baselines | `packages/shared/src/rl/mask.js` | Canonical; used by training, evaluation and production |
 | Reward (ΔXI/110, −2 terminal, γ = 1, λ_rel = 0) | `packages/shared/src/rl/reward.js` | |
 | Purse / lineup / human-proxy samplers | `packages/shared/src/rl/samplers.js` | Seed-derived and reproducible |
 | Environment core (one learner, nine frozen seats) | `packages/shared/src/rl/env.js` | Runs the unchanged `AuctionSim` |
@@ -117,3 +117,28 @@ cd ml
 - **Seeds:** episode *k* of environment *i* plays train seed `episode_seed(run_seed, i, k)`, so runs are reproducible and two algorithms with the same run seed train on the same auctions.
 - **Evaluation:** every `eval_interval_updates`, the exported policy is played by the Node evaluator on the validation manifest, paired with the locked baselines (`--compare`). Training stops on any invariant violation, masked action, crash, deadlock or export-parity failure.
 - **Locked baselines** are written once with `node packages/shared/bin/rl-evaluate.js --split validation --workers 14 --lock`; the script refuses to overwrite them.
+
+## act-v3 (Phase 2C.2)
+
+act-v3 replaced act-v2 after the Phase 2C.1 legal-XI failure. The 20 actions and
+their caps are unchanged; the legal set is the act-v2 set minus what the
+**completion shield v2** removes (`mask.js`, parameters criticalBuffer 1,
+warningBuffer 3, contest margin 2 increments — the exact rules are written into
+`ACT_SPEC.shield`, so they are inside `ACT_SPEC_HASH`):
+
+- **force** a bid when a lot fills an XI requirement (or the specific keeper /
+  bowler class a legal XI still needs) whose spare candidates have dropped below
+  the rivals needing it plus the players still needed, or when the purse is
+  *fragile* (no more slack above the completion reserve than the contest margin);
+- **floor** — a forced, contestable bid must be at least one increment over base,
+  and on a final path the highest safe bid;
+- **margin** — every bid keeps two increments per XI player still needed above
+  the planner's base-price reserve.
+
+- **Old checkpoints:** policies stamped act-v2 (the 2C.0 pilot, the SB3
+  cross-check, 2C.1 seed 1) are rejected by the loader on purpose — they were
+  trained against a different legal-action set.
+- **Baselines:** the eight locked baselines always play on the act-v2 mask
+  (`evaluate.maskVersionFor`), so the permanent baseline reference is unchanged.
+- **Production:** `createRlSeat({ completionGuard: true })` is an opt-in
+  defence in depth for production only; training and evaluation never enable it.

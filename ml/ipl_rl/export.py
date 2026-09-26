@@ -3,9 +3,10 @@
     policy = to_policy_json(net, obs_spec, act_spec, meta={...})
     write_policy(path, policy)
 
-The exporter stamps the obs-v2 / act-v2 versions and hashes it was built
-against (take them from the environment: env.obs_spec / env.act_spec), so
-the JavaScript loader refuses the model if the specs ever change. Selection
+The exporter stamps the obs-v2 / action-spec versions and hashes it was built
+against (take them from the environment: env.obs_spec / env.act_spec — act-v3
+since Phase 2C.2), so the JavaScript loader refuses the model if the specs
+ever change. Models stamped act-v2 are rejected on purpose. Selection
 is fixed per algorithm and must match packages/shared/src/rl/policy.js.
 """
 

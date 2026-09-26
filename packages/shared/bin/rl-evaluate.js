@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url'
 import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads'
 import { parsePlayersCsv } from '../src/playersCsv.js'
 import {
-    ACT_SPEC_HASH, ADVERSARIAL, BASELINES, OBS_SPEC_HASH, SHIELD_V2_PARAMS, buildReport, canonicalJson, fnv1a64, generateManifest, loadPolicy, policyController, runEpisode
+    ACT_SPEC, ACT_SPEC_HASH, ADVERSARIAL, BASELINES, OBS_SPEC_HASH, SHIELD_PARAMS, buildReport, canonicalJson, fnv1a64, generateManifest, loadPolicy, policyController, runEpisode
 } from '../src/rl/index.js'
 
 const loadPlayers = () => parsePlayersCsv(readFileSync(fileURLToPath(new URL('../../../apps/server/src/db/players.csv', import.meta.url)), 'utf8'))
@@ -53,11 +53,13 @@ if (!isMainThread) {
     const reference = opt('reference', 'moneyball')
     const workers = Math.max(1, Number(opt('workers', 1)))
     const quiet = flag('quiet')
-    // --shield v2: the CANDIDATE completion shield (not adopted; default v1 = frozen).
-    // --shield-diagnostics: under v1, also report what v2 would have done.
-    // --shield-params '{"marginIncrements":2}': candidate-shield sensitivity runs.
-    const shieldOpts = { shield: opt('shield', 'v1'), shieldDiagnostics: flag('shield-diagnostics'), shieldTrace: flag('shield-trace'),
-        ...(opt('shield-params') ? { shieldParams: { ...SHIELD_V2_PARAMS, ...JSON.parse(opt('shield-params')) } } : {}) }
+    // Mask: act-v3 (canonical) for policies and adversarial controllers; the
+    // eight locked baselines always play act-v2 (evaluate.maskVersionFor).
+    // --mask act-v2|act-v3: override for every controller (research only).
+    // --shield-diagnostics: in an act-v2 episode, also report what act-v3 would do.
+    // --shield-params '{"marginIncrements":1}': research runs only.
+    const shieldOpts = { ...(opt('mask') ? { maskVersion: opt('mask') } : {}), shieldDiagnostics: flag('shield-diagnostics'), shieldTrace: flag('shield-trace'),
+        ...(opt('shield-params') ? { shieldParams: { ...SHIELD_PARAMS, ...JSON.parse(opt('shield-params')) } } : {}) }
 
     const manifest = loadManifest(split)
     // Guard against a stale committed manifest.
@@ -129,13 +131,13 @@ if (!isMainThread) {
     const meta = {
         split, n: entries.length, manifestHash, obsSpecHash: OBS_SPEC_HASH, actSpecHash: ACT_SPEC_HASH,
         controllers: controllerNames, policy: policyInfo, lockedBaselines: locked ? { file: opt('compare'), rowsHash: locked.rowsHash } : null,
-        workers, seconds: secs, invariantViolations, shield: shieldOpts
+        workers, seconds: secs, invariantViolations, actSpec: ACT_SPEC.version, shield: shieldOpts
     }
     if (opt('out')) writeFileSync(opt('out'), JSON.stringify({ ...meta, report }, null, 2))
     if (opt('episodes-out')) writeFileSync(opt('episodes-out'), JSON.stringify({ ...meta, episodes: Object.fromEntries(controllerNames.map((n) => [n, episodes[n]])) }))
 
     if (flag('lock')) {
-        if (policyText || limit !== Infinity || shieldOpts.shield !== 'v1' || shieldOpts.shieldDiagnostics || names.length !== Object.keys(BASELINES).length || names.some((n) => !BASELINES[n])) throw new Error('--lock needs every baseline, the full manifest and no policy')
+        if (policyText || limit !== Infinity || Object.keys(shieldOpts).some((k) => shieldOpts[k] && k !== 'shieldDiagnostics' && k !== 'shieldTrace') || shieldOpts.shieldDiagnostics || names.length !== Object.keys(BASELINES).length || names.some((n) => !BASELINES[n])) throw new Error('--lock needs every baseline, the full manifest and no policy')
         if (invariantViolations) throw new Error(`refusing to lock: ${invariantViolations} invariant violations`)
         const dir = fileURLToPath(new URL('../data/rl-baselines/', import.meta.url))
         const base = `${dir}${split}`

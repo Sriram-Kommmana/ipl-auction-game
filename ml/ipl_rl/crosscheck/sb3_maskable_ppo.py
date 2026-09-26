@@ -4,7 +4,7 @@
     .venv/Scripts/python -m ipl_rl.crosscheck.sb3_maskable_ppo --config ipl_rl/configs/ppo_pilot.json
 
 A trusted reference implementation run on exactly what our PPO sees:
-  - the same environment: VecIplAuctionEnv (Node bridge, obs-v2, act-v2, the
+  - the same environment: VecIplAuctionEnv (Node bridge, obs-v2, act-v3, the
     canonical mask, the frozen reward, γ = 1), wrapped as an SB3 VecEnv;
   - the same auctions: the same run seed gives the same train-seed schedule
     (episode k of environment i);

@@ -1,6 +1,6 @@
 // Adversarial learner controllers (Phase 2C.2) — deliberately pathological
-// policies that act through the canonical act-v2 action space and whatever
-// mask the environment applies. They exist to test that the completion
+// policies that act through the canonical action space and whatever mask
+// the environment applies (act-v3 by default). They exist to test that the completion
 // mechanism protects the legal-XI invariant against bad learned behaviour;
 // they are not baselines and are never trained.
 //

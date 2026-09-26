@@ -3,7 +3,7 @@
   config      JSON run configs, defaults, config hash
   seeding     global seeding and the deterministic training-seed schedule
   vec_env     VecIplAuctionEnv: N Node simulators stepped in parallel
-  masking     masked sampling / argmax / entropy over act-v2
+  masking     masked sampling / argmax / entropy over the act-v3 mask
   stats       episode and rollout statistics
   logger      TensorBoard + JSON-lines logs + run summary
   checkpoint  checkpoints and rl-policy-v2 exports

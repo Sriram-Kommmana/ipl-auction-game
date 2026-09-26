@@ -39,7 +39,7 @@ const playThroughBridge = async (bridge, reset) => {
     }
 }
 
-test('I1. info: protocol, obs-v2 / act-v2 names and hashes, γ = 1, λ_rel = 0, splits', async () => {
+test('I1. info: protocol, obs-v2 / act-v3 names and hashes, γ = 1, λ_rel = 0, splits', async () => {
     const b = openBridge()
     try {
         const info = await b.call({ cmd: 'info' })

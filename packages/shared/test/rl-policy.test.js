@@ -101,9 +101,9 @@ test('O1. no model / invalid / mismatched model → the frozen rule persona deci
     }
 })
 
-test('O2. a healthy policy decides; its cap is always the masked, clamped act-v2 cap (≤ maxSafeBid)', () => {
+test('O2. a healthy policy decides; its cap is always the masked, clamped act-v3 cap (≤ maxSafeBid)', () => {
     for (const algo of Object.keys(ALGORITHMS)) {
-        const seat = createRlSeat({ policy: randomPolicy(algo, 21), fallbackPersona: 'opportunist' })
+        const seat = createRlSeat({ policy: randomPolicy(algo, 21), fallbackPersona: 'opportunist', now: () => 0 })
         for (const s of decisionStates) {
             const out = seat.decide(s.ctx, s.extras, createRng(3))
             assert.equal(out.source, 'rl', `${algo}: ${out.reason}`)
