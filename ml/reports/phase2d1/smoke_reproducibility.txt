@@ -1,0 +1,41 @@
+seed 1: initial cc5635f6f7379612 final cc25a7f1982c177a | updates 4 decisions 768 training episodes 9 first seeds [1174815881, 1352432485, 186031594] | action digests ['4ecbd0b7701a0f19', 'cc765ccfc318dfd6', '0486cbf7de594fff', '511f30e19427e31b']
+   PASS  status completed
+   PASS  initial params digest
+   PASS  final params digest
+   PASS  per-update action digests
+   PASS  training statistics
+   PASS  rollout episode stats
+   PASS  training episode summaries
+   PASS  validation episodes
+   PASS  exported weights
+   PASS  act-v3 5f72f510c48b1f46
+   PASS  consistency checks = episodes
+   PASS  initial digest ≠ PPO 2C.3 initial
+seed 2: initial 0e6d70eab4d2e1c8 final 7ac15485f649eaca | updates 4 decisions 768 training episodes 8 first seeds [473662242, 1386373250, 371087356] | action digests ['08ab28d83e802ee5', '54b7840cd0cec7f0', '532314cb6ed8cb4c', '21b48b3d571eca83']
+   PASS  status completed
+   PASS  initial params digest
+   PASS  final params digest
+   PASS  per-update action digests
+   PASS  training statistics
+   PASS  rollout episode stats
+   PASS  training episode summaries
+   PASS  validation episodes
+   PASS  exported weights
+   PASS  act-v3 5f72f510c48b1f46
+   PASS  consistency checks = episodes
+   PASS  initial digest ≠ PPO 2C.3 initial
+seed 3: initial eae61461ce62e1f4 final 216dd56235fea8de | updates 4 decisions 768 training episodes 8 first seeds [858037999, 505611059, 1649568979] | action digests ['49f1dda912081f98', '92b89bae75655063', '7ae14add55bd2606', '8a384fd7c671cded']
+   PASS  status completed
+   PASS  initial params digest
+   PASS  final params digest
+   PASS  per-update action digests
+   PASS  training statistics
+   PASS  rollout episode stats
+   PASS  training episode summaries
+   PASS  validation episodes
+   PASS  exported weights
+   PASS  act-v3 5f72f510c48b1f46
+   PASS  consistency checks = episodes
+   PASS  initial digest ≠ PPO 2C.3 initial
+PASS  initial digests differ across seeds: {1: 'cc5635f6f7379612', 2: '0e6d70eab4d2e1c8', 3: 'eae61461ce62e1f4'}
+REPRODUCIBILITY: ALL PASS

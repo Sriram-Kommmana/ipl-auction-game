@@ -1,0 +1,4 @@
+  ml/runs/a2c-2d1-s1/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.278 ms/decision
+  ml/runs/a2c-2d1-s2/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.282 ms/decision
+  ml/runs/a2c-2d1-s3/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.377 ms/decision
+A2C production contract: 24/24 checks passed over 3 policies (54 real decision states)
