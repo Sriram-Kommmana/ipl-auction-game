@@ -24,6 +24,7 @@ masked action, a crash or a deadlock stops training.
 """
 
 import argparse
+import hashlib
 import json
 import math
 import sys
@@ -90,6 +91,9 @@ DEFAULTS = {
     # "async": each environment runs at its own pace (common/rollout.py);
     # "sync": lock-step vector steps (every step waits for the slowest env).
     "rollout_mode": "async",
+    # Hard stop unless the bridge (and every validation report) runs exactly
+    # this action specification. None = no check.
+    "expected_act_spec": None,
     "run_dir": "runs",
     "run_name": None,
 }
@@ -154,6 +158,10 @@ def train(cfg):
     seed_everything(cfg["seed"], cfg["torch_threads"])
     envs = VecIplAuctionEnv(cfg["num_envs"], cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
                             snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
+    expected = cfg["expected_act_spec"]
+    if expected and envs.act_spec["hash"] != expected:
+        envs.close()
+        raise ValueError(f"action-spec mismatch: bridge {envs.act_spec}, expected {expected}")
     if envs.gamma != cfg["gamma"]:
         envs.close()
         raise ValueError(f"config gamma {cfg['gamma']} ≠ environment gamma {envs.gamma} (frozen)")
@@ -165,6 +173,7 @@ def train(cfg):
     print(f"[ppo] {run_name}: {num_updates} updates × {batch} decisions = {num_updates * batch:,}  config {cfg_hash}  obs {envs.obs_spec['hash']}  act {envs.act_spec['hash']}", flush=True)
 
     agent = Agent()
+    initial_digest = params_digest(agent)
     optimizer = torch.optim.Adam(agent.parameters(), lr=cfg["learning_rate"], eps=cfg["adam_eps"])
     shuffle_gen = torch.Generator().manual_seed(cfg["seed"])
 
@@ -213,6 +222,8 @@ def train(cfg):
         limit = cfg["final_eval_limit"] if final else cfg["eval_limit"]
         report, eps = node_evaluate(ckpt_dir / "policy.json", ckpt_dir / "validation", limit=limit, workers=cfg["eval_workers"])
         problems = safety_problems(report, eps)
+        if expected and report.get("actSpecHash") != expected:
+            problems.append(f"action-spec mismatch in validation: {report.get('actSpecHash')} != {expected}")
         name = "policy:ppo"
         head = headline(report, name)
         row = {"update": update, "decisions": global_decisions, "final": final, "validationEpisodes": report["n"],
@@ -335,7 +346,9 @@ def train(cfg):
                 "update_seconds": update_seconds, "rollout_seconds": rollout_seconds,
                 "decisions_per_sec_overall": global_decisions / (time.perf_counter() - t_start),
             }
-            row = {"type": "update", "update": update, "decisions": global_decisions, "episodes": episodes.total,
+            # Digest of the exact learner action sequence of this rollout (reproducibility checks).
+            actions_digest = hashlib.sha256(act_buf.numpy().tobytes()).hexdigest()[:16]
+            row = {"type": "update", "update": update, "decisions": global_decisions, "episodes": episodes.total, "actionsDigest": actions_digest,
                    "train": train_stats, "episode": ep_stats, "actions": acts, "perf": perf}
             history.append(row)
             log.record(row)
@@ -368,7 +381,9 @@ def train(cfg):
             "numEnvs": N, "totalDecisions": global_decisions, "episodes": episodes.total,
             "wallSeconds": wall, "envSeconds": env_seconds,
             "decisionsPerSecOverall": global_decisions / wall if wall else None,
+            "initialParamsDigest": initial_digest,
             "finalParamsDigest": params_digest(agent),
+            "actSpec": envs.act_spec,
             "rolloutMode": cfg["rollout_mode"],
             # Every finished episode's summed rewards / steps / action counts
             # matched the JavaScript summary (async collector only).
