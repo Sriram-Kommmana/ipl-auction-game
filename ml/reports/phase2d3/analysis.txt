@@ -1,0 +1,354 @@
+============================== QR-DQN per-seed checkpoint table (500 validation seeds, act-v3, ε = 0 masked argmax)
+-- seed 1
+ upd  decisions     legal    strong        xi  strongXI purseLeft squadSize  overseas     stars priceToFa capToFair   bidRate reauction marginalB xiGainPer      rank  forced/decisions
+  40    245,760  500/500   494/500     89.287     0.988     8.140    15.564     5.108     8.298     1.246     1.127     0.695     0.150     0.740     8.174     3.092  12/50761 = 0.024%
+  81    497,664  500/500   500/500     90.940     1.000     3.720    16.006     5.476     9.668     1.117     1.184     0.918     0.000     0.648     8.336     1.088  49/35225 = 0.139%
+ 122    749,568  500/500   500/500     91.065     1.000     6.120    16.318     5.648     9.698     1.089     1.058     0.995     0.000     0.474     8.344     1.026  64/36103 = 0.177%
+ 163  1,001,472  500/500   500/500     90.985     1.000     6.060    17.260     6.262     9.630     0.990     0.930     0.876     0.032     0.728     8.345     1.082  8/47502 = 0.017%
+ 203  1,247,232  500/500   500/500     91.798     1.000    39.660    17.988     6.518     9.956     0.892     0.805     0.971     0.000     0.726     8.431     1.002  3/52303 = 0.006%
+ 244  1,499,136  500/500   500/500     91.951     1.000   317.380    18.536     6.046    10.134     0.862     0.770     0.785     0.000     0.694     8.453     1.000  4/59391 = 0.007%
+ 285  1,751,040  500/500   500/500     91.931     1.000     5.360    15.402     5.398    10.230     0.971     0.875     0.742     0.000     0.312     8.425     1.008  8/44019 = 0.018%
+ 325  1,996,800  500/500   500/500     91.809     1.000    19.380    16.658     4.832    10.204     1.055     1.141     0.388     0.618     0.152     8.416     1.000  10/73237 = 0.014%
+-- seed 2
+ upd  decisions     legal    strong        xi  strongXI purseLeft squadSize  overseas     stars priceToFa capToFair   bidRate reauction marginalB xiGainPer      rank  forced/decisions
+  40    245,760  500/500   499/500     89.955     0.998     3.640    14.446     4.826     8.908     1.240     1.142     0.999     0.000     0.468     8.252     1.814  39/28926 = 0.135%
+  81    497,664  500/500   500/500     90.187     1.000    24.880    18.662     6.672     8.712     1.018     1.384     0.299     0.364     0.810     8.287     1.406  5/72210 = 0.007%
+ 122    749,568  500/500   500/500     90.919     1.000     4.400    15.334     4.338     9.346     1.182     0.972     0.997     0.000     0.416     8.333     1.088  28/28049 = 0.100%
+ 163  1,001,472  500/500   500/500     91.414     1.000     3.780    15.536     5.072     9.770     1.032     0.917     0.997     0.000     0.400     8.376     1.010  56/40244 = 0.139%
+ 203  1,247,232  500/500   500/500     91.515     1.000     7.260    16.204     4.926     9.802     0.999     1.135     0.470     0.588     0.502     8.394     1.004  0/75048 = 0.000%
+ 244  1,499,136  500/500   500/500     91.855     1.000    56.260    18.660     5.262    10.222     0.898     1.076     0.346     0.838     0.394     8.423     1.002  0/116277 = 0.000%
+ 285  1,751,040  500/500   500/500     91.902     1.000    20.420    18.084     6.218    10.328     0.906     0.831     0.824     0.226     0.316     8.423     1.000  16/61265 = 0.026%
+ 325  1,996,800  500/500   500/500     91.794     1.000     4.140    15.438     5.412    10.226     0.957     0.894     0.627     0.110     0.320     8.414     1.002  31/53586 = 0.058%
+-- seed 3
+ upd  decisions     legal    strong        xi  strongXI purseLeft squadSize  overseas     stars priceToFa capToFair   bidRate reauction marginalB xiGainPer      rank  forced/decisions
+  40    245,760  500/500   500/500     90.235     1.000     5.200    16.860     5.572     8.824     1.211     1.193     0.998     0.000     0.644     8.270     1.476  11/33846 = 0.033%
+  81    497,664  500/500   500/500     90.289     1.000     3.660    16.474     4.720     8.868     1.304     1.238     1.000     0.000     0.512     8.285     1.262  9/28578 = 0.031%
+ 122    749,568  500/500   500/500     90.926     1.000     3.840    16.720     5.698     9.968     1.157     1.295     1.000     0.000     0.654     8.332     1.124  87/34750 = 0.250%
+ 163  1,001,472  500/500   500/500     91.335     1.000     6.800    16.170     5.434     9.836     1.083     0.940     0.999     0.000     0.454     8.371     1.014  70/34428 = 0.203%
+ 203  1,247,232  500/500   500/500     91.664     1.000     5.100    16.102     5.792    10.036     0.998     0.907     0.866     0.012     0.378     8.401     1.018  2/44535 = 0.004%
+ 244  1,499,136  500/500   500/500     91.683     1.000    94.860    17.402     5.658     9.924     0.963     0.931     0.704     0.042     0.380     8.416     1.010  7/58836 = 0.012%
+ 285  1,751,040  500/500   500/500     91.876     1.000     8.220    16.828     6.010    10.066     0.953     0.914     0.694     0.008     0.350     8.419     1.000  11/52474 = 0.021%
+ 325  1,996,800  500/500   500/500     91.956     1.000    16.340    16.406     6.380    10.126     0.926     0.869     0.943     0.000     0.424     8.439     1.002  12/48075 = 0.025%
+============================== QR-DQN three-seed statistics per checkpoint (mean ± std [min, max])
+u40 (245,760; seeds [1, 2, 3]): xi 89.825±0.487 [89.287,90.235] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 0.995±0.006 [0.988,1.000] | purseLeft 5.660±2.285 [3.640,8.140] | squadSize 15.623±1.208 [14.446,16.860] | overseas 5.169±0.377 [4.826,5.572] | stars 8.677±0.331 [8.298,8.908] | priceToFair 1.232±0.019 [1.211,1.246] | bidRate 0.897±0.175 [0.695,0.999] | reauctionBuys 0.050±0.087 [0.000,0.150]
+u81 (497,664; seeds [1, 2, 3]): xi 90.472±0.409 [90.187,90.940] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 10.753±12.234 [3.660,24.880] | squadSize 17.047±1.418 [16.006,18.662] | overseas 5.623±0.984 [4.720,6.672] | stars 9.083±0.513 [8.712,9.668] | priceToFair 1.146±0.145 [1.018,1.304] | bidRate 0.739±0.383 [0.299,1.000] | reauctionBuys 0.121±0.210 [0.000,0.364]
+u122 (749,568; seeds [1, 2, 3]): xi 90.970±0.082 [90.919,91.065] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 4.787±1.188 [3.840,6.120] | squadSize 16.124±0.713 [15.334,16.720] | overseas 5.228±0.771 [4.338,5.698] | stars 9.671±0.312 [9.346,9.968] | priceToFair 1.143±0.048 [1.089,1.182] | bidRate 0.997±0.002 [0.995,1.000] | reauctionBuys 0.000±0.000 [0.000,0.000]
+u163 (1,001,472; seeds [1, 2, 3]): xi 91.245±0.228 [90.985,91.414] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 5.547±1.574 [3.780,6.800] | squadSize 16.322±0.872 [15.536,17.260] | overseas 5.589±0.610 [5.072,6.262] | stars 9.745±0.105 [9.630,9.836] | priceToFair 1.035±0.046 [0.990,1.083] | bidRate 0.957±0.070 [0.876,0.999] | reauctionBuys 0.011±0.018 [0.000,0.032]
+u203 (1,247,232; seeds [1, 2, 3]): xi 91.659±0.142 [91.515,91.798] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 17.340±19.360 [5.100,39.660] | squadSize 16.765±1.061 [16.102,17.988] | overseas 5.745±0.797 [4.926,6.518] | stars 9.931±0.119 [9.802,10.036] | priceToFair 0.963±0.061 [0.892,0.999] | bidRate 0.769±0.264 [0.470,0.971] | reauctionBuys 0.200±0.336 [0.000,0.588]
+u244 (1,499,136; seeds [1, 2, 3]): xi 91.830±0.136 [91.683,91.951] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 156.167±140.943 [56.260,317.380] | squadSize 18.199±0.693 [17.402,18.660] | overseas 5.655±0.392 [5.262,6.046] | stars 10.093±0.153 [9.924,10.222] | priceToFair 0.908±0.051 [0.862,0.963] | bidRate 0.612±0.234 [0.346,0.785] | reauctionBuys 0.293±0.472 [0.000,0.838]
+u285 (1,751,040; seeds [1, 2, 3]): xi 91.903±0.027 [91.876,91.931] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 11.333±7.998 [5.360,20.420] | squadSize 16.771±1.342 [15.402,18.084] | overseas 5.875±0.426 [5.398,6.218] | stars 10.208±0.132 [10.066,10.328] | priceToFair 0.943±0.034 [0.906,0.971] | bidRate 0.753±0.066 [0.694,0.824] | reauctionBuys 0.078±0.128 [0.000,0.226]
+u325 (1,996,800; seeds [1, 2, 3]): xi 91.853±0.089 [91.794,91.956] | legalXI 1.000±0.000 [1.000,1.000] | strongXI 1.000±0.000 [1.000,1.000] | purseLeft 13.287±8.066 [4.140,19.380] | squadSize 16.167±0.644 [15.438,16.658] | overseas 5.541±0.782 [4.832,6.380] | stars 10.185±0.053 [10.126,10.226] | priceToFair 0.979±0.067 [0.926,1.055] | bidRate 0.652±0.278 [0.388,0.943] | reauctionBuys 0.243±0.330 [0.000,0.618]
+============================== QR-DQN final checkpoint u325 (1,996,800 decisions): per seed, mean, std, min, max, CV
+  xi              s1 91.809  s2 91.794  s3 91.956   mean 91.853 std 0.089 min 91.794 max 91.956 CV 0.10%
+  legalXI         s1 1.000  s2 1.000  s3 1.000   mean 1.000 std 0.000 min 1.000 max 1.000 CV 0.00%
+  strongXI        s1 1.000  s2 1.000  s3 1.000   mean 1.000 std 0.000 min 1.000 max 1.000 CV 0.00%
+  purseLeft       s1 19.380  s2 4.140  s3 16.340   mean 13.287 std 8.066 min 4.140 max 19.380 CV 60.71%
+  squadSize       s1 16.658  s2 15.438  s3 16.406   mean 16.167 std 0.644 min 15.438 max 16.658 CV 3.98%
+  overseas        s1 4.832  s2 5.412  s3 6.380   mean 5.541 std 0.782 min 4.832 max 6.380 CV 14.11%
+  stars           s1 10.204  s2 10.226  s3 10.126   mean 10.185 std 0.053 min 10.126 max 10.226 CV 0.52%
+  priceToFair     s1 1.055  s2 0.957  s3 0.926   mean 0.979 std 0.067 min 0.926 max 1.055 CV 6.87%
+  bidRate         s1 0.388  s2 0.627  s3 0.943   mean 0.652 std 0.278 min 0.388 max 0.943 CV 42.67%
+  reauctionBuys   s1 0.618  s2 0.110  s3 0.000   mean 0.243 std 0.330 min 0.000 max 0.618 CV 135.85%
+  capToFair       s1 1.141  s2 0.894  s3 0.869   mean 0.968 std 0.150 min 0.869 max 1.141 CV 15.54%
+  marginalBuys    s1 0.152  s2 0.320  s3 0.424   mean 0.299 std 0.137 min 0.152 max 0.424 CV 45.95%
+  xiGainPer1000   s1 8.416  s2 8.414  s3 8.439   mean 8.423 std 0.014 min 8.414 max 8.439 CV 0.16%
+  rank            s1 1.000  s2 1.002  s3 1.002   mean 1.001 std 0.001 min 1.000 max 1.002 CV 0.12%
+  seed 1: legal 500/500  strong 500/500
+  seed 2: legal 500/500  strong 500/500
+  seed 3: legal 500/500  strong 500/500
+  paired ΔXI qr-dqn seed1 − seed2: +0.015 [-0.031, +0.065]
+  paired ΔXI qr-dqn seed1 − seed3: -0.147 [-0.201, -0.095]
+  paired ΔXI qr-dqn seed2 − seed3: -0.162 [-0.220, -0.108]
+============================== QR-DQN vs PPO 2C.3 per checkpoint (same 500 validation seeds; seed s vs seed s, and seed-mean vs seed-mean)
+-- u40 (245,760 decisions)
+  s1: ΔXI -2.134 [-2.282,-1.983] W/L 28/465 | legal 500/500 vs 500/500 | strong 494/500 vs 500/500 | purse 8.1 vs 4.0 | squad 15.56 vs 15.46 | stars 8.30 vs 9.82 | price/fair 1.246 vs 0.989 | bid 0.695 vs 0.847 | forced 12/50761 vs 45/45311
+  s2: ΔXI -1.473 [-1.595,-1.353] W/L 49/442 | legal 500/500 vs 500/500 | strong 499/500 vs 500/500 | purse 3.6 vs 4.3 | squad 14.45 vs 15.64 | stars 8.91 vs 10.11 | price/fair 1.240 vs 0.983 | bid 0.999 vs 0.937 | forced 39/28926 vs 97/43096
+  s3: ΔXI -1.202 [-1.299,-1.103] W/L 50/434 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 5.2 vs 3.7 | squad 16.86 vs 15.41 | stars 8.82 vs 9.99 | price/fair 1.211 vs 0.996 | bid 0.998 vs 0.963 | forced 11/33846 vs 96/42998
+  seed-mean: QR-DQN 89.825 vs PPO 2C.3 91.428  ΔXI -1.603 [-1.683,-1.523]
+-- u81 (497,664 decisions)
+  s1: ΔXI -0.904 [-0.977,-0.832] W/L 48/438 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.7 vs 6.6 | squad 16.01 vs 16.56 | stars 9.67 vs 10.32 | price/fair 1.117 vs 0.905 | bid 0.918 vs 0.937 | forced 49/35225 vs 52/49678
+  s2: ΔXI -1.742 [-1.827,-1.658] W/L 9/486 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 24.9 vs 4.5 | squad 18.66 vs 15.80 | stars 8.71 vs 10.30 | price/fair 1.018 vs 0.926 | bid 0.299 vs 0.844 | forced 5/72210 vs 29/49445
+  s3: ΔXI -1.516 [-1.602,-1.433] W/L 20/477 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.7 vs 3.0 | squad 16.47 vs 14.95 | stars 8.87 vs 10.22 | price/fair 1.304 vs 0.953 | bid 1.000 vs 0.904 | forced 9/28578 vs 33/45616
+  seed-mean: QR-DQN 90.472 vs PPO 2C.3 91.859  ΔXI -1.387 [-1.436,-1.337]
+-- u122 (749,568 decisions)
+  s1: ΔXI -0.934 [-0.994,-0.876] W/L 27/461 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.1 vs 54.2 | squad 16.32 vs 18.06 | stars 9.70 vs 10.49 | price/fair 1.089 vs 0.839 | bid 0.995 vs 0.877 | forced 64/36103 vs 20/58289
+  s2: ΔXI -1.125 [-1.206,-1.047] W/L 25/464 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 4.4 vs 25.1 | squad 15.33 vs 16.30 | stars 9.35 vs 10.19 | price/fair 1.182 vs 0.856 | bid 0.997 vs 0.804 | forced 28/28049 vs 13/55241
+  s3: ΔXI -1.167 [-1.254,-1.080] W/L 32/441 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.8 vs 7.9 | squad 16.72 vs 16.44 | stars 9.97 vs 10.49 | price/fair 1.157 vs 0.860 | bid 1.000 vs 0.748 | forced 87/34750 vs 27/55251
+  seed-mean: QR-DQN 90.970 vs PPO 2C.3 92.045  ΔXI -1.075 [-1.129,-1.023]
+-- u163 (1,001,472 decisions)
+  s1: ΔXI -1.226 [-1.303,-1.146] W/L 16/469 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.1 vs 54.9 | squad 17.26 vs 17.63 | stars 9.63 vs 10.77 | price/fair 0.990 vs 0.813 | bid 0.876 vs 0.612 | forced 8/47502 vs 5/65988
+  s2: ΔXI -0.765 [-0.829,-0.699] W/L 47/435 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.8 vs 17.7 | squad 15.54 vs 16.96 | stars 9.77 vs 10.52 | price/fair 1.032 vs 0.845 | bid 0.997 vs 0.834 | forced 56/40244 vs 23/55389
+  s3: ΔXI -0.902 [-0.965,-0.839] W/L 35/449 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.8 vs 22.5 | squad 16.17 vs 17.19 | stars 9.84 vs 10.65 | price/fair 1.083 vs 0.845 | bid 0.999 vs 0.662 | forced 70/34428 vs 27/59491
+  seed-mean: QR-DQN 91.245 vs PPO 2C.3 92.209  ΔXI -0.964 [-1.009,-0.918]
+-- u203 (1,247,232 decisions)
+  s1: ΔXI -0.611 [-0.669,-0.551] W/L 69/404 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 39.7 vs 170.4 | squad 17.99 vs 18.51 | stars 9.96 vs 10.72 | price/fair 0.892 vs 0.758 | bid 0.971 vs 0.629 | forced 3/52303 vs 0/71060
+  s2: ΔXI -0.913 [-0.971,-0.853] W/L 27/468 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 7.3 vs 19.3 | squad 16.20 vs 16.96 | stars 9.80 vs 10.43 | price/fair 0.999 vs 0.839 | bid 0.470 vs 0.490 | forced 0/75048 vs 13/78941
+  s3: ΔXI -0.652 [-0.707,-0.594] W/L 48/434 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 5.1 vs 32.2 | squad 16.10 vs 17.46 | stars 10.04 vs 10.54 | price/fair 0.998 vs 0.822 | bid 0.866 vs 0.717 | forced 2/44535 vs 3/59038
+  seed-mean: QR-DQN 91.659 vs PPO 2C.3 92.385  ΔXI -0.726 [-0.764,-0.685]
+-- u244 (1,499,136 decisions)
+  s1: ΔXI -0.530 [-0.579,-0.482] W/L 59/416 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 317.4 vs 202.3 | squad 18.54 vs 18.81 | stars 10.13 vs 10.66 | price/fair 0.862 vs 0.743 | bid 0.785 vs 0.575 | forced 4/59391 vs 0/75970
+  s2: ΔXI -0.584 [-0.636,-0.536] W/L 53/417 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 56.3 vs 63.2 | squad 18.66 vs 16.47 | stars 10.22 vs 10.45 | price/fair 0.898 vs 0.822 | bid 0.346 vs 0.531 | forced 0/116277 vs 8/66576
+  s3: ΔXI -0.752 [-0.809,-0.697] W/L 39/450 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 94.9 vs 35.4 | squad 17.40 vs 17.31 | stars 9.92 vs 10.72 | price/fair 0.963 vs 0.790 | bid 0.704 vs 0.500 | forced 7/58836 vs 0/70365
+  seed-mean: QR-DQN 91.830 vs PPO 2C.3 92.452  ΔXI -0.622 [-0.657,-0.588]
+-- u285 (1,751,040 decisions)
+  s1: ΔXI -0.561 [-0.613,-0.508] W/L 58/419 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 5.4 vs 123.4 | squad 15.40 vs 17.92 | stars 10.23 vs 10.67 | price/fair 0.971 vs 0.743 | bid 0.742 vs 0.542 | forced 8/44019 vs 0/84000
+  s2: ΔXI -0.676 [-0.730,-0.625] W/L 35/435 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 20.4 vs 13.9 | squad 18.08 vs 16.13 | stars 10.33 vs 10.47 | price/fair 0.906 vs 0.812 | bid 0.824 vs 0.514 | forced 16/61265 vs 0/73584
+  s3: ΔXI -0.594 [-0.641,-0.544] W/L 48/437 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 8.2 vs 57.8 | squad 16.83 vs 17.36 | stars 10.07 vs 10.91 | price/fair 0.953 vs 0.792 | bid 0.694 vs 0.588 | forced 11/52474 vs 0/68577
+  seed-mean: QR-DQN 91.903 vs PPO 2C.3 92.513  ΔXI -0.610 [-0.646,-0.575]
+-- u325 (1,996,800 decisions)
+  s1: ΔXI -0.737 [-0.787,-0.688] W/L 23/460 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 19.4 vs 14.0 | squad 16.66 vs 16.49 | stars 10.20 vs 10.77 | price/fair 1.055 vs 0.793 | bid 0.388 vs 0.493 | forced 10/73237 vs 0/75256
+  s2: ΔXI -0.895 [-0.945,-0.846] W/L 13/479 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 4.1 vs 55.5 | squad 15.44 vs 16.68 | stars 10.23 vs 10.65 | price/fair 0.957 vs 0.784 | bid 0.627 vs 0.414 | forced 31/53586 vs 0/86995
+  s3: ΔXI -0.593 [-0.643,-0.542] W/L 49/424 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 16.3 vs 26.9 | squad 16.41 vs 16.69 | stars 10.13 vs 10.75 | price/fair 0.926 vs 0.791 | bid 0.943 vs 0.402 | forced 12/48075 vs 0/75908
+  seed-mean: QR-DQN 91.853 vs PPO 2C.3 92.595  ΔXI -0.741 [-0.774,-0.708]
+============================== QR-DQN u325 vs PPO 2C.3 u325 — all 9 seed pairs (ΔXI [95% CI])
+  QR-DQN s1:  vs s1 -0.737 [-0.787,-0.688]  vs s2 -0.879 [-0.930,-0.831]  vs s3 -0.740 [-0.786,-0.692]
+  QR-DQN s2:  vs s1 -0.752 [-0.802,-0.701]  vs s2 -0.895 [-0.945,-0.846]  vs s3 -0.755 [-0.801,-0.708]
+  QR-DQN s3:  vs s1 -0.590 [-0.638,-0.540]  vs s2 -0.733 [-0.783,-0.680]  vs s3 -0.593 [-0.643,-0.542]
+  stratum low    seed-mean ΔXI -0.861 [-0.918,-0.805] (n=182)
+  stratum normal seed-mean ΔXI -0.711 [-0.762,-0.657] (n=165)
+  stratum high   seed-mean ΔXI -0.631 [-0.690,-0.572] (n=153)
+  PPO 2C.3 u325 three-seed reference: xi 92.595±0.082 | legalXI 1.000±0.000 | strongXI 1.000±0.000 | purseLeft 32.120±21.217 | squadSize 16.620±0.113 | overseas 6.253±0.205 | stars 10.725±0.068 | priceToFair 0.789±0.005 | bidRate 0.436±0.049 | reauctionBuys 0.052±0.075
+============================== QR-DQN vs A2C 2D.1 per checkpoint (same 500 validation seeds; seed s vs seed s, and seed-mean vs seed-mean)
+-- u40 (245,760 decisions)
+  s1: ΔXI +3.087 [+2.887,+3.284] W/L 449/49 | legal 500/500 vs 500/500 | strong 494/500 vs 367/500 | purse 8.1 vs 4.3 | squad 15.56 vs 15.11 | stars 8.30 vs 6.27 | price/fair 1.246 vs 1.487 | bid 0.695 vs 0.724 | forced 12/50761 vs 246/28142
+  s2: ΔXI +3.890 [+3.687,+4.080] W/L 469/28 | legal 500/500 vs 500/500 | strong 499/500 vs 348/500 | purse 3.6 vs 4.4 | squad 14.45 vs 15.30 | stars 8.91 vs 6.21 | price/fair 1.240 vs 1.486 | bid 0.999 vs 0.724 | forced 39/28926 vs 248/29677
+  s3: ΔXI +3.803 [+3.632,+3.977] W/L 487/10 | legal 500/500 vs 500/500 | strong 500/500 vs 387/500 | purse 5.2 vs 4.1 | squad 16.86 vs 15.18 | stars 8.82 vs 6.47 | price/fair 1.211 vs 1.464 | bid 0.998 vs 0.694 | forced 11/33846 vs 281/29657
+  seed-mean: QR-DQN 89.825 vs A2C 2D.1 86.232  ΔXI +3.593 [+3.431,+3.751]
+-- u81 (497,664 decisions)
+  s1: ΔXI +3.046 [+2.906,+3.188] W/L 487/11 | legal 500/500 vs 500/500 | strong 500/500 vs 480/500 | purse 3.7 vs 6.5 | squad 16.01 vs 16.96 | stars 9.67 vs 7.25 | price/fair 1.117 vs 1.337 | bid 0.918 vs 0.849 | forced 49/35225 vs 132/35692
+  s2: ΔXI +3.828 [+3.644,+4.007] W/L 485/14 | legal 500/500 vs 500/500 | strong 500/500 vs 377/500 | purse 24.9 vs 4.4 | squad 18.66 vs 15.80 | stars 8.71 vs 6.27 | price/fair 1.018 vs 1.444 | bid 0.299 vs 0.887 | forced 5/72210 vs 170/34073
+  s3: ΔXI +3.629 [+3.431,+3.814] W/L 486/13 | legal 500/500 vs 500/500 | strong 500/500 vs 387/500 | purse 3.7 vs 4.4 | squad 16.47 vs 15.49 | stars 8.87 vs 6.67 | price/fair 1.304 vs 1.422 | bid 1.000 vs 0.806 | forced 9/28578 vs 216/32312
+  seed-mean: QR-DQN 90.472 vs A2C 2D.1 86.971  ΔXI +3.501 [+3.353,+3.649]
+-- u122 (749,568 decisions)
+  s1: ΔXI +2.263 [+2.144,+2.382] W/L 481/12 | legal 500/500 vs 500/500 | strong 500/500 vs 498/500 | purse 6.1 vs 13.1 | squad 16.32 vs 19.64 | stars 9.70 vs 7.49 | price/fair 1.089 vs 1.182 | bid 0.995 vs 0.860 | forced 64/36103 vs 153/45945
+  s2: ΔXI +2.896 [+2.744,+3.056] W/L 485/13 | legal 500/500 vs 500/500 | strong 500/500 vs 478/500 | purse 4.4 vs 3.9 | squad 15.33 vs 15.69 | stars 9.35 vs 7.31 | price/fair 1.182 vs 1.333 | bid 0.997 vs 0.923 | forced 28/28049 vs 146/31367
+  s3: ΔXI +3.089 [+2.914,+3.248] W/L 481/17 | legal 500/500 vs 500/500 | strong 500/500 vs 465/500 | purse 3.8 vs 4.2 | squad 16.72 vs 16.13 | stars 9.97 vs 7.31 | price/fair 1.157 vs 1.314 | bid 1.000 vs 0.863 | forced 87/34750 vs 162/36429
+  seed-mean: QR-DQN 90.970 vs A2C 2D.1 88.221  ΔXI +2.749 [+2.636,+2.864]
+-- u163 (1,001,472 decisions)
+  s1: ΔXI +1.127 [+1.005,+1.243] W/L 393/100 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.1 vs 3.8 | squad 17.26 vs 16.42 | stars 9.63 vs 8.70 | price/fair 0.990 vs 1.178 | bid 0.876 vs 0.876 | forced 8/47502 vs 184/36000
+  s2: ΔXI +1.736 [+1.620,+1.847] W/L 466/30 | legal 500/500 vs 500/500 | strong 500/500 vs 499/500 | purse 3.8 vs 3.8 | squad 15.54 vs 14.74 | stars 9.77 vs 8.59 | price/fair 1.032 vs 1.223 | bid 0.997 vs 0.939 | forced 56/40244 vs 79/25709
+  s3: ΔXI +2.902 [+2.776,+3.024] W/L 491/7 | legal 500/500 vs 500/500 | strong 500/500 vs 496/500 | purse 6.8 vs 3.8 | squad 16.17 vs 15.45 | stars 9.84 vs 7.56 | price/fair 1.083 vs 1.320 | bid 0.999 vs 0.826 | forced 70/34428 vs 178/29272
+  seed-mean: QR-DQN 91.245 vs A2C 2D.1 89.323  ΔXI +1.922 [+1.840,+1.999]
+-- u203 (1,247,232 decisions)
+  s1: ΔXI +1.373 [+1.283,+1.470] W/L 459/33 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 39.7 vs 3.8 | squad 17.99 vs 16.62 | stars 9.96 vs 9.24 | price/fair 0.892 vs 1.119 | bid 0.971 vs 0.891 | forced 3/52303 vs 131/37724
+  s2: ΔXI +1.803 [+1.687,+1.924] W/L 457/40 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 7.3 vs 3.3 | squad 16.20 vs 14.50 | stars 9.80 vs 8.61 | price/fair 0.999 vs 1.222 | bid 0.470 vs 0.942 | forced 0/75048 vs 86/24396
+  s3: ΔXI +3.094 [+2.970,+3.217] W/L 492/5 | legal 500/500 vs 500/500 | strong 500/500 vs 497/500 | purse 5.1 vs 3.5 | squad 16.10 vs 14.66 | stars 10.04 vs 7.65 | price/fair 0.998 vs 1.322 | bid 0.866 vs 0.833 | forced 2/44535 vs 167/25164
+  seed-mean: QR-DQN 91.659 vs A2C 2D.1 89.569  ΔXI +2.090 [+2.021,+2.161]
+-- u244 (1,499,136 decisions)
+  s1: ΔXI +1.304 [+1.218,+1.391] W/L 455/39 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 317.4 vs 3.7 | squad 18.54 vs 16.40 | stars 10.13 vs 9.45 | price/fair 0.862 vs 1.084 | bid 0.785 vs 0.902 | forced 4/59391 vs 171/39214
+  s2: ΔXI +1.861 [+1.765,+1.960] W/L 480/18 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 56.3 vs 3.7 | squad 18.66 vs 14.75 | stars 10.22 vs 8.76 | price/fair 0.898 vs 1.192 | bid 0.346 vs 0.876 | forced 0/116277 vs 99/28246
+  s3: ΔXI +1.700 [+1.609,+1.792] W/L 476/18 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 94.9 vs 3.5 | squad 17.40 vs 15.35 | stars 9.92 vs 8.68 | price/fair 0.963 vs 1.214 | bid 0.704 vs 0.919 | forced 7/58836 vs 133/28162
+  seed-mean: QR-DQN 91.830 vs A2C 2D.1 90.208  ΔXI +1.622 [+1.559,+1.684]
+-- u285 (1,751,040 decisions)
+  s1: ΔXI +1.603 [+1.519,+1.689] W/L 472/24 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 5.4 vs 3.7 | squad 15.40 vs 16.34 | stars 10.23 vs 8.99 | price/fair 0.971 vs 1.114 | bid 0.742 vs 0.900 | forced 8/44019 vs 166/38566
+  s2: ΔXI +1.580 [+1.492,+1.675] W/L 474/19 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 20.4 vs 3.8 | squad 18.08 vs 15.03 | stars 10.33 vs 8.93 | price/fair 0.906 vs 1.129 | bid 0.824 vs 0.876 | forced 16/61265 vs 99/35670
+  s3: ΔXI +1.868 [+1.779,+1.960] W/L 478/15 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 8.2 vs 3.9 | squad 16.83 vs 15.41 | stars 10.07 vs 8.73 | price/fair 0.953 vs 1.214 | bid 0.694 vs 0.815 | forced 11/52474 vs 116/28395
+  seed-mean: QR-DQN 91.903 vs A2C 2D.1 90.219  ΔXI +1.684 [+1.621,+1.750]
+-- u325 (1,996,800 decisions)
+  s1: ΔXI +1.410 [+1.332,+1.487] W/L 480/17 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 19.4 vs 4.0 | squad 16.66 vs 16.48 | stars 10.20 vs 9.04 | price/fair 1.055 vs 1.093 | bid 0.388 vs 0.924 | forced 10/73237 vs 174/39684
+  s2: ΔXI +1.314 [+1.239,+1.395] W/L 466/28 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 4.1 vs 3.4 | squad 15.44 vs 15.11 | stars 10.23 vs 8.99 | price/fair 0.957 vs 1.085 | bid 0.627 vs 0.805 | forced 31/53586 vs 83/40663
+  s3: ΔXI +1.555 [+1.466,+1.648] W/L 464/30 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 16.3 vs 3.5 | squad 16.41 vs 15.43 | stars 10.13 vs 9.31 | price/fair 0.926 vs 1.159 | bid 0.943 vs 0.786 | forced 12/48075 vs 118/31600
+  seed-mean: QR-DQN 91.853 vs A2C 2D.1 90.427  ΔXI +1.426 [+1.369,+1.482]
+============================== QR-DQN u325 vs A2C 2D.1 u325 — all 9 seed pairs (ΔXI [95% CI])
+  QR-DQN s1:  vs s1 +1.410 [+1.332,+1.487]  vs s2 +1.329 [+1.247,+1.416]  vs s3 +1.408 [+1.323,+1.494]
+  QR-DQN s2:  vs s1 +1.395 [+1.316,+1.471]  vs s2 +1.314 [+1.239,+1.395]  vs s3 +1.393 [+1.306,+1.482]
+  QR-DQN s3:  vs s1 +1.557 [+1.474,+1.640]  vs s2 +1.476 [+1.392,+1.568]  vs s3 +1.555 [+1.466,+1.648]
+  stratum low    seed-mean ΔXI +1.373 [+1.280,+1.475] (n=182)
+  stratum normal seed-mean ΔXI +1.444 [+1.346,+1.543] (n=165)
+  stratum high   seed-mean ΔXI +1.471 [+1.368,+1.578] (n=153)
+  A2C 2D.1 u325 three-seed reference: xi 90.427±0.046 | legalXI 1.000±0.000 | strongXI 1.000±0.000 | purseLeft 3.620±0.296 | squadSize 15.675±0.714 | overseas 5.173±0.278 | stars 9.115±0.175 | priceToFair 1.112±0.041 | bidRate 0.839±0.075 | reauctionBuys 0.001±0.001
+============================== QR-DQN vs D3QN 2D.2 per checkpoint (same 500 validation seeds; seed s vs seed s, and seed-mean vs seed-mean)
+-- u40 (245,760 decisions)
+  s1: ΔXI -0.785 [-0.940,-0.637] W/L 179/308 | legal 500/500 vs 500/500 | strong 494/500 vs 500/500 | purse 8.1 vs 6.4 | squad 15.56 vs 18.63 | stars 8.30 vs 8.60 | price/fair 1.246 vs 1.265 | bid 0.695 vs 1.000 | forced 12/50761 vs 13/37343
+  s2: ΔXI -0.887 [-1.007,-0.761] W/L 121/366 | legal 500/500 vs 500/500 | strong 499/500 vs 500/500 | purse 3.6 vs 4.6 | squad 14.45 vs 17.46 | stars 8.91 vs 9.56 | price/fair 1.240 vs 1.103 | bid 0.999 vs 0.846 | forced 39/28926 vs 8/44543
+  s3: ΔXI +1.880 [+1.702,+2.065] W/L 413/83 | legal 500/500 vs 500/500 | strong 500/500 vs 464/500 | purse 5.2 vs 1417.3 | squad 16.86 vs 24.75 | stars 8.82 vs 6.13 | price/fair 1.211 vs 1.047 | bid 0.998 vs 0.994 | forced 11/33846 vs 0/54313
+  seed-mean: QR-DQN 89.825 vs D3QN 2D.2 89.756  ΔXI +0.069 [-0.030,+0.167]
+-- u81 (497,664 decisions)
+  s1: ΔXI -0.089 [-0.185,+0.002] W/L 207/269 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.7 vs 4.2 | squad 16.01 vs 16.19 | stars 9.67 vs 9.80 | price/fair 1.117 vs 1.044 | bid 0.918 vs 0.977 | forced 49/35225 vs 66/39052
+  s2: ΔXI -0.185 [-0.308,-0.066] W/L 222/267 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 24.9 vs 4.8 | squad 18.66 vs 16.99 | stars 8.71 vs 8.78 | price/fair 1.018 vs 1.273 | bid 0.299 vs 0.977 | forced 5/72210 vs 0/32126
+  s3: ΔXI +0.023 [-0.079,+0.123] W/L 244/241 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.7 vs 120.6 | squad 16.47 vs 20.28 | stars 8.87 vs 8.38 | price/fair 1.304 vs 0.960 | bid 1.000 vs 0.998 | forced 9/28578 vs 30/48836
+  seed-mean: QR-DQN 90.472 vs D3QN 2D.2 90.556  ΔXI -0.084 [-0.143,-0.024]
+-- u122 (749,568 decisions)
+  s1: ΔXI -0.578 [-0.644,-0.509] W/L 108/372 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.1 vs 13.5 | squad 16.32 vs 17.21 | stars 9.70 vs 10.05 | price/fair 1.089 vs 0.899 | bid 0.995 vs 1.000 | forced 64/36103 vs 6/53842
+  s2: ΔXI +1.723 [+1.600,+1.842] W/L 459/31 | legal 500/500 vs 500/500 | strong 500/500 vs 499/500 | purse 4.4 vs 4.7 | squad 15.33 vs 16.74 | stars 9.35 vs 7.99 | price/fair 1.182 vs 1.364 | bid 0.997 vs 0.448 | forced 28/28049 vs 27/50893
+  s3: ΔXI +0.345 [+0.246,+0.447] W/L 294/172 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.8 vs 3.8 | squad 16.72 vs 14.25 | stars 9.97 vs 9.18 | price/fair 1.157 vs 1.200 | bid 1.000 vs 0.725 | forced 87/34750 vs 15/32904
+  seed-mean: QR-DQN 90.970 vs D3QN 2D.2 90.473  ΔXI +0.496 [+0.435,+0.557]
+-- u163 (1,001,472 decisions)
+  s1: ΔXI -0.485 [-0.569,-0.401] W/L 162/312 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.1 vs 4.8 | squad 17.26 vs 16.60 | stars 9.63 vs 9.87 | price/fair 0.990 vs 1.076 | bid 0.876 vs 1.000 | forced 8/47502 vs 2/42815
+  s2: ΔXI +0.668 [+0.578,+0.762] W/L 351/118 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 3.8 vs 4.2 | squad 15.54 vs 15.41 | stars 9.77 vs 9.83 | price/fair 1.032 vs 1.125 | bid 0.997 vs 0.620 | forced 56/40244 vs 7/47350
+  s3: ΔXI +2.229 [+2.128,+2.337] W/L 481/13 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 6.8 vs 3.8 | squad 16.17 vs 14.92 | stars 9.84 vs 7.82 | price/fair 1.083 vs 1.348 | bid 0.999 vs 0.997 | forced 70/34428 vs 86/21255
+  seed-mean: QR-DQN 91.245 vs D3QN 2D.2 90.441  ΔXI +0.804 [+0.750,+0.860]
+-- u203 (1,247,232 decisions)
+  s1: ΔXI +0.892 [+0.809,+0.977] W/L 414/75 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 39.7 vs 10.4 | squad 17.99 vs 15.96 | stars 9.96 vs 9.46 | price/fair 0.892 vs 1.258 | bid 0.971 vs 0.468 | forced 3/52303 vs 5/54972
+  s2: ΔXI +0.249 [+0.183,+0.320] W/L 292/180 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 7.3 vs 4.3 | squad 16.20 vs 16.23 | stars 9.80 vs 9.85 | price/fair 0.999 vs 1.198 | bid 0.470 vs 0.862 | forced 0/75048 vs 1/32584
+  s3: ΔXI +0.053 [-0.008,+0.114] W/L 230/214 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 5.1 vs 15.2 | squad 16.10 vs 16.09 | stars 10.04 vs 10.06 | price/fair 0.998 vs 0.972 | bid 0.866 vs 0.999 | forced 2/44535 vs 20/45662
+  seed-mean: QR-DQN 91.659 vs D3QN 2D.2 91.261  ΔXI +0.398 [+0.354,+0.439]
+-- u244 (1,499,136 decisions)
+  s1: ΔXI +0.987 [+0.905,+1.062] W/L 438/43 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 317.4 vs 4.6 | squad 18.54 vs 14.62 | stars 10.13 vs 9.47 | price/fair 0.862 vs 1.178 | bid 0.785 vs 0.760 | forced 4/59391 vs 0/37444
+  s2: ΔXI +4.153 [+4.042,+4.266] W/L 500/0 | legal 500/500 vs 500/500 | strong 500/500 vs 487/500 | purse 56.3 vs 4.2 | squad 18.66 vs 15.22 | stars 10.22 vs 6.69 | price/fair 0.898 vs 1.487 | bid 0.346 vs 0.704 | forced 0/116277 vs 15/34330
+  s3: ΔXI +0.808 [+0.715,+0.902] W/L 368/111 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 94.9 vs 25.5 | squad 17.40 vs 19.10 | stars 9.92 vs 9.66 | price/fair 0.963 vs 1.078 | bid 0.704 vs 0.791 | forced 7/58836 vs 12/56841
+  seed-mean: QR-DQN 91.830 vs D3QN 2D.2 89.847  ΔXI +1.983 [+1.921,+2.046]
+-- u285 (1,751,040 decisions)
+  s1: ΔXI +0.809 [+0.730,+0.885] W/L 416/66 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 5.4 vs 937.7 | squad 15.40 vs 23.44 | stars 10.23 vs 8.99 | price/fair 0.971 vs 0.802 | bid 0.742 vs 0.942 | forced 8/44019 vs 4/68100
+  s2: ΔXI +0.420 [+0.361,+0.476] W/L 353/113 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 20.4 vs 4.9 | squad 18.08 vs 17.23 | stars 10.33 vs 10.10 | price/fair 0.906 vs 0.995 | bid 0.824 vs 1.000 | forced 16/61265 vs 47/43928
+  s3: ΔXI +0.303 [+0.244,+0.365] W/L 308/160 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 8.2 vs 4.4 | squad 16.83 vs 16.70 | stars 10.07 vs 10.16 | price/fair 0.953 vs 1.084 | bid 0.694 vs 0.962 | forced 11/52474 vs 50/38091
+  seed-mean: QR-DQN 91.903 vs D3QN 2D.2 91.392  ΔXI +0.511 [+0.472,+0.550]
+-- u325 (1,996,800 decisions)
+  s1: ΔXI +0.364 [+0.310,+0.418] W/L 342/104 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 19.4 vs 4.1 | squad 16.66 vs 15.60 | stars 10.20 vs 9.75 | price/fair 1.055 vs 1.126 | bid 0.388 vs 0.644 | forced 10/73237 vs 7/47768
+  s2: ΔXI +0.095 [+0.039,+0.149] W/L 264/196 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 4.1 vs 72.3 | squad 15.44 vs 18.04 | stars 10.23 vs 10.08 | price/fair 0.957 vs 0.929 | bid 0.627 vs 0.992 | forced 31/53586 vs 10/52299
+  s3: ΔXI +0.632 [+0.572,+0.695] W/L 412/70 | legal 500/500 vs 500/500 | strong 500/500 vs 500/500 | purse 16.3 vs 6.8 | squad 16.41 vs 15.90 | stars 10.13 vs 9.72 | price/fair 0.926 vs 1.228 | bid 0.943 vs 0.734 | forced 12/48075 vs 5/37254
+  seed-mean: QR-DQN 91.853 vs D3QN 2D.2 91.490  ΔXI +0.364 [+0.329,+0.399]
+============================== QR-DQN u325 vs D3QN 2D.2 u325 — all 9 seed pairs (ΔXI [95% CI])
+  QR-DQN s1:  vs s1 +0.364 [+0.310,+0.418]  vs s2 +0.110 [+0.059,+0.160]  vs s3 +0.485 [+0.428,+0.541]
+  QR-DQN s2:  vs s1 +0.349 [+0.296,+0.403]  vs s2 +0.095 [+0.039,+0.149]  vs s3 +0.470 [+0.411,+0.528]
+  QR-DQN s3:  vs s1 +0.511 [+0.453,+0.570]  vs s2 +0.257 [+0.199,+0.313]  vs s3 +0.632 [+0.572,+0.695]
+  stratum low    seed-mean ΔXI +0.435 [+0.367,+0.505] (n=182)
+  stratum normal seed-mean ΔXI +0.360 [+0.305,+0.419] (n=165)
+  stratum high   seed-mean ΔXI +0.282 [+0.236,+0.332] (n=153)
+  D3QN 2D.2 u325 three-seed reference: xi 91.490±0.191 | legalXI 1.000±0.000 | strongXI 1.000±0.000 | purseLeft 27.713±38.603 | squadSize 16.511±1.329 | overseas 5.061±1.083 | stars 9.852±0.200 | priceToFair 1.094±0.152 | bidRate 0.790±0.180 | reauctionBuys 0.161±0.201
+============================== QR-DQN u325 vs the eight locked baselines (paired by validation seed, unchanged baseline file)
+  moneyball        baseline XI 87.464 | s1 +4.346 [+4.267,+4.426] W/L 500/0 | s2 +4.331 [+4.250,+4.413] W/L 500/0 | s3 +4.493 [+4.418,+4.574] W/L 500/0 | seed-mean +4.390 [+4.318,+4.465]
+      low    seed-mean ΔXI +4.332 [+4.220,+4.444]  (n=182)
+      normal seed-mean ΔXI +4.422 [+4.307,+4.545]  (n=165)
+      high   seed-mean ΔXI +4.423 [+4.275,+4.554]  (n=153)
+  starChaser       baseline XI 88.632 | s1 +3.177 [+3.105,+3.254] W/L 499/0 | s2 +3.162 [+3.086,+3.237] W/L 499/1 | s3 +3.324 [+3.249,+3.404] W/L 500/0 | seed-mean +3.221 [+3.153,+3.291]
+      low    seed-mean ΔXI +3.130 [+3.015,+3.245]  (n=182)
+      normal seed-mean ΔXI +3.212 [+3.096,+3.329]  (n=165)
+      high   seed-mean ΔXI +3.340 [+3.225,+3.461]  (n=153)
+  balancedBuilder  baseline XI 88.147 | s1 +3.663 [+3.585,+3.741] W/L 500/0 | s2 +3.647 [+3.571,+3.725] W/L 500/0 | s3 +3.809 [+3.732,+3.889] W/L 500/0 | seed-mean +3.706 [+3.635,+3.780]
+      low    seed-mean ΔXI +3.565 [+3.454,+3.678]  (n=182)
+      normal seed-mean ΔXI +3.774 [+3.651,+3.902]  (n=165)
+      high   seed-mean ΔXI +3.803 [+3.672,+3.928]  (n=153)
+  opportunist      baseline XI 87.848 | s1 +3.961 [+3.892,+4.030] W/L 500/0 | s2 +3.946 [+3.873,+4.020] W/L 500/0 | s3 +4.108 [+4.038,+4.181] W/L 500/0 | seed-mean +4.005 [+3.938,+4.069]
+      low    seed-mean ΔXI +3.919 [+3.805,+4.030]  (n=182)
+      normal seed-mean ΔXI +3.999 [+3.902,+4.104]  (n=165)
+      high   seed-mean ΔXI +4.114 [+4.004,+4.218]  (n=153)
+  productFallback  baseline XI 88.158 | s1 +3.652 [+3.575,+3.728] W/L 500/0 | s2 +3.637 [+3.557,+3.713] W/L 500/0 | s3 +3.799 [+3.718,+3.878] W/L 500/0 | seed-mean +3.696 [+3.624,+3.766]
+      low    seed-mean ΔXI +3.531 [+3.420,+3.642]  (n=182)
+      normal seed-mean ΔXI +3.780 [+3.664,+3.902]  (n=165)
+      high   seed-mean ΔXI +3.800 [+3.671,+3.925]  (n=153)
+  randomLegal      baseline XI 87.452 | s1 +4.357 [+4.237,+4.480] W/L 500/0 | s2 +4.342 [+4.225,+4.467] W/L 499/1 | s3 +4.504 [+4.384,+4.627] W/L 500/0 | seed-mean +4.401 [+4.290,+4.521]
+      low    seed-mean ΔXI +4.334 [+4.119,+4.548]  (n=182)
+      normal seed-mean ΔXI +4.489 [+4.281,+4.704]  (n=165)
+      high   seed-mean ΔXI +4.385 [+4.185,+4.590]  (n=153)
+  fairValue        baseline XI 89.177 | s1 +2.632 [+2.529,+2.733] W/L 492/7 | s2 +2.617 [+2.506,+2.719] W/L 491/7 | s3 +2.779 [+2.677,+2.882] W/L 494/5 | seed-mean +2.676 [+2.575,+2.772]
+      low    seed-mean ΔXI +2.410 [+2.239,+2.583]  (n=182)
+      normal seed-mean ΔXI +2.800 [+2.626,+2.972]  (n=165)
+      high   seed-mean ΔXI +2.859 [+2.690,+3.042]  (n=153)
+  plannerGreedy    baseline XI 87.708 | s1 +4.102 [+3.912,+4.287] W/L 494/3 | s2 +4.087 [+3.900,+4.265] W/L 494/6 | s3 +4.249 [+4.063,+4.425] W/L 499/1 | seed-mean +4.146 [+3.958,+4.324]
+      low    seed-mean ΔXI +5.710 [+5.396,+6.013]  (n=182)
+      normal seed-mean ΔXI +3.491 [+3.264,+3.716]  (n=165)
+      high   seed-mean ΔXI +2.992 [+2.792,+3.206]  (n=153)
+============================== QR-DQN behaviour / shield audit per checkpoint (validation)
+-- seed 1
+  u40  purse mean 8.1 p10 0 p50 10 p90 20 max 20 | =0: 192/500 ≤20: 500/500 | forced 12/50761 (0.024%) won 2 re-auction 0 | states {'SAFE': 50761, 'WARNING': 0, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 99 | margin trims 13624 | alreadyInfeasible 0 | byReq {'indians(purse)': 12}
+  u81  purse mean 3.7 p10 0 p50 0 p90 10 max 20 | =0: 315/500 ≤20: 500/500 | forced 49/35225 (0.139%) won 23 re-auction 0 | states {'SAFE': 35208, 'WARNING': 17, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 1560 | margin trims 17703 | alreadyInfeasible 0 | byReq {'keeper(purse)': 49, 'class:Wi(purse)': 49}
+  u122 purse mean 6.1 p10 0 p50 0 p90 10 max 710 | =0: 311/500 ≤20: 495/500 | forced 64/36103 (0.177%) won 32 re-auction 0 | states {'SAFE': 36086, 'WARNING': 17, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 1971 | margin trims 15741 | alreadyInfeasible 0 | byReq {'keeper(purse)': 64, 'class:Wi(purse)': 64}
+  u163 purse mean 6.1 p10 0 p50 0 p90 10 max 320 | =0: 302/500 ≤20: 491/500 | forced 8/47502 (0.017%) won 4 re-auction 0 | states {'SAFE': 47500, 'WARNING': 2, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 1573 | margin trims 30301 | alreadyInfeasible 0 | byReq {'keeper(purse)': 8, 'class:Wi(purse)': 8}
+  u203 purse mean 39.7 p10 0 p50 0 p90 10 max 3400 | =0: 292/500 ≤20: 467/500 | forced 3/52303 (0.006%) won 2 re-auction 0 | states {'SAFE': 52303, 'WARNING': 0, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 224 | margin trims 34719 | alreadyInfeasible 0 | byReq {'indians(purse)': 1, 'keeper(purse)': 2, 'class:Wi(purse)': 2}
+  u244 purse mean 317.4 p10 0 p50 10 p90 1173 max 16500 | =0: 234/500 ≤20: 403/500 | forced 4/59391 (0.007%) won 2 re-auction 0 | states {'SAFE': 59390, 'WARNING': 1, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 142 | margin trims 32141 | alreadyInfeasible 0 | byReq {'keeper(purse)': 4, 'class:Wi(purse)': 4}
+  u285 purse mean 5.4 p10 0 p50 0 p90 10 max 310 | =0: 313/500 ≤20: 492/500 | forced 8/44019 (0.018%) won 5 re-auction 0 | states {'SAFE': 44017, 'WARNING': 2, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 287 | margin trims 29967 | alreadyInfeasible 0 | byReq {'keeper(purse)': 5, 'class:Wi(purse)': 5, 'indians(purse)': 3}
+  u325 purse mean 19.4 p10 0 p50 10 p90 10 max 880 | =0: 227/500 ≤20: 471/500 | forced 10/73237 (0.014%) won 5 re-auction 0 | states {'SAFE': 73233, 'WARNING': 4, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 627 | margin trims 20866 | alreadyInfeasible 0 | byReq {'keeper(purse)': 10, 'class:Wi(purse)': 10}
+-- seed 2
+  u40  purse mean 3.6 p10 0 p50 0 p90 10 max 10 | =0: 318/500 ≤20: 500/500 | forced 39/28926 (0.135%) won 12 re-auction 0 | states {'SAFE': 28925, 'WARNING': 1, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 612 | margin trims 12854 | alreadyInfeasible 0 | byReq {'bowling(purse)': 12, 'class:Bi(purse)': 9, 'keeper(purse)': 10, 'class:Wi(purse)': 10, 'players(purse)': 3, 'indians(purse)': 14}
+  u81  purse mean 24.9 p10 0 p50 10 p90 20 max 1490 | =0: 175/500 ≤20: 459/500 | forced 5/72210 (0.007%) won 4 re-auction 3 | states {'SAFE': 72186, 'WARNING': 22, 'CRITICAL': 2, 'IMPOSSIBLE': 0} | all-bids-removed lots 1427 | margin trims 34232 | alreadyInfeasible 0 | byReq {'keeper': 2, 'class:Wi': 2, 'keeper(purse)': 3, 'class:Wi(purse)': 3}
+  u122 purse mean 4.4 p10 0 p50 0 p90 10 max 90 | =0: 288/500 ≤20: 499/500 | forced 28/28049 (0.100%) won 17 re-auction 0 | states {'SAFE': 28044, 'WARNING': 5, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 1289 | margin trims 12886 | alreadyInfeasible 0 | byReq {'keeper(purse)': 28, 'class:Wi(purse)': 28}
+  u163 purse mean 3.8 p10 0 p50 0 p90 10 max 10 | =0: 311/500 ≤20: 500/500 | forced 56/40244 (0.139%) won 25 re-auction 0 | states {'SAFE': 40231, 'WARNING': 13, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 1334 | margin trims 18619 | alreadyInfeasible 0 | byReq {'keeper(purse)': 56, 'class:Wi(purse)': 56}
+  u203 purse mean 7.3 p10 0 p50 10 p90 20 max 100 | =0: 221/500 ≤20: 496/500 | forced 0/75048 (0.000%) won 0 re-auction 0 | states {'SAFE': 75048, 'WARNING': 0, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 426 | margin trims 27263 | alreadyInfeasible 0 | byReq {}
+  u244 purse mean 56.3 p10 0 p50 10 p90 181 max 880 | =0: 197/500 ≤20: 424/500 | forced 0/116277 (0.000%) won 0 re-auction 0 | states {'SAFE': 116277, 'WARNING': 0, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 5 | margin trims 26281 | alreadyInfeasible 0 | byReq {}
+  u285 purse mean 20.4 p10 0 p50 0 p90 10 max 1060 | =0: 256/500 ≤20: 466/500 | forced 16/61265 (0.026%) won 11 re-auction 9 | states {'SAFE': 61208, 'WARNING': 48, 'CRITICAL': 9, 'IMPOSSIBLE': 0} | all-bids-removed lots 905 | margin trims 24715 | alreadyInfeasible 0 | byReq {'class:Wi': 7, 'keeper(purse)': 8, 'class:Wi(purse)': 7, 'keeper': 5, 'act-v2-shield': 1, 'players': 1}
+  u325 purse mean 4.1 p10 0 p50 0 p90 10 max 160 | =0: 324/500 ≤20: 497/500 | forced 31/53586 (0.058%) won 19 re-auction 7 | states {'SAFE': 53495, 'WARNING': 84, 'CRITICAL': 7, 'IMPOSSIBLE': 0} | all-bids-removed lots 1042 | margin trims 24489 | alreadyInfeasible 0 | byReq {'keeper(purse)': 24, 'class:Wi(purse)': 24, 'keeper': 5, 'class:Wi': 7}
+-- seed 3
+  u40  purse mean 5.2 p10 0 p50 0 p90 10 max 210 | =0: 292/500 ≤20: 494/500 | forced 11/33846 (0.033%) won 6 re-auction 0 | states {'SAFE': 33845, 'WARNING': 1, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 618 | margin trims 13309 | alreadyInfeasible 0 | byReq {'keeper(purse)': 11, 'class:Wi(purse)': 11}
+  u81  purse mean 3.7 p10 0 p50 0 p90 10 max 10 | =0: 317/500 ≤20: 500/500 | forced 9/28578 (0.031%) won 3 re-auction 0 | states {'SAFE': 28574, 'WARNING': 4, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 252 | margin trims 10749 | alreadyInfeasible 0 | byReq {'keeper(purse)': 9, 'class:Wi(purse)': 9}
+  u122 purse mean 3.8 p10 0 p50 0 p90 10 max 10 | =0: 308/500 ≤20: 500/500 | forced 87/34750 (0.250%) won 40 re-auction 0 | states {'SAFE': 34728, 'WARNING': 21, 'CRITICAL': 1, 'IMPOSSIBLE': 0} | all-bids-removed lots 1850 | margin trims 16297 | alreadyInfeasible 0 | byReq {'keeper(purse)': 87, 'class:Wi(purse)': 86, 'class:Wi': 1}
+  u163 purse mean 6.8 p10 0 p50 0 p90 10 max 330 | =0: 306/500 ≤20: 489/500 | forced 70/34428 (0.203%) won 34 re-auction 0 | states {'SAFE': 34413, 'WARNING': 15, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 1848 | margin trims 17351 | alreadyInfeasible 0 | byReq {'keeper(purse)': 70, 'class:Wi(purse)': 70}
+  u203 purse mean 5.1 p10 0 p50 0 p90 10 max 370 | =0: 291/500 ≤20: 497/500 | forced 2/44535 (0.004%) won 2 re-auction 1 | states {'SAFE': 44530, 'WARNING': 4, 'CRITICAL': 1, 'IMPOSSIBLE': 0} | all-bids-removed lots 98 | margin trims 23040 | alreadyInfeasible 0 | byReq {'class:Wi': 1, 'keeper(purse)': 1, 'class:Wi(purse)': 1}
+  u244 purse mean 94.9 p10 0 p50 10 p90 240 max 2450 | =0: 129/500 ≤20: 431/500 | forced 7/58836 (0.012%) won 5 re-auction 1 | states {'SAFE': 58832, 'WARNING': 3, 'CRITICAL': 1, 'IMPOSSIBLE': 0} | all-bids-removed lots 509 | margin trims 22905 | alreadyInfeasible 0 | byReq {'keeper(purse)': 6, 'class:Wi(purse)': 6, 'keeper': 1, 'class:Wi': 1}
+  u285 purse mean 8.2 p10 0 p50 0 p90 10 max 750 | =0: 277/500 ≤20: 490/500 | forced 11/52474 (0.021%) won 5 re-auction 0 | states {'SAFE': 52470, 'WARNING': 4, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 552 | margin trims 29386 | alreadyInfeasible 0 | byReq {'keeper(purse)': 11, 'class:Wi(purse)': 11}
+  u325 purse mean 16.3 p10 0 p50 0 p90 10 max 1560 | =0: 314/500 ≤20: 490/500 | forced 12/48075 (0.025%) won 5 re-auction 0 | states {'SAFE': 48074, 'WARNING': 1, 'CRITICAL': 0, 'IMPOSSIBLE': 0} | all-bids-removed lots 198 | margin trims 29557 | alreadyInfeasible 0 | byReq {'keeper(purse)': 12, 'class:Wi(purse)': 12}
+============================== QR-DQN safety / optimisation budget / diagnostics / throughput / reproducibility per run
+seed 1: status completed failure None | decisions 1,996,800 cycles 166,400 episodes 23,627 | training: incomplete XI 0/23627, invariant violations 0, consistency checks 23627/23627, illegal 0 | actSpec act-v3 5f72f510c48b1f46
+   digests: initial online 297a04620be956b7 target 297a04620be956b7 | final online 34fd85bde06e2886 target 3552d22fcd3d56b0
+   budget: {'environmentDecisions': 1996800, 'gradientUpdates': 165553, 'replayTransitionsGenerated': 1996626, 'replaySamplesConsumed': 42381568, 'updatesPerDecision': 0.0829091546474359, 'samplesPerTransition': 21.226593262834403, 'targetUpdates': 66, 'firstUpdateAtDecision': 10176, 'epsilon': {'start': 1.0, 'final': 0.05, 'decayDecisions': 1000000}}
+   wall 3819s | waiting on simulators 1125 + gradient updates 1639 + acting 463 + replay insert 53 + validation/export/parity 421 + logging/audits 31 | overall 523 dec/s, 6.19 eps/s | excluding validation 588 dec/s | 9.90 ms/update
+   eval u40: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 52 updates 19,633 target syncs 7 max action share 0.385
+   eval u81: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 54 updates 40,625 target syncs 16 max action share 0.240
+   eval u122: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 55 updates 61,617 target syncs 24 max action share 0.184
+   eval u163: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 329 {'regular': 256, 'reauction': 9, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 51 updates 82,609 target syncs 33 max action share 0.158
+   eval u203: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 329 {'regular': 256, 'reauction': 9, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 50 updates 103,089 target syncs 41 max action share 0.264
+   eval u244: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 49 updates 124,081 target syncs 49 max action share 0.370
+   eval u285: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 49 updates 145,073 target syncs 58 max action share 0.260
+   eval u325: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 58 updates 165,553 target syncs 66 max action share 0.677
+   diagnostics over 324 learning windows: quantile loss first 0.24126 last 0.000070 | |TD| (mean_j|y_j-θ_j|) first 1.4573 last 0.0336 | Q mean first 1.156 last 2.896 | Q range [-0.349, 9.310] |Z|max 10.722 | online/target distance max-of-means 1.2624 max 1.4964 | grad norm max 1.315 median-of-means 0.0127
+   quantiles (taken action, batch means) first → last: τ.016 -0.058→2.831  τ.25 0.822→2.879  τ.5 1.238→2.896  τ.75 1.501→2.913  τ.984 1.867→2.956 | spread 1.925→0.125 IQR 0.679→0.033 | target IQR last 0.022 | crossing rate 0.397→0.2063 (max after warm-up 0.3072) rows with a crossing 0.975 size 0.0151
+   priority mean last 0.0308 max 8.804 | replay size last 500,000
+   max single-action share in any window 0.317 | explored decisions 575,172 vs expected 574,840.5
+   w 40 dec   245,760 train return 8.8358 XI 88.36 purse 50.6 bid 0.880 greedy-bid 0.899 explored 0.775 | eps 0.767 beta 0.474 upd 19,633 tgt 7 | loss 0.000825 |TD| 0.0661 Q 2.973 [-0.08,8.96] Z τ.016/.25/.5/.75/.984 2.84/2.94/2.97/3.01/3.10 IQR 0.073 cross 0.3036 dist 0.0247 gn 0.0313 | 580 dec/s cumulative
+   w 81 dec   497,664 train return 8.9222 XI 89.22 purse 28.8 bid 0.861 greedy-bid 0.873 explored 0.542 | eps 0.527 beta 0.550 upd 40,625 tgt 16 | loss 0.000496 |TD| 0.0592 Q 2.934 [-0.06,9.02] Z τ.016/.25/.5/.75/.984 2.82/2.90/2.93/2.97/3.05 IQR 0.062 cross 0.2583 dist 0.0168 gn 0.0249 | 540 dec/s cumulative
+   w122 dec   749,568 train return 9.0302 XI 90.30 purse 4.3 bid 0.881 greedy-bid 0.893 explored 0.285 | eps 0.288 beta 0.625 upd 61,617 tgt 24 | loss 0.000355 |TD| 0.0564 Q 3.048 [-0.07,9.07] Z τ.016/.25/.5/.75/.984 2.94/3.02/3.05/3.08/3.15 IQR 0.058 cross 0.2348 dist 0.0150 gn 0.0177 | 518 dec/s cumulative
+   w163 dec 1,001,472 train return 9.1112 XI 91.11 purse 5.3 bid 0.869 greedy-bid 0.871 explored 0.051 | eps 0.050 beta 0.701 upd 82,609 tgt 33 | loss 0.000246 |TD| 0.0511 Q 3.122 [-0.05,9.15] Z τ.016/.25/.5/.75/.984 3.03/3.10/3.12/3.15/3.21 IQR 0.052 cross 0.2179 dist 0.0154 gn 0.0130 | 507 dec/s cumulative
+   w203 dec 1,247,232 train return 9.1382 XI 91.38 purse 30.7 bid 0.930 greedy-bid 0.935 explored 0.053 | eps 0.050 beta 0.775 upd 103,089 tgt 41 | loss 0.000146 |TD| 0.0419 Q 3.096 [-0.04,9.24] Z τ.016/.25/.5/.75/.984 3.01/3.08/3.10/3.12/3.17 IQR 0.043 cross 0.2217 dist 0.0096 gn 0.0111 | 514 dec/s cumulative
+   w244 dec 1,499,136 train return 9.1800 XI 91.80 purse 9.3 bid 0.917 greedy-bid 0.920 explored 0.054 | eps 0.050 beta 0.850 upd 124,081 tgt 49 | loss 0.000107 |TD| 0.0359 Q 2.965 [-0.04,9.25] Z τ.016/.25/.5/.75/.984 2.89/2.95/2.97/2.98/3.03 IQR 0.037 cross 0.2161 dist 0.0088 gn 0.0082 | 525 dec/s cumulative
+   w285 dec 1,751,040 train return 9.1589 XI 91.59 purse 9.4 bid 0.842 greedy-bid 0.841 explored 0.053 | eps 0.050 beta 0.926 upd 145,073 tgt 58 | loss 0.000084 |TD| 0.0329 Q 2.859 [-0.04,9.27] Z τ.016/.25/.5/.75/.984 2.79/2.84/2.86/2.88/2.92 IQR 0.035 cross 0.2109 dist 0.0085 gn 0.0079 | 534 dec/s cumulative
+   w325 dec 1,996,800 train return 9.1602 XI 91.60 purse 4.3 bid 0.835 greedy-bid 0.833 explored 0.053 | eps 0.050 beta 1.000 upd 165,553 tgt 66 | loss 0.000070 |TD| 0.0336 Q 2.896 [-0.02,9.22] Z τ.016/.25/.5/.75/.984 2.83/2.88/2.90/2.91/2.96 IQR 0.033 cross 0.2063 dist 0.0107 gn 0.0060 | 531 dec/s cumulative
+seed 2: status completed failure None | decisions 1,996,800 cycles 166,400 episodes 23,308 | training: incomplete XI 0/23308, invariant violations 0, consistency checks 23308/23308, illegal 0 | actSpec act-v3 5f72f510c48b1f46
+   digests: initial online 7773ab431479150c target 7773ab431479150c | final online 9fba9f249d788e5b target d27050b366fa681f
+   budget: {'environmentDecisions': 1996800, 'gradientUpdates': 165555, 'replayTransitionsGenerated': 1996620, 'replaySamplesConsumed': 42382080, 'updatesPerDecision': 0.08291015625, 'samplesPerTransition': 21.2269134837876, 'targetUpdates': 66, 'firstUpdateAtDecision': 10152, 'epsilon': {'start': 1.0, 'final': 0.05, 'decayDecisions': 1000000}}
+   wall 4038s | waiting on simulators 1130 + gradient updates 1734 + acting 525 + replay insert 57 + validation/export/parity 463 + logging/audits 33 | overall 495 dec/s, 5.77 eps/s | excluding validation 559 dec/s | 10.47 ms/update
+   eval u40: n=500 parity 7.1e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 48 updates 19,635 target syncs 7 max action share 0.333
+   eval u81: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 52 updates 40,627 target syncs 16 max action share 0.724
+   eval u122: n=500 parity 7.1e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 57 updates 61,619 target syncs 24 max action share 0.347
+   eval u163: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 53 updates 82,611 target syncs 33 max action share 0.294
+   eval u203: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 384 {'regular': 256, 'reauction': 64, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 58 updates 103,091 target syncs 41 max action share 0.602
+   eval u244: n=500 parity 7.1e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 384 {'regular': 256, 'reauction': 64, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 68 updates 124,083 target syncs 49 max action share 0.707
+   eval u285: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 384 {'regular': 256, 'reauction': 64, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 63 updates 145,075 target syncs 58 max action share 0.259
+   eval u325: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 384 {'regular': 256, 'reauction': 64, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 60 updates 165,555 target syncs 66 max action share 0.386
+   diagnostics over 324 learning windows: quantile loss first 0.22718 last 0.000064 | |TD| (mean_j|y_j-θ_j|) first 1.3870 last 0.0329 | Q mean first 1.159 last 2.790 | Q range [-2.253, 9.296] |Z|max 10.765 | online/target distance max-of-means 1.1482 max 1.4096 | grad norm max 1.263 median-of-means 0.0128
+   quantiles (taken action, batch means) first → last: τ.016 -0.050→2.726  τ.25 0.865→2.774  τ.5 1.252→2.791  τ.75 1.553→2.807  τ.984 1.873→2.849 | spread 1.924→0.123 IQR 0.688→0.033 | target IQR last 0.022 | crossing rate 0.400→0.2107 (max after warm-up 0.2978) rows with a crossing 0.988 size 0.0150
+   priority mean last 0.0303 max 9.062 | replay size last 500,000
+   max single-action share in any window 0.273 | explored decisions 574,892 vs expected 574,840.5
+   w 40 dec   245,760 train return 8.8467 XI 88.47 purse 55.6 bid 0.872 greedy-bid 0.895 explored 0.762 | eps 0.767 beta 0.474 upd 19,635 tgt 7 | loss 0.000862 |TD| 0.0684 Q 2.933 [-0.07,8.92] Z τ.016/.25/.5/.75/.984 2.80/2.90/2.93/2.97/3.07 IQR 0.075 cross 0.2952 dist 0.0329 gn 0.0361 | 568 dec/s cumulative
+   w 81 dec   497,664 train return 8.9091 XI 89.09 purse 44.8 bid 0.863 greedy-bid 0.872 explored 0.519 | eps 0.527 beta 0.550 upd 40,627 tgt 16 | loss 0.000506 |TD| 0.0590 Q 2.953 [-0.06,9.03] Z τ.016/.25/.5/.75/.984 2.84/2.92/2.95/2.98/3.06 IQR 0.062 cross 0.2578 dist 0.0154 gn 0.0299 | 552 dec/s cumulative
+   w122 dec   749,568 train return 9.0375 XI 90.37 purse 3.2 bid 0.847 greedy-bid 0.850 explored 0.293 | eps 0.288 beta 0.625 upd 61,619 tgt 24 | loss 0.000345 |TD| 0.0551 Q 2.982 [-0.06,9.06] Z τ.016/.25/.5/.75/.984 2.88/2.95/2.98/3.01/3.08 IQR 0.056 cross 0.2386 dist 0.0148 gn 0.0198 | 528 dec/s cumulative
+   w163 dec 1,001,472 train return 9.1121 XI 91.12 purse 3.3 bid 0.847 greedy-bid 0.849 explored 0.052 | eps 0.050 beta 0.701 upd 82,611 tgt 33 | loss 0.000231 |TD| 0.0504 Q 3.038 [-0.05,9.14] Z τ.016/.25/.5/.75/.984 2.94/3.01/3.04/3.06/3.12 IQR 0.050 cross 0.2332 dist 0.0138 gn 0.0120 | 517 dec/s cumulative
+   w203 dec 1,247,232 train return 9.1301 XI 91.30 purse 4.3 bid 0.876 greedy-bid 0.876 explored 0.053 | eps 0.050 beta 0.775 upd 103,091 tgt 41 | loss 0.000138 |TD| 0.0406 Q 2.985 [-0.28,9.22] Z τ.016/.25/.5/.75/.984 2.91/2.96/2.99/3.01/3.06 IQR 0.041 cross 0.2337 dist 0.0084 gn 0.0087 | 516 dec/s cumulative
+   w244 dec 1,499,136 train return 9.1489 XI 91.49 purse 5.8 bid 0.890 greedy-bid 0.890 explored 0.049 | eps 0.050 beta 0.850 upd 124,083 tgt 49 | loss 0.000106 |TD| 0.0368 Q 2.859 [-0.15,9.27] Z τ.016/.25/.5/.75/.984 2.79/2.84/2.86/2.88/2.93 IQR 0.038 cross 0.2222 dist 0.0085 gn 0.0087 | 513 dec/s cumulative
+   w285 dec 1,751,040 train return 9.1552 XI 91.55 purse 4.5 bid 0.817 greedy-bid 0.814 explored 0.053 | eps 0.050 beta 0.926 upd 145,075 tgt 58 | loss 0.000084 |TD| 0.0337 Q 2.734 [-1.65,9.26] Z τ.016/.25/.5/.75/.984 2.67/2.72/2.73/2.75/2.80 IQR 0.035 cross 0.2187 dist 0.0082 gn 0.0067 | 506 dec/s cumulative
+   w325 dec 1,996,800 train return 9.1549 XI 91.55 purse 5.0 bid 0.819 greedy-bid 0.816 explored 0.048 | eps 0.050 beta 1.000 upd 165,555 tgt 66 | loss 0.000064 |TD| 0.0329 Q 2.790 [-0.65,9.26] Z τ.016/.25/.5/.75/.984 2.73/2.77/2.79/2.81/2.85 IQR 0.033 cross 0.2107 dist 0.0088 gn 0.0062 | 502 dec/s cumulative
+seed 3: status completed failure None | decisions 1,996,800 cycles 166,400 episodes 24,664 | training: incomplete XI 0/24664, invariant violations 0, consistency checks 24664/24664, illegal 0 | actSpec act-v3 5f72f510c48b1f46
+   digests: initial online 87bd1d975e6c9b85 target 87bd1d975e6c9b85 | final online 8f7670852f584e59 target 62d3adc4d4c0d241
+   budget: {'environmentDecisions': 1996800, 'gradientUpdates': 165555, 'replayTransitionsGenerated': 1996631, 'replaySamplesConsumed': 42382080, 'updatesPerDecision': 0.08291015625, 'samplesPerTransition': 21.22679653876956, 'targetUpdates': 66, 'firstUpdateAtDecision': 10152, 'epsilon': {'start': 1.0, 'final': 0.05, 'decayDecisions': 1000000}}
+   wall 4570s | waiting on simulators 1315 + gradient updates 1956 + acting 609 + replay insert 65 + validation/export/parity 486 + logging/audits 34 | overall 437 dec/s, 5.40 eps/s | excluding validation 489 dec/s | 11.81 ms/update
+   eval u40: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 59 updates 19,635 target syncs 7 max action share 0.340
+   eval u81: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 60 updates 40,627 target syncs 16 max action share 0.344
+   eval u122: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 61 updates 61,619 target syncs 24 max action share 0.396
+   eval u163: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 323 {'regular': 256, 'reauction': 3, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 59 updates 82,611 target syncs 33 max action share 0.326
+   eval u203: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 326 {'regular': 256, 'reauction': 6, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 60 updates 103,091 target syncs 41 max action share 0.178
+   eval u244: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 323 {'regular': 256, 'reauction': 3, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 62 updates 124,083 target syncs 49 max action share 0.341
+   eval u285: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 61 updates 145,075 target syncs 58 max action share 0.313
+   eval u325: n=500 parity 5.3e-15/1.000 {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} states 320 {'regular': 256, 'reauction': 0, 'lowPurse': 32, 'highPurse': 32} safety OK legal 1 secs 60 updates 165,555 target syncs 66 max action share 0.255
+   diagnostics over 324 learning windows: quantile loss first 0.23198 last 0.000062 | |TD| (mean_j|y_j-θ_j|) first 1.4507 last 0.0333 | Q mean first 1.170 last 2.937 | Q range [-0.391, 9.287] |Z|max 10.790 | online/target distance max-of-means 1.2184 max 1.5299 | grad norm max 1.137 median-of-means 0.0131
+   quantiles (taken action, batch means) first → last: τ.016 -0.033→2.872  τ.25 0.822→2.921  τ.5 1.207→2.938  τ.75 1.583→2.955  τ.984 1.921→2.997 | spread 1.955→0.126 IQR 0.761→0.034 | target IQR last 0.023 | crossing rate 0.383→0.1942 (max after warm-up 0.2975) rows with a crossing 0.957 size 0.0133
+   priority mean last 0.0305 max 8.209 | replay size last 500,000
+   max single-action share in any window 0.271 | explored decisions 575,095 vs expected 574,840.5
+   w 40 dec   245,760 train return 8.8132 XI 88.13 purse 52.6 bid 0.870 greedy-bid 0.883 explored 0.768 | eps 0.767 beta 0.474 upd 19,635 tgt 7 | loss 0.000857 |TD| 0.0676 Q 2.908 [-0.08,8.91] Z τ.016/.25/.5/.75/.984 2.77/2.87/2.91/2.95/3.04 IQR 0.075 cross 0.2929 dist 0.0310 gn 0.0352 | 496 dec/s cumulative
+   w 81 dec   497,664 train return 8.9319 XI 89.32 purse 13.1 bid 0.862 greedy-bid 0.874 explored 0.532 | eps 0.527 beta 0.550 upd 40,627 tgt 16 | loss 0.000513 |TD| 0.0594 Q 2.990 [-0.06,9.02] Z τ.016/.25/.5/.75/.984 2.88/2.96/2.99/3.02/3.10 IQR 0.063 cross 0.2576 dist 0.0150 gn 0.0234 | 464 dec/s cumulative
+   w122 dec   749,568 train return 9.0128 XI 90.13 purse 6.2 bid 0.847 greedy-bid 0.850 explored 0.290 | eps 0.288 beta 0.625 upd 61,619 tgt 24 | loss 0.000380 |TD| 0.0592 Q 3.098 [-0.07,9.06] Z τ.016/.25/.5/.75/.984 2.99/3.07/3.10/3.13/3.20 IQR 0.060 cross 0.2305 dist 0.0182 gn 0.0189 | 449 dec/s cumulative
+   w163 dec 1,001,472 train return 9.0973 XI 90.97 purse 10.3 bid 0.864 greedy-bid 0.865 explored 0.050 | eps 0.050 beta 0.701 upd 82,611 tgt 33 | loss 0.000232 |TD| 0.0512 Q 3.242 [-0.04,9.17] Z τ.016/.25/.5/.75/.984 3.15/3.22/3.24/3.27/3.33 IQR 0.050 cross 0.2223 dist 0.0113 gn 0.0123 | 439 dec/s cumulative
+   w203 dec 1,247,232 train return 9.1242 XI 91.24 purse 3.7 bid 0.890 greedy-bid 0.891 explored 0.056 | eps 0.050 beta 0.775 upd 103,091 tgt 41 | loss 0.000145 |TD| 0.0442 Q 3.249 [-0.03,9.22] Z τ.016/.25/.5/.75/.984 3.17/3.23/3.25/3.27/3.32 IQR 0.043 cross 0.2162 dist 0.0098 gn 0.0101 | 438 dec/s cumulative
+   w244 dec 1,499,136 train return 9.1435 XI 91.43 purse 4.2 bid 0.856 greedy-bid 0.855 explored 0.054 | eps 0.050 beta 0.850 upd 124,083 tgt 49 | loss 0.000097 |TD| 0.0381 Q 2.995 [-0.03,9.23] Z τ.016/.25/.5/.75/.984 2.92/2.98/3.00/3.01/3.06 IQR 0.038 cross 0.2118 dist 0.0099 gn 0.0071 | 438 dec/s cumulative
+   w285 dec 1,751,040 train return 9.1753 XI 91.75 purse 20.0 bid 0.758 greedy-bid 0.751 explored 0.049 | eps 0.050 beta 0.926 upd 145,075 tgt 58 | loss 0.000075 |TD| 0.0346 Q 2.884 [-0.03,9.27] Z τ.016/.25/.5/.75/.984 2.82/2.87/2.88/2.90/2.95 IQR 0.035 cross 0.2090 dist 0.0077 gn 0.0063 | 440 dec/s cumulative
+   w325 dec 1,996,800 train return 9.1744 XI 91.74 purse 8.4 bid 0.793 greedy-bid 0.786 explored 0.051 | eps 0.050 beta 1.000 upd 165,555 tgt 66 | loss 0.000062 |TD| 0.0333 Q 2.937 [-0.02,9.28] Z τ.016/.25/.5/.75/.984 2.87/2.92/2.94/2.95/3.00 IQR 0.034 cross 0.1942 dist 0.0068 gn 0.0052 | 443 dec/s cumulative
+-- PPO 2C.3 throughput reference
+  PPO 2C.3 s1: wall 2233s collection 1775 update 69.0 validation 378 | overall 894 dec/s 7.82 eps/s | collection 1125 dec/s | gradient steps 31,200 | episodes 17,453
+  PPO 2C.3 s2: wall 2223s collection 1771 update 65.1 validation 376 | overall 898 dec/s 7.97 eps/s | collection 1127 dec/s | gradient steps 31,200 | episodes 17,710
+  PPO 2C.3 s3: wall 2229s collection 1777 update 65.4 validation 374 | overall 896 dec/s 8.16 eps/s | collection 1123 dec/s | gradient steps 31,200 | episodes 18,182
+-- A2C 2D.1 throughput reference
+  A2C 2D.1 s1: wall 2869s collection 2480 update 5.7 validation 372 | overall 696 dec/s 8.81 eps/s | collection 805 dec/s | gradient steps 325 | episodes 25,281
+  A2C 2D.1 s2: wall 3398s collection 2973 update 6.1 validation 407 | overall 588 dec/s 8.45 eps/s | collection 672 dec/s | gradient steps 325 | episodes 28,710
+  A2C 2D.1 s3: wall 3274s collection 2876 update 5.9 validation 381 | overall 610 dec/s 8.98 eps/s | collection 694 dec/s | gradient steps 325 | episodes 29,415
+-- D3QN 2D.2 throughput reference
+  D3QN 2D.2 s1: wall 3588s waiting 1302 update 1111 act 569 validation 416 | overall 556 dec/s 7.24 eps/s | gradient steps 165,554 | episodes 25,971
+  D3QN 2D.2 s2: wall 3626s waiting 1391 update 1111 act 534 validation 404 | overall 551 dec/s 7.43 eps/s | gradient steps 165,554 | episodes 26,954
+  D3QN 2D.2 s3: wall 3723s waiting 1425 update 1130 act 563 validation 416 | overall 536 dec/s 7.31 eps/s | gradient steps 165,553 | episodes 27,203

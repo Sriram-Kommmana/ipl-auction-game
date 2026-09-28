@@ -1,0 +1,4 @@
+  runs/openai-es-2d4-s1/checkpoints/gen_2000/policy.json: per decision p50 0.275 p95 0.469 p99 0.608 max 1.266 ms (n=2160); 9 seats per lot p50 4.898 p95 9.317 p99 16.728 max 35.406 ms (n=1080)
+  runs/openai-es-2d4-s2/checkpoints/gen_2000/policy.json: per decision p50 0.495 p95 1.164 p99 3.157 max 10.465 ms (n=2160); 9 seats per lot p50 4.539 p95 8.554 p99 13.389 max 18.081 ms (n=1080)
+  runs/openai-es-2d4-s3/checkpoints/gen_2000/policy.json: per decision p50 0.487 p95 1.144 p99 1.697 max 12.125 ms (n=2160); 9 seats per lot p50 4.523 p95 8.399 p99 13.192 max 23.252 ms (n=1080)
+OpenAI-ES production contract: 30/30 checks passed over 3 policies (54 real decision states)

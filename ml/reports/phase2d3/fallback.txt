@@ -1,0 +1,4 @@
+  runs/qr-dqn-2d3-s1/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.394 ms/decision
+  runs/qr-dqn-2d3-s2/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.354 ms/decision
+  runs/qr-dqn-2d3-s3/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.692 ms/decision
+QR-DQN production contract: 30/30 checks passed over 3 policies (54 real decision states)

@@ -1,0 +1,2210 @@
+{
+ "a2c-s1-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 81,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.053,
+   "progressP90": 0.793,
+   "priceP50": 675.0,
+   "minPurseUnmetP10": 40.0,
+   "minPurseUnmetP50": 3550.0,
+   "minPurseUnmetLe40": 81
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.121,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 977.0000000000002,
+   "minPurseUnmetP50": 3300.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.05,
+   "progressP90": 0.08,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1269.0,
+   "minPurseUnmetP50": 3925.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 40.0,
+  "anyUnmetP50": 1215.0,
+  "anyUnmetLe40": 81,
+  "forced": 174,
+  "forcedWon": 81,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 39684,
+  "shieldStates": {
+   "SAFE": 39621,
+   "CRITICAL": 1,
+   "WARNING": 62
+  },
+  "completion": {
+   "NEED": 23291,
+   "SAFE": 16384,
+   "CRITICAL": 9
+  },
+  "forcedBy": {
+   "keeper(purse)": 174,
+   "class:Wi(purse)": 173,
+   "class:Wi": 1
+  }
+ },
+ "a2c-s2-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 38,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.037,
+   "progressP90": 0.783,
+   "priceP50": 1050.0,
+   "minPurseUnmetP10": 50.0,
+   "minPurseUnmetP50": 5785.0,
+   "minPurseUnmetLe40": 38
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.053,
+   "progressP90": 0.16130000000000008,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 459.00000000000006,
+   "minPurseUnmetP50": 2615.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.127,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 500.0,
+   "minPurseUnmetP50": 2435.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 50.0,
+  "anyUnmetP50": 1025.0,
+  "anyUnmetLe40": 38,
+  "forced": 83,
+  "forcedWon": 38,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 40663,
+  "shieldStates": {
+   "SAFE": 40627,
+   "WARNING": 32,
+   "CRITICAL": 4
+  },
+  "completion": {
+   "NEED": 22009,
+   "SAFE": 18652,
+   "CRITICAL": 2
+  },
+  "forcedBy": {
+   "keeper(purse)": 81,
+   "class:Wi(purse)": 79,
+   "keeper": 2,
+   "class:Wi": 4
+  }
+ },
+ "a2c-s3-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 53,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.043,
+   "progressP90": 0.783,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 40.0,
+   "minPurseUnmetP50": 5000.0,
+   "minPurseUnmetLe40": 53
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.115,
+   "priceP50": 875.0,
+   "minPurseUnmetP10": 377.00000000000017,
+   "minPurseUnmetP50": 2645.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.053,
+   "progressP90": 0.093,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 538.0000000000001,
+   "minPurseUnmetP50": 2685.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 40.0,
+  "anyUnmetP50": 1050.0,
+  "anyUnmetLe40": 53,
+  "forced": 118,
+  "forcedWon": 53,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 31600,
+  "shieldStates": {
+   "SAFE": 31555,
+   "WARNING": 43,
+   "CRITICAL": 2
+  },
+  "completion": {
+   "NEED": 17933,
+   "SAFE": 13667
+  },
+  "forcedBy": {
+   "keeper(purse)": 118,
+   "class:Wi(purse)": 116,
+   "class:Wi": 2
+  }
+ },
+ "d3qn-s1-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 499,
+   "closedForced": 5,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.065,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 2088.0,
+   "minPurseUnmetP50": 8050.0,
+   "minPurseUnmetLe40": 4
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.059,
+   "progressP90": 0.15830000000000008,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1200.0,
+   "minPurseUnmetP50": 3290.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.065,
+   "progressP90": 0.09,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 1000.0,
+   "minPurseUnmetP50": 2575.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 486.0000000000002,
+  "anyUnmetP50": 1800.0,
+  "anyUnmetLe40": 4,
+  "forced": 7,
+  "forcedWon": 5,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 1,
+  "alreadyInfeasible": 0,
+  "decisions": 47768,
+  "shieldStates": {
+   "SAFE": 47764,
+   "WARNING": 3,
+   "CRITICAL": 1
+  },
+  "completion": {
+   "NEED": 18912,
+   "SAFE": 28856
+  },
+  "forcedBy": {
+   "keeper(purse)": 6,
+   "class:Wi(purse)": 6,
+   "class:Wi": 1
+  }
+ },
+ "d3qn-s2-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 6,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.062,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 2945.0000000000005,
+   "minPurseUnmetP50": 8700.0,
+   "minPurseUnmetLe40": 6
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.062,
+   "progressP90": 0.1983000000000001,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1250.0,
+   "minPurseUnmetP50": 3325.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.077,
+   "progressP90": 0.201,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 700.0,
+   "minPurseUnmetP50": 2200.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 500.0,
+  "anyUnmetP50": 1750.0,
+  "anyUnmetLe40": 6,
+  "forced": 10,
+  "forcedWon": 6,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 52299,
+  "shieldStates": {
+   "SAFE": 52297,
+   "WARNING": 2
+  },
+  "completion": {
+   "NEED": 26989,
+   "SAFE": 25234,
+   "CRITICAL": 76
+  },
+  "forcedBy": {
+   "keeper(purse)": 10,
+   "class:Wi(purse)": 10
+  }
+ },
+ "d3qn-s3-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 497,
+   "closedForced": 4,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.056,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 3340.0000000000005,
+   "minPurseUnmetP50": 8675.0,
+   "minPurseUnmetLe40": 2
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.059,
+   "progressP90": 0.1114000000000001,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1000.0,
+   "minPurseUnmetP50": 3450.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.068,
+   "progressP90": 0.087,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 900.0,
+   "minPurseUnmetP50": 2150.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 590.0,
+  "anyUnmetP50": 1845.0,
+  "anyUnmetLe40": 2,
+  "forced": 5,
+  "forcedWon": 4,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 2,
+  "alreadyInfeasible": 0,
+  "decisions": 37254,
+  "shieldStates": {
+   "SAFE": 37235,
+   "WARNING": 17,
+   "CRITICAL": 2
+  },
+  "completion": {
+   "NEED": 15225,
+   "SAFE": 22028,
+   "CRITICAL": 1
+  },
+  "forcedBy": {
+   "keeper(purse)": 3,
+   "class:Wi(purse)": 3,
+   "class:Wi": 2,
+   "keeper": 1
+  }
+ },
+ "ppo-s1-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.031,
+   "progressP90": 0.059,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 4450.0,
+   "minPurseUnmetP50": 10250.0,
+   "minPurseUnmetLe40": 0
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.223,
+   "progressP90": 0.28830000000000006,
+   "priceP50": 1050.0,
+   "minPurseUnmetP10": 1245.0000000000002,
+   "minPurseUnmetP50": 3050.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.217,
+   "progressP90": 0.325,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 995.0000000000002,
+   "minPurseUnmetP50": 3000.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 800.0,
+  "anyUnmetP50": 2225.0,
+  "anyUnmetLe40": 0,
+  "forced": 0,
+  "forcedWon": 0,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 75256,
+  "shieldStates": {
+   "SAFE": 75256
+  },
+  "completion": {
+   "NEED": 49784,
+   "SAFE": 25472
+  },
+  "forcedBy": {}
+ },
+ "ppo-s2-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.04,
+   "progressP90": 0.065,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 3730.000000000001,
+   "minPurseUnmetP50": 9125.0,
+   "minPurseUnmetLe40": 0
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.263,
+   "progressP90": 0.337,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1250.0,
+   "minPurseUnmetP50": 3025.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.238,
+   "progressP90": 0.3413000000000001,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1400.0,
+   "minPurseUnmetP50": 3575.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 900.0,
+  "anyUnmetP50": 2375.0,
+  "anyUnmetLe40": 0,
+  "forced": 0,
+  "forcedWon": 0,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 86995,
+  "shieldStates": {
+   "SAFE": 86995
+  },
+  "completion": {
+   "NEED": 63003,
+   "SAFE": 23992
+  },
+  "forcedBy": {}
+ },
+ "ppo-s3-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.04,
+   "progressP90": 0.065,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 3750.0,
+   "minPurseUnmetP50": 9250.0,
+   "minPurseUnmetLe40": 0
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.238,
+   "progressP90": 0.303,
+   "priceP50": 1050.0,
+   "minPurseUnmetP10": 1400.0,
+   "minPurseUnmetP50": 3375.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.238,
+   "progressP90": 0.331,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 1000.0,
+   "minPurseUnmetP50": 2875.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 745.0000000000002,
+  "anyUnmetP50": 2200.0,
+  "anyUnmetLe40": 0,
+  "forced": 0,
+  "forcedWon": 0,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 75908,
+  "shieldStates": {
+   "SAFE": 75908
+  },
+  "completion": {
+   "NEED": 52763,
+   "SAFE": 23145
+  },
+  "forcedBy": {}
+ },
+ "qr-s1-u40": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.012,
+   "progressP90": 0.037,
+   "priceP50": 1200.0,
+   "minPurseUnmetP10": 5200.0,
+   "minPurseUnmetP50": 11750.0,
+   "minPurseUnmetLe40": 0
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.12130000000000006,
+   "priceP50": 750.0,
+   "minPurseUnmetP10": 370.0,
+   "minPurseUnmetP50": 2150.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 1,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.09630000000000007,
+   "priceP50": 750.0,
+   "minPurseUnmetP10": 350.0,
+   "minPurseUnmetP50": 2350.0,
+   "minPurseUnmetLe40": 1
+  },
+  "anyUnmetP10": 200.0,
+  "anyUnmetP50": 1350.0,
+  "anyUnmetLe40": 1,
+  "forced": 12,
+  "forcedWon": 2,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 50761,
+  "shieldStates": {
+   "SAFE": 50761
+  },
+  "completion": {
+   "NEED": 16303,
+   "SAFE": 34458
+  },
+  "forcedBy": {
+   "indians(purse)": 12
+  }
+ },
+ "qr-s1-u81": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 23,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.04,
+   "progressP90": 0.774,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 59.00000000000006,
+   "minPurseUnmetP50": 7425.0,
+   "minPurseUnmetLe40": 23
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.059,
+   "progressP90": 0.167,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 995.0000000000002,
+   "minPurseUnmetP50": 3250.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.068,
+   "progressP90": 0.102,
+   "priceP50": 650.0,
+   "minPurseUnmetP10": 500.0,
+   "minPurseUnmetP50": 2235.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 59.00000000000006,
+  "anyUnmetP50": 1455.0,
+  "anyUnmetLe40": 23,
+  "forced": 49,
+  "forcedWon": 23,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 35225,
+  "shieldStates": {
+   "SAFE": 35208,
+   "WARNING": 17
+  },
+  "completion": {
+   "NEED": 19465,
+   "SAFE": 15760
+  },
+  "forcedBy": {
+   "keeper(purse)": 49,
+   "class:Wi(purse)": 49
+  }
+ },
+ "qr-s1-u122": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 32,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.043,
+   "progressP90": 0.774,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 50.0,
+   "minPurseUnmetP50": 6400.0,
+   "minPurseUnmetLe40": 32
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.105,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1068.0,
+   "minPurseUnmetP50": 3425.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.065,
+   "progressP90": 0.087,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 650.0,
+   "minPurseUnmetP50": 2085.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 50.0,
+  "anyUnmetP50": 1450.0,
+  "anyUnmetLe40": 32,
+  "forced": 64,
+  "forcedWon": 32,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 36103,
+  "shieldStates": {
+   "SAFE": 36086,
+   "WARNING": 17
+  },
+  "completion": {
+   "NEED": 17188,
+   "SAFE": 18902,
+   "CRITICAL": 13
+  },
+  "forcedBy": {
+   "keeper(purse)": 64,
+   "class:Wi(purse)": 64
+  }
+ },
+ "qr-s1-u163": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 4,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.05,
+   "progressP90": 0.783,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 60.0,
+   "minPurseUnmetP50": 7950.0,
+   "minPurseUnmetLe40": 4
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.142,
+   "progressP90": 0.201,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1459.0,
+   "minPurseUnmetP50": 4450.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.133,
+   "progressP90": 0.2293000000000001,
+   "priceP50": 600.0,
+   "minPurseUnmetP10": 950.0,
+   "minPurseUnmetP50": 2885.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 60.0,
+  "anyUnmetP50": 2000.0,
+  "anyUnmetLe40": 4,
+  "forced": 8,
+  "forcedWon": 4,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 47502,
+  "shieldStates": {
+   "SAFE": 47500,
+   "WARNING": 2
+  },
+  "completion": {
+   "NEED": 32149,
+   "SAFE": 15333,
+   "CRITICAL": 20
+  },
+  "forcedBy": {
+   "keeper(purse)": 8,
+   "class:Wi(purse)": 8
+  }
+ },
+ "qr-s1-u203": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 1,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.031,
+   "progressP90": 0.059,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 4385.000000000001,
+   "minPurseUnmetP50": 9900.0,
+   "minPurseUnmetLe40": 1
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.189,
+   "progressP90": 0.251,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1350.0,
+   "minPurseUnmetP50": 3100.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 1,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.139,
+   "progressP90": 0.248,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 1500.0,
+   "minPurseUnmetP50": 3865.0,
+   "minPurseUnmetLe40": 1
+  },
+  "anyUnmetP10": 1000.0,
+  "anyUnmetP50": 2665.0,
+  "anyUnmetLe40": 2,
+  "forced": 3,
+  "forcedWon": 2,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 52303,
+  "shieldStates": {
+   "SAFE": 52303
+  },
+  "completion": {
+   "NEED": 38327,
+   "SAFE": 13962,
+   "CRITICAL": 14
+  },
+  "forcedBy": {
+   "indians(purse)": 1,
+   "keeper(purse)": 2,
+   "class:Wi(purse)": 2
+  }
+ },
+ "qr-s1-u244": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 2,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.031,
+   "progressP90": 0.056,
+   "priceP50": 1200.0,
+   "minPurseUnmetP10": 4550.0,
+   "minPurseUnmetP50": 9600.0,
+   "minPurseUnmetLe40": 2
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.176,
+   "progressP90": 0.26,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 1200.0,
+   "minPurseUnmetP50": 2950.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.09,
+   "progressP90": 0.272,
+   "priceP50": 875.0,
+   "minPurseUnmetP10": 1050.0,
+   "minPurseUnmetP50": 2950.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 830.0,
+  "anyUnmetP50": 2100.0,
+  "anyUnmetLe40": 2,
+  "forced": 4,
+  "forcedWon": 2,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 59391,
+  "shieldStates": {
+   "SAFE": 59390,
+   "WARNING": 1
+  },
+  "completion": {
+   "NEED": 37307,
+   "SAFE": 22064,
+   "CRITICAL": 20
+  },
+  "forcedBy": {
+   "keeper(purse)": 4,
+   "class:Wi(purse)": 4
+  }
+ },
+ "qr-s1-u285": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 3,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.028,
+   "progressP90": 0.053,
+   "priceP50": 1200.0,
+   "minPurseUnmetP10": 4550.0,
+   "minPurseUnmetP50": 10350.0,
+   "minPurseUnmetLe40": 3
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.18,
+   "progressP90": 0.257,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 850.0,
+   "minPurseUnmetP50": 2300.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 2,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.09,
+   "progressP90": 0.272,
+   "priceP50": 875.0,
+   "minPurseUnmetP10": 577.0000000000002,
+   "minPurseUnmetP50": 2500.0,
+   "minPurseUnmetLe40": 2
+  },
+  "anyUnmetP10": 450.0,
+  "anyUnmetP50": 1625.0,
+  "anyUnmetLe40": 5,
+  "forced": 8,
+  "forcedWon": 5,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 44019,
+  "shieldStates": {
+   "SAFE": 44017,
+   "WARNING": 2
+  },
+  "completion": {
+   "NEED": 34680,
+   "SAFE": 9339
+  },
+  "forcedBy": {
+   "keeper(purse)": 5,
+   "class:Wi(purse)": 5,
+   "indians(purse)": 3
+  }
+ },
+ "qr-s1-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 5,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.059,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 2800.0,
+   "minPurseUnmetP50": 8375.0,
+   "minPurseUnmetLe40": 5
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.062,
+   "progressP90": 0.211,
+   "priceP50": 1025.0,
+   "minPurseUnmetP10": 1050.0,
+   "minPurseUnmetP50": 3150.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.077,
+   "progressP90": 0.20740000000000008,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 850.0,
+   "minPurseUnmetP50": 2125.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 447.00000000000017,
+  "anyUnmetP50": 1650.0,
+  "anyUnmetLe40": 5,
+  "forced": 10,
+  "forcedWon": 5,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 73237,
+  "shieldStates": {
+   "SAFE": 73233,
+   "WARNING": 4
+  },
+  "completion": {
+   "NEED": 25607,
+   "SAFE": 47630
+  },
+  "forcedBy": {
+   "keeper(purse)": 10,
+   "class:Wi(purse)": 10
+  }
+ },
+ "qr-s2-u40": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 6,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.025,
+   "progressP90": 0.046,
+   "priceP50": 1200.0,
+   "minPurseUnmetP10": 3625.0000000000005,
+   "minPurseUnmetP50": 8700.0,
+   "minPurseUnmetLe40": 6
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.05,
+   "progressP90": 0.108,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 559.0,
+   "minPurseUnmetP50": 3150.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 2,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.059,
+   "progressP90": 0.1363000000000001,
+   "priceP50": 700.0,
+   "minPurseUnmetP10": 200.0,
+   "minPurseUnmetP50": 1800.0,
+   "minPurseUnmetLe40": 2
+  },
+  "anyUnmetP10": 109.00000000000006,
+  "anyUnmetP50": 1300.0,
+  "anyUnmetLe40": 8,
+  "forced": 39,
+  "forcedWon": 12,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 28926,
+  "shieldStates": {
+   "SAFE": 28925,
+   "WARNING": 1
+  },
+  "completion": {
+   "NEED": 15616,
+   "SAFE": 13310
+  },
+  "forcedBy": {
+   "keeper(purse)": 10,
+   "class:Wi(purse)": 10,
+   "players(purse)": 3,
+   "indians(purse)": 14,
+   "bowling(purse)": 12,
+   "class:Bi(purse)": 9
+  }
+ },
+ "qr-s2-u81": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 494,
+   "closedForced": 4,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.053,
+   "progressP90": 0.78,
+   "priceP50": 750.0,
+   "minPurseUnmetP10": 80.0,
+   "minPurseUnmetP50": 8125.0,
+   "minPurseUnmetLe40": 3
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.164,
+   "progressP90": 0.186,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 1850.0,
+   "minPurseUnmetP50": 4650.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.111,
+   "progressP90": 0.195,
+   "priceP50": 550.0,
+   "minPurseUnmetP10": 1200.0,
+   "minPurseUnmetP50": 4525.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 80.0,
+  "anyUnmetP50": 2800.0,
+  "anyUnmetLe40": 3,
+  "forced": 5,
+  "forcedWon": 4,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 3,
+  "alreadyInfeasible": 0,
+  "decisions": 72210,
+  "shieldStates": {
+   "SAFE": 72186,
+   "WARNING": 22,
+   "CRITICAL": 2
+  },
+  "completion": {
+   "NEED": 36472,
+   "SAFE": 35678,
+   "CRITICAL": 60
+  },
+  "forcedBy": {
+   "keeper": 2,
+   "class:Wi": 2,
+   "keeper(purse)": 3,
+   "class:Wi(purse)": 3
+  }
+ },
+ "qr-s2-u122": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 17,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.05930000000000007,
+   "priceP50": 1200.0,
+   "minPurseUnmetP10": 1786.0000000000002,
+   "minPurseUnmetP50": 7550.0,
+   "minPurseUnmetLe40": 17
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.105,
+   "priceP50": 925.0,
+   "minPurseUnmetP10": 850.0,
+   "minPurseUnmetP50": 3325.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.059,
+   "progressP90": 0.07730000000000006,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 700.0,
+   "minPurseUnmetP50": 2530.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 239.00000000000006,
+  "anyUnmetP50": 1600.0,
+  "anyUnmetLe40": 17,
+  "forced": 28,
+  "forcedWon": 17,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 28049,
+  "shieldStates": {
+   "SAFE": 28044,
+   "WARNING": 5
+  },
+  "completion": {
+   "NEED": 14269,
+   "SAFE": 13780
+  },
+  "forcedBy": {
+   "keeper(purse)": 28,
+   "class:Wi(purse)": 28
+  }
+ },
+ "qr-s2-u163": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 25,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.037,
+   "progressP90": 0.065,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 2002.000000000001,
+   "minPurseUnmetP50": 7250.0,
+   "minPurseUnmetLe40": 25
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.062,
+   "progressP90": 0.149,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 950.0,
+   "minPurseUnmetP50": 3150.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.065,
+   "progressP90": 0.118,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 1150.0,
+   "minPurseUnmetP50": 2750.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 240.0,
+  "anyUnmetP50": 1900.0,
+  "anyUnmetLe40": 25,
+  "forced": 56,
+  "forcedWon": 25,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 40244,
+  "shieldStates": {
+   "SAFE": 40231,
+   "WARNING": 13
+  },
+  "completion": {
+   "NEED": 22257,
+   "SAFE": 17987
+  },
+  "forcedBy": {
+   "keeper(purse)": 56,
+   "class:Wi(purse)": 56
+  }
+ },
+ "qr-s2-u203": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 499,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.037,
+   "progressP90": 0.062,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 2995.0000000000005,
+   "minPurseUnmetP50": 8375.0,
+   "minPurseUnmetLe40": 0
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.155,
+   "progressP90": 0.183,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 1250.0,
+   "minPurseUnmetP50": 3350.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.077,
+   "progressP90": 0.16430000000000008,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 996.0000000000002,
+   "minPurseUnmetP50": 4325.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 547.0000000000002,
+  "anyUnmetP50": 2475.0,
+  "anyUnmetLe40": 0,
+  "forced": 0,
+  "forcedWon": 0,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 75048,
+  "shieldStates": {
+   "SAFE": 75048
+  },
+  "completion": {
+   "NEED": 30942,
+   "SAFE": 44106
+  },
+  "forcedBy": {}
+ },
+ "qr-s2-u244": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.037,
+   "progressP90": 0.056,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 3895.0000000000005,
+   "minPurseUnmetP50": 9300.0,
+   "minPurseUnmetLe40": 0
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.13,
+   "progressP90": 0.189,
+   "priceP50": 975.0,
+   "minPurseUnmetP10": 1400.0,
+   "minPurseUnmetP50": 3400.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.084,
+   "progressP90": 0.214,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 1259.0,
+   "minPurseUnmetP50": 3175.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 950.0,
+  "anyUnmetP50": 2350.0,
+  "anyUnmetLe40": 0,
+  "forced": 0,
+  "forcedWon": 0,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 116277,
+  "shieldStates": {
+   "SAFE": 116277
+  },
+  "completion": {
+   "NEED": 31949,
+   "SAFE": 84328
+  },
+  "forcedBy": {}
+ },
+ "qr-s2-u285": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 489,
+   "closedForced": 11,
+   "closedFinalPath": 1,
+   "closedAtFinalOpportunity": 1,
+   "progressP50": 0.04,
+   "progressP90": 0.065,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 3236.000000000001,
+   "minPurseUnmetP50": 8700.0,
+   "minPurseUnmetLe40": 4
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.1005,
+   "progressP90": 0.195,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1300.0,
+   "minPurseUnmetP50": 3450.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.087,
+   "progressP90": 0.217,
+   "priceP50": 850.0,
+   "minPurseUnmetP10": 1188.0,
+   "minPurseUnmetP50": 2700.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 800.0,
+  "anyUnmetP50": 2075.0,
+  "anyUnmetLe40": 4,
+  "forced": 16,
+  "forcedWon": 11,
+  "finalPath": 1,
+  "finalPathWon": 1,
+  "reauctionForced": 9,
+  "alreadyInfeasible": 0,
+  "decisions": 61265,
+  "shieldStates": {
+   "SAFE": 61208,
+   "WARNING": 48,
+   "CRITICAL": 9
+  },
+  "completion": {
+   "NEED": 30385,
+   "SAFE": 30858,
+   "CRITICAL": 22
+  },
+  "forcedBy": {
+   "keeper(purse)": 8,
+   "class:Wi(purse)": 7,
+   "keeper": 5,
+   "class:Wi": 7,
+   "act-v2-shield": 1,
+   "players": 1
+  }
+ },
+ "qr-s2-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 486,
+   "closedForced": 19,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.04,
+   "progressP90": 0.065,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 2490.0000000000005,
+   "minPurseUnmetP50": 8375.0,
+   "minPurseUnmetLe40": 12
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.065,
+   "progressP90": 0.192,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1250.0,
+   "minPurseUnmetP50": 3300.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.084,
+   "progressP90": 0.18,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 1000.0,
+   "minPurseUnmetP50": 2650.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 460.0,
+  "anyUnmetP50": 1900.0,
+  "anyUnmetLe40": 12,
+  "forced": 31,
+  "forcedWon": 19,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 7,
+  "alreadyInfeasible": 0,
+  "decisions": 53586,
+  "shieldStates": {
+   "SAFE": 53495,
+   "WARNING": 84,
+   "CRITICAL": 7
+  },
+  "completion": {
+   "NEED": 29613,
+   "SAFE": 23916,
+   "CRITICAL": 57
+  },
+  "forcedBy": {
+   "keeper": 5,
+   "class:Wi": 7,
+   "keeper(purse)": 24,
+   "class:Wi(purse)": 24
+  }
+ },
+ "qr-s3-u40": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 6,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.028,
+   "progressP90": 0.053,
+   "priceP50": 1100.0,
+   "minPurseUnmetP10": 3242.0000000000005,
+   "minPurseUnmetP50": 8825.0,
+   "minPurseUnmetLe40": 6
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.118,
+   "priceP50": 750.0,
+   "minPurseUnmetP10": 419.00000000000006,
+   "minPurseUnmetP50": 2700.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.08,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 670.0,
+   "minPurseUnmetP50": 2515.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 169.00000000000006,
+  "anyUnmetP50": 1510.0,
+  "anyUnmetLe40": 6,
+  "forced": 11,
+  "forcedWon": 6,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 33846,
+  "shieldStates": {
+   "SAFE": 33845,
+   "WARNING": 1
+  },
+  "completion": {
+   "NEED": 15111,
+   "SAFE": 18733,
+   "CRITICAL": 2
+  },
+  "forcedBy": {
+   "keeper(purse)": 11,
+   "class:Wi(purse)": 11
+  }
+ },
+ "qr-s3-u81": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 3,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.028,
+   "progressP90": 0.05,
+   "priceP50": 1200.0,
+   "minPurseUnmetP10": 3644.0000000000005,
+   "minPurseUnmetP50": 8400.0,
+   "minPurseUnmetLe40": 3
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.053,
+   "progressP90": 0.096,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1036.0000000000002,
+   "minPurseUnmetP50": 3200.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.071,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 800.0,
+   "minPurseUnmetP50": 2655.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 490.0,
+  "anyUnmetP50": 1900.0,
+  "anyUnmetLe40": 3,
+  "forced": 9,
+  "forcedWon": 3,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 28578,
+  "shieldStates": {
+   "SAFE": 28574,
+   "WARNING": 4
+  },
+  "completion": {
+   "NEED": 11965,
+   "SAFE": 16613
+  },
+  "forcedBy": {
+   "keeper(purse)": 9,
+   "class:Wi(purse)": 9
+  }
+ },
+ "qr-s3-u122": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 40,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.04,
+   "progressP90": 0.774,
+   "priceP50": 1075.0,
+   "minPurseUnmetP10": 50.0,
+   "minPurseUnmetP50": 6600.0,
+   "minPurseUnmetLe40": 40
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.056,
+   "progressP90": 0.102,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1100.0,
+   "minPurseUnmetP50": 3200.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.071,
+   "progressP90": 0.118,
+   "priceP50": 600.0,
+   "minPurseUnmetP10": 300.0,
+   "minPurseUnmetP50": 1550.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 50.0,
+  "anyUnmetP50": 1100.0,
+  "anyUnmetLe40": 40,
+  "forced": 87,
+  "forcedWon": 40,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 34750,
+  "shieldStates": {
+   "SAFE": 34728,
+   "WARNING": 21,
+   "CRITICAL": 1
+  },
+  "completion": {
+   "NEED": 18237,
+   "SAFE": 16513
+  },
+  "forcedBy": {
+   "keeper(purse)": 87,
+   "class:Wi(purse)": 86,
+   "class:Wi": 1
+  }
+ },
+ "qr-s3-u163": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 34,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.043,
+   "progressP90": 0.777,
+   "priceP50": 975.0,
+   "minPurseUnmetP10": 50.0,
+   "minPurseUnmetP50": 6700.0,
+   "minPurseUnmetLe40": 34
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.059,
+   "progressP90": 0.111,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1400.0,
+   "minPurseUnmetP50": 3800.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.074,
+   "progressP90": 0.105,
+   "priceP50": 700.0,
+   "minPurseUnmetP10": 800.0,
+   "minPurseUnmetP50": 2195.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 50.0,
+  "anyUnmetP50": 1600.0,
+  "anyUnmetLe40": 34,
+  "forced": 70,
+  "forcedWon": 34,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 34428,
+  "shieldStates": {
+   "SAFE": 34413,
+   "WARNING": 15
+  },
+  "completion": {
+   "NEED": 18904,
+   "SAFE": 15481,
+   "CRITICAL": 43
+  },
+  "forcedBy": {
+   "keeper(purse)": 70,
+   "class:Wi(purse)": 70
+  }
+ },
+ "qr-s3-u203": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 497,
+   "closedForced": 2,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.026500000000000003,
+   "progressP90": 0.053,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 4400.0,
+   "minPurseUnmetP50": 10375.0,
+   "minPurseUnmetLe40": 1
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.065,
+   "progressP90": 0.186,
+   "priceP50": 950.0,
+   "minPurseUnmetP10": 1450.0,
+   "minPurseUnmetP50": 3525.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.09,
+   "progressP90": 0.201,
+   "priceP50": 800.0,
+   "minPurseUnmetP10": 1050.0,
+   "minPurseUnmetP50": 2500.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 948.0000000000001,
+  "anyUnmetP50": 2150.0,
+  "anyUnmetLe40": 1,
+  "forced": 2,
+  "forcedWon": 2,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 1,
+  "alreadyInfeasible": 0,
+  "decisions": 44535,
+  "shieldStates": {
+   "SAFE": 44530,
+   "WARNING": 4,
+   "CRITICAL": 1
+  },
+  "completion": {
+   "NEED": 27999,
+   "SAFE": 16508,
+   "CRITICAL": 28
+  },
+  "forcedBy": {
+   "keeper(purse)": 1,
+   "class:Wi(purse)": 1,
+   "class:Wi": 1
+  }
+ },
+ "qr-s3-u244": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 499,
+   "closedForced": 5,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.062,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 2397.0,
+   "minPurseUnmetP50": 8100.0,
+   "minPurseUnmetLe40": 4
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.062,
+   "progressP90": 0.223,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1136.0000000000002,
+   "minPurseUnmetP50": 3125.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.068,
+   "progressP90": 0.19530000000000008,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 779.0,
+   "minPurseUnmetP50": 2400.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 447.00000000000017,
+  "anyUnmetP50": 1865.0,
+  "anyUnmetLe40": 4,
+  "forced": 7,
+  "forcedWon": 5,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 1,
+  "alreadyInfeasible": 0,
+  "decisions": 58836,
+  "shieldStates": {
+   "SAFE": 58832,
+   "WARNING": 3,
+   "CRITICAL": 1
+  },
+  "completion": {
+   "NEED": 28850,
+   "SAFE": 29948,
+   "CRITICAL": 38
+  },
+  "forcedBy": {
+   "keeper(purse)": 6,
+   "class:Wi(purse)": 6,
+   "keeper": 1,
+   "class:Wi": 1
+  }
+ },
+ "qr-s3-u285": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 5,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.034,
+   "progressP90": 0.059,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 3897.0,
+   "minPurseUnmetP50": 9300.0,
+   "minPurseUnmetLe40": 5
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.158,
+   "progressP90": 0.235,
+   "priceP50": 1000.0,
+   "minPurseUnmetP10": 1246.0000000000002,
+   "minPurseUnmetP50": 3450.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.087,
+   "progressP90": 0.226,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 1150.0,
+   "minPurseUnmetP50": 3000.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 800.0,
+  "anyUnmetP50": 2270.0,
+  "anyUnmetLe40": 5,
+  "forced": 11,
+  "forcedWon": 5,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 52474,
+  "shieldStates": {
+   "SAFE": 52470,
+   "WARNING": 4
+  },
+  "completion": {
+   "NEED": 35065,
+   "SAFE": 17401,
+   "CRITICAL": 8
+  },
+  "forcedBy": {
+   "keeper(purse)": 11,
+   "class:Wi(purse)": 11
+  }
+ },
+ "qr-s3-u325": {
+  "keeper": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 5,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.031,
+   "progressP90": 0.053,
+   "priceP50": 1150.0,
+   "minPurseUnmetP10": 4250.0,
+   "minPurseUnmetP50": 9650.0,
+   "minPurseUnmetLe40": 5
+  },
+  "bowling": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.17,
+   "progressP90": 0.245,
+   "priceP50": 925.0,
+   "minPurseUnmetP10": 1000.0,
+   "minPurseUnmetP50": 2850.0,
+   "minPurseUnmetLe40": 0
+  },
+  "indians": {
+   "needing": 500,
+   "closed": 500,
+   "closedMain": 500,
+   "closedForced": 0,
+   "closedFinalPath": 0,
+   "closedAtFinalOpportunity": 0,
+   "progressP50": 0.087,
+   "progressP90": 0.2323000000000001,
+   "priceP50": 900.0,
+   "minPurseUnmetP10": 1050.0,
+   "minPurseUnmetP50": 2825.0,
+   "minPurseUnmetLe40": 0
+  },
+  "anyUnmetP10": 650.0,
+  "anyUnmetP50": 1950.0,
+  "anyUnmetLe40": 5,
+  "forced": 12,
+  "forcedWon": 5,
+  "finalPath": 0,
+  "finalPathWon": 0,
+  "reauctionForced": 0,
+  "alreadyInfeasible": 0,
+  "decisions": 48075,
+  "shieldStates": {
+   "SAFE": 48074,
+   "WARNING": 1
+  },
+  "completion": {
+   "NEED": 34663,
+   "SAFE": 13407,
+   "CRITICAL": 5
+  },
+  "forcedBy": {
+   "keeper(purse)": 12,
+   "class:Wi(purse)": 12
+  }
+ }
+}

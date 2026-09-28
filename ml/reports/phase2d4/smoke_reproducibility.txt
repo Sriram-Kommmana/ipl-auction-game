@@ -1,0 +1,65 @@
+seed 1: initial 39aebfbffba6d801 final dd1d0141439ff9a3 | generations 4 decisions 20,231 episodes 256 evaluations [(2, ['≥10,000 decisions']), (4, ['generation 4'])] | fitness digests ['baffbd2f9ce10299', 'deb67a4f29c86c0d', 'ac4004b9a49747d4', '39855262cbc47857']
+   PASS  status completed
+   PASS  initial parameters
+   PASS  perturbation vectors (noise digests)
+   PASS  perturbation / episode seeds
+   PASS  policy actions (per-episode action counts)
+   PASS  fitness values
+   PASS  centered ranks
+   PASS  gradient estimates
+   PASS  optimizer states
+   PASS  parameter digests (every generation)
+   PASS  final parameters
+   PASS  training statistics
+   PASS  episode statistics
+   PASS  training episode summaries
+   PASS  checkpoint statistics + parity
+   PASS  validation episodes
+   PASS  exports (weights)
+   PASS  act-v3 / obs-v2
+   PASS  consistency checks = episodes
+   PASS  checkpoints written (decision + generation triggered)
+seed 2: initial 085641f777d3b132 final 67a75265873f9ff6 | generations 4 decisions 20,690 episodes 256 evaluations [(2, ['≥10,000 decisions']), (4, ['generation 4'])] | fitness digests ['345e9aae6f736858', 'ed5dc2ab8e68378e', 'a82220a23ab31814', '33197e63b570961e']
+   PASS  status completed
+   PASS  initial parameters
+   PASS  perturbation vectors (noise digests)
+   PASS  perturbation / episode seeds
+   PASS  policy actions (per-episode action counts)
+   PASS  fitness values
+   PASS  centered ranks
+   PASS  gradient estimates
+   PASS  optimizer states
+   PASS  parameter digests (every generation)
+   PASS  final parameters
+   PASS  training statistics
+   PASS  episode statistics
+   PASS  training episode summaries
+   PASS  checkpoint statistics + parity
+   PASS  validation episodes
+   PASS  exports (weights)
+   PASS  act-v3 / obs-v2
+   PASS  consistency checks = episodes
+   PASS  checkpoints written (decision + generation triggered)
+seed 3: initial 01352a387e871f8d final 76fd995fbaae2acc | generations 4 decisions 20,076 episodes 256 evaluations [(2, ['≥10,000 decisions']), (4, ['generation 4'])] | fitness digests ['fc2acf6b0a63aa42', '1d158f03123a938e', 'c228daefa05ee92d', 'dc5e5b52adb5dd9c']
+   PASS  status completed
+   PASS  initial parameters
+   PASS  perturbation vectors (noise digests)
+   PASS  perturbation / episode seeds
+   PASS  policy actions (per-episode action counts)
+   PASS  fitness values
+   PASS  centered ranks
+   PASS  gradient estimates
+   PASS  optimizer states
+   PASS  parameter digests (every generation)
+   PASS  final parameters
+   PASS  training statistics
+   PASS  episode statistics
+   PASS  training episode summaries
+   PASS  checkpoint statistics + parity
+   PASS  validation episodes
+   PASS  exports (weights)
+   PASS  act-v3 / obs-v2
+   PASS  consistency checks = episodes
+   PASS  checkpoints written (decision + generation triggered)
+PASS  initial parameters differ across seeds: {1: '39aebfbffba6d801', 2: '085641f777d3b132', 3: '01352a387e871f8d'}
+REPRODUCIBILITY: ALL PASS

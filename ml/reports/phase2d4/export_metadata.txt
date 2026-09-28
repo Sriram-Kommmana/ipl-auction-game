@@ -1,0 +1,21 @@
+seed 1: runs/openai-es-2d4-s1/checkpoints/gen_2000/policy.json
+   algorithm 'es' algorithmName 'openai_es' selection {'mode': 'argmax'} | architecture {'input': 80, 'hidden': [64, 64], 'activation': 'tanh', 'head': 'logits', 'actions': 20}
+   obs {'version': 'obs-v2', 'hash': '629b25783f833af7', 'size': 80} act {'version': 'act-v3', 'hash': '5f72f510c48b1f46', 'count': 20}
+   seed 1 generation 2000 trainedSteps 10,175,309 parameterDigest ebb24136c7e621ce configHash e32a7ccbca0d7d23
+   esHyperparameters {'pairs': 32, 'sigma': 0.05, 'learning_rate': 0.01, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_eps': 1e-08, 'weight_decay': 0.0, 'fitness_shaping': 'centered_rank', 'episodes_per_perturbation': 1}
+   trainingBudget {'generations': 2000, 'decisions': 10175309, 'episodes': 128000, 'policyEvaluations': 128000, 'optimizerUpdates': 2000}
+   file sha256 cccc7996e636cb17  bytes 225,212
+seed 2: runs/openai-es-2d4-s2/checkpoints/gen_2000/policy.json
+   algorithm 'es' algorithmName 'openai_es' selection {'mode': 'argmax'} | architecture {'input': 80, 'hidden': [64, 64], 'activation': 'tanh', 'head': 'logits', 'actions': 20}
+   obs {'version': 'obs-v2', 'hash': '629b25783f833af7', 'size': 80} act {'version': 'act-v3', 'hash': '5f72f510c48b1f46', 'count': 20}
+   seed 2 generation 2000 trainedSteps 10,878,423 parameterDigest 91d89e037311d02a configHash cf96828aa152c78d
+   esHyperparameters {'pairs': 32, 'sigma': 0.05, 'learning_rate': 0.01, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_eps': 1e-08, 'weight_decay': 0.0, 'fitness_shaping': 'centered_rank', 'episodes_per_perturbation': 1}
+   trainingBudget {'generations': 2000, 'decisions': 10878423, 'episodes': 128000, 'policyEvaluations': 128000, 'optimizerUpdates': 2000}
+   file sha256 37bb9702b0907067  bytes 225,078
+seed 3: runs/openai-es-2d4-s3/checkpoints/gen_2000/policy.json
+   algorithm 'es' algorithmName 'openai_es' selection {'mode': 'argmax'} | architecture {'input': 80, 'hidden': [64, 64], 'activation': 'tanh', 'head': 'logits', 'actions': 20}
+   obs {'version': 'obs-v2', 'hash': '629b25783f833af7', 'size': 80} act {'version': 'act-v3', 'hash': '5f72f510c48b1f46', 'count': 20}
+   seed 3 generation 2000 trainedSteps 10,105,571 parameterDigest 10286b6e0b2904f6 configHash 905b33ac87d42c5d
+   esHyperparameters {'pairs': 32, 'sigma': 0.05, 'learning_rate': 0.01, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_eps': 1e-08, 'weight_decay': 0.0, 'fitness_shaping': 'centered_rank', 'episodes_per_perturbation': 1}
+   trainingBudget {'generations': 2000, 'decisions': 10105571, 'episodes': 128000, 'policyEvaluations': 128000, 'optimizerUpdates': 2000}
+   file sha256 76bcd8ff0638c55d  bytes 225,032

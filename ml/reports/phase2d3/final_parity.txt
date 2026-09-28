@@ -1,0 +1,5 @@
+states: 1161 (real 1121, of which re-auction 296; lowest real purse 0.0031; 40 synthetic extreme-purse)
+seed 1 u325: all states max |Δraw640| 6.2e-15 |Δmean| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} | re-auction only (296) max |Δq| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+seed 2 u325: all states max |Δraw640| 7.1e-15 |Δmean| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} | re-auction only (296) max |Δq| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+seed 3 u325: all states max |Δraw640| 7.1e-15 |Δmean| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0} | re-auction only (296) max |Δq| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+FINAL EXPORT PARITY: PASS (max |Δq| 7.1e-15)

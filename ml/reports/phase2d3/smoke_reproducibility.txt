@@ -1,0 +1,59 @@
+seed 1: initial 297a04620be956b7 final 1a47caaf1c34b12c target 0a1d6ecfe2728f6a | decisions 12,288 updates 930 target syncs 9 replay added 12,136 episodes 126 | window action digests ['0706b895e9135439', '92a2a9842646b461', '2a31d3a7217fa16a', 'edc5ceb96efc25fb']
+   PASS  status completed
+   PASS  initial online + target digests
+   PASS  initial target = initial online
+   PASS  final online + target digests
+   PASS  action sequence (per window)
+   PASS  epsilon / exploration sequence
+   PASS  replay sampling (sampled indices)
+   PASS  replay priorities
+   PASS  online / target digests per window
+   PASS  losses and training statistics
+   PASS  target-network sync digests
+   PASS  training episode summaries
+   PASS  validation episodes
+   PASS  exports (weights)
+   PASS  evaluation metrics + parity
+   PASS  optimisation budget
+   PASS  act-v3 5f72f510c48b1f46
+   PASS  consistency checks = episodes
+seed 2: initial 7773ab431479150c final 8e034d2340169b59 target 14428c7d044ad05a | decisions 12,288 updates 927 target syncs 9 replay added 12,127 episodes 132 | window action digests ['ae0f30fa5a5db432', 'ae3aa39936127c18', '4fdac53977785f6c', '4b4217fb4e196795']
+   PASS  status completed
+   PASS  initial online + target digests
+   PASS  initial target = initial online
+   PASS  final online + target digests
+   PASS  action sequence (per window)
+   PASS  epsilon / exploration sequence
+   PASS  replay sampling (sampled indices)
+   PASS  replay priorities
+   PASS  online / target digests per window
+   PASS  losses and training statistics
+   PASS  target-network sync digests
+   PASS  training episode summaries
+   PASS  validation episodes
+   PASS  exports (weights)
+   PASS  evaluation metrics + parity
+   PASS  optimisation budget
+   PASS  act-v3 5f72f510c48b1f46
+   PASS  consistency checks = episodes
+seed 3: initial 87bd1d975e6c9b85 final 5e74af3231a3cd6c target 9e67c1a398af0890 | decisions 12,288 updates 926 target syncs 9 replay added 12,131 episodes 133 | window action digests ['0228d506a9455fb1', '4c0edb26c26db4a4', '0d8301f65dd8e558', '950ff41c925ce2ac']
+   PASS  status completed
+   PASS  initial online + target digests
+   PASS  initial target = initial online
+   PASS  final online + target digests
+   PASS  action sequence (per window)
+   PASS  epsilon / exploration sequence
+   PASS  replay sampling (sampled indices)
+   PASS  replay priorities
+   PASS  online / target digests per window
+   PASS  losses and training statistics
+   PASS  target-network sync digests
+   PASS  training episode summaries
+   PASS  validation episodes
+   PASS  exports (weights)
+   PASS  evaluation metrics + parity
+   PASS  optimisation budget
+   PASS  act-v3 5f72f510c48b1f46
+   PASS  consistency checks = episodes
+PASS  initial digests differ across seeds: {1: '297a04620be956b7', 2: '7773ab431479150c', 3: '87bd1d975e6c9b85'}
+REPRODUCIBILITY: ALL PASS

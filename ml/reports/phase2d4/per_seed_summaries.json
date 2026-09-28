@@ -1,0 +1,1211 @@
+{
+ "seed1": {
+  "status": "completed",
+  "generations": 2000,
+  "totalDecisions": 10175309,
+  "episodes": 128000,
+  "policyEvaluations": 128000,
+  "optimizerUpdates": 2000,
+  "wallSeconds": 12834.154193199996,
+  "decisionsPerSecOverall": 792.8305088769504,
+  "initialParamsDigest": "39aebfbffba6d801",
+  "finalParamsDigest": "ebb24136c7e621ce",
+  "episodeConsistencyChecks": 128000,
+  "incompleteXiTrainingEpisodes": 0,
+  "illegalActions": 0,
+  "actSpec": {
+   "version": "act-v3",
+   "hash": "5f72f510c48b1f46",
+   "count": 20
+  },
+  "obsSpec": {
+   "version": "obs-v2",
+   "hash": "629b25783f833af7",
+   "size": 80
+  },
+  "timers": {
+   "episodes": 11985.369177000073,
+   "update": 4.324831401463598,
+   "noise": 9.411434097972233,
+   "eval": 801.9929700999637,
+   "wait": 10571.64624593989,
+   "act": 867.176080679812
+  },
+  "evaluations": [
+   {
+    "generation": 49,
+    "decisions": 249592,
+    "reasons": [
+     "\u2265245,760 decisions"
+    ],
+    "parameterDigest": "5ec433fdeaa8a27f",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.77418181818186,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 100,
+    "decisions": 500047,
+    "reasons": [
+     "\u2265497,664 decisions"
+    ],
+    "parameterDigest": "701f07cfe974bb37",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.7730909090909,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 151,
+    "decisions": 750218,
+    "reasons": [
+     "\u2265749,568 decisions"
+    ],
+    "parameterDigest": "9f42751c6911afbd",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.77509090909093,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 204,
+    "decisions": 1005775,
+    "reasons": [
+     "\u22651,001,472 decisions"
+    ],
+    "parameterDigest": "00e780f2dc2a7c8b",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.77545454545456,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 250,
+    "decisions": 1233736,
+    "reasons": [
+     "generation 250"
+    ],
+    "parameterDigest": "8aec241cb474522e",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.82600000000009,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 253,
+    "decisions": 1248225,
+    "reasons": [
+     "\u22651,247,232 decisions"
+    ],
+    "parameterDigest": "538c21e3db113472",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.92618181818187,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 306,
+    "decisions": 1502578,
+    "reasons": [
+     "\u22651,499,136 decisions"
+    ],
+    "parameterDigest": "24ed739efcff5ca3",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.77818181818184,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 357,
+    "decisions": 1755065,
+    "reasons": [
+     "\u22651,751,040 decisions"
+    ],
+    "parameterDigest": "3a62a7b4915d63a5",
+    "parity": {
+     "states": 87,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.86472727272736,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 406,
+    "decisions": 2000117,
+    "reasons": [
+     "\u22651,996,800 decisions"
+    ],
+    "parameterDigest": "f2185203b0a12baa",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.74800000000009,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 500,
+    "decisions": 2469411,
+    "reasons": [
+     "generation 500"
+    ],
+    "parameterDigest": "7c60036f79d6817d",
+    "parity": {
+     "states": 91,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.80800000000009,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 750,
+    "decisions": 3731347,
+    "reasons": [
+     "generation 750"
+    ],
+    "parameterDigest": "a55e28e5f6168ca8",
+    "parity": {
+     "states": 87,
+     "maxAbsScoreDiff": 3.9968028886505635e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.12672727272731,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1000,
+    "decisions": 5006377,
+    "reasons": [
+     "generation 1000"
+    ],
+    "parameterDigest": "d0cf13652094efc0",
+    "parity": {
+     "states": 194,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.1174545454546,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1250,
+    "decisions": 6322857,
+    "reasons": [
+     "generation 1250"
+    ],
+    "parameterDigest": "e88ed81f154d8e62",
+    "parity": {
+     "states": 95,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.12745454545453,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1500,
+    "decisions": 7600959,
+    "reasons": [
+     "generation 1500"
+    ],
+    "parameterDigest": "5fd42d810738ef18",
+    "parity": {
+     "states": 200,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.16109090909089,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1750,
+    "decisions": 8917035,
+    "reasons": [
+     "generation 1750"
+    ],
+    "parameterDigest": "c9a4c295c10b0d19",
+    "parity": {
+     "states": 136,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.13018181818182,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 2000,
+    "decisions": 10175309,
+    "reasons": [
+     "generation 2000"
+    ],
+    "parameterDigest": "ebb24136c7e621ce",
+    "parity": {
+     "states": 107,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.07181818181812,
+    "legalXI": 1,
+    "strongXI": 1
+   }
+  ]
+ },
+ "seed2": {
+  "status": "completed",
+  "generations": 2000,
+  "totalDecisions": 10878423,
+  "episodes": 128000,
+  "policyEvaluations": 128000,
+  "optimizerUpdates": 2000,
+  "wallSeconds": 12554.830515999987,
+  "decisionsPerSecOverall": 866.473106597213,
+  "initialParamsDigest": "085641f777d3b132",
+  "finalParamsDigest": "91d89e037311d02a",
+  "episodeConsistencyChecks": 128000,
+  "incompleteXiTrainingEpisodes": 0,
+  "illegalActions": 0,
+  "actSpec": {
+   "version": "act-v3",
+   "hash": "5f72f510c48b1f46",
+   "count": 20
+  },
+  "obsSpec": {
+   "version": "obs-v2",
+   "hash": "629b25783f833af7",
+   "size": 80
+  },
+  "timers": {
+   "episodes": 11738.026130198268,
+   "update": 4.1795385996229015,
+   "noise": 9.251722700428218,
+   "eval": 771.0656974001322,
+   "wait": 10271.482559743628,
+   "act": 906.3978424067027
+  },
+  "evaluations": [
+   {
+    "generation": 51,
+    "decisions": 245948,
+    "reasons": [
+     "\u2265245,760 decisions"
+    ],
+    "parameterDigest": "b4efcba53a0fc534",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 1.1102230246251565e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.59509090909093,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 111,
+    "decisions": 501913,
+    "reasons": [
+     "\u2265497,664 decisions"
+    ],
+    "parameterDigest": "03a9e804f36662c4",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.60509090909093,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 169,
+    "decisions": 753051,
+    "reasons": [
+     "\u2265749,568 decisions"
+    ],
+    "parameterDigest": "1a1244dea7620cc3",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.6009090909091,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 228,
+    "decisions": 1003734,
+    "reasons": [
+     "\u22651,001,472 decisions"
+    ],
+    "parameterDigest": "d3cb36fcf8150c8f",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.59090909090908,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 250,
+    "decisions": 1098678,
+    "reasons": [
+     "generation 250"
+    ],
+    "parameterDigest": "6be59dd4d12bcafd",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.6403636363636,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 285,
+    "decisions": 1249374,
+    "reasons": [
+     "\u22651,247,232 decisions"
+    ],
+    "parameterDigest": "353800f162c2ddf3",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.59345454545455,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 344,
+    "decisions": 1502267,
+    "reasons": [
+     "\u22651,499,136 decisions"
+    ],
+    "parameterDigest": "5ecad13a343387c9",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.62200000000001,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 404,
+    "decisions": 1754860,
+    "reasons": [
+     "\u22651,751,040 decisions"
+    ],
+    "parameterDigest": "85615f6041cc35e5",
+    "parity": {
+     "states": 37,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.61218181818181,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 459,
+    "decisions": 1997105,
+    "reasons": [
+     "\u22651,996,800 decisions"
+    ],
+    "parameterDigest": "2d1a078fe484fea7",
+    "parity": {
+     "states": 55,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.68454545454544,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 500,
+    "decisions": 2189704,
+    "reasons": [
+     "generation 500"
+    ],
+    "parameterDigest": "54943296f4102b57",
+    "parity": {
+     "states": 83,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.76236363636367,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 750,
+    "decisions": 3482277,
+    "reasons": [
+     "generation 750"
+    ],
+    "parameterDigest": "e39819246aa5b10f",
+    "parity": {
+     "states": 80,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.97890909090917,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1000,
+    "decisions": 5036320,
+    "reasons": [
+     "generation 1000"
+    ],
+    "parameterDigest": "a0cc5e59f8496784",
+    "parity": {
+     "states": 84,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.09254545454559,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1250,
+    "decisions": 6896088,
+    "reasons": [
+     "generation 1250"
+    ],
+    "parameterDigest": "68f686c610a333a7",
+    "parity": {
+     "states": 130,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.06672727272728,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1500,
+    "decisions": 8318688,
+    "reasons": [
+     "generation 1500"
+    ],
+    "parameterDigest": "78ca78a10d1275ec",
+    "parity": {
+     "states": 81,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.00636363636367,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1750,
+    "decisions": 9548355,
+    "reasons": [
+     "generation 1750"
+    ],
+    "parameterDigest": "7ba459831060c0de",
+    "parity": {
+     "states": 96,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.04745454545458,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 2000,
+    "decisions": 10878423,
+    "reasons": [
+     "generation 2000"
+    ],
+    "parameterDigest": "91d89e037311d02a",
+    "parity": {
+     "states": 80,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.1100000000001,
+    "legalXI": 1,
+    "strongXI": 1
+   }
+  ]
+ },
+ "seed3": {
+  "status": "completed",
+  "generations": 2000,
+  "totalDecisions": 10105571,
+  "episodes": 128000,
+  "policyEvaluations": 128000,
+  "optimizerUpdates": 2000,
+  "wallSeconds": 12892.434272599989,
+  "decisionsPerSecOverall": 783.8373100320667,
+  "initialParamsDigest": "01352a387e871f8d",
+  "finalParamsDigest": "10286b6e0b2904f6",
+  "episodeConsistencyChecks": 128000,
+  "incompleteXiTrainingEpisodes": 0,
+  "illegalActions": 0,
+  "actSpec": {
+   "version": "act-v3",
+   "hash": "5f72f510c48b1f46",
+   "count": 20
+  },
+  "obsSpec": {
+   "version": "obs-v2",
+   "hash": "629b25783f833af7",
+   "size": 80
+  },
+  "timers": {
+   "episodes": 12043.81344590144,
+   "update": 4.273420399404131,
+   "noise": 9.417107901535928,
+   "eval": 802.2577114999876,
+   "wait": 10641.729089318309,
+   "act": 853.2121842151973
+  },
+  "evaluations": [
+   {
+    "generation": 51,
+    "decisions": 247215,
+    "reasons": [
+     "\u2265245,760 decisions"
+    ],
+    "parameterDigest": "0cee59b34d2224dd",
+    "parity": {
+     "states": 45,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.71454545454542,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 108,
+    "decisions": 500517,
+    "reasons": [
+     "\u2265497,664 decisions"
+    ],
+    "parameterDigest": "f7953e325c3e0f16",
+    "parity": {
+     "states": 94,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.87545454545455,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 160,
+    "decisions": 752439,
+    "reasons": [
+     "\u2265749,568 decisions"
+    ],
+    "parameterDigest": "0e0c7bf3210dce37",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.77200000000009,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 210,
+    "decisions": 1002033,
+    "reasons": [
+     "\u22651,001,472 decisions"
+    ],
+    "parameterDigest": "e56121ad36787226",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.7543636363637,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 250,
+    "decisions": 1205884,
+    "reasons": [
+     "generation 250"
+    ],
+    "parameterDigest": "5ae18c5797fd1f40",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.74545454545463,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 258,
+    "decisions": 1247353,
+    "reasons": [
+     "\u22651,247,232 decisions"
+    ],
+    "parameterDigest": "72f3203e5c77c304",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.76127272727287,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 308,
+    "decisions": 1504405,
+    "reasons": [
+     "\u22651,499,136 decisions"
+    ],
+    "parameterDigest": "5097c6451fec468e",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.76200000000004,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 355,
+    "decisions": 1755001,
+    "reasons": [
+     "\u22651,751,040 decisions"
+    ],
+    "parameterDigest": "83371d838b4fa288",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.77672727272738,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 401,
+    "decisions": 2000822,
+    "reasons": [
+     "\u22651,996,800 decisions"
+    ],
+    "parameterDigest": "e2fb26bc3dc655e7",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.7505454545456,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 500,
+    "decisions": 2517759,
+    "reasons": [
+     "generation 500"
+    ],
+    "parameterDigest": "4b5f5091c665461d",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 2.6645352591003757e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.74527272727282,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 750,
+    "decisions": 3810353,
+    "reasons": [
+     "generation 750"
+    ],
+    "parameterDigest": "16a7b7fff8ea6047",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.76036363636373,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1000,
+    "decisions": 5070864,
+    "reasons": [
+     "generation 1000"
+    ],
+    "parameterDigest": "21cd47a11054d5c2",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.04436363636366,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1250,
+    "decisions": 6282556,
+    "reasons": [
+     "generation 1250"
+    ],
+    "parameterDigest": "e35b87df931f49b2",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.92709090909098,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1500,
+    "decisions": 7630210,
+    "reasons": [
+     "generation 1500"
+    ],
+    "parameterDigest": "720767a1fefd18fc",
+    "parity": {
+     "states": 48,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 90.96327272727284,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 1750,
+    "decisions": 8879062,
+    "reasons": [
+     "generation 1750"
+    ],
+    "parameterDigest": "93bf13ba16952d8c",
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.00872727272731,
+    "legalXI": 1,
+    "strongXI": 1
+   },
+   {
+    "generation": 2000,
+    "decisions": 10105571,
+    "reasons": [
+     "generation 2000"
+    ],
+    "parameterDigest": "10286b6e0b2904f6",
+    "parity": {
+     "states": 47,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    },
+    "safetyProblems": [],
+    "xi": 91.02200000000005,
+    "legalXI": 1,
+    "strongXI": 1
+   }
+  ]
+ }
+}

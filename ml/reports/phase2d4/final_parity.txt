@@ -1,0 +1,38 @@
+1005 real states from 4 JavaScript episodes (incl. the final-path fixture): normal (main, no forced) 746, low purse ≤ ₹200L 24, high purse ≥ ₹9,000L 477, main auction 746, re-auction 259, keeper needed 570, Indian needed 914, bowling needed 911, shield-forced 17, final-path 3
+runs/openai-es-2d4-s1/checkpoints/gen_2000/policy.json:
+   normal (main, no forced) n= 746 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   low purse ≤ ₹200L        n=  24 max |Δlogit| 7.1e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   high purse ≥ ₹9,000L     n= 477 max |Δlogit| 8.9e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   main auction             n= 746 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   re-auction               n= 259 max |Δlogit| 7.1e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   keeper needed            n= 570 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   Indian needed            n= 914 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   bowling needed           n= 911 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   shield-forced            n=  17 max |Δlogit| 7.1e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   final-path               n=   3 max |Δlogit| 5.3e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   production decisions legal under act-v3: 1005/1005
+runs/openai-es-2d4-s2/checkpoints/gen_2000/policy.json:
+   normal (main, no forced) n= 746 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   low purse ≤ ₹200L        n=  24 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   high purse ≥ ₹9,000L     n= 477 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   main auction             n= 746 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   re-auction               n= 259 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   keeper needed            n= 570 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   Indian needed            n= 914 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   bowling needed           n= 911 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   shield-forced            n=  17 max |Δlogit| 1.1e-14 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   final-path               n=   3 max |Δlogit| 8.0e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   production decisions legal under act-v3: 1005/1005
+runs/openai-es-2d4-s3/checkpoints/gen_2000/policy.json:
+   normal (main, no forced) n= 746 max |Δlogit| 9.8e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   low purse ≤ ₹200L        n=  24 max |Δlogit| 7.1e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   high purse ≥ ₹9,000L     n= 477 max |Δlogit| 9.8e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   main auction             n= 746 max |Δlogit| 9.8e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   re-auction               n= 259 max |Δlogit| 8.9e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   keeper needed            n= 570 max |Δlogit| 9.8e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   Indian needed            n= 914 max |Δlogit| 9.8e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   bowling needed           n= 911 max |Δlogit| 9.8e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   shield-forced            n=  17 max |Δlogit| 8.0e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   final-path               n=   3 max |Δlogit| 3.9e-15 agreement {'real': 1.0, 'passOnly': 1.0, 'single': 1.0, 'allLegal': 1.0}
+   production decisions legal under act-v3: 1005/1005
+FINAL EXPORT PARITY: PASS (max |Δlogit| 1.1e-14)

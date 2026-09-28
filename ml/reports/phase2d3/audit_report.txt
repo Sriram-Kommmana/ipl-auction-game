@@ -1,0 +1,199 @@
+replay vs evaluator episodes: 16500/16500 identical (legal XI, XI, purse, decisions, forced)
+== a2c-s1-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 81 final-path 0 at final opportunity 0 | progress at close p50 0.053 p90 0.793 | closing price p50 ₹675L | min purse while unmet p10 ₹40L p50 ₹3550L, ≤₹40L in 81/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.121 | closing price p50 ₹1000L | min purse while unmet p10 ₹977L p50 ₹3300L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.050 p90 0.080 | closing price p50 ₹1000L | min purse while unmet p10 ₹1269L p50 ₹3925L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹40L p50 ₹1215L, ≤₹40L in 81/500
+  forced 174/39684 (won 81) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 39621, 'CRITICAL': 1, 'WARNING': 62} | planner completion {'NEED': 23291, 'SAFE': 16384, 'CRITICAL': 9} | forcedBy {'keeper(purse)': 174, 'class:Wi(purse)': 173, 'class:Wi': 1}
+== a2c-s2-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 38 final-path 0 at final opportunity 0 | progress at close p50 0.037 p90 0.783 | closing price p50 ₹1050L | min purse while unmet p10 ₹50L p50 ₹5785L, ≤₹40L in 38/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.053 p90 0.161 | closing price p50 ₹950L | min purse while unmet p10 ₹459L p50 ₹2615L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.127 | closing price p50 ₹850L | min purse while unmet p10 ₹500L p50 ₹2435L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹50L p50 ₹1025L, ≤₹40L in 38/500
+  forced 83/40663 (won 38) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 40627, 'WARNING': 32, 'CRITICAL': 4} | planner completion {'NEED': 22009, 'SAFE': 18652, 'CRITICAL': 2} | forcedBy {'keeper(purse)': 81, 'class:Wi(purse)': 79, 'keeper': 2, 'class:Wi': 4}
+== a2c-s3-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 53 final-path 0 at final opportunity 0 | progress at close p50 0.043 p90 0.783 | closing price p50 ₹950L | min purse while unmet p10 ₹40L p50 ₹5000L, ≤₹40L in 53/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.115 | closing price p50 ₹875L | min purse while unmet p10 ₹377L p50 ₹2645L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.053 p90 0.093 | closing price p50 ₹950L | min purse while unmet p10 ₹538L p50 ₹2685L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹40L p50 ₹1050L, ≤₹40L in 53/500
+  forced 118/31600 (won 53) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 31555, 'WARNING': 43, 'CRITICAL': 2} | planner completion {'NEED': 17933, 'SAFE': 13667} | forcedBy {'keeper(purse)': 118, 'class:Wi(purse)': 116, 'class:Wi': 2}
+== d3qn-s1-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 499) | forced 5 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.065 | closing price p50 ₹1150L | min purse while unmet p10 ₹2088L p50 ₹8050L, ≤₹40L in 4/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.059 p90 0.158 | closing price p50 ₹1000L | min purse while unmet p10 ₹1200L p50 ₹3290L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.065 p90 0.090 | closing price p50 ₹800L | min purse while unmet p10 ₹1000L p50 ₹2575L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹486L p50 ₹1800L, ≤₹40L in 4/500
+  forced 7/47768 (won 5) | final-path forced 0 (won 0) | re-auction forced 1 | already infeasible 0 | shield states {'SAFE': 47764, 'WARNING': 3, 'CRITICAL': 1} | planner completion {'NEED': 18912, 'SAFE': 28856} | forcedBy {'keeper(purse)': 6, 'class:Wi(purse)': 6, 'class:Wi': 1}
+== d3qn-s2-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 6 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.062 | closing price p50 ₹1150L | min purse while unmet p10 ₹2945L p50 ₹8700L, ≤₹40L in 6/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.062 p90 0.198 | closing price p50 ₹1000L | min purse while unmet p10 ₹1250L p50 ₹3325L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.077 p90 0.201 | closing price p50 ₹850L | min purse while unmet p10 ₹700L p50 ₹2200L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹500L p50 ₹1750L, ≤₹40L in 6/500
+  forced 10/52299 (won 6) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 52297, 'WARNING': 2} | planner completion {'NEED': 26989, 'SAFE': 25234, 'CRITICAL': 76} | forcedBy {'keeper(purse)': 10, 'class:Wi(purse)': 10}
+== d3qn-s3-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 497) | forced 4 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.056 | closing price p50 ₹1150L | min purse while unmet p10 ₹3340L p50 ₹8675L, ≤₹40L in 2/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.059 p90 0.111 | closing price p50 ₹1000L | min purse while unmet p10 ₹1000L p50 ₹3450L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.068 p90 0.087 | closing price p50 ₹850L | min purse while unmet p10 ₹900L p50 ₹2150L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹590L p50 ₹1845L, ≤₹40L in 2/500
+  forced 5/37254 (won 4) | final-path forced 0 (won 0) | re-auction forced 2 | already infeasible 0 | shield states {'SAFE': 37235, 'WARNING': 17, 'CRITICAL': 2} | planner completion {'NEED': 15225, 'SAFE': 22028, 'CRITICAL': 1} | forcedBy {'keeper(purse)': 3, 'class:Wi(purse)': 3, 'class:Wi': 2, 'keeper': 1}
+== ppo-s1-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.031 p90 0.059 | closing price p50 ₹1150L | min purse while unmet p10 ₹4450L p50 ₹10250L, ≤₹40L in 0/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.223 p90 0.288 | closing price p50 ₹1050L | min purse while unmet p10 ₹1245L p50 ₹3050L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.217 p90 0.325 | closing price p50 ₹950L | min purse while unmet p10 ₹995L p50 ₹3000L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹800L p50 ₹2225L, ≤₹40L in 0/500
+  forced 0/75256 (won 0) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 75256} | planner completion {'NEED': 49784, 'SAFE': 25472} | forcedBy {}
+== ppo-s2-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.040 p90 0.065 | closing price p50 ₹1100L | min purse while unmet p10 ₹3730L p50 ₹9125L, ≤₹40L in 0/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.263 p90 0.337 | closing price p50 ₹1000L | min purse while unmet p10 ₹1250L p50 ₹3025L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.238 p90 0.341 | closing price p50 ₹950L | min purse while unmet p10 ₹1400L p50 ₹3575L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹900L p50 ₹2375L, ≤₹40L in 0/500
+  forced 0/86995 (won 0) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 86995} | planner completion {'NEED': 63003, 'SAFE': 23992} | forcedBy {}
+== ppo-s3-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.040 p90 0.065 | closing price p50 ₹1100L | min purse while unmet p10 ₹3750L p50 ₹9250L, ≤₹40L in 0/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.238 p90 0.303 | closing price p50 ₹1050L | min purse while unmet p10 ₹1400L p50 ₹3375L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.238 p90 0.331 | closing price p50 ₹900L | min purse while unmet p10 ₹1000L p50 ₹2875L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹745L p50 ₹2200L, ≤₹40L in 0/500
+  forced 0/75908 (won 0) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 75908} | planner completion {'NEED': 52763, 'SAFE': 23145} | forcedBy {}
+== qr-s1-u40  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.012 p90 0.037 | closing price p50 ₹1200L | min purse while unmet p10 ₹5200L p50 ₹11750L, ≤₹40L in 0/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.121 | closing price p50 ₹750L | min purse while unmet p10 ₹370L p50 ₹2150L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 1 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.096 | closing price p50 ₹750L | min purse while unmet p10 ₹350L p50 ₹2350L, ≤₹40L in 1/500
+  any requirement unmet: min purse p10 ₹200L p50 ₹1350L, ≤₹40L in 1/500
+  forced 12/50761 (won 2) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 50761} | planner completion {'NEED': 16303, 'SAFE': 34458} | forcedBy {'indians(purse)': 12}
+== qr-s1-u81  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 23 final-path 0 at final opportunity 0 | progress at close p50 0.040 p90 0.774 | closing price p50 ₹1100L | min purse while unmet p10 ₹59L p50 ₹7425L, ≤₹40L in 23/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.059 p90 0.167 | closing price p50 ₹900L | min purse while unmet p10 ₹995L p50 ₹3250L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.068 p90 0.102 | closing price p50 ₹650L | min purse while unmet p10 ₹500L p50 ₹2235L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹59L p50 ₹1455L, ≤₹40L in 23/500
+  forced 49/35225 (won 23) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 35208, 'WARNING': 17} | planner completion {'NEED': 19465, 'SAFE': 15760} | forcedBy {'keeper(purse)': 49, 'class:Wi(purse)': 49}
+== qr-s1-u122  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 32 final-path 0 at final opportunity 0 | progress at close p50 0.043 p90 0.774 | closing price p50 ₹1100L | min purse while unmet p10 ₹50L p50 ₹6400L, ≤₹40L in 32/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.105 | closing price p50 ₹950L | min purse while unmet p10 ₹1068L p50 ₹3425L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.065 p90 0.087 | closing price p50 ₹800L | min purse while unmet p10 ₹650L p50 ₹2085L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹50L p50 ₹1450L, ≤₹40L in 32/500
+  forced 64/36103 (won 32) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 36086, 'WARNING': 17} | planner completion {'NEED': 17188, 'SAFE': 18902, 'CRITICAL': 13} | forcedBy {'keeper(purse)': 64, 'class:Wi(purse)': 64}
+== qr-s1-u163  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 4 final-path 0 at final opportunity 0 | progress at close p50 0.050 p90 0.783 | closing price p50 ₹850L | min purse while unmet p10 ₹60L p50 ₹7950L, ≤₹40L in 4/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.142 p90 0.201 | closing price p50 ₹950L | min purse while unmet p10 ₹1459L p50 ₹4450L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.133 p90 0.229 | closing price p50 ₹600L | min purse while unmet p10 ₹950L p50 ₹2885L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹60L p50 ₹2000L, ≤₹40L in 4/500
+  forced 8/47502 (won 4) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 47500, 'WARNING': 2} | planner completion {'NEED': 32149, 'SAFE': 15333, 'CRITICAL': 20} | forcedBy {'keeper(purse)': 8, 'class:Wi(purse)': 8}
+== qr-s1-u203  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 1 final-path 0 at final opportunity 0 | progress at close p50 0.031 p90 0.059 | closing price p50 ₹1150L | min purse while unmet p10 ₹4385L p50 ₹9900L, ≤₹40L in 1/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.189 p90 0.251 | closing price p50 ₹950L | min purse while unmet p10 ₹1350L p50 ₹3100L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 1 final-path 0 at final opportunity 0 | progress at close p50 0.139 p90 0.248 | closing price p50 ₹900L | min purse while unmet p10 ₹1500L p50 ₹3865L, ≤₹40L in 1/500
+  any requirement unmet: min purse p10 ₹1000L p50 ₹2665L, ≤₹40L in 2/500
+  forced 3/52303 (won 2) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 52303} | planner completion {'NEED': 38327, 'SAFE': 13962, 'CRITICAL': 14} | forcedBy {'indians(purse)': 1, 'keeper(purse)': 2, 'class:Wi(purse)': 2}
+== qr-s1-u244  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 2 final-path 0 at final opportunity 0 | progress at close p50 0.031 p90 0.056 | closing price p50 ₹1200L | min purse while unmet p10 ₹4550L p50 ₹9600L, ≤₹40L in 2/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.176 p90 0.260 | closing price p50 ₹900L | min purse while unmet p10 ₹1200L p50 ₹2950L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.090 p90 0.272 | closing price p50 ₹875L | min purse while unmet p10 ₹1050L p50 ₹2950L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹830L p50 ₹2100L, ≤₹40L in 2/500
+  forced 4/59391 (won 2) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 59390, 'WARNING': 1} | planner completion {'NEED': 37307, 'SAFE': 22064, 'CRITICAL': 20} | forcedBy {'keeper(purse)': 4, 'class:Wi(purse)': 4}
+== qr-s1-u285  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 3 final-path 0 at final opportunity 0 | progress at close p50 0.028 p90 0.053 | closing price p50 ₹1200L | min purse while unmet p10 ₹4550L p50 ₹10350L, ≤₹40L in 3/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.180 p90 0.257 | closing price p50 ₹850L | min purse while unmet p10 ₹850L p50 ₹2300L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 2 final-path 0 at final opportunity 0 | progress at close p50 0.090 p90 0.272 | closing price p50 ₹875L | min purse while unmet p10 ₹577L p50 ₹2500L, ≤₹40L in 2/500
+  any requirement unmet: min purse p10 ₹450L p50 ₹1625L, ≤₹40L in 5/500
+  forced 8/44019 (won 5) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 44017, 'WARNING': 2} | planner completion {'NEED': 34680, 'SAFE': 9339} | forcedBy {'keeper(purse)': 5, 'class:Wi(purse)': 5, 'indians(purse)': 3}
+== qr-s1-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 5 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.059 | closing price p50 ₹1150L | min purse while unmet p10 ₹2800L p50 ₹8375L, ≤₹40L in 5/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.062 p90 0.211 | closing price p50 ₹1025L | min purse while unmet p10 ₹1050L p50 ₹3150L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.077 p90 0.207 | closing price p50 ₹900L | min purse while unmet p10 ₹850L p50 ₹2125L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹447L p50 ₹1650L, ≤₹40L in 5/500
+  forced 10/73237 (won 5) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 73233, 'WARNING': 4} | planner completion {'NEED': 25607, 'SAFE': 47630} | forcedBy {'keeper(purse)': 10, 'class:Wi(purse)': 10}
+== qr-s2-u40  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 6 final-path 0 at final opportunity 0 | progress at close p50 0.025 p90 0.046 | closing price p50 ₹1200L | min purse while unmet p10 ₹3625L p50 ₹8700L, ≤₹40L in 6/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.050 p90 0.108 | closing price p50 ₹1000L | min purse while unmet p10 ₹559L p50 ₹3150L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 2 final-path 0 at final opportunity 0 | progress at close p50 0.059 p90 0.136 | closing price p50 ₹700L | min purse while unmet p10 ₹200L p50 ₹1800L, ≤₹40L in 2/500
+  any requirement unmet: min purse p10 ₹109L p50 ₹1300L, ≤₹40L in 8/500
+  forced 39/28926 (won 12) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 28925, 'WARNING': 1} | planner completion {'NEED': 15616, 'SAFE': 13310} | forcedBy {'keeper(purse)': 10, 'class:Wi(purse)': 10, 'players(purse)': 3, 'indians(purse)': 14, 'bowling(purse)': 12, 'class:Bi(purse)': 9}
+== qr-s2-u81  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 494) | forced 4 final-path 0 at final opportunity 0 | progress at close p50 0.053 p90 0.780 | closing price p50 ₹750L | min purse while unmet p10 ₹80L p50 ₹8125L, ≤₹40L in 3/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.164 p90 0.186 | closing price p50 ₹800L | min purse while unmet p10 ₹1850L p50 ₹4650L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.111 p90 0.195 | closing price p50 ₹550L | min purse while unmet p10 ₹1200L p50 ₹4525L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹80L p50 ₹2800L, ≤₹40L in 3/500
+  forced 5/72210 (won 4) | final-path forced 0 (won 0) | re-auction forced 3 | already infeasible 0 | shield states {'SAFE': 72186, 'WARNING': 22, 'CRITICAL': 2} | planner completion {'NEED': 36472, 'SAFE': 35678, 'CRITICAL': 60} | forcedBy {'keeper': 2, 'class:Wi': 2, 'keeper(purse)': 3, 'class:Wi(purse)': 3}
+== qr-s2-u122  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 17 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.059 | closing price p50 ₹1200L | min purse while unmet p10 ₹1786L p50 ₹7550L, ≤₹40L in 17/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.105 | closing price p50 ₹925L | min purse while unmet p10 ₹850L p50 ₹3325L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.059 p90 0.077 | closing price p50 ₹850L | min purse while unmet p10 ₹700L p50 ₹2530L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹239L p50 ₹1600L, ≤₹40L in 17/500
+  forced 28/28049 (won 17) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 28044, 'WARNING': 5} | planner completion {'NEED': 14269, 'SAFE': 13780} | forcedBy {'keeper(purse)': 28, 'class:Wi(purse)': 28}
+== qr-s2-u163  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 25 final-path 0 at final opportunity 0 | progress at close p50 0.037 p90 0.065 | closing price p50 ₹1100L | min purse while unmet p10 ₹2002L p50 ₹7250L, ≤₹40L in 25/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.062 p90 0.149 | closing price p50 ₹1000L | min purse while unmet p10 ₹950L p50 ₹3150L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.065 p90 0.118 | closing price p50 ₹900L | min purse while unmet p10 ₹1150L p50 ₹2750L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹240L p50 ₹1900L, ≤₹40L in 25/500
+  forced 56/40244 (won 25) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 40231, 'WARNING': 13} | planner completion {'NEED': 22257, 'SAFE': 17987} | forcedBy {'keeper(purse)': 56, 'class:Wi(purse)': 56}
+== qr-s2-u203  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 499) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.037 p90 0.062 | closing price p50 ₹1100L | min purse while unmet p10 ₹2995L p50 ₹8375L, ≤₹40L in 0/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.155 p90 0.183 | closing price p50 ₹850L | min purse while unmet p10 ₹1250L p50 ₹3350L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.077 p90 0.164 | closing price p50 ₹800L | min purse while unmet p10 ₹996L p50 ₹4325L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹547L p50 ₹2475L, ≤₹40L in 0/500
+  forced 0/75048 (won 0) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 75048} | planner completion {'NEED': 30942, 'SAFE': 44106} | forcedBy {}
+== qr-s2-u244  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.037 p90 0.056 | closing price p50 ₹1100L | min purse while unmet p10 ₹3895L p50 ₹9300L, ≤₹40L in 0/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.130 p90 0.189 | closing price p50 ₹975L | min purse while unmet p10 ₹1400L p50 ₹3400L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.084 p90 0.214 | closing price p50 ₹850L | min purse while unmet p10 ₹1259L p50 ₹3175L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹950L p50 ₹2350L, ≤₹40L in 0/500
+  forced 0/116277 (won 0) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 116277} | planner completion {'NEED': 31949, 'SAFE': 84328} | forcedBy {}
+== qr-s2-u285  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 489) | forced 11 final-path 1 at final opportunity 1 | progress at close p50 0.040 p90 0.065 | closing price p50 ₹1150L | min purse while unmet p10 ₹3236L p50 ₹8700L, ≤₹40L in 4/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.101 p90 0.195 | closing price p50 ₹950L | min purse while unmet p10 ₹1300L p50 ₹3450L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.087 p90 0.217 | closing price p50 ₹850L | min purse while unmet p10 ₹1188L p50 ₹2700L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹800L p50 ₹2075L, ≤₹40L in 4/500
+  forced 16/61265 (won 11) | final-path forced 1 (won 1) | re-auction forced 9 | already infeasible 0 | shield states {'SAFE': 61208, 'WARNING': 48, 'CRITICAL': 9} | planner completion {'NEED': 30385, 'SAFE': 30858, 'CRITICAL': 22} | forcedBy {'keeper(purse)': 8, 'class:Wi(purse)': 7, 'keeper': 5, 'class:Wi': 7, 'act-v2-shield': 1, 'players': 1}
+== qr-s2-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 486) | forced 19 final-path 0 at final opportunity 0 | progress at close p50 0.040 p90 0.065 | closing price p50 ₹1150L | min purse while unmet p10 ₹2490L p50 ₹8375L, ≤₹40L in 12/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.065 p90 0.192 | closing price p50 ₹1000L | min purse while unmet p10 ₹1250L p50 ₹3300L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.084 p90 0.180 | closing price p50 ₹800L | min purse while unmet p10 ₹1000L p50 ₹2650L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹460L p50 ₹1900L, ≤₹40L in 12/500
+  forced 31/53586 (won 19) | final-path forced 0 (won 0) | re-auction forced 7 | already infeasible 0 | shield states {'SAFE': 53495, 'WARNING': 84, 'CRITICAL': 7} | planner completion {'NEED': 29613, 'SAFE': 23916, 'CRITICAL': 57} | forcedBy {'keeper': 5, 'class:Wi': 7, 'keeper(purse)': 24, 'class:Wi(purse)': 24}
+== qr-s3-u40  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 6 final-path 0 at final opportunity 0 | progress at close p50 0.028 p90 0.053 | closing price p50 ₹1100L | min purse while unmet p10 ₹3242L p50 ₹8825L, ≤₹40L in 6/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.118 | closing price p50 ₹750L | min purse while unmet p10 ₹419L p50 ₹2700L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.080 | closing price p50 ₹800L | min purse while unmet p10 ₹670L p50 ₹2515L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹169L p50 ₹1510L, ≤₹40L in 6/500
+  forced 11/33846 (won 6) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 33845, 'WARNING': 1} | planner completion {'NEED': 15111, 'SAFE': 18733, 'CRITICAL': 2} | forcedBy {'keeper(purse)': 11, 'class:Wi(purse)': 11}
+== qr-s3-u81  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 3 final-path 0 at final opportunity 0 | progress at close p50 0.028 p90 0.050 | closing price p50 ₹1200L | min purse while unmet p10 ₹3644L p50 ₹8400L, ≤₹40L in 3/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.053 p90 0.096 | closing price p50 ₹1000L | min purse while unmet p10 ₹1036L p50 ₹3200L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.071 | closing price p50 ₹800L | min purse while unmet p10 ₹800L p50 ₹2655L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹490L p50 ₹1900L, ≤₹40L in 3/500
+  forced 9/28578 (won 3) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 28574, 'WARNING': 4} | planner completion {'NEED': 11965, 'SAFE': 16613} | forcedBy {'keeper(purse)': 9, 'class:Wi(purse)': 9}
+== qr-s3-u122  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 40 final-path 0 at final opportunity 0 | progress at close p50 0.040 p90 0.774 | closing price p50 ₹1075L | min purse while unmet p10 ₹50L p50 ₹6600L, ≤₹40L in 40/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.056 p90 0.102 | closing price p50 ₹1000L | min purse while unmet p10 ₹1100L p50 ₹3200L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.071 p90 0.118 | closing price p50 ₹600L | min purse while unmet p10 ₹300L p50 ₹1550L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹50L p50 ₹1100L, ≤₹40L in 40/500
+  forced 87/34750 (won 40) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 34728, 'WARNING': 21, 'CRITICAL': 1} | planner completion {'NEED': 18237, 'SAFE': 16513} | forcedBy {'keeper(purse)': 87, 'class:Wi(purse)': 86, 'class:Wi': 1}
+== qr-s3-u163  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 34 final-path 0 at final opportunity 0 | progress at close p50 0.043 p90 0.777 | closing price p50 ₹975L | min purse while unmet p10 ₹50L p50 ₹6700L, ≤₹40L in 34/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.059 p90 0.111 | closing price p50 ₹950L | min purse while unmet p10 ₹1400L p50 ₹3800L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.074 p90 0.105 | closing price p50 ₹700L | min purse while unmet p10 ₹800L p50 ₹2195L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹50L p50 ₹1600L, ≤₹40L in 34/500
+  forced 70/34428 (won 34) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 34413, 'WARNING': 15} | planner completion {'NEED': 18904, 'SAFE': 15481, 'CRITICAL': 43} | forcedBy {'keeper(purse)': 70, 'class:Wi(purse)': 70}
+== qr-s3-u203  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 497) | forced 2 final-path 0 at final opportunity 0 | progress at close p50 0.027 p90 0.053 | closing price p50 ₹1150L | min purse while unmet p10 ₹4400L p50 ₹10375L, ≤₹40L in 1/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.065 p90 0.186 | closing price p50 ₹950L | min purse while unmet p10 ₹1450L p50 ₹3525L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.090 p90 0.201 | closing price p50 ₹800L | min purse while unmet p10 ₹1050L p50 ₹2500L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹948L p50 ₹2150L, ≤₹40L in 1/500
+  forced 2/44535 (won 2) | final-path forced 0 (won 0) | re-auction forced 1 | already infeasible 0 | shield states {'SAFE': 44530, 'WARNING': 4, 'CRITICAL': 1} | planner completion {'NEED': 27999, 'SAFE': 16508, 'CRITICAL': 28} | forcedBy {'keeper(purse)': 1, 'class:Wi(purse)': 1, 'class:Wi': 1}
+== qr-s3-u244  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 499) | forced 5 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.062 | closing price p50 ₹1150L | min purse while unmet p10 ₹2397L p50 ₹8100L, ≤₹40L in 4/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.062 p90 0.223 | closing price p50 ₹1000L | min purse while unmet p10 ₹1136L p50 ₹3125L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.068 p90 0.195 | closing price p50 ₹900L | min purse while unmet p10 ₹779L p50 ₹2400L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹447L p50 ₹1865L, ≤₹40L in 4/500
+  forced 7/58836 (won 5) | final-path forced 0 (won 0) | re-auction forced 1 | already infeasible 0 | shield states {'SAFE': 58832, 'WARNING': 3, 'CRITICAL': 1} | planner completion {'NEED': 28850, 'SAFE': 29948, 'CRITICAL': 38} | forcedBy {'keeper(purse)': 6, 'class:Wi(purse)': 6, 'keeper': 1, 'class:Wi': 1}
+== qr-s3-u285  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 5 final-path 0 at final opportunity 0 | progress at close p50 0.034 p90 0.059 | closing price p50 ₹1150L | min purse while unmet p10 ₹3897L p50 ₹9300L, ≤₹40L in 5/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.158 p90 0.235 | closing price p50 ₹1000L | min purse while unmet p10 ₹1246L p50 ₹3450L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.087 p90 0.226 | closing price p50 ₹900L | min purse while unmet p10 ₹1150L p50 ₹3000L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹800L p50 ₹2270L, ≤₹40L in 5/500
+  forced 11/52474 (won 5) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 52470, 'WARNING': 4} | planner completion {'NEED': 35065, 'SAFE': 17401, 'CRITICAL': 8} | forcedBy {'keeper(purse)': 11, 'class:Wi(purse)': 11}
+== qr-s3-u325  (n=500)  legal 500/500
+  keeper   closed 500/500 (main 500) | forced 5 final-path 0 at final opportunity 0 | progress at close p50 0.031 p90 0.053 | closing price p50 ₹1150L | min purse while unmet p10 ₹4250L p50 ₹9650L, ≤₹40L in 5/500
+  bowling  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.170 p90 0.245 | closing price p50 ₹925L | min purse while unmet p10 ₹1000L p50 ₹2850L, ≤₹40L in 0/500
+  indians  closed 500/500 (main 500) | forced 0 final-path 0 at final opportunity 0 | progress at close p50 0.087 p90 0.232 | closing price p50 ₹900L | min purse while unmet p10 ₹1050L p50 ₹2825L, ≤₹40L in 0/500
+  any requirement unmet: min purse p10 ₹650L p50 ₹1950L, ≤₹40L in 5/500
+  forced 12/48075 (won 5) | final-path forced 0 (won 0) | re-auction forced 0 | already infeasible 0 | shield states {'SAFE': 48074, 'WARNING': 1} | planner completion {'NEED': 34663, 'SAFE': 13407, 'CRITICAL': 5} | forcedBy {'keeper(purse)': 12, 'class:Wi(purse)': 12}
