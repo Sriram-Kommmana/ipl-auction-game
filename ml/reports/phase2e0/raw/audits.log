@@ -1,0 +1,24 @@
+AUDIT fallback suites (existing production-contract checks, all 15 exports)
+PPO production contract: 24/24 checks passed over 3 policies (54 real decision states)
+exit 0
+A2C production contract: 24/24 checks passed over 3 policies (54 real decision states)
+exit 0
+D3QN production contract: 30/30 checks passed over 3 policies (54 real decision states)
+exit 0
+QR-DQN production contract: 30/30 checks passed over 3 policies (54 real decision states)
+exit 0
+OpenAI-ES production contract: 30/30 checks passed over 3 policies (54 real decision states)
+exit 0
+AUDIT parity (real Stage-B states)
+dump exit 0
+parity exit 0
+PRODUCTION PARITY: PASS
+AUDIT performance (real clock, production guard unmodified)
+{"workers":1,"episodes":40,"rlDecisions":71696,"perSec":"3015","all":{"n":71696,"p50":0.05370000000038999,"p95":0.4076999999997497,"p99":0.5374999999994543,"max":3.9979999999995925,"mean":0.13083120955143668,"over20ms":0,"over5ms":0},"trips":0,"otherFallbackReasons":[]}
+{"workers":1,"episodes":40,"rlDecisions":71604,"perSec":"3002","all":{"n":71604,"p50":0.05490000000099826,"p95":0.4102999999995518,"p99":0.5355000000017753,"max":8.155699999999342,"mean":0.13180838360985483,"over20ms":0,"over5ms":1},"trips":0,"otherFallbackReasons":[]}
+{"workers":1,"episodes":40,"rlDecisions":71548,"perSec":"2973","all":{"n":71548,"p50":0.05400000000008731,"p95":0.404500000000553,"p99":0.528599999997823,"max":1.8719999999993888,"mean":0.13122272460445797,"over20ms":0,"over5ms":0},"trips":0,"otherFallbackReasons":[]}
+{"workers":14,"episodes":168,"rlDecisions":297220,"perSec":"19207","all":{"n":297220,"p50":0.11319999999977881,"p95":0.8119999999998981,"p99":1.1524999999999181,"max":19.50380000000007,"mean":0.2711714393378586,"over20ms":0,"over5ms":265},"trips":8,"otherFallbackReasons":[]}
+{"workers":14,"episodes":168,"rlDecisions":298037,"perSec":"18800","all":{"n":298037,"p50":0.11349999999947613,"p95":0.8243000000002212,"p99":1.1638999999995576,"max":19.36570000000006,"mean":0.27535870982460947,"over20ms":0,"over5ms":293},"trips":7,"otherFallbackReasons":[]}
+{"workers":4,"episodes":80,"rlDecisions":143176,"perSec":"10754","all":{"n":143176,"p50":0.058100000000194996,"p95":0.4359999999999218,"p99":0.5985999999999194,"max":3.9956999999999425,"mean":0.14002252193104645,"over20ms":0,"over5ms":0},"trips":0,"otherFallbackReasons":[]}
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · 25 frozen files unchanged (and clean vs git HEAD) · 15 exports + checkpoints unchanged
+AUDITSDONE

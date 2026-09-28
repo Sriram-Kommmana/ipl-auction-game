@@ -1,0 +1,125 @@
+{
+ "summary": "Every re-run episode is identical to the original \u2014 auction history, learner actions, opponent actions (digests), all metrics and summaries.",
+ "smokeTwoWorkerCounts": [
+  {
+   "result": "IDENTICAL",
+   "episodes": 300,
+   "full": "ml/runs/_2e0/smoke/A_a.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/A_b.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 300,
+   "full": "ml/runs/_2e0/smoke/C1_a.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/C1_b.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 300,
+   "full": "ml/runs/_2e0/smoke/C4_a.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/C4_b.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 100,
+   "full": "ml/runs/_2e0/smoke/S4_a.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/S4_b.jsonl"
+  }
+ ],
+ "subsetRerunVsFullRun": [
+  {
+   "result": "IDENTICAL",
+   "episodes": 750,
+   "full": "ml/runs/_2e0/full/A.jsonl",
+   "rerun": "ml/runs/_2e0/repro/A.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 5400,
+   "full": "ml/runs/_2e0/full/C1.jsonl",
+   "rerun": "ml/runs/_2e0/repro/C1.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 5400,
+   "full": "ml/runs/_2e0/full/C4.jsonl",
+   "rerun": "ml/runs/_2e0/repro/C4.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 1500,
+   "full": "ml/runs/_2e0/full/S4.jsonl",
+   "rerun": "ml/runs/_2e0/repro/S4.jsonl"
+  }
+ ],
+ "smokeVsFullRun": [
+  {
+   "result": "IDENTICAL",
+   "episodes": 300,
+   "full": "ml/runs/_2e0/full/A.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/A_a.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 300,
+   "full": "ml/runs/_2e0/full/C1.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/C1_a.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 300,
+   "full": "ml/runs/_2e0/full/C4.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/C4_a.jsonl"
+  },
+  {
+   "result": "IDENTICAL",
+   "episodes": 100,
+   "full": "ml/runs/_2e0/full/S4.jsonl",
+   "rerun": "ml/runs/_2e0/smoke/S4_a.jsonl"
+  }
+ ],
+ "preStopC4VsRestartedC4": [
+  {
+   "result": "IDENTICAL",
+   "episodes": 6280,
+   "full": "ml/runs/_2e0/full/C4.jsonl",
+   "rerun": "ml/runs/_2e0/full/stopped_C4/C4.jsonl"
+  }
+ ],
+ "stageARegression": [
+  "ppo:s1    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 92.5462 (stored 92.5462)",
+  "ppo:s2    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 92.6889 (stored 92.6889)",
+  "ppo:s3    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 92.5491 (stored 92.5491)",
+  "a2c:s1    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 90.3998 (stored 90.3998)",
+  "a2c:s2    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 90.4802 (stored 90.4802)",
+  "a2c:s3    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 90.4011 (stored 90.4011)",
+  "d3qn:s1   500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.4453 (stored 91.4453)",
+  "d3qn:s2   500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.6991 (stored 91.6991)",
+  "d3qn:s3   500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.3245 (stored 91.3245)",
+  "qrdqn:s1  500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.8095 (stored 91.8095)",
+  "qrdqn:s2  500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.7944 (stored 91.7944)",
+  "qrdqn:s3  500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.9564 (stored 91.9564)",
+  "es:s1     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.0718 (stored 91.0718)",
+  "es:s2     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.1100 (stored 91.1100)",
+  "es:s3     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.0220 (stored 91.0220)",
+  "ppo    three-seed XI 92.595 \u00b1 0.082  (reported 92.595 \u00b1 0.082)  match: True",
+  "a2c    three-seed XI 90.427 \u00b1 0.046  (reported 90.427 \u00b1 0.046)  match: True",
+  "d3qn   three-seed XI 91.490 \u00b1 0.191  (reported 91.490 \u00b1 0.191)  match: True",
+  "qrdqn  three-seed XI 91.853 \u00b1 0.089  (reported 91.853 \u00b1 0.089)  match: True",
+  "es     three-seed XI 91.068 \u00b1 0.044  (reported 91.068 \u00b1 0.044)  match: True",
+  "STAGE-A REGRESSION: PASS"
+ ],
+ "fixed": [
+  "validation manifest entries (500)",
+  "15 export files (sha256 in frozen-hashes.json)",
+  "IplAuctionEnv-v2 / obs 629b25783f833af7 / act-v3 5f72f510c48b1f46",
+  "seat composition (seed-derived, depends on the auction seed only)",
+  "selection: PPO/A2C temperature 0.3, others argmax",
+  "tremble 0",
+  "deterministic opponent clock"
+ ],
+ "totals": {
+  "episodesCompared": 21330,
+  "identical": true
+ }
+}

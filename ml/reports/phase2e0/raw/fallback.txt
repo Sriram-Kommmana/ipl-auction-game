@@ -1,0 +1,25 @@
+  ml/runs/ppo-2c3-s1/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.276 ms/decision
+  ml/runs/ppo-2c3-s2/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.277 ms/decision
+  ml/runs/ppo-2c3-s3/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.271 ms/decision
+PPO production contract: 24/24 checks passed over 3 policies (54 real decision states)
+exit 0
+  ml/runs/a2c-2d1-s1/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.292 ms/decision
+  ml/runs/a2c-2d1-s2/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.277 ms/decision
+  ml/runs/a2c-2d1-s3/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.278 ms/decision
+A2C production contract: 24/24 checks passed over 3 policies (54 real decision states)
+exit 0
+  ml/runs/d3qn-2d2-s1/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.345 ms/decision
+  ml/runs/d3qn-2d2-s2/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.330 ms/decision
+  ml/runs/d3qn-2d2-s3/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.299 ms/decision
+D3QN production contract: 30/30 checks passed over 3 policies (54 real decision states)
+exit 0
+  ml/runs/qr-dqn-2d3-s1/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.332 ms/decision
+  ml/runs/qr-dqn-2d3-s2/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.323 ms/decision
+  ml/runs/qr-dqn-2d3-s3/checkpoints/update_0325/policy.json: 54 healthy decisions, 0.313 ms/decision
+QR-DQN production contract: 30/30 checks passed over 3 policies (54 real decision states)
+exit 0
+  ml/runs/openai-es-2d4-s1/checkpoints/gen_2000/policy.json: per decision p50 0.274 p95 0.464 p99 0.583 max 1.430 ms (n=2160); 9 seats per lot p50 2.066 p95 3.045 p99 3.846 max 4.989 ms (n=1080)
+  ml/runs/openai-es-2d4-s2/checkpoints/gen_2000/policy.json: per decision p50 0.230 p95 0.352 p99 0.435 max 0.704 ms (n=2160); 9 seats per lot p50 1.971 p95 2.899 p99 3.751 max 4.213 ms (n=1080)
+  ml/runs/openai-es-2d4-s3/checkpoints/gen_2000/policy.json: per decision p50 0.228 p95 0.349 p99 0.450 max 0.873 ms (n=2160); 9 seats per lot p50 1.924 p95 2.834 p99 3.715 max 4.200 ms (n=1080)
+OpenAI-ES production contract: 30/30 checks passed over 3 policies (54 real decision states)
+exit 0

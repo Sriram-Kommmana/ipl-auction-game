@@ -1,0 +1,134 @@
+{
+  "clock": "real (production default), 20 ms guard unmodified",
+  "workers": 14,
+  "cpus": 16,
+  "entriesPerWorker": 12,
+  "episodes": 168,
+  "wallSeconds": 15.474661699999999,
+  "rlDecisions": 297220,
+  "rlDecisionsPerSecond": 19206.881918459,
+  "episodesPerSecond": 10.856457042934904,
+  "all": {
+    "n": 297220,
+    "p50": 0.11319999999977881,
+    "p95": 0.8119999999998981,
+    "p99": 1.1524999999999181,
+    "max": 19.50380000000007,
+    "mean": 0.2711714393378586,
+    "over20ms": 0,
+    "over5ms": 265
+  },
+  "byAlgo": {
+    "ppo": {
+      "n": 59076,
+      "p50": 0.3768000000000029,
+      "p95": 0.8863999999994121,
+      "p99": 1.3427000000001499,
+      "max": 17.7650000000001,
+      "mean": 0.3963269788069442,
+      "over20ms": 0,
+      "over5ms": 68
+    },
+    "a2c": {
+      "n": 60092,
+      "p50": 0.11880000000019209,
+      "p95": 0.7005000000008295,
+      "p99": 1.019800000000032,
+      "max": 17.872799999999188,
+      "mean": 0.22578433734939693,
+      "over20ms": 0,
+      "over5ms": 37
+    },
+    "d3qn": {
+      "n": 59037,
+      "p50": 0.09100000000034925,
+      "p95": 0.8284999999996217,
+      "p99": 1.1304000000000087,
+      "max": 19.50380000000007,
+      "mean": 0.24781352880396787,
+      "over20ms": 0,
+      "over5ms": 56
+    },
+    "qrdqn": {
+      "n": 60040,
+      "p50": 0.09259999999994761,
+      "p95": 0.863100000000486,
+      "p99": 1.2330000000001746,
+      "max": 17.57910000000004,
+      "mean": 0.27257200199866627,
+      "over20ms": 0,
+      "over5ms": 70
+    },
+    "es": {
+      "n": 58975,
+      "p50": 0.1143000000010943,
+      "p95": 0.6428000000000793,
+      "p99": 0.9530000000004293,
+      "max": 17.252699999999095,
+      "mean": 0.2140049156422249,
+      "over20ms": 0,
+      "over5ms": 34
+    }
+  },
+  "guardTrips": [
+    {
+      "algo": "ppo",
+      "key": "ppo:s1",
+      "seed": 100174,
+      "seat": 4,
+      "reason": "inference took 25.1 ms"
+    },
+    {
+      "algo": "es",
+      "key": "es:s1",
+      "seed": 100198,
+      "seat": 6,
+      "reason": "inference took 22.7 ms"
+    },
+    {
+      "algo": "d3qn",
+      "key": "d3qn:s1",
+      "seed": 100210,
+      "seat": 1,
+      "reason": "inference took 20.1 ms"
+    },
+    {
+      "algo": "qrdqn",
+      "key": "qrdqn:s1",
+      "seed": 100258,
+      "seat": 4,
+      "reason": "inference took 29.0 ms"
+    },
+    {
+      "algo": "d3qn",
+      "key": "d3qn:s1",
+      "seed": 100270,
+      "seat": 7,
+      "reason": "inference took 26.9 ms"
+    },
+    {
+      "algo": "es",
+      "key": "es:s1",
+      "seed": 100294,
+      "seat": 0,
+      "reason": "inference took 28.4 ms"
+    },
+    {
+      "algo": "ppo",
+      "key": "ppo:s3",
+      "seed": 100305,
+      "seat": 2,
+      "reason": "inference took 20.7 ms"
+    },
+    {
+      "algo": "d3qn",
+      "key": "d3qn:s1",
+      "seed": 100306,
+      "seat": 7,
+      "reason": "inference took 22.6 ms"
+    }
+  ],
+  "ruleDecisionsAfterTrips": 3492,
+  "otherFallbacks": 0,
+  "otherFallbackReasons": []
+}

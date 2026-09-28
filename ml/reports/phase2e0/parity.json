@@ -1,0 +1,1393 @@
+{
+ "pass": true,
+ "exports": {
+  "ppo:s1": {
+   "states": 2588,
+   "stageBStates": 2178,
+   "fixtureStates": 410,
+   "learnerStates": 313,
+   "opponentStates": 1865,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 5.329070518200751e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": null,
+   "maxAbsProbDiffT03": 2.6645352591003757e-15,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1866,
+    "main": 1866,
+    "reauction": 722,
+    "lowPurse\u2264200": 1576,
+    "highPurse\u22659000": 198,
+    "keeperNeeded": 297,
+    "indianNeeded": 589,
+    "bowlingNeeded": 527,
+    "forced": 6,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1866,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1866,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 722,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 1576,
+     "maxAbsScoreDiff": 4.440892098500626e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 198,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 297,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 589,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 527,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 6,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "ppo:s2": {
+   "states": 4355,
+   "stageBStates": 3945,
+   "fixtureStates": 410,
+   "learnerStates": 532,
+   "opponentStates": 3413,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 5.329070518200751e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": null,
+   "maxAbsProbDiffT03": 2.9976021664879227e-15,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1684,
+    "main": 1684,
+    "reauction": 2671,
+    "lowPurse\u2264200": 1532,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 153,
+    "indianNeeded": 627,
+    "bowlingNeeded": 598,
+    "forced": 6,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1684,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1684,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 2671,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 1532,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 153,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 627,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 598,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 6,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "ppo:s3": {
+   "states": 3061,
+   "stageBStates": 2651,
+   "fixtureStates": 410,
+   "learnerStates": 490,
+   "opponentStates": 2161,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 5.329070518200751e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": null,
+   "maxAbsProbDiffT03": 2.55351295663786e-15,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 2661,
+    "main": 2661,
+    "reauction": 400,
+    "lowPurse\u2264200": 2446,
+    "highPurse\u22659000": 166,
+    "keeperNeeded": 1325,
+    "indianNeeded": 1059,
+    "bowlingNeeded": 540,
+    "forced": 6,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 2661,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 2661,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 400,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 2446,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 166,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 1325,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 1059,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 540,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 6,
+     "maxAbsScoreDiff": 4.440892098500626e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 4.440892098500626e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "a2c:s1": {
+   "states": 1261,
+   "stageBStates": 851,
+   "fixtureStates": 410,
+   "learnerStates": 145,
+   "opponentStates": 706,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 1.3322676295501878e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": null,
+   "maxAbsProbDiffT03": 8.881784197001252e-16,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1122,
+    "main": 1138,
+    "reauction": 123,
+    "lowPurse\u2264200": 710,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 809,
+    "indianNeeded": 527,
+    "bowlingNeeded": 524,
+    "forced": 22,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1122,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1138,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 710,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 809,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 527,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 524,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 22,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 6.661338147750939e-16,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "a2c:s2": {
+   "states": 2281,
+   "stageBStates": 1871,
+   "fixtureStates": 410,
+   "learnerStates": 292,
+   "opponentStates": 1579,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 1.7763568394002505e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": null,
+   "maxAbsProbDiffT03": 1.3877787807814457e-15,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 2096,
+    "main": 2158,
+    "reauction": 123,
+    "lowPurse\u2264200": 1730,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 1546,
+    "indianNeeded": 567,
+    "bowlingNeeded": 543,
+    "forced": 68,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 2096,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 2158,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 1.1102230246251565e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 1730,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 1546,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 567,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 543,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 68,
+     "maxAbsScoreDiff": 6.661338147750939e-16,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 6.661338147750939e-16,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "a2c:s3": {
+   "states": 1237,
+   "stageBStates": 827,
+   "fixtureStates": 410,
+   "learnerStates": 124,
+   "opponentStates": 703,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 2.220446049250313e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": null,
+   "maxAbsProbDiffT03": 9.992007221626409e-16,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1097,
+    "main": 1114,
+    "reauction": 123,
+    "lowPurse\u2264200": 686,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 776,
+    "indianNeeded": 537,
+    "bowlingNeeded": 532,
+    "forced": 23,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1097,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1114,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 686,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 1.3322676295501878e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 776,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 537,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 532,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 23,
+     "maxAbsScoreDiff": 8.881784197001252e-16,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 3.3306690738754696e-16,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "d3qn:s1": {
+   "states": 3944,
+   "stageBStates": 3534,
+   "fixtureStates": 410,
+   "learnerStates": 594,
+   "opponentStates": 2940,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 2.1316282072803006e-14,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 3569,
+    "main": 3572,
+    "reauction": 372,
+    "lowPurse\u2264200": 3393,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 1906,
+    "indianNeeded": 758,
+    "bowlingNeeded": 625,
+    "forced": 9,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 3569,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 3572,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 372,
+     "maxAbsScoreDiff": 6.661338147750939e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 3393,
+     "maxAbsScoreDiff": 5.773159728050814e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 1906,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 758,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 625,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 9,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 2.55351295663786e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "d3qn:s2": {
+   "states": 1746,
+   "stageBStates": 1336,
+   "fixtureStates": 410,
+   "learnerStates": 320,
+   "opponentStates": 1016,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 2.4868995751603507e-14,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1561,
+    "main": 1623,
+    "reauction": 123,
+    "lowPurse\u2264200": 1195,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 1115,
+    "indianNeeded": 999,
+    "bowlingNeeded": 548,
+    "forced": 68,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1561,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1623,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 1.1546319456101628e-14,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 1195,
+     "maxAbsScoreDiff": 3.9968028886505635e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 1115,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 999,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 548,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 68,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 1.2212453270876722e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "d3qn:s3": {
+   "states": 3734,
+   "stageBStates": 3324,
+   "fixtureStates": 410,
+   "learnerStates": 555,
+   "opponentStates": 2769,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 2.3092638912203256e-14,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 3215,
+    "main": 3216,
+    "reauction": 518,
+    "lowPurse\u2264200": 3183,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 958,
+    "indianNeeded": 1035,
+    "bowlingNeeded": 623,
+    "forced": 12,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 3215,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 3216,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 518,
+     "maxAbsScoreDiff": 6.661338147750939e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 3183,
+     "maxAbsScoreDiff": 5.773159728050814e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 958,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 1035,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 623,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 12,
+     "maxAbsScoreDiff": 4.884981308350689e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 2.4424906541753444e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "qrdqn:s1": {
+   "states": 3806,
+   "stageBStates": 3396,
+   "fixtureStates": 410,
+   "learnerStates": 821,
+   "opponentStates": 2575,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 7.105427357601002e-15,
+   "maxAbsRawQuantileDiff": 7.105427357601002e-15,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 3508,
+    "main": 3529,
+    "reauction": 277,
+    "lowPurse\u2264200": 3255,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 749,
+    "indianNeeded": 1124,
+    "bowlingNeeded": 562,
+    "forced": 27,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 3508,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 3529,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 277,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 3255,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 749,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 1124,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 562,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 27,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "qrdqn:s2": {
+   "states": 2380,
+   "stageBStates": 1970,
+   "fixtureStates": 410,
+   "learnerStates": 343,
+   "opponentStates": 1627,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 5.329070518200751e-15,
+   "maxAbsRawQuantileDiff": 7.105427357601002e-15,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1902,
+    "main": 1922,
+    "reauction": 458,
+    "lowPurse\u2264200": 1777,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 957,
+    "indianNeeded": 573,
+    "bowlingNeeded": 546,
+    "forced": 34,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1902,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1922,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 458,
+     "maxAbsScoreDiff": 2.220446049250313e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 1777,
+     "maxAbsScoreDiff": 8.881784197001252e-16,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 957,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 573,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 546,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 34,
+     "maxAbsScoreDiff": 8.881784197001252e-16,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 8.881784197001252e-16,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "qrdqn:s3": {
+   "states": 1646,
+   "stageBStates": 1236,
+   "fixtureStates": 410,
+   "learnerStates": 248,
+   "opponentStates": 988,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 7.105427357601002e-15,
+   "maxAbsRawQuantileDiff": 7.105427357601002e-15,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 1491,
+    "main": 1523,
+    "reauction": 123,
+    "lowPurse\u2264200": 1095,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 437,
+    "indianNeeded": 1065,
+    "bowlingNeeded": 551,
+    "forced": 38,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 1491,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 1523,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 1095,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 437,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 1065,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 551,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 38,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 1.7763568394002505e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "es:s1": {
+   "states": 1010,
+   "stageBStates": 600,
+   "fixtureStates": 410,
+   "learnerStates": 124,
+   "opponentStates": 476,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 8.881784197001252e-15,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 882,
+    "main": 887,
+    "reauction": 123,
+    "lowPurse\u2264200": 216,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 568,
+    "indianNeeded": 711,
+    "bowlingNeeded": 598,
+    "forced": 11,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 882,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 887,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 8.43769498715119e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 216,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 568,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 711,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 598,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 11,
+     "maxAbsScoreDiff": 6.217248937900877e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "es:s2": {
+   "states": 1010,
+   "stageBStates": 600,
+   "fixtureStates": 410,
+   "learnerStates": 148,
+   "opponentStates": 452,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 1.1102230246251565e-14,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 820,
+    "main": 820,
+    "reauction": 190,
+    "lowPurse\u2264200": 309,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 436,
+    "indianNeeded": 622,
+    "bowlingNeeded": 552,
+    "forced": 6,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 820,
+     "maxAbsScoreDiff": 1.1102230246251565e-14,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 820,
+     "maxAbsScoreDiff": 1.1102230246251565e-14,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 190,
+     "maxAbsScoreDiff": 7.993605777301127e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 309,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 436,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 622,
+     "maxAbsScoreDiff": 1.1102230246251565e-14,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 552,
+     "maxAbsScoreDiff": 1.1102230246251565e-14,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 6,
+     "maxAbsScoreDiff": 6.217248937900877e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 4.440892098500626e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  },
+  "es:s3": {
+   "states": 1010,
+   "stageBStates": 600,
+   "fixtureStates": 410,
+   "learnerStates": 111,
+   "opponentStates": 489,
+   "exportFidelityMaxAbs": 0.0,
+   "identifiers": {
+    "algorithm": true,
+    "head": true,
+    "selection": true,
+    "obsHash": true,
+    "actHash": true
+   },
+   "maxAbsScoreDiff": 1.0658141036401503e-14,
+   "maxAbsRawQuantileDiff": null,
+   "playedScoresVsLoaderMaxAbs": 0.0,
+   "argmaxAgreementByMask": {
+    "real": 1.0,
+    "passOnly": 1.0,
+    "single": 1.0,
+    "allLegal": 1.0
+   },
+   "recordedChoiceAgreement": 1.0,
+   "maxAbsProbDiffT03": null,
+   "recordedChoicesLegal": true,
+   "categories": {
+    "normal": 878,
+    "main": 887,
+    "reauction": 123,
+    "lowPurse\u2264200": 160,
+    "highPurse\u22659000": 150,
+    "keeperNeeded": 578,
+    "indianNeeded": 734,
+    "bowlingNeeded": 616,
+    "forced": 15,
+    "finalPath": 3
+   },
+   "byCategory": {
+    "normal": {
+     "n": 878,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0
+    },
+    "main": {
+     "n": 887,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0
+    },
+    "reauction": {
+     "n": 123,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0
+    },
+    "lowPurse\u2264200": {
+     "n": 160,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0
+    },
+    "highPurse\u22659000": {
+     "n": 150,
+     "maxAbsScoreDiff": 9.325873406851315e-15,
+     "argmaxAgreement": 1.0
+    },
+    "keeperNeeded": {
+     "n": 578,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0
+    },
+    "indianNeeded": {
+     "n": 734,
+     "maxAbsScoreDiff": 9.769962616701378e-15,
+     "argmaxAgreement": 1.0
+    },
+    "bowlingNeeded": {
+     "n": 616,
+     "maxAbsScoreDiff": 9.769962616701378e-15,
+     "argmaxAgreement": 1.0
+    },
+    "forced": {
+     "n": 15,
+     "maxAbsScoreDiff": 6.217248937900877e-15,
+     "argmaxAgreement": 1.0
+    },
+    "finalPath": {
+     "n": 3,
+     "maxAbsScoreDiff": 6.217248937900877e-15,
+     "argmaxAgreement": 1.0
+    }
+   },
+   "pass": true
+  }
+ },
+ "fallbackSuites": [
+  "PPO production contract: 24/24 checks passed over 3 policies (54 real decision states)",
+  "A2C production contract: 24/24 checks passed over 3 policies (54 real decision states)",
+  "D3QN production contract: 30/30 checks passed over 3 policies (54 real decision states)",
+  "QR-DQN production contract: 30/30 checks passed over 3 policies (54 real decision states)",
+  "OpenAI-ES production contract: 30/30 checks passed over 3 policies (54 real decision states)"
+ ],
+ "note": "training checkpoint (float64 Python) \u2192 exported rl-policy-v2 JSON \u2192 production loader + JavaScript inference, on real Stage-B learner and opponent states plus the Stage-A final-path fixture; masked argmax under real / PASS-only / single-legal / all-legal masks; D3QN/QR-DQN/ES recorded production choices vs Python argmax; PPO/A2C temperature-0.3 distributions."
+}

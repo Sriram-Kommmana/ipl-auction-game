@@ -1,0 +1,164 @@
+{
+ "summary": "Hard stops (illegal / masked action reaching the simulator, purse / squad / overseas / duplicate violations, NaN/Infinity, crash, deadlock, wrong model, opponent fallback, nondeterminism, hash mismatch): 0 across 195,000 cross-play episodes after the approved Option A restart. One earlier C4 stop (incomplete XI, seed 100490) was investigated, found to be legal policy behaviour, and led to Option A; C4 was rerun from scratch.",
+ "episodes": {
+  "A": 7500,
+  "C1": 90000,
+  "C4": 90000,
+  "S4": 7500
+ },
+ "perCondition": {
+  "A": {
+   "invariantViolations": 0,
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "ruleBotIncompleteXI": 0,
+   "ruleFallbackIncompleteXI": 0,
+   "humanProxyIncompleteXI": 3165,
+   "opponentFallbacks": 0,
+   "opponentRlDecisions": 0,
+   "learnerDecisions": 790640,
+   "learnerLegalXI": "7500/7500",
+   "optionAFindings": {
+    "learnerIncompleteXI": 0,
+    "rlOpponentIncompleteXI": 0,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   }
+  },
+  "C1": {
+   "invariantViolations": 0,
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "ruleBotIncompleteXI": 0,
+   "ruleFallbackIncompleteXI": 0,
+   "humanProxyIncompleteXI": 37980,
+   "opponentFallbacks": 0,
+   "opponentRlDecisions": 11335475,
+   "learnerDecisions": 11317433,
+   "learnerLegalXI": "90000/90000",
+   "optionAFindings": {
+    "learnerIncompleteXI": 0,
+    "rlOpponentIncompleteXI": 0,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   }
+  },
+  "C4": {
+   "invariantViolations": 0,
+   "learnerIncompleteXI": 10,
+   "rlOpponentIncompleteXI": 10,
+   "ruleBotIncompleteXI": 0,
+   "ruleFallbackIncompleteXI": 0,
+   "humanProxyIncompleteXI": 37980,
+   "opponentFallbacks": 0,
+   "opponentRlDecisions": 64906717,
+   "learnerDecisions": 12307579,
+   "learnerLegalXI": "89990/90000",
+   "optionAFindings": {
+    "learnerIncompleteXI": 10,
+    "rlOpponentIncompleteXI": 10,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   }
+  },
+  "S4": {
+   "invariantViolations": 0,
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "ruleBotIncompleteXI": 0,
+   "ruleFallbackIncompleteXI": 0,
+   "humanProxyIncompleteXI": 3165,
+   "opponentFallbacks": 0,
+   "opponentRlDecisions": 4393964,
+   "learnerDecisions": 1100917,
+   "learnerLegalXI": "7500/7500",
+   "optionAFindings": {
+    "learnerIncompleteXI": 0,
+    "rlOpponentIncompleteXI": 0,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   }
+  }
+ },
+ "hardStopCounters": {
+  "illegalOrMaskedActionReachingSimulator": 0,
+  "purseViolations": 0,
+  "squadOver25": 0,
+  "overseasOver8": 0,
+  "duplicatePurchases": 0,
+  "invariantViolations": 0,
+  "nanOrInfinity": 0,
+  "crashes": 0,
+  "deadlocks": 0,
+  "wrongModel": 0,
+  "opponentRuntimeFallbacks": 0,
+  "defectScreenFailures": 0,
+  "note": "Every counter is enforced as a hard stop inside the harness (a masked learner action or any non-RL opponent decision throws; auditAuction checks purse, squad \u2264 25, overseas \u2264 8, duplicates, sale validity, XI legality and the lot budget for EVERY team). A run that finishes therefore has all of them at 0."
+ },
+ "optionAFindings": {
+  "total": 20,
+  "byCondition": {
+   "C4": 20
+  },
+  "byType": {
+   "rlSnapshot": 10,
+   "learner": 10
+  },
+  "byExport": {
+   "d3qn:s1": 1,
+   "d3qn:s3": 1,
+   "qrdqn:s2": 12,
+   "a2c:s1": 2,
+   "a2c:s2": 1,
+   "es:s1": 1,
+   "es:s2": 1,
+   "es:s3": 1
+  },
+  "byAlgorithm": {
+   "d3qn": 2,
+   "qrdqn": 12,
+   "a2c": 3,
+   "es": 3
+  },
+  "byConditionAndAlgorithm": {
+   "C4 d3qn (rlSnapshot)": 2,
+   "C4 qrdqn (rlSnapshot)": 8,
+   "C4 a2c (learner)": 3,
+   "C4 qrdqn (learner)": 4,
+   "C4 es (learner)": 3
+  },
+  "byStratum": {
+   "high": 19,
+   "normal": 1
+  },
+  "screenPassed": 20,
+  "plainReplayIdentical": 20
+ },
+ "optionAFindingsList": "findings.json (each with a per-seat shield trace in findings/)",
+ "decisionsChecked": {
+  "A": {
+   "learner": 790640,
+   "opponentRL": 0
+  },
+  "C1": {
+   "learner": 11317433,
+   "opponentRL": 11335475
+  },
+  "C4": {
+   "learner": 12307579,
+   "opponentRL": 64906717
+  },
+  "S4": {
+   "learner": 1100917,
+   "opponentRL": 4393964
+  }
+ },
+ "stoppedC4": {
+  "stop": "INCOMPLETE XI (opponent d3qn:s1, seat 4) seed 100490 cond C4",
+  "investigation": "safety_stop_C4.md",
+  "cleanEpisodesBeforeStop": 6280
+ },
+ "fallbackSuites": [
+  "PPO production contract: 24/24 checks passed over 3 policies (54 real decision states)",
+  "A2C production contract: 24/24 checks passed over 3 policies (54 real decision states)",
+  "D3QN production contract: 30/30 checks passed over 3 policies (54 real decision states)",
+  "QR-DQN production contract: 30/30 checks passed over 3 policies (54 real decision states)",
+  "OpenAI-ES production contract: 30/30 checks passed over 3 policies (54 real decision states)"
+ ]
+}

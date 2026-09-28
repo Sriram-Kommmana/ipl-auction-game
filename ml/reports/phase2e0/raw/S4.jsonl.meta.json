@@ -1,0 +1,15 @@
+{
+  "cond": "S4",
+  "episodes": 7500,
+  "workers": 14,
+  "seconds": 679.93,
+  "episodesPerSecond": 11.030547262218171,
+  "limit": 500,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "seedPairs": "all",
+  "hashesVerified": true
+}

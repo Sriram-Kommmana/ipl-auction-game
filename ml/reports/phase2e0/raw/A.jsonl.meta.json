@@ -1,0 +1,15 @@
+{
+  "cond": "A",
+  "episodes": 7500,
+  "workers": 14,
+  "seconds": 753.479,
+  "episodesPerSecond": 9.953827512113808,
+  "limit": 500,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "seedPairs": "all",
+  "hashesVerified": true
+}

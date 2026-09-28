@@ -1,0 +1,114 @@
+{
+ "episodes": {
+  "A": 7500,
+  "C1": 90000,
+  "C4": 90000,
+  "S4": 7500
+ },
+ "A": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 0,
+  "rlOpponentIncompleteXI": 0,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 3165,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 0,
+  "learnerDecisions": 790640,
+  "learnerLegalXI": "7500/7500",
+  "optionAFindings": {
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ },
+ "C1": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 0,
+  "rlOpponentIncompleteXI": 0,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 37980,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 11335475,
+  "learnerDecisions": 11317433,
+  "learnerLegalXI": "90000/90000",
+  "optionAFindings": {
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ },
+ "C4": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 10,
+  "rlOpponentIncompleteXI": 10,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 37980,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 64906717,
+  "learnerDecisions": 12307579,
+  "learnerLegalXI": "89990/90000",
+  "optionAFindings": {
+   "learnerIncompleteXI": 10,
+   "rlOpponentIncompleteXI": 10,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ },
+ "S4": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 0,
+  "rlOpponentIncompleteXI": 0,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 3165,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 4393964,
+  "learnerDecisions": 1100917,
+  "learnerLegalXI": "7500/7500",
+  "optionAFindings": {
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ }
+}
+Stage A ppo    92.595 ± 0.082
+Stage A a2c    90.427 ± 0.046
+Stage A d3qn   91.490 ± 0.191
+Stage A qrdqn  91.853 ± 0.089
+Stage A es     91.068 ± 0.044
+
+C1 transfer Δ (rows learner, cols opponent)
+                       ppo               a2c              d3qn             qrdqn                es
+ppo                      — -1.648 [-1.68,-1.61] -2.143 [-2.18,-2.11] -2.254 [-2.29,-2.22] -1.739 [-1.77,-1.71]
+a2c      -1.857 [-1.93,-1.79]                 — -3.472 [-3.54,-3.40] -3.423 [-3.49,-3.35] -2.401 [-2.47,-2.34]
+d3qn     -1.641 [-1.69,-1.59] -2.951 [-3.01,-2.90]                 — -3.562 [-3.62,-3.51] -2.232 [-2.28,-2.18]
+qrdqn    -1.521 [-1.57,-1.47] -2.769 [-2.82,-2.72] -3.312 [-3.36,-3.26]                 — -2.224 [-2.27,-2.18]
+es       -2.438 [-2.53,-2.35] -3.101 [-3.18,-3.02] -3.931 [-4.03,-3.84] -4.001 [-4.09,-3.92]                 —
+C1 head-to-head Δ
+ppo                      — +2.347 [+2.28,+2.41] +0.576 [+0.53,+0.62] -0.008 [-0.05,+0.03] +2.183 [+2.11,+2.26]
+a2c      -2.376 [-2.44,-2.31]                 — -1.580 [-1.64,-1.52] -2.079 [-2.13,-2.03] +0.076 [+0.01,+0.14]
+d3qn     -0.605 [-0.65,-0.56] +1.585 [+1.52,+1.64]                 — -0.597 [-0.64,-0.55] +2.110 [+2.04,+2.18]
+qrdqn    -0.015 [-0.06,+0.03] +2.071 [+2.02,+2.13] +0.614 [+0.57,+0.66]                 — +2.561 [+2.50,+2.62]
+es       -2.234 [-2.31,-2.16] -0.056 [-0.12,+0.01] -2.102 [-2.17,-2.03] -2.556 [-2.62,-2.50]                 —
+
+C4 transfer Δ (rows learner, cols opponent)
+                       ppo               a2c              d3qn             qrdqn                es
+ppo                      — -2.266 [-2.31,-2.23] -2.470 [-2.51,-2.43] -2.384 [-2.43,-2.34] -2.161 [-2.20,-2.12]
+a2c      -1.985 [-2.06,-1.91]                 — -5.162 [-5.24,-5.08] -4.794 [-4.87,-4.72] -2.929 [-3.00,-2.86]
+d3qn     -1.908 [-1.96,-1.85] -3.779 [-3.83,-3.73]                 — -5.067 [-5.13,-5.01] -2.401 [-2.46,-2.34]
+qrdqn    -1.859 [-1.91,-1.81] -3.632 [-3.68,-3.58] -4.959 [-5.01,-4.91]                 — -2.470 [-2.52,-2.42]
+es       -2.579 [-2.67,-2.49] -4.815 [-4.90,-4.73] -6.685 [-6.80,-6.58] -6.140 [-6.25,-6.03]                 —
+C4 head-to-head Δ
+ppo                      — +4.652 [+4.62,+4.69] +4.845 [+4.81,+4.88] +4.195 [+4.16,+4.23] +4.366 [+4.33,+4.40]
+a2c      +0.201 [+0.14,+0.26]                 — +0.468 [+0.42,+0.52] +0.169 [+0.11,+0.22] +1.351 [+1.31,+1.40]
+d3qn     +1.736 [+1.68,+1.79] +2.422 [+2.38,+2.47]                 — +1.143 [+1.10,+1.19] +3.242 [+3.20,+3.29]
+qrdqn    +2.207 [+2.16,+2.25] +2.949 [+2.90,+3.00] +2.059 [+2.02,+2.10]                 — +3.531 [+3.49,+3.57]
+es       +0.259 [+0.19,+0.33] +0.374 [+0.32,+0.43] -0.752 [-0.83,-0.67] -0.911 [-1.01,-0.82]                 —
+S4 ppo    XI 90.167 transfer -2.427 [-2.479395454545455, -2.377748484848485] rank 1.19 vs a2c +4.87 vs d3qn +3.48 vs qrdqn +2.64 vs es +5.87
+S4 a2c    XI 85.283 transfer -5.144 [-5.21939696969697, -5.067754545454545] rank 8.45 vs ppo -4.85 vs d3qn -1.39 vs qrdqn -2.24 vs es +1.05
+S4 d3qn   XI 86.670 transfer -4.820 [-4.892366666666667, -4.7539303030303035] rank 6.45 vs ppo -3.51 vs a2c +1.38 vs qrdqn -0.87 vs es +2.41
+S4 qrdqn  XI 87.512 transfer -4.341 [-4.408545454545455, -4.279271212121212] rank 5.15 vs ppo -2.67 vs a2c +2.22 vs d3qn +0.85 vs es +3.22
+S4 es     XI 84.239 transfer -6.829 [-6.941034848484847, -6.7193848484848475] rank 9.02 vs ppo -5.94 vs a2c -1.02 vs d3qn -2.45 vs qrdqn -3.28

@@ -1,0 +1,76 @@
+{
+ "episodes": {
+  "A": 7500,
+  "C1": 90000,
+  "C4": 90000,
+  "S4": 7500
+ },
+ "A": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 0,
+  "rlOpponentIncompleteXI": 0,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 3165,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 0,
+  "learnerDecisions": 790640,
+  "learnerLegalXI": "7500/7500",
+  "optionAFindings": {
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ },
+ "C1": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 0,
+  "rlOpponentIncompleteXI": 0,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 37980,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 11335475,
+  "learnerDecisions": 11317433,
+  "learnerLegalXI": "90000/90000",
+  "optionAFindings": {
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ },
+ "C4": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 10,
+  "rlOpponentIncompleteXI": 10,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 37980,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 64906717,
+  "learnerDecisions": 12307579,
+  "learnerLegalXI": "89990/90000",
+  "optionAFindings": {
+   "learnerIncompleteXI": 10,
+   "rlOpponentIncompleteXI": 10,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ },
+ "S4": {
+  "invariantViolations": 0,
+  "learnerIncompleteXI": 0,
+  "rlOpponentIncompleteXI": 0,
+  "ruleBotIncompleteXI": 0,
+  "ruleFallbackIncompleteXI": 0,
+  "humanProxyIncompleteXI": 3165,
+  "opponentFallbacks": 0,
+  "opponentRlDecisions": 4393964,
+  "learnerDecisions": 1100917,
+  "learnerLegalXI": "7500/7500",
+  "optionAFindings": {
+   "learnerIncompleteXI": 0,
+   "rlOpponentIncompleteXI": 0,
+   "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+  }
+ }
+}

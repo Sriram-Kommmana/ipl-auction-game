@@ -1,0 +1,23 @@
+ppo:s1    20/20 episodes identical to the stored Stage-A evaluator episodes  XI 92.5318 (stored 92.5318)
+ppo:s2    20/20 episodes identical to the stored Stage-A evaluator episodes  XI 92.6909 (stored 92.6909)
+ppo:s3    20/20 episodes identical to the stored Stage-A evaluator episodes  XI 92.5545 (stored 92.5545)
+a2c:s1    20/20 episodes identical to the stored Stage-A evaluator episodes  XI 90.5000 (stored 90.5000)
+a2c:s2    20/20 episodes identical to the stored Stage-A evaluator episodes  XI 90.8773 (stored 90.8773)
+a2c:s3    20/20 episodes identical to the stored Stage-A evaluator episodes  XI 90.6318 (stored 90.6318)
+d3qn:s1   20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.3909 (stored 91.3909)
+d3qn:s2   20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.6182 (stored 91.6182)
+d3qn:s3   20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.4091 (stored 91.4091)
+qrdqn:s1  20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.8091 (stored 91.8091)
+qrdqn:s2  20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.7409 (stored 91.7409)
+qrdqn:s3  20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.9727 (stored 91.9727)
+es:s1     20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.1727 (stored 91.1727)
+es:s2     20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.1545 (stored 91.1545)
+es:s3     20/20 episodes identical to the stored Stage-A evaluator episodes  XI 91.1364 (stored 91.1364)
+ppo    three-seed XI 92.592 ± 0.086  (reported 92.595 ± 0.082)  match: None
+a2c    three-seed XI 90.670 ± 0.191  (reported 90.427 ± 0.046)  match: None
+d3qn   three-seed XI 91.473 ± 0.126  (reported 91.490 ± 0.191)  match: None
+qrdqn  three-seed XI 91.841 ± 0.119  (reported 91.853 ± 0.089)  match: None
+es     three-seed XI 91.155 ± 0.018  (reported 91.068 ± 0.044)  match: None
+STAGE-A REGRESSION: PASS
+{"perExport": {"ppo:s1": {"episodes": 20, "identical": 20, "xi": 92.53181818181818, "storedXi": 92.53181818181818}, "ppo:s2": {"episodes": 20, "identical": 20, "xi": 92.69090909090909, "storedXi": 92.69090909090909}, "ppo:s3": {"episodes": 20, "identical": 20, "xi": 92.55454545454546, "storedXi": 92.55454545454546}, "a2c:s1": {"episodes": 20, "identical": 20, "xi": 90.5, "storedXi": 90.5}, "a2c:s2": {"episodes": 20, "identical": 20, "xi": 90.87727272727273, "storedXi": 90.87727272727273}, "a2c:s3": {"episodes": 20, "identical": 20, "xi": 90.63181818181818, "storedXi": 90.63181818181818}, "d3qn:s1": {"episodes": 20, "identical": 20, "xi": 91.39090909090909, "storedXi": 91.39090909090909}, "d3qn:s2": {"episodes": 20, "identical": 20, "xi": 91.61818181818182, "storedXi": 91.61818181818182}, "d3qn:s3": {"episodes": 20, "identical": 20, "xi": 91.4090909090909, "storedXi": 91.4090909090909}, "qrdqn:s1": {"episodes": 20, "identical": 20, "xi": 91.80909090909091, "storedXi": 91.80909090909091}, "qrdqn:s2": {"episodes": 20, "identical": 20, "xi": 91.7409090909091, "storedXi": 91.7409090909091}, "qrdqn:s3": {"episodes": 20, "identical": 20, "xi": 91.97272727272727, "storedXi": 91.97272727272727}, "es:s1": {"episodes": 20, "identical": 20, "xi": 91.17272727272727, "storedXi": 91.17272727272727}, "es:s2": {"episodes": 20, "identical": 20, "xi": 91.15454545454546, "storedXi": 91.15454545454546}, "es:s3": {"episodes": 20, "identical": 20, "xi": 91.13636363636364, "storedXi": 91.13636363636364}}, "algorithms": {"ppo": {"mean": 92.59242424242424, "std": 0.0860440658454555, "reported": [92.595, 0.082], "roundsToReported": null}, "a2c": {"mean": 90.66969696969697, "std": 0.19146743747782513, "reported": [90.427, 0.046], "roundsToReported": null}, "d3qn": {"mean": 91.47272727272727, "std": 0.1262949453586389, "reported": [91.49, 0.191], "roundsToReported": null}, "qrdqn": {"mean": 91.8409090909091, "std": 0.11913947656436827, "reported": [91.853, 0.089], "roundsToReported": null}, "es": {"mean": 91.15454545454546, "std": 0.018181818181815856, "reported": [91.068, 0.044], "roundsToReported": null}}, "problems": [], "pass": true}
+stage-a exit 0

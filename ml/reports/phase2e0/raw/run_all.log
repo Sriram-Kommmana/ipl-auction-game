@@ -1,0 +1,246 @@
+STEP 5 frozen hashes
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · 25 frozen files unchanged (and clean vs git HEAD) · 15 exports + checkpoints unchanged
+STEP 6 Stage-A control
+A: 7500 episodes on 14 workers → ml/runs/_2e0/full/A.jsonl
+progress A 1/7500 (0%) 0.5 eps/s elapsed 2s
+progress A 375/7500 (5%) 9.7 eps/s elapsed 39s
+progress A 750/7500 (10%) 9.8 eps/s elapsed 76s
+progress A 1125/7500 (15%) 9.8 eps/s elapsed 114s
+progress A 1500/7500 (20%) 9.8 eps/s elapsed 154s
+progress A 1875/7500 (25%) 9.8 eps/s elapsed 190s
+progress A 2250/7500 (30%) 9.9 eps/s elapsed 227s
+progress A 2625/7500 (35%) 10.0 eps/s elapsed 263s
+progress A 3000/7500 (40%) 10.0 eps/s elapsed 299s
+progress A 3375/7500 (45%) 10.0 eps/s elapsed 337s
+progress A 3750/7500 (50%) 10.0 eps/s elapsed 374s
+progress A 4125/7500 (55%) 10.0 eps/s elapsed 412s
+progress A 4500/7500 (60%) 10.0 eps/s elapsed 448s
+progress A 4875/7500 (65%) 10.0 eps/s elapsed 486s
+progress A 5250/7500 (70%) 10.0 eps/s elapsed 523s
+progress A 5625/7500 (75%) 10.0 eps/s elapsed 561s
+progress A 6000/7500 (80%) 10.0 eps/s elapsed 597s
+progress A 6375/7500 (85%) 10.0 eps/s elapsed 635s
+progress A 6750/7500 (90%) 10.0 eps/s elapsed 673s
+progress A 7125/7500 (95%) 10.0 eps/s elapsed 709s
+progress A 7500/7500 (100%) 10.0 eps/s elapsed 753s
+ALLDONE A 7500 episodes in 753s (10.0 eps/s)
+STEP 7 Stage-A regression
+ppo:s1    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 92.5462 (stored 92.5462)
+ppo:s2    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 92.6889 (stored 92.6889)
+ppo:s3    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 92.5491 (stored 92.5491)
+a2c:s1    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 90.3998 (stored 90.3998)
+a2c:s2    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 90.4802 (stored 90.4802)
+a2c:s3    500/500 episodes identical to the stored Stage-A evaluator episodes  XI 90.4011 (stored 90.4011)
+d3qn:s1   500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.4453 (stored 91.4453)
+d3qn:s2   500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.6991 (stored 91.6991)
+d3qn:s3   500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.3245 (stored 91.3245)
+qrdqn:s1  500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.8095 (stored 91.8095)
+qrdqn:s2  500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.7944 (stored 91.7944)
+qrdqn:s3  500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.9564 (stored 91.9564)
+es:s1     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.0718 (stored 91.0718)
+es:s2     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.1100 (stored 91.1100)
+es:s3     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.0220 (stored 91.0220)
+ppo    three-seed XI 92.595 ± 0.082  (reported 92.595 ± 0.082)  match: True
+a2c    three-seed XI 90.427 ± 0.046  (reported 90.427 ± 0.046)  match: True
+d3qn   three-seed XI 91.490 ± 0.191  (reported 91.490 ± 0.191)  match: True
+qrdqn  three-seed XI 91.853 ± 0.089  (reported 91.853 ± 0.089)  match: True
+es     three-seed XI 91.068 ± 0.044  (reported 91.068 ± 0.044)  match: True
+STAGE-A REGRESSION: PASS
+STEP 8 C1 head-to-head
+C1: 90000 episodes on 14 workers → ml/runs/_2e0/full/C1.jsonl
+progress C1 1/90000 (0%) 0.4 eps/s elapsed 2s
+progress C1 4500/90000 (5%) 10.4 eps/s elapsed 433s
+progress C1 9000/90000 (10%) 10.1 eps/s elapsed 891s
+progress C1 13500/90000 (15%) 10.1 eps/s elapsed 1342s
+progress C1 18000/90000 (20%) 10.3 eps/s elapsed 1748s
+progress C1 22500/90000 (25%) 10.4 eps/s elapsed 2161s
+progress C1 27000/90000 (30%) 10.6 eps/s elapsed 2557s
+progress C1 31500/90000 (35%) 10.7 eps/s elapsed 2947s
+progress C1 36000/90000 (40%) 10.8 eps/s elapsed 3330s
+progress C1 40500/90000 (45%) 10.8 eps/s elapsed 3733s
+progress C1 45000/90000 (50%) 10.9 eps/s elapsed 4121s
+progress C1 49500/90000 (55%) 10.9 eps/s elapsed 4548s
+progress C1 54000/90000 (60%) 10.9 eps/s elapsed 4963s
+progress C1 58500/90000 (65%) 10.8 eps/s elapsed 5396s
+progress C1 63000/90000 (70%) 10.8 eps/s elapsed 5820s
+progress C1 67500/90000 (75%) 10.8 eps/s elapsed 6264s
+progress C1 72000/90000 (80%) 10.7 eps/s elapsed 6701s
+progress C1 76500/90000 (85%) 10.8 eps/s elapsed 7102s
+progress C1 81000/90000 (90%) 10.8 eps/s elapsed 7486s
+progress C1 85500/90000 (95%) 10.9 eps/s elapsed 7871s
+progress C1 90000/90000 (100%) 10.8 eps/s elapsed 8333s
+ALLDONE C1 90000 episodes in 8334s (10.8 eps/s)
+STEP 9 C4 saturated
+C4: 90000 episodes on 14 workers → ml/runs/_2e0/full/C4.jsonl
+progress C4 1/90000 (0%) 0.5 eps/s elapsed 2s
+progress C4 4500/90000 (5%) 11.4 eps/s elapsed 396s
+
+
+#
+# Fatal error in , line 0
+# Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 000000491DFFD0E0
+
+
+#
+# Fatal error in , line 0
+# ----- Native stack trace -----
+
+Check failed: (location_) != nullptr.
+
+#
+# Fatal error in , line 0
+# 
+#
+#
+#
+#FailureMessage Object: 0000004923FFCF00Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 0000004922FFD380
+
+----- Native stack trace -----
+
+----- Native stack trace -----
+
+
+
+#
+# Fatal error in , line 0
+# Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 0000004920FFD210
+
+#
+# Fatal error in , line 0
+# 
+----- Native stack trace -----
+
+Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 00000049247FCBC0
+
+#
+# Fatal error in , line 0
+# 
+Check failed: (location_) != nullptr.----- Native stack trace -----
+
+
+#
+#
+#
+#FailureMessage Object: 000000491F7FD0A0
+----- Native stack trace -----
+
+
+
+#
+# Fatal error in , line 0
+# Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 000000491E7FCDB0
+
+#
+# Fatal error in , line 0
+# 
+
+#
+# Fatal error in , line 0
+# 
+Check failed: (location_) != nullptr.Check failed: (location_) != nullptr.
+
+#
+# Fatal error in , line 0
+# Check failed: (location_) != nullptr.
+
+#
+# Fatal error in , line 0
+# 
+#
+#
+#
+#FailureMessage Object: 00000049217FD1E0
+
+
+#
+# Fatal error in , line 0
+# ----- Native stack trace -----
+
+Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 000000491EFFD3A0----- Native stack trace -----
+
+
+Check failed: (location_) != nullptr.----- Native stack trace -----
+
+
+
+#
+# Fatal error in , line 0
+# 
+#
+#
+#
+#FailureMessage Object: 00000049207FCE40Check failed: (location_) != nullptr.
+#
+#
+#
+#FailureMessage Object: 000000491FFFD360
+----- Native stack trace -----
+
+
+----- Native stack trace -----
+
+
+#
+#
+#
+#FailureMessage Object: 00000049237FCC50
+
+#
+#
+#
+#FailureMessage Object: 00000049227FD2F0----- Native stack trace -----
+
+
+----- Native stack trace -----
+
+ 1: 00007FF74C1F6F4D 
+SAFETY STOP: INCOMPLETE XI (opponent d3qn:s1, seat 4) seed 100490 cond C4
+ 2: 00007FF74D65E05F 
+ 1: 00007FF74C1F6F4D 
+ 3: 00007FF74C9EEAD8 
+ 2: 00007FF74D65E05F 
+ 4: 00007FF74CEC445E 
+ 3: 00007FF74C9EEAD8 
+ 5: 0000014FBFE7753A 
+ 4: 00007FF74CEC445E 
+ 1: 00007FF74C1F6F4D 
+ 5: 000001511477753A 
+ 2: 00007FF74D65E05F 
+ 1: 00007FF74C1F6F4D 
+ 3: 00007FF74C9EEAD8 
+ 4: 00007FF74CEC445E 
+ 2: 00007FF74D65E05F 
+ 1: 00007FF74C1F6F4D 
+ 5: 000001509477753A 
+ 3: 00007FF74C9EEAD8 
+ 2: 00007FF74D65E05F 
+ 4: 00007FF74CEC445E 
+ 3: 00007FF74C9EEAD8 
+ 5: 000001507477753A 
+ 4: 00007FF74CEC445E 
+ 5: 00000151568F753A 
+PIPELINE STOP: run.mjs --cond C4 --workers 14 --hashes ml/reports/phase2e0/frozen-hashes.json --out ml/runs/_2e0/full/C4.jsonl

@@ -1,0 +1,15 @@
+{
+  "cond": "C4",
+  "episodes": 90000,
+  "workers": 14,
+  "seconds": 8687.679,
+  "episodesPerSecond": 10.359498779823703,
+  "limit": 500,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "seedPairs": "all",
+  "hashesVerified": true
+}

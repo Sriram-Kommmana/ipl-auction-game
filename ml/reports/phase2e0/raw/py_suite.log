@@ -1,0 +1,10 @@
+........................................................C:\web dev projects\ipl-auction-game\ml\.venv\Lib\site-packages\gymnasium\utils\env_checker.py:384: UserWarning: [33mWARN: The environment (<LegalSampling<IplAuctionEnv instance>>) is different from the unwrapped version (<IplAuctionEnv instance>). This could effect the environment checker as the environment most likely has a wrapper applied to it. We recommend using the raw environment for `check_env` using `env.unwrapped`.[0m
+  logger.warn(
+..............................................
+----------------------------------------------------------------------
+Ran 102 tests in 62.917s
+
+OK
+
+[real-env n-step] 1005 transitions checked against the JS replay; coverage {'main': 746, 'reauction': 259, 'lowPurse': 24, 'highPurse': 477, 'keeperNeed': 570, 'indianNeed': 914, 'bowlingNeed': 911, 'forced': 17, 'finalPath': 3}
+PYEXIT 0

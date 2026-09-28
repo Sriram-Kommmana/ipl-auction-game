@@ -1,0 +1,15 @@
+{
+  "message": "INCOMPLETE XI (opponent d3qn:s1, seat 4) seed 100490 cond C4",
+  "name": "SafetyStop",
+  "job": {
+    "id": 6490,
+    "k": 490,
+    "learner": "ppo:s2",
+    "cond": {
+      "kind": "C4",
+      "opp": "d3qn:s1"
+    }
+  },
+  "stack": "SafetyStop: INCOMPLETE XI (opponent d3qn:s1, seat 4) seed 100490 cond C4\n    at file:///C:/web%20dev%20projects/ipl-auction-game/ml/ipl_rl/crossplay/harness.mjs:200:52\n    at Array.map (<anonymous>)\n    at playEpisode (file:///C:/web%20dev%20projects/ipl-auction-game/ml/ipl_rl/crossplay/harness.mjs:198:27)\n    at file:///C:/web%20dev%20projects/ipl-auction-game/ml/ipl_rl/crossplay/run.mjs:53:25\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "detail": {}
+}
