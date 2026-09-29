@@ -90,11 +90,14 @@ socket.emit('startAuction', { playerId: room.managerId })
 await started
 
 const seatsRaw = await redis.hgetall(`room:${roomId}:bots`)
-const seats = Object.values(seatsRaw).map((raw) => JSON.parse(raw)).map((s) => ({
-    ...s, persona: s.kind === 'rule' ? s.persona : RL_PERSONAS[s.persona].fallback
-}))
+// RL seats play a trained model (bots/models/registry.json) through the
+// production runtime, so their exact cap is not predictable here: for them
+// the planner must still match and no bid may exceed maxSafeBid (the
+// runtime's hard limit); "certain to raise" is not asserted.
+const seats = Object.values(seatsRaw).map((raw) => JSON.parse(raw))
+check(seats.every((s) => s.kind === 'rule' || RL_PERSONAS[s.persona]), 'every RL seat has a known personality')
 check(seats.length === 9, `9 bots seated (${seats.length})`)
-console.log(`  seats: ${seats.map((s) => `${s.teamId}=${s.persona}${s.kind === 'rl' ? '(rl fallback)' : ''}`).join(', ')}`)
+console.log(`  seats: ${seats.map((s) => `${s.teamId}=${s.persona}${s.kind === 'rl' ? '(rl)' : ''}`).join(', ')}`)
 const roomHash = await redis.hgetall(`room:${roomId}`)
 const rules = { pursePerTeam: Number(roomHash.pursePerTeam), maxPlayers: Number(roomHash.maxPlayers), maxOverseas: Number(roomHash.maxOverseas) }
 const teamIds = Object.keys(await redis.hgetall(`room:${roomId}:teams`)).sort()
@@ -169,6 +172,12 @@ const openLot = async () => {
         if (!seat) continue
         const ps = planBid(s)
         const pm = planBid(m)
+        if (seat.kind === 'rl') {
+            check(ps.allowed === pm.allowed && ps.budget.maxSafeBid === pm.budget.maxSafeBid, `lot ${slNo} ${teamId}: planner differs (${ps.budget.maxSafeBid} vs ${pm.budget.maxSafeBid})`)
+            lot.bands.set(teamId, { low: 0, high: ps.allowed ? Math.min(ps.budget.maxSafeBid, s.self.purseLeft) : 0, exact: null })
+            stats.decisionsCompared++
+            continue
+        }
         const bs = band(seat.persona, s, ps)
         const bm = band(seat.persona, m, pm)
         check(ps.allowed === pm.allowed && ps.budget.maxSafeBid === pm.budget.maxSafeBid, `lot ${slNo} ${teamId}: planner differs (${ps.budget.maxSafeBid} vs ${pm.budget.maxSafeBid})`)

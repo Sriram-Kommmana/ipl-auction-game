@@ -1,0 +1,53 @@
+{
+  "format": "rl-roster-v1",
+  "note": "Production RL opponents for solo rooms. Each file is a byte-identical copy of a frozen rl-policy-v2 export (obs 629b25783f833af7, act 5f72f510c48b1f46), pinned by sha256; loaded by apps/server/src/bots/rlRoster.js and played through the shared production runtime (act-v3 mask + shield, cap <= maxSafeBid, 20 ms room guard, completion guard, rule fallback). Chosen by the gameplay audit (ml/ipl_rl/gameplay/README.md).",
+  "roster": {
+    "aggressor": "qrdqn-stageB-s103",
+    "paceFirst": "ppo-stageA-s1",
+    "battingFirst": "qrdqn-stageB-s101",
+    "overseasSpecialist": "qrdqn-stageB-s102",
+    "adaptive": "ppo-stageB-s103"
+  },
+  "models": {
+    "ppo-stageA-s1": {
+      "file": "ppo-stageA-s1.json",
+      "sha256": "1484f74db7ab4cd2b2beb1e03d0252346e90334163342f547aa018d8e2e2dfd5",
+      "algorithm": "ppo",
+      "stage": "A",
+      "source": "ml/runs/ppo-2c3-s1/checkpoints/update_0325/policy.json",
+      "style": "patient value buyer: spends ~6% of its purse by 25% of the auction, strikes late, most bowling-heavy RL seat"
+    },
+    "ppo-stageB-s103": {
+      "file": "ppo-stageB-s103.json",
+      "sha256": "48c581c0189b9fda73ba5be63cb4f6b071e8859e59e224ab03291ed0a73f30ba",
+      "algorithm": "ppo",
+      "stage": "B",
+      "source": "ml/runs/stage_b/ppo/s103/checkpoints/update_0081/policy.json",
+      "style": "balanced: steady spending, contests early stars, strongest XI in audit rooms"
+    },
+    "qrdqn-stageB-s101": {
+      "file": "qrdqn-stageB-s101.json",
+      "sha256": "3358e167a594377ee41939768c725e54dbab8e0b42e50929c44ed9bd22d4ccea",
+      "algorithm": "qrdqn",
+      "stage": "B",
+      "source": "ml/runs/stage_b/qrdqn/s101/checkpoints/update_0081/policy.json",
+      "style": "early competitor: ~70% of purse spent by 25%, contests stars, batting-leaning"
+    },
+    "qrdqn-stageB-s102": {
+      "file": "qrdqn-stageB-s102.json",
+      "sha256": "763ff00247e643cdd04f01f85107e8d85948a29af27e7012fc279f6714d2c70b",
+      "algorithm": "qrdqn",
+      "stage": "B",
+      "source": "ml/runs/stage_b/qrdqn/s102/checkpoints/update_0081/policy.json",
+      "style": "busy bidder: enters almost every lot, fills overseas slots, early spender"
+    },
+    "qrdqn-stageB-s103": {
+      "file": "qrdqn-stageB-s103.json",
+      "sha256": "6da0ee9f06da513efecb716c8731c5894829947cfd9304314d73153cea2bb7be",
+      "algorithm": "qrdqn",
+      "stage": "B",
+      "source": "ml/runs/stage_b/qrdqn/s103/checkpoints/update_0081/policy.json",
+      "style": "aggressor: ~80% of purse spent by 25%, wins the most early stars, pays over fair value"
+    }
+  }
+}

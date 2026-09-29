@@ -1,35 +1,30 @@
-import { readFileSync, existsSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
-import { validateModel } from '@ipl-auction/shared'
+import { OBS_SIZE, actionScores } from '@ipl-auction/shared/rl'
+import { loadRoster } from './rlRoster.js'
 
-// The trained RL policy, exported by ml/export.py. One network plays all
-// five RL personalities — each seat feeds it a different persona vector.
+// The trained RL opponents, loaded once at startup from bots/models/
+// (registry.json + the frozen rl-policy-v2 exports it pins by sha256).
 //
-// Until a model has been trained and exported, the file doesn't exist and
-// RL seats play their fallback rule personality (see RL_PERSONAS in
-// packages/shared/src/personas.js), so solo mode works from day one.
-const MODEL_PATH = fileURLToPath(new URL('./models/rl-policy.json', import.meta.url))
+// A persona whose model is missing, corrupted, hash-mismatched or rejected by
+// the obs/act spec checks plays its fallback rule personality (RL_PERSONAS in
+// packages/shared/src/personas.js), so solo mode always works.
+let roster = null
 
-let model = null
-let loadError = null
-
-const loadRlPolicy = () => {
-    if (!existsSync(MODEL_PATH)) {
-        console.log('[bots] No RL model at bots/models/rl-policy.json — RL seats will use their fallback rule personalities')
-        return null
-    }
-    try {
-        model = validateModel(JSON.parse(readFileSync(MODEL_PATH, 'utf8')))
-        console.log(`[bots] Loaded RL policy (${model.meta?.trainedSteps ?? 'unknown'} training steps)`)
-    } catch (err) {
-        loadError = err
-        model = null
-        console.error('[bots] RL model is invalid — RL seats will use fallbacks:', err.message)
-    }
-    return model
+// RL_MODELS_DIR (optional) points at another models folder — e.g. a staged
+// roster, or a deliberately broken copy for fallback drills.
+const loadRlRoster = () => {
+    roster = process.env.RL_MODELS_DIR ? loadRoster(process.env.RL_MODELS_DIR) : loadRoster()
+    const summary = Object.entries(roster.byPersona)
+        .map(([persona, m]) => `${persona}=${m ? m.key : 'rule fallback'}`)
+        .join(', ')
+    console.log(`[bots] RL roster: ${summary}`)
+    for (const err of roster.errors) console.error(`[bots] RL model problem — seat uses its rule fallback: ${err}`)
+    // Warm the forward pass once at startup, so a room's first RL decision is
+    // not also the process's first (cold) one — the 20 ms room guard counts it.
+    const zeros = new Array(OBS_SIZE).fill(0)
+    for (const m of Object.values(roster.byPersona)) if (m) for (let i = 0; i < 20; i++) actionScores(m.policy, zeros)
+    return roster
 }
 
-const getRlPolicy = () => model
-const getRlPolicyError = () => loadError
+const getRlRoster = () => roster
 
-export { loadRlPolicy, getRlPolicy, getRlPolicyError }
+export { loadRlRoster, getRlRoster }

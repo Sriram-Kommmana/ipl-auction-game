@@ -1,4 +1,4 @@
-import { RL_PERSONAS, bidBlocker, nextBidAmount } from '@ipl-auction/shared'
+import { bidBlocker, nextBidAmount } from '@ipl-auction/shared'
 import { agentCap } from '@ipl-auction/shared/sim'
 import redis from '../redis/client.js'
 import { roomEvents } from '../services/roomEvents.js'
@@ -6,7 +6,8 @@ import { placeBid } from '../services/placeBid.js'
 import { closeLotNow } from '../room/timerManager.js'
 import { loadPlayers } from './playerCache.js'
 import { contextBuilder, readAuctionState, rulesOf } from './context.js'
-import { getRlPolicy, loadRlPolicy } from './rlPolicy.js'
+import { getRlRoster, loadRlRoster } from './rlPolicy.js'
+import { buildExtras, createSeatRuntime } from './rlRoster.js'
 
 // ── How bots play a lot ───────────────────────────────────────────────────
 // 1. When a lot's timer first starts, every bot decides ONCE the most it will
@@ -64,6 +65,33 @@ class RoomBots {
         this.generation = 0
         this.scheduleQueued = false
         this.chain = Promise.resolve()
+        // One production RL runtime per RL seat, for the life of the room
+        // (it carries the room-level fallback state: failures, 20 ms guard).
+        this.rlSeats = new Map(
+            bots.filter((b) => b.kind === 'rl').map((b) => [b.teamId, createSeatRuntime(getRlRoster(), b.persona)])
+        )
+        // Per-seat decision counts, logged when the auction ends (ops visibility:
+        // which seats really played their model and which fell back).
+        this.decisionStats = new Map(bots.map((b) => [b.teamId, { decisions: 0, bidIntents: 0, sources: {} }]))
+        for (const [teamId, seat] of this.rlSeats) {
+            if (seat.state.disabled) this.logFallback(teamId, seat.state.disabledReason)
+        }
+    }
+
+    logFallback(teamId, reason) {
+        const bot = this.bots.find((b) => b.teamId === teamId)
+        console.warn(`[bots] room ${this.roomId}: RL seat ${bot.persona} (${teamId}) plays its rule fallback — ${reason}`)
+    }
+
+    logSummary() {
+        const roster = getRlRoster()
+        const lines = this.bots.map((b) => {
+            const s = this.decisionStats.get(b.teamId)
+            const who = b.kind === 'rl' ? `rl:${b.persona}[${roster?.byPersona?.[b.persona]?.key ?? 'no model'}]` : `rule:${b.persona}`
+            const src = b.kind === 'rl' ? ` sources ${JSON.stringify(s.sources)}` : ''
+            return `  ${b.teamId} ${who}: ${s.decisions} decisions, ${s.bidIntents} with a bid cap${src}`
+        })
+        console.log(`[bots] room ${this.roomId} auction complete — bot decisions:\n${lines.join('\n')}`)
     }
 
     // Coalesce bursts: a bid emits timerStarted AND bidPlaced back to back;
@@ -91,22 +119,40 @@ class RoomBots {
         this.generation++
     }
 
-    agentFor(bot) {
-        if (bot.kind === 'rule') return { kind: 'rule', persona: bot.persona }
-        const persona = RL_PERSONAS[bot.persona]
-        const model = getRlPolicy()
-        return model
-            ? { kind: 'mlp', model, persona: persona.vector, temperature: 0.3 }
-            : { kind: 'rule', persona: persona.fallback }
+    // Rule bots: their hand-written logic. RL bots: the trained policy through
+    // the production runtime (mask + shield + guards), which itself falls back
+    // to the seat's frozen rule persona when the model is unavailable or fails.
+    capFor(bot, ctx, extras) {
+        const stats = this.decisionStats.get(bot.teamId)
+        stats.decisions++
+        let cap
+        if (bot.kind === 'rule') {
+            cap = agentCap({ kind: 'rule', persona: bot.persona }, ctx)
+        } else {
+            const seat = this.rlSeats.get(bot.teamId)
+            const wasDisabled = seat.state.disabled
+            const d = seat.decide(ctx, extras)
+            stats.sources[d.source] = (stats.sources[d.source] || 0) + 1
+            if (!wasDisabled && seat.state.disabled) this.logFallback(bot.teamId, seat.state.disabledReason)
+            cap = d.cap
+        }
+        if (cap >= ctx.lot.basePrice) stats.bidIntents++
+        return cap
     }
 
     async decideCaps(state) {
         const players = await loadPlayers()
         const ctxOf = contextBuilder(state, players)
+        const extras = buildExtras({
+            history: state.history,
+            poolSize: state.mainPoolSize,
+            players,
+            pursePerTeam: Number(state.room.pursePerTeam)
+        })
         const caps = new Map()
         for (const bot of this.bots) {
             const ctx = ctxOf(bot.teamId)
-            caps.set(bot.teamId, ctx.self && ctx.lot ? agentCap(this.agentFor(bot), ctx) : 0)
+            caps.set(bot.teamId, ctx.self && ctx.lot ? this.capFor(bot, ctx, extras) : 0)
         }
         return caps
     }
@@ -224,6 +270,7 @@ class RoomBots {
                 this.humanPassed = false
                 return
             case 'auctionCompleted':
+                this.logSummary()
                 this.dispose()
                 rooms.delete(this.roomId)
                 return
@@ -289,7 +336,7 @@ const humanPass = async (roomId, playerId) => {
 
 const initBots = (socketServer) => {
     io = socketServer
-    loadRlPolicy()
+    loadRlRoster()
     loadPlayers().catch((err) => console.error('[bots] Failed to preload players:', err))
     roomEvents.on('event', (evt) => {
         // Never block or break the engine: defer to the next tick.

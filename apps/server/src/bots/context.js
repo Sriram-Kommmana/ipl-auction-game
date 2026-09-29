@@ -1,3 +1,4 @@
+import { RECENT_WINDOW as RECENT_HISTORY } from '@ipl-auction/shared/rl'
 import redis from '../redis/client.js'
 import { getPlayer } from './playerCache.js'
 
@@ -8,14 +9,20 @@ import { getPlayer } from './playerCache.js'
 // behave the same way in a real room.
 
 const readAuctionState = async (roomId) => {
-    const [room, current, teamsMap, pool, unsold] = await Promise.all([
+    const [room, current, teamsMap, pool, unsold, history, mainPoolSize] = await Promise.all([
         redis.hgetall(`room:${roomId}`),
         redis.hgetall(`room:${roomId}:current`),
         redis.hgetall(`room:${roomId}:teams`),
         redis.lrange(`room:${roomId}:pool`, 0, -1),
         // Read-only: unsold players so far. During the main round they come
         // back in the re-auction, so the planning layer counts them as supply.
-        redis.lrange(`room:${roomId}:pool:unsold`, 0, -1)
+        redis.lrange(`room:${roomId}:pool:unsold`, 0, -1),
+        // RL seats only: the last lots' public results (the observation's
+        // market window) and the main-pool size. pool:status holds one entry
+        // per main-pool player for the whole auction, so its length stays the
+        // main-pool size in the re-auction too (training: sim.mainLength).
+        redis.lrange(`room:${roomId}:history`, -RECENT_HISTORY, -1),
+        redis.hlen(`room:${roomId}:pool:status`)
     ])
 
     const teams = await Promise.all(
@@ -37,7 +44,7 @@ const readAuctionState = async (roomId) => {
         })
     )
 
-    return { room, current, teams, pool, unsold }
+    return { room, current, teams, pool, unsold, history, mainPoolSize }
 }
 
 const rulesOf = (room) => ({
