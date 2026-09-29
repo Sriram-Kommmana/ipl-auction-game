@@ -4,7 +4,7 @@
 // 5 RL personalities, each played by its own trained model (the server's
 // bots/models/registry.json). An RL persona's id, vector and fallback are
 // training identifiers and stay fixed; its name and blurb describe how its
-// model actually bids in the gameplay audit (ml/ipl_rl/gameplay/README.md),
+// model actually bids in the gameplay audit (docs/rl-roster.md),
 // so they change if the roster does. The spread of personalities follows
 // Joglekar et al. 2025 (Journal of Sports Analytics), which found distinct
 // clusters of real IPL auction strategies — mainly how concentrated or

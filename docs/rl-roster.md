@@ -7,6 +7,8 @@ These tools evaluate the already-trained RL exports **as game opponents**. They 
 
 Nothing is trained or written back.
 
+The scripts below, and every `ml/…` path in this document (training runs, reports), now live under `_archive/ml/` (`_archive/ml/ipl_rl/gameplay/` for the scripts). They are archived research tooling and are not guaranteed to run from there. The production game needs none of them.
+
 | Script | What it does |
 |---|---|
 | `audit.mjs --mode list` | Lists every candidate export (15 Stage-A + 15 Stage-B pilot), with sha256 checks. |

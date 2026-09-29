@@ -7,3 +7,6 @@ dist
 ml/runs/
 __pycache__/
 ml/.venv/
+# Archived RL research (see docs/rl-roster.md): checkpoints and a venv never belong in git
+_archive/ml/runs/
+_archive/ml/.venv/
