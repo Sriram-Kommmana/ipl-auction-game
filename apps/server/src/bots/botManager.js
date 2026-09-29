@@ -8,6 +8,7 @@ import { loadPlayers } from './playerCache.js'
 import { contextBuilder, readAuctionState, rulesOf } from './context.js'
 import { getRlRoster, loadRlRoster } from './rlPolicy.js'
 import { buildExtras, createSeatRuntime } from './rlRoster.js'
+import { describeGc, gcDuring, latencySummary, maxGcSince, watchGc } from './rlLatency.js'
 
 // ── How bots play a lot ───────────────────────────────────────────────────
 // 1. When a lot's timer first starts, every bot decides ONCE the most it will
@@ -70,9 +71,11 @@ class RoomBots {
         this.rlSeats = new Map(
             bots.filter((b) => b.kind === 'rl').map((b) => [b.teamId, createSeatRuntime(getRlRoster(), b.persona)])
         )
-        // Per-seat decision counts, logged when the auction ends (ops visibility:
-        // which seats really played their model and which fell back).
-        this.decisionStats = new Map(bots.map((b) => [b.teamId, { decisions: 0, bidIntents: 0, sources: {} }]))
+        // Per-seat decision counts and RL model latency, logged when the auction
+        // ends (ops visibility: which seats really played their model, which
+        // fell back, and how close model decisions came to the 20 ms guard).
+        this.decisionStats = new Map(bots.map((b) => [b.teamId, { decisions: 0, bidIntents: 0, sources: {}, ms: [] }]))
+        this.createdAt = performance.now()
         for (const [teamId, seat] of this.rlSeats) {
             if (seat.state.disabled) this.logFallback(teamId, seat.state.disabledReason)
         }
@@ -88,10 +91,11 @@ class RoomBots {
         const lines = this.bots.map((b) => {
             const s = this.decisionStats.get(b.teamId)
             const who = b.kind === 'rl' ? `rl:${b.persona}[${roster?.byPersona?.[b.persona]?.key ?? 'no model'}]` : `rule:${b.persona}`
-            const src = b.kind === 'rl' ? ` sources ${JSON.stringify(s.sources)}` : ''
+            const src = b.kind === 'rl' ? ` sources ${JSON.stringify(s.sources)}, ${latencySummary(s.ms)}` : ''
             return `  ${b.teamId} ${who}: ${s.decisions} decisions, ${s.bidIntents} with a bid cap${src}`
         })
-        console.log(`[bots] room ${this.roomId} auction complete — bot decisions:\n${lines.join('\n')}`)
+        const gc = `slowest GC pause during the auction ${maxGcSince(this.createdAt).toFixed(1)} ms`
+        console.log(`[bots] room ${this.roomId} auction complete — bot decisions (${gc}):\n${lines.join('\n')}`)
     }
 
     // Coalesce bursts: a bid emits timerStarted AND bidPlaced back to back;
@@ -131,9 +135,19 @@ class RoomBots {
         } else {
             const seat = this.rlSeats.get(bot.teamId)
             const wasDisabled = seat.state.disabled
+            const started = performance.now()
             const d = seat.decide(ctx, extras)
+            const ended = performance.now()
             stats.sources[d.source] = (stats.sources[d.source] || 0) + 1
-            if (!wasDisabled && seat.state.disabled) this.logFallback(bot.teamId, seat.state.disabledReason)
+            if (d.source !== 'fallback') stats.ms.push(ended - started)
+            if (!wasDisabled && seat.state.disabled) {
+                this.logFallback(bot.teamId, seat.state.disabledReason)
+                // GC entries arrive asynchronously; look a moment later for
+                // any pause that overlapped this decision.
+                setTimeout(() => console.warn(
+                    `[bots] room ${this.roomId}: during ${bot.persona}'s slow decision: ${describeGc(gcDuring(started, ended))}`
+                ), 100)
+            }
             cap = d.cap
         }
         if (cap >= ctx.lot.basePrice) stats.bidIntents++
@@ -336,6 +350,7 @@ const humanPass = async (roomId, playerId) => {
 
 const initBots = (socketServer) => {
     io = socketServer
+    watchGc()
     loadRlRoster()
     loadPlayers().catch((err) => console.error('[bots] Failed to preload players:', err))
     roomEvents.on('event', (evt) => {

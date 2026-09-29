@@ -1,9 +1,11 @@
 // Who sits in the nine bot seats of a solo room.
 //
 // 4 rule-based personalities (hand-written logic, ruleBots.js) and
-// 5 RL personalities that share ONE trained policy but receive a different
-// persona vector — the same vector that weighted their reward in training
-// (see PERSONA_DIMS in observation.js). The spread of personalities follows
+// 5 RL personalities, each played by its own trained model (the server's
+// bots/models/registry.json). An RL persona's id, vector and fallback are
+// training identifiers and stay fixed; its name and blurb describe how its
+// model actually bids in the gameplay audit (ml/ipl_rl/gameplay/README.md),
+// so they change if the roster does. The spread of personalities follows
 // Joglekar et al. 2025 (Journal of Sports Analytics), which found distinct
 // clusters of real IPL auction strategies — mainly how concentrated or
 // spread out a franchise's spending is.
@@ -42,24 +44,24 @@ export const RL_PERSONAS = Object.freeze({
     },
     paceFirst: {
         id: 'paceFirst',
-        name: 'Pace Factory',
+        name: 'Bargain Hunter',
         vector: [0.3, 1, 0, 0, 0],
         fallback: 'balancedBuilder',
-        blurb: 'Wins matches with the ball.'
+        blurb: 'Sits out the early frenzy, then buys stars cheap once rivals run dry.'
     },
     battingFirst: {
         id: 'battingFirst',
-        name: 'Run Machine',
+        name: 'Fast Starter',
         vector: [0.3, 0, 1, 0, 0],
         fallback: 'balancedBuilder',
-        blurb: 'Stacks the batting order.'
+        blurb: 'Goes hard from the first lot and loves an all-rounder.'
     },
     overseasSpecialist: {
         id: 'overseasSpecialist',
-        name: 'Global Scout',
+        name: 'Price Pusher',
         vector: [0.3, 0, 0, 1, 0],
         fallback: 'opportunist',
-        blurb: 'Hunts the best overseas talent.'
+        blurb: 'Bids on almost every lot — nobody gets a player cheap past it.'
     },
     adaptive: {
         id: 'adaptive',

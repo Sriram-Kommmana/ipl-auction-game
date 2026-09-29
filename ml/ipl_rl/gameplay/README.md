@@ -37,15 +37,26 @@ All seeds come from the regression range (90000+). They are never train, validat
   - One process, 100 concurrent rooms (96k decisions): p50 0.35 ms, p99 0.73 ms, max 8.1 ms, 0 guard trips.
   - First (cold) decision: ≤ 3.9 ms. The server warms each model at startup.
   - Guard trips appeared only with 10–15 audit processes competing for the CPU. That is the intended degradation: the seat plays its rule fallback.
+  - **Live server, 3 concurrent solo games on a Windows laptop, same load both times:**
+
+    | Server process | RL guard trips | Latency p99 / max | Slowest GC pause |
+    |---|---|---|---|
+    | Throttled by Windows (EcoQoS, the default for a background process) | 2 of 15 seats (24.2 ms, 43.5 ms) | 2.3–7.7 ms / 21.5 ms | 25.8 ms |
+    | Throttling lifted from the server process only | 0 of 15 seats | 1.0–3.0 ms / 4.4 ms | 3.2 ms |
+
+    Neither trip overlapped a GC pause: the process was waiting for the CPU. The guard is working as designed, and the models are not slow. On Linux there is no EcoQoS. On a shared-CPU VPS, CPU steal would be the analogous risk.
+  - **Checking a deployment.** The server logs each finished solo auction as `[bots] room … auction complete`, with every RL seat's decision sources and its latency p50/p99/max, plus the slowest GC pause. A guard trip is logged when it happens, followed by a line saying whether a GC pause overlapped the decision. Play a game or two on the VPS, then `grep '\[bots\]'` the server log: `sources {"rl":N}` with no `fallback` count means the seat played its model all game.
 
 ## Production roster (`apps/server/src/bots/models/registry.json`)
 
-| RL persona | Model | Why |
+| RL persona (id) | Model | How it plays (roster check, 400 rooms) |
 |---|---|---|
-| Aggressor | QR-DQN Stage-B s103 | spends ~80% by 25% of the auction; most early stars |
-| Pace Factory | PPO Stage-A s1 | patient value buyer; most bowling-heavy RL seat |
-| Run Machine | QR-DQN Stage-B s101 | early competitor, batting-leaning |
-| Global Scout | QR-DQN Stage-B s102 | busy bidder that fills its overseas slots |
-| Adaptive | PPO Stage-B s103 | balanced; strongest XI |
+| Aggressor (`aggressor`) | QR-DQN Stage-B s103 | spends ~80% by 25% of the auction; pays 1.12× fair value |
+| Bargain Hunter (`paceFirst`) | PPO Stage-A s1 | spends 6% by 25% of the auction, then buys stars at 0.74× fair value; hoards keepers (5.6) |
+| Fast Starter (`battingFirst`) | QR-DQN Stage-B s101 | early competitor (71% spent by 25%) at about fair value; 39% of its squad are all-rounders |
+| Price Pusher (`overseasSpecialist`) | QR-DQN Stage-B s102 | sets a bid cap on 99% of its decisions (other RL seats 42–84%), so it pushes up prices on almost every lot |
+| Adaptive (`adaptive`) | PPO Stage-B s103 | balanced; strongest XI |
 
 The four rule bots keep their seats. Any seat whose model is missing, corrupted, hash-mismatched or rejected plays its rule fallback.
+
+The display names and blurbs in `packages/shared/src/personas.js` were changed after Phase 2E.0 to describe this roster. The old names (Pace Factory, Run Machine, Global Scout) promised bowling, batting and overseas focus, which none of the models show: bowling, batting and overseas shares are within the rule bots' range. Persona ids, vectors and fallbacks are unchanged. As a result, `hashes.mjs --check` against the Phase 2E.0 record reports `personas.js` as modified, which is expected.
