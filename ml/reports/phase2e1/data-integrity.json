@@ -1,0 +1,446 @@
+{
+ "files": {
+  "ml/reports/phase2e0/episode-results.json": {
+   "bytes": 31635180,
+   "sha256": "8c9916b7a01ec1fe69b4318a449bd2267b39c06f404326e207d087525d8c20f4"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100025_d3qn-s1_vs_qrdqn-s2_seat0.txt": {
+   "bytes": 14153,
+   "sha256": "3b859f51453d00b26065b87ecd36a748aa2261931faa61d1deae06dab29836d0"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100027_ppo-s2_vs_d3qn-s3_seat9.txt": {
+   "bytes": 12565,
+   "sha256": "d04eaccb18128e988e1e9daef2ee5786078ee186b576c3c5637ed1d3b76128d5"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100034_d3qn-s1_vs_qrdqn-s2_seat8.txt": {
+   "bytes": 19292,
+   "sha256": "4612df09df9761f546d56613891851d524e83d17710725d92b089ed2e9f9b6a3"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100077_es-s2_vs_ppo-s3_seat4.txt": {
+   "bytes": 15941,
+   "sha256": "6fb954dc05f895b6e5c983a65a4fa59411638a52997240fc4dd47b9f9b2358f1"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100132_es-s1_vs_qrdqn-s2_seat3.txt": {
+   "bytes": 13852,
+   "sha256": "af8ce76b01f35655ecf7f2b122c71cb502010f5e77d0632c9c2b75b1c12d814b"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100142_d3qn-s1_vs_qrdqn-s2_seat2.txt": {
+   "bytes": 16119,
+   "sha256": "82324091d59d753520e16375c7a4721d2f06c2c5d63d216816a8564586b52ea8"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100180_es-s3_vs_ppo-s3_seat3.txt": {
+   "bytes": 8890,
+   "sha256": "4084c85cefeb1c690ea63a387862bbaefd557c75931373e041ad94fc76abad43"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100244_ppo-s2_vs_qrdqn-s2_seat0.txt": {
+   "bytes": 16565,
+   "sha256": "f0ddc5e0612e0bf45eb1a14f55ed75fb925c36689fbb4b8fe9c990254bff8116"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100253_qrdqn-s2_vs_ppo-s1_seat2.txt": {
+   "bytes": 14471,
+   "sha256": "4c0bd9b64748784e3ea681554f8cf0131df5cb327d4b4196d156f17856bb7032"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100262_d3qn-s1_vs_qrdqn-s2_seat0.txt": {
+   "bytes": 13117,
+   "sha256": "fdeb14f89a5fd1a0e40fb33f8531d34a3b5208279ddfeebd053a79971622c29d"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100275_qrdqn-s2_vs_ppo-s1_seat9.txt": {
+   "bytes": 10965,
+   "sha256": "205478ccbb6b5030e944cab9554eb6dd81b7ceefb249874e0fe70b9589e50699"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100278_es-s2_vs_qrdqn-s2_seat1.txt": {
+   "bytes": 20401,
+   "sha256": "7c55184a7fa3eb0227c37f8f3580ffbb9767a293f12a0db0839f8ec951fc7167"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100285_ppo-s2_vs_qrdqn-s2_seat9.txt": {
+   "bytes": 14812,
+   "sha256": "ef2546d80ec4091596edbde5939617dd2dd6d7814663ace0870853fa6da5bc0b"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100308_a2c-s2_vs_ppo-s3_seat0.txt": {
+   "bytes": 10119,
+   "sha256": "511966115773ed66346b7a10a13ba57238828f68181372c77063e0ff983296b4"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100308_es-s1_vs_ppo-s3_seat0.txt": {
+   "bytes": 9489,
+   "sha256": "67e14b9035e839fe3dd398386bcf253cc10176f3076cc9f083c727acf8ddfd6d"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100342_a2c-s1_vs_ppo-s3_seat2.txt": {
+   "bytes": 8896,
+   "sha256": "76a13fc61edb756f9f7982c6b7481e839fd43bc48c1d59bb7514e4977c28734d"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100424_qrdqn-s2_vs_ppo-s2_seat9.txt": {
+   "bytes": 14445,
+   "sha256": "4ba24b23fbe60c74e8a3389c0ba681910a3787bd40f8e6cedfb100852f127ff1"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100433_qrdqn-s2_vs_ppo-s2_seat7.txt": {
+   "bytes": 14224,
+   "sha256": "3428a2617a169ce8e606fcf3ac1d4b02b4644d54649d3f4cea6d1644ea1fb00d"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100445_a2c-s1_vs_ppo-s3_seat3.txt": {
+   "bytes": 9976,
+   "sha256": "094c25b4238125f3d1e82c827f5d1cb2db1ebc4b8a77e98405d8a3e6f356e1d1"
+  },
+  "ml/reports/phase2e0/findings/C4_seed100490_ppo-s2_vs_d3qn-s1_seat4.txt": {
+   "bytes": 13385,
+   "sha256": "356eca60ec46799c89ab10bf5c8952e53f72a64e15d948028c9705ed3d6ccb15"
+  },
+  "ml/reports/phase2e0/findings.json": {
+   "bytes": 13234,
+   "sha256": "56005020da9a4b458ada691005674ced46d85a661ed3840674f9c35fc70799fe"
+  },
+  "ml/reports/phase2e0/frozen-hashes.json": {
+   "bytes": 7002,
+   "sha256": "5ba4444772aeba818240592d65b8b037aecda0f41e8ef74d6ca6d9ce3f6f8b99"
+  },
+  "ml/reports/phase2e0/gap_report.md": {
+   "bytes": 10929,
+   "sha256": "e966ff640c67c35ba5c35c82f805ba8f38816880c2c8cce75dfd952cce6eb39c"
+  },
+  "ml/reports/phase2e0/matchup-matrix.json": {
+   "bytes": 15927,
+   "sha256": "d13410a55d451f49fb32abcd97d1cd7bb9d4ca1ca2f470bb2609fa8f46891227"
+  },
+  "ml/reports/phase2e0/matchup-results.json": {
+   "bytes": 425594,
+   "sha256": "479c820d5c7a910d211aca16b0901e792e36003fcf54910bb8601d307b3bd0ef"
+  },
+  "ml/reports/phase2e0/parity.json": {
+   "bytes": 34149,
+   "sha256": "871da4e352d1d7c8a956b863222495d32fcf5565eb8b66a567373b77c545ac7a"
+  },
+  "ml/reports/phase2e0/performance.json": {
+   "bytes": 13478,
+   "sha256": "fac0acd51e47abe4f31963ec6f777d914e653767d09f8bb66dab56f288a73ba3"
+  },
+  "ml/reports/phase2e0/plots/c1_h2h.svg": {
+   "bytes": 11853,
+   "sha256": "48b6b0a1c821c63e16edcdfcc53627b547e39d73d715ebc5342414aff39ada0f"
+  },
+  "ml/reports/phase2e0/plots/c1_seed_stability.svg": {
+   "bytes": 29349,
+   "sha256": "80b67423f9031b1050430c73b8e5b57e48ffe4f172301e6ef0c70ccbc9d64a52"
+  },
+  "ml/reports/phase2e0/plots/c1_transfer.svg": {
+   "bytes": 11905,
+   "sha256": "7fe046814b95219c76831fcbc879bb388903fdaa36a03d5246b9d56e363ffcf3"
+  },
+  "ml/reports/phase2e0/plots/c4_h2h.svg": {
+   "bytes": 11898,
+   "sha256": "901f7f9d11445c333af4210f3636a41a8a5bbf33c217b22a259abe7533e429b2"
+  },
+  "ml/reports/phase2e0/plots/c4_seed_stability.svg": {
+   "bytes": 29304,
+   "sha256": "b7249ca83cafe01cb30792d35936f8342a9469350e7640c5ace57b862730127d"
+  },
+  "ml/reports/phase2e0/plots/c4_transfer.svg": {
+   "bytes": 11919,
+   "sha256": "63fa389e49108af4c63a3a76e4911acddb48b880886d2641ab2ca8b63e1f6ae8"
+  },
+  "ml/reports/phase2e0/plots/index.html": {
+   "bytes": 131302,
+   "sha256": "69d27cc3f16cd225de1042eb5f779daa59772da56159e95486eb8999abf2d004"
+  },
+  "ml/reports/phase2e0/plots/s4_h2h.svg": {
+   "bytes": 11868,
+   "sha256": "1590465ad47d3e5d0364cd3d0cf0f9fa92493d2f0bfc30cbb9c692f82989f1b3"
+  },
+  "ml/reports/phase2e0/plots/s4_transfer.svg": {
+   "bytes": 3887,
+   "sha256": "c01a7cb16103e090e68cbd243b40bae9ed8a74179d434a513f243abbbd2de157"
+  },
+  "ml/reports/phase2e0/plots/stage_a_to_b_xi.svg": {
+   "bytes": 8172,
+   "sha256": "8512bdb20af5fc8556e63480e3329249b3c5ca392a2261252cb98d6940f2179d"
+  },
+  "ml/reports/phase2e0/raw/A.jsonl.meta.json": {
+   "bytes": 220,
+   "sha256": "41e6e4736c14d86b2ce0c9a1242d3d912819f158003593782b6a23971d6742f9"
+  },
+  "ml/reports/phase2e0/raw/analysis.txt": {
+   "bytes": 5837,
+   "sha256": "3c31e1b458b4f38f7c070f6e931c3037e4cc3b2aa2b6dbde203943dfaf8babdd"
+  },
+  "ml/reports/phase2e0/raw/audits.log": {
+   "bytes": 2498,
+   "sha256": "6e8482f8001c41bf6b2089c2d2c1889e3d415aa277d3462d4e1286252bcef694"
+  },
+  "ml/reports/phase2e0/raw/C1.jsonl.meta.json": {
+   "bytes": 224,
+   "sha256": "2a61bf81478dbc6aad867fdad72024739ba273de1a23df74dc0c3183c17c75c9"
+  },
+  "ml/reports/phase2e0/raw/C4.jsonl.meta.json": {
+   "bytes": 224,
+   "sha256": "440da20b43e36c292f8f1c67454e97c9e7cacd569a9fad99f2de6e9c05d4ef88"
+  },
+  "ml/reports/phase2e0/raw/compare_stopped_c4.txt": {
+   "bytes": 204,
+   "sha256": "d93417cccf022a9914f629f46f4213d0a78d0d20e968ad626d46662d53487dec"
+  },
+  "ml/reports/phase2e0/raw/fallback.txt": {
+   "bytes": 2253,
+   "sha256": "4bafc55f87f0aee09e135a404b86a40854f3229ef0e89b35d4d789c319d69300"
+  },
+  "ml/reports/phase2e0/raw/js_suite.log": {
+   "bytes": 19732,
+   "sha256": "6df14f3e2698b7292d4167a9b00ebb26c90f87ab20ef0ecacf3a32147945211a"
+  },
+  "ml/reports/phase2e0/raw/latency_concurrent14_1.json": {
+   "bytes": 2974,
+   "sha256": "8024544c1b23e668438d84586fe63a237201593d5906d868be1e58470bb67b1b"
+  },
+  "ml/reports/phase2e0/raw/latency_concurrent14_2.json": {
+   "bytes": 2843,
+   "sha256": "2ede12b7aa6615ad146be0d54e36ba8776cf8f34e6206cb8b8a83d90253a1271"
+  },
+  "ml/reports/phase2e0/raw/latency_concurrent4.json": {
+   "bytes": 1865,
+   "sha256": "0c23f43d6559298281e64b0e71c9e225e18fd756f0775cc3cb823b165b95a37f"
+  },
+  "ml/reports/phase2e0/raw/latency_single_1.json": {
+   "bytes": 1867,
+   "sha256": "a555ad0524df1bf16e1a87d17b71ca21d31adb2f24aefb2a89b4ea2b43d2127c"
+  },
+  "ml/reports/phase2e0/raw/latency_single_2.json": {
+   "bytes": 1861,
+   "sha256": "ffae55dddf2b6044c2ee41820c0842ce715a6424c34b76d7985f75513531aaef"
+  },
+  "ml/reports/phase2e0/raw/latency_single_3.json": {
+   "bytes": 1870,
+   "sha256": "9ee6d444ed19ad2eb854a6132a51eab7bc6ae873ff5e93dde5e2ba6fcbde0300"
+  },
+  "ml/reports/phase2e0/raw/parity.txt": {
+   "bytes": 5160,
+   "sha256": "5284410928f8c8888a547f7c1e9422c80349ef2c46c37a51e6bfca5d2b6a4699"
+  },
+  "ml/reports/phase2e0/raw/parity_states.txt": {
+   "bytes": 1173,
+   "sha256": "b5d831fc2412e9abd65e12199fc393b7f0d9c47afc4503c66bf4f89b75d12cd0"
+  },
+  "ml/reports/phase2e0/raw/py_suite.log": {
+   "bytes": 900,
+   "sha256": "0623ee9775e3ca817931fe676d56945d7db9bcec0b7f716c39040605d1615476"
+  },
+  "ml/reports/phase2e0/raw/reproducibility_compare.txt": {
+   "bytes": 3388,
+   "sha256": "363b433209f870035a82e129d242f17fe88e36ece1b3efe1916604bbf3282fb7"
+  },
+  "ml/reports/phase2e0/raw/run_all.log": {
+   "bytes": 7712,
+   "sha256": "3aead5bdb6782e5c7df0ab92e7304c64a494080102a9d41c471140b6a12c4aed"
+  },
+  "ml/reports/phase2e0/raw/run_rest.log": {
+   "bytes": 9041,
+   "sha256": "3205d1727779f00f0594a27c7bfbb0a3228d60311e1ac25947260978adbfbf08"
+  },
+  "ml/reports/phase2e0/raw/S4.jsonl.meta.json": {
+   "bytes": 221,
+   "sha256": "0fea8f8f59e3997b6fd5157368e7161ee4c089f772bf2e054399b470dab802b2"
+  },
+  "ml/reports/phase2e0/raw/smoke_compare.txt": {
+   "bytes": 1727,
+   "sha256": "e4f2a35093098ecfc1170d42cdd69ce4f0c6f92d4e7d89006ec9081810a5e03c"
+  },
+  "ml/reports/phase2e0/raw/smoke_stage_a.txt": {
+   "bytes": 4174,
+   "sha256": "9f7bbda39afb4d188ab005cffe82d2042d729f201ce7504ef5b2bc5af8fe8093"
+  },
+  "ml/reports/phase2e0/raw/stage_a_regression.txt": {
+   "bytes": 4201,
+   "sha256": "00d05b8352448bbdbdc486ffd10eb872c40a02c7a1deb835a7288326d65f6f2c"
+  },
+  "ml/reports/phase2e0/report.md": {
+   "bytes": 43612,
+   "sha256": "be6b77d9ee615c0aea0171fd139505c883d3d13802e51dcb6ffb10345d68efe2"
+  },
+  "ml/reports/phase2e0/reproducibility.json": {
+   "bytes": 4842,
+   "sha256": "55653730c89b5d518eff7f0439dae81d792d7e745255200d35b846caab214843"
+  },
+  "ml/reports/phase2e0/safety-episodes.json": {
+   "bytes": 2350,
+   "sha256": "d96b91b0c7b0742a0cb029e2920cffc5be71a0dd39078bdfbb20907d7f3f0929"
+  },
+  "ml/reports/phase2e0/safety.json": {
+   "bytes": 5297,
+   "sha256": "44a325052338d15e61dbd8e1a3b2631a874c3ec5f9b6db8b2bbd2754f28a1818"
+  },
+  "ml/reports/phase2e0/safety_stop_C4.md": {
+   "bytes": 5351,
+   "sha256": "5c6dec008736c88cc7f79dcec0168e49185e87282b20b2fe74d92e7d5713c4fa"
+  },
+  "ml/reports/phase2e0/safety_stop_C4.STOP.json": {
+   "bytes": 753,
+   "sha256": "8244645f185764d54c6453760034dbcdd394571614a89d916d0e2f8fdaeaad3b"
+  },
+  "ml/reports/phase2e0/safety_stop_C4_seed100490_trace.txt": {
+   "bytes": 13678,
+   "sha256": "7d346fbd11e36eb333ee2a04fc4b10e5e871dc8fb2f1185831a2773064c55115"
+  },
+  "ml/reports/phase2e0/smoke.md": {
+   "bytes": 2259,
+   "sha256": "d00fa0b52d7dd3e34f0dba49945104a16e5db6fa551409e4a1c91fbdd651e538"
+  },
+  "ml/runs/_2e0/full/A.jsonl": {
+   "bytes": 22043583,
+   "sha256": "af059013782dac5f3fcb0139d3f2de207d492d546e1b1ece74f70941f9470aba"
+  },
+  "ml/runs/_2e0/full/A.jsonl.meta.json": {
+   "bytes": 220,
+   "sha256": "41e6e4736c14d86b2ce0c9a1242d3d912819f158003593782b6a23971d6742f9"
+  },
+  "ml/runs/_2e0/full/C1.jsonl": {
+   "bytes": 322277950,
+   "sha256": "52cab62fc9ec21b7448dd74fdc72acd60234fa7bd46becc4bcae4425cb7c5971"
+  },
+  "ml/runs/_2e0/full/C1.jsonl.meta.json": {
+   "bytes": 224,
+   "sha256": "2a61bf81478dbc6aad867fdad72024739ba273de1a23df74dc0c3183c17c75c9"
+  },
+  "ml/runs/_2e0/full/C4.jsonl": {
+   "bytes": 495219823,
+   "sha256": "f17a6ba28b17c30728dfb07ad983e97ef6bcc86b3db6a5f04da92514ce2c46d0"
+  },
+  "ml/runs/_2e0/full/C4.jsonl.meta.json": {
+   "bytes": 224,
+   "sha256": "440da20b43e36c292f8f1c67454e97c9e7cacd569a9fad99f2de6e9c05d4ef88"
+  },
+  "ml/runs/_2e0/full/S4.jsonl": {
+   "bytes": 41234716,
+   "sha256": "6dcefd59e604c15b397ce32a4eb5bdd98c0e1869f10e762a6adfe9b4a70d88ab"
+  },
+  "ml/runs/_2e0/full/S4.jsonl.meta.json": {
+   "bytes": 221,
+   "sha256": "0fea8f8f59e3997b6fd5157368e7161ee4c089f772bf2e054399b470dab802b2"
+  },
+  "ml/runs/_2e0/full/stage_a_regression.txt": {
+   "bytes": 4201,
+   "sha256": "00d05b8352448bbdbdc486ffd10eb872c40a02c7a1deb835a7288326d65f6f2c"
+  }
+ },
+ "problems": [],
+ "filesNote": "Phase 2E.0 did not record hashes of its result files; these sha256 values are recorded now as the Phase 2E.1 baseline (verified again at the end of the analysis).",
+ "expectedReportFilesMissing": [],
+ "plots": [
+  "c1_h2h.svg",
+  "c1_seed_stability.svg",
+  "c1_transfer.svg",
+  "c4_h2h.svg",
+  "c4_seed_stability.svg",
+  "c4_transfer.svg",
+  "index.html",
+  "s4_h2h.svg",
+  "s4_transfer.svg",
+  "stage_a_to_b_xi.svg"
+ ],
+ "findingTraces": 20,
+ "episodeCounts": {
+  "A": 7500,
+  "C1": 90000,
+  "C4": 90000,
+  "S4": 7500
+ },
+ "expectedCounts": {
+  "A": 7500,
+  "C1": 90000,
+  "C4": 90000,
+  "S4": 7500
+ },
+ "countsMatch": true,
+ "cells": {
+  "A": 15,
+  "C1": 180,
+  "C4": 180,
+  "S4": 15,
+  "episodesPerCellDistribution": {
+   "500": 390
+  }
+ },
+ "duplicateEpisodes": 0,
+ "missingFields": {},
+ "nullValues": {
+  "note": "priceToFair / capToFair are null only when the learner bought nothing / never bid (defined as undefined, excluded from means)"
+ },
+ "incompleteXIByType": {
+  "A:human": 3165,
+  "C1:human": 37980,
+  "C4:human": 37980,
+  "C4:rlSnapshot": 10,
+  "C4:learner": 10,
+  "S4:human": 3165
+ },
+ "findings": {
+  "raw": 20,
+  "published": 20,
+  "identical": true,
+  "allScreenPassed": true,
+  "allC4": true
+ },
+ "stageAControl": {
+  "exit": 0,
+  "lines": [
+   "es:s3     500/500 episodes identical to the stored Stage-A evaluator episodes  XI 91.0220 (stored 91.0220)",
+   "ppo    three-seed XI 92.595 \u00b1 0.082  (reported 92.595 \u00b1 0.082)  match: True",
+   "a2c    three-seed XI 90.427 \u00b1 0.046  (reported 90.427 \u00b1 0.046)  match: True",
+   "d3qn   three-seed XI 91.490 \u00b1 0.191  (reported 91.490 \u00b1 0.191)  match: True",
+   "qrdqn  three-seed XI 91.853 \u00b1 0.089  (reported 91.853 \u00b1 0.089)  match: True",
+   "es     three-seed XI 91.068 \u00b1 0.044  (reported 91.068 \u00b1 0.044)  match: True",
+   "STAGE-A REGRESSION: PASS"
+  ]
+ },
+ "rawVsMatchupMatrix": {
+  "cellsChecked": 45,
+  "maxAbsDifference": 8.881784197001252e-16,
+  "match": true
+ },
+ "rawVsEpisodeResults": {
+  "rows": 195000,
+  "xiMismatches": 0,
+  "match": true
+ },
+ "rawVsSafetyEpisodes": {
+  "A": {
+   "published": {
+    "learnerIncompleteXI": 0,
+    "rlOpponentIncompleteXI": 0,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   },
+   "rawLearnerIncomplete": 0,
+   "rawOpponentIncomplete": 0
+  },
+  "C1": {
+   "published": {
+    "learnerIncompleteXI": 0,
+    "rlOpponentIncompleteXI": 0,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   },
+   "rawLearnerIncomplete": 0,
+   "rawOpponentIncomplete": 0
+  },
+  "C4": {
+   "published": {
+    "learnerIncompleteXI": 10,
+    "rlOpponentIncompleteXI": 10,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   },
+   "rawLearnerIncomplete": 10,
+   "rawOpponentIncomplete": 10
+  },
+  "S4": {
+   "published": {
+    "learnerIncompleteXI": 0,
+    "rlOpponentIncompleteXI": 0,
+    "note": "incomplete XI of an RL-controlled team from legal policy behaviour, defect screen passed (approved Option A); see findings.json"
+   },
+   "rawLearnerIncomplete": 0,
+   "rawOpponentIncomplete": 0
+  }
+ },
+ "frozenHashes": {
+  "exit": 0,
+  "output": "HASHES OK: obs 629b25783f833af7 \u00b7 act 5f72f510c48b1f46 \u00b7 25 frozen files unchanged (and clean vs git HEAD) \u00b7 15 exports + checkpoints unchanged"
+ },
+ "gitStatus": [
+  "?? ml/ipl_rl/diagnosis/"
+ ],
+ "pass": true
+}

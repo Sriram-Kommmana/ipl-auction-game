@@ -1,0 +1,995 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "consistency": {
+  "M1": {
+   "cases": 14,
+   "kContestNoNeed": {
+    "atOrAbove0.9": 0,
+    "atOrBelow0.5": 2
+   },
+   "kHistExtraBuyers": {
+    "atOrAbove0.9": 3,
+    "atOrBelow0.5": 7
+   },
+   "kStockExcess": {
+    "atOrAbove0.9": 1,
+    "atOrBelow0.5": 6
+   },
+   "self_purse": {
+    "atOrAbove0.9": 0,
+    "atOrBelow0.5": 11,
+    "atOrBelow0.1": 1
+   },
+   "mkt_scarcity_keeper": {
+    "atOrAbove0.9": 0,
+    "atOrBelow0.5": 9,
+    "atOrBelow0.2": 2
+   }
+  },
+  "M2": {
+   "cases": 6,
+   "kContestNoNeed": {
+    "atOrAbove0.9": 0,
+    "atOrBelow0.5": 2
+   },
+   "kHistExtraBuyers": {
+    "atOrAbove0.9": 1,
+    "atOrBelow0.5": 0
+   },
+   "kStockExcess": {
+    "atOrAbove0.9": 4,
+    "atOrBelow0.5": 0
+   },
+   "self_purse": {
+    "atOrAbove0.9": 0,
+    "atOrBelow0.5": 6,
+    "atOrBelow0.1": 5
+   },
+   "mkt_scarcity_keeper": {
+    "atOrAbove0.9": 0,
+    "atOrBelow0.5": 6,
+    "atOrBelow0.2": 6
+   }
+  }
+ },
+ "population": {
+  "rows": 298803,
+  "labelRate_absorbedByNonNeedingRival": 0.096,
+  "labelRate_wonByAnyRival": 0.743,
+  "cells": 179,
+  "cellsWithRivalsNeeding": 538
+ },
+ "stateAvsB": {
+  "definition": "few rivals need a keeper (≤ 1); State A: ≤ 2 non-needing rivals able to buy the lot at base; State B: ≥ 5",
+  "rowsA": 2619,
+  "rowsB": 36325,
+  "absorbedByNonNeeding_A": 0.068,
+  "absorbedByNonNeeding_B": 0.243,
+  "existingFeatureSepAvsB": [
+   {
+    "feature": "riv_able_share",
+    "sep": 0.997
+   },
+   {
+    "feature": "riv_capacity_3",
+    "sep": 0.819
+   },
+   {
+    "feature": "riv_free_slots_share",
+    "sep": 0.639
+   },
+   {
+    "feature": "riv_recent_spend",
+    "sep": 0.638
+   },
+   {
+    "feature": "mkt_recent_sold_share",
+    "sep": 0.546
+   },
+   {
+    "feature": "lot_is_overseas",
+    "sep": 0.52
+   }
+  ]
+ },
+ "absorptionByNonNeedingContestants": [
+  {
+   "kContestNoNeed": 0,
+   "rows": 456,
+   "rate": 0.0
+  },
+  {
+   "kContestNoNeed": 1,
+   "rows": 738,
+   "rate": 0.065
+  },
+  {
+   "kContestNoNeed": 2,
+   "rows": 1425,
+   "rate": 0.092
+  },
+  {
+   "kContestNoNeed": 3,
+   "rows": 3411,
+   "rate": 0.133
+  },
+  {
+   "kContestNoNeed": 4,
+   "rows": 6977,
+   "rate": 0.148
+  },
+  {
+   "kContestNoNeed": 5,
+   "rows": 12647,
+   "rate": 0.186
+  },
+  {
+   "kContestNoNeed": 6,
+   "rows": 7764,
+   "rate": 0.266
+  },
+  {
+   "kContestNoNeed": 7,
+   "rows": 6759,
+   "rate": 0.251
+  },
+  {
+   "kContestNoNeed": 8,
+   "rows": 7036,
+   "rate": 0.278
+  },
+  {
+   "kContestNoNeed": 9,
+   "rows": 2119,
+   "rate": 0.361
+  }
+ ],
+ "controlCells": {
+  "bestExisting": [
+   {
+    "feature": "mkt_scarcity_keeper",
+    "withinCellSep": 0.339
+   },
+   {
+    "feature": "mkt_equivalent_left",
+    "withinCellSep": 0.333
+   },
+   {
+    "feature": "self_xi_gain",
+    "withinCellSep": 0.322
+   },
+   {
+    "feature": "mkt_same_role_left",
+    "withinCellSep": 0.319
+   },
+   {
+    "feature": "lot_fair_value",
+    "withinCellSep": 0.313
+   },
+   {
+    "feature": "lot_rating",
+    "withinCellSep": 0.309
+   }
+  ],
+  "candidates": {
+   "kContestAll": {
+    "withinCellSep_absorbedByNonNeeding": 0.092,
+    "signed": 0.077,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.633,
+    "withinCellSep_wonByAnyRival": 0.138
+   },
+   "kContestNoNeed": {
+    "withinCellSep_absorbedByNonNeeding": 0.366,
+    "signed": 0.362,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.795,
+    "withinCellSep_wonByAnyRival": 0.191
+   },
+   "kContestNoNeedFair": {
+    "withinCellSep_absorbedByNonNeeding": 0.358,
+    "signed": 0.35,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.781,
+    "withinCellSep_wonByAnyRival": 0.187
+   },
+   "kContestNeed": {
+    "withinCellSep_absorbedByNonNeeding": 0.295,
+    "signed": -0.288,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.966,
+    "withinCellSep_wonByAnyRival": 0.15
+   },
+   "kStockExcess": {
+    "withinCellSep_absorbedByNonNeeding": 0.076,
+    "signed": -0.015,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.952,
+    "withinCellSep_wonByAnyRival": 0.064
+   },
+   "kStock2": {
+    "withinCellSep_absorbedByNonNeeding": 0.066,
+    "signed": -0.015,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.914,
+    "withinCellSep_wonByAnyRival": 0.054
+   },
+   "kHistExtraBuyers": {
+    "withinCellSep_absorbedByNonNeeding": 0.066,
+    "signed": -0.015,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.914,
+    "withinCellSep_wonByAnyRival": 0.054
+   },
+   "kW20Extra": {
+    "withinCellSep_absorbedByNonNeeding": 0.074,
+    "signed": -0.011,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.796,
+    "withinCellSep_wonByAnyRival": 0.062
+   },
+   "kW20Buys": {
+    "withinCellSep_absorbedByNonNeeding": 0.343,
+    "signed": 0.265,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.853,
+    "withinCellSep_wonByAnyRival": 0.154
+   },
+   "capGe2": {
+    "withinCellSep_absorbedByNonNeeding": 0.093,
+    "signed": 0.022,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.733,
+    "withinCellSep_wonByAnyRival": 0.15
+   }
+  }
+ },
+ "fineCells_plus_rivAble_rivFreeSlots": {
+  "rows": 298803,
+  "cells": 6716,
+  "candidates": {
+   "kContestNoNeed": {
+    "betweenCellShare": 0.928,
+    "withinCellSep": 0.455,
+    "signed": 0.449,
+    "cellsUsed": 187
+   },
+   "kContestNoNeedFair": {
+    "betweenCellShare": 0.936,
+    "withinCellSep": 0.445,
+    "signed": 0.439,
+    "cellsUsed": 187
+   },
+   "kContestAll": {
+    "betweenCellShare": 0.911,
+    "withinCellSep": 0.039,
+    "signed": 0.028,
+    "cellsUsed": 187
+   },
+   "kHistExtraBuyers": {
+    "betweenCellShare": 0.915,
+    "withinCellSep": 0.038,
+    "signed": -0.011,
+    "cellsUsed": 187
+   },
+   "kW20Buys": {
+    "betweenCellShare": 0.89,
+    "withinCellSep": 0.446,
+    "signed": 0.393,
+    "cellsUsed": 187
+   }
+  },
+  "existingOutsideCells": {
+   "mkt_scarcity_keeper": 0.443,
+   "mkt_equivalent_left": 0.431,
+   "riv_gain_mean": 0.094,
+   "riv_purse_mean": 0.286,
+   "riv_capacity_3": 0.024,
+   "mkt_recent_price_ratio": 0.159,
+   "self_xi_gain": 0.303
+  },
+  "rivAbleCount_vs_kContestAll_spearman": 0.947,
+  "rivAbleCount_vs_kContestNoNeedFair_spearman": -0.59,
+  "shareRowsRivAbleCountEqualsContestAll": 0.74,
+  "dangerousSeatRows": 467,
+  "dangerousVsSafe_withinFineCells": {
+   "kContestNoNeed": null,
+   "kHistExtraBuyers": null,
+   "kStockExcess": null
+  },
+  "dangerousVsSafe_withinFineCells_existing": {
+   "self_purse": null,
+   "mkt_scarcity_keeper": null,
+   "self_overseas_slots_left": null,
+   "self_slots_left": null
+  }
+ },
+ "findingsMedianPercentileByMechanism": {
+  "M1:kContestNoNeed": 0.629,
+  "M1:kContestNoNeedFair": 0.623,
+  "M1:kHistExtraBuyers": 0.607,
+  "M1:kStockExcess": 0.653,
+  "M1:kContestAll": 0.62,
+  "M1:mkt_scarcity_keeper": 0.465,
+  "M1:riv_fills_share": 0.495,
+  "M1:riv_free_slots_share": 0.53,
+  "M1:self_purse": 0.312,
+  "M2:kContestNoNeed": 0.609,
+  "M2:kContestNoNeedFair": 0.558,
+  "M2:kHistExtraBuyers": 0.764,
+  "M2:kStockExcess": 0.935,
+  "M2:kContestAll": 0.542,
+  "M2:mkt_scarcity_keeper": 0.059,
+  "M2:riv_fills_share": 0.43,
+  "M2:riv_free_slots_share": 0.359,
+  "M2:self_purse": 0.015
+ },
+ "findings": [
+  {
+   "k": 490,
+   "room": "ppo:s2 vs 4× d3qn:s1",
+   "seat": 4,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kHistExtraBuyers — medianPercentile among matched safe decisions: kContestNoNeed 0.851, kHistExtraBuyers 0.944, kStockExcess 0.667 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 20,
+   "passesOnKeepersThatWentUnsold": 15,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.851,
+    "kContestNoNeedFair": 0.86,
+    "kHistExtraBuyers": 0.944,
+    "kStockExcess": 0.667,
+    "kContestAll": 0.619,
+    "mkt_scarcity_keeper": 0.539,
+    "riv_fills_share": 0.225,
+    "riv_free_slots_share": 0.784,
+    "self_purse": 0.266
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 6.0,
+    "kContestNoNeedFair": 5.0,
+    "kHistExtraBuyers": 7.0,
+    "kStockExcess": 10.0,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 27,
+   "room": "ppo:s2 vs 4× d3qn:s3",
+   "seat": 9,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kHistExtraBuyers — medianPercentile among matched safe decisions: kContestNoNeed 0.745, kHistExtraBuyers 0.905, kStockExcess 0.769 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 20,
+   "passesOnKeepersThatWentUnsold": 14,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.745,
+    "kContestNoNeedFair": 0.847,
+    "kHistExtraBuyers": 0.905,
+    "kStockExcess": 0.769,
+    "kContestAll": 0.542,
+    "mkt_scarcity_keeper": 0.682,
+    "riv_fills_share": 0.225,
+    "riv_free_slots_share": 0.788,
+    "self_purse": 0.466
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 5.0,
+    "kContestNoNeedFair": 5.0,
+    "kHistExtraBuyers": 6.0,
+    "kStockExcess": 11.0,
+    "kContestAll": 5.0
+   }
+  },
+  {
+   "k": 244,
+   "room": "ppo:s2 vs 4× qrdqn:s2",
+   "seat": 0,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.688, kHistExtraBuyers 0.717, kStockExcess 0.768 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 25,
+   "passesOnKeepersThatWentUnsold": 19,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.688,
+    "kContestNoNeedFair": 0.73,
+    "kHistExtraBuyers": 0.717,
+    "kStockExcess": 0.768,
+    "kContestAll": 0.623,
+    "mkt_scarcity_keeper": 0.517,
+    "riv_fills_share": 0.636,
+    "riv_free_slots_share": 0.561,
+    "self_purse": 0.891
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 5.0,
+    "kContestNoNeedFair": 5.0,
+    "kHistExtraBuyers": 5.0,
+    "kStockExcess": 8.5,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 285,
+   "room": "ppo:s2 vs 4× qrdqn:s2",
+   "seat": 9,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.373, kHistExtraBuyers 0.494, kStockExcess 0.494 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 22,
+   "passesOnKeepersThatWentUnsold": 14,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.373,
+    "kContestNoNeedFair": 0.378,
+    "kHistExtraBuyers": 0.494,
+    "kStockExcess": 0.494,
+    "kContestAll": 0.321,
+    "mkt_scarcity_keeper": 0.424,
+    "riv_fills_share": 0.49,
+    "riv_free_slots_share": 0.222,
+    "self_purse": 0.326
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.0,
+    "kContestNoNeedFair": 3.5,
+    "kHistExtraBuyers": 5.0,
+    "kStockExcess": 7.5,
+    "kContestAll": 5.0
+   }
+  },
+  {
+   "k": 342,
+   "room": "a2c:s1 vs 4× ppo:s3",
+   "seat": 2,
+   "mechanism": "M2",
+   "1_whatMadeItDangerous": "own purse and overseas slots exhausted early; later keeper bids lost to rivals with large purses",
+   "2_alreadyAvailable": "yes — own purse / overseas exhaustion is current own state",
+   "3_encoded": "yes (self_purse, self_overseas_slots_left, self_max_safe_*, self_reserve_if_passed)",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.636, kHistExtraBuyers 0.804, kStockExcess 0.757 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (early purse / overseas exhaustion, observable) — not a missing observation",
+   "passes": 0,
+   "passesOnKeepersThatWentUnsold": 0,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.636,
+    "kContestNoNeedFair": 0.647,
+    "kHistExtraBuyers": 0.804,
+    "kStockExcess": 0.757,
+    "kContestAll": 0.563,
+    "mkt_scarcity_keeper": 0.089,
+    "riv_fills_share": 0.408,
+    "riv_free_slots_share": 0.407,
+    "self_purse": 0.021
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 6.5,
+    "kContestNoNeedFair": 6.5,
+    "kHistExtraBuyers": 5.5,
+    "kStockExcess": 7.0,
+    "kContestAll": 8.5
+   }
+  },
+  {
+   "k": 445,
+   "room": "a2c:s1 vs 4× ppo:s3",
+   "seat": 3,
+   "mechanism": "M2",
+   "1_whatMadeItDangerous": "own purse and overseas slots exhausted early; later keeper bids lost to rivals with large purses",
+   "2_alreadyAvailable": "yes — own purse / overseas exhaustion is current own state",
+   "3_encoded": "yes (self_purse, self_overseas_slots_left, self_max_safe_*, self_reserve_if_passed)",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kHistExtraBuyers, kStockExcess — medianPercentile among matched safe decisions: kContestNoNeed 0.648, kHistExtraBuyers 0.908, kStockExcess 0.953 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (early purse / overseas exhaustion, observable) — not a missing observation",
+   "passes": 0,
+   "passesOnKeepersThatWentUnsold": 0,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.648,
+    "kContestNoNeedFair": 0.659,
+    "kHistExtraBuyers": 0.908,
+    "kStockExcess": 0.953,
+    "kContestAll": 0.558,
+    "mkt_scarcity_keeper": 0.154,
+    "riv_fills_share": 0.388,
+    "riv_free_slots_share": 0.5,
+    "self_purse": 0.06
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 7.0,
+    "kContestNoNeedFair": 7.0,
+    "kHistExtraBuyers": 7.0,
+    "kStockExcess": 8.5,
+    "kContestAll": 8.5
+   }
+  },
+  {
+   "k": 308,
+   "room": "a2c:s2 vs 4× ppo:s3",
+   "seat": 0,
+   "mechanism": "M2",
+   "1_whatMadeItDangerous": "own purse and overseas slots exhausted early; later keeper bids lost to rivals with large purses",
+   "2_alreadyAvailable": "yes — own purse / overseas exhaustion is current own state",
+   "3_encoded": "yes (self_purse, self_overseas_slots_left, self_max_safe_*, self_reserve_if_passed)",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kStockExcess — medianPercentile among matched safe decisions: kContestNoNeed 0.265, kHistExtraBuyers 0.725, kStockExcess 0.968 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (early purse / overseas exhaustion, observable) — not a missing observation",
+   "passes": 0,
+   "passesOnKeepersThatWentUnsold": 0,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.265,
+    "kContestNoNeedFair": 0.282,
+    "kHistExtraBuyers": 0.725,
+    "kStockExcess": 0.968,
+    "kContestAll": 0.302,
+    "mkt_scarcity_keeper": 0.03,
+    "riv_fills_share": 0.595,
+    "riv_free_slots_share": 0.043,
+    "self_purse": 0.009
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.5,
+    "kContestNoNeedFair": 3.0,
+    "kHistExtraBuyers": 6.0,
+    "kStockExcess": 11.5,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 25,
+   "room": "d3qn:s1 vs 4× qrdqn:s2",
+   "seat": 0,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.528, kHistExtraBuyers 0.407, kStockExcess 0.353 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 22,
+   "passesOnKeepersThatWentUnsold": 20,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.528,
+    "kContestNoNeedFair": 0.606,
+    "kHistExtraBuyers": 0.407,
+    "kStockExcess": 0.353,
+    "kContestAll": 0.62,
+    "mkt_scarcity_keeper": 0.385,
+    "riv_fills_share": 0.659,
+    "riv_free_slots_share": 0.822,
+    "self_purse": 0.071
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.0,
+    "kContestNoNeedFair": 4.0,
+    "kHistExtraBuyers": 4.0,
+    "kStockExcess": 7.0,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 34,
+   "room": "d3qn:s1 vs 4× qrdqn:s2",
+   "seat": 8,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.543, kHistExtraBuyers 0.767, kStockExcess 0.727 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 17,
+   "passesOnKeepersThatWentUnsold": 13,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.543,
+    "kContestNoNeedFair": 0.64,
+    "kHistExtraBuyers": 0.767,
+    "kStockExcess": 0.727,
+    "kContestAll": 0.581,
+    "mkt_scarcity_keeper": 0.175,
+    "riv_fills_share": 0.547,
+    "riv_free_slots_share": 0.527,
+    "self_purse": 0.141
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.5,
+    "kContestNoNeedFair": 4.5,
+    "kHistExtraBuyers": 6.0,
+    "kStockExcess": 11.0,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 142,
+   "room": "d3qn:s1 vs 4× qrdqn:s2",
+   "seat": 2,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.607, kHistExtraBuyers 0.151, kStockExcess 0.353 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 22,
+   "passesOnKeepersThatWentUnsold": 16,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.607,
+    "kContestNoNeedFair": 0.606,
+    "kHistExtraBuyers": 0.151,
+    "kStockExcess": 0.353,
+    "kContestAll": 0.62,
+    "mkt_scarcity_keeper": 0.353,
+    "riv_fills_share": 0.636,
+    "riv_free_slots_share": 0.787,
+    "self_purse": 0.298
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.0,
+    "kContestNoNeedFair": 4.0,
+    "kHistExtraBuyers": 3.0,
+    "kStockExcess": 5.0,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 262,
+   "room": "d3qn:s1 vs 4× qrdqn:s2",
+   "seat": 0,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.267, kHistExtraBuyers 0.222, kStockExcess 0.64 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 19,
+   "passesOnKeepersThatWentUnsold": 16,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.267,
+    "kContestNoNeedFair": 0.307,
+    "kHistExtraBuyers": 0.222,
+    "kStockExcess": 0.64,
+    "kContestAll": 0.499,
+    "mkt_scarcity_keeper": 0.17,
+    "riv_fills_share": 0.691,
+    "riv_free_slots_share": 0.48,
+    "self_purse": 0.423
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 3.0,
+    "kContestNoNeedFair": 3.0,
+    "kHistExtraBuyers": 4.0,
+    "kStockExcess": 11.0,
+    "kContestAll": 5.0
+   }
+  },
+  {
+   "k": 253,
+   "room": "qrdqn:s2 vs 4× ppo:s1",
+   "seat": 2,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kHistExtraBuyers — medianPercentile among matched safe decisions: kContestNoNeed 0.729, kHistExtraBuyers 0.924, kStockExcess 0.832 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 26,
+   "passesOnKeepersThatWentUnsold": 8,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.729,
+    "kContestNoNeedFair": 0.775,
+    "kHistExtraBuyers": 0.924,
+    "kStockExcess": 0.832,
+    "kContestAll": 0.643,
+    "mkt_scarcity_keeper": 0.48,
+    "riv_fills_share": 0.376,
+    "riv_free_slots_share": 0.339,
+    "self_purse": 0.547
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 7.0,
+    "kContestNoNeedFair": 7.0,
+    "kHistExtraBuyers": 7.0,
+    "kStockExcess": 9.0,
+    "kContestAll": 8.0
+   }
+  },
+  {
+   "k": 275,
+   "room": "qrdqn:s2 vs 4× ppo:s1",
+   "seat": 9,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kStockExcess — medianPercentile among matched safe decisions: kContestNoNeed 0.833, kHistExtraBuyers 0.759, kStockExcess 0.92 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 16,
+   "passesOnKeepersThatWentUnsold": 6,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.833,
+    "kContestNoNeedFair": 0.817,
+    "kHistExtraBuyers": 0.759,
+    "kStockExcess": 0.92,
+    "kContestAll": 0.907,
+    "mkt_scarcity_keeper": 0.45,
+    "riv_fills_share": 0.374,
+    "riv_free_slots_share": 0.624,
+    "self_purse": 0.254
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 8.0,
+    "kContestNoNeedFair": 8.0,
+    "kHistExtraBuyers": 7.0,
+    "kStockExcess": 10.0,
+    "kContestAll": 9.0
+   }
+  },
+  {
+   "k": 424,
+   "room": "qrdqn:s2 vs 4× ppo:s2",
+   "seat": 9,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.652, kHistExtraBuyers 0.788, kStockExcess 0.742 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 23,
+   "passesOnKeepersThatWentUnsold": 11,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.652,
+    "kContestNoNeedFair": 0.578,
+    "kHistExtraBuyers": 0.788,
+    "kStockExcess": 0.742,
+    "kContestAll": 0.621,
+    "mkt_scarcity_keeper": 0.488,
+    "riv_fills_share": 0.4,
+    "riv_free_slots_share": 0.161,
+    "self_purse": 0.566
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 6.0,
+    "kContestNoNeedFair": 6.0,
+    "kHistExtraBuyers": 8.0,
+    "kStockExcess": 10.0,
+    "kContestAll": 8.0
+   }
+  },
+  {
+   "k": 433,
+   "room": "qrdqn:s2 vs 4× ppo:s2",
+   "seat": 7,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.848, kHistExtraBuyers 0.498, kStockExcess 0.327 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 23,
+   "passesOnKeepersThatWentUnsold": 18,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.848,
+    "kContestNoNeedFair": 0.859,
+    "kHistExtraBuyers": 0.498,
+    "kStockExcess": 0.327,
+    "kContestAll": 0.776,
+    "mkt_scarcity_keeper": 0.727,
+    "riv_fills_share": 0.4,
+    "riv_free_slots_share": 0.532,
+    "self_purse": 0.212
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 8.0,
+    "kContestNoNeedFair": 8.0,
+    "kHistExtraBuyers": 4.0,
+    "kStockExcess": 4.0,
+    "kContestAll": 8.0
+   }
+  },
+  {
+   "k": 308,
+   "room": "es:s1 vs 4× ppo:s3",
+   "seat": 0,
+   "mechanism": "M2",
+   "1_whatMadeItDangerous": "own purse and overseas slots exhausted early; later keeper bids lost to rivals with large purses",
+   "2_alreadyAvailable": "yes — own purse / overseas exhaustion is current own state",
+   "3_encoded": "yes (self_purse, self_overseas_slots_left, self_max_safe_*, self_reserve_if_passed)",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kStockExcess — medianPercentile among matched safe decisions: kContestNoNeed 0.24, kHistExtraBuyers 0.516, kStockExcess 0.945 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (early purse / overseas exhaustion, observable) — not a missing observation",
+   "passes": 0,
+   "passesOnKeepersThatWentUnsold": 0,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.24,
+    "kContestNoNeedFair": 0.246,
+    "kHistExtraBuyers": 0.516,
+    "kStockExcess": 0.945,
+    "kContestAll": 0.338,
+    "mkt_scarcity_keeper": 0.03,
+    "riv_fills_share": 0.595,
+    "riv_free_slots_share": 0.044,
+    "self_purse": 0.009
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.0,
+    "kContestNoNeedFair": 3.5,
+    "kHistExtraBuyers": 6.0,
+    "kStockExcess": 11.0,
+    "kContestAll": 6.5
+   }
+  },
+  {
+   "k": 77,
+   "room": "es:s2 vs 4× ppo:s3",
+   "seat": 4,
+   "mechanism": "M2",
+   "1_whatMadeItDangerous": "own purse and overseas slots exhausted early; later keeper bids lost to rivals with large purses",
+   "2_alreadyAvailable": "yes — own purse / overseas exhaustion is current own state",
+   "3_encoded": "yes (self_purse, self_overseas_slots_left, self_max_safe_*, self_reserve_if_passed)",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "in this case elevated (≥ 0.9): kStockExcess — medianPercentile among matched safe decisions: kContestNoNeed 0.623, kHistExtraBuyers 0.881, kStockExcess 0.926 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (early purse / overseas exhaustion, observable) — not a missing observation",
+   "passes": 2,
+   "passesOnKeepersThatWentUnsold": 0,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.623,
+    "kContestNoNeedFair": 0.58,
+    "kHistExtraBuyers": 0.881,
+    "kStockExcess": 0.926,
+    "kContestAll": 0.587,
+    "mkt_scarcity_keeper": 0.183,
+    "riv_fills_share": 0.369,
+    "riv_free_slots_share": 0.33,
+    "self_purse": 0.417
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 7.0,
+    "kContestNoNeedFair": 6.0,
+    "kHistExtraBuyers": 6.0,
+    "kStockExcess": 6.5,
+    "kContestAll": 8.0
+   }
+  },
+  {
+   "k": 180,
+   "room": "es:s3 vs 4× ppo:s3",
+   "seat": 3,
+   "mechanism": "M2",
+   "1_whatMadeItDangerous": "own purse and overseas slots exhausted early; later keeper bids lost to rivals with large purses",
+   "2_alreadyAvailable": "yes — own purse / overseas exhaustion is current own state",
+   "3_encoded": "yes (self_purse, self_overseas_slots_left, self_max_safe_*, self_reserve_if_passed)",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.594, kHistExtraBuyers 0.598, kStockExcess 0.663 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (early purse / overseas exhaustion, observable) — not a missing observation",
+   "passes": 0,
+   "passesOnKeepersThatWentUnsold": 0,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.594,
+    "kContestNoNeedFair": 0.537,
+    "kHistExtraBuyers": 0.598,
+    "kStockExcess": 0.663,
+    "kContestAll": 0.526,
+    "mkt_scarcity_keeper": 0.018,
+    "riv_fills_share": 0.453,
+    "riv_free_slots_share": 0.387,
+    "self_purse": 0.003
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 6.0,
+    "kContestNoNeedFair": 5.0,
+    "kHistExtraBuyers": 1.5,
+    "kStockExcess": 2.5,
+    "kContestAll": 8.0
+   }
+  },
+  {
+   "k": 132,
+   "room": "es:s1 vs 4× qrdqn:s2",
+   "seat": 3,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.528, kHistExtraBuyers 0.469, kStockExcess 0.493 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 21,
+   "passesOnKeepersThatWentUnsold": 18,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.528,
+    "kContestNoNeedFair": 0.607,
+    "kHistExtraBuyers": 0.469,
+    "kStockExcess": 0.493,
+    "kContestAll": 0.753,
+    "mkt_scarcity_keeper": 0.297,
+    "riv_fills_share": 0.76,
+    "riv_free_slots_share": 0.226,
+    "self_purse": 0.213
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.0,
+    "kContestNoNeedFair": 4.0,
+    "kHistExtraBuyers": 5.0,
+    "kStockExcess": 7.0,
+    "kContestAll": 6.0
+   }
+  },
+  {
+   "k": 278,
+   "room": "es:s2 vs 4× qrdqn:s2",
+   "seat": 1,
+   "mechanism": "M1",
+   "1_whatMadeItDangerous": "deferring an affordable, needed keeper while the remaining keepers were later absorbed by rivals that already held one; own purse near empty",
+   "2_alreadyAvailable": "own need, affordability and supply: yes; how many rivals COULD compete: yes (public); whether they WILL compete later: no (future behaviour)",
+   "3_encoded": "own need / supply / affordability: yes; competition breadth: yes (riv_able_share, riv_free_slots_share); non-needing propensity: no",
+   "4_tooCoarse": "no evidence: candidate counts are 93% determined by existing features (fine cells)",
+   "5_oneScalarSeparates": "no candidate reaches the 0.9 percentile in this case — medianPercentile among matched safe decisions: kContestNoNeed 0.528, kHistExtraBuyers 0.495, kStockExcess 0.495 (0.5 = typical of safe). Across cases the elevation is not consistent (see consistency).",
+   "6_transformInstead": "no transformation of an existing feature separates these decisions better",
+   "7_cause": "policy (passed on affordable keepers that filled a visible need) together with the shield's need-based criticality — not a missing observation",
+   "passes": 23,
+   "passesOnKeepersThatWentUnsold": 15,
+   "candidatePercentiles": {
+    "kContestNoNeed": 0.528,
+    "kContestNoNeedFair": 0.606,
+    "kHistExtraBuyers": 0.495,
+    "kStockExcess": 0.495,
+    "kContestAll": 0.501,
+    "mkt_scarcity_keeper": 0.565,
+    "riv_fills_share": 0.5,
+    "riv_free_slots_share": 0.212,
+    "self_purse": 0.349
+   },
+   "candidateMedianValues": {
+    "kContestNoNeed": 4.0,
+    "kContestNoNeedFair": 4.0,
+    "kHistExtraBuyers": 4.0,
+    "kStockExcess": 7.0,
+    "kContestAll": 6.0
+   }
+  }
+ ],
+ "stateAvsB_answer": "State A (≤ 2 non-needing rivals able to buy) vs State B (≥ 5), few rivals needing: absorption by a non-needing rival 6.8% vs 24.3%. The existing riv_able_share already separates A from B at 0.997 (riv_capacity_3 0.819, riv_free_slots_share 0.639). The information is an existing capacity statistic combined with the existing need statistic; no new scalar is required to represent it.",
+ "correctionToPhase2E2": "Phase 2E.2 §6 said the observation counts only rivals that NEED a keeper. That holds for the demand features (riv_fills_share, mkt_scarcity_keeper, self_status_keeper) and for the planner and shield, but riv_able_share and riv_free_slots_share count every rival able to pay / with a free slot regardless of need, so the BREADTH of potential keeper competition is observable. What remains unobservable is whether those rivals will actually bid later (future behaviour)."
+}

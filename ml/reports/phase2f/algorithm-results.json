@@ -1,0 +1,2942 @@
+{
+ "meta": {
+  "phase": "2F",
+  "status": "PILOT — evaluation of experimental stage_b_pilot exports; no production change, nothing committed",
+  "contract": {
+   "env": "IplAuctionEnv-v2",
+   "obsHash": "629b25783f833af7",
+   "actHash": "5f72f510c48b1f46",
+   "gamma": 1,
+   "shield": "act-v3 (unchanged)",
+   "reward": "ΔBestXI/11/10, −2 incomplete XI (unchanged)"
+  },
+  "design": {
+   "snapshotShare": 0.5,
+   "pool": "15 frozen Stage-A exports (5 algorithms × 3 seeds, incl. the learner's own algorithm)",
+   "ruleBots": "4 frozen rule seats always + RL seats on rule fallback (≥ 4/9)",
+   "init": "warm start from each seed's frozen Stage-A final checkpoint; fresh optimizer; D3QN/QR-DQN ε constant at the Stage-A final value, empty replay",
+   "seeds": "run seeds 101/102/103 ← Stage-A seeds 1/2/3 (train split only)",
+   "budget": "497,664 learner decisions per seed (ES: first generation boundary at or after it)",
+   "checkpoints": "98,304 / 245,760 / 497,664 decisions",
+   "evaluation": "c100/c250: validation entries 0–99; c500: all 500 (Phase 2E.0 protocol)"
+  }
+ },
+ "levels": {
+  "c100": {
+   "entries": 100,
+   "decisions": 98304,
+   "transfer": {
+    "A": {
+     "ppo": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 92.4548,
+       "sd": 0.1142
+      },
+      "xiStageA": {
+       "mean": 92.5276,
+       "sd": 0.1186
+      },
+      "xiDiffBminusA": {
+       "mean": -0.0727,
+       "sd": 0.0237,
+       "ci95": [
+        -0.1255,
+        -0.0221
+       ]
+      }
+     },
+     "a2c": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.2397,
+       "sd": 0.1585
+      },
+      "xiStageA": {
+       "mean": 90.4027,
+       "sd": 0.09
+      },
+      "xiDiffBminusA": {
+       "mean": -0.163,
+       "sd": 0.2377,
+       "ci95": [
+        -0.2364,
+        -0.0888
+       ]
+      }
+     },
+     "d3qn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.0515,
+       "sd": 1.1168
+      },
+      "xiStageA": {
+       "mean": 91.4603,
+       "sd": 0.1783
+      },
+      "xiDiffBminusA": {
+       "mean": -1.4088,
+       "sd": 0.9452,
+       "ci95": [
+        -1.5903,
+        -1.222
+       ]
+      }
+     },
+     "qrdqn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 89.8212,
+       "sd": 1.3455
+      },
+      "xiStageA": {
+       "mean": 91.8682,
+       "sd": 0.1102
+      },
+      "xiDiffBminusA": {
+       "mean": -2.047,
+       "sd": 1.236,
+       "ci95": [
+        -2.1836,
+        -1.909
+       ]
+      }
+     },
+     "es": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.7385,
+       "sd": 0.1066
+      },
+      "xiStageA": {
+       "mean": 90.9906,
+       "sd": 0.0184
+      },
+      "xiDiffBminusA": {
+       "mean": -0.2521,
+       "sd": 0.0983,
+       "ci95": [
+        -0.3752,
+        -0.1233
+       ]
+      }
+     }
+    },
+    "C1": {
+     "ppo": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.8116,
+       "sd": 0.1775
+      },
+      "xiStageA": {
+       "mean": 90.6093,
+       "sd": 0.1883
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2023,
+       "sd": 0.037,
+       "ci95": [
+        0.1655,
+        0.2371
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.6432,
+       "sd": 0.1211,
+       "ci95": [
+        -1.7181,
+        -1.5697
+       ]
+      },
+      "transferStageA": {
+       "mean": -1.9183,
+       "sd": 0.0869
+      },
+      "transferImprovement": {
+       "mean": 0.2751,
+       "sd": 0.0533,
+       "ci95": [
+        0.2146,
+        0.3373
+       ]
+      },
+      "historicalReference": -1.95
+     },
+     "a2c": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.6272,
+       "sd": 0.4666
+      },
+      "xiStageA": {
+       "mean": 87.6918,
+       "sd": 0.6421
+      },
+      "xiDiffBminusA": {
+       "mean": -0.0646,
+       "sd": 0.1771,
+       "ci95": [
+        -0.0984,
+        -0.0268
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.6125,
+       "sd": 0.6247,
+       "ci95": [
+        -2.7493,
+        -2.4743
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.7109,
+       "sd": 0.5737
+      },
+      "transferImprovement": {
+       "mean": 0.0984,
+       "sd": 0.0679,
+       "ci95": [
+        0.0176,
+        0.1851
+       ]
+      },
+      "historicalReference": -2.79
+     },
+     "d3qn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.8581,
+       "sd": 1.1423
+      },
+      "xiStageA": {
+       "mean": 88.932,
+       "sd": 0.4186
+      },
+      "xiDiffBminusA": {
+       "mean": -1.0739,
+       "sd": 0.743,
+       "ci95": [
+        -1.169,
+        -0.9766
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.1934,
+       "sd": 0.2678,
+       "ci95": [
+        -2.3845,
+        -1.9943
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.5283,
+       "sd": 0.2504
+      },
+      "transferImprovement": {
+       "mean": 0.3349,
+       "sd": 0.4035,
+       "ci95": [
+        0.1734,
+        0.5081
+       ]
+      },
+      "historicalReference": -2.6
+     },
+     "qrdqn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.4988,
+       "sd": 0.8462
+      },
+      "xiStageA": {
+       "mean": 89.441,
+       "sd": 0.0937
+      },
+      "xiDiffBminusA": {
+       "mean": -0.9422,
+       "sd": 0.8649,
+       "ci95": [
+        -1.0087,
+        -0.8763
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.3224,
+       "sd": 0.4994,
+       "ci95": [
+        -1.4341,
+        -1.2081
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.4272,
+       "sd": 0.1614
+      },
+      "transferImprovement": {
+       "mean": 1.1048,
+       "sd": 0.3917,
+       "ci95": [
+        0.9816,
+        1.2333
+       ]
+      },
+      "historicalReference": -2.46
+     },
+     "es": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.8016,
+       "sd": 0.2203
+      },
+      "xiStageA": {
+       "mean": 87.7234,
+       "sd": 0.23
+      },
+      "xiDiffBminusA": {
+       "mean": 0.0782,
+       "sd": 0.1368,
+       "ci95": [
+        0.0256,
+        0.1322
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.9369,
+       "sd": 0.237,
+       "ci95": [
+        -3.1353,
+        -2.7277
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2672,
+       "sd": 0.222
+      },
+      "transferImprovement": {
+       "mean": 0.3303,
+       "sd": 0.0535,
+       "ci95": [
+        0.204,
+        0.4658
+       ]
+      },
+      "historicalReference": -3.37
+     }
+    },
+    "C4": {
+     "ppo": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.3822,
+       "sd": 0.3606
+      },
+      "xiStageA": {
+       "mean": 90.2995,
+       "sd": 0.3642
+      },
+      "xiDiffBminusA": {
+       "mean": 0.0826,
+       "sd": 0.1384,
+       "ci95": [
+        0.052,
+        0.1124
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.0727,
+       "sd": 0.2708,
+       "ci95": [
+        -2.1587,
+        -1.9857
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.228,
+       "sd": 0.2884
+      },
+      "transferImprovement": {
+       "mean": 0.1554,
+       "sd": 0.1233,
+       "ci95": [
+        0.0919,
+        0.2148
+       ]
+      },
+      "historicalReference": -2.32
+     },
+     "a2c": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.7084,
+       "sd": 0.5202
+      },
+      "xiStageA": {
+       "mean": 86.727,
+       "sd": 0.7406
+      },
+      "xiDiffBminusA": {
+       "mean": -0.0185,
+       "sd": 0.2231,
+       "ci95": [
+        -0.0517,
+        0.0146
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.5313,
+       "sd": 0.6786,
+       "ci95": [
+        -3.7028,
+        -3.3525
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.6758,
+       "sd": 0.6645
+      },
+      "transferImprovement": {
+       "mean": 0.1445,
+       "sd": 0.0146,
+       "ci95": [
+        0.0617,
+        0.2264
+       ]
+      },
+      "historicalReference": -3.72
+     },
+     "d3qn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.3116,
+       "sd": 0.9075
+      },
+      "xiStageA": {
+       "mean": 88.2404,
+       "sd": 0.2877
+      },
+      "xiDiffBminusA": {
+       "mean": -0.9287,
+       "sd": 0.6523,
+       "ci95": [
+        -1.0256,
+        -0.8429
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.7399,
+       "sd": 0.2295,
+       "ci95": [
+        -2.9474,
+        -2.528
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2199,
+       "sd": 0.1225
+      },
+      "transferImprovement": {
+       "mean": 0.4801,
+       "sd": 0.294,
+       "ci95": [
+        0.3023,
+        0.6468
+       ]
+      },
+      "historicalReference": -3.29
+     },
+     "qrdqn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.6319,
+       "sd": 0.7061
+      },
+      "xiStageA": {
+       "mean": 88.6845,
+       "sd": 0.0439
+      },
+      "xiDiffBminusA": {
+       "mean": -1.0526,
+       "sd": 0.6711,
+       "ci95": [
+        -1.1157,
+        -0.9969
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.1893,
+       "sd": 0.9014,
+       "ci95": [
+        -2.3176,
+        -2.0545
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.1837,
+       "sd": 0.0671
+      },
+      "transferImprovement": {
+       "mean": 0.9943,
+       "sd": 0.8375,
+       "ci95": [
+        0.8594,
+        1.1293
+       ]
+      },
+      "historicalReference": -3.23
+     },
+     "es": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.2366,
+       "sd": 0.0708
+      },
+      "xiStageA": {
+       "mean": 85.9283,
+       "sd": 0.2726
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3084,
+       "sd": 0.2031,
+       "ci95": [
+        0.2537,
+        0.3593
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.5019,
+       "sd": 0.1622,
+       "ci95": [
+        -4.7106,
+        -4.2857
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.0623,
+       "sd": 0.2648
+      },
+      "transferImprovement": {
+       "mean": 0.5605,
+       "sd": 0.1629,
+       "ci95": [
+        0.433,
+        0.6951
+       ]
+      },
+      "historicalReference": -5.06
+     }
+    },
+    "S4": {
+     "ppo": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.2358,
+       "sd": 0.498
+      },
+      "xiStageA": {
+       "mean": 90.1833,
+       "sd": 0.4239
+      },
+      "xiDiffBminusA": {
+       "mean": 0.0524,
+       "sd": 0.3587,
+       "ci95": [
+        -0.0348,
+        0.1418
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.2191,
+       "sd": 0.3963,
+       "ci95": [
+        -2.3222,
+        -2.1158
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.3442,
+       "sd": 0.3733
+      },
+      "transferImprovement": {
+       "mean": 0.1252,
+       "sd": 0.3483,
+       "ci95": [
+        0.0215,
+        0.2273
+       ]
+      },
+      "historicalReference": -2.43
+     },
+     "a2c": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 85.2597,
+       "sd": 0.6429
+      },
+      "xiStageA": {
+       "mean": 85.2939,
+       "sd": 0.8791
+      },
+      "xiDiffBminusA": {
+       "mean": -0.0342,
+       "sd": 0.2388,
+       "ci95": [
+        -0.1285,
+        0.0576
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.98,
+       "sd": 0.7914,
+       "ci95": [
+        -5.1609,
+        -4.7906
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.1088,
+       "sd": 0.7906
+      },
+      "transferImprovement": {
+       "mean": 0.1288,
+       "sd": 0.0833,
+       "ci95": [
+        0.016,
+        0.2503
+       ]
+      },
+      "historicalReference": -5.14
+     },
+     "d3qn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.6079,
+       "sd": 0.675
+      },
+      "xiStageA": {
+       "mean": 86.7167,
+       "sd": 0.8685
+      },
+      "xiDiffBminusA": {
+       "mean": -0.1088,
+       "sd": 0.609,
+       "ci95": [
+        -0.2936,
+        0.087
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.4436,
+       "sd": 0.4551,
+       "ci95": [
+        -3.6976,
+        -3.2021
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.7436,
+       "sd": 0.8121
+      },
+      "transferImprovement": {
+       "mean": 1.3,
+       "sd": 1.0356,
+       "ci95": [
+        1.0642,
+        1.5418
+       ]
+      },
+      "historicalReference": -4.82
+     },
+     "qrdqn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.6885,
+       "sd": 0.4096
+      },
+      "xiStageA": {
+       "mean": 87.6345,
+       "sd": 0.2819
+      },
+      "xiDiffBminusA": {
+       "mean": 0.0539,
+       "sd": 0.1345,
+       "ci95": [
+        -0.0791,
+        0.18
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.1327,
+       "sd": 0.9916,
+       "ci95": [
+        -2.2837,
+        -1.9964
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.2336,
+       "sd": 0.2079
+      },
+      "transferImprovement": {
+       "mean": 2.1009,
+       "sd": 1.1037,
+       "ci95": [
+        1.9321,
+        2.2697
+       ]
+      },
+      "historicalReference": -4.34
+     },
+     "es": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 84.8633,
+       "sd": 1.0492
+      },
+      "xiStageA": {
+       "mean": 84.1464,
+       "sd": 0.8447
+      },
+      "xiDiffBminusA": {
+       "mean": 0.717,
+       "sd": 0.443,
+       "ci95": [
+        0.5458,
+        0.8779
+       ]
+      },
+      "transferStageB": {
+       "mean": -5.8752,
+       "sd": 1.1382,
+       "ci95": [
+        -6.1179,
+        -5.6303
+       ]
+      },
+      "transferStageA": {
+       "mean": -6.8442,
+       "sd": 0.8631
+      },
+      "transferImprovement": {
+       "mean": 0.9691,
+       "sd": 0.5407,
+       "ci95": [
+        0.7655,
+        1.1621
+       ]
+      },
+      "historicalReference": -6.83
+     }
+    }
+   }
+  },
+  "c250": {
+   "entries": 100,
+   "decisions": 245760,
+   "transfer": {
+    "A": {
+     "ppo": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 92.4103,
+       "sd": 0.1442
+      },
+      "xiStageA": {
+       "mean": 92.5276,
+       "sd": 0.1186
+      },
+      "xiDiffBminusA": {
+       "mean": -0.1173,
+       "sd": 0.1043,
+       "ci95": [
+        -0.1727,
+        -0.0567
+       ]
+      }
+     },
+     "a2c": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.0618,
+       "sd": 0.3229
+      },
+      "xiStageA": {
+       "mean": 90.4027,
+       "sd": 0.09
+      },
+      "xiDiffBminusA": {
+       "mean": -0.3409,
+       "sd": 0.2639,
+       "ci95": [
+        -0.4542,
+        -0.2245
+       ]
+      }
+     },
+     "d3qn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.8218,
+       "sd": 0.4816
+      },
+      "xiStageA": {
+       "mean": 91.4603,
+       "sd": 0.1783
+      },
+      "xiDiffBminusA": {
+       "mean": -2.6385,
+       "sd": 0.5257,
+       "ci95": [
+        -2.7882,
+        -2.4951
+       ]
+      }
+     },
+     "qrdqn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 91.21,
+       "sd": 0.1667
+      },
+      "xiStageA": {
+       "mean": 91.8682,
+       "sd": 0.1102
+      },
+      "xiDiffBminusA": {
+       "mean": -0.6582,
+       "sd": 0.0699,
+       "ci95": [
+        -0.7582,
+        -0.5597
+       ]
+      }
+     },
+     "es": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.6673,
+       "sd": 0.0087
+      },
+      "xiStageA": {
+       "mean": 90.9906,
+       "sd": 0.0184
+      },
+      "xiDiffBminusA": {
+       "mean": -0.3233,
+       "sd": 0.0271,
+       "ci95": [
+        -0.4615,
+        -0.1684
+       ]
+      }
+     }
+    },
+    "C1": {
+     "ppo": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.8528,
+       "sd": 0.1825
+      },
+      "xiStageA": {
+       "mean": 90.6093,
+       "sd": 0.1883
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2435,
+       "sd": 0.0623,
+       "ci95": [
+        0.2064,
+        0.279
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.5575,
+       "sd": 0.1329,
+       "ci95": [
+        -1.6234,
+        -1.4926
+       ]
+      },
+      "transferStageA": {
+       "mean": -1.9183,
+       "sd": 0.0869
+      },
+      "transferImprovement": {
+       "mean": 0.3608,
+       "sd": 0.0467,
+       "ci95": [
+        0.2996,
+        0.4197
+       ]
+      },
+      "historicalReference": -1.95
+     },
+     "a2c": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.8079,
+       "sd": 0.4913
+      },
+      "xiStageA": {
+       "mean": 87.6918,
+       "sd": 0.6421
+      },
+      "xiDiffBminusA": {
+       "mean": 0.1161,
+       "sd": 0.2445,
+       "ci95": [
+        0.056,
+        0.1741
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.2539,
+       "sd": 0.4375,
+       "ci95": [
+        -2.3995,
+        -2.1167
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.7109,
+       "sd": 0.5737
+      },
+      "transferImprovement": {
+       "mean": 0.457,
+       "sd": 0.1882,
+       "ci95": [
+        0.3469,
+        0.5666
+       ]
+      },
+      "historicalReference": -2.79
+     },
+     "d3qn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.6009,
+       "sd": 0.4531
+      },
+      "xiStageA": {
+       "mean": 88.932,
+       "sd": 0.4186
+      },
+      "xiDiffBminusA": {
+       "mean": -1.3311,
+       "sd": 0.5078,
+       "ci95": [
+        -1.4018,
+        -1.2575
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.2209,
+       "sd": 0.3044,
+       "ci95": [
+        -1.377,
+        -1.0629
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.5283,
+       "sd": 0.2504
+      },
+      "transferImprovement": {
+       "mean": 1.3074,
+       "sd": 0.06,
+       "ci95": [
+        1.1574,
+        1.4607
+       ]
+      },
+      "historicalReference": -2.6
+     },
+     "qrdqn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 89.1826,
+       "sd": 0.4343
+      },
+      "xiStageA": {
+       "mean": 89.441,
+       "sd": 0.0937
+      },
+      "xiDiffBminusA": {
+       "mean": -0.2583,
+       "sd": 0.4847,
+       "ci95": [
+        -0.3118,
+        -0.2096
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.0274,
+       "sd": 0.3028,
+       "ci95": [
+        -2.1217,
+        -1.93
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.4272,
+       "sd": 0.1614
+      },
+      "transferImprovement": {
+       "mean": 0.3998,
+       "sd": 0.4639,
+       "ci95": [
+        0.3082,
+        0.4918
+       ]
+      },
+      "historicalReference": -2.46
+     },
+     "es": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.9403,
+       "sd": 0.0678
+      },
+      "xiStageA": {
+       "mean": 87.7234,
+       "sd": 0.23
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2169,
+       "sd": 0.1638,
+       "ci95": [
+        0.1486,
+        0.2797
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.727,
+       "sd": 0.0708,
+       "ci95": [
+        -2.921,
+        -2.5384
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2672,
+       "sd": 0.222
+      },
+      "transferImprovement": {
+       "mean": 0.5402,
+       "sd": 0.1512,
+       "ci95": [
+        0.3793,
+        0.6878
+       ]
+      },
+      "historicalReference": -3.37
+     }
+    },
+    "C4": {
+     "ppo": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.4488,
+       "sd": 0.2799
+      },
+      "xiStageA": {
+       "mean": 90.2995,
+       "sd": 0.3642
+      },
+      "xiDiffBminusA": {
+       "mean": 0.1492,
+       "sd": 0.1841,
+       "ci95": [
+        0.1146,
+        0.1833
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.9615,
+       "sd": 0.2386,
+       "ci95": [
+        -2.0403,
+        -1.8864
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.228,
+       "sd": 0.2884
+      },
+      "transferImprovement": {
+       "mean": 0.2665,
+       "sd": 0.0843,
+       "ci95": [
+        0.1971,
+        0.3354
+       ]
+      },
+      "historicalReference": -2.32
+     },
+     "a2c": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.0291,
+       "sd": 0.4477
+      },
+      "xiStageA": {
+       "mean": 86.727,
+       "sd": 0.7406
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3021,
+       "sd": 0.2994,
+       "ci95": [
+        0.2554,
+        0.352
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.0328,
+       "sd": 0.4373,
+       "ci95": [
+        -3.207,
+        -2.8682
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.6758,
+       "sd": 0.6645
+      },
+      "transferImprovement": {
+       "mean": 0.643,
+       "sd": 0.3788,
+       "ci95": [
+        0.5181,
+        0.769
+       ]
+      },
+      "historicalReference": -3.72
+     },
+     "d3qn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.2475,
+       "sd": 0.1317
+      },
+      "xiStageA": {
+       "mean": 88.2404,
+       "sd": 0.2877
+      },
+      "xiDiffBminusA": {
+       "mean": -0.9928,
+       "sd": 0.3076,
+       "ci95": [
+        -1.0593,
+        -0.9275
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.5743,
+       "sd": 0.3507,
+       "ci95": [
+        -1.7459,
+        -1.4152
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2199,
+       "sd": 0.1225
+      },
+      "transferImprovement": {
+       "mean": 1.6457,
+       "sd": 0.4291,
+       "ci95": [
+        1.4902,
+        1.793
+       ]
+      },
+      "historicalReference": -3.29
+     },
+     "qrdqn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.5135,
+       "sd": 0.2294
+      },
+      "xiStageA": {
+       "mean": 88.6845,
+       "sd": 0.0439
+      },
+      "xiDiffBminusA": {
+       "mean": -0.1711,
+       "sd": 0.2117,
+       "ci95": [
+        -0.2204,
+        -0.1232
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.6965,
+       "sd": 0.1822,
+       "ci95": [
+        -2.8057,
+        -2.5919
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.1837,
+       "sd": 0.0671
+      },
+      "transferImprovement": {
+       "mean": 0.4871,
+       "sd": 0.1588,
+       "ci95": [
+        0.3856,
+        0.5916
+       ]
+      },
+      "historicalReference": -3.23
+     },
+     "es": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.4076,
+       "sd": 0.085
+      },
+      "xiStageA": {
+       "mean": 85.9283,
+       "sd": 0.2726
+      },
+      "xiDiffBminusA": {
+       "mean": 0.4793,
+       "sd": 0.3549,
+       "ci95": [
+        0.4269,
+        0.5345
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.2597,
+       "sd": 0.0793,
+       "ci95": [
+        -4.4795,
+        -4.0418
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.0623,
+       "sd": 0.2648
+      },
+      "transferImprovement": {
+       "mean": 0.8027,
+       "sd": 0.3418,
+       "ci95": [
+        0.6539,
+        0.9543
+       ]
+      },
+      "historicalReference": -5.06
+     }
+    },
+    "S4": {
+     "ppo": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.2755,
+       "sd": 0.4444
+      },
+      "xiStageA": {
+       "mean": 90.1833,
+       "sd": 0.4239
+      },
+      "xiDiffBminusA": {
+       "mean": 0.0921,
+       "sd": 0.3382,
+       "ci95": [
+        0.0015,
+        0.1779
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.1348,
+       "sd": 0.3853,
+       "ci95": [
+        -2.2249,
+        -2.0424
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.3442,
+       "sd": 0.3733
+      },
+      "transferImprovement": {
+       "mean": 0.2094,
+       "sd": 0.2781,
+       "ci95": [
+        0.1,
+        0.3167
+       ]
+      },
+      "historicalReference": -2.43
+     },
+     "a2c": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 85.6145,
+       "sd": 0.699
+      },
+      "xiStageA": {
+       "mean": 85.2939,
+       "sd": 0.8791
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3206,
+       "sd": 0.3403,
+       "ci95": [
+        0.2188,
+        0.417
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.4473,
+       "sd": 0.4556,
+       "ci95": [
+        -4.6482,
+        -4.2448
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.1088,
+       "sd": 0.7906
+      },
+      "transferImprovement": {
+       "mean": 0.6615,
+       "sd": 0.3351,
+       "ci95": [
+        0.5027,
+        0.8191
+       ]
+      },
+      "historicalReference": -5.14
+     },
+     "d3qn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.6112,
+       "sd": 0.2968
+      },
+      "xiStageA": {
+       "mean": 86.7167,
+       "sd": 0.8685
+      },
+      "xiDiffBminusA": {
+       "mean": -0.1055,
+       "sd": 0.8991,
+       "ci95": [
+        -0.2421,
+        0.0312
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.2106,
+       "sd": 0.4905,
+       "ci95": [
+        -2.4091,
+        -2.0115
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.7436,
+       "sd": 0.8121
+      },
+      "transferImprovement": {
+       "mean": 2.533,
+       "sd": 0.4376,
+       "ci95": [
+        2.3188,
+        2.7482
+       ]
+      },
+      "historicalReference": -4.82
+     },
+     "qrdqn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.9594,
+       "sd": 0.1147
+      },
+      "xiStageA": {
+       "mean": 87.6345,
+       "sd": 0.2819
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3248,
+       "sd": 0.177,
+       "ci95": [
+        0.2008,
+        0.4421
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.2506,
+       "sd": 0.0525,
+       "ci95": [
+        -3.3955,
+        -3.107
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.2336,
+       "sd": 0.2079
+      },
+      "transferImprovement": {
+       "mean": 0.983,
+       "sd": 0.2467,
+       "ci95": [
+        0.8182,
+        1.1352
+       ]
+      },
+      "historicalReference": -4.34
+     },
+     "es": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 84.8452,
+       "sd": 0.9202
+      },
+      "xiStageA": {
+       "mean": 84.1464,
+       "sd": 0.8447
+      },
+      "xiDiffBminusA": {
+       "mean": 0.6988,
+       "sd": 0.0927,
+       "ci95": [
+        0.5564,
+        0.8482
+       ]
+      },
+      "transferStageB": {
+       "mean": -5.8221,
+       "sd": 0.9116,
+       "ci95": [
+        -6.0918,
+        -5.5482
+       ]
+      },
+      "transferStageA": {
+       "mean": -6.8442,
+       "sd": 0.8631
+      },
+      "transferImprovement": {
+       "mean": 1.0221,
+       "sd": 0.0728,
+       "ci95": [
+        0.8139,
+        1.2276
+       ]
+      },
+      "historicalReference": -6.83
+     }
+    }
+   }
+  },
+  "c500": {
+   "entries": 500,
+   "decisions": 497664,
+   "transfer": {
+    "A": {
+     "ppo": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 92.3782,
+       "sd": 0.1425
+      },
+      "xiStageA": {
+       "mean": 92.5947,
+       "sd": 0.0816
+      },
+      "xiDiffBminusA": {
+       "mean": -0.2165,
+       "sd": 0.0974,
+       "ci95": [
+        -0.24,
+        -0.1927
+       ]
+      }
+     },
+     "a2c": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.0195,
+       "sd": 0.3026
+      },
+      "xiStageA": {
+       "mean": 90.427,
+       "sd": 0.046
+      },
+      "xiDiffBminusA": {
+       "mean": -0.4076,
+       "sd": 0.2697,
+       "ci95": [
+        -0.4605,
+        -0.3535
+       ]
+      }
+     },
+     "d3qn": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.8045,
+       "sd": 2.2279
+      },
+      "xiStageA": {
+       "mean": 91.4896,
+       "sd": 0.1912
+      },
+      "xiDiffBminusA": {
+       "mean": -2.6852,
+       "sd": 2.2887,
+       "ci95": [
+        -2.7655,
+        -2.6028
+       ]
+      }
+     },
+     "qrdqn": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 91.3687,
+       "sd": 0.2171
+      },
+      "xiStageA": {
+       "mean": 91.8534,
+       "sd": 0.0895
+      },
+      "xiDiffBminusA": {
+       "mean": -0.4847,
+       "sd": 0.2994,
+       "ci95": [
+        -0.5229,
+        -0.4454
+       ]
+      }
+     },
+     "es": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.7599,
+       "sd": 0.0168
+      },
+      "xiStageA": {
+       "mean": 91.0679,
+       "sd": 0.0441
+      },
+      "xiDiffBminusA": {
+       "mean": -0.308,
+       "sd": 0.0407,
+       "ci95": [
+        -0.3798,
+        -0.2393
+       ]
+      }
+     }
+    },
+    "C1": {
+     "ppo": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 91.0023,
+       "sd": 0.2817
+      },
+      "xiStageA": {
+       "mean": 90.6488,
+       "sd": 0.1777
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3535,
+       "sd": 0.214,
+       "ci95": [
+        0.3365,
+        0.371
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.3758,
+       "sd": 0.1561,
+       "ci95": [
+        -1.4035,
+        -1.3485
+       ]
+      },
+      "transferStageA": {
+       "mean": -1.9459,
+       "sd": 0.0994
+      },
+      "transferImprovement": {
+       "mean": 0.5701,
+       "sd": 0.1333,
+       "ci95": [
+        0.5452,
+        0.597
+       ]
+      },
+      "historicalReference": -1.95
+     },
+     "a2c": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.9486,
+       "sd": 0.3528
+      },
+      "xiStageA": {
+       "mean": 87.6387,
+       "sd": 0.6541
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3098,
+       "sd": 0.361,
+       "ci95": [
+        0.2823,
+        0.3381
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.0709,
+       "sd": 0.224,
+       "ci95": [
+        -2.1297,
+        -2.0123
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.7883,
+       "sd": 0.6116
+      },
+      "transferImprovement": {
+       "mean": 0.7174,
+       "sd": 0.4404,
+       "ci95": [
+        0.6674,
+        0.7698
+       ]
+      },
+      "historicalReference": -2.79
+     },
+     "d3qn": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.2354,
+       "sd": 1.0243
+      },
+      "xiStageA": {
+       "mean": 88.893,
+       "sd": 0.4256
+      },
+      "xiDiffBminusA": {
+       "mean": -1.6576,
+       "sd": 1.3251,
+       "ci95": [
+        -1.6972,
+        -1.6177
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.5691,
+       "sd": 1.2179,
+       "ci95": [
+        -1.6487,
+        -1.4887
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.5966,
+       "sd": 0.2443
+      },
+      "transferImprovement": {
+       "mean": 1.0275,
+       "sd": 1.0968,
+       "ci95": [
+        0.9497,
+        1.1022
+       ]
+      },
+      "historicalReference": -2.6
+     },
+     "qrdqn": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 89.5578,
+       "sd": 0.3266
+      },
+      "xiStageA": {
+       "mean": 89.3968,
+       "sd": 0.0791
+      },
+      "xiDiffBminusA": {
+       "mean": 0.161,
+       "sd": 0.3316,
+       "ci95": [
+        0.1359,
+        0.1866
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.8109,
+       "sd": 0.1791,
+       "ci95": [
+        -1.8544,
+        -1.7666
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.4566,
+       "sd": 0.1261
+      },
+      "transferImprovement": {
+       "mean": 0.6457,
+       "sd": 0.2011,
+       "ci95": [
+        0.6021,
+        0.688
+       ]
+      },
+      "historicalReference": -2.46
+     },
+     "es": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.9184,
+       "sd": 0.0828
+      },
+      "xiStageA": {
+       "mean": 87.7003,
+       "sd": 0.2283
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2181,
+       "sd": 0.1606,
+       "ci95": [
+        0.1897,
+        0.2456
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.8416,
+       "sd": 0.0772,
+       "ci95": [
+        -2.9218,
+        -2.7626
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.3677,
+       "sd": 0.1919
+      },
+      "transferImprovement": {
+       "mean": 0.5261,
+       "sd": 0.1501,
+       "ci95": [
+        0.4608,
+        0.5925
+       ]
+      },
+      "historicalReference": -3.37
+     }
+    },
+    "C4": {
+     "ppo": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.6348,
+       "sd": 0.4576
+      },
+      "xiStageA": {
+       "mean": 90.2745,
+       "sd": 0.3661
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3603,
+       "sd": 0.1438,
+       "ci95": [
+        0.3444,
+        0.376
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.7433,
+       "sd": 0.3195,
+       "ci95": [
+        -1.7734,
+        -1.7134
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.3202,
+       "sd": 0.3056
+      },
+      "transferImprovement": {
+       "mean": 0.5769,
+       "sd": 0.064,
+       "ci95": [
+        0.5478,
+        0.6052
+       ]
+      },
+      "historicalReference": -2.32
+     },
+     "a2c": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.2866,
+       "sd": 0.3081
+      },
+      "xiStageA": {
+       "mean": 86.7094,
+       "sd": 0.7318
+      },
+      "xiDiffBminusA": {
+       "mean": 0.5772,
+       "sd": 0.4258,
+       "ci95": [
+        0.554,
+        0.6002
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.7329,
+       "sd": 0.2575,
+       "ci95": [
+        -2.7978,
+        -2.6681
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.7176,
+       "sd": 0.6872
+      },
+      "transferImprovement": {
+       "mean": 0.9847,
+       "sd": 0.592,
+       "ci95": [
+        0.929,
+        1.0407
+       ]
+      },
+      "historicalReference": -3.72
+     },
+     "d3qn": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.8657,
+       "sd": 0.8115
+      },
+      "xiStageA": {
+       "mean": 88.2008,
+       "sd": 0.2859
+      },
+      "xiDiffBminusA": {
+       "mean": -1.3351,
+       "sd": 1.0972,
+       "ci95": [
+        -1.3783,
+        -1.2929
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.9388,
+       "sd": 2.2238,
+       "ci95": [
+        -2.0248,
+        -1.8571
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2888,
+       "sd": 0.0953
+      },
+      "transferImprovement": {
+       "mean": 1.3501,
+       "sd": 2.2457,
+       "ci95": [
+        1.2668,
+        1.4328
+       ]
+      },
+      "historicalReference": -3.29
+     },
+     "qrdqn": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.7532,
+       "sd": 0.2701
+      },
+      "xiStageA": {
+       "mean": 88.6233,
+       "sd": 0.0606
+      },
+      "xiDiffBminusA": {
+       "mean": 0.1299,
+       "sd": 0.3301,
+       "ci95": [
+        0.1048,
+        0.1556
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.6155,
+       "sd": 0.0857,
+       "ci95": [
+        -2.6626,
+        -2.5686
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2301,
+       "sd": 0.0291
+      },
+      "transferImprovement": {
+       "mean": 0.6146,
+       "sd": 0.0614,
+       "ci95": [
+        0.5737,
+        0.6599
+       ]
+      },
+      "historicalReference": -3.23
+     },
+     "es": {
+      "n": 18000,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.4886,
+       "sd": 0.0684
+      },
+      "xiStageA": {
+       "mean": 86.0131,
+       "sd": 0.2479
+      },
+      "xiDiffBminusA": {
+       "mean": 0.4755,
+       "sd": 0.3129,
+       "ci95": [
+        0.4501,
+        0.501
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.2714,
+       "sd": 0.0844,
+       "ci95": [
+        -4.3629,
+        -4.1809
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.0548,
+       "sd": 0.2099
+      },
+      "transferImprovement": {
+       "mean": 0.7835,
+       "sd": 0.2912,
+       "ci95": [
+        0.7093,
+        0.8537
+       ]
+      },
+      "historicalReference": -5.06
+     }
+    },
+    "S4": {
+     "ppo": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.4832,
+       "sd": 0.6736
+      },
+      "xiStageA": {
+       "mean": 90.1674,
+       "sd": 0.4194
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3158,
+       "sd": 0.2577,
+       "ci95": [
+        0.2759,
+        0.3596
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.895,
+       "sd": 0.5358,
+       "ci95": [
+        -1.933,
+        -1.8565
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.4273,
+       "sd": 0.372
+      },
+      "transferImprovement": {
+       "mean": 0.5323,
+       "sd": 0.1642,
+       "ci95": [
+        0.4831,
+        0.5851
+       ]
+      },
+      "historicalReference": -2.43
+     },
+     "a2c": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.0302,
+       "sd": 0.4718
+      },
+      "xiStageA": {
+       "mean": 85.2834,
+       "sd": 0.8338
+      },
+      "xiDiffBminusA": {
+       "mean": 0.7468,
+       "sd": 0.5104,
+       "ci95": [
+        0.7028,
+        0.7936
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.9892,
+       "sd": 0.1696,
+       "ci95": [
+        -4.0638,
+        -3.9174
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.1436,
+       "sd": 0.7881
+      },
+      "transferImprovement": {
+       "mean": 1.1544,
+       "sd": 0.6465,
+       "ci95": [
+        1.088,
+        1.229
+       ]
+      },
+      "historicalReference": -5.14
+     },
+     "d3qn": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.1806,
+       "sd": 0.5512
+      },
+      "xiStageA": {
+       "mean": 86.6698,
+       "sd": 0.8786
+      },
+      "xiDiffBminusA": {
+       "mean": -0.4892,
+       "sd": 0.3481,
+       "ci95": [
+        -0.5721,
+        -0.4076
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.6239,
+       "sd": 2.7785,
+       "ci95": [
+        -2.7257,
+        -2.5223
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.8199,
+       "sd": 0.8233
+      },
+      "transferImprovement": {
+       "mean": 2.196,
+       "sd": 1.9598,
+       "ci95": [
+        2.0879,
+        2.3065
+       ]
+      },
+      "historicalReference": -4.82
+     },
+     "qrdqn": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.3073,
+       "sd": 0.231
+      },
+      "xiStageA": {
+       "mean": 87.5121,
+       "sd": 0.3116
+      },
+      "xiDiffBminusA": {
+       "mean": 0.7952,
+       "sd": 0.3269,
+       "ci95": [
+        0.741,
+        0.8486
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.0614,
+       "sd": 0.1888,
+       "ci95": [
+        -3.1198,
+        -2.9992
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.3413,
+       "sd": 0.2388
+      },
+      "transferImprovement": {
+       "mean": 1.2799,
+       "sd": 0.05,
+       "ci95": [
+        1.2115,
+        1.3456
+       ]
+      },
+      "historicalReference": -4.34
+     },
+     "es": {
+      "n": 1500,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 85.0292,
+       "sd": 0.798
+      },
+      "xiStageA": {
+       "mean": 84.2392,
+       "sd": 0.7419
+      },
+      "xiDiffBminusA": {
+       "mean": 0.79,
+       "sd": 0.0735,
+       "ci95": [
+        0.7195,
+        0.8637
+       ]
+      },
+      "transferStageB": {
+       "mean": -5.7307,
+       "sd": 0.7944,
+       "ci95": [
+        -5.8404,
+        -5.6253
+       ]
+      },
+      "transferStageA": {
+       "mean": -6.8287,
+       "sd": 0.7766
+      },
+      "transferImprovement": {
+       "mean": 1.098,
+       "sd": 0.0405,
+       "ci95": [
+        0.9996,
+        1.1934
+       ]
+      },
+      "historicalReference": -6.83
+     }
+    }
+   }
+  },
+  "c500_first100": {
+   "entries": 100,
+   "decisions": 497664,
+   "transfer": {
+    "A": {
+     "ppo": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 92.3661,
+       "sd": 0.1244
+      },
+      "xiStageA": {
+       "mean": 92.5276,
+       "sd": 0.1186
+      },
+      "xiDiffBminusA": {
+       "mean": -0.1615,
+       "sd": 0.0942,
+       "ci95": [
+        -0.2152,
+        -0.1021
+       ]
+      }
+     },
+     "a2c": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.0252,
+       "sd": 0.2935
+      },
+      "xiStageA": {
+       "mean": 90.4027,
+       "sd": 0.09
+      },
+      "xiDiffBminusA": {
+       "mean": -0.3776,
+       "sd": 0.2136,
+       "ci95": [
+        -0.4936,
+        -0.2673
+       ]
+      }
+     },
+     "d3qn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.7476,
+       "sd": 2.2333
+      },
+      "xiStageA": {
+       "mean": 91.4603,
+       "sd": 0.1783
+      },
+      "xiDiffBminusA": {
+       "mean": -2.7127,
+       "sd": 2.2811,
+       "ci95": [
+        -2.8973,
+        -2.5233
+       ]
+      }
+     },
+     "qrdqn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 91.3485,
+       "sd": 0.1794
+      },
+      "xiStageA": {
+       "mean": 91.8682,
+       "sd": 0.1102
+      },
+      "xiDiffBminusA": {
+       "mean": -0.5197,
+       "sd": 0.2795,
+       "ci95": [
+        -0.607,
+        -0.4312
+       ]
+      }
+     },
+     "es": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.6448,
+       "sd": 0.0741
+      },
+      "xiStageA": {
+       "mean": 90.9906,
+       "sd": 0.0184
+      },
+      "xiDiffBminusA": {
+       "mean": -0.3458,
+       "sd": 0.0876,
+       "ci95": [
+        -0.5022,
+        -0.2015
+       ]
+      }
+     }
+    },
+    "C1": {
+     "ppo": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.9919,
+       "sd": 0.275
+      },
+      "xiStageA": {
+       "mean": 90.6093,
+       "sd": 0.1883
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3826,
+       "sd": 0.2285,
+       "ci95": [
+        0.3449,
+        0.418
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.3742,
+       "sd": 0.1781,
+       "ci95": [
+        -1.4375,
+        -1.3084
+       ]
+      },
+      "transferStageA": {
+       "mean": -1.9183,
+       "sd": 0.0869
+      },
+      "transferImprovement": {
+       "mean": 0.5441,
+       "sd": 0.136,
+       "ci95": [
+        0.4818,
+        0.6035
+       ]
+      },
+      "historicalReference": -1.95
+     },
+     "a2c": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.9874,
+       "sd": 0.3495
+      },
+      "xiStageA": {
+       "mean": 87.6918,
+       "sd": 0.6421
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2956,
+       "sd": 0.3506,
+       "ci95": [
+        0.2345,
+        0.3579
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.0378,
+       "sd": 0.213,
+       "ci95": [
+        -2.1724,
+        -1.9115
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.7109,
+       "sd": 0.5737
+      },
+      "transferImprovement": {
+       "mean": 0.6732,
+       "sd": 0.398,
+       "ci95": [
+        0.5659,
+        0.7789
+       ]
+      },
+      "historicalReference": -2.79
+     },
+     "d3qn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.2886,
+       "sd": 1.032
+      },
+      "xiStageA": {
+       "mean": 88.932,
+       "sd": 0.4186
+      },
+      "xiDiffBminusA": {
+       "mean": -1.6434,
+       "sd": 1.2946,
+       "ci95": [
+        -1.7258,
+        -1.556
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.459,
+       "sd": 1.2028,
+       "ci95": [
+        -1.6319,
+        -1.2831
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.5283,
+       "sd": 0.2504
+      },
+      "transferImprovement": {
+       "mean": 1.0693,
+       "sd": 1.0723,
+       "ci95": [
+        0.8943,
+        1.24
+       ]
+      },
+      "historicalReference": -2.6
+     },
+     "qrdqn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 89.5911,
+       "sd": 0.3481
+      },
+      "xiStageA": {
+       "mean": 89.441,
+       "sd": 0.0937
+      },
+      "xiDiffBminusA": {
+       "mean": 0.1502,
+       "sd": 0.3423,
+       "ci95": [
+        0.096,
+        0.2066
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.7573,
+       "sd": 0.2245,
+       "ci95": [
+        -1.8718,
+        -1.6395
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.4272,
+       "sd": 0.1614
+      },
+      "transferImprovement": {
+       "mean": 0.6699,
+       "sd": 0.2119,
+       "ci95": [
+        0.5694,
+        0.7767
+       ]
+      },
+      "historicalReference": -2.46
+     },
+     "es": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.9359,
+       "sd": 0.1042
+      },
+      "xiStageA": {
+       "mean": 87.7234,
+       "sd": 0.23
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2125,
+       "sd": 0.1323,
+       "ci95": [
+        0.1495,
+        0.2774
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.709,
+       "sd": 0.1234,
+       "ci95": [
+        -2.9111,
+        -2.5022
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2672,
+       "sd": 0.222
+      },
+      "transferImprovement": {
+       "mean": 0.5583,
+       "sd": 0.1844,
+       "ci95": [
+        0.4008,
+        0.7258
+       ]
+      },
+      "historicalReference": -3.37
+     }
+    },
+    "C4": {
+     "ppo": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.6163,
+       "sd": 0.469
+      },
+      "xiStageA": {
+       "mean": 90.2995,
+       "sd": 0.3642
+      },
+      "xiDiffBminusA": {
+       "mean": 0.3167,
+       "sd": 0.1663,
+       "ci95": [
+        0.2848,
+        0.348
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.7498,
+       "sd": 0.3504,
+       "ci95": [
+        -1.821,
+        -1.6777
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.228,
+       "sd": 0.2884
+      },
+      "transferImprovement": {
+       "mean": 0.4783,
+       "sd": 0.0734,
+       "ci95": [
+        0.4091,
+        0.5477
+       ]
+      },
+      "historicalReference": -2.32
+     },
+     "a2c": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 87.2765,
+       "sd": 0.3216
+      },
+      "xiStageA": {
+       "mean": 86.727,
+       "sd": 0.7406
+      },
+      "xiDiffBminusA": {
+       "mean": 0.5495,
+       "sd": 0.4198,
+       "ci95": [
+        0.4958,
+        0.6064
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.7487,
+       "sd": 0.2637,
+       "ci95": [
+        -2.9194,
+        -2.589
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.6758,
+       "sd": 0.6645
+      },
+      "transferImprovement": {
+       "mean": 0.9271,
+       "sd": 0.5454,
+       "ci95": [
+        0.8036,
+        1.0498
+       ]
+      },
+      "historicalReference": -3.72
+     },
+     "d3qn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.9289,
+       "sd": 0.7715
+      },
+      "xiStageA": {
+       "mean": 88.2404,
+       "sd": 0.2877
+      },
+      "xiDiffBminusA": {
+       "mean": -1.3114,
+       "sd": 1.0547,
+       "ci95": [
+        -1.4079,
+        -1.2117
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.8186,
+       "sd": 2.2152,
+       "ci95": [
+        -2.0119,
+        -1.6263
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.2199,
+       "sd": 0.1225
+      },
+      "transferImprovement": {
+       "mean": 1.4013,
+       "sd": 2.2977,
+       "ci95": [
+        1.2139,
+        1.5979
+       ]
+      },
+      "historicalReference": -3.29
+     },
+     "qrdqn": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.7165,
+       "sd": 0.3427
+      },
+      "xiStageA": {
+       "mean": 88.6845,
+       "sd": 0.0439
+      },
+      "xiDiffBminusA": {
+       "mean": 0.032,
+       "sd": 0.3853,
+       "ci95": [
+        -0.0275,
+        0.0927
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.632,
+       "sd": 0.1958,
+       "ci95": [
+        -2.76,
+        -2.5018
+       ]
+      },
+      "transferStageA": {
+       "mean": -3.1837,
+       "sd": 0.0671
+      },
+      "transferImprovement": {
+       "mean": 0.5517,
+       "sd": 0.136,
+       "ci95": [
+        0.4382,
+        0.6629
+       ]
+      },
+      "historicalReference": -3.23
+     },
+     "es": {
+      "n": 3600,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.4614,
+       "sd": 0.0614
+      },
+      "xiStageA": {
+       "mean": 85.9283,
+       "sd": 0.2726
+      },
+      "xiDiffBminusA": {
+       "mean": 0.5331,
+       "sd": 0.3339,
+       "ci95": [
+        0.4787,
+        0.5877
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.1835,
+       "sd": 0.1102,
+       "ci95": [
+        -4.3966,
+        -3.9692
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.0623,
+       "sd": 0.2648
+      },
+      "transferImprovement": {
+       "mean": 0.8789,
+       "sd": 0.3612,
+       "ci95": [
+        0.7344,
+        1.0304
+       ]
+      },
+      "historicalReference": -5.06
+     }
+    },
+    "S4": {
+     "ppo": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 90.4552,
+       "sd": 0.6759
+      },
+      "xiStageA": {
+       "mean": 90.1833,
+       "sd": 0.4239
+      },
+      "xiDiffBminusA": {
+       "mean": 0.2718,
+       "sd": 0.2559,
+       "ci95": [
+        0.1782,
+        0.3688
+       ]
+      },
+      "transferStageB": {
+       "mean": -1.9109,
+       "sd": 0.5577,
+       "ci95": [
+        -2.0103,
+        -1.8103
+       ]
+      },
+      "transferStageA": {
+       "mean": -2.3442,
+       "sd": 0.3733
+      },
+      "transferImprovement": {
+       "mean": 0.4333,
+       "sd": 0.1928,
+       "ci95": [
+        0.3173,
+        0.5567
+       ]
+      },
+      "historicalReference": -2.43
+     },
+     "a2c": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 85.9855,
+       "sd": 0.4428
+      },
+      "xiStageA": {
+       "mean": 85.2939,
+       "sd": 0.8791
+      },
+      "xiDiffBminusA": {
+       "mean": 0.6915,
+       "sd": 0.5389,
+       "ci95": [
+        0.5867,
+        0.8
+       ]
+      },
+      "transferStageB": {
+       "mean": -4.0397,
+       "sd": 0.151,
+       "ci95": [
+        -4.2221,
+        -3.8491
+       ]
+      },
+      "transferStageA": {
+       "mean": -5.1088,
+       "sd": 0.7906
+      },
+      "transferImprovement": {
+       "mean": 1.0691,
+       "sd": 0.6551,
+       "ci95": [
+        0.9009,
+        1.2467
+       ]
+      },
+      "historicalReference": -5.14
+     },
+     "d3qn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 86.1927,
+       "sd": 0.5225
+      },
+      "xiStageA": {
+       "mean": 86.7167,
+       "sd": 0.8685
+      },
+      "xiDiffBminusA": {
+       "mean": -0.5239,
+       "sd": 0.3541,
+       "ci95": [
+        -0.7121,
+        -0.3376
+       ]
+      },
+      "transferStageB": {
+       "mean": -2.5548,
+       "sd": 2.7546,
+       "ci95": [
+        -2.7903,
+        -2.31
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.7436,
+       "sd": 0.8121
+      },
+      "transferImprovement": {
+       "mean": 2.1888,
+       "sd": 1.9429,
+       "ci95": [
+        1.9445,
+        2.4522
+       ]
+      },
+      "historicalReference": -4.82
+     },
+     "qrdqn": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 88.3409,
+       "sd": 0.2739
+      },
+      "xiStageA": {
+       "mean": 87.6345,
+       "sd": 0.2819
+      },
+      "xiDiffBminusA": {
+       "mean": 0.7064,
+       "sd": 0.358,
+       "ci95": [
+        0.5942,
+        0.8106
+       ]
+      },
+      "transferStageB": {
+       "mean": -3.0076,
+       "sd": 0.1473,
+       "ci95": [
+        -3.1506,
+        -2.8676
+       ]
+      },
+      "transferStageA": {
+       "mean": -4.2336,
+       "sd": 0.2079
+      },
+      "transferImprovement": {
+       "mean": 1.2261,
+       "sd": 0.0943,
+       "ci95": [
+        1.086,
+        1.3679
+       ]
+      },
+      "historicalReference": -4.34
+     },
+     "es": {
+      "n": 300,
+      "seeds": 3,
+      "xiStageB": {
+       "mean": 84.9609,
+       "sd": 0.8403
+      },
+      "xiStageA": {
+       "mean": 84.1464,
+       "sd": 0.8447
+      },
+      "xiDiffBminusA": {
+       "mean": 0.8145,
+       "sd": 0.0164,
+       "ci95": [
+        0.6615,
+        0.9685
+       ]
+      },
+      "transferStageB": {
+       "mean": -5.6839,
+       "sd": 0.7934,
+       "ci95": [
+        -5.9467,
+        -5.4224
+       ]
+      },
+      "transferStageA": {
+       "mean": -6.8442,
+       "sd": 0.8631
+      },
+      "transferImprovement": {
+       "mean": 1.1603,
+       "sd": 0.1015,
+       "ci95": [
+        0.9382,
+        1.3755
+       ]
+      },
+      "historicalReference": -6.83
+     }
+    }
+   }
+  }
+ }
+}

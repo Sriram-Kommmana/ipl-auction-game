@@ -46,7 +46,9 @@ class DeadlockError(RuntimeError):
 
 
 class VecIplAuctionEnv:
-    def __init__(self, num_envs, run_seed, split="train", tremble=0.01, snapshot_share=0.0, watchdog_seconds=120, node="node"):
+    def __init__(self, num_envs, run_seed, split="train", tremble=0.01, snapshot_share=0.0, watchdog_seconds=120, node="node",
+                 bridge_script=None, bridge_protocol=None):
+        # bridge_script / bridge_protocol: Phase 2F Stage-B training bridge only (None = the frozen rl-bridge-v2).
         if split != "train":
             raise ValueError("training environments play train seeds only")
         self.num_envs = int(num_envs)
@@ -55,7 +57,7 @@ class VecIplAuctionEnv:
         self.bridges = []
         try:
             for _ in range(self.num_envs):
-                self.bridges.append(BridgeV2(node))
+                self.bridges.append(BridgeV2(node, script=bridge_script, protocol=bridge_protocol))
         except Exception:
             self.close()
             raise

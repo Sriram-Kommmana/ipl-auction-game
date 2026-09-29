@@ -1,0 +1,25 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "result": "NO OBSERVATION CHANGE JUSTIFIED",
+ "minimumDelta": {
+  "ADD": 0,
+  "TRANSFORM": 0
+ },
+ "summary": "None of the four Phase 2E.2 gaps is closed by a new or transformed observation feature on this evidence. Gap 1 at lot 1 and the aliased part of Gap 2 cannot be solved by observation, because the distinguishing state does not exist in the environment at that point (only hidden policy identity or future actions would separate them). The rest of Gap 1, the breadth part of Gap 3 and the room-level part of Gap 2 are already represented by existing features. The saturation in Gap 4 removes no strategically relevant values.",
+ "implication": "The Phase 2E.2 'targeted observation-spec discussion' can conclude with no change to obs-v2 on the current evidence. Evidence suggests the remaining Stage-B problems are training / generalisation and policy-behaviour questions (present signals unused, affordable needed keepers passed); this should be investigated during Stage-B design.",
+ "alternativesConsidered": {
+  "MINIMAL DELTA PROPOSED": "rejected — no candidate met the GENUINELY NEW INFORMATION rule; the best partial-novelty candidates (aheadPace15, overpay13, kContestNoNeed, partic20, cumStarPF) add no more separation than existing features and resolve no aliasing",
+  "INCONCLUSIVE": "rejected — the replays cover every gap with large samples, except the 20 keeper findings (467 decisions), where no candidate came close to separating (percentiles ~0.6)"
+ },
+ "residualUncertainty": [
+  "The tests measure information on trajectories of the FROZEN Stage-A policies; a Stage-B-trained policy would visit other states, where the partial-novelty candidates might matter more.",
+  "Keeper conclusions rest on 20 findings.",
+  "40 of 500 validation entries; high stratum over-represented.",
+  "Thresholds (L∞ 0.05, candidate difference thresholds, cell resolutions) are conventions; raw values are in raw/gap-stats.json and raw/gap-extra.json."
+ ],
+ "doesNotDo": "No feature is added, no index or hash assigned, no training or code change made; the shield is not assessed for change."
+}

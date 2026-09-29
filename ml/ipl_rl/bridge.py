@@ -36,9 +36,10 @@ class BridgeError(RuntimeError):
 class BridgeV2:
     """One Node.js simulator process. Each environment owns one."""
 
-    def __init__(self, node="node", node_flags=NODE_FLAGS):
+    def __init__(self, node="node", node_flags=NODE_FLAGS, script=None, protocol=None):
+        # script / protocol: Phase 2F Stage-B training bridge only (None = the frozen rl-bridge-v2).
         self.proc = subprocess.Popen(
-            [node, *node_flags, str(BRIDGE_SCRIPT)],
+            [node, *node_flags, str(script or BRIDGE_SCRIPT)],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=None,
@@ -48,9 +49,9 @@ class BridgeV2:
         )
         _unthrottle(self.proc)
         info = self.call("info")
-        if info.get("protocol") != PROTOCOL:
+        if info.get("protocol") != (protocol or PROTOCOL):
             self.close()
-            raise BridgeError(f"expected {PROTOCOL}, got {info.get('protocol')}")
+            raise BridgeError(f"expected {protocol or PROTOCOL}, got {info.get('protocol')}")
         self.info = info
 
     def call(self, cmd, **fields):

@@ -1,0 +1,322 @@
+diff --git a/ml/ipl_rl/algos/a2c.py b/ml/ipl_rl/algos/a2c.py
+index fbf4a70..1c02b5e 100644
+--- a/ml/ipl_rl/algos/a2c.py
++++ b/ml/ipl_rl/algos/a2c.py
+@@ -60,6 +60,7 @@ from ..common.rollout import AsyncRolloutState, collect_async
+ from ..common.seeding import seed_everything
+ from ..common.stats import EpisodeLog, action_stats, summarise_episodes
+ from ..common.vec_env import VecIplAuctionEnv
++from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
+ from ..common.win_qos import disable_throttling
+ from ..env import ACTION_COUNT, OBS_SIZE
+ from ..nets import PolicyNet
+@@ -259,8 +260,7 @@ def train(cfg):
+     cfg_hash = config_hash(cfg)
+     if cfg["algorithm"] != "a2c":
+         raise ValueError("this trainer is A2C only")
+-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
+-        raise ValueError("Phase 2D.1 trains against Stage A only (no RL snapshots)")
++    stage_b.check_stage(cfg, "Phase 2D.1 trains against Stage A only (no RL snapshots)")
+     batch = cfg["num_envs"] * cfg["num_steps"]
+     num_updates = cfg["total_decisions"] // batch
+     run_name = cfg["run_name"] or f"a2c-s{cfg['seed']}-{cfg_hash[:8]}-{time.strftime('%Y%m%d-%H%M%S')}"
+@@ -268,7 +268,7 @@ def train(cfg):
+ 
+     seed_everything(cfg["seed"], cfg["torch_threads"])
+     envs = VecIplAuctionEnv(cfg["num_envs"], cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
+-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
++                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
+     expected = cfg["expected_act_spec"]
+     if expected and envs.act_spec["hash"] != expected:
+         envs.close()
+@@ -286,6 +286,7 @@ def train(cfg):
+ 
+     torch.manual_seed(init_seed(cfg["seed"]))
+     agent = A2CAgent()
++    stage_b.warm_start(cfg, {"agent": agent}, run_dir)
+     initial_digest = params_digest(agent)
+     optimizer = torch.optim.Adam(agent.parameters(), lr=cfg["learning_rate"], eps=cfg["adam_eps"])
+ 
+@@ -359,7 +360,7 @@ def train(cfg):
+             if episodes.violations:
+                 raise SafetyError([f"training episode invariant violation: {episodes.violations[:3]}"])
+             incomplete = [e["seed"] for e in episodes.pending if not e["legalXI"]]
+-            if incomplete:
++            if incomplete and stage_b.incomplete_is_stop(cfg):
+                 raise SafetyError([f"training episode ended without a legal XI: seeds {incomplete[:5]}"])
+ 
+             with torch.no_grad():
+diff --git a/ml/ipl_rl/algos/d3qn.py b/ml/ipl_rl/algos/d3qn.py
+index bf9e3e5..0d2834b 100644
+--- a/ml/ipl_rl/algos/d3qn.py
++++ b/ml/ipl_rl/algos/d3qn.py
+@@ -66,6 +66,7 @@ from ..common.replay import NStepBuilder, PrioritizedReplay, ReplayCorruption
+ from ..common.seeding import seed_everything
+ from ..common.stats import EpisodeLog, action_stats, summarise_episodes
+ from ..common.vec_env import VecIplAuctionEnv
++from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
+ from ..common.win_qos import disable_throttling
+ from ..env import ACTION_COUNT, OBS_SIZE, PASS
+ from ..export import FORMAT, SELECTION, write_policy
+@@ -390,8 +391,7 @@ def train(cfg):
+     cfg_hash = config_hash(cfg)
+     if cfg["algorithm"] != "d3qn":
+         raise ValueError("this trainer is D3QN only")
+-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
+-        raise ValueError("Phase 2D.2 trains against Stage A only (no RL snapshots)")
++    stage_b.check_stage(cfg, "Phase 2D.2 trains against Stage A only (no RL snapshots)")
+     N, L = cfg["num_envs"], cfg["actor_lag_cycles"]
+     total_cycles = cfg["total_decisions"] // N
+     eval_cycles = sorted({d // N for d in cfg["eval_decisions"] if d % N == 0 and 0 < d // N <= total_cycles} | {total_cycles})
+@@ -400,7 +400,7 @@ def train(cfg):
+ 
+     seed_everything(cfg["seed"], cfg["torch_threads"])
+     envs = VecIplAuctionEnv(N, cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
+-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
++                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
+     expected = cfg["expected_act_spec"]
+     if expected and envs.act_spec["hash"] != expected:
+         envs.close()
+@@ -419,6 +419,7 @@ def train(cfg):
+ 
+     torch.manual_seed(init_seed(cfg["seed"]))
+     online = DuelingQNet()
++    stage_b.warm_start(cfg, {"online": online}, run_dir)
+     target = copy.deepcopy(online)
+     for p in target.parameters():
+         p.requires_grad_(False)
+@@ -531,7 +532,7 @@ def train(cfg):
+             ep_actions[i] = 0
+             if ep.get("invariantViolations", 0):
+                 raise SafetyError([f"training episode invariant violation (seed {ep['seed']}): {ep.get('violations')}"])
+-            if not ep["legalXI"]:
++            if not ep["legalXI"] and stage_b.incomplete_is_stop(cfg):
+                 raise SafetyError([f"training episode ended without a legal XI: seed {ep['seed']}"])
+             episodes_by_cycle.setdefault(k, []).append((i, ep))
+             envs.send_reset(i)
+diff --git a/ml/ipl_rl/algos/openai_es.py b/ml/ipl_rl/algos/openai_es.py
+index 9230cc1..f7ff3a7 100644
+--- a/ml/ipl_rl/algos/openai_es.py
++++ b/ml/ipl_rl/algos/openai_es.py
+@@ -61,6 +61,7 @@ from ..common.metadata import run_metadata
+ from ..common.seeding import episode_seed, seed_everything
+ from ..common.stats import EpisodeLog, action_stats, summarise_episodes
+ from ..common.vec_env import VecIplAuctionEnv
++from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
+ from ..common.win_qos import disable_throttling
+ from ..env import ACTION_COUNT, OBS_SIZE, PASS
+ from ..nets import PolicyNet
+@@ -248,6 +249,7 @@ class EpisodeRunner:
+     def __init__(self, venv):
+         self.venv = venv
+         self.consistency_checks = 0
++        self.allow_incomplete = False  # Phase 2F: True only in Stage B (§26 finding, not a stop)
+         self.wait_seconds = 0.0
+         self.act_seconds = 0.0
+ 
+@@ -306,7 +308,7 @@ class EpisodeRunner:
+                 raise SafetyError([f"episode consistency (job {s['job']['key']}): " + "; ".join(problems)])
+             if ep.get("invariantViolations", 0):
+                 raise SafetyError([f"invariant violation (seed {ep['seed']}): {ep.get('violations')}"])
+-            if not ep["legalXI"]:
++            if not ep["legalXI"] and not self.allow_incomplete:
+                 raise SafetyError([f"episode ended without a legal XI: seed {ep['seed']}"])
+             self.consistency_checks += 1
+             results[s["job"]["key"]] = {"return": float(s["ret"]), "episode": ep, "actions": s["actions"].copy()}
+@@ -394,8 +396,7 @@ def train(cfg):
+     cfg_hash = config_hash(cfg)
+     if cfg["algorithm"] != "openai_es":
+         raise ValueError("this trainer is OpenAI-ES only")
+-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
+-        raise ValueError("Phase 2D.4 trains against Stage A only (no RL snapshots)")
++    stage_b.check_stage(cfg, "Phase 2D.4 trains against Stage A only (no RL snapshots)")
+     if cfg["fitness_shaping"] != "centered_rank" or cfg["weight_decay"] != 0.0 or cfg["episodes_per_perturbation"] != 1:
+         raise ValueError("frozen ES configuration: centered-rank shaping, no weight decay, one episode per perturbation")
+     run_name = cfg["run_name"] or f"openai-es-s{cfg['seed']}-{cfg_hash[:8]}-{time.strftime('%Y%m%d-%H%M%S')}"
+@@ -404,7 +405,7 @@ def train(cfg):
+ 
+     seed_everything(seed, cfg["torch_threads"])
+     envs = VecIplAuctionEnv(cfg["num_envs"], seed, split=cfg["split"], tremble=cfg["tremble"],
+-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
++                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
+     for key, spec in (("expected_act_spec", envs.act_spec), ("expected_obs_spec", envs.obs_spec)):
+         if cfg[key] and spec["hash"] != cfg[key]:
+             envs.close()
+@@ -415,6 +416,7 @@ def train(cfg):
+ 
+     log = RunLogger(run_dir)
+     net = make_policy(seed)
++    stage_b.warm_start(cfg, {"policy": net}, run_dir)
+     dim = sum(p.numel() for p in net.parameters())
+     optimizer = torch.optim.Adam(net.parameters(), lr=cfg["learning_rate"], betas=(cfg["adam_beta1"], cfg["adam_beta2"]),
+                                  eps=cfg["adam_eps"], weight_decay=cfg["weight_decay"])
+@@ -427,6 +429,7 @@ def train(cfg):
+           f"config {cfg_hash}  obs {envs.obs_spec['hash']}  act {envs.act_spec['hash']}", flush=True)
+ 
+     runner = EpisodeRunner(envs)
++    runner.allow_incomplete = not stage_b.incomplete_is_stop(cfg)
+     episodes = EpisodeLog()
+     all_episodes, evaluations = [], []
+     decisions = 0
+@@ -553,6 +556,12 @@ def train(cfg):
+             if reasons:
+                 last_states = parity_states(envs, net, seed, cfg["parity_states"])
+                 evaluate(gen, reasons)
++            sb_stop = (cfg.get("stage_b") or {}).get("stop_decisions")  # Phase 2F decision budget (Stage B only)
++            if sb_stop is not None and decisions >= sb_stop:
++                if not reasons:
++                    last_states = parity_states(envs, net, seed, cfg["parity_states"])
++                    evaluate(gen, ["stage-b decision budget"])
++                break
+     except SafetyError as err:
+         status, failure = "stopped: safety", err.problems
+         print(f"[es] STOPPED — safety: {err.problems[:5]}", flush=True)
+diff --git a/ml/ipl_rl/algos/ppo.py b/ml/ipl_rl/algos/ppo.py
+index 7e4dcdf..52b9d24 100644
+--- a/ml/ipl_rl/algos/ppo.py
++++ b/ml/ipl_rl/algos/ppo.py
+@@ -45,6 +45,7 @@ from ..common.seeding import seed_everything
+ from ..common.rollout import AsyncRolloutState, collect_async
+ from ..common.stats import EpisodeLog, action_stats, summarise_episodes
+ from ..common.vec_env import VecIplAuctionEnv
++from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
+ from ..common.win_qos import disable_throttling
+ from ..env import ACTION_COUNT, OBS_SIZE
+ from ..nets import PolicyNet
+@@ -146,8 +147,7 @@ def params_digest(module):
+ 
+ def train(cfg):
+     cfg_hash = config_hash(cfg)
+-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
+-        raise ValueError("Phase 2C.0 trains against Stage A only (no RL snapshots)")
++    stage_b.check_stage(cfg, "Phase 2C.0 trains against Stage A only (no RL snapshots)")
+     batch = cfg["num_envs"] * cfg["num_steps"]
+     if batch % cfg["minibatch_size"]:
+         raise ValueError("num_envs × num_steps must be a multiple of minibatch_size")
+@@ -157,7 +157,7 @@ def train(cfg):
+ 
+     seed_everything(cfg["seed"], cfg["torch_threads"])
+     envs = VecIplAuctionEnv(cfg["num_envs"], cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
+-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
++                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
+     expected = cfg["expected_act_spec"]
+     if expected and envs.act_spec["hash"] != expected:
+         envs.close()
+@@ -173,6 +173,7 @@ def train(cfg):
+     print(f"[ppo] {run_name}: {num_updates} updates × {batch} decisions = {num_updates * batch:,}  config {cfg_hash}  obs {envs.obs_spec['hash']}  act {envs.act_spec['hash']}", flush=True)
+ 
+     agent = Agent()
++    stage_b.warm_start(cfg, {"agent": agent}, run_dir)
+     initial_digest = params_digest(agent)
+     optimizer = torch.optim.Adam(agent.parameters(), lr=cfg["learning_rate"], eps=cfg["adam_eps"])
+     shuffle_gen = torch.Generator().manual_seed(cfg["seed"])
+@@ -273,7 +274,7 @@ def train(cfg):
+             if episodes.violations:
+                 raise SafetyError([f"training episode invariant violation: {episodes.violations[:3]}"])
+             incomplete = [e["seed"] for e in episodes.pending if not e["legalXI"]]
+-            if incomplete:
++            if incomplete and stage_b.incomplete_is_stop(cfg):
+                 raise SafetyError([f"training episode ended without a legal XI: seeds {incomplete[:5]}"])
+ 
+             # GAE (termination only; γ from the environment).
+diff --git a/ml/ipl_rl/algos/qr_dqn.py b/ml/ipl_rl/algos/qr_dqn.py
+index a6aee7a..98f6fcd 100644
+--- a/ml/ipl_rl/algos/qr_dqn.py
++++ b/ml/ipl_rl/algos/qr_dqn.py
+@@ -62,6 +62,7 @@ from ..common.replay import NStepBuilder, PrioritizedReplay, ReplayCorruption
+ from ..common.seeding import seed_everything
+ from ..common.stats import EpisodeLog, action_stats, summarise_episodes
+ from ..common.vec_env import VecIplAuctionEnv
++from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
+ from ..common.win_qos import disable_throttling
+ from ..env import ACTION_COUNT, OBS_SIZE, PASS
+ from ..export import to_policy_json as _policy_json, write_policy
+@@ -332,8 +333,7 @@ def train(cfg):
+         raise ValueError("this trainer is QR-DQN only")
+     if cfg["n_quantiles"] != N_QUANTILES:
+         raise ValueError(f"QR-DQN uses exactly {N_QUANTILES} quantiles (the frozen production head)")
+-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
+-        raise ValueError("Phase 2D.3 trains against Stage A only (no RL snapshots)")
++    stage_b.check_stage(cfg, "Phase 2D.3 trains against Stage A only (no RL snapshots)")
+     N, L = cfg["num_envs"], cfg["actor_lag_cycles"]
+     total_cycles = cfg["total_decisions"] // N
+     eval_cycles = sorted({d // N for d in cfg["eval_decisions"] if d % N == 0 and 0 < d // N <= total_cycles} | {total_cycles})
+@@ -342,7 +342,7 @@ def train(cfg):
+ 
+     seed_everything(cfg["seed"], cfg["torch_threads"])
+     envs = VecIplAuctionEnv(N, cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
+-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
++                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
+     expected = cfg["expected_act_spec"]
+     if expected and envs.act_spec["hash"] != expected:
+         envs.close()
+@@ -363,6 +363,7 @@ def train(cfg):
+ 
+     torch.manual_seed(init_seed(cfg["seed"]))
+     online = make_net()
++    stage_b.warm_start(cfg, {"online": online}, run_dir)
+     target = copy.deepcopy(online)
+     for p in target.parameters():
+         p.requires_grad_(False)
+@@ -476,7 +477,7 @@ def train(cfg):
+             ep_actions[i] = 0
+             if ep.get("invariantViolations", 0):
+                 raise SafetyError([f"training episode invariant violation (seed {ep['seed']}): {ep.get('violations')}"])
+-            if not ep["legalXI"]:
++            if not ep["legalXI"] and stage_b.incomplete_is_stop(cfg):
+                 raise SafetyError([f"training episode ended without a legal XI: seed {ep['seed']}"])
+             episodes_by_cycle.setdefault(k, []).append((i, ep))
+             envs.send_reset(i)
+diff --git a/ml/ipl_rl/bridge.py b/ml/ipl_rl/bridge.py
+index 2883a3e..adffb7c 100644
+--- a/ml/ipl_rl/bridge.py
++++ b/ml/ipl_rl/bridge.py
+@@ -36,9 +36,10 @@ class BridgeError(RuntimeError):
+ class BridgeV2:
+     """One Node.js simulator process. Each environment owns one."""
+ 
+-    def __init__(self, node="node", node_flags=NODE_FLAGS):
++    def __init__(self, node="node", node_flags=NODE_FLAGS, script=None, protocol=None):
++        # script / protocol: Phase 2F Stage-B training bridge only (None = the frozen rl-bridge-v2).
+         self.proc = subprocess.Popen(
+-            [node, *node_flags, str(BRIDGE_SCRIPT)],
++            [node, *node_flags, str(script or BRIDGE_SCRIPT)],
+             stdin=subprocess.PIPE,
+             stdout=subprocess.PIPE,
+             stderr=None,
+@@ -48,9 +49,9 @@ class BridgeV2:
+         )
+         _unthrottle(self.proc)
+         info = self.call("info")
+-        if info.get("protocol") != PROTOCOL:
++        if info.get("protocol") != (protocol or PROTOCOL):
+             self.close()
+-            raise BridgeError(f"expected {PROTOCOL}, got {info.get('protocol')}")
++            raise BridgeError(f"expected {protocol or PROTOCOL}, got {info.get('protocol')}")
+         self.info = info
+ 
+     def call(self, cmd, **fields):
+diff --git a/ml/ipl_rl/common/vec_env.py b/ml/ipl_rl/common/vec_env.py
+index 089adc7..0e2e6d3 100644
+--- a/ml/ipl_rl/common/vec_env.py
++++ b/ml/ipl_rl/common/vec_env.py
+@@ -46,7 +46,9 @@ class DeadlockError(RuntimeError):
+ 
+ 
+ class VecIplAuctionEnv:
+-    def __init__(self, num_envs, run_seed, split="train", tremble=0.01, snapshot_share=0.0, watchdog_seconds=120, node="node"):
++    def __init__(self, num_envs, run_seed, split="train", tremble=0.01, snapshot_share=0.0, watchdog_seconds=120, node="node",
++                 bridge_script=None, bridge_protocol=None):
++        # bridge_script / bridge_protocol: Phase 2F Stage-B training bridge only (None = the frozen rl-bridge-v2).
+         if split != "train":
+             raise ValueError("training environments play train seeds only")
+         self.num_envs = int(num_envs)
+@@ -55,7 +57,7 @@ class VecIplAuctionEnv:
+         self.bridges = []
+         try:
+             for _ in range(self.num_envs):
+-                self.bridges.append(BridgeV2(node))
++                self.bridges.append(BridgeV2(node, script=bridge_script, protocol=bridge_protocol))
+         except Exception:
+             self.close()
+             raise

@@ -1,0 +1,251 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "pairs": 195678,
+ "aliasedRivalBlockLe0.05": 11882,
+ "aliasedFull80Le0.05": 11187,
+ "candidates": {
+  "overpay13": {
+   "pairedShareC4Higher": 0.293,
+   "pairedShareC4Lower": 0.352,
+   "sepC4vsC1_allPairs": 0.033,
+   "sepC4vsC1_aliasedRivalBlock": 0.008,
+   "trackRlBiddersWithinProgress": 0.088,
+   "betweenCellShareGivenRivalBlock": 0.695,
+   "withinCellSepC4vsC1": 0.323
+  },
+  "overpay15": {
+   "pairedShareC4Higher": 0.23,
+   "pairedShareC4Lower": 0.318,
+   "sepC4vsC1_allPairs": 0.091,
+   "sepC4vsC1_aliasedRivalBlock": 0.023,
+   "trackRlBiddersWithinProgress": 0.109,
+   "betweenCellShareGivenRivalBlock": 0.556,
+   "withinCellSepC4vsC1": 0.258
+  },
+  "starBuyers2": {
+   "pairedShareC4Higher": 0.385,
+   "pairedShareC4Lower": 0.157,
+   "sepC4vsC1_allPairs": 0.085,
+   "sepC4vsC1_aliasedRivalBlock": 0.005,
+   "trackRlBiddersWithinProgress": 0.278,
+   "betweenCellShareGivenRivalBlock": 0.9,
+   "withinCellSepC4vsC1": 0.299
+  },
+  "buyersSoFar": {
+   "pairedShareC4Higher": 0.144,
+   "pairedShareC4Lower": 0.178,
+   "sepC4vsC1_allPairs": 0.011,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.059,
+   "betweenCellShareGivenRivalBlock": 0.93,
+   "withinCellSepC4vsC1": 0.18
+  },
+  "aheadPace15": {
+   "pairedShareC4Higher": 0.463,
+   "pairedShareC4Lower": 0.16,
+   "sepC4vsC1_allPairs": 0.26,
+   "sepC4vsC1_aliasedRivalBlock": 0.006,
+   "trackRlBiddersWithinProgress": 0.379,
+   "betweenCellShareGivenRivalBlock": 0.796,
+   "withinCellSepC4vsC1": 0.344
+  },
+  "aheadPace30": {
+   "pairedShareC4Higher": 0.217,
+   "pairedShareC4Lower": 0.114,
+   "sepC4vsC1_allPairs": 0.006,
+   "sepC4vsC1_aliasedRivalBlock": 0.003,
+   "trackRlBiddersWithinProgress": 0.267,
+   "betweenCellShareGivenRivalBlock": 0.894,
+   "withinCellSepC4vsC1": 0.147
+  },
+  "wMaxRivSpend": {
+   "pairedShareC4Higher": 0.429,
+   "pairedShareC4Lower": 0.495,
+   "sepC4vsC1_allPairs": 0.037,
+   "sepC4vsC1_aliasedRivalBlock": 0.002,
+   "trackRlBiddersWithinProgress": 0.198,
+   "betweenCellShareGivenRivalBlock": 0.872,
+   "withinCellSepC4vsC1": 0.227
+  },
+  "wBuyers": {
+   "pairedShareC4Higher": 0.275,
+   "pairedShareC4Lower": 0.337,
+   "sepC4vsC1_allPairs": 0.017,
+   "sepC4vsC1_aliasedRivalBlock": 0.001,
+   "trackRlBiddersWithinProgress": 0.095,
+   "betweenCellShareGivenRivalBlock": 0.727,
+   "withinCellSepC4vsC1": 0.244
+  },
+  "partic5": {
+   "pairedShareC4Higher": 0.292,
+   "pairedShareC4Lower": 0.205,
+   "sepC4vsC1_allPairs": 0.031,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.228,
+   "betweenCellShareGivenRivalBlock": 0.852,
+   "withinCellSepC4vsC1": 0.192
+  },
+  "partic20": {
+   "pairedShareC4Higher": 0.345,
+   "pairedShareC4Lower": 0.248,
+   "sepC4vsC1_allPairs": 0.025,
+   "sepC4vsC1_aliasedRivalBlock": 0.003,
+   "trackRlBiddersWithinProgress": 0.242,
+   "betweenCellShareGivenRivalBlock": 0.917,
+   "withinCellSepC4vsC1": 0.224
+  },
+  "bids5": {
+   "pairedShareC4Higher": 0.462,
+   "pairedShareC4Lower": 0.456,
+   "sepC4vsC1_allPairs": 0.008,
+   "sepC4vsC1_aliasedRivalBlock": 0.009,
+   "trackRlBiddersWithinProgress": 0.161,
+   "betweenCellShareGivenRivalBlock": 0.34,
+   "withinCellSepC4vsC1": 0.156
+  },
+  "bids20": {
+   "pairedShareC4Higher": 0.446,
+   "pairedShareC4Lower": 0.497,
+   "sepC4vsC1_allPairs": 0.0,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.178,
+   "betweenCellShareGivenRivalBlock": 0.387,
+   "withinCellSepC4vsC1": 0.166
+  },
+  "capGe1_5": {
+   "pairedShareC4Higher": 0.088,
+   "pairedShareC4Lower": 0.143,
+   "sepC4vsC1_allPairs": 0.045,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.164,
+   "betweenCellShareGivenRivalBlock": 0.733,
+   "withinCellSepC4vsC1": 0.133
+  },
+  "capGe2": {
+   "pairedShareC4Higher": 0.095,
+   "pairedShareC4Lower": 0.148,
+   "sepC4vsC1_allPairs": 0.05,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.139,
+   "betweenCellShareGivenRivalBlock": 0.747,
+   "withinCellSepC4vsC1": 0.138
+  },
+  "capGe3": {
+   "pairedShareC4Higher": 0.107,
+   "pairedShareC4Lower": 0.157,
+   "sepC4vsC1_allPairs": 0.057,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.099,
+   "betweenCellShareGivenRivalBlock": 0.757,
+   "withinCellSepC4vsC1": 0.142
+  },
+  "capGe5": {
+   "pairedShareC4Higher": 0.122,
+   "pairedShareC4Lower": 0.174,
+   "sepC4vsC1_allPairs": 0.06,
+   "sepC4vsC1_aliasedRivalBlock": 0.0,
+   "trackRlBiddersWithinProgress": 0.042,
+   "betweenCellShareGivenRivalBlock": 0.729,
+   "withinCellSepC4vsC1": 0.146
+  }
+ },
+ "distributionCandidate_sortedPurses": {
+  "aliasedPairs_vectorDiffers>0.05": 0.079,
+  "allPairs_vectorDiffers>0.05": 0.803
+ },
+ "existingWithinCellSepC4vsC1": {
+  "riv_purse_std": 0.235,
+  "riv_purse_min": 0.293,
+  "riv_recent_spend": 0.207,
+  "mkt_recent_price_ratio": 0.404,
+  "riv_able_share": 0.124
+ },
+ "existingBestTrackRlBidders": 0.251,
+ "identityOracle": "C1 vs C4 differ by construction in the number of RL-controlled seats (1 vs 4): hidden policy identity, constant in production (5 RL + 4 rule seats)",
+ "rlBiddersDiffer2plusShare": 0.864,
+ "fineCellCheck": {
+  "rows": 2023632,
+  "cells": 29101,
+  "candidates": {
+   "aheadPace15": {
+    "betweenCellShare": 0.82,
+    "withinCellSep_C4vsC1": 0.29,
+    "withinCellSep_rlBidders≥3": 0.232
+   },
+   "aheadPace30": {
+    "betweenCellShare": 0.904,
+    "withinCellSep_C4vsC1": 0.106,
+    "withinCellSep_rlBidders≥3": 0.099
+   },
+   "starBuyers2": {
+    "betweenCellShare": 0.905,
+    "withinCellSep_C4vsC1": 0.266,
+    "withinCellSep_rlBidders≥3": 0.22
+   },
+   "overpay13": {
+    "betweenCellShare": 0.799,
+    "withinCellSep_C4vsC1": 0.32,
+    "withinCellSep_rlBidders≥3": 0.27
+   },
+   "overpay15": {
+    "betweenCellShare": 0.734,
+    "withinCellSep_C4vsC1": 0.271,
+    "withinCellSep_rlBidders≥3": 0.23
+   },
+   "wMaxRivSpend": {
+    "betweenCellShare": 0.879,
+    "withinCellSep_C4vsC1": 0.207,
+    "withinCellSep_rlBidders≥3": 0.182
+   },
+   "partic20": {
+    "betweenCellShare": 0.931,
+    "withinCellSep_C4vsC1": 0.231,
+    "withinCellSep_rlBidders≥3": 0.312
+   },
+   "capGe2": {
+    "betweenCellShare": 0.971,
+    "withinCellSep_C4vsC1": 0.018,
+    "withinCellSep_rlBidders≥3": 0.023
+   }
+  },
+  "existingNotInCells": {
+   "riv_xi_max": {
+    "withinCellSep_C4vsC1": 0.28,
+    "withinCellSep_rlBidders≥3": 0.223
+   },
+   "riv_xi_mean": {
+    "withinCellSep_C4vsC1": 0.241,
+    "withinCellSep_rlBidders≥3": 0.192
+   },
+   "self_pace_gap": {
+    "withinCellSep_C4vsC1": 0.223,
+    "withinCellSep_rlBidders≥3": 0.203
+   },
+   "mkt_recent_sold_share": {
+    "withinCellSep_C4vsC1": 0.033,
+    "withinCellSep_rlBidders≥3": 0.069
+   },
+   "riv_purse_max": {
+    "withinCellSep_C4vsC1": 0.155,
+    "withinCellSep_rlBidders≥3": 0.132
+   },
+   "riv_gain_mean": {
+    "withinCellSep_C4vsC1": 0.087,
+    "withinCellSep_rlBidders≥3": 0.1
+   }
+  },
+  "hiddenIdentity_withinCellSep_C4vsC1_note": "rlRivals (count of RL-controlled seats) separates C1 vs C4 perfectly by construction — hidden policy identity, constant in production"
+ },
+ "question": "count (A) vs distribution (B) vs identity (C) vs other sufficient statistic (D)",
+ "answer": {
+  "A_count": "public-state counts (aheadPace15, overpay13, starBuyers2) add within-cell separation 0.29–0.32, no more than existing features left out of the same cells (riv_xi_max 0.28), and ≈ 0 where the rival block is aliased",
+  "B_distribution": "the full sorted purse vector differs in only 8% of aliased C1/C4 pairs",
+  "C_identity": "separates perfectly by construction; hidden policy identity, constant in production — excluded",
+  "D_other": "no lower-dimensional public statistic separates the aliased states: there the one-vs-four difference exists only in the opponents' (hidden) policies and future caps",
+  "minimumStatistic": "none justified — where the current observation aliases one vs four aggressive copies, no public state differs; where it does not alias, existing features already carry comparable separation"
+ }
+}

@@ -1,0 +1,357 @@
+{
+ "starTiming": {
+  "definition": "share of each entry's star lots (rating ≥ 90) by main-round lot index, averaged over the 40 replayed entries",
+  "bins": [
+   "lots 1–1",
+   "lots 2–5",
+   "lots 6–16",
+   "lots 17–32",
+   "lots 33–65",
+   "lots 66–97",
+   "lots 98–162",
+   "lots 163–243",
+   "lots 244–323"
+  ],
+  "share": [
+   0.014,
+   0.059,
+   0.166,
+   0.109,
+   0.048,
+   0.111,
+   0.221,
+   0.141,
+   0.13
+  ],
+  "cumulative": [
+   0.014,
+   0.073,
+   0.239,
+   0.348,
+   0.396,
+   0.508,
+   0.729,
+   0.87,
+   1.0
+  ],
+  "starsPerEntry": 46.0
+ },
+ "saturation": {
+  "definition": "share of learner observations at the obs-v2 clip bounds [-1, 5] (all conditions)",
+  "features": [
+   {
+    "feature": "self_max_safe_fv",
+    "atUpperClip5": 0.555,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "self_upgrades_left",
+    "atUpperClip5": 0.468,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "mkt_better_left",
+    "atUpperClip5": 0.195,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "mkt_scarcity_keeper",
+    "atUpperClip5": 0.041,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "mkt_scarcity_bowling",
+    "atUpperClip5": 0.997,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "mkt_scarcity_indians",
+    "atUpperClip5": 0.998,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "riv_capacity_1",
+    "atUpperClip5": 0.992,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "riv_capacity_2",
+    "atUpperClip5": 0.984,
+    "atLowerClipMinus1": 0.0
+   },
+   {
+    "feature": "riv_capacity_3",
+    "atUpperClip5": 0.974,
+    "atLowerClipMinus1": 0.0
+   }
+  ],
+  "rivalCapacityByProgress": [
+   {
+    "progress": "0–2%",
+    "riv_capacity_1_at5": 1.0,
+    "riv_capacity_3_at5": 1.0,
+    "riv_able_share_eq1": 1.0
+   },
+   {
+    "progress": "2–5%",
+    "riv_capacity_1_at5": 1.0,
+    "riv_capacity_3_at5": 1.0,
+    "riv_able_share_eq1": 1.0
+   },
+   {
+    "progress": "5–10%",
+    "riv_capacity_1_at5": 1.0,
+    "riv_capacity_3_at5": 1.0,
+    "riv_able_share_eq1": 0.978
+   },
+   {
+    "progress": "10–20%",
+    "riv_capacity_1_at5": 1.0,
+    "riv_capacity_3_at5": 1.0,
+    "riv_able_share_eq1": 0.903
+   },
+   {
+    "progress": "20–30%",
+    "riv_capacity_1_at5": 1.0,
+    "riv_capacity_3_at5": 1.0,
+    "riv_able_share_eq1": 0.57
+   },
+   {
+    "progress": "30–50%",
+    "riv_capacity_1_at5": 1.0,
+    "riv_capacity_3_at5": 0.995,
+    "riv_able_share_eq1": 0.213
+   },
+   {
+    "progress": "50–75%",
+    "riv_capacity_1_at5": 0.994,
+    "riv_capacity_3_at5": 0.932,
+    "riv_able_share_eq1": 0.123
+   },
+   {
+    "progress": "75–100%",
+    "riv_capacity_1_at5": 0.94,
+    "riv_capacity_3_at5": 0.808,
+    "riv_able_share_eq1": 0.058
+   },
+   {
+    "progress": "re-auction",
+    "riv_capacity_1_at5": 0.846,
+    "riv_capacity_3_at5": 0.706,
+    "riv_able_share_eq1": 0.022
+   }
+  ]
+ },
+ "forcedPredictability": {
+  "forced": {
+   "positives": 3635,
+   "decisions": 2186930,
+   "top": [
+    {
+     "feature": "self_fills_keeper",
+     "separation": 0.912,
+     "auc": 0.956
+    },
+    {
+     "feature": "lot_is_keeper",
+     "separation": 0.882,
+     "auc": 0.941
+    },
+    {
+     "feature": "self_purse",
+     "separation": 0.879,
+     "auc": 0.06
+    },
+    {
+     "feature": "self_max_safe_purse",
+     "separation": 0.875,
+     "auc": 0.062
+    },
+    {
+     "feature": "set_index",
+     "separation": 0.87,
+     "auc": 0.935
+    },
+    {
+     "feature": "lots_left_in_phase",
+     "separation": 0.867,
+     "auc": 0.066
+    }
+   ]
+  },
+  "forcedKeeper": {
+   "positives": 3410,
+   "decisions": 2186930,
+   "top": [
+    {
+     "feature": "self_fills_keeper",
+     "separation": 0.97,
+     "auc": 0.985
+    },
+    {
+     "feature": "lot_is_keeper",
+     "separation": 0.941,
+     "auc": 0.97
+    },
+    {
+     "feature": "set_index",
+     "separation": 0.902,
+     "auc": 0.951
+    },
+    {
+     "feature": "lots_left_in_phase",
+     "separation": 0.898,
+     "auc": 0.051
+    },
+    {
+     "feature": "mkt_premium_passed",
+     "separation": 0.898,
+     "auc": 0.949
+    },
+    {
+     "feature": "returning_count",
+     "separation": 0.893,
+     "auc": 0.946
+    }
+   ]
+  },
+  "finalPath": {
+   "positives": 14,
+   "decisions": 2186930,
+   "top": []
+  },
+  "forcedKeeper_withinKeeperNeedDecisions": {
+   "definition": "learner decisions on keeper lots while needing a keeper: forced keeper bid vs not",
+   "positives": 3410,
+   "decisions": 69806,
+   "top": [
+    {
+     "feature": "self_purse",
+     "separation": 0.855,
+     "auc": 0.072
+    },
+    {
+     "feature": "self_max_safe_purse",
+     "separation": 0.855,
+     "auc": 0.072
+    },
+    {
+     "feature": "lot_rating",
+     "separation": 0.845,
+     "auc": 0.077
+    },
+    {
+     "feature": "lot_fair_value",
+     "separation": 0.843,
+     "auc": 0.078
+    },
+    {
+     "feature": "self_xi_gain",
+     "separation": 0.817,
+     "auc": 0.092
+    },
+    {
+     "feature": "mkt_scarcity_keeper",
+     "separation": 0.81,
+     "auc": 0.095
+    },
+    {
+     "feature": "mkt_better_left",
+     "separation": 0.767,
+     "auc": 0.884
+    },
+    {
+     "feature": "lot_base_price",
+     "separation": 0.739,
+     "auc": 0.13
+    }
+   ]
+  }
+ },
+ "keeperByMechanism": {
+  "M1": {
+   "cases": 14,
+   "keeperDecisionsWhileNeeding": 387,
+   "passes": 299,
+   "passesOnAffordableKeeperThatFillsNeed": 299,
+   "ofWhichWentUnsold": 203,
+   "forcedBidsLost": 35,
+   "shieldKeeperStateSafeShare": 0.801,
+   "plannerStatusNEEDShare": 0.597,
+   "median": {
+    "scarcity": 3.0,
+    "ownPurse": 0.002,
+    "slotsLeft": 0.16,
+    "overseasSlotsLeft": 0.0,
+    "rivFillsShare": 0.111,
+    "rivNeedKeeper": 1.0,
+    "rivNoNeedCanBuy": 5.0,
+    "rivKeepersMax": 3.0
+   },
+   "atLostForcedBids": {
+    "meanRivalsNeedingKeeper": 0.34,
+    "meanRivalsNotNeedingButAbleToBuy": 5.0
+   }
+  },
+  "M2": {
+   "cases": 6,
+   "keeperDecisionsWhileNeeding": 80,
+   "passes": 2,
+   "passesOnAffordableKeeperThatFillsNeed": 2,
+   "ofWhichWentUnsold": 0,
+   "forcedBidsLost": 40,
+   "shieldKeeperStateSafeShare": 0.537,
+   "plannerStatusNEEDShare": 0.825,
+   "median": {
+    "scarcity": 2.0,
+    "ownPurse": 0.001,
+    "slotsLeft": 0.24,
+    "overseasSlotsLeft": 0.0,
+    "rivFillsShare": 0.111,
+    "rivNeedKeeper": 1.0,
+    "rivNoNeedCanBuy": 5.0,
+    "rivKeepersMax": 3.0
+   },
+   "atLostForcedBids": {
+    "meanRivalsNeedingKeeper": 1.0,
+    "meanRivalsNotNeedingButAbleToBuy": 5.65
+   }
+  }
+ },
+ "keeperHiddenVsObservedCells": {
+  "definition": "keeper-lot decisions of seats still needing a keeper (learner + RL-opponent rows). Cells = progress bin × keepers still to come (pairs) × rival fills share (ninths) × own planner keeper status × keeper scarcity (halves) × mean rival purse (tenths). Share of each hidden variable's variance that lies between cells (1 = fully determined by the cell, 0 = invisible within a cell). Cells with < 20 rows dropped.",
+  "rows": 291907,
+  "rowsTotal": 298803,
+  "cells": 858,
+  "betweenCellShare": {
+   "rivals NEEDING a keeper (control: in the observation)": 0.999,
+   "max keepers held by one rival": 0.913,
+   "rivals holding ≥ 2 keepers": 0.942,
+   "rivals holding ≥ 3 keepers": 0.839,
+   "rivals NOT needing a keeper but able to buy one": 0.9,
+   "keepers bought by rivals in the last 20 lots": 0.881
+  }
+ },
+ "earlyStarPriceByCondition": {
+  "definition": "price / fair value of star lots sold in the first 30% of the main round (learner-observed lots)",
+  "byCondition": {
+   "A": {
+    "meanPriceToFair": 1.153,
+    "starLotsObserved": 12182
+   },
+   "C1": {
+    "meanPriceToFair": 1.264,
+    "starLotsObserved": 151653
+   },
+   "C4": {
+    "meanPriceToFair": 1.465,
+    "starLotsObserved": 150628
+   },
+   "S4": {
+    "meanPriceToFair": 1.451,
+    "starLotsObserved": 13021
+   }
+  }
+ },
+ "note": "descriptive only; no model trained or fitted"
+}

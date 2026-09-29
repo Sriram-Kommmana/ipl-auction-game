@@ -1,0 +1,25 @@
+rows 2659482 episodes 15600
+A early_star {'feature': 'mkt_recent_price_ratio', 'withinProgressSpearman': 0.257, 'quality': 'weak'}
+A aggressiveness {'feature': 'mkt_recent_price_ratio', 'withinProgressSpearman': 0.355, 'quality': 'moderate'}
+A multi_aggressive {'feature': 'riv_recent_spend', 'withinProgressSpearman': 0.236, 'quality': 'weak'}
+A rival_purse {'feature': 'riv_purse_mean', 'withinProgressSpearman': 1.0, 'quality': 'strong'}
+A rival_role_demand {'feature': 'riv_fills_share', 'withinProgressSpearman': 0.783, 'quality': 'strong'}
+A rival_keeper_demand {'feature': 'mkt_scarcity_keeper', 'withinProgressSpearman': -0.692, 'quality': 'strong'}
+A keeper_stockpiling {'feature': 'mkt_same_role_left', 'withinProgressSpearman': -0.76, 'quality': 'strong'}
+A overseas None
+A squad_slots None
+A price_inflation {'feature': 'mkt_recent_price_ratio', 'withinProgressSpearman': 0.355, 'quality': 'moderate'}
+A requirement_timing None
+A purse_depletion {'feature': 'self_purse', 'withinProgressSpearman': 1.0, 'quality': 'strong'}
+A reauction_pressure None
+A final_path {'feature': 'self_final_opportunity', 'withinProgressSpearman': 0.099, 'quality': 'none'}
+F done
+divergence {"episodes": 7200, "firstDifferentLot": {"median": 1.0, "p10": 1.0, "p90": 2.0}, "firstDifferentProgress": 0.0031, "starDecisionsWithIdenticalObs": 5039, "starDecisionsTotal": 155361, "starIdentical_materialPriceDiff": 19, "starIdentical_wonInA_lostInX": 11, "starIdentical_meanNeedA": 2.071, "starIdentical_meanNeedX": 2.04, "decisionsIdenticalObsShare": 0.0113}
+signals done
+keeper done {"medianPercentileObserved": {"self_need_keeper": 0.5, "self_status_keeper": 0.476, "mkt_supply_Wi": 0.27, "mkt_supply_Wo": 0.41, "mkt_scarcity_keeper": 0.38, "riv_fills_share": 0.455, "riv_gain_mean": 0.503, "riv_capacity_1": 0.514, "riv_able_share": 0.562, "self_purse": 0.296, "self_max_safe_fv": 0.334, "self_reserve_if_passed": 0.289, "self_slots_left": 0.238, "self_overseas_slots_left": 0.31, "mkt_recent_price_ratio": 0.357}, "medianPercentileHidden": {"rivKeepersMax": 0.603, "rivKeep2": 0.698, "rivKeep3": 0.508, "rivNoNeedCanBuy": 0.562, "rivNeedKeeper": 0.402}, "shareDecisionsHiddenAbove90thPct": {"rivKeepersMax": 0.128, "rivKeep2": 0.221, "rivKeep3": 0.152, "rivNoNeedCanBuy": 0.066, "rivNeedKeeper": 0.056}, "shareDecisionsObservedOutside10_90": {"self_need_keeper": 0.0, "self_status_keeper": 0.171, "mkt_supply_Wi": 0.319, "mkt_supply_Wo": 0.18, "mkt_scarcity_keeper": 0.206, "riv_fills_share": 0.109, "riv_gain_mean": 0.086, "riv_capacity_1": 0.006, "riv_able_share": 0.081, "self_purse": 0.24, "self_max_safe_fv": 0.225, "self_reserve_if_passed": 0.212, "self_slots_left": 0.146, "self_overseas_slots_left": 0.026, "mkt_recent_price_ratio": 0.195}, "nearestSafeLinfKeeperSubspace": {"median": 0.1667, "shareLe0.05": 0.118, "shareLe0.10": 0.139}, "referencePool": 298336}
+C:\web dev projects\ipl-auction-game\ml\ipl_rl\diagnosis\observability.py:723: RuntimeWarning: Mean of empty slice
+  "futureStarPrice_byRoomType": {g: r(np.nanmean(y[ok & (lab == g)]), 3) for g in ["A:", "C1:ppo", "C1:d3qn", "C1:qrdqn", "C4:ppo", "C4:es", "C4:a2c", "C4:d3qn", "C4:qrdqn", "S4:"]},
+purse-star done
+multi done
+aliasing done {"price_pressure": [71647766, 0.0013], "weak_vs_aggressive": [4033693, 0.0106], "one_vs_multiple": [9742255, 0.0103], "keeper_competition": [1584467, 0.0], "safe_vs_dangerous_keeper": [34994, 0.0079], "rival_purse": [69820347, 0.0], "rl_rivals_bidding": [147869096, 0.0115]}
+ANALYSISDONE

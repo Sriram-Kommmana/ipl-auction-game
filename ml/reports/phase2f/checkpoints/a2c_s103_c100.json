@@ -1,0 +1,246 @@
+{
+ "meta": {
+  "phase": "2F",
+  "status": "PILOT \u2014 evaluation of experimental stage_b_pilot exports; no production change, nothing committed",
+  "contract": {
+   "env": "IplAuctionEnv-v2",
+   "obsHash": "629b25783f833af7",
+   "actHash": "5f72f510c48b1f46",
+   "gamma": 1,
+   "shield": "act-v3 (unchanged)",
+   "reward": "\u0394BestXI/11/10, \u22122 incomplete XI (unchanged)"
+  },
+  "design": {
+   "snapshotShare": 0.5,
+   "pool": "15 frozen Stage-A exports (5 algorithms \u00d7 3 seeds, incl. the learner's own algorithm)",
+   "ruleBots": "4 frozen rule seats always + RL seats on rule fallback (\u2265 4/9)",
+   "init": "warm start from each seed's frozen Stage-A final checkpoint; fresh optimizer; D3QN/QR-DQN \u03b5 constant at the Stage-A final value, empty replay",
+   "seeds": "run seeds 101/102/103 \u2190 Stage-A seeds 1/2/3 (train split only)",
+   "budget": "497,664 learner decisions per seed (ES: first generation boundary at or after it)",
+   "checkpoints": "98,304 / 245,760 / 497,664 decisions",
+   "evaluation": "c100/c250: validation entries 0\u201399; c500: all 500 (Phase 2E.0 protocol)"
+  }
+ },
+ "algorithm": "a2c",
+ "seed": 103,
+ "stageASeed": 3,
+ "checkpointLevel": "c100",
+ "trainingDecisions": 98304,
+ "trainingEpisodes": null,
+ "policy": "runs/stage_b/a2c/s103/checkpoints/update_0016/policy.json",
+ "policySha256": "6d40addf735f43aa23d7f9fce28f576d9982327a546bdffbad4ebbc5e76af8ba",
+ "opponentDistribution": {
+  "meanSnapshotsPerRoom": 2.0037,
+  "ruleShareMin": 0.4444,
+  "rlOpponentSeatShare": 0.2226,
+  "ownAlgorithmSeatShare": 0.2046
+ },
+ "stageAControl": {
+  "trainerValidation500": {
+   "decisions": 98304,
+   "xi": 90.262,
+   "legalXI": 1,
+   "parity": {
+    "states": 256,
+    "maxAbsScoreDiff": 1.2338306740744542e-06,
+    "argmaxAgreement": 1.0
+   }
+  },
+  "harnessEntries": {
+   "n": 100,
+   "xi": 90.2727,
+   "legalXI": 1.0,
+   "purseLeftShare": 0.0003,
+   "squadSize": 15.67,
+   "overseas": 4.84,
+   "stars": 8.91,
+   "priceToFair": 1.1683,
+   "bidRate": 0.7888,
+   "shieldRate": 0.0024,
+   "keeperClosedProgress": 0.1717,
+   "keeperClosedForced": 0.09,
+   "forcedTotal": 18,
+   "finalPathTotal": 0,
+   "forcedKeeperBidsTotal": 18,
+   "learnerFindingTotal": 0,
+   "learnerFindingM2Total": 0,
+   "opponentFindingTotal": 0,
+   "invariantViolationsTotal": 0
+  }
+ },
+ "C1": {
+  "n": 1200,
+  "xi": 87.5765,
+  "transfer": -2.6962,
+  "legalXI": 1.0,
+  "purseLeftShare": 0.0009,
+  "squadSize": 18.9283,
+  "overseas": 5.995,
+  "stars": 6.5258,
+  "priceToFair": 1.2476,
+  "bidRate": 0.793,
+  "shieldRate": 0.0081,
+  "keeperClosedProgress": 0.5238,
+  "keeperClosedForced": 0.2942,
+  "forcedTotal": 872,
+  "finalPathTotal": 0,
+  "forcedKeeperBidsTotal": 869,
+  "learnerFindingTotal": 0,
+  "learnerFindingM2Total": 0,
+  "opponentFindingTotal": 0,
+  "invariantViolationsTotal": 0
+ },
+ "C4": {
+  "n": 1200,
+  "xi": 86.5806,
+  "transfer": -3.6921,
+  "legalXI": 1.0,
+  "purseLeftShare": 0.0296,
+  "squadSize": 21.0475,
+  "overseas": 6.6775,
+  "stars": 5.5158,
+  "priceToFair": 1.2734,
+  "bidRate": 0.8462,
+  "shieldRate": 0.0064,
+  "keeperClosedProgress": 0.604,
+  "keeperClosedForced": 0.1875,
+  "forcedTotal": 595,
+  "finalPathTotal": 0,
+  "forcedKeeperBidsTotal": 590,
+  "learnerFindingTotal": 0,
+  "learnerFindingM2Total": 0,
+  "opponentFindingTotal": 0,
+  "invariantViolationsTotal": 0
+ },
+ "S4": {
+  "n": 100,
+  "xi": 84.8527,
+  "transfer": -5.42,
+  "legalXI": 1.0,
+  "purseLeftShare": 0.0284,
+  "squadSize": 24.71,
+  "overseas": 7.89,
+  "stars": 2.98,
+  "priceToFair": 1.347,
+  "bidRate": 0.9286,
+  "shieldRate": 0.0039,
+  "keeperClosedProgress": 0.7733,
+  "keeperClosedForced": 0.14,
+  "forcedTotal": 38,
+  "finalPathTotal": 0,
+  "forcedKeeperBidsTotal": 38,
+  "learnerFindingTotal": 0,
+  "learnerFindingM2Total": 0,
+  "opponentFindingTotal": 0,
+  "invariantViolationsTotal": 0
+ },
+ "transferDeltas": {
+  "C1": -2.6962,
+  "C4": -3.6921,
+  "S4": -5.42
+ },
+ "safety": {
+  "illegalActions": 0,
+  "hardStops": 0,
+  "fallbackEvents": 0,
+  "invariantViolations": 0,
+  "learnerIncompleteXI": {
+   "A": 0,
+   "C1": 0,
+   "C4": 0,
+   "S4": 0
+  },
+  "learnerIncompleteXI_M2type": {
+   "A": 0,
+   "C1": 0,
+   "C4": 0,
+   "S4": 0
+  },
+  "opponentIncompleteXI": {
+   "A": 0,
+   "C1": 0,
+   "C4": 0,
+   "S4": 0
+  }
+ },
+ "keeper": {
+  "A": {
+   "closedProgress": 0.1717,
+   "closedForcedShare": 0.09,
+   "forcedKeeperBids": 18
+  },
+  "C1": {
+   "closedProgress": 0.5238,
+   "closedForcedShare": 0.2942,
+   "forcedKeeperBids": 869
+  },
+  "C4": {
+   "closedProgress": 0.604,
+   "closedForcedShare": 0.1875,
+   "forcedKeeperBids": 590
+  },
+  "S4": {
+   "closedProgress": 0.7733,
+   "closedForcedShare": 0.14,
+   "forcedKeeperBids": 38
+  }
+ },
+ "stars": {
+  "A": 8.91,
+  "C1": 6.5258,
+  "C4": 5.5158,
+  "S4": 2.98
+ },
+ "shield": {
+  "A": {
+   "rate": 0.0024,
+   "forced": 18,
+   "finalPath": 0
+  },
+  "C1": {
+   "rate": 0.0081,
+   "forced": 872,
+   "finalPath": 0
+  },
+  "C4": {
+   "rate": 0.0064,
+   "forced": 595,
+   "finalPath": 0
+  },
+  "S4": {
+   "rate": 0.0039,
+   "forced": 38,
+   "finalPath": 0
+  }
+ },
+ "purse": {
+  "A": 0.0003,
+  "C1": 0.0009,
+  "C4": 0.0296,
+  "S4": 0.0284
+ },
+ "squad": {
+  "A": {
+   "size": 15.67,
+   "overseas": 4.84
+  },
+  "C1": {
+   "size": 18.9283,
+   "overseas": 5.995
+  },
+  "C4": {
+   "size": 21.0475,
+   "overseas": 6.6775
+  },
+  "S4": {
+   "size": 24.71,
+   "overseas": 7.89
+  }
+ },
+ "reproducibility": {
+  "configHash": "17d5b5429d38e9f4",
+  "warmStartSha256": "b40ff73d9bb48e5c3fc774166a3028e20b337841cb76eb45f51e64fe2399628b",
+  "evaluationEntries": 100,
+  "harness": "crossplay/harness.playEpisode (Phase 2E.0, fixed-clock opponents, tremble 0)"
+ }
+}

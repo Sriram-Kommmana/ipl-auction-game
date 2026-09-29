@@ -1,0 +1,43 @@
+=== ppo s102 2026-09-29T07:15:57+05:30
+train exit 0 (ppo s102)
+verify exit 0 (ppo s102) CHECKPOINTS [(98304, 92.637), (245760, 92.548), (497664, 92.504)]
+=== ppo s103 2026-09-29T07:26:00+05:30
+train exit 0 (ppo s103)
+verify exit 0 (ppo s103) CHECKPOINTS [(98304, 92.516), (245760, 92.494), (497664, 92.223)]
+=== a2c s101 2026-09-29T07:36:14+05:30
+train exit 0 (a2c s101)
+verify exit 0 (a2c s101) CHECKPOINTS [(98304, 90.417), (245760, 90.128), (497664, 90.082)]
+=== a2c s102 2026-09-29T07:48:44+05:30
+train exit 0 (a2c s102)
+verify exit 0 (a2c s102) CHECKPOINTS [(98304, 90.047), (245760, 90.284), (497664, 90.286)]
+=== a2c s103 2026-09-29T08:01:11+05:30
+train exit 0 (a2c s103)
+verify exit 0 (a2c s103) CHECKPOINTS [(98304, 90.262), (245760, 89.615), (497664, 89.69)]
+=== d3qn s101 2026-09-29T08:15:04+05:30
+train exit 0 (d3qn s101)
+verify exit 0 (d3qn s101) CHECKPOINTS [(98304, 89.867), (245760, 88.211), (497664, 86.529)]
+=== d3qn s102 2026-09-29T08:34:55+05:30
+train exit 0 (d3qn s102)
+verify exit 0 (d3qn s102) CHECKPOINTS [(98304, 91.27), (245760, 88.97), (497664, 88.903)]
+=== d3qn s103 2026-09-29T08:54:35+05:30
+train exit 0 (d3qn s103)
+verify exit 0 (d3qn s103) CHECKPOINTS [(98304, 89.324), (245760, 89.311), (497664, 90.981)]
+=== qrdqn s101 2026-09-29T09:14:39+05:30
+train exit 0 (qrdqn s101)
+verify exit 0 (qrdqn s101) CHECKPOINTS [(98304, 89.669), (245760, 91.237), (497664, 91.568)]
+=== qrdqn s102 2026-09-29T09:36:44+05:30
+train exit 0 (qrdqn s102)
+verify exit 0 (qrdqn s102) CHECKPOINTS [(98304, 88.813), (245760, 91.054), (497664, 91.401)]
+=== qrdqn s103 2026-09-29T09:58:54+05:30
+train exit 0 (qrdqn s103)
+verify exit 0 (qrdqn s103) CHECKPOINTS [(98304, 91.34), (245760, 91.423), (497664, 91.137)]
+=== es s101 2026-09-29T10:22:09+05:30
+train exit 0 (es s101)
+verify exit 0 (es s101) CHECKPOINTS [(102723, 90.693), (246467, 90.807), (502843, 90.778)]
+=== es s102 2026-09-29T10:33:47+05:30
+train exit 0 (es s102)
+verify exit 0 (es s102) CHECKPOINTS [(99863, 90.934), (249229, 90.765), (502565, 90.756)]
+=== es s103 2026-09-29T10:44:48+05:30
+train exit 0 (es s103)
+verify exit 0 (es s103) CHECKPOINTS [(101112, 90.921), (247116, 90.763), (499984, 90.745)]
+RUNRESTDONE

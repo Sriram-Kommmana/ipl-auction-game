@@ -1,0 +1,4163 @@
+{
+ "pairs": {
+  "ppo>a2c": {
+   "C1": -1.6484,
+   "C4": -2.2663,
+   "escalation": -0.6178,
+   "escalationCI95": [
+    -0.6556616161616161,
+    -0.5806454545454545
+   ],
+   "ratioC4overC1": 1.3748,
+   "linearIf4xC1": -6.5938,
+   "learner_priceToFair": {
+    "C1": 0.8603,
+    "C4": 0.8858
+   },
+   "learner_capToFair": {
+    "C1": 0.7812,
+    "C4": 0.8027
+   },
+   "learner_bidRate": {
+    "C1": 0.4428,
+    "C4": 0.5006
+   },
+   "learner_stars": {
+    "C1": 8.778,
+    "C4": 8.2093
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.001,
+    "C4": 0.0028
+   },
+   "learner_squadSize": {
+    "C1": 16.176,
+    "C4": 17.1478
+   },
+   "learner_overseas": {
+    "C1": 5.7862,
+    "C4": 5.8324
+   },
+   "learner_keeperProg": {
+    "C1": 0.1237,
+    "C4": 0.195
+   },
+   "learner_keeperForced": {
+    "C1": 0.0,
+    "C4": 0.0
+   },
+   "learner_forced": {
+    "C1": 0.0007,
+    "C4": 0.0044
+   },
+   "learner_marginalBuys": {
+    "C1": 0.6378,
+    "C4": 1.1127
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 2377.0267,
+    "C4": 2474.86
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.1367,
+    "C4": 1.2698
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8314,
+    "C4": 0.9012
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0004,
+    "C4": 0.0032
+   },
+   "opponentPerCopy_stars": {
+    "C1": 7.9584,
+    "C4": 4.2289
+   },
+   "opponentPerCopy_xi": {
+    "C1": 88.5989,
+    "C4": 85.6766
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 17.5282,
+    "C4": 20.5474
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.0129,
+    "C4": 7.5397
+   }
+  },
+  "ppo>d3qn": {
+   "C1": -2.1425,
+   "C4": -2.4696,
+   "escalation": -0.3271,
+   "escalationCI95": [
+    -0.3619398989898989,
+    -0.29379141414141396
+   ],
+   "ratioC4overC1": 1.1527,
+   "linearIf4xC1": -8.57,
+   "learner_priceToFair": {
+    "C1": 0.8572,
+    "C4": 0.8156
+   },
+   "learner_capToFair": {
+    "C1": 0.7975,
+    "C4": 0.8295
+   },
+   "learner_bidRate": {
+    "C1": 0.4161,
+    "C4": 0.4216
+   },
+   "learner_stars": {
+    "C1": 8.5222,
+    "C4": 8.4651
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0023,
+    "C4": 0.0237
+   },
+   "learner_squadSize": {
+    "C1": 17.0038,
+    "C4": 19.3624
+   },
+   "learner_overseas": {
+    "C1": 6.012,
+    "C4": 6.3778
+   },
+   "learner_keeperProg": {
+    "C1": 0.3305,
+    "C4": 0.5707
+   },
+   "learner_keeperForced": {
+    "C1": 0.0009,
+    "C4": 0.0011
+   },
+   "learner_forced": {
+    "C1": 0.0029,
+    "C4": 0.006
+   },
+   "learner_marginalBuys": {
+    "C1": 0.8573,
+    "C4": 1.55
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1617.8378,
+    "C4": 2925.9044
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.1221,
+    "C4": 1.2317
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.803,
+    "C4": 0.8124
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0013,
+    "C4": 0.0056
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.5849,
+    "C4": 4.4383
+   },
+   "opponentPerCopy_xi": {
+    "C1": 89.8758,
+    "C4": 85.2805
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.2529,
+    "C4": 18.2342
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.0222,
+    "C4": 6.6188
+   }
+  },
+  "ppo>qrdqn": {
+   "C1": -2.254,
+   "C4": -2.3838,
+   "escalation": -0.1298,
+   "escalationCI95": [
+    -0.16674797979798,
+    -0.09298535353535362
+   ],
+   "ratioC4overC1": 1.0576,
+   "linearIf4xC1": -9.0159,
+   "learner_priceToFair": {
+    "C1": 0.8564,
+    "C4": 0.8077
+   },
+   "learner_capToFair": {
+    "C1": 0.8045,
+    "C4": 0.8261
+   },
+   "learner_bidRate": {
+    "C1": 0.4101,
+    "C4": 0.4169
+   },
+   "learner_stars": {
+    "C1": 8.4556,
+    "C4": 9.02
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0026,
+    "C4": 0.0252
+   },
+   "learner_squadSize": {
+    "C1": 17.324,
+    "C4": 19.6591
+   },
+   "learner_overseas": {
+    "C1": 6.1169,
+    "C4": 6.6633
+   },
+   "learner_keeperProg": {
+    "C1": 0.4017,
+    "C4": 0.6969
+   },
+   "learner_keeperForced": {
+    "C1": 0.0004,
+    "C4": 0.0027
+   },
+   "learner_forced": {
+    "C1": 0.0022,
+    "C4": 0.0078
+   },
+   "learner_marginalBuys": {
+    "C1": 0.9284,
+    "C4": 1.5958
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1634.4111,
+    "C4": 2579.5578
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.0046,
+    "C4": 1.1542
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.6865,
+    "C4": 0.8228
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0017,
+    "C4": 0.0039
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.7411,
+    "C4": 4.4601
+   },
+   "opponentPerCopy_xi": {
+    "C1": 90.3492,
+    "C4": 86.0163
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.1407,
+    "C4": 18.7192
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.636,
+    "C4": 7.0004
+   }
+  },
+  "ppo>es": {
+   "C1": -1.7386,
+   "C4": -2.1613,
+   "escalation": -0.4226,
+   "escalationCI95": [
+    -0.4531717171717172,
+    -0.3896297979797981
+   ],
+   "ratioC4overC1": 1.2431,
+   "linearIf4xC1": -6.9546,
+   "learner_priceToFair": {
+    "C1": 0.8624,
+    "C4": 0.8881
+   },
+   "learner_capToFair": {
+    "C1": 0.7794,
+    "C4": 0.7958
+   },
+   "learner_bidRate": {
+    "C1": 0.4488,
+    "C4": 0.5101
+   },
+   "learner_stars": {
+    "C1": 8.6133,
+    "C4": 8.0687
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.001,
+    "C4": 0.0019
+   },
+   "learner_squadSize": {
+    "C1": 16.2431,
+    "C4": 17.0404
+   },
+   "learner_overseas": {
+    "C1": 5.7276,
+    "C4": 6.0853
+   },
+   "learner_keeperProg": {
+    "C1": 0.0894,
+    "C4": 0.0745
+   },
+   "learner_keeperForced": {
+    "C1": 0.0,
+    "C4": 0.0
+   },
+   "learner_forced": {
+    "C1": 0.0018,
+    "C4": 0.0011
+   },
+   "learner_marginalBuys": {
+    "C1": 0.646,
+    "C4": 1.1047
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 2529.6422,
+    "C4": 2635.5689
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.0814,
+    "C4": 1.1792
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8575,
+    "C4": 0.9264
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0014,
+    "C4": 0.0255
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.2976,
+    "C4": 4.0679
+   },
+   "opponentPerCopy_xi": {
+    "C1": 88.6735,
+    "C4": 86.0679
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 18.7831,
+    "C4": 22.9735
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.8458,
+    "C4": 7.8939
+   }
+  },
+  "a2c>ppo": {
+   "C1": -1.8572,
+   "C4": -1.9851,
+   "escalation": -0.1279,
+   "escalationCI95": [
+    -0.17150707070707058,
+    -0.08282171717171716
+   ],
+   "ratioC4overC1": 1.0689,
+   "linearIf4xC1": -7.4288,
+   "learner_priceToFair": {
+    "C1": 1.1374,
+    "C4": 1.1015
+   },
+   "learner_capToFair": {
+    "C1": 1.0774,
+    "C4": 1.1102
+   },
+   "learner_bidRate": {
+    "C1": 0.8335,
+    "C4": 0.8353
+   },
+   "learner_stars": {
+    "C1": 7.9218,
+    "C4": 8.048
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0004,
+    "C4": 0.0017
+   },
+   "learner_squadSize": {
+    "C1": 17.5124,
+    "C4": 19.0031
+   },
+   "learner_overseas": {
+    "C1": 6.0071,
+    "C4": 6.238
+   },
+   "learner_keeperProg": {
+    "C1": 0.5621,
+    "C4": 0.6268
+   },
+   "learner_keeperForced": {
+    "C1": 0.3431,
+    "C4": 0.3567
+   },
+   "learner_forced": {
+    "C1": 0.766,
+    "C4": 0.7784
+   },
+   "learner_marginalBuys": {
+    "C1": 0.918,
+    "C4": 1.1396
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 532.7422,
+    "C4": 429.8467
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 0.8566,
+    "C4": 0.8673
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.4417,
+    "C4": 0.3803
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.001,
+    "C4": 0.0967
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.7729,
+    "C4": 5.8073
+   },
+   "opponentPerCopy_xi": {
+    "C1": 90.9457,
+    "C4": 88.2411
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.2869,
+    "C4": 19.8809
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.772,
+    "C4": 6.6608
+   }
+  },
+  "a2c>d3qn": {
+   "C1": -3.4721,
+   "C4": -5.162,
+   "escalation": -1.6899,
+   "escalationCI95": [
+    -1.751798484848485,
+    -1.6300979797979798
+   ],
+   "ratioC4overC1": 1.4867,
+   "linearIf4xC1": -13.8886,
+   "learner_priceToFair": {
+    "C1": 1.2063,
+    "C4": 1.2279
+   },
+   "learner_capToFair": {
+    "C1": 1.1543,
+    "C4": 1.2548
+   },
+   "learner_bidRate": {
+    "C1": 0.8762,
+    "C4": 0.9443
+   },
+   "learner_stars": {
+    "C1": 5.5987,
+    "C4": 3.2378
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0015,
+    "C4": 0.0655
+   },
+   "learner_squadSize": {
+    "C1": 20.0687,
+    "C4": 23.9733
+   },
+   "learner_overseas": {
+    "C1": 6.9051,
+    "C4": 7.9193
+   },
+   "learner_keeperProg": {
+    "C1": 0.5721,
+    "C4": 0.6984
+   },
+   "learner_keeperForced": {
+    "C1": 0.3184,
+    "C4": 0.1271
+   },
+   "learner_forced": {
+    "C1": 0.7076,
+    "C4": 0.3502
+   },
+   "learner_marginalBuys": {
+    "C1": 1.5016,
+    "C4": 3.1927
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 935.0889,
+    "C4": 1751.3489
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.2186,
+    "C4": 1.2933
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8144,
+    "C4": 0.8011
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0005,
+    "C4": 0.0021
+   },
+   "opponentPerCopy_stars": {
+    "C1": 7.6142,
+    "C4": 4.3178
+   },
+   "opponentPerCopy_xi": {
+    "C1": 88.5351,
+    "C4": 84.7965
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 14.3302,
+    "C4": 16.5112
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 4.6011,
+    "C4": 6.2258
+   }
+  },
+  "a2c>qrdqn": {
+   "C1": -3.4231,
+   "C4": -4.7945,
+   "escalation": -1.3714,
+   "escalationCI95": [
+    -1.430303535353535,
+    -1.3146803030303031
+   ],
+   "ratioC4overC1": 1.4006,
+   "linearIf4xC1": -13.6922,
+   "learner_priceToFair": {
+    "C1": 1.2047,
+    "C4": 1.2106
+   },
+   "learner_capToFair": {
+    "C1": 1.1465,
+    "C4": 1.2478
+   },
+   "learner_bidRate": {
+    "C1": 0.8676,
+    "C4": 0.933
+   },
+   "learner_stars": {
+    "C1": 5.8496,
+    "C4": 4.0182
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0012,
+    "C4": 0.0501
+   },
+   "learner_squadSize": {
+    "C1": 20.0351,
+    "C4": 23.9387
+   },
+   "learner_overseas": {
+    "C1": 6.8384,
+    "C4": 7.9096
+   },
+   "learner_keeperProg": {
+    "C1": 0.6167,
+    "C4": 0.7043
+   },
+   "learner_keeperForced": {
+    "C1": 0.3589,
+    "C4": 0.1431
+   },
+   "learner_forced": {
+    "C1": 0.816,
+    "C4": 0.3851
+   },
+   "learner_marginalBuys": {
+    "C1": 1.5082,
+    "C4": 2.9996
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 669.9689,
+    "C4": 1434.2089
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.0468,
+    "C4": 1.2444
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.7435,
+    "C4": 0.8647
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0008,
+    "C4": 0.0012
+   },
+   "opponentPerCopy_stars": {
+    "C1": 7.6758,
+    "C4": 4.0759
+   },
+   "opponentPerCopy_xi": {
+    "C1": 89.0828,
+    "C4": 85.4637
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 15.454,
+    "C4": 17.0427
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.7447,
+    "C4": 6.657
+   }
+  },
+  "a2c>es": {
+   "C1": -2.4008,
+   "C4": -2.9288,
+   "escalation": -0.5279,
+   "escalationCI95": [
+    -0.569201515151515,
+    -0.4863146464646467
+   ],
+   "ratioC4overC1": 1.2199,
+   "linearIf4xC1": -9.6034,
+   "learner_priceToFair": {
+    "C1": 1.2168,
+    "C4": 1.2268
+   },
+   "learner_capToFair": {
+    "C1": 1.0743,
+    "C4": 1.0656
+   },
+   "learner_bidRate": {
+    "C1": 0.8365,
+    "C4": 0.8331
+   },
+   "learner_stars": {
+    "C1": 6.9373,
+    "C4": 6.2573
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0004,
+    "C4": 0.0017
+   },
+   "learner_squadSize": {
+    "C1": 16.3609,
+    "C4": 17.8807
+   },
+   "learner_overseas": {
+    "C1": 5.3689,
+    "C4": 5.7871
+   },
+   "learner_keeperProg": {
+    "C1": 0.3888,
+    "C4": 0.3767
+   },
+   "learner_keeperForced": {
+    "C1": 0.2296,
+    "C4": 0.1787
+   },
+   "learner_forced": {
+    "C1": 0.5393,
+    "C4": 0.5216
+   },
+   "learner_marginalBuys": {
+    "C1": 0.8418,
+    "C4": 1.2704
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 875.8911,
+    "C4": 1159.2822
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.1034,
+    "C4": 1.1807
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8778,
+    "C4": 0.9298
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0025,
+    "C4": 0.0178
+   },
+   "opponentPerCopy_stars": {
+    "C1": 6.6398,
+    "C4": 3.9189
+   },
+   "opponentPerCopy_xi": {
+    "C1": 87.95,
+    "C4": 86.1468
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 18.8402,
+    "C4": 22.6717
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 7.0964,
+    "C4": 7.9166
+   }
+  },
+  "d3qn>ppo": {
+   "C1": -1.6414,
+   "C4": -1.9077,
+   "escalation": -0.2663,
+   "escalationCI95": [
+    -0.3013161616161616,
+    -0.2317313131313132
+   ],
+   "ratioC4overC1": 1.1623,
+   "linearIf4xC1": -6.5655,
+   "learner_priceToFair": {
+    "C1": 1.1263,
+    "C4": 1.0841
+   },
+   "learner_capToFair": {
+    "C1": 0.9948,
+    "C4": 1.0727
+   },
+   "learner_bidRate": {
+    "C1": 0.8049,
+    "C4": 0.8078
+   },
+   "learner_stars": {
+    "C1": 8.5789,
+    "C4": 8.5338
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0013,
+    "C4": 0.005
+   },
+   "learner_squadSize": {
+    "C1": 16.2107,
+    "C4": 17.9391
+   },
+   "learner_overseas": {
+    "C1": 5.0024,
+    "C4": 5.364
+   },
+   "learner_keeperProg": {
+    "C1": 0.1999,
+    "C4": 0.3114
+   },
+   "learner_keeperForced": {
+    "C1": 0.0518,
+    "C4": 0.0771
+   },
+   "learner_forced": {
+    "C1": 0.1053,
+    "C4": 0.1613
+   },
+   "learner_marginalBuys": {
+    "C1": 0.638,
+    "C4": 0.7527
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1354.8578,
+    "C4": 1209.3511
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 0.8549,
+    "C4": 0.88
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.415,
+    "C4": 0.364
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0017,
+    "C4": 0.1215
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.4942,
+    "C4": 5.5196
+   },
+   "opponentPerCopy_xi": {
+    "C1": 90.4536,
+    "C4": 87.8462
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 17.0462,
+    "C4": 20.3192
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.0418,
+    "C4": 6.7899
+   }
+  },
+  "d3qn>a2c": {
+   "C1": -2.9514,
+   "C4": -3.7793,
+   "escalation": -0.8279,
+   "escalationCI95": [
+    -0.8596000000000003,
+    -0.7961000000000001
+   ],
+   "ratioC4overC1": 1.2805,
+   "linearIf4xC1": -11.8054,
+   "learner_priceToFair": {
+    "C1": 1.219,
+    "C4": 1.2531
+   },
+   "learner_capToFair": {
+    "C1": 0.9532,
+    "C4": 0.9108
+   },
+   "learner_bidRate": {
+    "C1": 0.8172,
+    "C4": 0.8365
+   },
+   "learner_stars": {
+    "C1": 7.6113,
+    "C4": 6.8
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0005,
+    "C4": 0.0008
+   },
+   "learner_squadSize": {
+    "C1": 14.3211,
+    "C4": 14.5858
+   },
+   "learner_overseas": {
+    "C1": 4.5907,
+    "C4": 4.9647
+   },
+   "learner_keeperProg": {
+    "C1": 0.1115,
+    "C4": 0.1527
+   },
+   "learner_keeperForced": {
+    "C1": 0.0313,
+    "C4": 0.0482
+   },
+   "learner_forced": {
+    "C1": 0.1147,
+    "C4": 0.1682
+   },
+   "learner_marginalBuys": {
+    "C1": 0.6569,
+    "C4": 0.7762
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 963.0511,
+    "C4": 924.0444
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.2054,
+    "C4": 1.2791
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8763,
+    "C4": 0.9166
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0015,
+    "C4": 0.003
+   },
+   "opponentPerCopy_stars": {
+    "C1": 5.6031,
+    "C4": 3.5907
+   },
+   "opponentPerCopy_xi": {
+    "C1": 86.9528,
+    "C4": 85.2888
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 20.0678,
+    "C4": 21.4024
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.9133,
+    "C4": 7.7964
+   }
+  },
+  "d3qn>qrdqn": {
+   "C1": -3.5616,
+   "C4": -5.0668,
+   "escalation": -1.5053,
+   "escalationCI95": [
+    -1.5555777777777777,
+    -1.4532308080808083
+   ],
+   "ratioC4overC1": 1.4226,
+   "linearIf4xC1": -14.2463,
+   "learner_priceToFair": {
+    "C1": 1.1849,
+    "C4": 1.149
+   },
+   "learner_capToFair": {
+    "C1": 0.9543,
+    "C4": 0.9566
+   },
+   "learner_bidRate": {
+    "C1": 0.8107,
+    "C4": 0.8619
+   },
+   "learner_stars": {
+    "C1": 7.102,
+    "C4": 5.8162
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.001,
+    "C4": 0.0148
+   },
+   "learner_squadSize": {
+    "C1": 16.3978,
+    "C4": 19.5909
+   },
+   "learner_overseas": {
+    "C1": 5.4047,
+    "C4": 6.7604
+   },
+   "learner_keeperProg": {
+    "C1": 0.2785,
+    "C4": 0.4664
+   },
+   "learner_keeperForced": {
+    "C1": 0.0831,
+    "C4": 0.1256
+   },
+   "learner_forced": {
+    "C1": 0.2069,
+    "C4": 0.3613
+   },
+   "learner_marginalBuys": {
+    "C1": 0.8467,
+    "C4": 1.7767
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 938.0956,
+    "C4": 1028.8578
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.0527,
+    "C4": 1.2409
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.7311,
+    "C4": 0.8553
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0013,
+    "C4": 0.0018
+   },
+   "opponentPerCopy_stars": {
+    "C1": 6.8062,
+    "C4": 3.7332
+   },
+   "opponentPerCopy_xi": {
+    "C1": 88.5248,
+    "C4": 85.2797
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.7684,
+    "C4": 18.0468
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.1938,
+    "C4": 6.9153
+   }
+  },
+  "d3qn>es": {
+   "C1": -2.2321,
+   "C4": -2.4015,
+   "escalation": -0.1693,
+   "escalationCI95": [
+    -0.1972944444444444,
+    -0.1427419191919191
+   ],
+   "ratioC4overC1": 1.0759,
+   "linearIf4xC1": -8.9286,
+   "learner_priceToFair": {
+    "C1": 1.1994,
+    "C4": 1.2259
+   },
+   "learner_capToFair": {
+    "C1": 0.9321,
+    "C4": 0.9205
+   },
+   "learner_bidRate": {
+    "C1": 0.8211,
+    "C4": 0.825
+   },
+   "learner_stars": {
+    "C1": 7.9787,
+    "C4": 7.9224
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0005,
+    "C4": 0.0006
+   },
+   "learner_squadSize": {
+    "C1": 14.2331,
+    "C4": 14.22
+   },
+   "learner_overseas": {
+    "C1": 4.1696,
+    "C4": 3.8302
+   },
+   "learner_keeperProg": {
+    "C1": 0.0881,
+    "C4": 0.0722
+   },
+   "learner_keeperForced": {
+    "C1": 0.014,
+    "C4": 0.0113
+   },
+   "learner_forced": {
+    "C1": 0.0376,
+    "C4": 0.0529
+   },
+   "learner_marginalBuys": {
+    "C1": 0.6809,
+    "C4": 0.588
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1214.5956,
+    "C4": 1203.0489
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.0842,
+    "C4": 1.1857
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.9006,
+    "C4": 0.9445
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0068,
+    "C4": 0.0262
+   },
+   "opponentPerCopy_stars": {
+    "C1": 5.9051,
+    "C4": 3.5022
+   },
+   "opponentPerCopy_xi": {
+    "C1": 87.1477,
+    "C4": 85.8465
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 21.7149,
+    "C4": 23.6704
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 7.9062,
+    "C4": 7.9839
+   }
+  },
+  "qrdqn>ppo": {
+   "C1": -1.521,
+   "C4": -1.859,
+   "escalation": -0.338,
+   "escalationCI95": [
+    -0.3702444444444445,
+    -0.3053303030303031
+   ],
+   "ratioC4overC1": 1.2222,
+   "linearIf4xC1": -6.0841,
+   "learner_priceToFair": {
+    "C1": 1.0046,
+    "C4": 0.9983
+   },
+   "learner_capToFair": {
+    "C1": 0.9085,
+    "C4": 1.0107
+   },
+   "learner_bidRate": {
+    "C1": 0.6895,
+    "C4": 0.6524
+   },
+   "learner_stars": {
+    "C1": 8.7442,
+    "C4": 8.5213
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0017,
+    "C4": 0.0061
+   },
+   "learner_squadSize": {
+    "C1": 16.1076,
+    "C4": 17.4311
+   },
+   "learner_overseas": {
+    "C1": 5.6318,
+    "C4": 5.8051
+   },
+   "learner_keeperProg": {
+    "C1": 0.114,
+    "C4": 0.1073
+   },
+   "learner_keeperForced": {
+    "C1": 0.0424,
+    "C4": 0.0464
+   },
+   "learner_forced": {
+    "C1": 0.0847,
+    "C4": 0.0851
+   },
+   "learner_marginalBuys": {
+    "C1": 0.5516,
+    "C4": 0.7978
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1501.1533,
+    "C4": 1942.5511
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 0.8547,
+    "C4": 0.8896
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.4097,
+    "C4": 0.3605
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0028,
+    "C4": 0.1231
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.4527,
+    "C4": 5.4675
+   },
+   "opponentPerCopy_xi": {
+    "C1": 90.3469,
+    "C4": 87.7877
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 17.3302,
+    "C4": 20.4229
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.1149,
+    "C4": 6.8248
+   }
+  },
+  "qrdqn>a2c": {
+   "C1": -2.7689,
+   "C4": -3.6323,
+   "escalation": -0.8634,
+   "escalationCI95": [
+    -0.9001030303030302,
+    -0.8261323232323232
+   ],
+   "ratioC4overC1": 1.3118,
+   "linearIf4xC1": -11.0755,
+   "learner_priceToFair": {
+    "C1": 1.0465,
+    "C4": 1.1072
+   },
+   "learner_capToFair": {
+    "C1": 0.8709,
+    "C4": 0.8478
+   },
+   "learner_bidRate": {
+    "C1": 0.7478,
+    "C4": 0.8226
+   },
+   "learner_stars": {
+    "C1": 7.6656,
+    "C4": 6.5127
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.001,
+    "C4": 0.0011
+   },
+   "learner_squadSize": {
+    "C1": 15.4076,
+    "C4": 15.5249
+   },
+   "learner_overseas": {
+    "C1": 5.7724,
+    "C4": 5.948
+   },
+   "learner_keeperProg": {
+    "C1": 0.0836,
+    "C4": 0.0887
+   },
+   "learner_keeperForced": {
+    "C1": 0.0267,
+    "C4": 0.0278
+   },
+   "learner_forced": {
+    "C1": 0.0887,
+    "C4": 0.108
+   },
+   "learner_marginalBuys": {
+    "C1": 0.7224,
+    "C4": 1.0076
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1242.3844,
+    "C4": 1111.0067
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.2028,
+    "C4": 1.2786
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8674,
+    "C4": 0.915
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0013,
+    "C4": 0.0031
+   },
+   "opponentPerCopy_stars": {
+    "C1": 5.8658,
+    "C4": 3.6572
+   },
+   "opponentPerCopy_xi": {
+    "C1": 87.0134,
+    "C4": 85.2718
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 20.0584,
+    "C4": 21.6125
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 6.8427,
+    "C4": 7.8236
+   }
+  },
+  "qrdqn>d3qn": {
+   "C1": -3.3121,
+   "C4": -4.9586,
+   "escalation": -1.6465,
+   "escalationCI95": [
+    -1.6888545454545456,
+    -1.602463131313131
+   ],
+   "ratioC4overC1": 1.4971,
+   "linearIf4xC1": -13.2484,
+   "learner_priceToFair": {
+    "C1": 1.0533,
+    "C4": 1.1073
+   },
+   "learner_capToFair": {
+    "C1": 0.9129,
+    "C4": 0.9582
+   },
+   "learner_bidRate": {
+    "C1": 0.7322,
+    "C4": 0.8067
+   },
+   "learner_stars": {
+    "C1": 6.8164,
+    "C4": 4.8398
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0012,
+    "C4": 0.0044
+   },
+   "learner_squadSize": {
+    "C1": 16.8082,
+    "C4": 18.9524
+   },
+   "learner_overseas": {
+    "C1": 6.2116,
+    "C4": 6.9418
+   },
+   "learner_keeperProg": {
+    "C1": 0.1841,
+    "C4": 0.3548
+   },
+   "learner_keeperForced": {
+    "C1": 0.0858,
+    "C4": 0.1738
+   },
+   "learner_forced": {
+    "C1": 0.1913,
+    "C4": 0.4153
+   },
+   "learner_marginalBuys": {
+    "C1": 0.7962,
+    "C4": 1.5502
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1474.7978,
+    "C4": 1603.3956
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.1852,
+    "C4": 1.2565
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8067,
+    "C4": 0.8157
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0011,
+    "C4": 0.0054
+   },
+   "opponentPerCopy_stars": {
+    "C1": 7.0889,
+    "C4": 4.1264
+   },
+   "opponentPerCopy_xi": {
+    "C1": 87.9272,
+    "C4": 84.8362
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.3807,
+    "C4": 18.3485
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.3547,
+    "C4": 6.7349
+   }
+  },
+  "qrdqn>es": {
+   "C1": -2.2243,
+   "C4": -2.4704,
+   "escalation": -0.2461,
+   "escalationCI95": [
+    -0.27781818181818185,
+    -0.21432020202020222
+   ],
+   "ratioC4overC1": 1.1106,
+   "linearIf4xC1": -8.8971,
+   "learner_priceToFair": {
+    "C1": 1.0382,
+    "C4": 1.0999
+   },
+   "learner_capToFair": {
+    "C1": 0.8554,
+    "C4": 0.8489
+   },
+   "learner_bidRate": {
+    "C1": 0.7357,
+    "C4": 0.7526
+   },
+   "learner_stars": {
+    "C1": 8.1602,
+    "C4": 7.8558
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0007,
+    "C4": 0.0009
+   },
+   "learner_squadSize": {
+    "C1": 15.2209,
+    "C4": 15.072
+   },
+   "learner_overseas": {
+    "C1": 5.5727,
+    "C4": 5.1611
+   },
+   "learner_keeperProg": {
+    "C1": 0.0772,
+    "C4": 0.0604
+   },
+   "learner_keeperForced": {
+    "C1": 0.024,
+    "C4": 0.0122
+   },
+   "learner_forced": {
+    "C1": 0.0698,
+    "C4": 0.0404
+   },
+   "learner_marginalBuys": {
+    "C1": 0.6804,
+    "C4": 0.6636
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 1293.7067,
+    "C4": 1445.0356
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.1004,
+    "C4": 1.1875
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8945,
+    "C4": 0.9437
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0085,
+    "C4": 0.0279
+   },
+   "opponentPerCopy_stars": {
+    "C1": 5.7729,
+    "C4": 3.5145
+   },
+   "opponentPerCopy_xi": {
+    "C1": 87.0677,
+    "C4": 85.8523
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 21.8411,
+    "C4": 23.7846
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 7.81,
+    "C4": 7.9812
+   }
+  },
+  "es>ppo": {
+   "C1": -2.4384,
+   "C4": -2.579,
+   "escalation": -0.1406,
+   "escalationCI95": [
+    -0.199519191919192,
+    -0.0840939393939395
+   ],
+   "ratioC4overC1": 1.0577,
+   "linearIf4xC1": -9.7538,
+   "learner_priceToFair": {
+    "C1": 1.0795,
+    "C4": 1.0747
+   },
+   "learner_capToFair": {
+    "C1": 1.121,
+    "C4": 1.143
+   },
+   "learner_bidRate": {
+    "C1": 0.8562,
+    "C4": 0.8713
+   },
+   "learner_stars": {
+    "C1": 8.2724,
+    "C4": 8.1551
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0012,
+    "C4": 0.0075
+   },
+   "learner_squadSize": {
+    "C1": 18.862,
+    "C4": 20.2893
+   },
+   "learner_overseas": {
+    "C1": 6.8962,
+    "C4": 6.8867
+   },
+   "learner_keeperProg": {
+    "C1": 0.643,
+    "C4": 0.6844
+   },
+   "learner_keeperForced": {
+    "C1": 0.3018,
+    "C4": 0.2811
+   },
+   "learner_forced": {
+    "C1": 0.6724,
+    "C4": 0.5896
+   },
+   "learner_marginalBuys": {
+    "C1": 1.2729,
+    "C4": 1.3831
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 285.7267,
+    "C4": 350.1889
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 0.8644,
+    "C4": 0.8651
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.4492,
+    "C4": 0.3823
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.001,
+    "C4": 0.0958
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.6047,
+    "C4": 5.7515
+   },
+   "opponentPerCopy_xi": {
+    "C1": 90.8638,
+    "C4": 88.2298
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.164,
+    "C4": 19.9526
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.7178,
+    "C4": 6.6646
+   }
+  },
+  "es>a2c": {
+   "C1": -3.1011,
+   "C4": -4.815,
+   "escalation": -1.7139,
+   "escalationCI95": [
+    -1.7810055555555555,
+    -1.6456954545454547
+   ],
+   "ratioC4overC1": 1.5527,
+   "linearIf4xC1": -12.4042,
+   "learner_priceToFair": {
+    "C1": 1.1054,
+    "C4": 1.117
+   },
+   "learner_capToFair": {
+    "C1": 1.1566,
+    "C4": 1.2402
+   },
+   "learner_bidRate": {
+    "C1": 0.876,
+    "C4": 0.9365
+   },
+   "learner_stars": {
+    "C1": 6.6658,
+    "C4": 3.9724
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0022,
+    "C4": 0.0602
+   },
+   "learner_squadSize": {
+    "C1": 18.7618,
+    "C4": 22.3229
+   },
+   "learner_overseas": {
+    "C1": 7.0822,
+    "C4": 7.7558
+   },
+   "learner_keeperProg": {
+    "C1": 0.439,
+    "C4": 0.5976
+   },
+   "learner_keeperForced": {
+    "C1": 0.1807,
+    "C4": 0.0702
+   },
+   "learner_forced": {
+    "C1": 0.4311,
+    "C4": 0.1918
+   },
+   "learner_marginalBuys": {
+    "C1": 1.4989,
+    "C4": 3.0729
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 750.3689,
+    "C4": 1654.4111
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.215,
+    "C4": 1.283
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8343,
+    "C4": 0.8977
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0004,
+    "C4": 0.0015
+   },
+   "opponentPerCopy_stars": {
+    "C1": 6.8896,
+    "C4": 4.3565
+   },
+   "opponentPerCopy_xi": {
+    "C1": 88.0228,
+    "C4": 85.8785
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 16.4247,
+    "C4": 19.7502
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.3944,
+    "C4": 7.3188
+   }
+  },
+  "es>d3qn": {
+   "C1": -3.9306,
+   "C4": -6.6848,
+   "escalation": -2.7543,
+   "escalationCI95": [
+    -2.8485121212121207,
+    -2.65919494949495
+   ],
+   "ratioC4overC1": 1.7007,
+   "linearIf4xC1": -15.7223,
+   "learner_priceToFair": {
+    "C1": 1.0843,
+    "C4": 1.1204
+   },
+   "learner_capToFair": {
+    "C1": 1.1876,
+    "C4": 1.3312
+   },
+   "learner_bidRate": {
+    "C1": 0.8994,
+    "C4": 0.9869
+   },
+   "learner_stars": {
+    "C1": 5.8816,
+    "C4": 2.6967
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0073,
+    "C4": 0.2242
+   },
+   "learner_squadSize": {
+    "C1": 21.6631,
+    "C4": 24.7467
+   },
+   "learner_overseas": {
+    "C1": 7.9,
+    "C4": 7.9996
+   },
+   "learner_keeperProg": {
+    "C1": 0.6582,
+    "C4": 0.7585
+   },
+   "learner_keeperForced": {
+    "C1": 0.2302,
+    "C4": 0.0407
+   },
+   "learner_forced": {
+    "C1": 0.5158,
+    "C4": 0.1073
+   },
+   "learner_marginalBuys": {
+    "C1": 2.0611,
+    "C4": 3.7453
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 543.8778,
+    "C4": 4041.8933
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.2016,
+    "C4": 1.2878
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.8205,
+    "C4": 0.7981
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0005,
+    "C4": 0.0017
+   },
+   "opponentPerCopy_stars": {
+    "C1": 7.9856,
+    "C4": 4.4809
+   },
+   "opponentPerCopy_xi": {
+    "C1": 89.2392,
+    "C4": 85.135
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 14.2249,
+    "C4": 16.4351
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 4.1753,
+    "C4": 6.1196
+   }
+  },
+  "es>qrdqn": {
+   "C1": -4.0007,
+   "C4": -6.1404,
+   "escalation": -2.1398,
+   "escalationCI95": [
+    -2.231420202020202,
+    -2.0428984848484846
+   ],
+   "ratioC4overC1": 1.5348,
+   "linearIf4xC1": -16.0027,
+   "learner_priceToFair": {
+    "C1": 1.1009,
+    "C4": 1.1167
+   },
+   "learner_capToFair": {
+    "C1": 1.1869,
+    "C4": 1.313
+   },
+   "learner_bidRate": {
+    "C1": 0.8973,
+    "C4": 0.9894
+   },
+   "learner_stars": {
+    "C1": 5.7647,
+    "C4": 3.0751
+   },
+   "learner_purseLeftShare": {
+    "C1": 0.0085,
+    "C4": 0.1829
+   },
+   "learner_squadSize": {
+    "C1": 21.8571,
+    "C4": 24.9431
+   },
+   "learner_overseas": {
+    "C1": 7.8,
+    "C4": 7.9998
+   },
+   "learner_keeperProg": {
+    "C1": 0.6667,
+    "C4": 0.7462
+   },
+   "learner_keeperForced": {
+    "C1": 0.2236,
+    "C4": 0.0113
+   },
+   "learner_forced": {
+    "C1": 0.5169,
+    "C4": 0.0322
+   },
+   "learner_marginalBuys": {
+    "C1": 2.0609,
+    "C4": 4.1356
+   },
+   "learner_minPurseAnyUnmet": {
+    "C1": 551.1778,
+    "C4": 3481.3956
+   },
+   "opponentPerCopy_priceToFair": {
+    "C1": 1.0376,
+    "C4": 1.2241
+   },
+   "opponentPerCopy_bidRate": {
+    "C1": 0.7347,
+    "C4": 0.8389
+   },
+   "opponentPerCopy_purseLeftShare": {
+    "C1": 0.0008,
+    "C4": 0.0013
+   },
+   "opponentPerCopy_stars": {
+    "C1": 8.1716,
+    "C4": 4.3491
+   },
+   "opponentPerCopy_xi": {
+    "C1": 89.6237,
+    "C4": 85.8381
+   },
+   "opponentPerCopy_squadSize": {
+    "C1": 15.2058,
+    "C4": 17.2963
+   },
+   "opponentPerCopy_overseas": {
+    "C1": 5.5862,
+    "C4": 6.6113
+   }
+  }
+ },
+ "byOpponent": {
+  "ppo": {
+   "meanEscalation": -0.2182,
+   "meanRatio": 1.1278
+  },
+  "a2c": {
+   "meanEscalation": -1.0057,
+   "meanRatio": 1.38
+  },
+  "d3qn": {
+   "meanEscalation": -1.6044,
+   "meanRatio": 1.4593
+  },
+  "qrdqn": {
+   "meanEscalation": -1.2866,
+   "meanRatio": 1.3539
+  },
+  "es": {
+   "meanEscalation": -0.3415,
+   "meanRatio": 1.1624
+  }
+ },
+ "byLearner": {
+  "ppo": {
+   "meanEscalation": -0.3743,
+   "meanRatio": 1.207
+  },
+  "a2c": {
+   "meanEscalation": -0.9293,
+   "meanRatio": 1.294
+  },
+  "d3qn": {
+   "meanEscalation": -0.6922,
+   "meanRatio": 1.2353
+  },
+  "qrdqn": {
+   "meanEscalation": -0.7735,
+   "meanRatio": 1.2854
+  },
+  "es": {
+   "meanEscalation": -1.6872,
+   "meanRatio": 1.4615
+  }
+ },
+ "roleCompetition_s1xs1": {
+  "byPair": {
+   "ppo>a2c": {
+    "roomPriceFair": {
+     "A": 0.9646,
+     "C1": 0.999,
+     "C4": 1.092
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.662,
+     "C4": 4.796
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.13,
+     "C4": 0.534
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 10.106,
+     "C4": 60.178
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.86,
+     "C4": 55.316
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.188,
+     "C4": 30.944
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 7.906,
+     "C4": 17.436
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 7.906,
+     "C4": 17.104
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.993,
+     "C4": 3.6669
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 18.048,
+     "C4": 86.26
+    },
+    "ruleKeepers": {
+     "A": 22.626,
+     "C1": 20.236,
+     "C4": 12.53
+    },
+    "ruleStars": {
+     "A": 32.72,
+     "C1": 26.588,
+     "C4": 16.794
+    },
+    "ruleXI": {
+     "A": 87.5173,
+     "C1": 87.4151,
+     "C4": 88.0126
+    },
+    "allKeepersBy03": {
+     "A": 1.76,
+     "C1": 1.842,
+     "C4": 1.9
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1115,
+     "C1": 1.1434,
+     "C4": 1.1596
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0645,
+     "C1": 0.0658,
+     "C4": 0.0575
+    },
+    "learnerStarsBy03": {
+     "A": 10.274,
+     "C1": 6.7,
+     "C4": 1.664
+    },
+    "learnerSpendBy03": {
+     "A": 0.909,
+     "C1": 0.6615,
+     "C4": 0.1823
+    }
+   },
+   "ppo>d3qn": {
+    "roomPriceFair": {
+     "A": 0.9646,
+     "C1": 1.0016,
+     "C4": 1.0264
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.44,
+     "C4": 5.348
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.778,
+     "C4": 1.596
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 9.142,
+     "C4": 56.708
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.906,
+     "C4": 49.268
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 4.0,
+     "C4": 27.338
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.536,
+     "C4": 18.822
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 8.536,
+     "C4": 17.758
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9957,
+     "C4": 3.5881
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 15.906,
+     "C4": 76.606
+    },
+    "ruleKeepers": {
+     "A": 22.626,
+     "C1": 19.898,
+     "C4": 11.67
+    },
+    "ruleStars": {
+     "A": 32.72,
+     "C1": 26.218,
+     "C4": 15.3
+    },
+    "ruleXI": {
+     "A": 87.5173,
+     "C1": 87.3048,
+     "C4": 87.7818
+    },
+    "allKeepersBy03": {
+     "A": 1.76,
+     "C1": 2.246,
+     "C4": 2.782
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1115,
+     "C1": 1.0475,
+     "C4": 0.7655
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0645,
+     "C1": 0.2554,
+     "C4": 0.6101
+    },
+    "learnerStarsBy03": {
+     "A": 10.274,
+     "C1": 5.842,
+     "C4": 0.96
+    },
+    "learnerSpendBy03": {
+     "A": 0.909,
+     "C1": 0.564,
+     "C4": 0.0999
+    }
+   },
+   "ppo>qrdqn": {
+    "roomPriceFair": {
+     "A": 0.9646,
+     "C1": 0.9804,
+     "C4": 1.0151
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.024,
+     "C4": 5.854
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.056,
+     "C4": 1.83
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 8.96,
+     "C4": 53.2
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.306,
+     "C4": 47.55
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 5.182,
+     "C4": 26.9
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 9.038,
+     "C4": 18.508
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 9.038,
+     "C4": 18.15
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9844,
+     "C4": 3.7643
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.488,
+     "C4": 74.45
+    },
+    "ruleKeepers": {
+     "A": 22.626,
+     "C1": 19.628,
+     "C4": 10.682
+    },
+    "ruleStars": {
+     "A": 32.72,
+     "C1": 25.81,
+     "C4": 14.3
+    },
+    "ruleXI": {
+     "A": 87.5173,
+     "C1": 87.2801,
+     "C4": 87.6877
+    },
+    "allKeepersBy03": {
+     "A": 1.76,
+     "C1": 2.412,
+     "C4": 2.848
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1115,
+     "C1": 0.9329,
+     "C4": 0.702
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0645,
+     "C1": 0.3546,
+     "C4": 0.6573
+    },
+    "learnerStarsBy03": {
+     "A": 10.274,
+     "C1": 5.198,
+     "C4": 0.79
+    },
+    "learnerSpendBy03": {
+     "A": 0.909,
+     "C1": 0.4972,
+     "C4": 0.0846
+    }
+   },
+   "ppo>es": {
+    "roomPriceFair": {
+     "A": 0.9646,
+     "C1": 0.9928,
+     "C4": 1.0493
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.592,
+     "C4": 4.744
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.186,
+     "C4": 0.508
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 9.552,
+     "C4": 67.394
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.94,
+     "C4": 58.76
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 5.51,
+     "C4": 31.27
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.89,
+     "C4": 17.34
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 8.89,
+     "C4": 16.696
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9944,
+     "C4": 3.367
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.45,
+     "C4": 90.03
+    },
+    "ruleKeepers": {
+     "A": 22.626,
+     "C1": 20.074,
+     "C4": 13.206
+    },
+    "ruleStars": {
+     "A": 32.72,
+     "C1": 25.966,
+     "C4": 17.59
+    },
+    "ruleXI": {
+     "A": 87.5173,
+     "C1": 87.3246,
+     "C4": 88.1291
+    },
+    "allKeepersBy03": {
+     "A": 1.76,
+     "C1": 1.9,
+     "C4": 1.874
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1115,
+     "C1": 1.1755,
+     "C4": 1.1102
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0645,
+     "C1": 0.0642,
+     "C4": 0.0486
+    },
+    "learnerStarsBy03": {
+     "A": 10.274,
+     "C1": 5.95,
+     "C4": 1.648
+    },
+    "learnerSpendBy03": {
+     "A": 0.909,
+     "C1": 0.5847,
+     "C4": 0.1806
+    }
+   },
+   "a2c>ppo": {
+    "roomPriceFair": {
+     "A": 0.9937,
+     "C1": 0.9997,
+     "C4": 0.9028
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.76,
+     "C4": 18.604
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.17,
+     "C4": 1.698
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 12.168,
+     "C4": 54.402
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.258,
+     "C4": 57.428
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.042,
+     "C4": 30.324
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.944,
+     "C4": 23.892
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 6.748,
+     "C4": 9.886
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.672,
+     "C4": 1.1736
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.3,
+     "C4": 87.752
+    },
+    "ruleKeepers": {
+     "A": 22.894,
+     "C1": 20.204,
+     "C4": 8.516
+    },
+    "ruleStars": {
+     "A": 34.376,
+     "C1": 26.602,
+     "C4": 11.994
+    },
+    "ruleXI": {
+     "A": 87.7505,
+     "C1": 87.413,
+     "C4": 87.0592
+    },
+    "allKeepersBy03": {
+     "A": 2.288,
+     "C1": 2.884,
+     "C4": 2.994
+    },
+    "learnerKeeperPriceFair": {
+     "A": 0.9554,
+     "C1": 0.7203,
+     "C4": 0.6603
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.3007,
+     "C1": 0.7032,
+     "C4": 0.7798
+    },
+    "learnerStarsBy03": {
+     "A": 9.044,
+     "C1": 7.89,
+     "C4": 7.884
+    },
+    "learnerSpendBy03": {
+     "A": 0.9953,
+     "C1": 0.9929,
+     "C4": 0.9927
+    }
+   },
+   "a2c>d3qn": {
+    "roomPriceFair": {
+     "A": 0.9937,
+     "C1": 1.0439,
+     "C4": 1.0976
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.408,
+     "C4": 5.532
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.186,
+     "C4": 1.818
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 8.592,
+     "C4": 48.996
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.354,
+     "C4": 41.464
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 3.708,
+     "C4": 24.874
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.19,
+     "C4": 17.814
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 8.19,
+     "C4": 16.672
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9942,
+     "C4": 3.6108
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 14.062,
+     "C4": 66.338
+    },
+    "ruleKeepers": {
+     "A": 22.894,
+     "C1": 20.4,
+     "C4": 11.384
+    },
+    "ruleStars": {
+     "A": 34.376,
+     "C1": 29.894,
+     "C4": 19.728
+    },
+    "ruleXI": {
+     "A": 87.7505,
+     "C1": 87.7817,
+     "C4": 88.5572
+    },
+    "allKeepersBy03": {
+     "A": 2.288,
+     "C1": 2.882,
+     "C4": 2.98
+    },
+    "learnerKeeperPriceFair": {
+     "A": 0.9554,
+     "C1": 0.7238,
+     "C4": 0.7101
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.3007,
+     "C1": 0.7016,
+     "C4": 0.7684
+    },
+    "learnerStarsBy03": {
+     "A": 9.044,
+     "C1": 5.22,
+     "C4": 2.736
+    },
+    "learnerSpendBy03": {
+     "A": 0.9953,
+     "C1": 0.9872,
+     "C4": 0.8082
+    }
+   },
+   "a2c>qrdqn": {
+    "roomPriceFair": {
+     "A": 0.9937,
+     "C1": 1.0212,
+     "C4": 1.0808
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.104,
+     "C4": 5.61
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.222,
+     "C4": 1.744
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 9.498,
+     "C4": 47.39
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.516,
+     "C4": 43.122
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.022,
+     "C4": 26.298
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.73,
+     "C4": 18.164
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 8.718,
+     "C4": 17.404
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.967,
+     "C4": 3.6333
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.538,
+     "C4": 69.42
+    },
+    "ruleKeepers": {
+     "A": 22.894,
+     "C1": 20.092,
+     "C4": 11.108
+    },
+    "ruleStars": {
+     "A": 34.376,
+     "C1": 29.734,
+     "C4": 19.35
+    },
+    "ruleXI": {
+     "A": 87.7505,
+     "C1": 87.7947,
+     "C4": 88.5397
+    },
+    "allKeepersBy03": {
+     "A": 2.288,
+     "C1": 2.922,
+     "C4": 2.99
+    },
+    "learnerKeeperPriceFair": {
+     "A": 0.9554,
+     "C1": 0.6683,
+     "C4": 0.7551
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.3007,
+     "C1": 0.7323,
+     "C4": 0.7736
+    },
+    "learnerStarsBy03": {
+     "A": 9.044,
+     "C1": 4.866,
+     "C4": 1.924
+    },
+    "learnerSpendBy03": {
+     "A": 0.9953,
+     "C1": 0.9875,
+     "C4": 0.7685
+    }
+   },
+   "a2c>es": {
+    "roomPriceFair": {
+     "A": 0.9937,
+     "C1": 1.0306,
+     "C4": 1.0848
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.188,
+     "C4": 4.654
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.748,
+     "C4": 1.296
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 9.276,
+     "C4": 66.642
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 9.556,
+     "C4": 55.452
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 5.19,
+     "C4": 31.362
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 7.95,
+     "C4": 18.262
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 7.95,
+     "C4": 15.314
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9935,
+     "C4": 2.8746
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 14.746,
+     "C4": 86.814
+    },
+    "ruleKeepers": {
+     "A": 22.894,
+     "C1": 20.49,
+     "C4": 13.22
+    },
+    "ruleStars": {
+     "A": 34.376,
+     "C1": 30.124,
+     "C4": 20.534
+    },
+    "ruleXI": {
+     "A": 87.7505,
+     "C1": 87.8309,
+     "C4": 88.6767
+    },
+    "allKeepersBy03": {
+     "A": 2.288,
+     "C1": 2.802,
+     "C4": 2.806
+    },
+    "learnerKeeperPriceFair": {
+     "A": 0.9554,
+     "C1": 0.7751,
+     "C4": 0.8442
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.3007,
+     "C1": 0.6512,
+     "C4": 0.6476
+    },
+    "learnerStarsBy03": {
+     "A": 9.044,
+     "C1": 5.262,
+     "C4": 3.208
+    },
+    "learnerSpendBy03": {
+     "A": 0.9953,
+     "C1": 0.9891,
+     "C4": 0.8604
+    }
+   },
+   "d3qn>ppo": {
+    "roomPriceFair": {
+     "A": 1.0021,
+     "C1": 1.0018,
+     "C4": 0.9059
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.294,
+     "C4": 19.4
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.782,
+     "C4": 1.312
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 12.712,
+     "C4": 55.98
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.72,
+     "C4": 58.994
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.36,
+     "C4": 31.128
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.676,
+     "C4": 22.794
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.84,
+     "C4": 8.794
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.5689,
+     "C4": 1.0291
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 17.08,
+     "C4": 90.122
+    },
+    "ruleKeepers": {
+     "A": 22.854,
+     "C1": 19.838,
+     "C4": 8.464
+    },
+    "ruleStars": {
+     "A": 33.742,
+     "C1": 26.184,
+     "C4": 12.302
+    },
+    "ruleXI": {
+     "A": 87.6465,
+     "C1": 87.3055,
+     "C4": 87.1235
+    },
+    "allKeepersBy03": {
+     "A": 1.806,
+     "C1": 2.234,
+     "C4": 2.584
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1312,
+     "C1": 1.2159,
+     "C4": 1.0244
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0889,
+     "C1": 0.2458,
+     "C4": 0.4889
+    },
+    "learnerStarsBy03": {
+     "A": 9.75,
+     "C1": 8.584,
+     "C4": 8.63
+    },
+    "learnerSpendBy03": {
+     "A": 0.9968,
+     "C1": 0.995,
+     "C4": 0.9955
+    }
+   },
+   "d3qn>a2c": {
+    "roomPriceFair": {
+     "A": 1.0021,
+     "C1": 1.0438,
+     "C4": 1.1435
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.622,
+     "C4": 4.764
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.104,
+     "C4": 0.496
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 13.2,
+     "C4": 65.868
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 13.99,
+     "C4": 59.15
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 7.556,
+     "C4": 31.816
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 5.228,
+     "C4": 14.142
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.228,
+     "C4": 11.62
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9868,
+     "C4": 3.1373
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 21.546,
+     "C4": 90.966
+    },
+    "ruleKeepers": {
+     "A": 22.854,
+     "C1": 20.254,
+     "C4": 12.658
+    },
+    "ruleStars": {
+     "A": 33.742,
+     "C1": 29.856,
+     "C4": 20.278
+    },
+    "ruleXI": {
+     "A": 87.6465,
+     "C1": 87.776,
+     "C4": 88.6372
+    },
+    "allKeepersBy03": {
+     "A": 1.806,
+     "C1": 1.836,
+     "C4": 1.886
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1312,
+     "C1": 1.2431,
+     "C4": 1.2654
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0889,
+     "C1": 0.0921,
+     "C4": 0.0982
+    },
+    "learnerStarsBy03": {
+     "A": 9.75,
+     "C1": 8.18,
+     "C4": 7.438
+    },
+    "learnerSpendBy03": {
+     "A": 0.9968,
+     "C1": 0.9939,
+     "C4": 0.9759
+    }
+   },
+   "d3qn>qrdqn": {
+    "roomPriceFair": {
+     "A": 1.0021,
+     "C1": 1.0204,
+     "C4": 1.0794
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.216,
+     "C4": 5.482
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.022,
+     "C4": 1.684
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 11.27,
+     "C4": 49.018
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.608,
+     "C4": 43.83
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.25,
+     "C4": 26.76
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 7.126,
+     "C4": 15.226
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 7.086,
+     "C4": 14.446
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9624,
+     "C4": 3.6138
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 17.858,
+     "C4": 70.59
+    },
+    "ruleKeepers": {
+     "A": 22.854,
+     "C1": 19.988,
+     "C4": 11.06
+    },
+    "ruleStars": {
+     "A": 33.742,
+     "C1": 29.064,
+     "C4": 19.088
+    },
+    "ruleXI": {
+     "A": 87.6465,
+     "C1": 87.6728,
+     "C4": 88.4886
+    },
+    "allKeepersBy03": {
+     "A": 1.806,
+     "C1": 2.448,
+     "C4": 2.744
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1312,
+     "C1": 1.1248,
+     "C4": 0.9658
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0889,
+     "C1": 0.3835,
+     "C4": 0.605
+    },
+    "learnerStarsBy03": {
+     "A": 9.75,
+     "C1": 6.996,
+     "C4": 5.06
+    },
+    "learnerSpendBy03": {
+     "A": 0.9968,
+     "C1": 0.9913,
+     "C4": 0.8043
+    }
+   },
+   "d3qn>es": {
+    "roomPriceFair": {
+     "A": 1.0021,
+     "C1": 1.0333,
+     "C4": 1.0922
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.534,
+     "C4": 4.592
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.164,
+     "C4": 0.46
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 15.178,
+     "C4": 74.474
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 13.08,
+     "C4": 62.886
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 7.898,
+     "C4": 31.948
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 6.312,
+     "C4": 14.502
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 6.292,
+     "C4": 11.24
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9719,
+     "C4": 2.6916
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 20.978,
+     "C4": 94.834
+    },
+    "ruleKeepers": {
+     "A": 22.854,
+     "C1": 20.418,
+     "C4": 13.224
+    },
+    "ruleStars": {
+     "A": 33.742,
+     "C1": 29.51,
+     "C4": 20.222
+    },
+    "ruleXI": {
+     "A": 87.6465,
+     "C1": 87.719,
+     "C4": 88.5541
+    },
+    "allKeepersBy03": {
+     "A": 1.806,
+     "C1": 1.896,
+     "C4": 1.848
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.1312,
+     "C1": 1.2927,
+     "C4": 1.2855
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0889,
+     "C1": 0.1013,
+     "C4": 0.0816
+    },
+    "learnerStarsBy03": {
+     "A": 9.75,
+     "C1": 7.554,
+     "C4": 7.402
+    },
+    "learnerSpendBy03": {
+     "A": 0.9968,
+     "C1": 0.9947,
+     "C4": 0.9914
+    }
+   },
+   "qrdqn>ppo": {
+    "roomPriceFair": {
+     "A": 0.9942,
+     "C1": 0.979,
+     "C4": 0.8985
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.662,
+     "C4": 19.908
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.626,
+     "C4": 0.74
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 13.062,
+     "C4": 55.72
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.006,
+     "C4": 59.556
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.396,
+     "C4": 31.238
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.624,
+     "C4": 22.21
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.256,
+     "C4": 7.908
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.4987,
+     "C4": 0.9274
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 17.402,
+     "C4": 90.794
+    },
+    "ruleKeepers": {
+     "A": 22.698,
+     "C1": 19.416,
+     "C4": 8.17
+    },
+    "ruleStars": {
+     "A": 33.176,
+     "C1": 25.852,
+     "C4": 12.502
+    },
+    "ruleXI": {
+     "A": 87.6194,
+     "C1": 87.2843,
+     "C4": 87.1802
+    },
+    "allKeepersBy03": {
+     "A": 1.752,
+     "C1": 1.98,
+     "C4": 1.908
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0807,
+     "C1": 1.2376,
+     "C4": 1.3618
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0763,
+     "C1": 0.1062,
+     "C4": 0.0812
+    },
+    "learnerStarsBy03": {
+     "A": 10.202,
+     "C1": 9.036,
+     "C4": 8.942
+    },
+    "learnerSpendBy03": {
+     "A": 0.991,
+     "C1": 0.9851,
+     "C4": 0.9935
+    }
+   },
+   "qrdqn>a2c": {
+    "roomPriceFair": {
+     "A": 0.9942,
+     "C1": 1.0206,
+     "C4": 1.1264
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.554,
+     "C4": 4.694
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.078,
+     "C4": 0.378
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 13.808,
+     "C4": 66.674
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 14.452,
+     "C4": 59.738
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 7.406,
+     "C4": 31.812
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 4.802,
+     "C4": 14.014
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 4.802,
+     "C4": 11.47
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9868,
+     "C4": 3.1385
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 21.858,
+     "C4": 91.55
+    },
+    "ruleKeepers": {
+     "A": 22.698,
+     "C1": 20.076,
+     "C4": 12.57
+    },
+    "ruleStars": {
+     "A": 33.176,
+     "C1": 29.764,
+     "C4": 20.066
+    },
+    "ruleXI": {
+     "A": 87.6194,
+     "C1": 87.8001,
+     "C4": 88.6138
+    },
+    "allKeepersBy03": {
+     "A": 1.752,
+     "C1": 1.782,
+     "C4": 1.786
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0807,
+     "C1": 1.1214,
+     "C4": 1.2025
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0763,
+     "C1": 0.0862,
+     "C4": 0.0864
+    },
+    "learnerStarsBy03": {
+     "A": 10.202,
+     "C1": 8.756,
+     "C4": 7.642
+    },
+    "learnerSpendBy03": {
+     "A": 0.991,
+     "C1": 0.9684,
+     "C4": 0.9348
+    }
+   },
+   "qrdqn>d3qn": {
+    "roomPriceFair": {
+     "A": 0.9942,
+     "C1": 1.0208,
+     "C4": 1.068
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.508,
+     "C4": 5.252
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.562,
+     "C4": 1.276
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 10.426,
+     "C4": 56.642
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 12.61,
+     "C4": 49.194
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 4.358,
+     "C4": 28.61
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 6.954,
+     "C4": 17.224
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 6.948,
+     "C4": 14.544
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9913,
+     "C4": 3.226
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.968,
+     "C4": 77.804
+    },
+    "ruleKeepers": {
+     "A": 22.698,
+     "C1": 19.9,
+     "C4": 11.866
+    },
+    "ruleStars": {
+     "A": 33.176,
+     "C1": 29.11,
+     "C4": 19.166
+    },
+    "ruleXI": {
+     "A": 87.6194,
+     "C1": 87.6788,
+     "C4": 88.4864
+    },
+    "allKeepersBy03": {
+     "A": 1.752,
+     "C1": 2.006,
+     "C4": 2.386
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0807,
+     "C1": 1.2316,
+     "C4": 1.3694
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0763,
+     "C1": 0.1567,
+     "C4": 0.3381
+    },
+    "learnerStarsBy03": {
+     "A": 10.202,
+     "C1": 7.12,
+     "C4": 4.718
+    },
+    "learnerSpendBy03": {
+     "A": 0.991,
+     "C1": 0.9638,
+     "C4": 0.9332
+    }
+   },
+   "qrdqn>es": {
+    "roomPriceFair": {
+     "A": 0.9942,
+     "C1": 1.0071,
+     "C4": 1.0765
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.514,
+     "C4": 4.526
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.14,
+     "C4": 0.328
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 13.978,
+     "C4": 73.578
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 12.826,
+     "C4": 62.828
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 7.476,
+     "C4": 31.86
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 5.814,
+     "C4": 14.148
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.808,
+     "C4": 10.83
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9838,
+     "C4": 2.7187
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 20.302,
+     "C4": 94.688
+    },
+    "ruleKeepers": {
+     "A": 22.698,
+     "C1": 20.202,
+     "C4": 13.106
+    },
+    "ruleStars": {
+     "A": 33.176,
+     "C1": 29.404,
+     "C4": 20.422
+    },
+    "ruleXI": {
+     "A": 87.6194,
+     "C1": 87.753,
+     "C4": 88.6134
+    },
+    "allKeepersBy03": {
+     "A": 1.752,
+     "C1": 1.792,
+     "C4": 1.712
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0807,
+     "C1": 1.1739,
+     "C4": 1.1935
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.0763,
+     "C1": 0.0889,
+     "C4": 0.0664
+    },
+    "learnerStarsBy03": {
+     "A": 10.202,
+     "C1": 8.164,
+     "C4": 7.672
+    },
+    "learnerSpendBy03": {
+     "A": 0.991,
+     "C1": 0.9649,
+     "C4": 0.9519
+    }
+   },
+   "es>ppo": {
+    "roomPriceFair": {
+     "A": 0.9914,
+     "C1": 0.9927,
+     "C4": 0.9006
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.784,
+     "C4": 18.98
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.124,
+     "C4": 1.704
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 13.252,
+     "C4": 56.184
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.632,
+     "C4": 58.748
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.35,
+     "C4": 30.89
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.668,
+     "C4": 23.08
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 6.074,
+     "C4": 8.924
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.5966,
+     "C4": 1.0709
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.982,
+     "C4": 89.638
+    },
+    "ruleKeepers": {
+     "A": 22.928,
+     "C1": 20.118,
+     "C4": 8.272
+    },
+    "ruleStars": {
+     "A": 33.494,
+     "C1": 25.93,
+     "C4": 11.956
+    },
+    "ruleXI": {
+     "A": 87.6685,
+     "C1": 87.3215,
+     "C4": 87.026
+    },
+    "allKeepersBy03": {
+     "A": 2.16,
+     "C1": 2.8,
+     "C4": 3.0
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0159,
+     "C1": 0.7777,
+     "C4": 0.6735
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.2231,
+     "C1": 0.6393,
+     "C4": 0.7833
+    },
+    "learnerStarsBy03": {
+     "A": 9.996,
+     "C1": 8.886,
+     "C4": 8.736
+    },
+    "learnerSpendBy03": {
+     "A": 0.9965,
+     "C1": 0.9947,
+     "C4": 0.9948
+    }
+   },
+   "es>a2c": {
+    "roomPriceFair": {
+     "A": 0.9914,
+     "C1": 1.03,
+     "C4": 1.1299
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.546,
+     "C4": 4.738
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.16,
+     "C4": 0.9
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 13.216,
+     "C4": 62.792
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 13.446,
+     "C4": 56.428
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 7.334,
+     "C4": 31.516
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 5.214,
+     "C4": 15.544
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.214,
+     "C4": 13.272
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9881,
+     "C4": 3.1952
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 20.78,
+     "C4": 87.944
+    },
+    "ruleKeepers": {
+     "A": 22.928,
+     "C1": 20.556,
+     "C4": 12.732
+    },
+    "ruleStars": {
+     "A": 33.494,
+     "C1": 30.162,
+     "C4": 20.474
+    },
+    "ruleXI": {
+     "A": 87.6685,
+     "C1": 87.8274,
+     "C4": 88.6559
+    },
+    "allKeepersBy03": {
+     "A": 2.16,
+     "C1": 2.224,
+     "C4": 2.364
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0159,
+     "C1": 1.1313,
+     "C4": 1.1613
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.2231,
+     "C1": 0.241,
+     "C4": 0.3502
+    },
+    "learnerStarsBy03": {
+     "A": 9.996,
+     "C1": 7.934,
+     "C4": 5.726
+    },
+    "learnerSpendBy03": {
+     "A": 0.9965,
+     "C1": 0.9932,
+     "C4": 0.8494
+    }
+   },
+   "es>d3qn": {
+    "roomPriceFair": {
+     "A": 0.9914,
+     "C1": 1.0327,
+     "C4": 1.0784
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.364,
+     "C4": 5.624
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.126,
+     "C4": 1.818
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 8.192,
+     "C4": 48.352
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.856,
+     "C4": 42.488
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 3.346,
+     "C4": 24.696
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 7.584,
+     "C4": 18.01
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 7.582,
+     "C4": 16.782
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9941,
+     "C4": 3.6156
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 14.202,
+     "C4": 67.184
+    },
+    "ruleKeepers": {
+     "A": 22.928,
+     "C1": 20.456,
+     "C4": 11.764
+    },
+    "ruleStars": {
+     "A": 33.494,
+     "C1": 29.528,
+     "C4": 19.88
+    },
+    "ruleXI": {
+     "A": 87.6685,
+     "C1": 87.7189,
+     "C4": 88.6301
+    },
+    "allKeepersBy03": {
+     "A": 2.16,
+     "C1": 2.85,
+     "C4": 2.988
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0159,
+     "C1": 0.7658,
+     "C4": 0.8217
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.2231,
+     "C1": 0.6764,
+     "C4": 0.7673
+    },
+    "learnerStarsBy03": {
+     "A": 9.996,
+     "C1": 6.252,
+     "C4": 2.54
+    },
+    "learnerSpendBy03": {
+     "A": 0.9965,
+     "C1": 0.9722,
+     "C4": 0.5786
+    }
+   },
+   "es>qrdqn": {
+    "roomPriceFair": {
+     "A": 0.9914,
+     "C1": 1.0078,
+     "C4": 1.0699
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.23,
+     "C4": 5.768
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.234,
+     "C4": 1.822
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 10.578,
+     "C4": 49.53
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.734,
+     "C4": 44.966
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.218,
+     "C4": 26.246
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.24,
+     "C4": 17.582
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 8.214,
+     "C4": 16.812
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9651,
+     "C4": 3.6275
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.952,
+     "C4": 71.212
+    },
+    "ruleKeepers": {
+     "A": 22.928,
+     "C1": 20.128,
+     "C4": 11.594
+    },
+    "ruleStars": {
+     "A": 33.494,
+     "C1": 29.314,
+     "C4": 19.808
+    },
+    "ruleXI": {
+     "A": 87.6685,
+     "C1": 87.7457,
+     "C4": 88.6453
+    },
+    "allKeepersBy03": {
+     "A": 2.16,
+     "C1": 2.894,
+     "C4": 2.986
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0159,
+     "C1": 0.7317,
+     "C4": 0.8021
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.2231,
+     "C1": 0.7106,
+     "C4": 0.7696
+    },
+    "learnerStarsBy03": {
+     "A": 9.996,
+     "C1": 5.802,
+     "C4": 2.664
+    },
+    "learnerSpendBy03": {
+     "A": 0.9965,
+     "C1": 0.9837,
+     "C4": 0.6768
+    }
+   }
+  },
+  "byOpponent": {
+   "ppo": {
+    "roomPriceFair": {
+     "A": 0.9954,
+     "C1": 0.9933,
+     "C4": 0.9019
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.125,
+     "C4": 19.223
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.9255,
+     "C4": 1.3635
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 12.7985,
+     "C4": 55.5715
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 10.654,
+     "C4": 58.6815
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.287,
+     "C4": 30.895
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.728,
+     "C4": 22.994
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.9795,
+     "C4": 8.878
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.584,
+     "C4": 1.0503
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.941,
+     "C4": 89.5765
+    },
+    "ruleKeepers": {
+     "A": 22.8435,
+     "C1": 19.894,
+     "C4": 8.3555
+    },
+    "ruleStars": {
+     "A": 33.697,
+     "C1": 26.142,
+     "C4": 12.1885
+    },
+    "ruleXI": {
+     "A": 87.6712,
+     "C1": 87.3311,
+     "C4": 87.0972
+    },
+    "allKeepersBy03": {
+     "A": 2.0015,
+     "C1": 2.4745,
+     "C4": 2.6215
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0458,
+     "C1": 0.9879,
+     "C4": 0.93
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.1723,
+     "C1": 0.4236,
+     "C4": 0.5333
+    },
+    "learnerStarsBy03": {
+     "A": 9.748,
+     "C1": 8.599,
+     "C4": 8.548
+    },
+    "learnerSpendBy03": {
+     "A": 0.9949,
+     "C1": 0.9919,
+     "C4": 0.9941
+    }
+   },
+   "a2c": {
+    "roomPriceFair": {
+     "A": 0.9881,
+     "C1": 1.0233,
+     "C4": 1.123
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.596,
+     "C4": 4.748
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.118,
+     "C4": 0.577
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 12.5825,
+     "C4": 63.878
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 13.437,
+     "C4": 57.658
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 7.121,
+     "C4": 31.522
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 5.7875,
+     "C4": 15.284
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 5.7875,
+     "C4": 13.3665
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9887,
+     "C4": 3.2845
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 20.558,
+     "C4": 89.18
+    },
+    "ruleKeepers": {
+     "A": 22.7765,
+     "C1": 20.2805,
+     "C4": 12.6225
+    },
+    "ruleStars": {
+     "A": 33.283,
+     "C1": 29.0925,
+     "C4": 19.403
+    },
+    "ruleXI": {
+     "A": 87.6129,
+     "C1": 87.7047,
+     "C4": 88.4799
+    },
+    "allKeepersBy03": {
+     "A": 1.8695,
+     "C1": 1.921,
+     "C4": 1.984
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0848,
+     "C1": 1.1598,
+     "C4": 1.1972
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.1132,
+     "C1": 0.1213,
+     "C4": 0.1481
+    },
+    "learnerStarsBy03": {
+     "A": 10.0555,
+     "C1": 7.8925,
+     "C4": 5.6175
+    },
+    "learnerSpendBy03": {
+     "A": 0.9733,
+     "C1": 0.9042,
+     "C4": 0.7356
+    }
+   },
+   "d3qn": {
+    "roomPriceFair": {
+     "A": 0.986,
+     "C1": 1.0248,
+     "C4": 1.0676
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.43,
+     "C4": 5.439
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.913,
+     "C4": 1.627
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 9.088,
+     "C4": 52.6745
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.4315,
+     "C4": 45.6035
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 3.853,
+     "C4": 26.3795
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 7.816,
+     "C4": 17.9675
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 7.814,
+     "C4": 16.439
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9938,
+     "C4": 3.5101
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 15.2845,
+     "C4": 71.983
+    },
+    "ruleKeepers": {
+     "A": 22.7865,
+     "C1": 20.1635,
+     "C4": 11.671
+    },
+    "ruleStars": {
+     "A": 33.4415,
+     "C1": 28.6875,
+     "C4": 18.5185
+    },
+    "ruleXI": {
+     "A": 87.6389,
+     "C1": 87.6211,
+     "C4": 88.3639
+    },
+    "allKeepersBy03": {
+     "A": 1.99,
+     "C1": 2.496,
+     "C4": 2.784
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0409,
+     "C1": 0.9422,
+     "C4": 0.9167
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.1661,
+     "C1": 0.4475,
+     "C4": 0.621
+    },
+    "learnerStarsBy03": {
+     "A": 9.879,
+     "C1": 6.1085,
+     "C4": 2.7385
+    },
+    "learnerSpendBy03": {
+     "A": 0.973,
+     "C1": 0.8718,
+     "C4": 0.605
+    }
+   },
+   "qrdqn": {
+    "roomPriceFair": {
+     "A": 0.9879,
+     "C1": 1.0074,
+     "C4": 1.0613
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 2.1435,
+     "C4": 5.6785
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 1.1335,
+     "C4": 1.77
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 10.0765,
+     "C4": 49.7845
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.041,
+     "C4": 44.867
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 5.918,
+     "C4": 26.551
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 8.2835,
+     "C4": 17.37
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 8.264,
+     "C4": 16.703
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9697,
+     "C4": 3.6597
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 16.959,
+     "C4": 71.418
+    },
+    "ruleKeepers": {
+     "A": 22.8255,
+     "C1": 19.959,
+     "C4": 11.111
+    },
+    "ruleStars": {
+     "A": 33.583,
+     "C1": 28.4805,
+     "C4": 18.1365
+    },
+    "ruleXI": {
+     "A": 87.6457,
+     "C1": 87.6233,
+     "C4": 88.3403
+    },
+    "allKeepersBy03": {
+     "A": 2.0035,
+     "C1": 2.669,
+     "C4": 2.892
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0535,
+     "C1": 0.8644,
+     "C4": 0.8063
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.1693,
+     "C1": 0.5453,
+     "C4": 0.7014
+    },
+    "learnerStarsBy03": {
+     "A": 9.766,
+     "C1": 5.7155,
+     "C4": 2.6095
+    },
+    "learnerSpendBy03": {
+     "A": 0.9744,
+     "C1": 0.8649,
+     "C4": 0.5836
+    }
+   },
+   "es": {
+    "roomPriceFair": {
+     "A": 0.9887,
+     "C1": 1.016,
+     "C4": 1.0757
+    },
+    "rlOppKeepers": {
+     "A": 0.0,
+     "C1": 1.457,
+     "C4": 4.629
+    },
+    "rlOppKeepersBy03": {
+     "A": 0.0,
+     "C1": 0.3095,
+     "C4": 0.648
+    },
+    "rlOppBowl": {
+     "A": 0.0,
+     "C1": 11.996,
+     "C4": 70.522
+    },
+    "rlOppIndians": {
+     "A": 0.0,
+     "C1": 11.6005,
+     "C4": 59.9815
+    },
+    "rlOppOverseas": {
+     "A": 0.0,
+     "C1": 6.5185,
+     "C4": 31.61
+    },
+    "rlOppStars": {
+     "A": 0.0,
+     "C1": 7.2415,
+     "C4": 16.063
+    },
+    "rlOppStarsBy03": {
+     "A": 0.0,
+     "C1": 7.235,
+     "C4": 13.52
+    },
+    "rlOppSpendBy03": {
+     "A": 0.0,
+     "C1": 0.9859,
+     "C4": 2.913
+    },
+    "rlOppSquad": {
+     "A": 0.0,
+     "C1": 18.119,
+     "C4": 91.5915
+    },
+    "ruleKeepers": {
+     "A": 22.768,
+     "C1": 20.296,
+     "C4": 13.189
+    },
+    "ruleStars": {
+     "A": 33.5035,
+     "C1": 28.751,
+     "C4": 19.692
+    },
+    "ruleXI": {
+     "A": 87.6334,
+     "C1": 87.6569,
+     "C4": 88.4933
+    },
+    "allKeepersBy03": {
+     "A": 1.9015,
+     "C1": 2.0975,
+     "C4": 2.06
+    },
+    "learnerKeeperPriceFair": {
+     "A": 1.0697,
+     "C1": 1.1043,
+     "C4": 1.1084
+    },
+    "learnerFirstKeeperProg": {
+     "A": 0.1326,
+     "C1": 0.2264,
+     "C4": 0.211
+    },
+    "learnerStarsBy03": {
+     "A": 9.8175,
+     "C1": 6.7325,
+     "C4": 4.9825
+    },
+    "learnerSpendBy03": {
+     "A": 0.973,
+     "C1": 0.8833,
+     "C4": 0.7461
+    }
+   }
+  },
+  "note": "digest-verified read-only replays of the recorded s1\u00d7s1 episodes (20 ordered pairs \u00d7 500 auctions per composition) and the s1 Stage-A controls"
+ },
+ "escalationAssociations": {
+  "C1 level of opponentPerCopy_priceToFair": {
+   "pearson": -0.5415256191417781,
+   "spearman": -0.5894736842105263,
+   "n": 20
+  },
+  "C1 level of opponentPerCopy_bidRate": {
+   "pearson": -0.31978711133573645,
+   "spearman": -0.18345864661654135,
+   "n": 20
+  },
+  "C1 level of opponentPerCopy_purseLeftShare": {
+   "pearson": 0.43928717540901124,
+   "spearman": 0.592232760360731,
+   "n": 20
+  },
+  "C1 level of opponentPerCopy_stars": {
+   "pearson": 0.0975613379560132,
+   "spearman": 0.39097744360902253,
+   "n": 20
+  },
+  "C4\u2212C1 change in roomPriceFair": {
+   "pearson": -0.4272979588999006,
+   "spearman": -0.48872180451127817,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppKeepers": {
+   "pearson": 0.4123629391158956,
+   "spearman": 0.11278195488721804,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppKeepersBy03": {
+   "pearson": -0.41234552893362425,
+   "spearman": -0.3037593984962406,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppStars": {
+   "pearson": 0.2982114328775674,
+   "spearman": 0.14887218045112782,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppStarsBy03": {
+   "pearson": -0.559562417475187,
+   "spearman": -0.4827067669172932,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppOverseas": {
+   "pearson": 0.6208097238468069,
+   "spearman": 0.4526315789473684,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppBowl": {
+   "pearson": 0.4642288444935064,
+   "spearman": 0.35488721804511275,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppIndians": {
+   "pearson": 0.7461974794062891,
+   "spearman": 0.6962406015037594,
+   "n": 20
+  },
+  "C4\u2212C1 change in rlOppSpendBy03": {
+   "pearson": -0.5444763227178222,
+   "spearman": -0.4781954887218045,
+   "n": 20
+  }
+ },
+ "note": "escalation = C4 transfer \u2212 C1 transfer (more negative = extra degradation when the opponent is multiplied to four seats); CI = bootstrap over auction entries of the per-entry difference"
+}

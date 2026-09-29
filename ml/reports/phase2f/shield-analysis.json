@@ -1,0 +1,5876 @@
+{
+ "meta": {
+  "phase": "2F",
+  "status": "PILOT — evaluation of experimental stage_b_pilot exports; no production change, nothing committed",
+  "contract": {
+   "env": "IplAuctionEnv-v2",
+   "obsHash": "629b25783f833af7",
+   "actHash": "5f72f510c48b1f46",
+   "gamma": 1,
+   "shield": "act-v3 (unchanged)",
+   "reward": "ΔBestXI/11/10, −2 incomplete XI (unchanged)"
+  },
+  "design": {
+   "snapshotShare": 0.5,
+   "pool": "15 frozen Stage-A exports (5 algorithms × 3 seeds, incl. the learner's own algorithm)",
+   "ruleBots": "4 frozen rule seats always + RL seats on rule fallback (≥ 4/9)",
+   "init": "warm start from each seed's frozen Stage-A final checkpoint; fresh optimizer; D3QN/QR-DQN ε constant at the Stage-A final value, empty replay",
+   "seeds": "run seeds 101/102/103 ← Stage-A seeds 1/2/3 (train split only)",
+   "budget": "497,664 learner decisions per seed (ES: first generation boundary at or after it)",
+   "checkpoints": "98,304 / 245,760 / 497,664 decisions",
+   "evaluation": "c100/c250: validation entries 0–99; c500: all 500 (Phase 2E.0 protocol)"
+  }
+ },
+ "recordLevel": {
+  "c100": {
+   "A": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0013,
+      "stageA": 0.0028,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2367,
+      "stageBsd": 0.1343,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2367,
+      "stageBsd": 0.1343,
+      "stageA": 0.2567,
+      "total_stageB": 71.0,
+      "total_stageA": 77.0
+     },
+     "forcedLost": {
+      "stageB": 0.1267,
+      "stageBsd": 0.0814,
+      "stageA": 0.1467,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.11,
+      "stageBsd": 0.0529,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0933,
+      "stageBsd": 0.1617,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0005,
+      "stageBsd": 0.0004,
+      "stageA": 0.0002,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.04,
+      "stageBsd": 0.0361,
+      "stageA": 0.03,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.04,
+      "stageBsd": 0.0361,
+      "stageA": 0.03,
+      "total_stageB": 12.0,
+      "total_stageA": 9.0
+     },
+     "forcedLost": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0252,
+      "stageA": 0.01,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0115,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0133,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0015,
+      "stageBsd": 0.0012,
+      "stageA": 0.0027,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.14,
+      "stageBsd": 0.1054,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.14,
+      "stageBsd": 0.1054,
+      "stageA": 0.2567,
+      "total_stageB": 42.0,
+      "total_stageA": 77.0
+     },
+     "forcedLost": {
+      "stageB": 0.08,
+      "stageBsd": 0.0656,
+      "stageA": 0.15,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.06,
+      "stageBsd": 0.04,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0028,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0028,
+      "total_stageB": 0.0,
+      "total_stageA": 10.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0079,
+      "stageBsd": 0.0019,
+      "stageA": 0.0076,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.7478,
+      "stageBsd": 0.2266,
+      "stageA": 0.7053,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.7478,
+      "stageBsd": 0.2266,
+      "stageA": 0.7053,
+      "total_stageB": 2692.0,
+      "total_stageA": 2539.0
+     },
+     "forcedLost": {
+      "stageB": 0.4386,
+      "stageBsd": 0.1297,
+      "stageA": 0.4064,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.3069,
+      "stageBsd": 0.099,
+      "stageA": 0.2964,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.001,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0072,
+      "stageBsd": 0.0089,
+      "stageA": 0.1025,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0072,
+      "stageBsd": 0.0089,
+      "stageA": 0.1025,
+      "total_stageB": 26.0,
+      "total_stageA": 369.0
+     },
+     "forcedLost": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0008,
+      "stageA": 0.0528,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0058,
+      "stageBsd": 0.0101,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0044,
+      "stageBsd": 0.0063,
+      "stageA": 0.0453,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.1969,
+      "stageBsd": 0.3397,
+      "stageA": 0.0047,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0004,
+      "stageBsd": 0.0003,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0436,
+      "stageBsd": 0.034,
+      "stageA": 0.0892,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0436,
+      "stageBsd": 0.034,
+      "stageA": 0.0892,
+      "total_stageB": 157.0,
+      "total_stageA": 321.0
+     },
+     "forcedLost": {
+      "stageB": 0.025,
+      "stageBsd": 0.0192,
+      "stageA": 0.0461,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0108,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0186,
+      "stageBsd": 0.0148,
+      "stageA": 0.0406,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0214,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0051,
+      "stageBsd": 0.0025,
+      "stageA": 0.0064,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.4628,
+      "stageBsd": 0.2169,
+      "stageA": 0.6003,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.4628,
+      "stageBsd": 0.2169,
+      "stageA": 0.6003,
+      "total_stageB": 1666.0,
+      "total_stageA": 2161.0
+     },
+     "forcedLost": {
+      "stageB": 0.2636,
+      "stageBsd": 0.1259,
+      "stageA": 0.3561,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.01,
+      "stageBsd": 0.0173,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1942,
+      "stageBsd": 0.0957,
+      "stageA": 0.2397,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0142,
+      "stageBsd": 0.0245,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0022,
+      "stageBsd": 0.0019,
+      "stageA": 0.0053,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0022,
+      "stageBsd": 0.0019,
+      "stageA": 0.0053,
+      "total_stageB": 8.0,
+      "total_stageA": 19.0
+     },
+     "forcedLost": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0013,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0014,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0064,
+      "stageBsd": 0.0009,
+      "stageA": 0.0062,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.5689,
+      "stageBsd": 0.0947,
+      "stageA": 0.5314,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.5689,
+      "stageBsd": 0.0947,
+      "stageA": 0.5314,
+      "total_stageB": 2048.0,
+      "total_stageA": 1913.0
+     },
+     "forcedLost": {
+      "stageB": 0.36,
+      "stageBsd": 0.0657,
+      "stageA": 0.3297,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": 1.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2075,
+      "stageBsd": 0.0276,
+      "stageA": 0.2011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0008,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0015,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0147,
+      "stageBsd": 0.0192,
+      "stageA": 0.1719,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0147,
+      "stageBsd": 0.0192,
+      "stageA": 0.1719,
+      "total_stageB": 53.0,
+      "total_stageA": 619.0
+     },
+     "forcedLost": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0013,
+      "stageA": 0.1031,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0122,
+      "stageBsd": 0.0197,
+      "stageA": 0.0075,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0089,
+      "stageBsd": 0.0119,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.1103,
+      "stageBsd": 0.1867,
+      "stageA": 0.0136,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0007,
+      "stageBsd": 0.0009,
+      "stageA": 0.0012,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.1069,
+      "stageBsd": 0.1433,
+      "stageA": 0.1517,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.1069,
+      "stageBsd": 0.1433,
+      "stageA": 0.1517,
+      "total_stageB": 385.0,
+      "total_stageA": 546.0
+     },
+     "forcedLost": {
+      "stageB": 0.0683,
+      "stageBsd": 0.0929,
+      "stageA": 0.0858,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0161,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0386,
+      "stageBsd": 0.0504,
+      "stageA": 0.0631,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0192,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0039,
+      "stageBsd": 0.0012,
+      "stageA": 0.0032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.3111,
+      "stageBsd": 0.0828,
+      "stageA": 0.2381,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.3111,
+      "stageBsd": 0.0828,
+      "stageA": 0.2381,
+      "total_stageB": 1120.0,
+      "total_stageA": 857.0
+     },
+     "forcedLost": {
+      "stageB": 0.1869,
+      "stageBsd": 0.0458,
+      "stageA": 0.1386,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": 1.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.005,
+      "stageBsd": 0.0087,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1203,
+      "stageBsd": 0.0414,
+      "stageA": 0.0992,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.005,
+      "stageBsd": 0.0087,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0065,
+      "stageBsd": 0.0037,
+      "stageA": 0.0052,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.7033,
+      "stageBsd": 0.4215,
+      "stageA": 0.5733,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.7033,
+      "stageBsd": 0.4215,
+      "stageA": 0.5733,
+      "total_stageB": 211.0,
+      "total_stageA": 172.0
+     },
+     "forcedLost": {
+      "stageB": 0.4567,
+      "stageBsd": 0.2706,
+      "stageA": 0.3567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2433,
+      "stageBsd": 0.1457,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0034,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.4133,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.4133,
+      "total_stageB": 1.0,
+      "total_stageA": 124.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.2267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.18,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.15,
+      "stageBsd": 0.2598,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0008,
+      "stageA": 0.0018,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.12,
+      "stageBsd": 0.1153,
+      "stageA": 0.2233,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.12,
+      "stageBsd": 0.1153,
+      "stageA": 0.2233,
+      "total_stageB": 36.0,
+      "total_stageA": 67.0
+     },
+     "forcedLost": {
+      "stageB": 0.08,
+      "stageBsd": 0.0721,
+      "stageA": 0.13,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0133,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.04,
+      "stageBsd": 0.0458,
+      "stageA": 0.0833,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0333,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0015,
+      "stageBsd": 0.0015,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.1767,
+      "stageBsd": 0.175,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.1767,
+      "stageBsd": 0.175,
+      "stageA": 0.0633,
+      "total_stageB": 53.0,
+      "total_stageA": 19.0
+     },
+     "forcedLost": {
+      "stageB": 0.1,
+      "stageBsd": 0.0917,
+      "stageA": 0.0367,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.01,
+      "stageBsd": 0.0173,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0767,
+      "stageBsd": 0.0862,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.01,
+      "stageBsd": 0.0173,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   }
+  },
+  "c250": {
+   "A": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0037,
+      "stageBsd": 0.0009,
+      "stageA": 0.0028,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2867,
+      "stageBsd": 0.0058,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2867,
+      "stageBsd": 0.0058,
+      "stageA": 0.2567,
+      "total_stageB": 86.0,
+      "total_stageA": 77.0
+     },
+     "forcedLost": {
+      "stageB": 0.1567,
+      "stageBsd": 0.0153,
+      "stageA": 0.1467,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.13,
+      "stageBsd": 0.0173,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0011,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0462,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0462,
+      "stageA": 0.0067,
+      "total_stageB": 8.0,
+      "total_stageA": 2.0
+     },
+     "forcedLost": {
+      "stageB": 0.01,
+      "stageBsd": 0.0173,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0167,
+      "stageBsd": 0.0289,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0001,
+      "stageA": 0.0002,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.03,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.03,
+      "total_stageB": 1.0,
+      "total_stageA": 9.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.01,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0133,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0023,
+      "stageBsd": 0.0011,
+      "stageA": 0.0027,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.1967,
+      "stageBsd": 0.0924,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.1967,
+      "stageBsd": 0.0924,
+      "stageA": 0.2567,
+      "total_stageB": 59.0,
+      "total_stageA": 77.0
+     },
+     "forcedLost": {
+      "stageB": 0.11,
+      "stageBsd": 0.0608,
+      "stageA": 0.15,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0867,
+      "stageBsd": 0.0321,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0019,
+      "stageA": 0.0028,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0019,
+      "stageA": 0.0028,
+      "total_stageB": 4.0,
+      "total_stageA": 10.0
+     },
+     "forcedLost": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0014,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0082,
+      "stageBsd": 0.0025,
+      "stageA": 0.0076,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.7364,
+      "stageBsd": 0.2499,
+      "stageA": 0.7053,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.7364,
+      "stageBsd": 0.2499,
+      "stageA": 0.7053,
+      "total_stageB": 2651.0,
+      "total_stageA": 2539.0
+     },
+     "forcedLost": {
+      "stageB": 0.4272,
+      "stageBsd": 0.1464,
+      "stageA": 0.4064,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.3061,
+      "stageBsd": 0.1073,
+      "stageA": 0.2964,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0022,
+      "stageBsd": 0.0027,
+      "stageA": 0.001,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.1181,
+      "stageBsd": 0.118,
+      "stageA": 0.1025,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.1181,
+      "stageBsd": 0.118,
+      "stageA": 0.1025,
+      "total_stageB": 425.0,
+      "total_stageA": 369.0
+     },
+     "forcedLost": {
+      "stageB": 0.0739,
+      "stageBsd": 0.0728,
+      "stageA": 0.0528,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0419,
+      "stageBsd": 0.0428,
+      "stageA": 0.0453,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0047,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0003,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0344,
+      "stageBsd": 0.0341,
+      "stageA": 0.0892,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0344,
+      "stageBsd": 0.0341,
+      "stageA": 0.0892,
+      "total_stageB": 124.0,
+      "total_stageA": 321.0
+     },
+     "forcedLost": {
+      "stageB": 0.0189,
+      "stageBsd": 0.0188,
+      "stageA": 0.0461,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0108,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0133,
+      "stageBsd": 0.016,
+      "stageA": 0.0406,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0214,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0058,
+      "stageBsd": 0.0028,
+      "stageA": 0.0064,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.5525,
+      "stageBsd": 0.2581,
+      "stageA": 0.6003,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.5525,
+      "stageBsd": 0.2581,
+      "stageA": 0.6003,
+      "total_stageB": 1989.0,
+      "total_stageA": 2161.0
+     },
+     "forcedLost": {
+      "stageB": 0.3219,
+      "stageBsd": 0.1491,
+      "stageA": 0.3561,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0006,
+      "stageBsd": 0.001,
+      "stageA": 0.0,
+      "total_stageB": 2.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0131,
+      "stageBsd": 0.0226,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2236,
+      "stageBsd": 0.1143,
+      "stageA": 0.2397,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0169,
+      "stageBsd": 0.0293,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0014,
+      "stageA": 0.0053,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0014,
+      "stageA": 0.0053,
+      "total_stageB": 3.0,
+      "total_stageA": 19.0
+     },
+     "forcedLost": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0006,
+      "stageBsd": 0.001,
+      "stageA": 0.0014,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0014,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0081,
+      "stageBsd": 0.0019,
+      "stageA": 0.0062,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.695,
+      "stageBsd": 0.0033,
+      "stageA": 0.5314,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.695,
+      "stageBsd": 0.0033,
+      "stageA": 0.5314,
+      "total_stageB": 2502.0,
+      "total_stageA": 1913.0
+     },
+     "forcedLost": {
+      "stageB": 0.4406,
+      "stageBsd": 0.0043,
+      "stageA": 0.3297,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": 1.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2528,
+      "stageBsd": 0.0053,
+      "stageA": 0.2011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0023,
+      "stageBsd": 0.0026,
+      "stageA": 0.0015,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.135,
+      "stageBsd": 0.1371,
+      "stageA": 0.1719,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.135,
+      "stageBsd": 0.1371,
+      "stageA": 0.1719,
+      "total_stageB": 486.0,
+      "total_stageA": 619.0
+     },
+     "forcedLost": {
+      "stageB": 0.0889,
+      "stageBsd": 0.0918,
+      "stageA": 0.1031,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0075,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0433,
+      "stageBsd": 0.0433,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0136,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0006,
+      "stageA": 0.0012,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0836,
+      "stageBsd": 0.0779,
+      "stageA": 0.1517,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0836,
+      "stageBsd": 0.0779,
+      "stageA": 0.1517,
+      "total_stageB": 301.0,
+      "total_stageA": 546.0
+     },
+     "forcedLost": {
+      "stageB": 0.0558,
+      "stageBsd": 0.0514,
+      "stageA": 0.0858,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0161,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0239,
+      "stageBsd": 0.027,
+      "stageA": 0.0631,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0192,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0042,
+      "stageBsd": 0.001,
+      "stageA": 0.0032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.3542,
+      "stageBsd": 0.0734,
+      "stageA": 0.2381,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.3542,
+      "stageBsd": 0.0734,
+      "stageA": 0.2381,
+      "total_stageB": 1275.0,
+      "total_stageA": 857.0
+     },
+     "forcedLost": {
+      "stageB": 0.2214,
+      "stageBsd": 0.0445,
+      "stageA": 0.1386,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0019,
+      "stageA": 0.0006,
+      "total_stageB": 4.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0067,
+      "stageBsd": 0.0115,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1281,
+      "stageBsd": 0.0402,
+      "stageA": 0.0992,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0058,
+      "stageBsd": 0.0101,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0088,
+      "stageBsd": 0.0017,
+      "stageA": 0.0052,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.9133,
+      "stageBsd": 0.0252,
+      "stageA": 0.5733,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.9133,
+      "stageBsd": 0.0252,
+      "stageA": 0.5733,
+      "total_stageB": 274.0,
+      "total_stageA": 172.0
+     },
+     "forcedLost": {
+      "stageB": 0.5933,
+      "stageBsd": 0.0473,
+      "stageA": 0.3567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.32,
+      "stageBsd": 0.0265,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0041,
+      "stageBsd": 0.0047,
+      "stageA": 0.0034,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2914,
+      "stageA": 0.4133,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2914,
+      "stageA": 0.4133,
+      "total_stageB": 88.0,
+      "total_stageA": 124.0
+     },
+     "forcedLost": {
+      "stageB": 0.2033,
+      "stageBsd": 0.195,
+      "stageA": 0.2267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.09,
+      "stageBsd": 0.0985,
+      "stageA": 0.18,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0017,
+      "stageBsd": 0.0017,
+      "stageA": 0.0018,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2067,
+      "stageBsd": 0.2101,
+      "stageA": 0.2233,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2067,
+      "stageBsd": 0.2101,
+      "stageA": 0.2233,
+      "total_stageB": 62.0,
+      "total_stageA": 67.0
+     },
+     "forcedLost": {
+      "stageB": 0.1333,
+      "stageBsd": 0.1301,
+      "stageA": 0.13,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0133,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0567,
+      "stageBsd": 0.0737,
+      "stageA": 0.0833,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0333,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0025,
+      "stageBsd": 0.0021,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2558,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2558,
+      "stageA": 0.0633,
+      "total_stageB": 88.0,
+      "total_stageA": 19.0
+     },
+     "forcedLost": {
+      "stageB": 0.1733,
+      "stageBsd": 0.1504,
+      "stageA": 0.0367,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0231,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.12,
+      "stageBsd": 0.1058,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0167,
+      "stageBsd": 0.0289,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   }
+  },
+  "c500": {
+   "A": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0012,
+      "stageA": 0.0032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2627,
+      "stageBsd": 0.0893,
+      "stageA": 0.25,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2627,
+      "stageBsd": 0.0893,
+      "stageA": 0.25,
+      "total_stageB": 394.0,
+      "total_stageA": 375.0
+     },
+     "forcedLost": {
+      "stageB": 0.1393,
+      "stageBsd": 0.0477,
+      "stageA": 0.1353,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.122,
+      "stageBsd": 0.042,
+      "stageA": 0.1147,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0001,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0293,
+      "stageBsd": 0.0393,
+      "stageA": 0.0147,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0293,
+      "stageBsd": 0.0393,
+      "stageA": 0.0147,
+      "total_stageB": 44.0,
+      "total_stageA": 22.0
+     },
+     "forcedLost": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0046,
+      "stageA": 0.0047,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0247,
+      "stageBsd": 0.0427,
+      "stageA": 0.002,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.012,
+      "stageBsd": 0.0159,
+      "stageA": 0.01,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.2327,
+      "stageBsd": 0.403,
+      "stageA": 0.0027,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0087,
+      "stageBsd": 0.0042,
+      "stageA": 0.0353,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0087,
+      "stageBsd": 0.0042,
+      "stageA": 0.0353,
+      "total_stageB": 13.0,
+      "total_stageA": 53.0
+     },
+     "forcedLost": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0012,
+      "stageA": 0.016,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0047,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0031,
+      "stageA": 0.0193,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0093,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0014,
+      "stageBsd": 0.001,
+      "stageA": 0.0027,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.13,
+      "stageBsd": 0.0867,
+      "stageA": 0.226,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.13,
+      "stageBsd": 0.0867,
+      "stageA": 0.226,
+      "total_stageB": 195.0,
+      "total_stageA": 339.0
+     },
+     "forcedLost": {
+      "stageB": 0.0673,
+      "stageBsd": 0.0427,
+      "stageA": 0.1193,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0627,
+      "stageBsd": 0.0441,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0007,
+      "stageBsd": 0.0012,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0011,
+      "stageA": 0.0019,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0011,
+      "stageA": 0.0019,
+      "total_stageB": 19.0,
+      "total_stageA": 34.0
+     },
+     "forcedLost": {
+      "stageB": 0.0004,
+      "stageBsd": 0.0006,
+      "stageA": 0.0004,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0003,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0003,
+      "stageA": 0.0002,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0069,
+      "stageBsd": 0.0013,
+      "stageA": 0.0079,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.6166,
+      "stageBsd": 0.131,
+      "stageA": 0.7072,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.6166,
+      "stageBsd": 0.131,
+      "stageA": 0.7072,
+      "total_stageB": 11099.0,
+      "total_stageA": 12730.0
+     },
+     "forcedLost": {
+      "stageB": 0.3416,
+      "stageBsd": 0.0703,
+      "stageA": 0.3911,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2732,
+      "stageBsd": 0.0629,
+      "stageA": 0.3143,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0013,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0192,
+      "stageBsd": 0.0188,
+      "stageA": 0.1161,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0192,
+      "stageBsd": 0.0188,
+      "stageA": 0.1161,
+      "total_stageB": 345.0,
+      "total_stageA": 2090.0
+     },
+     "forcedLost": {
+      "stageB": 0.0038,
+      "stageBsd": 0.0064,
+      "stageA": 0.0641,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.013,
+      "stageBsd": 0.0221,
+      "stageA": 0.0032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.006,
+      "stageBsd": 0.0052,
+      "stageA": 0.0476,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.2006,
+      "stageBsd": 0.3469,
+      "stageA": 0.0049,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0001,
+      "stageA": 0.0009,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0259,
+      "stageBsd": 0.0114,
+      "stageA": 0.1086,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0259,
+      "stageBsd": 0.0114,
+      "stageA": 0.1086,
+      "total_stageB": 466.0,
+      "total_stageA": 1955.0
+     },
+     "forcedLost": {
+      "stageB": 0.0143,
+      "stageBsd": 0.0067,
+      "stageA": 0.0564,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0002,
+      "total_stageB": 0.0,
+      "total_stageA": 3.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0102,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0115,
+      "stageBsd": 0.0046,
+      "stageA": 0.0487,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0195,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0046,
+      "stageBsd": 0.0033,
+      "stageA": 0.0059,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.4579,
+      "stageBsd": 0.2978,
+      "stageA": 0.5341,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.4579,
+      "stageBsd": 0.2978,
+      "stageA": 0.5341,
+      "total_stageB": 8242.0,
+      "total_stageA": 9613.0
+     },
+     "forcedLost": {
+      "stageB": 0.2559,
+      "stageBsd": 0.1653,
+      "stageA": 0.2973,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0,
+      "total_stageB": 1.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0045,
+      "stageA": 0.0001,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1986,
+      "stageBsd": 0.1319,
+      "stageA": 0.2347,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0056,
+      "stageA": 0.0001,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0035,
+      "stageBsd": 0.0056,
+      "stageA": 0.0048,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0035,
+      "stageBsd": 0.0056,
+      "stageA": 0.0048,
+      "total_stageB": 63.0,
+      "total_stageA": 87.0
+     },
+     "forcedLost": {
+      "stageB": 0.0022,
+      "stageBsd": 0.0037,
+      "stageA": 0.0022,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0012,
+      "stageBsd": 0.0019,
+      "stageA": 0.0015,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0003,
+      "stageA": 0.0018,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0074,
+      "stageBsd": 0.0011,
+      "stageA": 0.0062,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.6574,
+      "stageBsd": 0.0202,
+      "stageA": 0.5088,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.6574,
+      "stageBsd": 0.0202,
+      "stageA": 0.5088,
+      "total_stageB": 11834.0,
+      "total_stageA": 9159.0
+     },
+     "forcedLost": {
+      "stageB": 0.3984,
+      "stageBsd": 0.0119,
+      "stageA": 0.3032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0002,
+      "stageA": 0.0004,
+      "total_stageB": 5.0,
+      "total_stageA": 8.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0004,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2567,
+      "stageBsd": 0.0116,
+      "stageA": 0.2035,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0003,
+      "stageA": 0.0005,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0002,
+      "stageA": 0.0018,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0609,
+      "stageBsd": 0.0895,
+      "stageA": 0.1859,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0609,
+      "stageBsd": 0.0895,
+      "stageA": 0.1859,
+      "total_stageB": 1096.0,
+      "total_stageA": 3347.0
+     },
+     "forcedLost": {
+      "stageB": 0.0064,
+      "stageBsd": 0.0021,
+      "stageA": 0.1103,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0002,
+      "total_stageB": 1.0,
+      "total_stageA": 3.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0551,
+      "stageBsd": 0.0943,
+      "stageA": 0.0063,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0186,
+      "stageBsd": 0.0264,
+      "stageA": 0.0691,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.1172,
+      "stageBsd": 0.2019,
+      "stageA": 0.0101,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0001,
+      "stageA": 0.0013,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0428,
+      "stageBsd": 0.0289,
+      "stageA": 0.1622,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0428,
+      "stageBsd": 0.0289,
+      "stageA": 0.1622,
+      "total_stageB": 771.0,
+      "total_stageA": 2920.0
+     },
+     "forcedLost": {
+      "stageB": 0.0257,
+      "stageBsd": 0.018,
+      "stageA": 0.0904,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0007,
+      "total_stageB": 0.0,
+      "total_stageA": 12.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0143,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0167,
+      "stageBsd": 0.0107,
+      "stageA": 0.069,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0193,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0035,
+      "stageBsd": 0.0022,
+      "stageA": 0.0032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.3158,
+      "stageBsd": 0.2031,
+      "stageA": 0.2302,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.3158,
+      "stageBsd": 0.2031,
+      "stageA": 0.2302,
+      "total_stageB": 5685.0,
+      "total_stageA": 4144.0
+     },
+     "forcedLost": {
+      "stageB": 0.1897,
+      "stageBsd": 0.1283,
+      "stageA": 0.1273,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0002,
+      "stageA": 0.0002,
+      "total_stageB": 6.0,
+      "total_stageA": 4.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0016,
+      "stageA": 0.0002,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1212,
+      "stageBsd": 0.0753,
+      "stageA": 0.1013,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0016,
+      "stageA": 0.0002,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0092,
+      "stageA": 0.0013,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0092,
+      "stageA": 0.0013,
+      "total_stageB": 8.0,
+      "total_stageA": 2.0
+     },
+     "forcedLost": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.002,
+      "stageBsd": 0.0035,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0094,
+      "stageBsd": 0.0016,
+      "stageA": 0.0051,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 1.0413,
+      "stageBsd": 0.1034,
+      "stageA": 0.5613,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 1.0413,
+      "stageBsd": 0.1034,
+      "stageA": 0.5613,
+      "total_stageB": 1562.0,
+      "total_stageA": 842.0
+     },
+     "forcedLost": {
+      "stageB": 0.6307,
+      "stageBsd": 0.09,
+      "stageA": 0.3333,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.4107,
+      "stageBsd": 0.0208,
+      "stageA": 0.228,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0038,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0213,
+      "stageBsd": 0.0232,
+      "stageA": 0.4293,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0213,
+      "stageBsd": 0.0232,
+      "stageA": 0.4293,
+      "total_stageB": 32.0,
+      "total_stageA": 644.0
+     },
+     "forcedLost": {
+      "stageB": 0.004,
+      "stageBsd": 0.0069,
+      "stageA": 0.2473,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0153,
+      "stageBsd": 0.0266,
+      "stageA": 0.016,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.004,
+      "stageBsd": 0.0035,
+      "stageA": 0.1633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.1087,
+      "stageBsd": 0.1882,
+      "stageA": 0.0253,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0002,
+      "stageA": 0.0024,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0327,
+      "stageBsd": 0.0283,
+      "stageA": 0.2867,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0327,
+      "stageBsd": 0.0283,
+      "stageA": 0.2867,
+      "total_stageB": 49.0,
+      "total_stageA": 430.0
+     },
+     "forcedLost": {
+      "stageB": 0.0187,
+      "stageBsd": 0.0163,
+      "stageA": 0.18,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0007,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0107,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.014,
+      "stageBsd": 0.0125,
+      "stageA": 0.0973,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.026,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0028,
+      "stageBsd": 0.0027,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.3367,
+      "stageBsd": 0.3196,
+      "stageA": 0.068,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.3367,
+      "stageBsd": 0.3196,
+      "stageA": 0.068,
+      "total_stageB": 505.0,
+      "total_stageA": 102.0
+     },
+     "forcedLost": {
+      "stageB": 0.1953,
+      "stageBsd": 0.192,
+      "stageA": 0.0407,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0046,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.14,
+      "stageBsd": 0.1277,
+      "stageA": 0.0273,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0046,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   }
+  },
+  "c500_first100": {
+   "A": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0011,
+      "stageA": 0.0028,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.2667,
+      "stageBsd": 0.1193,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.2667,
+      "stageBsd": 0.1193,
+      "stageA": 0.2567,
+      "total_stageB": 80.0,
+      "total_stageA": 77.0
+     },
+     "forcedLost": {
+      "stageB": 0.1433,
+      "stageBsd": 0.0808,
+      "stageA": 0.1467,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1233,
+      "stageBsd": 0.0404,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.23,
+      "stageBsd": 0.3984,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0002,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0067,
+      "stageBsd": 0.0115,
+      "stageA": 0.03,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0067,
+      "stageBsd": 0.0115,
+      "stageA": 0.03,
+      "total_stageB": 2.0,
+      "total_stageA": 9.0
+     },
+     "forcedLost": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.01,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0133,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0016,
+      "stageBsd": 0.0013,
+      "stageA": 0.0027,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.1633,
+      "stageBsd": 0.1097,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.1633,
+      "stageBsd": 0.1097,
+      "stageA": 0.2567,
+      "total_stageB": 49.0,
+      "total_stageA": 77.0
+     },
+     "forcedLost": {
+      "stageB": 0.0867,
+      "stageBsd": 0.0611,
+      "stageA": 0.15,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0767,
+      "stageBsd": 0.0493,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0028,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0028,
+      "total_stageB": 1.0,
+      "total_stageA": 10.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.007,
+      "stageBsd": 0.0018,
+      "stageA": 0.0076,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.6525,
+      "stageBsd": 0.162,
+      "stageA": 0.7053,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.6525,
+      "stageBsd": 0.162,
+      "stageA": 0.7053,
+      "total_stageB": 2349.0,
+      "total_stageA": 2539.0
+     },
+     "forcedLost": {
+      "stageB": 0.3792,
+      "stageBsd": 0.1014,
+      "stageA": 0.4064,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2722,
+      "stageBsd": 0.0634,
+      "stageA": 0.2964,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.001,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0183,
+      "stageBsd": 0.0176,
+      "stageA": 0.1025,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0183,
+      "stageBsd": 0.0176,
+      "stageA": 0.1025,
+      "total_stageB": 66.0,
+      "total_stageA": 369.0
+     },
+     "forcedLost": {
+      "stageB": 0.0039,
+      "stageBsd": 0.0067,
+      "stageA": 0.0528,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0119,
+      "stageBsd": 0.02,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0039,
+      "stageBsd": 0.0038,
+      "stageA": 0.0453,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.1842,
+      "stageBsd": 0.3183,
+      "stageA": 0.0047,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0001,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0269,
+      "stageBsd": 0.0118,
+      "stageA": 0.0892,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0269,
+      "stageBsd": 0.0118,
+      "stageA": 0.0892,
+      "total_stageB": 97.0,
+      "total_stageA": 321.0
+     },
+     "forcedLost": {
+      "stageB": 0.0156,
+      "stageBsd": 0.0072,
+      "stageA": 0.0461,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0108,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0114,
+      "stageBsd": 0.0055,
+      "stageA": 0.0406,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0214,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0049,
+      "stageBsd": 0.0033,
+      "stageA": 0.0064,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.5042,
+      "stageBsd": 0.3095,
+      "stageA": 0.6003,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.5042,
+      "stageBsd": 0.3095,
+      "stageA": 0.6003,
+      "total_stageB": 1815.0,
+      "total_stageA": 2161.0
+     },
+     "forcedLost": {
+      "stageB": 0.2928,
+      "stageBsd": 0.1768,
+      "stageA": 0.3561,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0084,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2053,
+      "stageBsd": 0.1316,
+      "stageA": 0.2397,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0067,
+      "stageBsd": 0.0108,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0044,
+      "stageBsd": 0.0077,
+      "stageA": 0.0053,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0044,
+      "stageBsd": 0.0077,
+      "stageA": 0.0053,
+      "total_stageB": 16.0,
+      "total_stageA": 19.0
+     },
+     "forcedLost": {
+      "stageB": 0.0031,
+      "stageBsd": 0.0053,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0014,
+      "stageBsd": 0.0024,
+      "stageA": 0.0014,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0079,
+      "stageBsd": 0.0012,
+      "stageA": 0.0062,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.7347,
+      "stageBsd": 0.0177,
+      "stageA": 0.5314,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.7347,
+      "stageBsd": 0.0177,
+      "stageA": 0.5314,
+      "total_stageB": 2645.0,
+      "total_stageA": 1913.0
+     },
+     "forcedLost": {
+      "stageB": 0.4681,
+      "stageBsd": 0.017,
+      "stageA": 0.3297,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": 2.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.2647,
+      "stageBsd": 0.0042,
+      "stageA": 0.2011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0001,
+      "stageA": 0.0015,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0583,
+      "stageBsd": 0.0831,
+      "stageA": 0.1719,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0583,
+      "stageBsd": 0.0831,
+      "stageA": 0.1719,
+      "total_stageB": 210.0,
+      "total_stageA": 619.0
+     },
+     "forcedLost": {
+      "stageB": 0.0097,
+      "stageBsd": 0.0063,
+      "stageA": 0.1031,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0517,
+      "stageBsd": 0.0888,
+      "stageA": 0.0075,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0153,
+      "stageBsd": 0.0229,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0992,
+      "stageBsd": 0.171,
+      "stageA": 0.0136,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0001,
+      "stageA": 0.0012,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0406,
+      "stageBsd": 0.0304,
+      "stageA": 0.1517,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0406,
+      "stageBsd": 0.0304,
+      "stageA": 0.1517,
+      "total_stageB": 146.0,
+      "total_stageA": 546.0
+     },
+     "forcedLost": {
+      "stageB": 0.0256,
+      "stageBsd": 0.0188,
+      "stageA": 0.0858,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0161,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0147,
+      "stageBsd": 0.0112,
+      "stageA": 0.0631,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0192,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0034,
+      "stageBsd": 0.0022,
+      "stageA": 0.0032,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.3178,
+      "stageBsd": 0.1983,
+      "stageA": 0.2381,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.3178,
+      "stageBsd": 0.1983,
+      "stageA": 0.2381,
+      "total_stageB": 1144.0,
+      "total_stageA": 857.0
+     },
+     "forcedLost": {
+      "stageB": 0.2011,
+      "stageBsd": 0.1291,
+      "stageA": 0.1386,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": 2.0,
+      "total_stageA": 2.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0014,
+      "stageBsd": 0.0017,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.1136,
+      "stageBsd": 0.0701,
+      "stageA": 0.0992,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0014,
+      "stageBsd": 0.0017,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "a2c": {
+     "shieldRate": {
+      "stageB": 0.0099,
+      "stageBsd": 0.0032,
+      "stageA": 0.0052,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 1.12,
+      "stageBsd": 0.2706,
+      "stageA": 0.5733,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 1.12,
+      "stageBsd": 0.2706,
+      "stageA": 0.5733,
+      "total_stageB": 336.0,
+      "total_stageA": 172.0
+     },
+     "forcedLost": {
+      "stageB": 0.7033,
+      "stageBsd": 0.2155,
+      "stageA": 0.3567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.4167,
+      "stageBsd": 0.0551,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "d3qn": {
+     "shieldRate": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0034,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.4133,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.4133,
+      "total_stageB": 1.0,
+      "total_stageA": 124.0
+     },
+     "forcedLost": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.2267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.18,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0933,
+      "stageBsd": 0.1617,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "qrdqn": {
+     "shieldRate": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0002,
+      "stageA": 0.0018,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0306,
+      "stageA": 0.2233,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0306,
+      "stageA": 0.2233,
+      "total_stageB": 8.0,
+      "total_stageA": 67.0
+     },
+     "forcedLost": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0153,
+      "stageA": 0.13,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0133,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0153,
+      "stageA": 0.0833,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0333,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    },
+    "es": {
+     "shieldRate": {
+      "stageB": 0.0031,
+      "stageBsd": 0.0031,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "shieldActivations": {
+      "stageB": 0.3933,
+      "stageBsd": 0.3853,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forced": {
+      "stageB": 0.3933,
+      "stageBsd": 0.3853,
+      "stageA": 0.0633,
+      "total_stageB": 118.0,
+      "total_stageA": 19.0
+     },
+     "forcedLost": {
+      "stageB": 0.2433,
+      "stageBsd": 0.2558,
+      "stageA": 0.0367,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "finalPath": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "reauctionForced": {
+      "stageB": 0.01,
+      "stageBsd": 0.0173,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqClosedForced": {
+      "stageB": 0.15,
+      "stageBsd": 0.1345,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "anyReqReauction": {
+      "stageB": 0.01,
+      "stageBsd": 0.0173,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     }
+    }
+   }
+  }
+ },
+ "decisionLevel_c500_40entries": {
+  "A": {
+   "ppo": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0417,
+     "stageBsd": 0.0722,
+     "stageA": 0.025,
+     "pairedDiff": 0.0167,
+     "totalB": 5.0,
+     "totalA": 3.0
+    }
+   },
+   "a2c": {
+    "forcedDecisionShare": {
+     "stageB": 0.0036,
+     "stageBsd": 0.0015,
+     "stageA": 0.0031,
+     "pairedDiff": 0.0005,
+     "totalB": 0.4,
+     "totalA": 0.4
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0083,
+     "pairedDiff": -0.0083,
+     "totalB": 0.0,
+     "totalA": 1.0
+    }
+   },
+   "d3qn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0001,
+     "stageBsd": 0.0002,
+     "stageA": 0.0,
+     "pairedDiff": 0.0001,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0417,
+     "stageBsd": 0.0722,
+     "stageA": 0.0,
+     "pairedDiff": 0.0417,
+     "totalB": 5.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.6168,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 1.9,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 3.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.025,
+     "stageBsd": 0.0433,
+     "stageA": 0.0,
+     "pairedDiff": 0.025,
+     "totalB": 3.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    }
+   },
+   "qrdqn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0002,
+     "pairedDiff": -0.0002,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0043,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    }
+   },
+   "es": {
+    "forcedDecisionShare": {
+     "stageB": 0.0011,
+     "stageBsd": 0.001,
+     "stageA": 0.0013,
+     "pairedDiff": -0.0003,
+     "totalB": 0.1,
+     "totalA": 0.2
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0144,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    }
+   }
+  },
+  "C1": {
+   "ppo": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": -0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0424,
+     "stageBsd": 0.056,
+     "stageA": 0.0361,
+     "pairedDiff": 0.0063,
+     "totalB": 61.0,
+     "totalA": 52.0
+    }
+   },
+   "a2c": {
+    "forcedDecisionShare": {
+     "stageB": 0.006,
+     "stageBsd": 0.0013,
+     "stageA": 0.0072,
+     "pairedDiff": -0.0012,
+     "totalB": 8.6,
+     "totalA": 10.4
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0007,
+     "pairedDiff": -0.0007,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.003,
+     "stageBsd": 0.0002,
+     "stageA": 0.0035,
+     "pairedDiff": 0.0,
+     "totalB": 0.1,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.7523,
+     "stageBsd": 0.0,
+     "stageA": 0.7523,
+     "pairedDiff": 0.0,
+     "totalB": 15.0,
+     "totalA": 13.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0139,
+     "stageBsd": 0.0052,
+     "stageA": 0.0125,
+     "pairedDiff": 0.0014,
+     "totalB": 20.0,
+     "totalA": 18.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0104,
+     "stageBsd": 0.0055,
+     "stageA": 0.0208,
+     "pairedDiff": -0.0104,
+     "totalB": 15.0,
+     "totalA": 30.0
+    }
+   },
+   "d3qn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0007,
+     "pairedDiff": -0.0007,
+     "totalB": 0.0,
+     "totalA": 1.1
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0028,
+     "stageBsd": 0.0048,
+     "stageA": 0.0021,
+     "pairedDiff": 0.0007,
+     "totalB": 4.0,
+     "totalA": 3.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.6065,
+     "stageBsd": null,
+     "stageA": 0.0035,
+     "pairedDiff": null,
+     "totalB": 1.8,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": null,
+     "stageA": 0.7936,
+     "pairedDiff": null,
+     "totalB": 3.0,
+     "totalA": 4.8
+    },
+    "reachedCritical": {
+     "stageB": 0.0021,
+     "stageBsd": 0.0036,
+     "stageA": 0.0042,
+     "pairedDiff": -0.0021,
+     "totalB": 3.0,
+     "totalA": 6.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0271,
+     "stageBsd": 0.0399,
+     "stageA": 0.0056,
+     "pairedDiff": 0.0215,
+     "totalB": 39.0,
+     "totalA": 8.0
+    }
+   },
+   "qrdqn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0001,
+     "stageBsd": 0.0001,
+     "stageA": 0.0004,
+     "pairedDiff": -0.0003,
+     "totalB": 0.2,
+     "totalA": 0.6
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0007,
+     "pairedDiff": -0.0007,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0146,
+     "pairedDiff": -0.0146,
+     "totalB": 0.0,
+     "totalA": 21.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0043,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 18.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0125,
+     "pairedDiff": -0.0125,
+     "totalB": 0.0,
+     "totalA": 18.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0056,
+     "stageBsd": 0.0052,
+     "stageA": 0.0118,
+     "pairedDiff": -0.0063,
+     "totalB": 8.0,
+     "totalA": 17.0
+    }
+   },
+   "es": {
+    "forcedDecisionShare": {
+     "stageB": 0.0042,
+     "stageBsd": 0.003,
+     "stageA": 0.0046,
+     "pairedDiff": -0.0004,
+     "totalB": 6.0,
+     "totalA": 6.6
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0007,
+     "stageBsd": 0.0012,
+     "stageA": 0.0,
+     "pairedDiff": 0.0007,
+     "totalB": 1.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0069,
+     "stageBsd": 0.012,
+     "stageA": 0.0007,
+     "pairedDiff": 0.0063,
+     "totalB": 10.0,
+     "totalA": 1.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0025,
+     "stageBsd": 0.0012,
+     "stageA": 0.0035,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.8665,
+     "stageBsd": 0.0862,
+     "stageA": 0.7688,
+     "pairedDiff": 0.0,
+     "totalB": 14.7,
+     "totalA": 11.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0118,
+     "stageBsd": 0.0134,
+     "stageA": 0.0104,
+     "pairedDiff": 0.0014,
+     "totalB": 17.0,
+     "totalA": 15.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0146,
+     "stageBsd": 0.0095,
+     "stageA": 0.0104,
+     "pairedDiff": 0.0042,
+     "totalB": 21.0,
+     "totalA": 15.0
+    }
+   }
+  },
+  "C4": {
+   "ppo": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.2236,
+     "stageBsd": 0.2115,
+     "stageA": 0.1174,
+     "pairedDiff": 0.1062,
+     "totalB": 322.0,
+     "totalA": 169.0
+    }
+   },
+   "a2c": {
+    "forcedDecisionShare": {
+     "stageB": 0.0067,
+     "stageBsd": 0.0019,
+     "stageA": 0.0062,
+     "pairedDiff": 0.0005,
+     "totalB": 9.7,
+     "totalA": 8.9
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0014,
+     "stageBsd": 0.0012,
+     "stageA": 0.0035,
+     "pairedDiff": -0.0021,
+     "totalB": 2.0,
+     "totalA": 5.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0056,
+     "stageBsd": 0.0043,
+     "stageA": 0.0139,
+     "pairedDiff": -0.0083,
+     "totalB": 8.0,
+     "totalA": 20.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0031,
+     "stageBsd": 0.0005,
+     "stageA": 0.002,
+     "pairedDiff": 0.0,
+     "totalB": 0.1,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.8036,
+     "stageBsd": 0.0179,
+     "stageA": 0.8812,
+     "pairedDiff": 0.0,
+     "totalB": 14.5,
+     "totalA": 11.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0125,
+     "stageBsd": 0.0042,
+     "stageA": 0.009,
+     "pairedDiff": 0.0035,
+     "totalB": 18.0,
+     "totalA": 13.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0299,
+     "stageBsd": 0.0067,
+     "stageA": 0.0201,
+     "pairedDiff": 0.0097,
+     "totalB": 43.0,
+     "totalA": 29.0
+    }
+   },
+   "d3qn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0002,
+     "stageBsd": 0.0002,
+     "stageA": 0.0014,
+     "pairedDiff": -0.0012,
+     "totalB": 0.3,
+     "totalA": 2.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0604,
+     "stageBsd": 0.1028,
+     "stageA": 0.0056,
+     "pairedDiff": 0.0549,
+     "totalB": 87.0,
+     "totalA": 8.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.6053,
+     "stageBsd": 0.4381,
+     "stageA": 0.0031,
+     "pairedDiff": null,
+     "totalB": 23.6,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": 0.0,
+     "stageA": 0.9498,
+     "pairedDiff": null,
+     "totalB": 39.0,
+     "totalA": 8.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0271,
+     "stageBsd": 0.0451,
+     "stageA": 0.0063,
+     "pairedDiff": 0.0208,
+     "totalB": 39.0,
+     "totalA": 9.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.1215,
+     "stageBsd": 0.1997,
+     "stageA": 0.0146,
+     "pairedDiff": 0.1069,
+     "totalB": 175.0,
+     "totalA": 21.0
+    }
+   },
+   "qrdqn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0003,
+     "stageBsd": 0.0002,
+     "stageA": 0.0013,
+     "pairedDiff": -0.0011,
+     "totalB": 0.4,
+     "totalA": 1.9
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0035,
+     "pairedDiff": -0.0035,
+     "totalB": 0.0,
+     "totalA": 5.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0007,
+     "stageBsd": 0.0012,
+     "stageA": 0.0222,
+     "pairedDiff": -0.0215,
+     "totalB": 1.0,
+     "totalA": 32.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0044,
+     "stageBsd": null,
+     "stageA": 0.0058,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.7539,
+     "stageBsd": null,
+     "stageA": 0.9975,
+     "pairedDiff": null,
+     "totalB": 1.5,
+     "totalA": 23.9
+    },
+    "reachedCritical": {
+     "stageB": 0.0014,
+     "stageBsd": 0.0024,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0153,
+     "totalB": 2.0,
+     "totalA": 24.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0271,
+     "stageBsd": 0.0157,
+     "stageA": 0.0222,
+     "pairedDiff": 0.0049,
+     "totalB": 39.0,
+     "totalA": 32.0
+    }
+   },
+   "es": {
+    "forcedDecisionShare": {
+     "stageB": 0.0034,
+     "stageBsd": 0.0019,
+     "stageA": 0.003,
+     "pairedDiff": 0.0004,
+     "totalB": 4.8,
+     "totalA": 4.3
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0007,
+     "stageBsd": 0.0012,
+     "stageA": 0.0021,
+     "pairedDiff": -0.0014,
+     "totalB": 1.0,
+     "totalA": 3.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.009,
+     "stageBsd": 0.0122,
+     "stageA": 0.0069,
+     "pairedDiff": 0.0021,
+     "totalB": 13.0,
+     "totalA": 10.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0016,
+     "stageBsd": 0.0008,
+     "stageA": 0.0023,
+     "pairedDiff": 0.0002,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.9421,
+     "stageBsd": 0.1014,
+     "stageA": 0.8975,
+     "pairedDiff": 0.0077,
+     "totalB": 12.2,
+     "totalA": 8.1
+    },
+    "reachedCritical": {
+     "stageB": 0.009,
+     "stageBsd": 0.0107,
+     "stageA": 0.0063,
+     "pairedDiff": 0.0028,
+     "totalB": 13.0,
+     "totalA": 9.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0201,
+     "stageBsd": 0.0156,
+     "stageA": 0.0271,
+     "pairedDiff": -0.0069,
+     "totalB": 29.0,
+     "totalA": 39.0
+    }
+   }
+  },
+  "S4": {
+   "ppo": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.2333,
+     "stageBsd": 0.2962,
+     "stageA": 0.1833,
+     "pairedDiff": 0.05,
+     "totalB": 28.0,
+     "totalA": 22.0
+    }
+   },
+   "a2c": {
+    "forcedDecisionShare": {
+     "stageB": 0.0092,
+     "stageBsd": 0.0022,
+     "stageA": 0.0047,
+     "pairedDiff": 0.0045,
+     "totalB": 1.1,
+     "totalA": 0.6
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0083,
+     "stageBsd": 0.0144,
+     "stageA": 0.0,
+     "pairedDiff": 0.0083,
+     "totalB": 1.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0022,
+     "stageBsd": 0.0015,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.7523,
+     "stageBsd": 0.0,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 1.5,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0144,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0417,
+     "stageBsd": 0.0144,
+     "stageA": 0.025,
+     "pairedDiff": 0.0167,
+     "totalB": 5.0,
+     "totalA": 3.0
+    }
+   },
+   "d3qn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0019,
+     "pairedDiff": -0.0019,
+     "totalB": 0.0,
+     "totalA": 0.2
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0333,
+     "pairedDiff": -0.0333,
+     "totalB": 0.0,
+     "totalA": 4.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0013,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0083,
+     "pairedDiff": -0.0083,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.1333,
+     "stageBsd": 0.2309,
+     "stageA": 0.05,
+     "pairedDiff": 0.0833,
+     "totalB": 16.0,
+     "totalA": 6.0
+    }
+   },
+   "qrdqn": {
+    "forcedDecisionShare": {
+     "stageB": 0.0001,
+     "stageBsd": 0.0001,
+     "stageA": 0.0019,
+     "pairedDiff": -0.0018,
+     "totalB": 0.0,
+     "totalA": 0.2
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0063,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0583,
+     "pairedDiff": -0.0583,
+     "totalB": 0.0,
+     "totalA": 7.0
+    }
+   },
+   "es": {
+    "forcedDecisionShare": {
+     "stageB": 0.0022,
+     "stageBsd": 0.0027,
+     "stageA": 0.0001,
+     "pairedDiff": 0.002,
+     "totalB": 0.3,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0012,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0333,
+     "stageBsd": 0.0289,
+     "stageA": 0.0167,
+     "pairedDiff": 0.0167,
+     "totalB": 4.0,
+     "totalA": 2.0
+    }
+   }
+  }
+ }
+}

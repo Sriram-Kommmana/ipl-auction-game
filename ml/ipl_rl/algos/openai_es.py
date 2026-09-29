@@ -61,6 +61,7 @@ from ..common.metadata import run_metadata
 from ..common.seeding import episode_seed, seed_everything
 from ..common.stats import EpisodeLog, action_stats, summarise_episodes
 from ..common.vec_env import VecIplAuctionEnv
+from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
 from ..common.win_qos import disable_throttling
 from ..env import ACTION_COUNT, OBS_SIZE, PASS
 from ..nets import PolicyNet
@@ -248,6 +249,7 @@ class EpisodeRunner:
     def __init__(self, venv):
         self.venv = venv
         self.consistency_checks = 0
+        self.allow_incomplete = False  # Phase 2F: True only in Stage B (§26 finding, not a stop)
         self.wait_seconds = 0.0
         self.act_seconds = 0.0
 
@@ -306,7 +308,7 @@ class EpisodeRunner:
                 raise SafetyError([f"episode consistency (job {s['job']['key']}): " + "; ".join(problems)])
             if ep.get("invariantViolations", 0):
                 raise SafetyError([f"invariant violation (seed {ep['seed']}): {ep.get('violations')}"])
-            if not ep["legalXI"]:
+            if not ep["legalXI"] and not self.allow_incomplete:
                 raise SafetyError([f"episode ended without a legal XI: seed {ep['seed']}"])
             self.consistency_checks += 1
             results[s["job"]["key"]] = {"return": float(s["ret"]), "episode": ep, "actions": s["actions"].copy()}
@@ -394,8 +396,7 @@ def train(cfg):
     cfg_hash = config_hash(cfg)
     if cfg["algorithm"] != "openai_es":
         raise ValueError("this trainer is OpenAI-ES only")
-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
-        raise ValueError("Phase 2D.4 trains against Stage A only (no RL snapshots)")
+    stage_b.check_stage(cfg, "Phase 2D.4 trains against Stage A only (no RL snapshots)")
     if cfg["fitness_shaping"] != "centered_rank" or cfg["weight_decay"] != 0.0 or cfg["episodes_per_perturbation"] != 1:
         raise ValueError("frozen ES configuration: centered-rank shaping, no weight decay, one episode per perturbation")
     run_name = cfg["run_name"] or f"openai-es-s{cfg['seed']}-{cfg_hash[:8]}-{time.strftime('%Y%m%d-%H%M%S')}"
@@ -404,7 +405,7 @@ def train(cfg):
 
     seed_everything(seed, cfg["torch_threads"])
     envs = VecIplAuctionEnv(cfg["num_envs"], seed, split=cfg["split"], tremble=cfg["tremble"],
-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
+                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
     for key, spec in (("expected_act_spec", envs.act_spec), ("expected_obs_spec", envs.obs_spec)):
         if cfg[key] and spec["hash"] != cfg[key]:
             envs.close()
@@ -415,6 +416,7 @@ def train(cfg):
 
     log = RunLogger(run_dir)
     net = make_policy(seed)
+    stage_b.warm_start(cfg, {"policy": net}, run_dir)
     dim = sum(p.numel() for p in net.parameters())
     optimizer = torch.optim.Adam(net.parameters(), lr=cfg["learning_rate"], betas=(cfg["adam_beta1"], cfg["adam_beta2"]),
                                  eps=cfg["adam_eps"], weight_decay=cfg["weight_decay"])
@@ -427,6 +429,7 @@ def train(cfg):
           f"config {cfg_hash}  obs {envs.obs_spec['hash']}  act {envs.act_spec['hash']}", flush=True)
 
     runner = EpisodeRunner(envs)
+    runner.allow_incomplete = not stage_b.incomplete_is_stop(cfg)
     episodes = EpisodeLog()
     all_episodes, evaluations = [], []
     decisions = 0
@@ -553,6 +556,12 @@ def train(cfg):
             if reasons:
                 last_states = parity_states(envs, net, seed, cfg["parity_states"])
                 evaluate(gen, reasons)
+            sb_stop = (cfg.get("stage_b") or {}).get("stop_decisions")  # Phase 2F decision budget (Stage B only)
+            if sb_stop is not None and decisions >= sb_stop:
+                if not reasons:
+                    last_states = parity_states(envs, net, seed, cfg["parity_states"])
+                    evaluate(gen, ["stage-b decision budget"])
+                break
     except SafetyError as err:
         status, failure = "stopped: safety", err.problems
         print(f"[es] STOPPED — safety: {err.problems[:5]}", flush=True)

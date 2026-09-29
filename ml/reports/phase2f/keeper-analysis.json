@@ -1,0 +1,5397 @@
+{
+ "meta": {
+  "phase": "2F",
+  "status": "PILOT — evaluation of experimental stage_b_pilot exports; no production change, nothing committed",
+  "contract": {
+   "env": "IplAuctionEnv-v2",
+   "obsHash": "629b25783f833af7",
+   "actHash": "5f72f510c48b1f46",
+   "gamma": 1,
+   "shield": "act-v3 (unchanged)",
+   "reward": "ΔBestXI/11/10, −2 incomplete XI (unchanged)"
+  },
+  "design": {
+   "snapshotShare": 0.5,
+   "pool": "15 frozen Stage-A exports (5 algorithms × 3 seeds, incl. the learner's own algorithm)",
+   "ruleBots": "4 frozen rule seats always + RL seats on rule fallback (≥ 4/9)",
+   "init": "warm start from each seed's frozen Stage-A final checkpoint; fresh optimizer; D3QN/QR-DQN ε constant at the Stage-A final value, empty replay",
+   "seeds": "run seeds 101/102/103 ← Stage-A seeds 1/2/3 (train split only)",
+   "budget": "497,664 learner decisions per seed (ES: first generation boundary at or after it)",
+   "checkpoints": "98,304 / 245,760 / 497,664 decisions",
+   "evaluation": "c100/c250: validation entries 0–99; c500: all 500 (Phase 2E.0 protocol)"
+  }
+ },
+ "recordLevel": {
+  "c100": {
+   "A": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.0711,
+      "stageBsd": 0.0143,
+      "stageA": 0.0884,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.1935,
+      "stageBsd": 0.0617,
+      "stageA": 0.2116,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.11,
+      "stageBsd": 0.0529,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2367,
+      "stageBsd": 0.1343,
+      "stageA": 0.2567,
+      "total_stageB": 71.0,
+      "total_stageA": 77.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.11,
+      "stageBsd": 0.0529,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2367,
+      "stageBsd": 0.1343,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0678,
+      "stageBsd": 0.0086,
+      "stageA": 0.0748,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.2496,
+      "stageBsd": 0.3516,
+      "stageA": 0.0695,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0115,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.04,
+      "stageBsd": 0.0361,
+      "stageA": 0.03,
+      "total_stageB": 12.0,
+      "total_stageA": 9.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0115,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0333,
+      "stageBsd": 0.0289,
+      "stageA": 0.0233,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.1764,
+      "stageBsd": 0.0296,
+      "stageA": 0.1879,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.06,
+      "stageBsd": 0.04,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.14,
+      "stageBsd": 0.1054,
+      "stageA": 0.2567,
+      "total_stageB": 42.0,
+      "total_stageA": 77.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.06,
+      "stageBsd": 0.04,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.14,
+      "stageBsd": 0.1054,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.1943,
+      "stageBsd": 0.0111,
+      "stageA": 0.2426,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0011,
+      "total_stageB": 0.0,
+      "total_stageA": 4.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.5234,
+      "stageBsd": 0.1642,
+      "stageA": 0.5348,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.3061,
+      "stageBsd": 0.1001,
+      "stageA": 0.2953,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.7303,
+      "stageBsd": 0.2467,
+      "stageA": 0.6936,
+      "total_stageB": 2629.0,
+      "total_stageA": 2497.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.3061,
+      "stageBsd": 0.1001,
+      "stageA": 0.2953,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.7236,
+      "stageBsd": 0.2413,
+      "stageA": 0.6878,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.114,
+      "stageBsd": 0.0217,
+      "stageA": 0.1667,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0433,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0014,
+      "stageBsd": 0.0013,
+      "stageA": 0.0878,
+      "total_stageB": 5.0,
+      "total_stageA": 316.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0419,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0014,
+      "stageBsd": 0.0013,
+      "stageA": 0.085,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.2443,
+      "stageBsd": 0.3219,
+      "stageA": 0.1061,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0186,
+      "stageBsd": 0.0148,
+      "stageA": 0.0369,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0436,
+      "stageBsd": 0.034,
+      "stageA": 0.0661,
+      "total_stageB": 157.0,
+      "total_stageA": 238.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0186,
+      "stageBsd": 0.0148,
+      "stageA": 0.0347,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0411,
+      "stageBsd": 0.032,
+      "stageA": 0.0589,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.5158,
+      "stageBsd": 0.0231,
+      "stageA": 0.5945,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1933,
+      "stageBsd": 0.0964,
+      "stageA": 0.2392,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.4378,
+      "stageBsd": 0.217,
+      "stageA": 0.5747,
+      "total_stageB": 1576.0,
+      "total_stageA": 2069.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1922,
+      "stageBsd": 0.0956,
+      "stageA": 0.2392,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.4242,
+      "stageBsd": 0.2116,
+      "stageA": 0.5611,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.3561,
+      "stageBsd": 0.0401,
+      "stageA": 0.393,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0017,
+      "stageBsd": 0.0017,
+      "stageA": 0.0044,
+      "total_stageB": 6.0,
+      "total_stageA": 16.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0017,
+      "stageBsd": 0.0017,
+      "stageA": 0.0044,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0003,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.6059,
+      "stageBsd": 0.0966,
+      "stageA": 0.6081,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2061,
+      "stageBsd": 0.026,
+      "stageA": 0.2,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.5592,
+      "stageBsd": 0.0823,
+      "stageA": 0.5275,
+      "total_stageB": 2013.0,
+      "total_stageA": 1899.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2061,
+      "stageBsd": 0.026,
+      "stageA": 0.1997,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.5525,
+      "stageBsd": 0.0811,
+      "stageA": 0.5228,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.1229,
+      "stageBsd": 0.0262,
+      "stageA": 0.266,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0014,
+      "stageBsd": 0.0017,
+      "stageA": 0.06,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0019,
+      "stageBsd": 0.0027,
+      "stageA": 0.1428,
+      "total_stageB": 7.0,
+      "total_stageA": 514.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0013,
+      "stageA": 0.0581,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0019,
+      "stageBsd": 0.0027,
+      "stageA": 0.1372,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.2693,
+      "stageBsd": 0.3685,
+      "stageA": 0.1511,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0383,
+      "stageBsd": 0.0506,
+      "stageA": 0.06,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.1061,
+      "stageBsd": 0.1438,
+      "stageA": 0.1356,
+      "total_stageB": 382.0,
+      "total_stageA": 488.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0383,
+      "stageBsd": 0.0506,
+      "stageA": 0.0589,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.1047,
+      "stageBsd": 0.1415,
+      "stageA": 0.1225,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.6656,
+      "stageBsd": 0.0113,
+      "stageA": 0.7077,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1189,
+      "stageBsd": 0.0431,
+      "stageA": 0.0989,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2814,
+      "stageBsd": 0.0914,
+      "stageA": 0.2372,
+      "total_stageB": 1013.0,
+      "total_stageA": 854.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1178,
+      "stageBsd": 0.0422,
+      "stageA": 0.0989,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2786,
+      "stageBsd": 0.0898,
+      "stageA": 0.2344,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0003,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.4855,
+      "stageBsd": 0.1229,
+      "stageA": 0.563,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.7322,
+      "stageBsd": 0.0835,
+      "stageA": 0.7572,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2433,
+      "stageBsd": 0.1457,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.6867,
+      "stageBsd": 0.3932,
+      "stageA": 0.5733,
+      "total_stageB": 206.0,
+      "total_stageA": 172.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2433,
+      "stageBsd": 0.1457,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.6733,
+      "stageBsd": 0.4045,
+      "stageA": 0.5533,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.1975,
+      "stageBsd": 0.0685,
+      "stageA": 0.4084,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.1767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.3933,
+      "total_stageB": 0.0,
+      "total_stageA": 118.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.17,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.39,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.2789,
+      "stageBsd": 0.3833,
+      "stageA": 0.1881,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.04,
+      "stageBsd": 0.0458,
+      "stageA": 0.0767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.12,
+      "stageBsd": 0.1153,
+      "stageA": 0.17,
+      "total_stageB": 36.0,
+      "total_stageA": 51.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.04,
+      "stageBsd": 0.0458,
+      "stageA": 0.0767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.1167,
+      "stageBsd": 0.115,
+      "stageA": 0.1533,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.7764,
+      "stageBsd": 0.0071,
+      "stageA": 0.7757,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0767,
+      "stageBsd": 0.0862,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.1767,
+      "stageBsd": 0.175,
+      "stageA": 0.0633,
+      "total_stageB": 53.0,
+      "total_stageA": 19.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0767,
+      "stageBsd": 0.0862,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.1633,
+      "stageBsd": 0.1601,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   }
+  },
+  "c250": {
+   "A": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.0914,
+      "stageBsd": 0.0426,
+      "stageA": 0.0884,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.2162,
+      "stageBsd": 0.0541,
+      "stageA": 0.2116,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1267,
+      "stageBsd": 0.0115,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2833,
+      "stageBsd": 0.0058,
+      "stageA": 0.2567,
+      "total_stageB": 85.0,
+      "total_stageA": 77.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1267,
+      "stageBsd": 0.0115,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2833,
+      "stageBsd": 0.0058,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.1101,
+      "stageBsd": 0.0385,
+      "stageA": 0.0748,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0167,
+      "stageBsd": 0.0289,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0462,
+      "stageA": 0.0067,
+      "total_stageB": 8.0,
+      "total_stageA": 2.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0167,
+      "stageBsd": 0.0289,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0462,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0521,
+      "stageBsd": 0.0298,
+      "stageA": 0.0695,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.03,
+      "total_stageB": 1.0,
+      "total_stageA": 9.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.0233,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.1866,
+      "stageBsd": 0.015,
+      "stageA": 0.1879,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0833,
+      "stageBsd": 0.0306,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.19,
+      "stageBsd": 0.0872,
+      "stageA": 0.2567,
+      "total_stageB": 57.0,
+      "total_stageA": 77.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0833,
+      "stageBsd": 0.0306,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.19,
+      "stageBsd": 0.0872,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.2069,
+      "stageBsd": 0.0263,
+      "stageA": 0.2426,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0011,
+      "total_stageB": 0.0,
+      "total_stageA": 4.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.4842,
+      "stageBsd": 0.1374,
+      "stageA": 0.5348,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.3044,
+      "stageBsd": 0.1089,
+      "stageA": 0.2953,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.7169,
+      "stageBsd": 0.2634,
+      "stageA": 0.6936,
+      "total_stageB": 2581.0,
+      "total_stageA": 2497.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.3044,
+      "stageBsd": 0.1089,
+      "stageA": 0.2953,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.7111,
+      "stageBsd": 0.2571,
+      "stageA": 0.6878,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.1961,
+      "stageBsd": 0.0891,
+      "stageA": 0.1667,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0397,
+      "stageBsd": 0.0402,
+      "stageA": 0.0433,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0922,
+      "stageBsd": 0.0932,
+      "stageA": 0.0878,
+      "total_stageB": 332.0,
+      "total_stageA": 316.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0397,
+      "stageBsd": 0.0402,
+      "stageA": 0.0419,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0922,
+      "stageBsd": 0.0932,
+      "stageA": 0.085,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0815,
+      "stageBsd": 0.0622,
+      "stageA": 0.1061,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0117,
+      "stageBsd": 0.0173,
+      "stageA": 0.0369,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0391,
+      "stageA": 0.0661,
+      "total_stageB": 96.0,
+      "total_stageA": 238.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0117,
+      "stageBsd": 0.0173,
+      "stageA": 0.0347,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0258,
+      "stageBsd": 0.0376,
+      "stageA": 0.0589,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.5106,
+      "stageBsd": 0.0099,
+      "stageA": 0.5945,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2214,
+      "stageBsd": 0.1139,
+      "stageA": 0.2392,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.5197,
+      "stageBsd": 0.2654,
+      "stageA": 0.5747,
+      "total_stageB": 1871.0,
+      "total_stageA": 2069.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.22,
+      "stageBsd": 0.1126,
+      "stageA": 0.2392,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.4989,
+      "stageBsd": 0.2495,
+      "stageA": 0.5611,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.3423,
+      "stageBsd": 0.0419,
+      "stageA": 0.393,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0006,
+      "stageBsd": 0.001,
+      "stageA": 0.0044,
+      "total_stageB": 2.0,
+      "total_stageA": 16.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0006,
+      "stageBsd": 0.001,
+      "stageA": 0.0044,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0003,
+      "total_stageB": 1.0,
+      "total_stageA": 1.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.5628,
+      "stageBsd": 0.0871,
+      "stageA": 0.6081,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2511,
+      "stageBsd": 0.0055,
+      "stageA": 0.2,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.6836,
+      "stageBsd": 0.0125,
+      "stageA": 0.5275,
+      "total_stageB": 2461.0,
+      "total_stageA": 1899.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2511,
+      "stageBsd": 0.0055,
+      "stageA": 0.1997,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.6783,
+      "stageBsd": 0.0088,
+      "stageA": 0.5228,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.2047,
+      "stageBsd": 0.0996,
+      "stageA": 0.266,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0411,
+      "stageBsd": 0.0408,
+      "stageA": 0.06,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.1194,
+      "stageBsd": 0.1204,
+      "stageA": 0.1428,
+      "total_stageB": 430.0,
+      "total_stageA": 514.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0406,
+      "stageBsd": 0.0404,
+      "stageA": 0.0581,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.1194,
+      "stageBsd": 0.1204,
+      "stageA": 0.1372,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": 1.0,
+      "total_stageA": 2.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0944,
+      "stageBsd": 0.0741,
+      "stageA": 0.1511,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0172,
+      "stageBsd": 0.0277,
+      "stageA": 0.06,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0508,
+      "stageBsd": 0.0838,
+      "stageA": 0.1356,
+      "total_stageB": 183.0,
+      "total_stageA": 488.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0172,
+      "stageBsd": 0.0277,
+      "stageA": 0.0589,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0508,
+      "stageBsd": 0.0838,
+      "stageA": 0.1225,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.6567,
+      "stageBsd": 0.0022,
+      "stageA": 0.7077,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1253,
+      "stageBsd": 0.0414,
+      "stageA": 0.0989,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.3169,
+      "stageBsd": 0.0876,
+      "stageA": 0.2372,
+      "total_stageB": 1141.0,
+      "total_stageA": 854.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.125,
+      "stageBsd": 0.0411,
+      "stageA": 0.0989,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.3108,
+      "stageBsd": 0.0862,
+      "stageA": 0.2344,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0008,
+      "stageBsd": 0.0014,
+      "stageA": 0.0003,
+      "total_stageB": 3.0,
+      "total_stageA": 1.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.5247,
+      "stageBsd": 0.1241,
+      "stageA": 0.563,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.7214,
+      "stageBsd": 0.0691,
+      "stageA": 0.7572,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.32,
+      "stageBsd": 0.0265,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.9133,
+      "stageBsd": 0.0252,
+      "stageA": 0.5733,
+      "total_stageB": 274.0,
+      "total_stageA": 172.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.32,
+      "stageBsd": 0.0265,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.9033,
+      "stageBsd": 0.0252,
+      "stageA": 0.5533,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.2594,
+      "stageBsd": 0.1098,
+      "stageA": 0.4084,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.09,
+      "stageBsd": 0.0985,
+      "stageA": 0.1767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2914,
+      "stageA": 0.3933,
+      "total_stageB": 88.0,
+      "total_stageA": 118.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.09,
+      "stageBsd": 0.0985,
+      "stageA": 0.17,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2914,
+      "stageA": 0.39,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.1346,
+      "stageBsd": 0.1287,
+      "stageA": 0.1881,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0433,
+      "stageBsd": 0.0751,
+      "stageA": 0.0767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.1067,
+      "stageBsd": 0.1848,
+      "stageA": 0.17,
+      "total_stageB": 32.0,
+      "total_stageA": 51.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0433,
+      "stageBsd": 0.0751,
+      "stageA": 0.0767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.1067,
+      "stageBsd": 0.1848,
+      "stageA": 0.1533,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.7715,
+      "stageBsd": 0.0208,
+      "stageA": 0.7757,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.12,
+      "stageBsd": 0.1058,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2933,
+      "stageBsd": 0.2558,
+      "stageA": 0.0633,
+      "total_stageB": 88.0,
+      "total_stageA": 19.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.12,
+      "stageBsd": 0.1058,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2833,
+      "stageBsd": 0.2458,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   }
+  },
+  "c500": {
+   "A": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.0861,
+      "stageBsd": 0.0507,
+      "stageA": 0.0857,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.2111,
+      "stageBsd": 0.0593,
+      "stageA": 0.219,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.12,
+      "stageBsd": 0.0421,
+      "stageA": 0.1147,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.25,
+      "stageBsd": 0.0883,
+      "stageA": 0.25,
+      "total_stageB": 375.0,
+      "total_stageA": 375.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.12,
+      "stageBsd": 0.0421,
+      "stageA": 0.1147,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.25,
+      "stageBsd": 0.0883,
+      "stageA": 0.2487,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0701,
+      "stageBsd": 0.0658,
+      "stageA": 0.0731,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0013,
+      "stageBsd": 0.0023,
+      "stageA": 0.01,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0046,
+      "stageA": 0.0133,
+      "total_stageB": 4.0,
+      "total_stageA": 20.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0013,
+      "stageBsd": 0.0023,
+      "stageA": 0.0087,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0027,
+      "stageBsd": 0.0046,
+      "stageA": 0.0127,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0426,
+      "stageBsd": 0.016,
+      "stageA": 0.0726,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0031,
+      "stageA": 0.0193,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0087,
+      "stageBsd": 0.0042,
+      "stageA": 0.034,
+      "total_stageB": 13.0,
+      "total_stageA": 51.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0031,
+      "stageA": 0.018,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0087,
+      "stageBsd": 0.0042,
+      "stageA": 0.0307,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.1755,
+      "stageBsd": 0.0036,
+      "stageA": 0.2135,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0613,
+      "stageBsd": 0.0431,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.1267,
+      "stageBsd": 0.0842,
+      "stageA": 0.226,
+      "total_stageB": 190.0,
+      "total_stageA": 339.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0613,
+      "stageBsd": 0.0431,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.126,
+      "stageBsd": 0.0837,
+      "stageA": 0.2253,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.194,
+      "stageBsd": 0.0824,
+      "stageA": 0.2363,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0002,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0006,
+      "stageA": 0.0007,
+      "total_stageB": 6.0,
+      "total_stageA": 12.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0002,
+      "stageA": 0.0003,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0006,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.4387,
+      "stageBsd": 0.0965,
+      "stageA": 0.5349,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2716,
+      "stageBsd": 0.0642,
+      "stageA": 0.3125,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.6038,
+      "stageBsd": 0.1412,
+      "stageA": 0.6929,
+      "total_stageB": 10869.0,
+      "total_stageA": 12473.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2716,
+      "stageBsd": 0.0642,
+      "stageA": 0.3125,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.6016,
+      "stageBsd": 0.14,
+      "stageA": 0.6873,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0994,
+      "stageBsd": 0.1024,
+      "stageA": 0.1695,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0023,
+      "stageBsd": 0.0035,
+      "stageA": 0.0451,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0048,
+      "stageBsd": 0.0076,
+      "stageA": 0.0928,
+      "total_stageB": 86.0,
+      "total_stageA": 1671.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0022,
+      "stageBsd": 0.0033,
+      "stageA": 0.0438,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0047,
+      "stageBsd": 0.0075,
+      "stageA": 0.0913,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0581,
+      "stageBsd": 0.0242,
+      "stageA": 0.1147,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0104,
+      "stageBsd": 0.0041,
+      "stageA": 0.0447,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0234,
+      "stageBsd": 0.0103,
+      "stageA": 0.0841,
+      "total_stageB": 422.0,
+      "total_stageA": 1514.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0104,
+      "stageBsd": 0.0041,
+      "stageA": 0.0419,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0231,
+      "stageBsd": 0.0099,
+      "stageA": 0.0776,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.4966,
+      "stageBsd": 0.0042,
+      "stageA": 0.6017,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1963,
+      "stageBsd": 0.1312,
+      "stageA": 0.2341,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.4356,
+      "stageBsd": 0.29,
+      "stageA": 0.5228,
+      "total_stageB": 7841.0,
+      "total_stageA": 9410.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1961,
+      "stageBsd": 0.131,
+      "stageA": 0.2341,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.4288,
+      "stageBsd": 0.2852,
+      "stageA": 0.5136,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.3007,
+      "stageBsd": 0.0885,
+      "stageA": 0.3843,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0017,
+      "stageA": 0.0009,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0032,
+      "stageBsd": 0.0053,
+      "stageA": 0.0027,
+      "total_stageB": 58.0,
+      "total_stageA": 48.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0017,
+      "stageA": 0.0009,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0032,
+      "stageBsd": 0.0053,
+      "stageA": 0.0027,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0003,
+      "stageA": 0.0002,
+      "total_stageB": 6.0,
+      "total_stageA": 4.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.5138,
+      "stageBsd": 0.0607,
+      "stageA": 0.6015,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2549,
+      "stageBsd": 0.0127,
+      "stageA": 0.2014,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.6452,
+      "stageBsd": 0.0306,
+      "stageA": 0.4951,
+      "total_stageB": 11614.0,
+      "total_stageA": 8911.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2549,
+      "stageBsd": 0.0127,
+      "stageA": 0.2013,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.6402,
+      "stageBsd": 0.029,
+      "stageA": 0.4909,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0002,
+      "total_stageB": 2.0,
+      "total_stageA": 3.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0001,
+      "total_stageB": 1.0,
+      "total_stageA": 2.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0,
+      "total_stageB": 2.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0887,
+      "stageBsd": 0.0854,
+      "stageA": 0.2507,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0021,
+      "stageBsd": 0.0031,
+      "stageA": 0.0656,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0048,
+      "stageBsd": 0.0062,
+      "stageA": 0.1553,
+      "total_stageB": 86.0,
+      "total_stageA": 2796.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.002,
+      "stageBsd": 0.0029,
+      "stageA": 0.0634,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0045,
+      "stageBsd": 0.0058,
+      "stageA": 0.1516,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0002,
+      "stageA": 0.0002,
+      "total_stageB": 3.0,
+      "total_stageA": 4.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0778,
+      "stageBsd": 0.0341,
+      "stageA": 0.1528,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0154,
+      "stageBsd": 0.0108,
+      "stageA": 0.0651,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0398,
+      "stageBsd": 0.0292,
+      "stageA": 0.1396,
+      "total_stageB": 716.0,
+      "total_stageA": 2512.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0154,
+      "stageBsd": 0.0108,
+      "stageA": 0.0629,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0394,
+      "stageBsd": 0.0289,
+      "stageA": 0.128,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0002,
+      "total_stageB": 0.0,
+      "total_stageA": 4.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.6464,
+      "stageBsd": 0.0006,
+      "stageA": 0.6967,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1185,
+      "stageBsd": 0.0739,
+      "stageA": 0.1008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2851,
+      "stageBsd": 0.1845,
+      "stageA": 0.224,
+      "total_stageB": 5131.0,
+      "total_stageA": 4032.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1184,
+      "stageBsd": 0.0738,
+      "stageA": 0.1008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2821,
+      "stageBsd": 0.1832,
+      "stageA": 0.2217,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0002,
+      "stageBsd": 0.0,
+      "stageA": 0.0002,
+      "total_stageB": 3.0,
+      "total_stageA": 3.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0001,
+      "stageBsd": 0.0001,
+      "stageA": 0.0001,
+      "total_stageB": 1.0,
+      "total_stageA": 2.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0001,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.4636,
+      "stageBsd": 0.0551,
+      "stageA": 0.5669,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.002,
+      "stageBsd": 0.0035,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0092,
+      "stageA": 0.0,
+      "total_stageB": 8.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.002,
+      "stageBsd": 0.0035,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0053,
+      "stageBsd": 0.0092,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.688,
+      "stageBsd": 0.0625,
+      "stageA": 0.7438,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.4107,
+      "stageBsd": 0.0208,
+      "stageA": 0.228,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 1.0413,
+      "stageBsd": 0.1034,
+      "stageA": 0.5613,
+      "total_stageB": 1562.0,
+      "total_stageA": 842.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.4107,
+      "stageBsd": 0.0208,
+      "stageA": 0.228,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 1.0313,
+      "stageBsd": 0.1017,
+      "stageA": 0.5547,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.1022,
+      "stageBsd": 0.0955,
+      "stageA": 0.4011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.002,
+      "stageBsd": 0.0035,
+      "stageA": 0.1613,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.006,
+      "stageBsd": 0.0104,
+      "stageA": 0.3373,
+      "total_stageB": 9.0,
+      "total_stageA": 506.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.002,
+      "stageBsd": 0.0035,
+      "stageA": 0.1553,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.006,
+      "stageBsd": 0.0104,
+      "stageA": 0.3327,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0007,
+      "stageBsd": 0.0012,
+      "stageA": 0.0,
+      "total_stageB": 1.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0796,
+      "stageBsd": 0.0562,
+      "stageA": 0.1972,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.014,
+      "stageBsd": 0.0125,
+      "stageA": 0.0867,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0327,
+      "stageBsd": 0.0283,
+      "stageA": 0.1933,
+      "total_stageB": 49.0,
+      "total_stageA": 290.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.014,
+      "stageBsd": 0.0125,
+      "stageA": 0.0853,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0313,
+      "stageBsd": 0.0273,
+      "stageA": 0.184,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.7723,
+      "stageBsd": 0.0108,
+      "stageA": 0.7742,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.14,
+      "stageBsd": 0.1277,
+      "stageA": 0.0273,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.332,
+      "stageBsd": 0.3183,
+      "stageA": 0.068,
+      "total_stageB": 498.0,
+      "total_stageA": 102.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.14,
+      "stageBsd": 0.1277,
+      "stageA": 0.0273,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.3267,
+      "stageBsd": 0.3161,
+      "stageA": 0.068,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   }
+  },
+  "c500_first100": {
+   "A": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.0808,
+      "stageBsd": 0.042,
+      "stageA": 0.0884,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.2111,
+      "stageBsd": 0.053,
+      "stageA": 0.2116,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1233,
+      "stageBsd": 0.0404,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2667,
+      "stageBsd": 0.1193,
+      "stageA": 0.2567,
+      "total_stageB": 80.0,
+      "total_stageA": 77.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1233,
+      "stageBsd": 0.0404,
+      "stageA": 0.11,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2667,
+      "stageBsd": 0.1193,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0502,
+      "stageBsd": 0.0267,
+      "stageA": 0.0748,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": 0.0,
+      "total_stageA": 2.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0033,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0428,
+      "stageBsd": 0.0193,
+      "stageA": 0.0695,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0067,
+      "stageBsd": 0.0115,
+      "stageA": 0.03,
+      "total_stageB": 2.0,
+      "total_stageA": 9.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0033,
+      "stageBsd": 0.0058,
+      "stageA": 0.02,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0067,
+      "stageBsd": 0.0115,
+      "stageA": 0.0233,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.1913,
+      "stageBsd": 0.0118,
+      "stageA": 0.1879,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0767,
+      "stageBsd": 0.0493,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.1633,
+      "stageBsd": 0.1097,
+      "stageA": 0.2567,
+      "total_stageB": 49.0,
+      "total_stageA": 77.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0767,
+      "stageBsd": 0.0493,
+      "stageA": 0.1067,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.1633,
+      "stageBsd": 0.1097,
+      "stageA": 0.2567,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C1": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.1936,
+      "stageBsd": 0.0914,
+      "stageA": 0.2426,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0011,
+      "total_stageB": 0.0,
+      "total_stageA": 4.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0006,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0008,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.4567,
+      "stageBsd": 0.1099,
+      "stageA": 0.5348,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2717,
+      "stageBsd": 0.0641,
+      "stageA": 0.2953,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.6431,
+      "stageBsd": 0.1673,
+      "stageA": 0.6936,
+      "total_stageB": 2315.0,
+      "total_stageA": 2497.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2717,
+      "stageBsd": 0.0641,
+      "stageA": 0.2953,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.6406,
+      "stageBsd": 0.1666,
+      "stageA": 0.6878,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0889,
+      "stageBsd": 0.0819,
+      "stageA": 0.1667,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0025,
+      "stageBsd": 0.0043,
+      "stageA": 0.0433,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0056,
+      "stageBsd": 0.0096,
+      "stageA": 0.0878,
+      "total_stageB": 20.0,
+      "total_stageA": 316.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0022,
+      "stageBsd": 0.0038,
+      "stageA": 0.0419,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0056,
+      "stageBsd": 0.0096,
+      "stageA": 0.085,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0611,
+      "stageBsd": 0.0259,
+      "stageA": 0.1061,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.01,
+      "stageBsd": 0.0046,
+      "stageA": 0.0369,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0242,
+      "stageBsd": 0.012,
+      "stageA": 0.0661,
+      "total_stageB": 87.0,
+      "total_stageA": 238.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.01,
+      "stageBsd": 0.0046,
+      "stageA": 0.0347,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0233,
+      "stageBsd": 0.0115,
+      "stageA": 0.0589,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.4962,
+      "stageBsd": 0.0099,
+      "stageA": 0.5945,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2033,
+      "stageBsd": 0.1307,
+      "stageA": 0.2392,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.4767,
+      "stageBsd": 0.3004,
+      "stageA": 0.5747,
+      "total_stageB": 1716.0,
+      "total_stageA": 2069.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2028,
+      "stageBsd": 0.1302,
+      "stageA": 0.2392,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.4656,
+      "stageBsd": 0.293,
+      "stageA": 0.5611,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "C4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.3134,
+      "stageBsd": 0.0944,
+      "stageA": 0.393,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0019,
+      "stageA": 0.0011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0042,
+      "stageBsd": 0.0072,
+      "stageA": 0.0044,
+      "total_stageB": 15.0,
+      "total_stageA": 16.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0019,
+      "stageA": 0.0011,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0042,
+      "stageBsd": 0.0072,
+      "stageA": 0.0044,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0006,
+      "stageBsd": 0.001,
+      "stageA": 0.0003,
+      "total_stageB": 2.0,
+      "total_stageA": 1.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.537,
+      "stageBsd": 0.0653,
+      "stageA": 0.6081,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.2639,
+      "stageBsd": 0.0042,
+      "stageA": 0.2,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.7222,
+      "stageBsd": 0.0017,
+      "stageA": 0.5275,
+      "total_stageB": 2600.0,
+      "total_stageA": 1899.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.2639,
+      "stageBsd": 0.0042,
+      "stageA": 0.1997,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.7125,
+      "stageBsd": 0.006,
+      "stageA": 0.5228,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0006,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": 2.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0,
+      "total_stageB": 1.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0876,
+      "stageBsd": 0.0744,
+      "stageA": 0.266,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0013,
+      "stageA": 0.06,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0028,
+      "stageBsd": 0.0025,
+      "stageA": 0.1428,
+      "total_stageB": 10.0,
+      "total_stageA": 514.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0011,
+      "stageBsd": 0.0013,
+      "stageA": 0.0581,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0025,
+      "stageBsd": 0.0022,
+      "stageA": 0.1372,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0003,
+      "stageBsd": 0.0005,
+      "stageA": 0.0006,
+      "total_stageB": 1.0,
+      "total_stageA": 2.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0829,
+      "stageBsd": 0.0417,
+      "stageA": 0.1511,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0142,
+      "stageBsd": 0.011,
+      "stageA": 0.06,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0397,
+      "stageBsd": 0.0298,
+      "stageA": 0.1356,
+      "total_stageB": 143.0,
+      "total_stageA": 488.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0142,
+      "stageBsd": 0.011,
+      "stageA": 0.0589,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0394,
+      "stageBsd": 0.0299,
+      "stageA": 0.1225,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.6552,
+      "stageBsd": 0.0023,
+      "stageA": 0.7077,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.1114,
+      "stageBsd": 0.0686,
+      "stageA": 0.0989,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.2983,
+      "stageBsd": 0.1879,
+      "stageA": 0.2372,
+      "total_stageB": 1074.0,
+      "total_stageA": 854.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.1114,
+      "stageBsd": 0.0686,
+      "stageA": 0.0989,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.2956,
+      "stageBsd": 0.1871,
+      "stageA": 0.2344,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0003,
+      "total_stageB": 0.0,
+      "total_stageA": 1.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   },
+   "S4": {
+    "ppo": {
+     "keeperClosedProgress": {
+      "stageB": 0.4536,
+      "stageBsd": 0.0452,
+      "stageA": 0.563,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "a2c": {
+     "keeperClosedProgress": {
+      "stageB": 0.7085,
+      "stageBsd": 0.0695,
+      "stageA": 0.7572,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.4167,
+      "stageBsd": 0.0551,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 1.12,
+      "stageBsd": 0.2706,
+      "stageA": 0.5733,
+      "total_stageB": 336.0,
+      "total_stageA": 172.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.4167,
+      "stageBsd": 0.0551,
+      "stageA": 0.2167,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 1.1033,
+      "stageBsd": 0.2654,
+      "stageA": 0.5533,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "d3qn": {
+     "keeperClosedProgress": {
+      "stageB": 0.093,
+      "stageBsd": 0.0954,
+      "stageA": 0.4084,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.1767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.3933,
+      "total_stageB": 0.0,
+      "total_stageA": 118.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.17,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.39,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "qrdqn": {
+     "keeperClosedProgress": {
+      "stageB": 0.0849,
+      "stageBsd": 0.0469,
+      "stageA": 0.1881,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0153,
+      "stageA": 0.0767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.0267,
+      "stageBsd": 0.0306,
+      "stageA": 0.17,
+      "total_stageB": 8.0,
+      "total_stageA": 51.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.0133,
+      "stageBsd": 0.0153,
+      "stageA": 0.0767,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.02,
+      "stageBsd": 0.02,
+      "stageA": 0.1533,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    },
+    "es": {
+     "keeperClosedProgress": {
+      "stageB": 0.7773,
+      "stageBsd": 0.0107,
+      "stageA": 0.7757,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "keeperClosedForced": {
+      "stageB": 0.15,
+      "stageBsd": 0.1345,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedKeeperBids": {
+      "stageB": 0.3933,
+      "stageBsd": 0.3853,
+      "stageA": 0.0633,
+      "total_stageB": 118.0,
+      "total_stageA": 19.0
+     },
+     "forcedKeeperWon": {
+      "stageB": 0.15,
+      "stageBsd": 0.1345,
+      "stageA": 0.0267,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "forcedPurseKeeper": {
+      "stageB": 0.3833,
+      "stageBsd": 0.385,
+      "stageA": 0.0633,
+      "total_stageB": null,
+      "total_stageA": null
+     },
+     "learnerFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "learnerFindingM2": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     },
+     "opponentFinding": {
+      "stageB": 0.0,
+      "stageBsd": 0.0,
+      "stageA": 0.0,
+      "total_stageB": 0.0,
+      "total_stageA": 0.0
+     }
+    }
+   }
+  }
+ },
+ "decisionLevel_c500_40entries": {
+  "A": {
+   "ppo": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.1,
+     "stageBsd": 0.1323,
+     "stageA": 0.1417,
+     "pairedDiff": -0.0417,
+     "totalB": 12.0,
+     "totalA": 17.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.4083,
+     "stageBsd": 0.3617,
+     "stageA": 1.4667,
+     "pairedDiff": -0.0583,
+     "totalB": 169.0,
+     "totalA": 176.0
+    },
+    "keeperWins": {
+     "stageB": 2.3417,
+     "stageBsd": 1.0324,
+     "stageA": 1.7417,
+     "pairedDiff": 0.6,
+     "totalB": 281.0,
+     "totalA": 209.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0866,
+     "stageBsd": 0.0552,
+     "stageA": 0.0941,
+     "pairedDiff": -0.0075,
+     "totalB": 10.4,
+     "totalA": 11.3
+    }
+   },
+   "a2c": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.2333,
+     "stageBsd": 0.1465,
+     "stageA": 0.1583,
+     "pairedDiff": 0.075,
+     "totalB": 28.0,
+     "totalA": 19.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.9583,
+     "stageBsd": 0.4141,
+     "stageA": 2.0833,
+     "pairedDiff": -0.125,
+     "totalB": 235.0,
+     "totalA": 250.0
+    },
+    "keeperWins": {
+     "stageB": 1.3333,
+     "stageBsd": 0.052,
+     "stageA": 1.3083,
+     "pairedDiff": 0.025,
+     "totalB": 160.0,
+     "totalA": 157.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.2577,
+     "stageBsd": 0.0794,
+     "stageA": 0.2479,
+     "pairedDiff": 0.0099,
+     "totalB": 30.9,
+     "totalA": 29.7
+    }
+   },
+   "d3qn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.1667,
+     "stageBsd": 0.1465,
+     "stageA": 0.4417,
+     "pairedDiff": -0.275,
+     "totalB": 20.0,
+     "totalA": 53.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.8417,
+     "stageBsd": 0.5064,
+     "stageA": 1.0417,
+     "pairedDiff": -0.2,
+     "totalB": 101.0,
+     "totalA": 125.0
+    },
+    "keeperWins": {
+     "stageB": 2.3583,
+     "stageBsd": 1.8414,
+     "stageA": 1.3833,
+     "pairedDiff": 0.975,
+     "totalB": 283.0,
+     "totalA": 166.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0707,
+     "stageBsd": 0.0424,
+     "stageA": 0.0833,
+     "pairedDiff": -0.0127,
+     "totalB": 8.5,
+     "totalA": 10.0
+    }
+   },
+   "qrdqn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0144,
+     "stageA": 0.475,
+     "pairedDiff": -0.4583,
+     "totalB": 2.0,
+     "totalA": 57.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.975,
+     "stageBsd": 0.5679,
+     "stageA": 1.2083,
+     "pairedDiff": -0.2333,
+     "totalB": 117.0,
+     "totalA": 145.0
+    },
+    "keeperWins": {
+     "stageB": 1.35,
+     "stageBsd": 0.05,
+     "stageA": 1.5167,
+     "pairedDiff": -0.1667,
+     "totalB": 162.0,
+     "totalA": 182.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0625,
+     "stageBsd": 0.0353,
+     "stageA": 0.0914,
+     "pairedDiff": -0.0288,
+     "totalB": 7.5,
+     "totalA": 11.0
+    }
+   },
+   "es": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.1417,
+     "stageBsd": 0.1377,
+     "stageA": 0.1167,
+     "pairedDiff": 0.025,
+     "totalB": 17.0,
+     "totalA": 14.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.7083,
+     "stageBsd": 0.1377,
+     "stageA": 1.9,
+     "pairedDiff": -0.1917,
+     "totalB": 205.0,
+     "totalA": 228.0
+    },
+    "keeperWins": {
+     "stageB": 1.35,
+     "stageBsd": 0.0,
+     "stageA": 1.2917,
+     "pairedDiff": 0.0583,
+     "totalB": 162.0,
+     "totalA": 155.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1907,
+     "stageBsd": 0.0016,
+     "stageA": 0.1867,
+     "pairedDiff": 0.004,
+     "totalB": 22.9,
+     "totalA": 22.4
+    }
+   }
+  },
+  "C1": {
+   "ppo": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.4646,
+     "stageBsd": 0.3247,
+     "stageA": 0.4521,
+     "pairedDiff": 0.0125,
+     "totalB": 669.0,
+     "totalA": 651.0
+    },
+    "keeperBidLost": {
+     "stageB": 2.441,
+     "stageBsd": 0.5564,
+     "stageA": 2.5097,
+     "pairedDiff": -0.0688,
+     "totalB": 3515.0,
+     "totalA": 3614.0
+    },
+    "keeperWins": {
+     "stageB": 3.4188,
+     "stageBsd": 1.6206,
+     "stageA": 2.7299,
+     "pairedDiff": 0.6889,
+     "totalB": 4923.0,
+     "totalA": 3931.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1913,
+     "stageBsd": 0.0605,
+     "stageA": 0.2146,
+     "pairedDiff": -0.0233,
+     "totalB": 275.4,
+     "totalA": 309.0
+    }
+   },
+   "a2c": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.4285,
+     "stageBsd": 0.1224,
+     "stageA": 0.5653,
+     "pairedDiff": -0.1368,
+     "totalB": 617.0,
+     "totalA": 814.0
+    },
+    "keeperBidLost": {
+     "stageB": 2.984,
+     "stageBsd": 0.5515,
+     "stageA": 3.5236,
+     "pairedDiff": -0.5396,
+     "totalB": 4297.0,
+     "totalA": 5074.0
+    },
+    "keeperWins": {
+     "stageB": 1.3972,
+     "stageBsd": 0.0584,
+     "stageA": 1.4167,
+     "pairedDiff": -0.0194,
+     "totalB": 2012.0,
+     "totalA": 2040.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.4623,
+     "stageBsd": 0.0988,
+     "stageA": 0.5668,
+     "pairedDiff": -0.1045,
+     "totalB": 665.8,
+     "totalA": 816.2
+    }
+   },
+   "d3qn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.4903,
+     "stageBsd": 0.4289,
+     "stageA": 0.5736,
+     "pairedDiff": -0.0833,
+     "totalB": 706.0,
+     "totalA": 826.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.9569,
+     "stageBsd": 0.754,
+     "stageA": 1.6222,
+     "pairedDiff": -0.6653,
+     "totalB": 1378.0,
+     "totalA": 2336.0
+    },
+    "keeperWins": {
+     "stageB": 2.6229,
+     "stageBsd": 2.4491,
+     "stageA": 1.2979,
+     "pairedDiff": 1.325,
+     "totalB": 3777.0,
+     "totalA": 1869.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.125,
+     "stageBsd": 0.1132,
+     "stageA": 0.1739,
+     "pairedDiff": -0.0489,
+     "totalB": 179.9,
+     "totalA": 250.4
+    }
+   },
+   "qrdqn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0104,
+     "stageBsd": 0.013,
+     "stageA": 0.4979,
+     "pairedDiff": -0.4875,
+     "totalB": 15.0,
+     "totalA": 717.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.016,
+     "stageBsd": 0.5339,
+     "stageA": 1.2549,
+     "pairedDiff": -0.2389,
+     "totalB": 1463.0,
+     "totalA": 1807.0
+    },
+    "keeperWins": {
+     "stageB": 1.1465,
+     "stageBsd": 0.0148,
+     "stageA": 1.6299,
+     "pairedDiff": -0.4833,
+     "totalB": 1651.0,
+     "totalA": 2347.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0706,
+     "stageBsd": 0.0277,
+     "stageA": 0.0968,
+     "pairedDiff": -0.0263,
+     "totalB": 101.6,
+     "totalA": 139.4
+    }
+   },
+   "es": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.6438,
+     "stageBsd": 0.6459,
+     "stageA": 0.3688,
+     "pairedDiff": 0.275,
+     "totalB": 927.0,
+     "totalA": 531.0
+    },
+    "keeperBidLost": {
+     "stageB": 3.434,
+     "stageBsd": 0.2028,
+     "stageA": 4.2396,
+     "pairedDiff": -0.8056,
+     "totalB": 4945.0,
+     "totalA": 6105.0
+    },
+    "keeperWins": {
+     "stageB": 1.3986,
+     "stageBsd": 0.184,
+     "stageA": 1.4361,
+     "pairedDiff": -0.0375,
+     "totalB": 2014.0,
+     "totalA": 2068.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.4978,
+     "stageBsd": 0.0152,
+     "stageA": 0.5967,
+     "pairedDiff": -0.0989,
+     "totalB": 716.8,
+     "totalA": 859.2
+    }
+   }
+  },
+  "C4": {
+   "ppo": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.6347,
+     "stageBsd": 0.3763,
+     "stageA": 0.7326,
+     "pairedDiff": -0.0979,
+     "totalB": 914.0,
+     "totalA": 1055.0
+    },
+    "keeperBidLost": {
+     "stageB": 2.3826,
+     "stageBsd": 0.381,
+     "stageA": 2.8451,
+     "pairedDiff": -0.4625,
+     "totalB": 3431.0,
+     "totalA": 4097.0
+    },
+    "keeperWins": {
+     "stageB": 4.5014,
+     "stageBsd": 2.1123,
+     "stageA": 3.2847,
+     "pairedDiff": 1.2167,
+     "totalB": 6482.0,
+     "totalA": 4730.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.3011,
+     "stageBsd": 0.0902,
+     "stageA": 0.3838,
+     "pairedDiff": -0.0827,
+     "totalB": 433.5,
+     "totalA": 552.7
+    }
+   },
+   "a2c": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.491,
+     "stageBsd": 0.188,
+     "stageA": 0.5167,
+     "pairedDiff": -0.0257,
+     "totalB": 707.0,
+     "totalA": 744.0
+    },
+    "keeperBidLost": {
+     "stageB": 3.5729,
+     "stageBsd": 0.5322,
+     "stageA": 4.291,
+     "pairedDiff": -0.7181,
+     "totalB": 5145.0,
+     "totalA": 6179.0
+    },
+    "keeperWins": {
+     "stageB": 1.2382,
+     "stageBsd": 0.0396,
+     "stageA": 1.2028,
+     "pairedDiff": 0.0354,
+     "totalB": 1783.0,
+     "totalA": 1732.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.5371,
+     "stageBsd": 0.064,
+     "stageA": 0.6252,
+     "pairedDiff": -0.087,
+     "totalB": 773.5,
+     "totalA": 898.4
+    }
+   },
+   "d3qn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.3097,
+     "stageBsd": 0.2877,
+     "stageA": 0.8479,
+     "pairedDiff": -0.5382,
+     "totalB": 446.0,
+     "totalA": 1221.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.8743,
+     "stageBsd": 0.659,
+     "stageA": 2.2972,
+     "pairedDiff": -1.4229,
+     "totalB": 1259.0,
+     "totalA": 3308.0
+    },
+    "keeperWins": {
+     "stageB": 2.8799,
+     "stageBsd": 3.0431,
+     "stageA": 1.2465,
+     "pairedDiff": 1.6333,
+     "totalB": 4147.0,
+     "totalA": 1795.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1045,
+     "stageBsd": 0.0877,
+     "stageA": 0.2905,
+     "pairedDiff": -0.186,
+     "totalB": 150.5,
+     "totalA": 418.3
+    }
+   },
+   "qrdqn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0257,
+     "stageBsd": 0.0375,
+     "stageA": 0.6125,
+     "pairedDiff": -0.5868,
+     "totalB": 37.0,
+     "totalA": 882.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.0319,
+     "stageBsd": 0.5891,
+     "stageA": 1.5354,
+     "pairedDiff": -0.5035,
+     "totalB": 1486.0,
+     "totalA": 2211.0
+    },
+    "keeperWins": {
+     "stageB": 1.1542,
+     "stageBsd": 0.024,
+     "stageA": 1.484,
+     "pairedDiff": -0.3299,
+     "totalB": 1662.0,
+     "totalA": 2137.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0938,
+     "stageBsd": 0.0464,
+     "stageA": 0.1558,
+     "pairedDiff": -0.0618,
+     "totalB": 135.1,
+     "totalA": 223.7
+    }
+   },
+   "es": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.5785,
+     "stageBsd": 0.5088,
+     "stageA": 0.2111,
+     "pairedDiff": 0.3674,
+     "totalB": 833.0,
+     "totalA": 304.0
+    },
+    "keeperBidLost": {
+     "stageB": 4.7389,
+     "stageBsd": 0.1927,
+     "stageA": 5.2736,
+     "pairedDiff": -0.5347,
+     "totalB": 6824.0,
+     "totalA": 7594.0
+    },
+    "keeperWins": {
+     "stageB": 1.2014,
+     "stageBsd": 0.0912,
+     "stageA": 1.1486,
+     "pairedDiff": 0.0528,
+     "totalB": 1730.0,
+     "totalA": 1654.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.6777,
+     "stageBsd": 0.0068,
+     "stageA": 0.7009,
+     "pairedDiff": -0.0235,
+     "totalB": 975.2,
+     "totalA": 1007.1
+    }
+   }
+  },
+  "S4": {
+   "ppo": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 1.1,
+     "stageBsd": 0.5426,
+     "stageA": 1.3,
+     "pairedDiff": -0.2,
+     "totalB": 132.0,
+     "totalA": 156.0
+    },
+    "keeperBidLost": {
+     "stageB": 3.75,
+     "stageBsd": 0.7013,
+     "stageA": 4.3417,
+     "pairedDiff": -0.5917,
+     "totalB": 450.0,
+     "totalA": 521.0
+    },
+    "keeperWins": {
+     "stageB": 5.3917,
+     "stageBsd": 2.2002,
+     "stageA": 4.2667,
+     "pairedDiff": 1.125,
+     "totalB": 647.0,
+     "totalA": 512.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.4931,
+     "stageBsd": 0.0656,
+     "stageA": 0.6056,
+     "pairedDiff": -0.1126,
+     "totalB": 59.2,
+     "totalA": 72.7
+    }
+   },
+   "a2c": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.7167,
+     "stageBsd": 0.2554,
+     "stageA": 0.5417,
+     "pairedDiff": 0.175,
+     "totalB": 86.0,
+     "totalA": 65.0
+    },
+    "keeperBidLost": {
+     "stageB": 4.575,
+     "stageBsd": 0.704,
+     "stageA": 5.3083,
+     "pairedDiff": -0.7333,
+     "totalB": 549.0,
+     "totalA": 637.0
+    },
+    "keeperWins": {
+     "stageB": 1.3333,
+     "stageBsd": 0.0629,
+     "stageA": 1.1917,
+     "pairedDiff": 0.1417,
+     "totalB": 160.0,
+     "totalA": 143.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.6981,
+     "stageBsd": 0.0668,
+     "stageA": 0.744,
+     "pairedDiff": -0.0459,
+     "totalB": 83.8,
+     "totalA": 89.3
+    }
+   },
+   "d3qn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.325,
+     "stageBsd": 0.3382,
+     "stageA": 1.8417,
+     "pairedDiff": -1.5167,
+     "totalB": 39.0,
+     "totalA": 221.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.9833,
+     "stageBsd": 0.7468,
+     "stageA": 2.8833,
+     "pairedDiff": -1.9,
+     "totalB": 118.0,
+     "totalA": 346.0
+    },
+    "keeperWins": {
+     "stageB": 3.1833,
+     "stageBsd": 3.5868,
+     "stageA": 1.275,
+     "pairedDiff": 1.9083,
+     "totalB": 382.0,
+     "totalA": 153.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1241,
+     "stageBsd": 0.1119,
+     "stageA": 0.4368,
+     "pairedDiff": -0.3127,
+     "totalB": 14.9,
+     "totalA": 52.4
+    }
+   },
+   "qrdqn": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.6083,
+     "pairedDiff": -0.5917,
+     "totalB": 2.0,
+     "totalA": 73.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.025,
+     "stageBsd": 0.6741,
+     "stageA": 1.825,
+     "pairedDiff": -0.8,
+     "totalB": 123.0,
+     "totalA": 219.0
+    },
+    "keeperWins": {
+     "stageB": 1.1583,
+     "stageBsd": 0.1377,
+     "stageA": 1.3583,
+     "pairedDiff": -0.2,
+     "totalB": 139.0,
+     "totalA": 163.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0787,
+     "stageBsd": 0.0612,
+     "stageA": 0.1793,
+     "pairedDiff": -0.1005,
+     "totalB": 9.4,
+     "totalA": 21.5
+    }
+   },
+   "es": {
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.5583,
+     "stageBsd": 0.8202,
+     "stageA": 0.05,
+     "pairedDiff": 0.5083,
+     "totalB": 67.0,
+     "totalA": 6.0
+    },
+    "keeperBidLost": {
+     "stageB": 5.8917,
+     "stageBsd": 0.3753,
+     "stageA": 6.8167,
+     "pairedDiff": -0.925,
+     "totalB": 707.0,
+     "totalA": 818.0
+    },
+    "keeperWins": {
+     "stageB": 1.05,
+     "stageBsd": 0.0661,
+     "stageA": 1.0,
+     "pairedDiff": 0.05,
+     "totalB": 126.0,
+     "totalA": 120.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.7652,
+     "stageBsd": 0.0296,
+     "stageA": 0.7698,
+     "pairedDiff": -0.0046,
+     "totalB": 91.8,
+     "totalA": 92.4
+    }
+   }
+  }
+ },
+ "classification": "learner incomplete XI = finding; M2-type = at least one purse-fragility forced keeper bid (forcedBy 'keeper(purse)'), otherwise M1-type (Phase 2E.1 definitions)"
+}

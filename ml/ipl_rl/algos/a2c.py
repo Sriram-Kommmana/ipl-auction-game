@@ -60,6 +60,7 @@ from ..common.rollout import AsyncRolloutState, collect_async
 from ..common.seeding import seed_everything
 from ..common.stats import EpisodeLog, action_stats, summarise_episodes
 from ..common.vec_env import VecIplAuctionEnv
+from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
 from ..common.win_qos import disable_throttling
 from ..env import ACTION_COUNT, OBS_SIZE
 from ..nets import PolicyNet
@@ -259,8 +260,7 @@ def train(cfg):
     cfg_hash = config_hash(cfg)
     if cfg["algorithm"] != "a2c":
         raise ValueError("this trainer is A2C only")
-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
-        raise ValueError("Phase 2D.1 trains against Stage A only (no RL snapshots)")
+    stage_b.check_stage(cfg, "Phase 2D.1 trains against Stage A only (no RL snapshots)")
     batch = cfg["num_envs"] * cfg["num_steps"]
     num_updates = cfg["total_decisions"] // batch
     run_name = cfg["run_name"] or f"a2c-s{cfg['seed']}-{cfg_hash[:8]}-{time.strftime('%Y%m%d-%H%M%S')}"
@@ -268,7 +268,7 @@ def train(cfg):
 
     seed_everything(cfg["seed"], cfg["torch_threads"])
     envs = VecIplAuctionEnv(cfg["num_envs"], cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
+                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
     expected = cfg["expected_act_spec"]
     if expected and envs.act_spec["hash"] != expected:
         envs.close()
@@ -286,6 +286,7 @@ def train(cfg):
 
     torch.manual_seed(init_seed(cfg["seed"]))
     agent = A2CAgent()
+    stage_b.warm_start(cfg, {"agent": agent}, run_dir)
     initial_digest = params_digest(agent)
     optimizer = torch.optim.Adam(agent.parameters(), lr=cfg["learning_rate"], eps=cfg["adam_eps"])
 
@@ -359,7 +360,7 @@ def train(cfg):
             if episodes.violations:
                 raise SafetyError([f"training episode invariant violation: {episodes.violations[:3]}"])
             incomplete = [e["seed"] for e in episodes.pending if not e["legalXI"]]
-            if incomplete:
+            if incomplete and stage_b.incomplete_is_stop(cfg):
                 raise SafetyError([f"training episode ended without a legal XI: seeds {incomplete[:5]}"])
 
             with torch.no_grad():

@@ -1,0 +1,23 @@
+Phase 2E.2 — scripts and commands (run from the repository root unless noted; Windows, ml/.venv)
+
+1. Observation inventory + frozen-hash verification (§5)
+   node ml/ipl_rl/diagnosis/obs_inventory.mjs ml/reports/phase2e2/observation-inventory.json
+   node ml/ipl_rl/crossplay/hashes.mjs --check ml/reports/phase2e0/frozen-hashes.json
+
+2. Read-only, digest-verified replay of recorded Phase 2E.0 episodes on 40 entries (raw/replay-entries.json)
+   cd ml && .venv/Scripts/python ipl_rl/diagnosis/run_node.py ipl_rl/diagnosis/replay_obs.mjs \
+       runs/_2e2/full runs/_2e0/full reports/phase2e0/findings.json <K list from runs/_2e2/K.txt>
+   → runs/_2e2/full/{obs.f32, meta.f32, episodes.json}   (15,600 episodes, 2,659,482 rows, 0 digest mismatches)
+
+3. Analyses A–J (descriptive statistics only)
+   cd ml/ipl_rl/diagnosis && python -u observability.py        → failure-observability, counterfactual-pairs, keeper-observability,
+                                                                 opponent-observability, aliasing-analysis, temporal-analysis,
+                                                                 purse-star-analysis, multi-opponent-analysis (.json)
+   python -u observability_supp.py                              → raw/supplement.json
+   (purse-star-analysis.json was regenerated once with the S4 room-type label fix: purse_star() only)
+
+4. Synthesis (matrix, categories, scorecard, gate) and plots
+   python synth2e2.py                                           → failure-observability.json (matrix), information-scorecard.json, decision-gate.json
+   python plots2e2.py ../../reports/phase2e2                    → plots/*.svg + index.html
+
+Nothing trains, fits or modifies a model, the observation, the environment or any frozen file.

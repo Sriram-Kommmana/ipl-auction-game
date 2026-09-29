@@ -1,0 +1,317 @@
+[
+ {
+  "algo": "ppo",
+  "seed": 101,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/ppo/s101/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 102,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/ppo/s102/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 103,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/ppo/s103/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 101,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/a2c/s101/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 102,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/a2c/s102/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 103,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/a2c/s103/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 101,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/d3qn/s101/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 102,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/d3qn/s102/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 103,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/d3qn/s103/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 101,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/qrdqn/s101/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 102,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/qrdqn/s102/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 103,
+  "level": "c100",
+  "decisions": 98304,
+  "report": "runs/stage_b/qrdqn/s103/checkpoints/update_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 101,
+  "level": "c100",
+  "decisions": 102723,
+  "report": "runs/stage_b/es/s101/checkpoints/gen_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 102,
+  "level": "c100",
+  "decisions": 99863,
+  "report": "runs/stage_b/es/s102/checkpoints/gen_0014/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 103,
+  "level": "c100",
+  "decisions": 101112,
+  "report": "runs/stage_b/es/s103/checkpoints/gen_0016/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 101,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/ppo/s101/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 102,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/ppo/s102/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 103,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/ppo/s103/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 101,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/a2c/s101/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 102,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/a2c/s102/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 103,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/a2c/s103/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 101,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/d3qn/s101/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 102,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/d3qn/s102/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 103,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/d3qn/s103/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 101,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/qrdqn/s101/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 102,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/qrdqn/s102/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 103,
+  "level": "c250",
+  "decisions": 245760,
+  "report": "runs/stage_b/qrdqn/s103/checkpoints/update_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 101,
+  "level": "c250",
+  "decisions": 246467,
+  "report": "runs/stage_b/es/s101/checkpoints/gen_0039/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 102,
+  "level": "c250",
+  "decisions": 249229,
+  "report": "runs/stage_b/es/s102/checkpoints/gen_0036/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 103,
+  "level": "c250",
+  "decisions": 247116,
+  "report": "runs/stage_b/es/s103/checkpoints/gen_0040/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 101,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/ppo/s101/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 102,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/ppo/s102/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "ppo",
+  "seed": 103,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/ppo/s103/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 101,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/a2c/s101/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 102,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/a2c/s102/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "a2c",
+  "seed": 103,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/a2c/s103/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 101,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/d3qn/s101/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 102,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/d3qn/s102/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "d3qn",
+  "seed": 103,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/d3qn/s103/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 101,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/qrdqn/s101/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 102,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/qrdqn/s102/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "qrdqn",
+  "seed": 103,
+  "level": "c500",
+  "decisions": 497664,
+  "report": "runs/stage_b/qrdqn/s103/checkpoints/update_0081/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 101,
+  "level": "c500",
+  "decisions": 502843,
+  "report": "runs/stage_b/es/s101/checkpoints/gen_0078/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 102,
+  "level": "c500",
+  "decisions": 502565,
+  "report": "runs/stage_b/es/s102/checkpoints/gen_0072/stage_b_checkpoint_report.json"
+ },
+ {
+  "algo": "es",
+  "seed": 103,
+  "level": "c500",
+  "decisions": 499984,
+  "report": "runs/stage_b/es/s103/checkpoints/gen_0081/stage_b_checkpoint_report.json"
+ }
+]

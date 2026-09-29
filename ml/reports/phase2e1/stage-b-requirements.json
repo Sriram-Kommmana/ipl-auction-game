@@ -1,0 +1,147 @@
+{
+ "note": "Diagnosis only. Each item is an evidence-backed problem for Stage-B design to investigate; no change is prescribed or approved.",
+ "problems": [
+  {
+   "problem": "Early star contests are lost to learned opponents, and the policies do not compensate",
+   "evidence": [
+    "Δstars is the strongest correlate of ΔXI (episode Spearman 0.73; cell-level Pearson 0.96).",
+    "Star-loss episodes (≥ 2 fewer stars than the Stage-A pair): 144,702 (77% of Stage-B episodes), mean ΔXI -3.60 vs -1.61.",
+    "Stars bought by 0.3 progress fall for every algorithm in S4 (e.g. ES 10.1 → 1.7, A2C 9.1 → 3.3)."
+   ],
+   "affectedAlgorithms": [
+    "ppo",
+    "a2c",
+    "d3qn",
+    "qrdqn",
+    "es"
+   ],
+   "affectedMatchups": "all; largest against D3QN / QR-DQN opponents and in C4 / S4",
+   "severity": "high",
+   "classification": [
+    "training-distribution issue (Stage-A rule opponents rarely contest stars above fair value)",
+    "opponent-modelling issue"
+   ],
+   "openQuestions": "Is the loss recoverable by re-allocating purse to later value (PPO's pattern), or must stars be contested? Stage-B design should measure both."
+  },
+  {
+   "problem": "Frozen bidding rules respond little to opponent pressure (policy approximately fixed, state distribution changes)",
+   "evidence": [
+    "Same player, similar own purse (|Δpurse share| < 0.05): mean Δcap/fair −0.02 to +0.00 for PPO (identical cap in 78–86% of lots) and −0.02 to +0.05 for ES (64–95%); +0.01 to +0.11 for A2C (57–67%); +0.05 to +0.08 for D3QN / QR-DQN (50–71%).",
+    "Cap changes that do occur track the purse difference (Spearman 0.24–0.44 between Δcap/fair and Δpurse share).",
+    "ES bids FV_1.25 on 62% → 86% of bids regardless of opponents."
+   ],
+   "affectedAlgorithms": [
+    "es",
+    "a2c"
+   ],
+   "affectedMatchups": "all (for PPO the same insensitivity is harmless because its Stage-A style already avoids price wars)",
+   "severity": "high",
+   "classification": [
+    "training-distribution issue",
+    "observation issue (unknown whether the rival features carry enough signal — cannot be determined from this data)",
+    "unknown"
+   ],
+   "openQuestions": "Is the insensitivity a training-distribution effect (no variation in Stage A) or an observation limitation? Needs a counterfactual probe or training experiment."
+  },
+  {
+   "problem": "Population pressure: identical aggressive opponents escalate prices",
+   "evidence": [
+    "C4 − C1 escalation by opponent: D3QN -1.6044, QR-DQN -1.2866, A2C -1.0057, ES -0.3415, PPO -0.2182 XI.",
+    "Escalation is sublinear (C4/C1 ratio 1.06–1.70, never 4×) and is associated with the C4−C1 rise in room price/fair (Spearman −0.49) and in RL-opponent spend by 0.3 progress (−0.48)."
+   ],
+   "affectedAlgorithms": [
+    "ppo",
+    "a2c",
+    "d3qn",
+    "qrdqn",
+    "es"
+   ],
+   "affectedMatchups": "C4 vs D3QN / QR-DQN / A2C; S4",
+   "severity": "medium–high",
+   "classification": [
+    "training-distribution issue",
+    "opponent-modelling issue"
+   ],
+   "openQuestions": "What opponent mix should Stage-B training sample so that population pressure is represented without collapsing to one style?"
+  },
+  {
+   "problem": "Squad and overseas saturation with stranded purse",
+   "evidence": [
+    "Squad ≥ 24 with ≥ 5% purse unspent: 15,374 episodes, mean ΔXI -6.30 (vs -2.86).",
+    "ES in S4: squad 24.9, 8 overseas in 100% of rooms, 18% purse left; A2C in S4: squad 23.1, 8 overseas in 87%."
+   ],
+   "affectedAlgorithms": [
+    "es",
+    "a2c"
+   ],
+   "affectedMatchups": "C4 vs D3QN / QR-DQN; S4",
+   "severity": "high for ES / A2C",
+   "classification": [
+    "purse-management issue",
+    "reward issue (unknown — marginal buys are low-value but not penalised; cannot be determined from this data)",
+    "training-distribution issue"
+   ],
+   "openQuestions": "Does the XI-delta reward give the policy any signal about slot / overseas capacity as a resource? To be investigated in Stage-B design."
+  },
+  {
+   "problem": "Keeper completion under scarcity (completion-shield blind spot)",
+   "evidence": [
+    "20 incomplete-XI findings, all missing a keeper; mechanism M1 (14): passes on cheap keepers while SAFE, CRITICAL only in the re-auction, forced bids lost with ≤ ₹500L; mechanism M2 (6): purse and overseas exhausted in the first quarter, forced keeper bids lost to rivals with large purses.",
+    "Rivals ending with ≥ 3 keepers (depth buying, often PPO) held 12–24 keepers in every finding room; the shield's forcing rule counts rivals that NEED keepers.",
+    "Final-path forced bids: 0 in Stage A, 31 in Stage B (23 of them against four PPO seats); forced-bid win rates fall (e.g. D3QN 68% → 42%)."
+   ],
+   "affectedAlgorithms": [
+    "qrdqn",
+    "d3qn",
+    "a2c",
+    "es"
+   ],
+   "affectedMatchups": "C4 (all findings), mostly high-purse auctions; learners vs 4× PPO; qrdqn:s2 in any room",
+   "severity": "low frequency (20 / 195,000) but a legality failure",
+   "classification": [
+    "completion/shield issue",
+    "purse-management issue",
+    "training-distribution issue"
+   ],
+   "openQuestions": "Should completion safety account for rivals' depth buying and for the seat's ability to contest (purse vs rivals)? This concerns the frozen act-v3 shield and needs an explicit decision."
+  },
+  {
+   "problem": "Late requirement completion and rising shield dependence",
+   "evidence": [
+    "Keeper completion moves later for every algorithm (e.g. PPO 0.09 → 0.57, A2C 0.22 → 0.74, ES 0.21 → 0.77 mean progress in S4); Indian completion later too.",
+    "Forced bids per episode rise for D3QN (0.015 → 0.43 in S4) and QR-DQN (0.035 → 0.29); PPO stays ≤ 0.005."
+   ],
+   "affectedAlgorithms": [
+    "d3qn",
+    "qrdqn",
+    "a2c",
+    "es"
+   ],
+   "affectedMatchups": "C4, S4",
+   "severity": "medium",
+   "classification": [
+    "purse-management issue",
+    "completion/shield issue",
+    "training-distribution issue"
+   ],
+   "openQuestions": "Late completion is not harmful for PPO (it completes cheaply late); is it harmful for the others only because they lack purse late?"
+  },
+  {
+   "problem": "Seed-specific fragility",
+   "evidence": [
+    "qrdqn:s2 is involved in 12 of 20 findings; PPO s2 as an opponent is associated with more damage than s1 / s3; C1/C4 seed-pair variance is mostly opponent-seed (56%) vs learner-seed (37%)."
+   ],
+   "affectedAlgorithms": [
+    "qrdqn",
+    "ppo"
+   ],
+   "affectedMatchups": "specific exports",
+   "severity": "medium",
+   "classification": [
+    "training-distribution issue",
+    "unknown"
+   ],
+   "openQuestions": "Stage-B evaluation should keep multi-seed opponents; single-seed conclusions would be misleading."
+  }
+ ]
+}

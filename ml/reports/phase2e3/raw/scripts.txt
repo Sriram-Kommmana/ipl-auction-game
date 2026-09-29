@@ -1,0 +1,17 @@
+Phase 2E.3 — scripts and commands (Windows, ml/.venv). Design analysis only; obs-v2 untouched.
+
+1. Candidate-signal replay (same recorded episodes, same rows and order as Phase 2E.2; digest-verified)
+   cd ml && .venv/Scripts/python ipl_rl/diagnosis/run_node.py ipl_rl/diagnosis/replay_cand.mjs \
+       runs/_2e3/full runs/_2e0/full reports/phase2e0/findings.json <K list from runs/_2e2/K.txt>
+   → runs/_2e3/full/{cand.f32, cand-episodes.json}   (15,600 episodes, 2,659,482 rows, 0 digest mismatches)
+
+2. Gap statistics (rank separation, stratification cells, near-identical-pair tests — no fitting)
+   cd ml/ipl_rl/diagnosis && python -u gapdesign.py      → reports/phase2e3/raw/gap-stats.json
+   python -u gap_extra.py                                → reports/phase2e3/raw/gap-extra.json
+
+3. Synthesis and plots
+   python synth2e3.py                                    → the ten JSON deliverables
+   python plots2e3.py ../../reports/phase2e3             → plots/*.svg + index.html
+
+4. Frozen-state check
+   node ml/ipl_rl/crossplay/hashes.mjs --check ml/reports/phase2e0/frozen-hashes.json   → raw/integrity-final.txt

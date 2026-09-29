@@ -1,0 +1,134 @@
+{
+  "obsSpecHash": "629b25783f833af7",
+  "actSpecHash": "5f72f510c48b1f46",
+  "sources": {
+    "packages/shared/src/rl/obsSpec.js": "24cd851b0c275a03b5a650c6f91f970567ba0b2d8fbee527c871e31536f37884",
+    "packages/shared/src/rl/actionSpec.js": "51be310bee9ac4cfefd3ddbe9b02bfc9f1138b5ae72bacbc1d558caf1627590b",
+    "packages/shared/src/rl/mask.js": "d0c84a38bef0e57ae65ddd48f0a61b6409b264e122e9a9b51014e6deb2450ffc",
+    "packages/shared/src/rl/reward.js": "81106ecf8d6fc9a06894bc2c695a097f8e6d8dd03b5c1f6bce7b18c790353350",
+    "packages/shared/src/rl/samplers.js": "7569a3f097b6e5e9dd98c8ee146c15b7a094fb91319a241d2116c6201cb8aa17",
+    "packages/shared/src/rl/env.js": "d993da59222e4ca6e65d30992cc95bbc788b2acfd5cdcc3bea03d225c22372ff",
+    "packages/shared/src/rl/runtime.js": "d062da50678a5973aae8fd4fb3d164bd53512ccc608c7b0098aa4d8089308365",
+    "packages/shared/src/rl/policy.js": "49c5db36d7ceaa31d3f412e363afb3890cc8e60b08aebd22b267bc5fb3dcbbef",
+    "packages/shared/src/rl/evaluate.js": "fab8b05a13612a92a78e50571588a45d3a8c43e706383da5dea65d64cc560172",
+    "packages/shared/src/rl/invariants.js": "aa6a99bb8f61b99caf623148fdad13fef918c9c5b27ac601d055edede23957be",
+    "packages/shared/src/rl/hash.js": "5de22e0f593ab40af7ba36eb7f523c8dff6a6259ef4d307385c3fee6fe6f1e1d",
+    "packages/shared/src/rl/index.js": "f04029177fbaa3fdedb940eccafebe738c6feaffc8874b5cbce2e5545b8d01ca",
+    "packages/shared/src/sim.js": "20375d023c85ff4ff93d86b2e6078bd20a49d67bb4bb8bcad22f9ba74b311def",
+    "packages/shared/src/planning.js": "f946d5fe7170387102bb99c4875f6bbc4609689184ac5718f0298ae77688554e",
+    "packages/shared/src/personas.js": "5f0d70d00f81ebabe9063edee2b1d7e62cc331d3d2c1dedd7176d8618775fceb",
+    "packages/shared/src/rules.js": "103073cbc522f6e438e4e871fd491273c9e564e3b69b5bb3cbed8dc9bcfd1df1",
+    "packages/shared/src/scoring.js": "8a23660cf00c65ce13d8f1387e3fc525c63dc18373fca09bfcbf700d936f5b48",
+    "packages/shared/src/valuation.js": "a2e48c8145e623b0f1a572fba7f7e1cdc7823f91668b05463ceca1553d8a095a",
+    "packages/shared/src/playersCsv.js": "aac1c20844682d978049d55bc823dad8f03dd4bbed33716bf4a2d5a620e1f7d9",
+    "apps/server/src/db/players.csv": "70a91c553225e21ee31fe37ee1691f358ce838a2c4a40b8703521b484dc2e173",
+    "packages/shared/data/rl-manifests/train.json": "0a97c53f90919ddb3fe1bb6b009ffcc8757f0f14954c55b5b782dda508b705c2",
+    "packages/shared/data/rl-manifests/validation.json": "a5dd16472c126b1e358147c2fbc966c6fef767b7e75196027c548f4a171ef790",
+    "packages/shared/data/rl-manifests/test.json": "17317e13be593c3678a01cdb48c4a281534f5afabc73c603bd7ab88f5b59255c",
+    "packages/shared/data/rl-baselines/validation.report.json": "f483aa24d8d214ab3ca445215f888e1ce02955466839f174c1a96fce79ece9b1",
+    "packages/shared/data/rl-baselines/validation.episodes.json": "db54142e4a207e00c6442be56e4aac9190b9b2fae604679bacec6cd5ab4a0139"
+  },
+  "exports": {
+    "ppo:s1": {
+      "path": "ml/runs/ppo-2c3-s1/checkpoints/update_0325/policy.json",
+      "sha256": "1484f74db7ab4cd2b2beb1e03d0252346e90334163342f547aa018d8e2e2dfd5",
+      "checkpointSha256": "682bdc89e91fb53f4a1d67139644aed13c774bb2de3023997f32c2f10e5c38b3"
+    },
+    "ppo:s2": {
+      "path": "ml/runs/ppo-2c3-s2/checkpoints/update_0325/policy.json",
+      "sha256": "ffa4a6bbdb18da1359a5e928aa3b39c176a87b80c30151722f0d0cd803faa007",
+      "checkpointSha256": "7f994d8c6f12c06331c5e3e6833331304124f0dd9f7b39d0f6e294d4e0d33bd8"
+    },
+    "ppo:s3": {
+      "path": "ml/runs/ppo-2c3-s3/checkpoints/update_0325/policy.json",
+      "sha256": "9cdd49ed48c9c2d573798aaac63a8f8e4c26b0361faeab642c775d65aaf8b115",
+      "checkpointSha256": "934677cd7d2e392e31cc6394819151a0554ef37116a583f6ad62e40a923c1b7c"
+    },
+    "a2c:s1": {
+      "path": "ml/runs/a2c-2d1-s1/checkpoints/update_0325/policy.json",
+      "sha256": "9482565a9322b3538af038e058e5af91ee336252c7528949484477e80449149a",
+      "checkpointSha256": "65c334b9819d44580435de491613c32e1c320484d75e9d2c236f6d44aa353ca9"
+    },
+    "a2c:s2": {
+      "path": "ml/runs/a2c-2d1-s2/checkpoints/update_0325/policy.json",
+      "sha256": "8d54a091f8e4aa9f32c090760937a543a3f852871f87263fd8cb4666df530c48",
+      "checkpointSha256": "0fe82a251dc13b9ed5d116aada2a28ce8fe1e5bc4f37b79dd5436d57f3849282"
+    },
+    "a2c:s3": {
+      "path": "ml/runs/a2c-2d1-s3/checkpoints/update_0325/policy.json",
+      "sha256": "338ed33cb8a4e9b5e98837943fd6664d4f6b05e97de37dcb926dd446fc5ffcd6",
+      "checkpointSha256": "b40ff73d9bb48e5c3fc774166a3028e20b337841cb76eb45f51e64fe2399628b"
+    },
+    "d3qn:s1": {
+      "path": "ml/runs/d3qn-2d2-s1/checkpoints/update_0325/policy.json",
+      "sha256": "92d77f58a27a3ed2bd9fe3ff2cc8ce887399e72724511d5832717c7c348a8582",
+      "checkpointSha256": "cd08b5b99c8a26280e15be265653f04fde7c5dff80b3ce17f873731c26a137c1"
+    },
+    "d3qn:s2": {
+      "path": "ml/runs/d3qn-2d2-s2/checkpoints/update_0325/policy.json",
+      "sha256": "e4b54c2a8b276fb6ef72bc50545a88329f47fe044d1536e78af0d00b8a9a2630",
+      "checkpointSha256": "2fc2a8ab70753302c0f77af8591a4d8d7c2fa511e7882294374fef3c2d65fa08"
+    },
+    "d3qn:s3": {
+      "path": "ml/runs/d3qn-2d2-s3/checkpoints/update_0325/policy.json",
+      "sha256": "7d938abb7cb524865015e4767b5c44d12dc117c62d2f39651376b590a32f6f29",
+      "checkpointSha256": "99f2d1eb0a67d6180e8fa7a14a2257c8e53d9f1bb226c9a559c42baac4a92df5"
+    },
+    "qrdqn:s1": {
+      "path": "ml/runs/qr-dqn-2d3-s1/checkpoints/update_0325/policy.json",
+      "sha256": "957d8847988e0447268ae2cac3bbe11bd7ecaa04f42a40308f2c41267b9a1141",
+      "checkpointSha256": "b8e5772b7f3267359e652c0328c8cee5a214fc5cb692cd4edebabf9766db2daf"
+    },
+    "qrdqn:s2": {
+      "path": "ml/runs/qr-dqn-2d3-s2/checkpoints/update_0325/policy.json",
+      "sha256": "d4089e713f6d259d0245819cbc51c09dbca8ab41d1c5ed10f3cb6b59dfde0e77",
+      "checkpointSha256": "682f057048920721e88811c148d43bd0d6f888e96798c9b83544430c43bd61a9"
+    },
+    "qrdqn:s3": {
+      "path": "ml/runs/qr-dqn-2d3-s3/checkpoints/update_0325/policy.json",
+      "sha256": "a5bdbe2fd1ddb654fae899c033f790109370689ee37f19d5340a76a37a03d2e2",
+      "checkpointSha256": "3f2f5e0b090df5250b1331f87cc8ae64c09d7811ae88ceca7f66b996e5c842ba"
+    },
+    "es:s1": {
+      "path": "ml/runs/openai-es-2d4-s1/checkpoints/gen_2000/policy.json",
+      "sha256": "cccc7996e636cb17e3756efeeace7dc340ca4182f819cbc45ed7ffff623ad42a",
+      "checkpointSha256": "cce63f2e26dff91cbc075950c3af78911389e5656368e1278f2c7f1e9e2e8ce1"
+    },
+    "es:s2": {
+      "path": "ml/runs/openai-es-2d4-s2/checkpoints/gen_2000/policy.json",
+      "sha256": "37bb9702b090706710dbe282e2bb22574d1d67c17ef98f68ab043d598b22b3d8",
+      "checkpointSha256": "9004a4eac6ba441791bd54a0ed300daff4b9bd118357b038ac5f031ee91d7921"
+    },
+    "es:s3": {
+      "path": "ml/runs/openai-es-2d4-s3/checkpoints/gen_2000/policy.json",
+      "sha256": "76bcd8ff0638c55d2c542c2e80e1aeb794bd9c7c0d12b15ccd57cc2e2ab7039f",
+      "checkpointSha256": "9d1473eb5fb2591f52def8ffb4b951e3840e3afba2daa3c36b370643eabb11b7"
+    }
+  },
+  "rewardSpec": {
+    "gamma": 1,
+    "lambdaRel": 0,
+    "file": "81106ecf8d6fc9a06894bc2c695a097f8e6d8dd03b5c1f6bce7b18c790353350"
+  },
+  "extra": {
+    "packages/shared/src/ruleBots.js": "9004c6b82f0ccbd9ea6efdee6f17b22a8d93f7def73e527aad8fee4457c66127",
+    "packages/shared/src/botSignals.js": "b8722f4b8b323ffa632e12d830b0c14d3de5d8378a50ae178ab6fe0280dd1d19",
+    "packages/shared/src/pool.js": "3608ff2393c09b18c719099553ed6fa621a07dfb1e6d7ae530e6442d48eed89a",
+    "packages/shared/src/rewards.js": "4d5b607a695d7af4dd5a05de5485d71a01695bb02d8f18b77bce2b48d86dbc2c",
+    "packages/shared/src/observation.js": "52c077a180807aa158611d8c1d3e20e8c29898f89d6e71a16450fe6641606b99",
+    "packages/shared/src/mlp.js": "9c8511b883fc2db856d4740efdcf985e358f8b1f44f3ed1b86b8311e899712e0",
+    "packages/shared/src/index.js": "adf40f1561bf6cedbd52384996db4488c2280d9412513470a22fdb43b4232f63",
+    "apps/server/src/bots/botManager.js": "ac0555ab7888a1321bdbb5b3784d28c397cdfb4a01fb6ff76e75730d46e7a364",
+    "apps/server/src/bots/context.js": "f43c624be4d2af3da1c3613c7d32aab41540aa564fcfcf14ffd553c48d6f6290",
+    "apps/server/src/bots/playerCache.js": "5a22095b28a641d5dc037a24a3858d67e224e430fcb4017e906c64c4fa6e3c66",
+    "apps/server/src/bots/rlPolicy.js": "6d410a719b0ab2e401676e043da436021286f25b9f0710f0587a3114c0a16967",
+    "apps/server/src/bots/seatBots.js": "ecf715d2b77d8d77272afb0e792a01381227b07de056d9eaaadd47accb1f2a67",
+    "packages/shared/bin/rl-bridge-v2.js": "5ba71befa9a4a0242ca6402c7611ad0168c67882deeab6021dda3123f40ceb05",
+    "packages/shared/bin/rl-evaluate.js": "dcee02f66682127244181b0b44badecb89d6cea3f707daf8a027938e15df905a",
+    "ml/ipl_rl/configs/ppo_2c3.json": "4ffb2a189498ee43eb62f8cc89d85ada3c6c35cd6e0ebfd0d44c618eda848833",
+    "ml/ipl_rl/configs/a2c_2d1.json": "0b957255f3114b4f67d2ae62698982d22033bfe7c27754e0e4e6e250b8864d39",
+    "ml/ipl_rl/configs/d3qn_2d2.json": "f7ce8df38e486c08a573695d2aab20512f98400772dc0ed0752cd6d2bee0983c",
+    "ml/ipl_rl/configs/qr_dqn_2d3.json": "74099cd8286919d0c47f5a72819eb648e568e3b884e980bc9b6b67e47f67743e",
+    "ml/ipl_rl/configs/openai_es_2d4.json": "8106f9d7567e3956b29137ddf975be722a0108bdef33d6ea190a536a1b6ff56d"
+  }
+}

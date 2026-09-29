@@ -1,0 +1,750 @@
+{
+ "C1matrix": {
+  "ppo>a2c": {
+   "deltaXI": {
+    "mean": -1.6484444444444444,
+    "ci95": [
+     -1.6843247474747474,
+     -1.6139176767676766
+    ],
+    "n": 4500
+   },
+   "learnerXI": 90.9463,
+   "opponentXI": 88.5989,
+   "learnerPriceFair": 0.8603,
+   "opponentPriceFair": 1.1367,
+   "learnerCapFair": 0.7812,
+   "opponentCapFair": 1.0774,
+   "learnerBidRate": 0.4428,
+   "opponentBidRate": 0.8314,
+   "learnerPurseLeft": 0.001,
+   "opponentPurseLeft": 0.0004,
+   "learnerStars": 8.778,
+   "opponentStars": 7.9584,
+   "learnerShieldActivationsPerEpisode": 0.0007,
+   "learnerForcedKeeperPurchasesPer500": 0.0,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.1237,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "ppo>d3qn": {
+   "deltaXI": {
+    "mean": -2.1425050505050502,
+    "ci95": [
+     -2.1797181818181817,
+     -2.1060999999999996
+    ],
+    "n": 4500
+   },
+   "learnerXI": 90.4522,
+   "opponentXI": 89.8758,
+   "learnerPriceFair": 0.8572,
+   "opponentPriceFair": 1.1221,
+   "learnerCapFair": 0.7975,
+   "opponentCapFair": 0.9944,
+   "learnerBidRate": 0.4161,
+   "opponentBidRate": 0.803,
+   "learnerPurseLeft": 0.0023,
+   "opponentPurseLeft": 0.0013,
+   "learnerStars": 8.5222,
+   "opponentStars": 8.5849,
+   "learnerShieldActivationsPerEpisode": 0.0029,
+   "learnerForcedKeeperPurchasesPer500": 0.4444,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.3305,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "ppo>qrdqn": {
+   "deltaXI": {
+    "mean": -2.253979797979798,
+    "ci95": [
+     -2.2924696969696967,
+     -2.21599898989899
+    ],
+    "n": 4500
+   },
+   "learnerXI": 90.3407,
+   "opponentXI": 90.3492,
+   "learnerPriceFair": 0.8564,
+   "opponentPriceFair": 1.0046,
+   "learnerCapFair": 0.8045,
+   "opponentCapFair": 0.9082,
+   "learnerBidRate": 0.4101,
+   "opponentBidRate": 0.6865,
+   "learnerPurseLeft": 0.0026,
+   "opponentPurseLeft": 0.0017,
+   "learnerStars": 8.4556,
+   "opponentStars": 8.7411,
+   "learnerShieldActivationsPerEpisode": 0.0022,
+   "learnerForcedKeeperPurchasesPer500": 0.2222,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.4017,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "ppo>es": {
+   "deltaXI": {
+    "mean": -1.7386464646464646,
+    "ci95": [
+     -1.7740631313131314,
+     -1.7038358585858586
+    ],
+    "n": 4500
+   },
+   "learnerXI": 90.8561,
+   "opponentXI": 88.6735,
+   "learnerPriceFair": 0.8624,
+   "opponentPriceFair": 1.0814,
+   "learnerCapFair": 0.7794,
+   "opponentCapFair": 1.1205,
+   "learnerBidRate": 0.4488,
+   "opponentBidRate": 0.8575,
+   "learnerPurseLeft": 0.001,
+   "opponentPurseLeft": 0.0014,
+   "learnerStars": 8.6133,
+   "opponentStars": 8.2976,
+   "learnerShieldActivationsPerEpisode": 0.0018,
+   "learnerForcedKeeperPurchasesPer500": 0.0,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.0894,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "a2c>ppo": {
+   "deltaXI": {
+    "mean": -1.8572121212121209,
+    "ci95": [
+     -1.926748484848485,
+     -1.7926974747474749
+    ],
+    "n": 4500
+   },
+   "learnerXI": 88.5698,
+   "opponentXI": 90.9457,
+   "learnerPriceFair": 1.1374,
+   "opponentPriceFair": 0.8566,
+   "learnerCapFair": 1.0774,
+   "opponentCapFair": 0.78,
+   "learnerBidRate": 0.8335,
+   "opponentBidRate": 0.4417,
+   "learnerPurseLeft": 0.0004,
+   "opponentPurseLeft": 0.001,
+   "learnerStars": 7.9218,
+   "opponentStars": 8.7729,
+   "learnerShieldActivationsPerEpisode": 0.766,
+   "learnerForcedKeeperPurchasesPer500": 171.5556,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.5621,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "a2c>d3qn": {
+   "deltaXI": {
+    "mean": -3.472141414141414,
+    "ci95": [
+     -3.5461282828282825,
+     -3.3987065656565663
+    ],
+    "n": 4500
+   },
+   "learnerXI": 86.9549,
+   "opponentXI": 88.5351,
+   "learnerPriceFair": 1.2063,
+   "opponentPriceFair": 1.2186,
+   "learnerCapFair": 1.1543,
+   "opponentCapFair": 0.9527,
+   "learnerBidRate": 0.8762,
+   "opponentBidRate": 0.8144,
+   "learnerPurseLeft": 0.0015,
+   "opponentPurseLeft": 0.0005,
+   "learnerStars": 5.5987,
+   "opponentStars": 7.6142,
+   "learnerShieldActivationsPerEpisode": 0.7076,
+   "learnerForcedKeeperPurchasesPer500": 159.2222,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.5721,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "a2c>qrdqn": {
+   "deltaXI": {
+    "mean": -3.423050505050505,
+    "ci95": [
+     -3.4926717171717176,
+     -3.3527469696969696
+    ],
+    "n": 4500
+   },
+   "learnerXI": 87.004,
+   "opponentXI": 89.0828,
+   "learnerPriceFair": 1.2047,
+   "opponentPriceFair": 1.0468,
+   "learnerCapFair": 1.1465,
+   "opponentCapFair": 0.872,
+   "learnerBidRate": 0.8676,
+   "opponentBidRate": 0.7435,
+   "learnerPurseLeft": 0.0012,
+   "opponentPurseLeft": 0.0008,
+   "learnerStars": 5.8496,
+   "opponentStars": 7.6758,
+   "learnerShieldActivationsPerEpisode": 0.816,
+   "learnerForcedKeeperPurchasesPer500": 179.4444,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.6167,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "a2c>es": {
+   "deltaXI": {
+    "mean": -2.4008484848484843,
+    "ci95": [
+     -2.4665297979797978,
+     -2.334929292929292
+    ],
+    "n": 4500
+   },
+   "learnerXI": 88.0262,
+   "opponentXI": 87.95,
+   "learnerPriceFair": 1.2168,
+   "opponentPriceFair": 1.1034,
+   "learnerCapFair": 1.0743,
+   "opponentCapFair": 1.1571,
+   "learnerBidRate": 0.8365,
+   "opponentBidRate": 0.8778,
+   "learnerPurseLeft": 0.0004,
+   "opponentPurseLeft": 0.0025,
+   "learnerStars": 6.9373,
+   "opponentStars": 6.6398,
+   "learnerShieldActivationsPerEpisode": 0.5393,
+   "learnerForcedKeeperPurchasesPer500": 114.7778,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.3888,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "d3qn>ppo": {
+   "deltaXI": {
+    "mean": -1.6413737373737374,
+    "ci95": [
+     -1.6932994949494948,
+     -1.589530808080808
+    ],
+    "n": 4500
+   },
+   "learnerXI": 89.8483,
+   "opponentXI": 90.4536,
+   "learnerPriceFair": 1.1263,
+   "opponentPriceFair": 0.8549,
+   "learnerCapFair": 0.9948,
+   "opponentCapFair": 0.7962,
+   "learnerBidRate": 0.8049,
+   "opponentBidRate": 0.415,
+   "learnerPurseLeft": 0.0013,
+   "opponentPurseLeft": 0.0017,
+   "learnerStars": 8.5789,
+   "opponentStars": 8.4942,
+   "learnerShieldActivationsPerEpisode": 0.1053,
+   "learnerForcedKeeperPurchasesPer500": 25.8889,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.1999,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "d3qn>a2c": {
+   "deltaXI": {
+    "mean": -2.9513535353535354,
+    "ci95": [
+     -3.0050111111111106,
+     -2.8984484848484855
+    ],
+    "n": 4500
+   },
+   "learnerXI": 88.5383,
+   "opponentXI": 86.9528,
+   "learnerPriceFair": 1.219,
+   "opponentPriceFair": 1.2054,
+   "learnerCapFair": 0.9532,
+   "opponentCapFair": 1.1539,
+   "learnerBidRate": 0.8172,
+   "opponentBidRate": 0.8763,
+   "learnerPurseLeft": 0.0005,
+   "opponentPurseLeft": 0.0015,
+   "learnerStars": 7.6113,
+   "opponentStars": 5.6031,
+   "learnerShieldActivationsPerEpisode": 0.1147,
+   "learnerForcedKeeperPurchasesPer500": 15.6667,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.1115,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "d3qn>qrdqn": {
+   "deltaXI": {
+    "mean": -3.561575757575757,
+    "ci95": [
+     -3.616212121212121,
+     -3.508531313131313
+    ],
+    "n": 4500
+   },
+   "learnerXI": 87.9281,
+   "opponentXI": 88.5248,
+   "learnerPriceFair": 1.1849,
+   "opponentPriceFair": 1.0527,
+   "learnerCapFair": 0.9543,
+   "opponentCapFair": 0.9116,
+   "learnerBidRate": 0.8107,
+   "opponentBidRate": 0.7311,
+   "learnerPurseLeft": 0.001,
+   "opponentPurseLeft": 0.0013,
+   "learnerStars": 7.102,
+   "opponentStars": 6.8062,
+   "learnerShieldActivationsPerEpisode": 0.2069,
+   "learnerForcedKeeperPurchasesPer500": 41.5556,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.2785,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "d3qn>es": {
+   "deltaXI": {
+    "mean": -2.2321414141414144,
+    "ci95": [
+     -2.283247474747475,
+     -2.1779161616161615
+    ],
+    "n": 4500
+   },
+   "learnerXI": 89.2575,
+   "opponentXI": 87.1477,
+   "learnerPriceFair": 1.1994,
+   "opponentPriceFair": 1.0842,
+   "learnerCapFair": 0.9321,
+   "opponentCapFair": 1.1868,
+   "learnerBidRate": 0.8211,
+   "opponentBidRate": 0.9006,
+   "learnerPurseLeft": 0.0005,
+   "opponentPurseLeft": 0.0068,
+   "learnerStars": 7.9787,
+   "opponentStars": 5.9051,
+   "learnerShieldActivationsPerEpisode": 0.0376,
+   "learnerForcedKeeperPurchasesPer500": 7.0,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.0881,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "qrdqn>ppo": {
+   "deltaXI": {
+    "mean": -1.5210303030303032,
+    "ci95": [
+     -1.5671535353535353,
+     -1.472217676767677
+    ],
+    "n": 4500
+   },
+   "learnerXI": 90.3324,
+   "opponentXI": 90.3469,
+   "learnerPriceFair": 1.0046,
+   "opponentPriceFair": 0.8547,
+   "learnerCapFair": 0.9085,
+   "opponentCapFair": 0.8049,
+   "learnerBidRate": 0.6895,
+   "opponentBidRate": 0.4097,
+   "learnerPurseLeft": 0.0017,
+   "opponentPurseLeft": 0.0028,
+   "learnerStars": 8.7442,
+   "opponentStars": 8.4527,
+   "learnerShieldActivationsPerEpisode": 0.0847,
+   "learnerForcedKeeperPurchasesPer500": 21.2222,
+   "learnerFinalPathForcedBids": 1,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.114,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "qrdqn>a2c": {
+   "deltaXI": {
+    "mean": -2.768868686868687,
+    "ci95": [
+     -2.818218686868687,
+     -2.72094797979798
+    ],
+    "n": 4500
+   },
+   "learnerXI": 89.0845,
+   "opponentXI": 87.0134,
+   "learnerPriceFair": 1.0465,
+   "opponentPriceFair": 1.2028,
+   "learnerCapFair": 0.8709,
+   "opponentCapFair": 1.1452,
+   "learnerBidRate": 0.7478,
+   "opponentBidRate": 0.8674,
+   "learnerPurseLeft": 0.001,
+   "opponentPurseLeft": 0.0013,
+   "learnerStars": 7.6656,
+   "opponentStars": 5.8658,
+   "learnerShieldActivationsPerEpisode": 0.0887,
+   "learnerForcedKeeperPurchasesPer500": 13.3333,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.0836,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "qrdqn>d3qn": {
+   "deltaXI": {
+    "mean": -3.31210101010101,
+    "ci95": [
+     -3.3609530303030306,
+     -3.2621792929292925
+    ],
+    "n": 4500
+   },
+   "learnerXI": 88.5413,
+   "opponentXI": 87.9272,
+   "learnerPriceFair": 1.0533,
+   "opponentPriceFair": 1.1852,
+   "learnerCapFair": 0.9129,
+   "opponentCapFair": 0.9525,
+   "learnerBidRate": 0.7322,
+   "opponentBidRate": 0.8067,
+   "learnerPurseLeft": 0.0012,
+   "opponentPurseLeft": 0.0011,
+   "learnerStars": 6.8164,
+   "opponentStars": 7.0889,
+   "learnerShieldActivationsPerEpisode": 0.1913,
+   "learnerForcedKeeperPurchasesPer500": 42.8889,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.1841,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "qrdqn>es": {
+   "deltaXI": {
+    "mean": -2.2242626262626266,
+    "ci95": [
+     -2.26665101010101,
+     -2.178361111111111
+    ],
+    "n": 4500
+   },
+   "learnerXI": 89.6291,
+   "opponentXI": 87.0677,
+   "learnerPriceFair": 1.0382,
+   "opponentPriceFair": 1.1004,
+   "learnerCapFair": 0.8554,
+   "opponentCapFair": 1.1869,
+   "learnerBidRate": 0.7357,
+   "opponentBidRate": 0.8945,
+   "learnerPurseLeft": 0.0007,
+   "opponentPurseLeft": 0.0085,
+   "learnerStars": 8.1602,
+   "opponentStars": 5.7729,
+   "learnerShieldActivationsPerEpisode": 0.0698,
+   "learnerForcedKeeperPurchasesPer500": 12.0,
+   "learnerFinalPathForcedBids": 2,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.0772,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "es>ppo": {
+   "deltaXI": {
+    "mean": -2.438444444444444,
+    "ci95": [
+     -2.5337328282828278,
+     -2.340569191919191
+    ],
+    "n": 4500
+   },
+   "learnerXI": 88.6295,
+   "opponentXI": 90.8638,
+   "learnerPriceFair": 1.0795,
+   "opponentPriceFair": 0.8644,
+   "learnerCapFair": 1.121,
+   "opponentCapFair": 0.7788,
+   "learnerBidRate": 0.8562,
+   "opponentBidRate": 0.4492,
+   "learnerPurseLeft": 0.0012,
+   "opponentPurseLeft": 0.001,
+   "learnerStars": 8.2724,
+   "opponentStars": 8.6047,
+   "learnerShieldActivationsPerEpisode": 0.6724,
+   "learnerForcedKeeperPurchasesPer500": 150.8889,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.643,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "es>a2c": {
+   "deltaXI": {
+    "mean": -3.101050505050505,
+    "ci95": [
+     -3.17915404040404,
+     -3.02275404040404
+    ],
+    "n": 4500
+   },
+   "learnerXI": 87.9669,
+   "opponentXI": 88.0228,
+   "learnerPriceFair": 1.1054,
+   "opponentPriceFair": 1.215,
+   "learnerCapFair": 1.1566,
+   "opponentCapFair": 1.071,
+   "learnerBidRate": 0.876,
+   "opponentBidRate": 0.8343,
+   "learnerPurseLeft": 0.0022,
+   "opponentPurseLeft": 0.0004,
+   "learnerStars": 6.6658,
+   "opponentStars": 6.8896,
+   "learnerShieldActivationsPerEpisode": 0.4311,
+   "learnerForcedKeeperPurchasesPer500": 90.3333,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.439,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "es>d3qn": {
+   "deltaXI": {
+    "mean": -3.930565656565657,
+    "ci95": [
+     -4.02424696969697,
+     -3.8351666666666664
+    ],
+    "n": 4500
+   },
+   "learnerXI": 87.1374,
+   "opponentXI": 89.2392,
+   "learnerPriceFair": 1.0843,
+   "opponentPriceFair": 1.2016,
+   "learnerCapFair": 1.1876,
+   "opponentCapFair": 0.9341,
+   "learnerBidRate": 0.8994,
+   "opponentBidRate": 0.8205,
+   "learnerPurseLeft": 0.0073,
+   "opponentPurseLeft": 0.0005,
+   "learnerStars": 5.8816,
+   "opponentStars": 7.9856,
+   "learnerShieldActivationsPerEpisode": 0.5158,
+   "learnerForcedKeeperPurchasesPer500": 115.1111,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.6582,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  },
+  "es>qrdqn": {
+   "deltaXI": {
+    "mean": -4.000686868686868,
+    "ci95": [
+     -4.091559090909091,
+     -3.914210101010101
+    ],
+    "n": 4500
+   },
+   "learnerXI": 87.0673,
+   "opponentXI": 89.6237,
+   "learnerPriceFair": 1.1009,
+   "opponentPriceFair": 1.0376,
+   "learnerCapFair": 1.1869,
+   "opponentCapFair": 0.8559,
+   "learnerBidRate": 0.8973,
+   "opponentBidRate": 0.7347,
+   "learnerPurseLeft": 0.0085,
+   "opponentPurseLeft": 0.0008,
+   "learnerStars": 5.7647,
+   "opponentStars": 8.1716,
+   "learnerShieldActivationsPerEpisode": 0.5169,
+   "learnerForcedKeeperPurchasesPer500": 111.7778,
+   "learnerFinalPathForcedBids": 0,
+   "requirementFailures": {
+    "learnerIncompleteXI": 0,
+    "opponentIncompleteXI": 0
+   },
+   "learnerKeeperCompletionProgress": 0.6667,
+   "opponentShieldUsage": "not recorded for opponent seats in Phase 2E.0 (runtime does not expose the shield state); see the reverse pairing"
+  }
+ },
+ "learnerMainEffect": {
+  "ppo": -1.9458939393939394,
+  "a2c": -2.788313131313131,
+  "d3qn": -2.596611111111111,
+  "qrdqn": -2.456565656565657,
+  "es": -3.3676868686868686
+ },
+ "opponentMainEffect": {
+  "ppo": -1.8645151515151515,
+  "a2c": -2.6174292929292933,
+  "d3qn": -3.2143282828282826,
+  "qrdqn": -3.309823232323232,
+  "es": -2.148974747474748
+ },
+ "varianceExplained": {
+  "learnerOnly": 0.35795211671853344,
+  "opponentOnly": 0.5431099079348172,
+  "additiveLearnerPlusOpponent": 0.9663890132047305,
+  "note": "R\u00b2 of least-squares fits to the 20 C1 transfer cells; the remainder is learner\u00d7opponent interaction"
+ },
+ "opponentStyle": {
+  "ppo": {
+   "bidRate": 0.4289,
+   "capFair": 0.79,
+   "priceFair": 0.8576,
+   "purseLeft": 0.0017,
+   "stars": 8.5811,
+   "squad": 16.7068,
+   "xi": 90.6525,
+   "meanTransferCaused": -1.8645
+  },
+  "a2c": {
+   "bidRate": 0.8523,
+   "capFair": 1.1119,
+   "priceFair": 1.19,
+   "purseLeft": 0.0009,
+   "stars": 6.5792,
+   "squad": 18.5198,
+   "xi": 87.647,
+   "meanTransferCaused": -2.6174
+  },
+  "d3qn": {
+   "bidRate": 0.8111,
+   "capFair": 0.9584,
+   "priceFair": 1.1819,
+   "purseLeft": 0.0009,
+   "stars": 7.8184,
+   "squad": 15.2972,
+   "xi": 88.8943,
+   "meanTransferCaused": -3.2143
+  },
+  "qrdqn": {
+   "bidRate": 0.724,
+   "capFair": 0.8869,
+   "priceFair": 1.0354,
+   "purseLeft": 0.0012,
+   "stars": 7.8487,
+   "squad": 15.8922,
+   "xi": 89.3951,
+   "meanTransferCaused": -3.3098
+  },
+  "es": {
+   "bidRate": 0.8826,
+   "capFair": 1.1628,
+   "priceFair": 1.0924,
+   "purseLeft": 0.0048,
+   "stars": 6.6538,
+   "squad": 20.2948,
+   "xi": 87.7097,
+   "meanTransferCaused": -2.149
+  }
+ },
+ "styleVsTransferAcrossCells": {
+  "opponentBidRate": {
+   "pearson": -0.3589345014064367,
+   "spearman": -0.12030075187969923,
+   "n": 20
+  },
+  "opponentCapFair": {
+   "pearson": 0.06331777919208986,
+   "spearman": 0.03308270676691729,
+   "n": 20
+  },
+  "opponentPriceFair": {
+   "pearson": -0.5128185328950722,
+   "spearman": -0.4300751879699248,
+   "n": 20
+  },
+  "opponentPurseLeft": {
+   "pearson": 0.3110300997645782,
+   "spearman": 0.4828394479374114,
+   "n": 20
+  },
+  "opponentStars": {
+   "pearson": 0.25098039952255546,
+   "spearman": 0.3398496240601503,
+   "n": 20
+  },
+  "opponentXI": {
+   "pearson": 0.2519363116077292,
+   "spearman": 0.2827067669172932,
+   "n": 20
+  }
+ },
+ "C4matrixSummary": {
+  "ppo>a2c": -2.2663,
+  "ppo>d3qn": -2.4696,
+  "ppo>qrdqn": -2.3838,
+  "ppo>es": -2.1613,
+  "a2c>ppo": -1.9851,
+  "a2c>d3qn": -5.162,
+  "a2c>qrdqn": -4.7945,
+  "a2c>es": -2.9288,
+  "d3qn>ppo": -1.9077,
+  "d3qn>a2c": -3.7793,
+  "d3qn>qrdqn": -5.0668,
+  "d3qn>es": -2.4015,
+  "qrdqn>ppo": -1.859,
+  "qrdqn>a2c": -3.6323,
+  "qrdqn>d3qn": -4.9586,
+  "qrdqn>es": -2.4704,
+  "es>ppo": -2.579,
+  "es>a2c": -4.815,
+  "es>d3qn": -6.6848,
+  "es>qrdqn": -6.1404
+ }
+}

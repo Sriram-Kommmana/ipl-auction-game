@@ -1,0 +1,128 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "priceNeededToWin": {
+  "share>5xFair": 0.0003,
+  "share>3xFair": 0.0056,
+  "p99": 3.0
+ },
+ "salePriceToFair": {
+  "share>5": 0.0,
+  "share>3": 0.002,
+  "p99": 2.5
+ },
+ "riv_capacity_1": {
+  "rawPercentiles": {
+   "1": 5.87,
+   "5": 8.98,
+   "25": 14.48,
+   "50": 31.65,
+   "75": 65.81,
+   "95": 278.27
+  },
+  "shareAtClip": 0.993,
+  "shareRawBelow2": 0.004,
+  "trackPriceNeeded_raw(log)": 0.08,
+  "trackPriceNeeded_clipped": -0.0,
+  "shareClippedWhilePriceNeeded>5": 0.0003
+ },
+ "riv_capacity_2": {
+  "rawPercentiles": {
+   "1": 3.3,
+   "5": 7.8,
+   "25": 13.47,
+   "50": 28.3,
+   "75": 54.6,
+   "95": 236.22
+  },
+  "shareAtClip": 0.984,
+  "shareRawBelow2": 0.008,
+  "trackPriceNeeded_raw(log)": 0.093,
+  "trackPriceNeeded_clipped": 0.0,
+  "shareClippedWhilePriceNeeded>5": 0.0003
+ },
+ "riv_capacity_3": {
+  "rawPercentiles": {
+   "1": 0.0,
+   "5": 6.88,
+   "25": 12.85,
+   "50": 26.61,
+   "75": 52.1,
+   "95": 222.58
+  },
+  "shareAtClip": 0.974,
+  "shareRawBelow2": 0.015,
+  "trackPriceNeeded_raw(log)": 0.097,
+  "trackPriceNeeded_clipped": 0.003,
+  "shareClippedWhilePriceNeeded>5": 0.0003
+ },
+ "mkt_scarcity_bowling": {
+  "rawPercentiles": {
+   "1": 10.5,
+   "5": 13.33,
+   "25": 15.46,
+   "50": 21.88,
+   "75": 40.0,
+   "95": 81.0
+  },
+  "shareAtClip": 0.997,
+  "decisionsWithOwnNeed": 984452,
+  "shareAtClipWhenOwnNeed": 1.0,
+  "minRawWhenOwnNeed": 3.73,
+  "shareRawBelow2WhenOwnNeed": 0.0
+ },
+ "mkt_scarcity_indians": {
+  "rawPercentiles": {
+   "1": 9.18,
+   "5": 10.18,
+   "25": 11.85,
+   "50": 15.25,
+   "75": 21.5,
+   "95": 66.0
+  },
+  "shareAtClip": 0.998,
+  "decisionsWithOwnNeed": 1227904,
+  "shareAtClipWhenOwnNeed": 1.0,
+  "minRawWhenOwnNeed": 5.09,
+  "shareRawBelow2WhenOwnNeed": 0.0
+ },
+ "mkt_scarcity_keeper": {
+  "rawPercentiles": {
+   "1": 1.12,
+   "5": 2.12,
+   "25": 4.0,
+   "50": 4.88,
+   "75": 4.88,
+   "95": 4.88
+  },
+  "shareAtClip": 0.041,
+  "decisionsWithOwnNeed": 1040362,
+  "shareAtClipWhenOwnNeed": 0.008,
+  "minRawWhenOwnNeed": 0.0,
+  "shareRawBelow2WhenOwnNeed": 0.0195
+ },
+ "phase2e0FindingsByMissingRequirement": "all 20 findings are missing-keeper XIs (Phase 2E.1 keeper-failures.json)",
+ "perFeature": {
+  "riv_capacity_1–3": {
+   "rawState": "(rival purse − rival's cheapest legal completion) / fair value of the lot, top-3 rivals able to bid",
+   "whySaturating": "fair values are small relative to purses: median raw capacity 31.65 / 26.61 × fair (1st / 3rd); clip at 5",
+   "rawQuantityUseful": "only where it binds (< ~3 × fair: 1.5% of decisions below 2 for the 3rd rival) — that range is preserved below the clip",
+   "informationDestroyed": "only values above 5 × fair; the price needed exceeded 5 × fair in 0.03% of decisions and no sale exceeded 5 × fair",
+   "betterTransform": "a log transform would track the price needed at 0.08–0.097 (clipped: ~0) — no strategic gain",
+   "unnecessary": "largely uninformative in these rooms (constant 5 for 97–99%), but nothing strategic is lost; leaving it unchanged costs nothing",
+   "verdict": "KEEP"
+  },
+  "mkt_scarcity_bowling / mkt_scarcity_indians": {
+   "rawState": "suitable players left after this lot / (own need + rivals needing + 1)",
+   "whySaturating": "the pool holds many bowling options / Indians: median raw 21.88 / 15.25",
+   "rawQuantityUseful": "only when it approaches 1 (scarcity); that range is fully preserved below the clip",
+   "informationDestroyed": "only degrees of abundance; with an own need the raw ratio never fell below 3.73 / 5.09, and no bowling / Indians incomplete-XI finding exists",
+   "betterTransform": "not needed",
+   "unnecessary": "uninformative in these rooms, harmless",
+   "verdict": "KEEP"
+  }
+ }
+}

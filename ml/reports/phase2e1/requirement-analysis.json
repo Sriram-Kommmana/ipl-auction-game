@@ -1,0 +1,1005 @@
+{
+ "fromRawRecords": {
+  "ppo": {
+   "A": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.037,
+     "p25": 0.025,
+     "p75": 0.053,
+     "mean": 0.0857,
+     "afterHalf": 0.0673,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.245,
+     "p25": 0.201,
+     "p75": 0.279,
+     "mean": 0.2459,
+     "afterHalf": 0.0087,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.232,
+     "p25": 0.18,
+     "p75": 0.285,
+     "mean": 0.232,
+     "afterHalf": 0.0233,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   },
+   "C1": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.05,
+     "p25": 0.028,
+     "p75": 0.765,
+     "mean": 0.2363,
+     "afterHalf": 0.2685,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0003
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.297,
+     "p25": 0.272,
+     "p75": 0.325,
+     "mean": 0.3137,
+     "afterHalf": 0.0286,
+     "inReauction": 0.0002,
+     "byForcedBid": 0.0001
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.461,
+     "p25": 0.334,
+     "p75": 0.511,
+     "mean": 0.446,
+     "afterHalf": 0.3098,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0003
+    }
+   },
+   "C4": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.065,
+     "p25": 0.031,
+     "p75": 0.768,
+     "mean": 0.3843,
+     "afterHalf": 0.4769,
+     "inReauction": 0.0005,
+     "byForcedBid": 0.0009
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.446,
+     "p25": 0.412,
+     "p75": 0.48,
+     "mean": 0.4357,
+     "afterHalf": 0.1412,
+     "inReauction": 0.0013,
+     "byForcedBid": 0.0004
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.505,
+     "p25": 0.467,
+     "p75": 0.539,
+     "mean": 0.5052,
+     "afterHalf": 0.545,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0002
+    }
+   },
+   "S4": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.765,
+     "p25": 0.059,
+     "p75": 0.774,
+     "mean": 0.5669,
+     "afterHalf": 0.7227,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.44,
+     "p25": 0.344,
+     "p75": 0.474,
+     "mean": 0.4257,
+     "afterHalf": 0.1107,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.536,
+     "p25": 0.508,
+     "p75": 0.582,
+     "mean": 0.562,
+     "afterHalf": 0.784,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   }
+  },
+  "a2c": {
+   "A": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.043,
+     "p25": 0.028,
+     "p75": 0.065,
+     "mean": 0.219,
+     "afterHalf": 0.2433,
+     "inReauction": 0.0,
+     "byForcedBid": 0.1147
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.0545,
+     "p25": 0.046,
+     "p75": 0.062,
+     "mean": 0.069,
+     "afterHalf": 0.0007,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.053,
+     "p25": 0.046,
+     "p75": 0.062,
+     "mean": 0.064,
+     "afterHalf": 0.0007,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   },
+   "C1": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.777,
+     "p25": 0.046,
+     "p75": 0.789,
+     "mean": 0.5349,
+     "afterHalf": 0.6649,
+     "inReauction": 0.0003,
+     "byForcedBid": 0.3125
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.115,
+     "p25": 0.056,
+     "p75": 0.146,
+     "mean": 0.1108,
+     "afterHalf": 0.0008,
+     "inReauction": 0.0,
+     "byForcedBid": 0.001
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.093,
+     "p25": 0.065,
+     "p75": 0.127,
+     "mean": 0.1092,
+     "afterHalf": 0.0077,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0022
+    }
+   },
+   "C4": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 0.9998,
+     "median": 0.774,
+     "p25": 0.759,
+     "p75": 0.786,
+     "mean": 0.6015,
+     "afterHalf": 0.7596,
+     "inReauction": 0.0005,
+     "byForcedBid": 0.2014
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.115,
+     "p25": 0.056,
+     "p75": 0.139,
+     "mean": 0.1098,
+     "afterHalf": 0.0042,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0027
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.09,
+     "p25": 0.059,
+     "p75": 0.115,
+     "mean": 0.1005,
+     "afterHalf": 0.0043,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0007
+    }
+   },
+   "S4": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.7815,
+     "p25": 0.771,
+     "p75": 0.793,
+     "mean": 0.7438,
+     "afterHalf": 0.946,
+     "inReauction": 0.0,
+     "byForcedBid": 0.228
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.133,
+     "p25": 0.118,
+     "p75": 0.158,
+     "mean": 0.1377,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.102,
+     "p25": 0.087,
+     "p75": 0.124,
+     "mean": 0.113,
+     "afterHalf": 0.004,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   }
+  },
+  "d3qn": {
+   "A": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.034,
+     "p25": 0.022,
+     "p75": 0.05,
+     "mean": 0.0731,
+     "afterHalf": 0.0507,
+     "inReauction": 0.0027,
+     "byForcedBid": 0.01
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.062,
+     "p25": 0.053,
+     "p75": 0.105,
+     "mean": 0.0842,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.071,
+     "p25": 0.062,
+     "p75": 0.084,
+     "mean": 0.0821,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   },
+   "C1": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.04,
+     "p25": 0.025,
+     "p75": 0.056,
+     "mean": 0.1695,
+     "afterHalf": 0.1765,
+     "inReauction": 0.0049,
+     "byForcedBid": 0.0451
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.111,
+     "p25": 0.059,
+     "p75": 0.173,
+     "mean": 0.1275,
+     "afterHalf": 0.0022,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0009
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.105,
+     "p25": 0.077,
+     "p75": 0.201,
+     "mean": 0.1494,
+     "afterHalf": 0.0139,
+     "inReauction": 0.0001,
+     "byForcedBid": 0.0033
+    }
+   },
+   "C4": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.043,
+     "p25": 0.025,
+     "p75": 0.768,
+     "mean": 0.2507,
+     "afterHalf": 0.2862,
+     "inReauction": 0.0101,
+     "byForcedBid": 0.0656
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.115,
+     "p25": 0.059,
+     "p75": 0.183,
+     "mean": 0.1406,
+     "afterHalf": 0.0174,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0027
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.118,
+     "p25": 0.074,
+     "p75": 0.297,
+     "mean": 0.1913,
+     "afterHalf": 0.0487,
+     "inReauction": 0.0002,
+     "byForcedBid": 0.0036
+    }
+   },
+   "S4": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.062,
+     "p25": 0.034,
+     "p75": 0.786,
+     "mean": 0.4011,
+     "afterHalf": 0.4793,
+     "inReauction": 0.0253,
+     "byForcedBid": 0.1613
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.164,
+     "p25": 0.118,
+     "p75": 0.201,
+     "mean": 0.164,
+     "afterHalf": 0.006,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.235,
+     "p25": 0.13,
+     "p75": 0.387,
+     "mean": 0.2894,
+     "afterHalf": 0.18,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0187
+    }
+   }
+  },
+  "qrdqn": {
+   "A": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.034,
+     "p25": 0.022,
+     "p75": 0.05,
+     "mean": 0.0726,
+     "afterHalf": 0.0487,
+     "inReauction": 0.0093,
+     "byForcedBid": 0.0193
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.065,
+     "p25": 0.059,
+     "p75": 0.183,
+     "mean": 0.1218,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.084,
+     "p25": 0.065,
+     "p75": 0.161,
+     "mean": 0.1116,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   },
+   "C1": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.037,
+     "p25": 0.025,
+     "p75": 0.053,
+     "mean": 0.1147,
+     "afterHalf": 0.1004,
+     "inReauction": 0.0195,
+     "byForcedBid": 0.0447
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.186,
+     "p25": 0.133,
+     "p75": 0.245,
+     "mean": 0.1822,
+     "afterHalf": 0.0014,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0001
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.211,
+     "p25": 0.115,
+     "p75": 0.303,
+     "mean": 0.2246,
+     "afterHalf": 0.0262,
+     "inReauction": 0.0002,
+     "byForcedBid": 0.0047
+    }
+   },
+   "C4": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 0.9998,
+     "median": 0.037,
+     "p25": 0.022,
+     "p75": 0.053,
+     "mean": 0.1528,
+     "afterHalf": 0.153,
+     "inReauction": 0.0184,
+     "byForcedBid": 0.0651
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.183,
+     "p25": 0.124,
+     "p75": 0.238,
+     "mean": 0.1936,
+     "afterHalf": 0.0227,
+     "inReauction": 0.0008,
+     "byForcedBid": 0.001
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.229,
+     "p25": 0.093,
+     "p75": 0.331,
+     "mean": 0.2412,
+     "afterHalf": 0.0687,
+     "inReauction": 0.0007,
+     "byForcedBid": 0.0046
+    }
+   },
+   "S4": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.046,
+     "p25": 0.028,
+     "p75": 0.065,
+     "mean": 0.1972,
+     "afterHalf": 0.2013,
+     "inReauction": 0.026,
+     "byForcedBid": 0.0867
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.201,
+     "p25": 0.17,
+     "p75": 0.26,
+     "mean": 0.2155,
+     "afterHalf": 0.006,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.279,
+     "p25": 0.207,
+     "p75": 0.433,
+     "mean": 0.3151,
+     "afterHalf": 0.1653,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0107
+    }
+   }
+  },
+  "es": {
+   "A": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.046,
+     "p25": 0.028,
+     "p75": 0.065,
+     "mean": 0.2135,
+     "afterHalf": 0.2347,
+     "inReauction": 0.0,
+     "byForcedBid": 0.1067
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.059,
+     "p25": 0.053,
+     "p75": 0.065,
+     "mean": 0.0748,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.084,
+     "p25": 0.062,
+     "p75": 0.149,
+     "mean": 0.1132,
+     "afterHalf": 0.0027,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   },
+   "C1": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.777,
+     "p25": 0.762,
+     "p75": 0.786,
+     "mean": 0.6017,
+     "afterHalf": 0.7543,
+     "inReauction": 0.0001,
+     "byForcedBid": 0.2341
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.152,
+     "p25": 0.13,
+     "p75": 0.17,
+     "mean": 0.1419,
+     "afterHalf": 0.0003,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0001
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.223,
+     "p25": 0.17,
+     "p75": 0.26,
+     "mean": 0.2281,
+     "afterHalf": 0.0232,
+     "inReauction": 0.0001,
+     "byForcedBid": 0.0029
+    }
+   },
+   "C4": {
+    "keeper": {
+     "episodesNeeding": 18000,
+     "completed": 0.9998,
+     "median": 0.771,
+     "p25": 0.765,
+     "p75": 0.78,
+     "mean": 0.6967,
+     "afterHalf": 0.8934,
+     "inReauction": 0.0002,
+     "byForcedBid": 0.1008
+    },
+    "bowling": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.146,
+     "p25": 0.121,
+     "p75": 0.204,
+     "mean": 0.1577,
+     "afterHalf": 0.0002,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0005
+    },
+    "indians": {
+     "episodesNeeding": 18000,
+     "completed": 1.0,
+     "median": 0.266,
+     "p25": 0.146,
+     "p75": 0.375,
+     "mean": 0.2637,
+     "afterHalf": 0.0162,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0012
+    }
+   },
+   "S4": {
+    "keeper": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.774,
+     "p25": 0.768,
+     "p75": 0.78,
+     "mean": 0.7742,
+     "afterHalf": 0.9987,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0273
+    },
+    "bowling": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.18,
+     "p25": 0.152,
+     "p75": 0.198,
+     "mean": 0.1778,
+     "afterHalf": 0.0,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    },
+    "indians": {
+     "episodesNeeding": 1500,
+     "completed": 1.0,
+     "median": 0.313,
+     "p25": 0.276,
+     "p75": 0.353,
+     "mean": 0.3161,
+     "afterHalf": 0.0013,
+     "inReauction": 0.0,
+     "byForcedBid": 0.0
+    }
+   }
+  }
+ },
+ "fromTrajectories": {
+  "A": {
+   "ppo": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.4,
+     "meanBin": 0.3827
+    },
+    "overseas4": {
+     "reached": 0.934,
+     "medianBin": 0.4,
+     "meanBin": 0.38
+    },
+    "overseasEnd": 6.2527,
+    "overseasCappedShare": 0.3787
+   },
+   "a2c": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.1,
+     "meanBin": 0.1112
+    },
+    "overseas4": {
+     "reached": 0.8773,
+     "medianBin": 0.1,
+     "meanBin": 0.1514
+    },
+    "overseasEnd": 5.1727,
+    "overseasCappedShare": 0.0707
+   },
+   "d3qn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.1,
+     "meanBin": 0.1459
+    },
+    "overseas4": {
+     "reached": 0.8433,
+     "medianBin": 0.1,
+     "meanBin": 0.2243
+    },
+    "overseasEnd": 5.0613,
+    "overseasCappedShare": 0.1313
+   },
+   "qrdqn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.2087
+    },
+    "overseas4": {
+     "reached": 0.9053,
+     "medianBin": 0.2,
+     "meanBin": 0.2635
+    },
+    "overseasEnd": 5.5413,
+    "overseasCappedShare": 0.1873
+   },
+   "es": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.1,
+     "meanBin": 0.1362
+    },
+    "overseas4": {
+     "reached": 0.942,
+     "medianBin": 0.1,
+     "meanBin": 0.1453
+    },
+    "overseasEnd": 5.758,
+    "overseasCappedShare": 0.1467
+   }
+  },
+  "C1": {
+   "ppo": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.5,
+     "meanBin": 0.5206
+    },
+    "overseas4": {
+     "reached": 0.984,
+     "medianBin": 0.4,
+     "meanBin": 0.3894
+    },
+    "overseasEnd": 6.265,
+    "overseasCappedShare": 0.3105
+   },
+   "a2c": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.1782
+    },
+    "overseas4": {
+     "reached": 0.9885,
+     "medianBin": 0.2,
+     "meanBin": 0.1849
+    },
+    "overseasEnd": 7.094,
+    "overseasCappedShare": 0.551
+   },
+   "d3qn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.2101
+    },
+    "overseas4": {
+     "reached": 0.588,
+     "medianBin": 0.2,
+     "meanBin": 0.3537
+    },
+    "overseasEnd": 3.833,
+    "overseasCappedShare": 0.0145
+   },
+   "qrdqn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.3,
+     "meanBin": 0.3164
+    },
+    "overseas4": {
+     "reached": 0.912,
+     "medianBin": 0.3,
+     "meanBin": 0.2754
+    },
+    "overseasEnd": 5.944,
+    "overseasCappedShare": 0.313
+   },
+   "es": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.2223
+    },
+    "overseas4": {
+     "reached": 0.9405,
+     "medianBin": 0.2,
+     "meanBin": 0.1948
+    },
+    "overseasEnd": 6.5245,
+    "overseasCappedShare": 0.469
+   }
+  },
+  "C4": {
+   "ppo": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.6,
+     "meanBin": 0.5687
+    },
+    "overseas4": {
+     "reached": 0.9965,
+     "medianBin": 0.4,
+     "meanBin": 0.4358
+    },
+    "overseasEnd": 7.15,
+    "overseasCappedShare": 0.594
+   },
+   "a2c": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.1725
+    },
+    "overseas4": {
+     "reached": 0.993,
+     "medianBin": 0.2,
+     "meanBin": 0.1967
+    },
+    "overseasEnd": 7.552,
+    "overseasCappedShare": 0.794
+   },
+   "d3qn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.233
+    },
+    "overseas4": {
+     "reached": 0.6935,
+     "medianBin": 0.2,
+     "meanBin": 0.2774
+    },
+    "overseasEnd": 4.7075,
+    "overseasCappedShare": 0.193
+   },
+   "qrdqn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.3,
+     "meanBin": 0.3197
+    },
+    "overseas4": {
+     "reached": 0.925,
+     "medianBin": 0.2,
+     "meanBin": 0.2772
+    },
+    "overseasEnd": 5.7,
+    "overseasCappedShare": 0.2345
+   },
+   "es": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.2267
+    },
+    "overseas4": {
+     "reached": 0.9695,
+     "medianBin": 0.2,
+     "meanBin": 0.1988
+    },
+    "overseasEnd": 7.0585,
+    "overseasCappedShare": 0.6755
+   }
+  },
+  "S4": {
+   "ppo": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.6,
+     "meanBin": 0.6101
+    },
+    "overseas4": {
+     "reached": 0.9133,
+     "medianBin": 0.4,
+     "meanBin": 0.4877
+    },
+    "overseasEnd": 6.344,
+    "overseasCappedShare": 0.4247
+   },
+   "a2c": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.201
+    },
+    "overseas4": {
+     "reached": 0.9987,
+     "medianBin": 0.2,
+     "meanBin": 0.2099
+    },
+    "overseasEnd": 7.7453,
+    "overseasCappedShare": 0.8687
+   },
+   "d3qn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.3,
+     "meanBin": 0.3129
+    },
+    "overseas4": {
+     "reached": 0.8493,
+     "medianBin": 0.3,
+     "meanBin": 0.283
+    },
+    "overseasEnd": 5.4333,
+    "overseasCappedShare": 0.202
+   },
+   "qrdqn": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.4,
+     "meanBin": 0.3587
+    },
+    "overseas4": {
+     "reached": 0.9393,
+     "medianBin": 0.3,
+     "meanBin": 0.319
+    },
+    "overseasEnd": 6.1553,
+    "overseasCappedShare": 0.342
+   },
+   "es": {
+    "xiSlots11": {
+     "reached": 1.0,
+     "medianBin": 0.3,
+     "meanBin": 0.3051
+    },
+    "overseas4": {
+     "reached": 1.0,
+     "medianBin": 0.2,
+     "meanBin": 0.2223
+    },
+    "overseasEnd": 8.0,
+    "overseasCappedShare": 1.0
+   }
+  }
+ },
+ "note": "Keeper / bowling / Indian timing = the learner's main-round progress (0\u20131; re-auction = 1) when the planner marked the requirement satisfied (raw records). XI-slot and overseas timing come from the replays at 0.1 progress resolution (1.1 = in the re-auction); C1/C4 trajectories cover the s1\u00d7s1 subset."
+}

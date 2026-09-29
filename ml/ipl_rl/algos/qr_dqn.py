@@ -62,6 +62,7 @@ from ..common.replay import NStepBuilder, PrioritizedReplay, ReplayCorruption
 from ..common.seeding import seed_everything
 from ..common.stats import EpisodeLog, action_stats, summarise_episodes
 from ..common.vec_env import VecIplAuctionEnv
+from ..stage_b import hooks as stage_b  # Phase 2F (default-off in Stage A)
 from ..common.win_qos import disable_throttling
 from ..env import ACTION_COUNT, OBS_SIZE, PASS
 from ..export import to_policy_json as _policy_json, write_policy
@@ -332,8 +333,7 @@ def train(cfg):
         raise ValueError("this trainer is QR-DQN only")
     if cfg["n_quantiles"] != N_QUANTILES:
         raise ValueError(f"QR-DQN uses exactly {N_QUANTILES} quantiles (the frozen production head)")
-    if cfg["stage"] != "A" or cfg["snapshot_share"] != 0.0:
-        raise ValueError("Phase 2D.3 trains against Stage A only (no RL snapshots)")
+    stage_b.check_stage(cfg, "Phase 2D.3 trains against Stage A only (no RL snapshots)")
     N, L = cfg["num_envs"], cfg["actor_lag_cycles"]
     total_cycles = cfg["total_decisions"] // N
     eval_cycles = sorted({d // N for d in cfg["eval_decisions"] if d % N == 0 and 0 < d // N <= total_cycles} | {total_cycles})
@@ -342,7 +342,7 @@ def train(cfg):
 
     seed_everything(cfg["seed"], cfg["torch_threads"])
     envs = VecIplAuctionEnv(N, cfg["seed"], split=cfg["split"], tremble=cfg["tremble"],
-                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"])
+                            snapshot_share=cfg["snapshot_share"], watchdog_seconds=cfg["watchdog_seconds"], **stage_b.env_kwargs(cfg))
     expected = cfg["expected_act_spec"]
     if expected and envs.act_spec["hash"] != expected:
         envs.close()
@@ -363,6 +363,7 @@ def train(cfg):
 
     torch.manual_seed(init_seed(cfg["seed"]))
     online = make_net()
+    stage_b.warm_start(cfg, {"online": online}, run_dir)
     target = copy.deepcopy(online)
     for p in target.parameters():
         p.requires_grad_(False)
@@ -476,7 +477,7 @@ def train(cfg):
             ep_actions[i] = 0
             if ep.get("invariantViolations", 0):
                 raise SafetyError([f"training episode invariant violation (seed {ep['seed']}): {ep.get('violations')}"])
-            if not ep["legalXI"]:
+            if not ep["legalXI"] and stage_b.incomplete_is_stop(cfg):
                 raise SafetyError([f"training episode ended without a legal XI: seed {ep['seed']}"])
             episodes_by_cycle.setdefault(k, []).append((i, ep))
             envs.send_reset(i)

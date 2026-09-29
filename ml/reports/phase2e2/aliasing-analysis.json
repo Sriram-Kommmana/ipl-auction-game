@@ -1,0 +1,746 @@
+{
+ "meta": {
+  "phase": "2E.2",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (replay_obs.mjs); no model trained, fitted or modified",
+  "rows": 2659482,
+  "learnerRows": 2186930,
+  "opponentRows": 472552,
+  "episodes": 15600,
+  "entries": [
+   25,
+   27,
+   34,
+   36,
+   77,
+   95,
+   123,
+   132,
+   139,
+   142,
+   172,
+   180,
+   184,
+   185,
+   224,
+   235,
+   244,
+   245,
+   253,
+   262,
+   275,
+   278,
+   285,
+   302,
+   308,
+   316,
+   342,
+   368,
+   376,
+   378,
+   419,
+   424,
+   431,
+   433,
+   445,
+   446,
+   457,
+   463,
+   465,
+   490
+  ],
+  "thresholds": {
+   "aliasTight": 0.02,
+   "aliasLoose": 0.05,
+   "featureDiffers": 0.01,
+   "materialPrice": 0.5,
+   "materialKeeperStock": 2,
+   "materialNoNeedBuyers": 3,
+   "similarState": "|Δ own purse share| ≤ 0.05, |Δ squad| ≤ 1, |Δ overseas| ≤ 1, same keeper need",
+   "capHidden": 5.0,
+   "spearmanStrong": 0.5,
+   "spearmanWeak": 0.2
+  }
+ },
+ "definition": {
+  "groups": "all captured decisions (learner + RL-opponent rows) on the same auction entry, phase and lot, i.e. the same player card at the same point of the same player order",
+  "aliased": "L∞ over the 80 features ≤ 0.02 (tight) / ≤ 0.05 (loose)",
+  "pairs": "unordered pairs from different (episode, seat)",
+  "groupCap": "groups larger than 420 rows are randomly subsampled (RandomState(7))"
+ },
+ "pairsExamined": 345772627,
+ "tightAliasedPairs": 4656820,
+ "mechanisms": {
+  "price_pressure": {
+   "description": "price needed to win differs by ≥ 0.5 fair value",
+   "materialPairs": 71647766,
+   "aliasedTight": 89758,
+   "aliasedLoose": 139602,
+   "aliasRateTight": 0.0013,
+   "aliasRateLoose": 0.0019,
+   "aliasedTight_outcomeDiffers": 18571,
+   "lotsAffected": 549,
+   "examples": [
+    {
+     "k": 25,
+     "slNo": 1,
+     "phase": "main",
+     "progress": 0.034,
+     "linf": 0.0,
+     "a": {
+      "cond": "C1",
+      "opp": "ppo:s1",
+      "who": "rl opponent",
+      "needToWin": 1.6,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C1",
+      "opp": "ppo:s1",
+      "who": "rl opponent",
+      "needToWin": 2.5,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 1
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 2,
+     "phase": "main",
+     "progress": 0.025,
+     "linf": 0.0,
+     "a": {
+      "cond": "C1",
+      "opp": "d3qn:s2",
+      "who": "learner",
+      "needToWin": 1.6,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C1",
+      "opp": "d3qn:s3",
+      "who": "learner",
+      "needToWin": 3.0,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 1
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 3,
+     "phase": "main",
+     "progress": 0.053,
+     "linf": 0.0121,
+     "a": {
+      "cond": "C1",
+      "opp": "d3qn:s2",
+      "who": "learner",
+      "needToWin": 1.6,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C1",
+      "opp": "d3qn:s3",
+      "who": "learner",
+      "needToWin": 2.5,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 10
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 4,
+     "phase": "main",
+     "progress": 0.043,
+     "linf": 0.0123,
+     "a": {
+      "cond": "C1",
+      "opp": "d3qn:s2",
+      "who": "learner",
+      "needToWin": 1.6,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C1",
+      "opp": "d3qn:s3",
+      "who": "learner",
+      "needToWin": 3.0,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 10
+     }
+    }
+   ]
+  },
+  "weak_vs_aggressive": {
+   "description": "Stage-A room (rule-bot rivals) vs a C4 room with four high-pressure copies (D3QN / QR-DQN)",
+   "materialPairs": 4033693,
+   "aliasedTight": 42858,
+   "aliasedLoose": 46385,
+   "aliasRateTight": 0.0106,
+   "aliasRateLoose": 0.0115,
+   "aliasedTight_outcomeDiffers": 3485,
+   "lotsAffected": 78,
+   "examples": [
+    {
+     "k": 25,
+     "slNo": 21,
+     "phase": "main",
+     "progress": 0.0,
+     "linf": 0.0,
+     "a": {
+      "cond": "A",
+      "opp": "",
+      "who": "learner",
+      "needToWin": 2.32,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 0,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "d3qn:s1",
+      "who": "learner",
+      "needToWin": 2.23,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 11
+     }
+    },
+    {
+     "k": 27,
+     "slNo": 5,
+     "phase": "main",
+     "progress": 0.0,
+     "linf": 0.0,
+     "a": {
+      "cond": "A",
+      "opp": "",
+      "who": "learner",
+      "needToWin": 2.38,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 0,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "d3qn:s1",
+      "who": "learner",
+      "needToWin": 2.36,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 2
+     }
+    },
+    {
+     "k": 34,
+     "slNo": 20,
+     "phase": "main",
+     "progress": 0.0,
+     "linf": 0.0,
+     "a": {
+      "cond": "A",
+      "opp": "",
+      "who": "learner",
+      "needToWin": 1.44,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 0,
+      "seatFinalKeepers": 3
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "d3qn:s1",
+      "who": "learner",
+      "needToWin": 1.35,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 4
+     }
+    },
+    {
+     "k": 36,
+     "slNo": 15,
+     "phase": "main",
+     "progress": 0.0,
+     "linf": 0.0,
+     "a": {
+      "cond": "A",
+      "opp": "",
+      "who": "learner",
+      "needToWin": 2.08,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 0,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "d3qn:s1",
+      "who": "learner",
+      "needToWin": 1.97,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 5
+     }
+    }
+   ]
+  },
+  "one_vs_multiple": {
+   "description": "C1 vs C4 with the same opponent export (one copy vs four copies)",
+   "materialPairs": 9742255,
+   "aliasedTight": 100251,
+   "aliasedLoose": 112700,
+   "aliasRateTight": 0.0103,
+   "aliasRateLoose": 0.0116,
+   "aliasedTight_outcomeDiffers": 7183,
+   "lotsAffected": 182,
+   "examples": [
+    {
+     "k": 25,
+     "slNo": 5,
+     "phase": "main",
+     "progress": 0.012,
+     "linf": 0.0198,
+     "a": {
+      "cond": "C1",
+      "opp": "ppo:s1",
+      "who": "learner",
+      "needToWin": 1.2,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "ppo:s1",
+      "who": "learner",
+      "needToWin": 1.2,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 2
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 15,
+     "phase": "main",
+     "progress": 0.015,
+     "linf": 0.0177,
+     "a": {
+      "cond": "C1",
+      "opp": "a2c:s1",
+      "who": "learner",
+      "needToWin": 1.25,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 6
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "a2c:s1",
+      "who": "learner",
+      "needToWin": 1.4,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 1
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 21,
+     "phase": "main",
+     "progress": 0.0,
+     "linf": 0.0,
+     "a": {
+      "cond": "C1",
+      "opp": "a2c:s2",
+      "who": "rl opponent",
+      "needToWin": 2.2,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "a2c:s2",
+      "who": "rl opponent",
+      "needToWin": 2.2,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 1
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 22,
+     "phase": "main",
+     "progress": 0.019,
+     "linf": 0.0152,
+     "a": {
+      "cond": "C1",
+      "opp": "ppo:s1",
+      "who": "learner",
+      "needToWin": 1.59,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "ppo:s1",
+      "who": "learner",
+      "needToWin": 1.35,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 2
+     }
+    }
+   ]
+  },
+  "keeper_competition": {
+   "description": "keeper lot, both seats need a keeper; max keepers held by one rival differ by ≥ 2 or rivals able to buy without needing differ by ≥ 3",
+   "materialPairs": 1584467,
+   "aliasedTight": 0,
+   "aliasedLoose": 0,
+   "aliasRateTight": 0.0,
+   "aliasRateLoose": 0.0,
+   "aliasedTight_outcomeDiffers": 0,
+   "lotsAffected": 0,
+   "examples": []
+  },
+  "safe_vs_dangerous_keeper": {
+   "description": "keeper lot, both seats need a keeper; one seat finished WITHOUT a keeper, the other with one",
+   "materialPairs": 34994,
+   "aliasedTight": 276,
+   "aliasedLoose": 373,
+   "aliasRateTight": 0.0079,
+   "aliasRateLoose": 0.0107,
+   "aliasedTight_outcomeDiffers": 5,
+   "lotsAffected": 9,
+   "examples": [
+    {
+     "k": 27,
+     "slNo": 21,
+     "phase": "main",
+     "progress": 0.003,
+     "linf": 0.0,
+     "a": {
+      "cond": "C4",
+      "opp": "d3qn:s3",
+      "who": "rl opponent",
+      "needToWin": 2.24,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 1,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "d3qn:s3",
+      "who": "rl opponent",
+      "needToWin": 2.24,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 1,
+      "seatFinalKeepers": 0
+     }
+    },
+    {
+     "k": 77,
+     "slNo": 21,
+     "phase": "main",
+     "progress": 0.006,
+     "linf": 0.0,
+     "a": {
+      "cond": "C4",
+      "opp": "ppo:s1",
+      "who": "rl opponent",
+      "needToWin": 2.12,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 3
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "ppo:s3",
+      "who": "learner",
+      "needToWin": 2.12,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 0
+     }
+    },
+    {
+     "k": 180,
+     "slNo": 10,
+     "phase": "main",
+     "progress": 0.028,
+     "linf": 0.0,
+     "a": {
+      "cond": "C4",
+      "opp": "ppo:s3",
+      "who": "learner",
+      "needToWin": 1.5,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "ppo:s3",
+      "who": "learner",
+      "needToWin": 1.5,
+      "won": false,
+      "rivKeepersMax": 0,
+      "rlBidders": 4,
+      "seatFinalKeepers": 0
+     }
+    },
+    {
+     "k": 244,
+     "slNo": 10,
+     "phase": "main",
+     "progress": 0.025,
+     "linf": 0.0,
+     "a": {
+      "cond": "C4",
+      "opp": "qrdqn:s2",
+      "who": "learner",
+      "needToWin": 2.0,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 7
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "qrdqn:s2",
+      "who": "rl opponent",
+      "needToWin": 2.0,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 0
+     }
+    }
+   ]
+  },
+  "rival_purse": {
+   "description": "mean rival purse differs by ≥ 0.10 of the purse (control: this is IN the observation, so aliasing must be ~0)",
+   "materialPairs": 69820347,
+   "aliasedTight": 0,
+   "aliasedLoose": 0,
+   "aliasRateTight": 0.0,
+   "aliasRateLoose": 0.0,
+   "aliasedTight_outcomeDiffers": 0,
+   "lotsAffected": 0,
+   "examples": []
+  },
+  "rl_rivals_bidding": {
+   "description": "number of RL-controlled rivals bidding on the lot differs by ≥ 2",
+   "materialPairs": 147869096,
+   "aliasedTight": 1700658,
+   "aliasedLoose": 1882749,
+   "aliasRateTight": 0.0115,
+   "aliasRateLoose": 0.0127,
+   "aliasedTight_outcomeDiffers": 128187,
+   "lotsAffected": 437,
+   "examples": [
+    {
+     "k": 25,
+     "slNo": 2,
+     "phase": "main",
+     "progress": 0.025,
+     "linf": 0.018,
+     "a": {
+      "cond": "C1",
+      "opp": "d3qn:s1",
+      "who": "learner",
+      "needToWin": 1.6,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 4
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "qrdqn:s1",
+      "who": "learner",
+      "needToWin": 1.25,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 5
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 5,
+     "phase": "main",
+     "progress": 0.012,
+     "linf": 0.0198,
+     "a": {
+      "cond": "C1",
+      "opp": "es:s3",
+      "who": "learner",
+      "needToWin": 1.25,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "es:s1",
+      "who": "learner",
+      "needToWin": 1.25,
+      "won": false,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 5
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 7,
+     "phase": "main",
+     "progress": 0.04,
+     "linf": 0.0195,
+     "a": {
+      "cond": "C1",
+      "opp": "ppo:s3",
+      "who": "learner",
+      "needToWin": 1.1,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 1
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "ppo:s1",
+      "who": "learner",
+      "needToWin": 1.1,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 2
+     }
+    },
+    {
+     "k": 25,
+     "slNo": 8,
+     "phase": "main",
+     "progress": 0.037,
+     "linf": 0.0198,
+     "a": {
+      "cond": "C1",
+      "opp": "ppo:s3",
+      "who": "learner",
+      "needToWin": 1.1,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 1,
+      "seatFinalKeepers": 2
+     },
+     "b": {
+      "cond": "C4",
+      "opp": "ppo:s1",
+      "who": "learner",
+      "needToWin": 1.1,
+      "won": true,
+      "rivKeepersMax": 1,
+      "rlBidders": 4,
+      "seatFinalKeepers": 2
+     }
+    }
+   ]
+  }
+ },
+ "pricePressureAliased_featuresThatDifferAtAll": [
+  {
+   "feature": "mkt_recent_price_ratio",
+   "share": 0.33
+  },
+  {
+   "feature": "riv_purse_std",
+   "share": 0.31
+  },
+  {
+   "feature": "riv_purse_min",
+   "share": 0.233
+  },
+  {
+   "feature": "riv_purse_mean",
+   "share": 0.224
+  },
+  {
+   "feature": "riv_recent_spend",
+   "share": 0.176
+  },
+  {
+   "feature": "riv_xi_max",
+   "share": 0.053
+  },
+  {
+   "feature": "self_purse",
+   "share": 0.042
+  },
+  {
+   "feature": "self_max_safe_purse",
+   "share": 0.042
+  },
+  {
+   "feature": "self_pace_gap",
+   "share": 0.042
+  },
+  {
+   "feature": "riv_xi_mean",
+   "share": 0.002
+  },
+  {
+   "feature": "self_xi_strength",
+   "share": 0.001
+  },
+  {
+   "feature": "self_max_safe_fv",
+   "share": 0.0
+  }
+ ]
+}

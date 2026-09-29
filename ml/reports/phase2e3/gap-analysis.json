@@ -1,0 +1,70 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "gaps": [
+  {
+   "gap": 1,
+   "name": "Early opponent aggression",
+   "case": "B at lot 1; D afterwards (information present in the existing window from lot 2, unused)",
+   "stateInventory": [
+    {
+     "information": "opponent bid behaviour on past lots (who bid, how far)",
+     "status": "available internally but not exposed",
+     "where": "resolveLot sees every cap and runs the ladder; history keeps only winner, price, number of raises; obs has pooled price/fair, sold share and rival spend over 20 lots"
+    },
+    {
+     "information": "opponent willingness to pay for the CURRENT lot",
+     "status": "genuinely unavailable at the decision point",
+     "where": "each seat's cap is private and chosen simultaneously; using it would be future leakage"
+    },
+    {
+     "information": "current demand (which rivals need which role)",
+     "status": "derivable from existing state; partly exposed",
+     "where": "public squads → riv_fills_share (pooled), mkt_scarcity_* (rivals needing in the denominator)"
+    },
+    {
+     "information": "opponent remaining purse",
+     "status": "observable (4 statistics); per-rival values derivable",
+     "where": "riv_purse_max/mean/min/std; ctx.rivals[].purseLeft"
+    },
+    {
+     "information": "player-level competition (who gains, who can afford)",
+     "status": "derivable; partly exposed",
+     "where": "riv_gain_mean, riv_able_share, riv_capacity_1–3 (saturated)"
+    },
+    {
+     "information": "historical bidding behaviour",
+     "status": "pooled over 20 lots exposed; per-rival history derivable from public results; ladder participation internal",
+     "where": "mkt_recent_price_ratio, mkt_recent_sold_share, riv_recent_spend; extras.recent carries winnerTeamId"
+    },
+    {
+     "information": "opponent policy identity / type",
+     "status": "available internally (training rooms) — hidden policy identity",
+     "where": "entry.seats[].type; constant in production (fixed lineup)"
+    }
+   ],
+   "verdict": "DO NOT ADD"
+  },
+  {
+   "gap": 2,
+   "name": "Number / distribution of aggressive opponents",
+   "needed": "none of A/B/C/D is justified: the aliased difference lives in hidden policy identity and future caps",
+   "verdict": "DO NOT ADD"
+  },
+  {
+   "gap": 3,
+   "name": "Non-needing keeper competition",
+   "stateAvsB": "State A (≤ 2 non-needing rivals able to buy) vs State B (≥ 5), few rivals needing: absorption by a non-needing rival 6.8% vs 24.3%. The existing riv_able_share already separates A from B at 0.997 (riv_capacity_3 0.819, riv_free_slots_share 0.639). The information is an existing capacity statistic combined with the existing need statistic; no new scalar is required to represent it.",
+   "representation": "an existing capacity statistic (riv_able_share) combined with existing need statistics",
+   "verdict": "KEEP"
+  },
+  {
+   "gap": 4,
+   "name": "Saturated features",
+   "verdict": "KEEP (no strategically relevant information is lost)"
+  }
+ ]
+}

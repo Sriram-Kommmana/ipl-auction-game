@@ -1,0 +1,563 @@
+{
+ "ppo": {
+  "perOpponentSeat": {
+   "a2c": {
+    "xi": 85.2944,
+    "rank": 8.458,
+    "purseLeftShare": 0.0213,
+    "priceToFair": 1.2611,
+    "bidRate": 0.9183,
+    "capToFair": 1.2045,
+    "stars": 3.3827,
+    "squadSize": 23.046,
+    "overseas": 7.716,
+    "assocWithLearnerDeltaXI": {
+     "xi": 0.1825376324995706,
+     "stars": 0.08863648883967737,
+     "priceToFair": -0.3135734541338339,
+     "purseLeftShare": -0.17642552932079422
+    },
+    "keepers": 1.194,
+    "keepersBy03": 0.068,
+    "spendBy03": 0.9389,
+    "starsBy03": 3.3493,
+    "keeperPriceFair": 0.8326
+   },
+   "d3qn": {
+    "xi": 86.6868,
+    "rank": 6.4153,
+    "purseLeftShare": 0.0012,
+    "priceToFair": 1.2508,
+    "bidRate": 0.803,
+    "capToFair": 0.9612,
+    "stars": 6.2,
+    "squadSize": 15.9473,
+    "overseas": 5.3793,
+    "assocWithLearnerDeltaXI": {
+     "xi": 0.265371930096376,
+     "stars": 0.168980344453632,
+     "priceToFair": -0.24746428949687133,
+     "purseLeftShare": -0.11833208918381369
+    },
+    "keepers": 1.3247,
+    "keepersBy03": 0.5707,
+    "spendBy03": 0.9759,
+    "starsBy03": 6.1813,
+    "keeperPriceFair": 1.2091
+   },
+   "qrdqn": {
+    "xi": 87.5288,
+    "rank": 5.094,
+    "purseLeftShare": 0.0013,
+    "priceToFair": 1.1267,
+    "bidRate": 0.7953,
+    "capToFair": 0.9065,
+    "stars": 5.9913,
+    "squadSize": 16.2573,
+    "overseas": 6.23,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.0218778767630103,
+     "stars": -0.09707854106685024,
+     "priceToFair": -0.015084629964111196,
+     "purseLeftShare": 0.0381316083911305
+    },
+    "keepers": 1.454,
+    "keepersBy03": 0.8953,
+    "spendBy03": 0.9542,
+    "starsBy03": 5.9533,
+    "keeperPriceFair": 1.3093
+   },
+   "es": {
+    "xi": 84.2982,
+    "rank": 9.0247,
+    "purseLeftShare": 0.1725,
+    "priceToFair": 1.1261,
+    "bidRate": 0.9952,
+    "capToFair": 1.2812,
+    "stars": 1.908,
+    "squadSize": 24.8913,
+    "overseas": 8.0,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.12491594622550789,
+     "stars": -0.08717305964647905,
+     "priceToFair": -0.08262669446785946,
+     "purseLeftShare": 0.1964387175490481
+    },
+    "keepers": 1.0227,
+    "keepersBy03": 0.0033,
+    "spendBy03": 0.6054,
+    "starsBy03": 1.73,
+    "keeperPriceFair": 0.9406
+   }
+  },
+  "highestPriceFair": "a2c",
+  "mostKeepersBy03": "qrdqn",
+  "mostSpendBy03": "d3qn",
+  "mostStarsBy03": "d3qn",
+  "lowestPurseLeft": "d3qn",
+  "highestXI": "qrdqn",
+  "learner": {
+   "xi": 90.1674,
+   "transfer": {
+    "mean": -2.4273333333333333,
+    "ci95": [
+     -2.4810969696969694,
+     -2.3774545454545457
+    ],
+    "n": 1500
+   },
+   "keeperProg": 0.5669,
+   "keeperForcedPer500": 0.0,
+   "forcedPerEpisode": 0.0013
+  }
+ },
+ "a2c": {
+  "perOpponentSeat": {
+   "ppo": {
+    "xi": 90.1361,
+    "rank": 1.2027,
+    "purseLeftShare": 0.0058,
+    "priceToFair": 0.8594,
+    "bidRate": 0.4493,
+    "capToFair": 0.8069,
+    "stars": 8.7553,
+    "squadSize": 18.204,
+    "overseas": 6.3613,
+    "assocWithLearnerDeltaXI": {
+     "xi": 0.16128199111438662,
+     "stars": 0.02320772291414189,
+     "priceToFair": 0.06916874441174739,
+     "purseLeftShare": -0.02550840942459936
+    },
+    "keepers": 3.4147,
+    "keepersBy03": 0.2867,
+    "spendBy03": 0.1778,
+    "starsBy03": 1.524,
+    "keeperPriceFair": 0.6137
+   },
+   "d3qn": {
+    "xi": 86.6758,
+    "rank": 6.4433,
+    "purseLeftShare": 0.0011,
+    "priceToFair": 1.2481,
+    "bidRate": 0.8054,
+    "capToFair": 0.9602,
+    "stars": 6.2193,
+    "squadSize": 15.988,
+    "overseas": 5.4327,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.0018857894287390806,
+     "stars": -0.023308001909149896,
+     "priceToFair": -0.22786058178515106,
+     "purseLeftShare": -0.003018441455796671
+    },
+    "keepers": 1.33,
+    "keepersBy03": 0.57,
+    "spendBy03": 0.9758,
+    "starsBy03": 6.2,
+    "keeperPriceFair": 1.2176
+   },
+   "qrdqn": {
+    "xi": 87.5215,
+    "rank": 5.152,
+    "purseLeftShare": 0.0012,
+    "priceToFair": 1.1299,
+    "bidRate": 0.7931,
+    "capToFair": 0.9071,
+    "stars": 5.992,
+    "squadSize": 16.2487,
+    "overseas": 6.21,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.20676728439577596,
+     "stars": -0.266647531624064,
+     "priceToFair": 0.20803856662205514,
+     "purseLeftShare": -0.07437159952460586
+    },
+    "keepers": 1.4433,
+    "keepersBy03": 0.888,
+    "spendBy03": 0.9542,
+    "starsBy03": 5.954,
+    "keeperPriceFair": 1.309
+   },
+   "es": {
+    "xi": 84.2335,
+    "rank": 9.038,
+    "purseLeftShare": 0.1757,
+    "priceToFair": 1.1275,
+    "bidRate": 0.9954,
+    "capToFair": 1.2813,
+    "stars": 1.9613,
+    "squadSize": 24.8633,
+    "overseas": 8.0,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.20481679845915318,
+     "stars": -0.22612553889416245,
+     "priceToFair": -0.06692358989522401,
+     "purseLeftShare": 0.2541879494029957
+    },
+    "keepers": 1.0253,
+    "keepersBy03": 0.0027,
+    "spendBy03": 0.6059,
+    "starsBy03": 1.7793,
+    "keeperPriceFair": 0.9549
+   }
+  },
+  "highestPriceFair": "d3qn",
+  "mostKeepersBy03": "qrdqn",
+  "mostSpendBy03": "d3qn",
+  "mostStarsBy03": "d3qn",
+  "lowestPurseLeft": "d3qn",
+  "highestXI": "ppo",
+  "learner": {
+   "xi": 85.2834,
+   "transfer": {
+    "mean": -5.143636363636364,
+    "ci95": [
+     -5.223030303030304,
+     -5.066416666666666
+    ],
+    "n": 1500
+   },
+   "keeperProg": 0.7438,
+   "keeperForcedPer500": 114.0,
+   "forcedPerEpisode": 0.5613
+  }
+ },
+ "d3qn": {
+  "perOpponentSeat": {
+   "ppo": {
+    "xi": 90.1798,
+    "rank": 1.1727,
+    "purseLeftShare": 0.008,
+    "priceToFair": 0.8563,
+    "bidRate": 0.4481,
+    "capToFair": 0.8106,
+    "stars": 8.786,
+    "squadSize": 18.2367,
+    "overseas": 6.3453,
+    "assocWithLearnerDeltaXI": {
+     "xi": 0.18254306089288116,
+     "stars": 0.08355508962306026,
+     "priceToFair": -0.08112166304923789,
+     "purseLeftShare": 0.040208319960790516
+    },
+    "keepers": 3.4,
+    "keepersBy03": 0.3013,
+    "spendBy03": 0.18,
+    "starsBy03": 1.5627,
+    "keeperPriceFair": 0.61
+   },
+   "a2c": {
+    "xi": 85.2902,
+    "rank": 8.4467,
+    "purseLeftShare": 0.0218,
+    "priceToFair": 1.2608,
+    "bidRate": 0.9194,
+    "capToFair": 1.204,
+    "stars": 3.4127,
+    "squadSize": 23.0667,
+    "overseas": 7.7273,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.09369391014074346,
+     "stars": -0.19885570528319407,
+     "priceToFair": -0.14094119631575153,
+     "purseLeftShare": -0.020738412306408
+    },
+    "keepers": 1.2133,
+    "keepersBy03": 0.0673,
+    "spendBy03": 0.9395,
+    "starsBy03": 3.38,
+    "keeperPriceFair": 0.8344
+   },
+   "qrdqn": {
+    "xi": 87.5428,
+    "rank": 5.1067,
+    "purseLeftShare": 0.0011,
+    "priceToFair": 1.1294,
+    "bidRate": 0.7921,
+    "capToFair": 0.9042,
+    "stars": 5.976,
+    "squadSize": 16.12,
+    "overseas": 6.1647,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.10951668657412679,
+     "stars": -0.005942839487157857,
+     "priceToFair": 0.01213673403499286,
+     "purseLeftShare": 0.12166423586357562
+    },
+    "keepers": 1.4293,
+    "keepersBy03": 0.8747,
+    "spendBy03": 0.9562,
+    "starsBy03": 5.94,
+    "keeperPriceFair": 1.3126
+   },
+   "es": {
+    "xi": 84.2565,
+    "rank": 9.0593,
+    "purseLeftShare": 0.1786,
+    "priceToFair": 1.1254,
+    "bidRate": 0.9954,
+    "capToFair": 1.2824,
+    "stars": 1.8933,
+    "squadSize": 24.8787,
+    "overseas": 8.0,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.023001517799369247,
+     "stars": 0.01934256536873784,
+     "priceToFair": 0.03151033908811317,
+     "purseLeftShare": 0.08684462589324697
+    },
+    "keepers": 1.0167,
+    "keepersBy03": 0.0013,
+    "spendBy03": 0.5996,
+    "starsBy03": 1.6953,
+    "keeperPriceFair": 0.9463
+   }
+  },
+  "highestPriceFair": "a2c",
+  "mostKeepersBy03": "qrdqn",
+  "mostSpendBy03": "qrdqn",
+  "mostStarsBy03": "qrdqn",
+  "lowestPurseLeft": "qrdqn",
+  "highestXI": "ppo",
+  "learner": {
+   "xi": 86.6698,
+   "transfer": {
+    "mean": -4.819878787878788,
+    "ci95": [
+     -4.890365151515152,
+     -4.7491469696969695
+    ],
+    "n": 1500
+   },
+   "keeperProg": 0.4011,
+   "keeperForcedPer500": 80.6667,
+   "forcedPerEpisode": 0.4293
+  }
+ },
+ "qrdqn": {
+  "perOpponentSeat": {
+   "ppo": {
+    "xi": 90.1805,
+    "rank": 1.1733,
+    "purseLeftShare": 0.0066,
+    "priceToFair": 0.8608,
+    "bidRate": 0.4475,
+    "capToFair": 0.8099,
+    "stars": 8.7507,
+    "squadSize": 18.1793,
+    "overseas": 6.3607,
+    "assocWithLearnerDeltaXI": {
+     "xi": 0.017977405177405658,
+     "stars": 0.06734505283654436,
+     "priceToFair": -0.1793781502982704,
+     "purseLeftShare": 0.1168869432751726
+    },
+    "keepers": 3.3653,
+    "keepersBy03": 0.2907,
+    "spendBy03": 0.1735,
+    "starsBy03": 1.5133,
+    "keeperPriceFair": 0.6159
+   },
+   "a2c": {
+    "xi": 85.291,
+    "rank": 8.432,
+    "purseLeftShare": 0.0218,
+    "priceToFair": 1.2585,
+    "bidRate": 0.9192,
+    "capToFair": 1.2028,
+    "stars": 3.3473,
+    "squadSize": 23.1167,
+    "overseas": 7.7673,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.19288240890880778,
+     "stars": -0.1511219476208859,
+     "priceToFair": 0.11452362342742638,
+     "purseLeftShare": 0.17650755976959126
+    },
+    "keepers": 1.2013,
+    "keepersBy03": 0.0707,
+    "spendBy03": 0.9394,
+    "starsBy03": 3.3193,
+    "keeperPriceFair": 0.8356
+   },
+   "d3qn": {
+    "xi": 86.6665,
+    "rank": 6.4347,
+    "purseLeftShare": 0.001,
+    "priceToFair": 1.2513,
+    "bidRate": 0.8109,
+    "capToFair": 0.956,
+    "stars": 6.2367,
+    "squadSize": 15.9433,
+    "overseas": 5.362,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.0944879092670867,
+     "stars": -0.027339035875889796,
+     "priceToFair": 0.009385742288651747,
+     "purseLeftShare": -0.01980166604570958
+    },
+    "keepers": 1.3213,
+    "keepersBy03": 0.572,
+    "spendBy03": 0.9767,
+    "starsBy03": 6.224,
+    "keeperPriceFair": 1.2145
+   },
+   "es": {
+    "xi": 84.2902,
+    "rank": 9.024,
+    "purseLeftShare": 0.1711,
+    "priceToFair": 1.1271,
+    "bidRate": 0.9949,
+    "capToFair": 1.2761,
+    "stars": 1.954,
+    "squadSize": 24.842,
+    "overseas": 8.0,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.043667121284790666,
+     "stars": -0.030783085503505902,
+     "priceToFair": -0.0742240085480355,
+     "purseLeftShare": 0.026129629507797254
+    },
+    "keepers": 1.0193,
+    "keepersBy03": 0.002,
+    "spendBy03": 0.6079,
+    "starsBy03": 1.768,
+    "keeperPriceFair": 0.9387
+   }
+  },
+  "highestPriceFair": "a2c",
+  "mostKeepersBy03": "d3qn",
+  "mostSpendBy03": "d3qn",
+  "mostStarsBy03": "d3qn",
+  "lowestPurseLeft": "d3qn",
+  "highestXI": "ppo",
+  "learner": {
+   "xi": 87.5121,
+   "transfer": {
+    "mean": -4.341272727272727,
+    "ci95": [
+     -4.406183333333334,
+     -4.27665
+    ],
+    "n": 1500
+   },
+   "keeperProg": 0.1972,
+   "keeperForcedPer500": 43.3333,
+   "forcedPerEpisode": 0.2867
+  }
+ },
+ "es": {
+  "perOpponentSeat": {
+   "ppo": {
+    "xi": 90.1812,
+    "rank": 1.1773,
+    "purseLeftShare": 0.0057,
+    "priceToFair": 0.859,
+    "bidRate": 0.4445,
+    "capToFair": 0.8073,
+    "stars": 8.754,
+    "squadSize": 18.1767,
+    "overseas": 6.3427,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.13797517758520073,
+     "stars": -0.11346421529159685,
+     "priceToFair": 0.0019117401053554684,
+     "purseLeftShare": 0.06471577255888626
+    },
+    "keepers": 3.426,
+    "keepersBy03": 0.2873,
+    "spendBy03": 0.1822,
+    "starsBy03": 1.572,
+    "keeperPriceFair": 0.6094
+   },
+   "a2c": {
+    "xi": 85.2619,
+    "rank": 8.4527,
+    "purseLeftShare": 0.0221,
+    "priceToFair": 1.257,
+    "bidRate": 0.9192,
+    "capToFair": 1.2046,
+    "stars": 3.3613,
+    "squadSize": 23.2133,
+    "overseas": 7.7933,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.3337066330358426,
+     "stars": -0.3020868376482399,
+     "priceToFair": 0.298897206701494,
+     "purseLeftShare": 0.2283148089254712
+    },
+    "keepers": 1.202,
+    "keepersBy03": 0.0667,
+    "spendBy03": 0.9394,
+    "starsBy03": 3.3373,
+    "keeperPriceFair": 0.826
+   },
+   "d3qn": {
+    "xi": 86.6895,
+    "rank": 6.3927,
+    "purseLeftShare": 0.0012,
+    "priceToFair": 1.2495,
+    "bidRate": 0.8064,
+    "capToFair": 0.961,
+    "stars": 6.2087,
+    "squadSize": 16.002,
+    "overseas": 5.416,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.09409108694251578,
+     "stars": 0.01650558143762689,
+     "priceToFair": 0.2636399641832102,
+     "purseLeftShare": -0.0004354336418362024
+    },
+    "keepers": 1.336,
+    "keepersBy03": 0.5673,
+    "spendBy03": 0.9763,
+    "starsBy03": 6.1913,
+    "keeperPriceFair": 1.2051
+   },
+   "qrdqn": {
+    "xi": 87.5215,
+    "rank": 5.164,
+    "purseLeftShare": 0.0011,
+    "priceToFair": 1.1253,
+    "bidRate": 0.7907,
+    "capToFair": 0.902,
+    "stars": 5.9833,
+    "squadSize": 16.2647,
+    "overseas": 6.254,
+    "assocWithLearnerDeltaXI": {
+     "xi": -0.02910696557772439,
+     "stars": 0.1363634014098219,
+     "priceToFair": 0.09274142482040994,
+     "purseLeftShare": 0.040348734022799336
+    },
+    "keepers": 1.4493,
+    "keepersBy03": 0.8907,
+    "spendBy03": 0.9535,
+    "starsBy03": 5.9467,
+    "keeperPriceFair": 1.3102
+   }
+  },
+  "highestPriceFair": "a2c",
+  "mostKeepersBy03": "qrdqn",
+  "mostSpendBy03": "d3qn",
+  "mostStarsBy03": "d3qn",
+  "lowestPurseLeft": "qrdqn",
+  "highestXI": "ppo",
+  "learner": {
+   "xi": 84.2392,
+   "transfer": {
+    "mean": -6.828727272727272,
+    "ci95": [
+     -6.939236363636362,
+     -6.721378787878788
+    ],
+    "n": 1500
+   },
+   "keeperProg": 0.7742,
+   "keeperForcedPer500": 13.6667,
+   "forcedPerEpisode": 0.068
+  }
+ },
+ "note": "All four opponent algorithms are present in every S4 room, so the per-seat figures describe what each algorithm DID in the room; the experiment cannot attribute the learner's loss to one opponent. Associations are Spearman correlations across the 1,500 rooms of a learner."
+}

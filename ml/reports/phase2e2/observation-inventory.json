@@ -1,0 +1,1289 @@
+{
+ "phase": "2E.2",
+ "note": "Read-only transcription of the frozen obs-v2 (packages/shared/src/rl/obsSpec.js). Nothing was modified.",
+ "environment": "IplAuctionEnv-v2",
+ "checks": {
+  "obsSpecHashCode": "629b25783f833af7",
+  "obsSpecHashRecomputed": "629b25783f833af7",
+  "obsSpecHashFrozen": "629b25783f833af7",
+  "obsHashOk": true,
+  "actSpecHash": "5f72f510c48b1f46",
+  "actHashOk": true,
+  "size": 80,
+  "sizeOk": true,
+  "blocks": {
+   "global": 6,
+   "player": 9,
+   "self": 35,
+   "market": 16,
+   "rivals": 14
+  },
+  "version": "obs-v2",
+  "clip": [
+   -1,
+   5
+  ],
+  "recentWindow": 20,
+  "obsSpecFileSha256": "24cd851b0c275a03b5a650c6f91f970567ba0b2d8fbee527c871e31536f37884",
+  "obsSpecFileSha256AtPhase2E0": "24cd851b0c275a03b5a650c6f91f970567ba0b2d8fbee527c871e31536f37884",
+  "unchangedSincePhase2E0": true,
+  "gitDiffVsE31fd21": "(none)"
+ },
+ "legend": {
+  "source": {
+   "lot": "player card",
+   "config": "room constants",
+   "own": "seat's own squad/purse",
+   "supply": "catalogue minus auctioned (+ returning unsold)",
+   "planner": "planBid on own ctx",
+   "planner+rivals": "planBid terms that count rivals NEEDING a requirement",
+   "own+supply": "own purse vs auctioned premium",
+   "rivals": "aggregate over the 9 rival teams (public squads/purses)",
+   "window": "public results of the last 20 lots"
+  },
+  "opponentChannel": {
+   "none": "fixed by lot/room",
+   "own": "only via the seat's own purchases",
+   "supply": "via which players went unsold",
+   "direct": "direct function of rival state or recent public results"
+  },
+  "temporalScope": {
+   "current": "state now",
+   "cumulative": "whole auction so far (aggregate)",
+   "window20": "last 20 lots, pooled over teams"
+  }
+ },
+ "summary": {
+  "bySource": {
+   "config": 3,
+   "supply": 15,
+   "lot": 10,
+   "own": 18,
+   "planner+rivals": 7,
+   "planner": 10,
+   "own+supply": 1,
+   "window": 3,
+   "rivals": 13
+  },
+  "byOpponentChannel": {
+   "none": 15,
+   "supply": 12,
+   "own": 30,
+   "direct": 23
+  },
+  "byScope": {
+   "current": 74,
+   "cumulative": 3,
+   "window20": 3
+  },
+  "byBlock": {
+   "global": 6,
+   "player": 9,
+   "self": 35,
+   "market": 16,
+   "rivals": 14
+  }
+ },
+ "features": [
+  {
+   "index": 0,
+   "name": "phase_reauction",
+   "block": "global",
+   "normalisation": "1 if re-auction else 0",
+   "meaning": "1 in the re-auction, 0 in the main round",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "config",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 1,
+   "name": "main_progress",
+   "block": "global",
+   "normalisation": "lots auctioned in main round / main pool size; 1 in re-auction",
+   "meaning": "share of the main-round pool already auctioned (1 in re-auction)",
+   "internalClip": "[0,1]",
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "config",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 2,
+   "name": "lots_left_in_phase",
+   "block": "global",
+   "normalisation": "players still to come this phase / pool size",
+   "meaning": "players still to come in this phase / main-pool size",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 3,
+   "name": "returning_count",
+   "block": "global",
+   "normalisation": "unsold so far (back in re-auction) / pool size",
+   "meaning": "players unsold so far (back in the re-auction) / main-pool size",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "cumulative"
+  },
+  {
+   "index": 4,
+   "name": "set_index",
+   "block": "global",
+   "normalisation": "lot set number / 10",
+   "meaning": "lot set number / 10",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 5,
+   "name": "purse_scale",
+   "block": "global",
+   "normalisation": "log2(purse / 12500) / 2",
+   "meaning": "log2(room purse / 12500) / 2 (room purse stratum)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "config",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 6,
+   "name": "lot_is_batsman",
+   "block": "player",
+   "normalisation": "one-hot",
+   "meaning": "lot role = batsman",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 7,
+   "name": "lot_is_bowler",
+   "block": "player",
+   "normalisation": "one-hot",
+   "meaning": "lot role = bowler",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 8,
+   "name": "lot_is_all_rounder",
+   "block": "player",
+   "normalisation": "one-hot",
+   "meaning": "lot role = all-rounder",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 9,
+   "name": "lot_is_keeper",
+   "block": "player",
+   "normalisation": "one-hot",
+   "meaning": "lot role = wicket keeper",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 10,
+   "name": "lot_is_overseas",
+   "block": "player",
+   "normalisation": "1 if overseas",
+   "meaning": "lot is an overseas player",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 11,
+   "name": "lot_rating",
+   "block": "player",
+   "normalisation": "(rating - 60) / 40",
+   "meaning": "(rating − 60) / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 12,
+   "name": "lot_is_star",
+   "block": "player",
+   "normalisation": "1 if rating >= 90",
+   "meaning": "rating ≥ 90",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 13,
+   "name": "lot_base_price",
+   "block": "player",
+   "normalisation": "base price / slot budget (purse / maxPlayers)",
+   "meaning": "base price / slot budget (purse / 25)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 14,
+   "name": "lot_fair_value",
+   "block": "player",
+   "normalisation": "fair value / slot budget, max 4",
+   "meaning": "fair value / slot budget",
+   "internalClip": "max 4",
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "lot",
+   "opponentChannel": "none",
+   "temporalScope": "current"
+  },
+  {
+   "index": 15,
+   "name": "self_purse",
+   "block": "self",
+   "normalisation": "purse left / purse",
+   "meaning": "own purse left / room purse",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 16,
+   "name": "self_slots_left",
+   "block": "self",
+   "normalisation": "squad slots left / maxPlayers",
+   "meaning": "own squad slots left / 25",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 17,
+   "name": "self_overseas_slots_left",
+   "block": "self",
+   "normalisation": "overseas slots left / maxOverseas",
+   "meaning": "own overseas slots left / 8",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 18,
+   "name": "self_class_Wi",
+   "block": "self",
+   "normalisation": "count of class Wi / 11",
+   "meaning": "own Indian keepers / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 19,
+   "name": "self_class_Wo",
+   "block": "self",
+   "normalisation": "count of class Wo / 11",
+   "meaning": "own overseas keepers / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 20,
+   "name": "self_class_Bi",
+   "block": "self",
+   "normalisation": "count of class Bi / 11",
+   "meaning": "own Indian bowling options / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 21,
+   "name": "self_class_Bo",
+   "block": "self",
+   "normalisation": "count of class Bo / 11",
+   "meaning": "own overseas bowling options / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 22,
+   "name": "self_class_Oi",
+   "block": "self",
+   "normalisation": "count of class Oi / 11",
+   "meaning": "own other Indian players / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 23,
+   "name": "self_class_Oo",
+   "block": "self",
+   "normalisation": "count of class Oo / 11",
+   "meaning": "own other overseas players / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 24,
+   "name": "self_xi_strength",
+   "block": "self",
+   "normalisation": "unrounded best-XI total / 11 / 100",
+   "meaning": "own best-XI total / 1100",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 25,
+   "name": "self_xi_empty",
+   "block": "self",
+   "normalisation": "empty XI slots / 11",
+   "meaning": "own empty XI slots / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 26,
+   "name": "self_xi_floor",
+   "block": "self",
+   "normalisation": "(weakest XI rating - 60) / 40, 0 while the XI has empty slots",
+   "meaning": "(weakest own XI rating − 60) / 40; 0 while the XI has empty slots",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 27,
+   "name": "self_xi_overseas",
+   "block": "self",
+   "normalisation": "overseas in best XI / 4",
+   "meaning": "overseas players in own best XI / 4",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 28,
+   "name": "self_status_keeper",
+   "block": "self",
+   "normalisation": "SAFE 0, NEED 1/3, CRITICAL 2/3, IMPOSSIBLE 1",
+   "meaning": "planner keeper status (SAFE 0 = need met, NEED 1/3, CRITICAL 2/3, IMPOSSIBLE 1); CRITICAL uses rivals needing a keeper",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 29,
+   "name": "self_status_bowling",
+   "block": "self",
+   "normalisation": "SAFE 0, NEED 1/3, CRITICAL 2/3, IMPOSSIBLE 1",
+   "meaning": "planner bowling status (as above)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 30,
+   "name": "self_status_indians",
+   "block": "self",
+   "normalisation": "SAFE 0, NEED 1/3, CRITICAL 2/3, IMPOSSIBLE 1",
+   "meaning": "planner Indians status (as above)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 31,
+   "name": "self_status_players",
+   "block": "self",
+   "normalisation": "SAFE 0, NEED 1/3, CRITICAL 2/3, IMPOSSIBLE 1",
+   "meaning": "planner squad-count status (as above)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 32,
+   "name": "self_need_keeper",
+   "block": "self",
+   "normalisation": "players still needed / 1",
+   "meaning": "keepers still needed / 1",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 33,
+   "name": "self_need_bowling",
+   "block": "self",
+   "normalisation": "players still needed / 5",
+   "meaning": "bowling options still needed / 5",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 34,
+   "name": "self_need_indians",
+   "block": "self",
+   "normalisation": "players still needed / 11",
+   "meaning": "Indians still needed / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 35,
+   "name": "self_need_players",
+   "block": "self",
+   "normalisation": "players still needed / 11",
+   "meaning": "XI players still needed / 11",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 36,
+   "name": "self_reserve_if_passed",
+   "block": "self",
+   "normalisation": "completion reserve if passed / purse; 1 if no legal XI is reachable",
+   "meaning": "cheapest legal completion (at base prices of remaining supply) if this lot is passed / purse; 1 if unreachable",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 37,
+   "name": "self_max_safe_purse",
+   "block": "self",
+   "normalisation": "maxSafeBid / purse",
+   "meaning": "maxSafeBid / room purse",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 38,
+   "name": "self_max_safe_fv",
+   "block": "self",
+   "normalisation": "maxSafeBid / fair value",
+   "meaning": "maxSafeBid / fair value",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 39,
+   "name": "self_xi_gain_share",
+   "block": "self",
+   "normalisation": "XI gain / (rating / 11), in [0, 1]",
+   "meaning": "own XI gain from this lot / (rating / 11)",
+   "internalClip": "[0,1]",
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 40,
+   "name": "self_xi_gain",
+   "block": "self",
+   "normalisation": "XI gain / 10",
+   "meaning": "own XI gain from this lot / 10",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 41,
+   "name": "self_fills_keeper",
+   "block": "self",
+   "normalisation": "1 if he fills this unmet requirement",
+   "meaning": "lot fills an unmet own keeper requirement",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 42,
+   "name": "self_fills_bowling",
+   "block": "self",
+   "normalisation": "1 if he fills this unmet requirement",
+   "meaning": "lot fills an unmet own bowling requirement",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 43,
+   "name": "self_fills_indians",
+   "block": "self",
+   "normalisation": "1 if he fills this unmet requirement",
+   "meaning": "lot fills an unmet own Indians requirement",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 44,
+   "name": "self_unlocks",
+   "block": "self",
+   "normalisation": "1 if buying him reaches a better XI than passing",
+   "meaning": "buying reaches a better XI than passing",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 45,
+   "name": "self_final_opportunity",
+   "block": "self",
+   "normalisation": "1 if the planner flags a final opportunity",
+   "meaning": "planner final-opportunity flag (after this lot fewer suitable players remain than needed, or unlocks)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 46,
+   "name": "self_pace_gap",
+   "block": "self",
+   "normalisation": "share of purse spent - share of premium value already auctioned",
+   "meaning": "share of own purse spent − share of premium value already auctioned",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own+supply",
+   "opponentChannel": "own",
+   "temporalScope": "cumulative"
+  },
+  {
+   "index": 47,
+   "name": "self_upgrades_left",
+   "block": "self",
+   "normalisation": "players still to come rated above the XI floor / 50",
+   "meaning": "players still to come rated above the own XI floor / 50",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 48,
+   "name": "self_typical_upgrade",
+   "block": "self",
+   "normalisation": "mean XI gain of those upgrades (XI points) / 2; 0 while the XI has empty slots",
+   "meaning": "mean XI gain of those upgrades / 2 (0 while XI incomplete)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 49,
+   "name": "self_bench",
+   "block": "self",
+   "normalisation": "(squad size - XI players) / (maxPlayers - 11)",
+   "meaning": "(squad − XI players) / 14",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "own",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 50,
+   "name": "mkt_equivalent_left",
+   "block": "market",
+   "normalisation": "same role within 3 rating points still to come / 10",
+   "meaning": "same role within 3 rating points still to come / 10",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 51,
+   "name": "mkt_better_left",
+   "block": "market",
+   "normalisation": "same role, higher rating still to come / 10",
+   "meaning": "same role, higher rating still to come / 10",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 52,
+   "name": "mkt_same_role_left",
+   "block": "market",
+   "normalisation": "same role still to come / 40",
+   "meaning": "same role still to come / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 53,
+   "name": "mkt_supply_Wi",
+   "block": "market",
+   "normalisation": "class Wi still to come / 40",
+   "meaning": "Indian keepers still to come (incl. returning) / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 54,
+   "name": "mkt_supply_Wo",
+   "block": "market",
+   "normalisation": "class Wo still to come / 40",
+   "meaning": "overseas keepers still to come (incl. returning) / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 55,
+   "name": "mkt_supply_Bi",
+   "block": "market",
+   "normalisation": "class Bi still to come / 40",
+   "meaning": "Indian bowling options still to come / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 56,
+   "name": "mkt_supply_Bo",
+   "block": "market",
+   "normalisation": "class Bo still to come / 40",
+   "meaning": "overseas bowling options still to come / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 57,
+   "name": "mkt_supply_Oi",
+   "block": "market",
+   "normalisation": "class Oi still to come / 40",
+   "meaning": "other Indians still to come / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 58,
+   "name": "mkt_supply_Oo",
+   "block": "market",
+   "normalisation": "class Oo still to come / 40",
+   "meaning": "other overseas still to come / 40",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "supply",
+   "temporalScope": "current"
+  },
+  {
+   "index": 59,
+   "name": "mkt_scarcity_keeper",
+   "block": "market",
+   "normalisation": "suitable players left after this lot / (own need + rivals needing + 1)",
+   "meaning": "keepers affordable to self after this lot / (own need + rivals NEEDING a keeper + 1)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 60,
+   "name": "mkt_scarcity_bowling",
+   "block": "market",
+   "normalisation": "suitable players left after this lot / (own need + rivals needing + 1)",
+   "meaning": "bowling options after this lot / (own need + rivals needing + 1)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 61,
+   "name": "mkt_scarcity_indians",
+   "block": "market",
+   "normalisation": "suitable players left after this lot / (own need + rivals needing + 1)",
+   "meaning": "Indians after this lot / (own need + rivals needing + 1)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "planner+rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 62,
+   "name": "mkt_overseas_contested",
+   "block": "market",
+   "normalisation": "1 if an overseas slot is contested (botSignals.overseasSlotContested)",
+   "meaning": "overseas lot and more better overseas players still to come than own overseas slots after buying",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "own",
+   "temporalScope": "current"
+  },
+  {
+   "index": 63,
+   "name": "mkt_premium_passed",
+   "block": "market",
+   "normalisation": "share of premium value (fair value above base) already auctioned",
+   "meaning": "share of premium value (fair − base) already auctioned",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "supply",
+   "opponentChannel": "none",
+   "temporalScope": "cumulative"
+  },
+  {
+   "index": 64,
+   "name": "mkt_recent_price_ratio",
+   "block": "market",
+   "normalisation": "mean price / fair value of sales in the last 20 lots; 1 if none",
+   "meaning": "mean price / fair value of SALES in the last 20 lots (1 if none) — any buyer incl. self",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "window",
+   "opponentChannel": "direct",
+   "temporalScope": "window20"
+  },
+  {
+   "index": 65,
+   "name": "mkt_recent_sold_share",
+   "block": "market",
+   "normalisation": "share of the last 20 lots that sold; 1 if none",
+   "meaning": "share of the last 20 lots that sold (1 if none)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "window",
+   "opponentChannel": "direct",
+   "temporalScope": "window20"
+  },
+  {
+   "index": 66,
+   "name": "riv_purse_max",
+   "block": "rivals",
+   "normalisation": "max rival purse / purse",
+   "meaning": "max rival purse / room purse",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 67,
+   "name": "riv_purse_mean",
+   "block": "rivals",
+   "normalisation": "mean rival purse / purse",
+   "meaning": "mean rival purse / room purse",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 68,
+   "name": "riv_purse_min",
+   "block": "rivals",
+   "normalisation": "min rival purse / purse",
+   "meaning": "min rival purse / room purse",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 69,
+   "name": "riv_purse_std",
+   "block": "rivals",
+   "normalisation": "std of rival purse / purse",
+   "meaning": "std of rival purse / room purse",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 70,
+   "name": "riv_capacity_1",
+   "block": "rivals",
+   "normalisation": "1st-highest (purse - completion cost) / fair value among rivals able to bid",
+   "meaning": "highest rival (purse − own-completion cost) / fair value, rivals able to bid",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 71,
+   "name": "riv_capacity_2",
+   "block": "rivals",
+   "normalisation": "2nd-highest (purse - completion cost) / fair value among rivals able to bid",
+   "meaning": "2nd-highest rival capacity (as above)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 72,
+   "name": "riv_capacity_3",
+   "block": "rivals",
+   "normalisation": "3rd-highest (purse - completion cost) / fair value among rivals able to bid",
+   "meaning": "3rd-highest rival capacity (as above)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 73,
+   "name": "riv_able_share",
+   "block": "rivals",
+   "normalisation": "share of rivals able to pay fair value after their completion cost",
+   "meaning": "share of rivals whose capacity ≥ fair value",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 74,
+   "name": "riv_fills_share",
+   "block": "rivals",
+   "normalisation": "share of rivals for whom he fills an unmet requirement",
+   "meaning": "share of rivals for whom the lot fills ANY unmet requirement (keeper/bowling/indians/players pooled)",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 75,
+   "name": "riv_gain_mean",
+   "block": "rivals",
+   "normalisation": "mean rival XI gain / (rating / 11); 0 for rivals who cannot bid",
+   "meaning": "mean rival XI gain from the lot / (rating / 11); 0 for rivals who cannot bid",
+   "internalClip": "[0,1] per rival",
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 76,
+   "name": "riv_free_slots_share",
+   "block": "rivals",
+   "normalisation": "share of rivals with squad slots left",
+   "meaning": "share of rivals with squad slots left",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 77,
+   "name": "riv_recent_spend",
+   "block": "rivals",
+   "normalisation": "rival spend over the last lots / (rivals x purse) x (pool size / lots in window)",
+   "meaning": "rival spend in the last 20 lots / (rivals × purse) × (pool / window) — pooled over all rivals",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "window",
+   "opponentChannel": "direct",
+   "temporalScope": "window20"
+  },
+  {
+   "index": 78,
+   "name": "riv_xi_mean",
+   "block": "rivals",
+   "normalisation": "mean rival best-XI total / 11 / 100",
+   "meaning": "mean rival best-XI total / 1100",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  },
+  {
+   "index": 79,
+   "name": "riv_xi_max",
+   "block": "rivals",
+   "normalisation": "max rival best-XI total / 11 / 100",
+   "meaning": "max rival best-XI total / 1100",
+   "internalClip": null,
+   "clip": [
+    -1,
+    5
+   ],
+   "source": "rivals",
+   "opponentChannel": "direct",
+   "temporalScope": "current"
+  }
+ ]
+}

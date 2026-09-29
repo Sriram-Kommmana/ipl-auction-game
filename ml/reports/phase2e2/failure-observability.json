@@ -1,0 +1,2025 @@
+{
+ "meta": {
+  "phase": "2E.2",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (replay_obs.mjs); no model trained, fitted or modified",
+  "rows": 2659482,
+  "learnerRows": 2186930,
+  "opponentRows": 472552,
+  "episodes": 15600,
+  "entries": [
+   25,
+   27,
+   34,
+   36,
+   77,
+   95,
+   123,
+   132,
+   139,
+   142,
+   172,
+   180,
+   184,
+   185,
+   224,
+   235,
+   244,
+   245,
+   253,
+   262,
+   275,
+   278,
+   285,
+   302,
+   308,
+   316,
+   342,
+   368,
+   376,
+   378,
+   419,
+   424,
+   431,
+   433,
+   445,
+   446,
+   457,
+   463,
+   465,
+   490
+  ],
+  "thresholds": {
+   "aliasTight": 0.02,
+   "aliasLoose": 0.05,
+   "featureDiffers": 0.01,
+   "materialPrice": 0.5,
+   "materialKeeperStock": 2,
+   "materialNoNeedBuyers": 3,
+   "similarState": "|Δ own purse share| ≤ 0.05, |Δ squad| ≤ 1, |Δ overseas| ≤ 1, same keeper need",
+   "capHidden": 5.0,
+   "spearmanStrong": 0.5,
+   "spearmanWeak": 0.2
+  }
+ },
+ "definition": {
+  "withinProgressSpearman": "Spearman rank correlation between the hidden variable and the feature inside each main-round progress bin (plus re-auction), averaged by bin size — how well the feature tracks the hidden quantity at a fixed point of the auction",
+  "quality": "strong |ρ| ≥ 0.5, moderate ≥ 0.35, weak ≥ 0.2, none below",
+  "rows": "learner decisions for most mechanisms; keeper mechanisms also use the RL-opponent keeper-lot rows"
+ },
+ "thresholds": {
+  "aliasTight": 0.02,
+  "aliasLoose": 0.05,
+  "featureDiffers": 0.01,
+  "materialPrice": 0.5,
+  "materialKeeperStock": 2,
+  "materialNoNeedBuyers": 3,
+  "similarState": "|Δ own purse share| ≤ 0.05, |Δ squad| ≤ 1, |Δ overseas| ≤ 1, same keeper need",
+  "capHidden": 5.0,
+  "spearmanStrong": 0.5,
+  "spearmanWeak": 0.2
+ },
+ "mechanisms": {
+  "early_star": {
+   "name": "Early star competition",
+   "candidateFeatures": [
+    {
+     "feature": "mkt_recent_price_ratio",
+     "index": 64,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "riv_recent_spend",
+     "index": 77,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "mkt_recent_sold_share",
+     "index": 65,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "riv_capacity_1",
+     "index": 70,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_2",
+     "index": 71,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_3",
+     "index": 72,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_able_share",
+     "index": 73,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_gain_mean",
+     "index": 75,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_max",
+     "index": 66,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_mean",
+     "index": 67,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_min",
+     "index": 68,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_std",
+     "index": 69,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_xi_max",
+     "index": 79,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "lot_is_star",
+     "index": 12,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "lot_fair_value",
+     "index": 14,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_premium_passed",
+     "index": 63,
+     "channel": "none",
+     "scope": "cumulative"
+    }
+   ],
+   "empirical": {
+    "rows": 327484,
+    "hidden": "need",
+    "features": [
+     {
+      "feature": "mkt_recent_price_ratio",
+      "index": 64,
+      "withinProgressSpearman": 0.257,
+      "pooledSpearman": 0.33
+     },
+     {
+      "feature": "riv_recent_spend",
+      "index": 77,
+      "withinProgressSpearman": 0.199,
+      "pooledSpearman": 0.26
+     },
+     {
+      "feature": "mkt_premium_passed",
+      "index": 63,
+      "withinProgressSpearman": -0.15,
+      "pooledSpearman": -0.359
+     },
+     {
+      "feature": "riv_xi_max",
+      "index": 79,
+      "withinProgressSpearman": -0.144,
+      "pooledSpearman": -0.351
+     },
+     {
+      "feature": "riv_purse_mean",
+      "index": 67,
+      "withinProgressSpearman": -0.125,
+      "pooledSpearman": 0.266
+     },
+     {
+      "feature": "riv_gain_mean",
+      "index": 75,
+      "withinProgressSpearman": 0.112,
+      "pooledSpearman": 0.315
+     },
+     {
+      "feature": "riv_able_share",
+      "index": 73,
+      "withinProgressSpearman": 0.108,
+      "pooledSpearman": 0.3
+     },
+     {
+      "feature": "mkt_recent_sold_share",
+      "index": 65,
+      "withinProgressSpearman": 0.07,
+      "pooledSpearman": 0.104
+     },
+     {
+      "feature": "riv_purse_min",
+      "index": 68,
+      "withinProgressSpearman": 0.054,
+      "pooledSpearman": 0.285
+     },
+     {
+      "feature": "riv_purse_std",
+      "index": 69,
+      "withinProgressSpearman": 0.018,
+      "pooledSpearman": -0.226
+     },
+     {
+      "feature": "riv_purse_max",
+      "index": 66,
+      "withinProgressSpearman": 0.01,
+      "pooledSpearman": 0.229
+     },
+     {
+      "feature": "lot_fair_value",
+      "index": 14,
+      "withinProgressSpearman": -0.01,
+      "pooledSpearman": -0.067
+     },
+     {
+      "feature": "riv_capacity_3",
+      "index": 72,
+      "withinProgressSpearman": 0.002,
+      "pooledSpearman": 0.003
+     },
+     {
+      "feature": "riv_capacity_1",
+      "index": 70,
+      "withinProgressSpearman": null,
+      "pooledSpearman": null
+     },
+     {
+      "feature": "riv_capacity_2",
+      "index": 71,
+      "withinProgressSpearman": null,
+      "pooledSpearman": null
+     },
+     {
+      "feature": "lot_is_star",
+      "index": 12,
+      "withinProgressSpearman": null,
+      "pooledSpearman": null
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "mkt_recent_price_ratio",
+    "withinProgressSpearman": 0.257,
+    "quality": "weak"
+   }
+  },
+  "aggressiveness": {
+   "name": "Opponent aggressiveness",
+   "candidateFeatures": [
+    {
+     "feature": "mkt_recent_price_ratio",
+     "index": 64,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "riv_recent_spend",
+     "index": 77,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "mkt_recent_sold_share",
+     "index": 65,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "riv_purse_mean",
+     "index": 67,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_min",
+     "index": 68,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_std",
+     "index": 69,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_xi_mean",
+     "index": 78,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_xi_max",
+     "index": 79,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_premium_passed",
+     "index": 63,
+     "channel": "none",
+     "scope": "cumulative"
+    },
+    {
+     "feature": "self_pace_gap",
+     "index": 46,
+     "channel": "own",
+     "scope": "cumulative"
+    }
+   ],
+   "empirical": {
+    "rows": 2140398,
+    "hidden": "need",
+    "features": [
+     {
+      "feature": "mkt_recent_price_ratio",
+      "index": 64,
+      "withinProgressSpearman": 0.355,
+      "pooledSpearman": 0.657
+     },
+     {
+      "feature": "riv_recent_spend",
+      "index": 77,
+      "withinProgressSpearman": 0.264,
+      "pooledSpearman": 0.474
+     },
+     {
+      "feature": "mkt_premium_passed",
+      "index": 63,
+      "withinProgressSpearman": -0.193,
+      "pooledSpearman": -0.627
+     },
+     {
+      "feature": "mkt_recent_sold_share",
+      "index": 65,
+      "withinProgressSpearman": 0.178,
+      "pooledSpearman": 0.545
+     },
+     {
+      "feature": "riv_purse_std",
+      "index": 69,
+      "withinProgressSpearman": 0.155,
+      "pooledSpearman": -0.067
+     },
+     {
+      "feature": "riv_xi_mean",
+      "index": 78,
+      "withinProgressSpearman": -0.133,
+      "pooledSpearman": -0.621
+     },
+     {
+      "feature": "riv_xi_max",
+      "index": 79,
+      "withinProgressSpearman": -0.125,
+      "pooledSpearman": -0.579
+     },
+     {
+      "feature": "riv_purse_mean",
+      "index": 67,
+      "withinProgressSpearman": -0.069,
+      "pooledSpearman": 0.568
+     },
+     {
+      "feature": "self_pace_gap",
+      "index": 46,
+      "withinProgressSpearman": 0.03,
+      "pooledSpearman": 0.011
+     },
+     {
+      "feature": "riv_purse_min",
+      "index": 68,
+      "withinProgressSpearman": -0.006,
+      "pooledSpearman": 0.509
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "mkt_recent_price_ratio",
+    "withinProgressSpearman": 0.355,
+    "quality": "moderate"
+   }
+  },
+  "multi_aggressive": {
+   "name": "Multiple aggressive opponents",
+   "candidateFeatures": [
+    {
+     "feature": "riv_purse_std",
+     "index": 69,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_min",
+     "index": 68,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_mean",
+     "index": 67,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_1",
+     "index": 70,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_2",
+     "index": 71,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_3",
+     "index": 72,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_able_share",
+     "index": 73,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_recent_spend",
+     "index": 77,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "mkt_recent_price_ratio",
+     "index": 64,
+     "channel": "direct",
+     "scope": "window20"
+    }
+   ],
+   "empirical": {
+    "rows": 2023632,
+    "hidden": "rlBidders",
+    "features": [
+     {
+      "feature": "riv_recent_spend",
+      "index": 77,
+      "withinProgressSpearman": 0.236,
+      "pooledSpearman": 0.479
+     },
+     {
+      "feature": "riv_purse_min",
+      "index": 68,
+      "withinProgressSpearman": 0.228,
+      "pooledSpearman": 0.562
+     },
+     {
+      "feature": "riv_purse_mean",
+      "index": 67,
+      "withinProgressSpearman": -0.199,
+      "pooledSpearman": 0.449
+     },
+     {
+      "feature": "riv_able_share",
+      "index": 73,
+      "withinProgressSpearman": 0.196,
+      "pooledSpearman": 0.536
+     },
+     {
+      "feature": "mkt_recent_price_ratio",
+      "index": 64,
+      "withinProgressSpearman": 0.127,
+      "pooledSpearman": 0.488
+     },
+     {
+      "feature": "riv_purse_std",
+      "index": 69,
+      "withinProgressSpearman": 0.069,
+      "pooledSpearman": -0.04
+     },
+     {
+      "feature": "riv_capacity_3",
+      "index": 72,
+      "withinProgressSpearman": 0.055,
+      "pooledSpearman": 0.183
+     },
+     {
+      "feature": "riv_capacity_2",
+      "index": 71,
+      "withinProgressSpearman": 0.054,
+      "pooledSpearman": 0.144
+     },
+     {
+      "feature": "riv_capacity_1",
+      "index": 70,
+      "withinProgressSpearman": 0.031,
+      "pooledSpearman": 0.099
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "riv_recent_spend",
+    "withinProgressSpearman": 0.236,
+    "quality": "weak"
+   }
+  },
+  "rival_purse": {
+   "name": "Rival purse pressure",
+   "candidateFeatures": [
+    {
+     "feature": "riv_purse_max",
+     "index": 66,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_mean",
+     "index": 67,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_min",
+     "index": 68,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_std",
+     "index": 69,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_1",
+     "index": 70,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_able_share",
+     "index": 73,
+     "channel": "direct",
+     "scope": "current"
+    }
+   ],
+   "empirical": {
+    "rows": 2186930,
+    "hidden": "rpMean",
+    "features": [
+     {
+      "feature": "riv_purse_mean",
+      "index": 67,
+      "withinProgressSpearman": 1.0,
+      "pooledSpearman": 1.0
+     },
+     {
+      "feature": "riv_purse_min",
+      "index": 68,
+      "withinProgressSpearman": 0.517,
+      "pooledSpearman": 0.898
+     },
+     {
+      "feature": "riv_purse_std",
+      "index": 69,
+      "withinProgressSpearman": -0.447,
+      "pooledSpearman": -0.367
+     },
+     {
+      "feature": "riv_purse_max",
+      "index": 66,
+      "withinProgressSpearman": 0.411,
+      "pooledSpearman": 0.712
+     },
+     {
+      "feature": "riv_able_share",
+      "index": 73,
+      "withinProgressSpearman": 0.353,
+      "pooledSpearman": 0.77
+     },
+     {
+      "feature": "riv_capacity_1",
+      "index": 70,
+      "withinProgressSpearman": 0.074,
+      "pooledSpearman": 0.14
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "riv_purse_mean",
+    "withinProgressSpearman": 1.0,
+    "quality": "strong"
+   }
+  },
+  "rival_role_demand": {
+   "name": "Rival role demand (keeper demand measured)",
+   "candidateFeatures": [
+    {
+     "feature": "riv_fills_share",
+     "index": 74,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_keeper",
+     "index": 59,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_keeper",
+     "index": 28,
+     "channel": "direct",
+     "scope": "current"
+    }
+   ],
+   "empirical": {
+    "rows": 604228,
+    "hidden": "rivNeedKeeper",
+    "features": [
+     {
+      "feature": "riv_fills_share",
+      "index": 74,
+      "withinProgressSpearman": 0.783,
+      "pooledSpearman": 0.983
+     },
+     {
+      "feature": "mkt_scarcity_keeper",
+      "index": 59,
+      "withinProgressSpearman": -0.619,
+      "pooledSpearman": -0.43
+     },
+     {
+      "feature": "self_status_keeper",
+      "index": 28,
+      "withinProgressSpearman": 0.277,
+      "pooledSpearman": 0.584
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "riv_fills_share",
+    "withinProgressSpearman": 0.783,
+    "quality": "strong"
+   }
+  },
+  "rival_keeper_demand": {
+   "name": "Rival keeper demand",
+   "candidateFeatures": [
+    {
+     "feature": "mkt_scarcity_keeper",
+     "index": 59,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_fills_share",
+     "index": 74,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_keeper",
+     "index": 28,
+     "channel": "direct",
+     "scope": "current"
+    }
+   ],
+   "empirical": {
+    "rows": 298803,
+    "hidden": "rivNeedKeeper",
+    "features": [
+     {
+      "feature": "mkt_scarcity_keeper",
+      "index": 59,
+      "withinProgressSpearman": -0.692,
+      "pooledSpearman": 0.017
+     },
+     {
+      "feature": "riv_fills_share",
+      "index": 74,
+      "withinProgressSpearman": 0.622,
+      "pooledSpearman": 0.946
+     },
+     {
+      "feature": "self_status_keeper",
+      "index": 28,
+      "withinProgressSpearman": 0.143,
+      "pooledSpearman": -0.289
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "mkt_scarcity_keeper",
+    "withinProgressSpearman": -0.692,
+    "quality": "strong"
+   }
+  },
+  "keeper_stockpiling": {
+   "name": "Rival keeper stockpiling",
+   "candidateFeatures": [
+    {
+     "feature": "lot_is_keeper",
+     "index": 9,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "self_class_Wi",
+     "index": 18,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_class_Wo",
+     "index": 19,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_keeper",
+     "index": 28,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_need_keeper",
+     "index": 32,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_fills_keeper",
+     "index": 41,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_unlocks",
+     "index": 44,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_final_opportunity",
+     "index": 45,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Wi",
+     "index": 53,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Wo",
+     "index": 54,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_keeper",
+     "index": 59,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_same_role_left",
+     "index": 52,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_equivalent_left",
+     "index": 50,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_better_left",
+     "index": 51,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_fills_share",
+     "index": 74,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_gain_mean",
+     "index": 75,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_1",
+     "index": 70,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_2",
+     "index": 71,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_3",
+     "index": 72,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_able_share",
+     "index": 73,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_free_slots_share",
+     "index": 76,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_max",
+     "index": 66,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_mean",
+     "index": 67,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_min",
+     "index": 68,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_purse",
+     "index": 15,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_max_safe_purse",
+     "index": 37,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_max_safe_fv",
+     "index": 38,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_reserve_if_passed",
+     "index": 36,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_slots_left",
+     "index": 16,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_overseas_slots_left",
+     "index": 17,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_players",
+     "index": 31,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_need_players",
+     "index": 35,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "lot_base_price",
+     "index": 13,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "lot_fair_value",
+     "index": 14,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "returning_count",
+     "index": 3,
+     "channel": "supply",
+     "scope": "cumulative"
+    },
+    {
+     "feature": "lots_left_in_phase",
+     "index": 2,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "phase_reauction",
+     "index": 0,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "main_progress",
+     "index": 1,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_recent_price_ratio",
+     "index": 64,
+     "channel": "direct",
+     "scope": "window20"
+    }
+   ],
+   "empirical": {
+    "rows": 604228,
+    "hidden": "rivKeepersMax",
+    "features": [
+     {
+      "feature": "mkt_same_role_left",
+      "index": 52,
+      "withinProgressSpearman": -0.76,
+      "pooledSpearman": -0.935
+     },
+     {
+      "feature": "mkt_supply_Wi",
+      "index": 53,
+      "withinProgressSpearman": -0.697,
+      "pooledSpearman": -0.929
+     },
+     {
+      "feature": "main_progress",
+      "index": 1,
+      "withinProgressSpearman": 0.662,
+      "pooledSpearman": 0.924
+     },
+     {
+      "feature": "lots_left_in_phase",
+      "index": 2,
+      "withinProgressSpearman": -0.618,
+      "pooledSpearman": -0.816
+     },
+     {
+      "feature": "mkt_supply_Wo",
+      "index": 54,
+      "withinProgressSpearman": -0.512,
+      "pooledSpearman": -0.862
+     },
+     {
+      "feature": "riv_fills_share",
+      "index": 74,
+      "withinProgressSpearman": -0.454,
+      "pooledSpearman": -0.83
+     },
+     {
+      "feature": "riv_gain_mean",
+      "index": 75,
+      "withinProgressSpearman": -0.425,
+      "pooledSpearman": -0.816
+     },
+     {
+      "feature": "returning_count",
+      "index": 3,
+      "withinProgressSpearman": 0.362,
+      "pooledSpearman": 0.449
+     },
+     {
+      "feature": "riv_free_slots_share",
+      "index": 76,
+      "withinProgressSpearman": -0.36,
+      "pooledSpearman": -0.598
+     },
+     {
+      "feature": "self_status_players",
+      "index": 31,
+      "withinProgressSpearman": -0.304,
+      "pooledSpearman": -0.6
+     },
+     {
+      "feature": "self_need_players",
+      "index": 35,
+      "withinProgressSpearman": -0.283,
+      "pooledSpearman": -0.758
+     },
+     {
+      "feature": "mkt_scarcity_keeper",
+      "index": 59,
+      "withinProgressSpearman": 0.274,
+      "pooledSpearman": 0.203
+     },
+     {
+      "feature": "self_reserve_if_passed",
+      "index": 36,
+      "withinProgressSpearman": -0.267,
+      "pooledSpearman": -0.739
+     },
+     {
+      "feature": "self_class_Wi",
+      "index": 18,
+      "withinProgressSpearman": 0.246,
+      "pooledSpearman": 0.549
+     },
+     {
+      "feature": "self_status_keeper",
+      "index": 28,
+      "withinProgressSpearman": -0.237,
+      "pooledSpearman": -0.547
+     },
+     {
+      "feature": "self_need_keeper",
+      "index": 32,
+      "withinProgressSpearman": -0.234,
+      "pooledSpearman": -0.591
+     },
+     {
+      "feature": "self_fills_keeper",
+      "index": 41,
+      "withinProgressSpearman": -0.234,
+      "pooledSpearman": -0.591
+     },
+     {
+      "feature": "mkt_better_left",
+      "index": 51,
+      "withinProgressSpearman": -0.234,
+      "pooledSpearman": 0.059
+     },
+     {
+      "feature": "riv_purse_mean",
+      "index": 67,
+      "withinProgressSpearman": -0.22,
+      "pooledSpearman": -0.67
+     },
+     {
+      "feature": "mkt_recent_price_ratio",
+      "index": 64,
+      "withinProgressSpearman": -0.209,
+      "pooledSpearman": -0.559
+     },
+     {
+      "feature": "mkt_equivalent_left",
+      "index": 50,
+      "withinProgressSpearman": -0.204,
+      "pooledSpearman": -0.505
+     },
+     {
+      "feature": "riv_able_share",
+      "index": 73,
+      "withinProgressSpearman": -0.146,
+      "pooledSpearman": -0.654
+     },
+     {
+      "feature": "self_class_Wo",
+      "index": 19,
+      "withinProgressSpearman": 0.132,
+      "pooledSpearman": 0.389
+     },
+     {
+      "feature": "riv_purse_min",
+      "index": 68,
+      "withinProgressSpearman": -0.121,
+      "pooledSpearman": -0.63
+     },
+     {
+      "feature": "lot_base_price",
+      "index": 13,
+      "withinProgressSpearman": -0.119,
+      "pooledSpearman": -0.485
+     },
+     {
+      "feature": "riv_purse_max",
+      "index": 66,
+      "withinProgressSpearman": -0.118,
+      "pooledSpearman": -0.486
+     },
+     {
+      "feature": "riv_capacity_3",
+      "index": 72,
+      "withinProgressSpearman": -0.054,
+      "pooledSpearman": -0.244
+     },
+     {
+      "feature": "lot_fair_value",
+      "index": 14,
+      "withinProgressSpearman": -0.053,
+      "pooledSpearman": -0.48
+     },
+     {
+      "feature": "self_purse",
+      "index": 15,
+      "withinProgressSpearman": -0.048,
+      "pooledSpearman": -0.553
+     },
+     {
+      "feature": "self_max_safe_purse",
+      "index": 37,
+      "withinProgressSpearman": -0.038,
+      "pooledSpearman": -0.552
+     },
+     {
+      "feature": "self_max_safe_fv",
+      "index": 38,
+      "withinProgressSpearman": -0.032,
+      "pooledSpearman": -0.359
+     },
+     {
+      "feature": "riv_capacity_2",
+      "index": 71,
+      "withinProgressSpearman": -0.027,
+      "pooledSpearman": -0.166
+     },
+     {
+      "feature": "self_overseas_slots_left",
+      "index": 17,
+      "withinProgressSpearman": 0.022,
+      "pooledSpearman": -0.515
+     },
+     {
+      "feature": "riv_capacity_1",
+      "index": 70,
+      "withinProgressSpearman": -0.012,
+      "pooledSpearman": -0.093
+     },
+     {
+      "feature": "self_slots_left",
+      "index": 16,
+      "withinProgressSpearman": 0.009,
+      "pooledSpearman": -0.528
+     },
+     {
+      "feature": "self_unlocks",
+      "index": 44,
+      "withinProgressSpearman": 0.008,
+      "pooledSpearman": 0.011
+     },
+     {
+      "feature": "self_final_opportunity",
+      "index": 45,
+      "withinProgressSpearman": 0.008,
+      "pooledSpearman": 0.011
+     },
+     {
+      "feature": "lot_is_keeper",
+      "index": 9,
+      "withinProgressSpearman": null,
+      "pooledSpearman": null
+     },
+     {
+      "feature": "phase_reauction",
+      "index": 0,
+      "withinProgressSpearman": null,
+      "pooledSpearman": 0.42
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "mkt_same_role_left",
+    "withinProgressSpearman": -0.76,
+    "quality": "strong"
+   }
+  },
+  "overseas": {
+   "name": "Overseas competition",
+   "candidateFeatures": [
+    {
+     "feature": "lot_is_overseas",
+     "index": 10,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "self_overseas_slots_left",
+     "index": 17,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_overseas_contested",
+     "index": 62,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Wo",
+     "index": 54,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Bo",
+     "index": 56,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Oo",
+     "index": 58,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_capacity_1",
+     "index": 70,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_able_share",
+     "index": 73,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_gain_mean",
+     "index": 75,
+     "channel": "direct",
+     "scope": "current"
+    }
+   ]
+  },
+  "squad_slots": {
+   "name": "Squad-slot competition",
+   "candidateFeatures": [
+    {
+     "feature": "self_slots_left",
+     "index": 16,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_bench",
+     "index": 49,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_free_slots_share",
+     "index": 76,
+     "channel": "direct",
+     "scope": "current"
+    }
+   ]
+  },
+  "price_inflation": {
+   "name": "Price inflation",
+   "candidateFeatures": [
+    {
+     "feature": "mkt_recent_price_ratio",
+     "index": 64,
+     "channel": "direct",
+     "scope": "window20"
+    },
+    {
+     "feature": "riv_recent_spend",
+     "index": 77,
+     "channel": "direct",
+     "scope": "window20"
+    }
+   ],
+   "empirical": {
+    "rows": 2140398,
+    "hidden": "need",
+    "features": [
+     {
+      "feature": "mkt_recent_price_ratio",
+      "index": 64,
+      "withinProgressSpearman": 0.355,
+      "pooledSpearman": 0.657
+     },
+     {
+      "feature": "riv_recent_spend",
+      "index": 77,
+      "withinProgressSpearman": 0.264,
+      "pooledSpearman": 0.474
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "mkt_recent_price_ratio",
+    "withinProgressSpearman": 0.355,
+    "quality": "moderate"
+   }
+  },
+  "requirement_timing": {
+   "name": "Requirement timing",
+   "candidateFeatures": [
+    {
+     "feature": "self_need_keeper",
+     "index": 32,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_need_bowling",
+     "index": 33,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_need_indians",
+     "index": 34,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_need_players",
+     "index": 35,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_keeper",
+     "index": 28,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_bowling",
+     "index": 29,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_indians",
+     "index": 30,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_final_opportunity",
+     "index": 45,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_keeper",
+     "index": 59,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_bowling",
+     "index": 60,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_indians",
+     "index": 61,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "main_progress",
+     "index": 1,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "lots_left_in_phase",
+     "index": 2,
+     "channel": "none",
+     "scope": "current"
+    }
+   ]
+  },
+  "purse_depletion": {
+   "name": "Purse depletion",
+   "candidateFeatures": [
+    {
+     "feature": "self_purse",
+     "index": 15,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_max_safe_purse",
+     "index": 37,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_max_safe_fv",
+     "index": 38,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_reserve_if_passed",
+     "index": 36,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_pace_gap",
+     "index": 46,
+     "channel": "own",
+     "scope": "cumulative"
+    }
+   ],
+   "empirical": {
+    "rows": 2186930,
+    "hidden": "purseShare",
+    "features": [
+     {
+      "feature": "self_purse",
+      "index": 15,
+      "withinProgressSpearman": 1.0,
+      "pooledSpearman": 1.0
+     },
+     {
+      "feature": "self_max_safe_purse",
+      "index": 37,
+      "withinProgressSpearman": 0.985,
+      "pooledSpearman": 1.0
+     },
+     {
+      "feature": "self_pace_gap",
+      "index": 46,
+      "withinProgressSpearman": -0.829,
+      "pooledSpearman": -0.592
+     },
+     {
+      "feature": "self_max_safe_fv",
+      "index": 38,
+      "withinProgressSpearman": 0.753,
+      "pooledSpearman": 0.848
+     },
+     {
+      "feature": "self_reserve_if_passed",
+      "index": 36,
+      "withinProgressSpearman": 0.568,
+      "pooledSpearman": 0.801
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "self_purse",
+    "withinProgressSpearman": 1.0,
+    "quality": "strong"
+   }
+  },
+  "reauction_pressure": {
+   "name": "Re-auction pressure",
+   "candidateFeatures": [
+    {
+     "feature": "phase_reauction",
+     "index": 0,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "returning_count",
+     "index": 3,
+     "channel": "supply",
+     "scope": "cumulative"
+    },
+    {
+     "feature": "lots_left_in_phase",
+     "index": 2,
+     "channel": "none",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Wi",
+     "index": 53,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_supply_Wo",
+     "index": 54,
+     "channel": "supply",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_purse_max",
+     "index": 66,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "riv_free_slots_share",
+     "index": 76,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_reserve_if_passed",
+     "index": 36,
+     "channel": "own",
+     "scope": "current"
+    }
+   ]
+  },
+  "final_path": {
+   "name": "Final-path risk",
+   "candidateFeatures": [
+    {
+     "feature": "self_final_opportunity",
+     "index": 45,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_keeper",
+     "index": 28,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_bowling",
+     "index": 29,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_indians",
+     "index": 30,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_status_players",
+     "index": 31,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_keeper",
+     "index": 59,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_bowling",
+     "index": 60,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "mkt_scarcity_indians",
+     "index": 61,
+     "channel": "direct",
+     "scope": "current"
+    },
+    {
+     "feature": "self_reserve_if_passed",
+     "index": 36,
+     "channel": "own",
+     "scope": "current"
+    },
+    {
+     "feature": "self_max_safe_fv",
+     "index": 38,
+     "channel": "own",
+     "scope": "current"
+    }
+   ],
+   "empirical": {
+    "rows": 2186930,
+    "hidden": "forced",
+    "features": [
+     {
+      "feature": "self_final_opportunity",
+      "index": 45,
+      "withinProgressSpearman": 0.099,
+      "pooledSpearman": 0.045
+     },
+     {
+      "feature": "mkt_scarcity_keeper",
+      "index": 59,
+      "withinProgressSpearman": -0.035,
+      "pooledSpearman": -0.063
+     },
+     {
+      "feature": "mkt_scarcity_bowling",
+      "index": 60,
+      "withinProgressSpearman": -0.033,
+      "pooledSpearman": -0.006
+     },
+     {
+      "feature": "self_reserve_if_passed",
+      "index": 36,
+      "withinProgressSpearman": 0.028,
+      "pooledSpearman": -0.018
+     },
+     {
+      "feature": "self_status_players",
+      "index": 31,
+      "withinProgressSpearman": 0.026,
+      "pooledSpearman": 0.025
+     },
+     {
+      "feature": "self_status_keeper",
+      "index": 28,
+      "withinProgressSpearman": 0.019,
+      "pooledSpearman": 0.042
+     },
+     {
+      "feature": "self_max_safe_fv",
+      "index": 38,
+      "withinProgressSpearman": -0.01,
+      "pooledSpearman": -0.047
+     },
+     {
+      "feature": "self_status_bowling",
+      "index": 29,
+      "withinProgressSpearman": 0.005,
+      "pooledSpearman": -0.035
+     },
+     {
+      "feature": "self_status_indians",
+      "index": 30,
+      "withinProgressSpearman": 0.004,
+      "pooledSpearman": -0.042
+     },
+     {
+      "feature": "mkt_scarcity_indians",
+      "index": 61,
+      "withinProgressSpearman": -0.0,
+      "pooledSpearman": 0.002
+     }
+    ]
+   },
+   "bestCarrier": {
+    "feature": "self_final_opportunity",
+    "withinProgressSpearman": 0.099,
+    "quality": "none"
+   }
+  }
+ },
+ "matrix": [
+  {
+   "id": "early_star",
+   "mechanism": "Early star competition",
+   "relevantInformation": "how strongly the other seats will bid for THIS star now (their caps), i.e. the room's bidding propensity before and during the first star lots",
+   "features": [
+    "12 lot_is_star",
+    "11 lot_rating",
+    "14 lot_fair_value",
+    "64 mkt_recent_price_ratio",
+    "77 riv_recent_spend",
+    "65 mkt_recent_sold_share",
+    "67 riv_purse_mean",
+    "68 riv_purse_min",
+    "69 riv_purse_std",
+    "70 riv_capacity_1",
+    "71 riv_capacity_2",
+    "72 riv_capacity_3",
+    "75 riv_gain_mean"
+   ],
+   "present": "partially",
+   "directness": "indirect (only through what earlier lots revealed: the 20-lot window and rival purses)",
+   "quality": "weak — best within-progress |ρ| with the price needed to win on early star lots 0.26 (mkt_recent_price_ratio); riv_capacity_1–3 sit at the clip value 5 in 100% of decisions before 30% progress",
+   "timeAvailable": "none at the first lot (the first learner observation is bit-identical to Stage A in every Stage-B episode); room-level separation stays < 0.5 until ~5% of the main round and reaches ≥ 0.9 only in the 5–10% bin (riv_purse_min 0.93); 24% of star lots are auctioned in lots 1–16 and 35% in lots 1–32",
+   "category": "C",
+   "categoryReason": "the lot and the rivals' purses are visible, but the component that decides the contest — how aggressively these opponents bid — is invisible before any sale and only weakly reflected lot by lot afterwards"
+  },
+  {
+   "id": "aggressiveness",
+   "mechanism": "Opponent aggressiveness",
+   "relevantInformation": "whether the room's bidders pay more than a Stage-A room would (room-level), and how much more on this lot (lot-level)",
+   "features": [
+    "64 mkt_recent_price_ratio",
+    "77 riv_recent_spend",
+    "65 mkt_recent_sold_share",
+    "67 riv_purse_mean",
+    "68 riv_purse_min",
+    "69 riv_purse_std",
+    "78 riv_xi_mean",
+    "79 riv_xi_max",
+    "63 mkt_premium_passed",
+    "46 self_pace_gap"
+   ],
+   "present": "yes at room level after the first ~5–10% of lots; weakly at lot level",
+   "directness": "indirect (history window + cumulative rival purse spread)",
+   "quality": "room level strong: C4 D3QN/QR-DQN rooms vs Stage A separation 0.99 (riv_purse_min) / 0.95 (riv_purse_std) at 10–20% progress; lot level moderate at best (within-progress |ρ| 0.35, paired Δ-tracking ≤ 0.39)",
+   "timeAvailable": "from ~5–10% of the main round (≈ 16–32 lots)",
+   "category": "B",
+   "categoryReason": "not a single feature, but the combination of rival-purse statistics and the window separates aggressive rooms from Stage-A rooms almost perfectly after the early lots"
+  },
+  {
+   "id": "multi_aggressive",
+   "mechanism": "Multiple aggressive opponents",
+   "relevantInformation": "HOW MANY rivals are aggressive / RL-controlled and able to bid on this lot",
+   "features": [
+    "69 riv_purse_std",
+    "68 riv_purse_min",
+    "67 riv_purse_mean",
+    "66 riv_purse_max",
+    "70 riv_capacity_1",
+    "71 riv_capacity_2",
+    "72 riv_capacity_3",
+    "73 riv_able_share",
+    "77 riv_recent_spend",
+    "64 mkt_recent_price_ratio"
+   ],
+   "present": "partially",
+   "directness": "indirect, through permutation-symmetric aggregates only",
+   "quality": "weak — number of RL rivals bidding tracked at best |ρ| 0.25; C1 vs C4 separation ≤ 0.30 (riv_purse_std) in the first 20%; 5% of C1/C4 pairs with ≥ 2 more RL bidders have all 17 rival/window features within 0.02",
+   "timeAvailable": "mid-auction at best (C1 vs C4 separation peaks at 30–75% progress)",
+   "category": "C",
+   "categoryReason": "the observation carries max/mean/min/std of purses and the top-3 capacities (saturated), never a count or identity of aggressive rivals"
+  },
+  {
+   "id": "rival_purse",
+   "mechanism": "Rival purse pressure",
+   "relevantInformation": "how much money rivals hold",
+   "features": [
+    "66 riv_purse_max",
+    "67 riv_purse_mean",
+    "68 riv_purse_min",
+    "69 riv_purse_std",
+    "70 riv_capacity_1",
+    "71 riv_capacity_2",
+    "72 riv_capacity_3",
+    "73 riv_able_share"
+   ],
+   "present": "yes (four summary statistics of the nine purses)",
+   "directness": "direct",
+   "quality": "strong for the summaries (mean rival purse ρ = 1.00; 0 of 69,820,347 pairs with a ≥ 0.10 purse gap are aliased); the purse-minus-completion-cost capacities are clipped at 5 in 99% / 97% of decisions (riv_capacity_1 / _3)",
+   "timeAvailable": "always",
+   "category": "A",
+   "categoryReason": "directly encoded; only the per-rival distribution beyond four statistics and the (saturated) capacities is lost"
+  },
+  {
+   "id": "rival_role_demand",
+   "mechanism": "Rival role demand",
+   "relevantInformation": "how many rivals still need the lot's role / requirement",
+   "features": [
+    "74 riv_fills_share",
+    "59 mkt_scarcity_keeper",
+    "60 mkt_scarcity_bowling",
+    "61 mkt_scarcity_indians",
+    "28 self_status_keeper",
+    "29 self_status_bowling",
+    "30 self_status_indians"
+   ],
+   "present": "partially",
+   "directness": "indirect (pooled share; rivals-needing enters only the scarcity denominators)",
+   "quality": "keeper demand strong (riv_fills_share ρ 0.78 on keeper lots); bowling / Indian demand effectively invisible: mkt_scarcity_bowling / _indians sit at the clip value 5 in 100% / 100% of decisions; riv_fills_share pools keeper, bowling, Indians and squad-count needs",
+   "timeAvailable": "always (current state)",
+   "category": "C",
+   "categoryReason": "visible for keepers, saturated / pooled for the other requirements"
+  },
+  {
+   "id": "rival_keeper_demand",
+   "mechanism": "Rival keeper demand",
+   "relevantInformation": "rivals that still NEED a keeper",
+   "features": [
+    "59 mkt_scarcity_keeper",
+    "74 riv_fills_share",
+    "28 self_status_keeper",
+    "53 mkt_supply_Wi",
+    "54 mkt_supply_Wo"
+   ],
+   "present": "yes",
+   "directness": "indirect (scarcity ratio and fills share)",
+   "quality": "strong (mkt_scarcity_keeper ρ -0.69; between-cell share of 'rivals needing a keeper' 0.999)",
+   "timeAvailable": "always",
+   "category": "B",
+   "categoryReason": "recoverable from scarcity × supply × own need"
+  },
+  {
+   "id": "keeper_stockpiling",
+   "mechanism": "Rival keeper stockpiling",
+   "relevantInformation": "keepers held by rivals who no longer need one, and their willingness / ability to buy MORE keepers",
+   "features": [
+    "52 mkt_same_role_left",
+    "53 mkt_supply_Wi",
+    "54 mkt_supply_Wo",
+    "59 mkt_scarcity_keeper",
+    "74 riv_fills_share",
+    "75 riv_gain_mean",
+    "67 riv_purse_mean",
+    "76 riv_free_slots_share"
+   ],
+   "present": "partially",
+   "directness": "indirect (the holdings level is implied by keeper supply depletion; no per-rival keeper count, no buyer identity in the history)",
+   "quality": "holdings level largely inferable: 91% (max held by one rival), 94% (rivals holding ≥ 2) and 90% (non-needing rivals able to buy) of the variance lies between cells of the observed keeper features; the WILLINGNESS of non-needing rivals to buy is not encoded anywhere (the planner, the shield and the observation count only rivals that NEED a keeper) — at the M1 forced bids that were lost, 0.34 rivals needed a keeper on average vs 5.0 non-needing rivals able to buy",
+   "timeAvailable": "current state only; the purchases that caused the failures happened after the pass decisions",
+   "category": "C",
+   "categoryReason": "how many keepers rivals hold is largely inferable; whether non-needing rivals will contest the remaining keepers is not observable"
+  },
+  {
+   "id": "overseas",
+   "mechanism": "Overseas competition",
+   "relevantInformation": "own overseas slots (8-cap) and rivals' remaining overseas slots / demand",
+   "features": [
+    "10 lot_is_overseas",
+    "17 self_overseas_slots_left",
+    "27 self_xi_overseas",
+    "62 mkt_overseas_contested",
+    "54 mkt_supply_Wo",
+    "56 mkt_supply_Bo",
+    "58 mkt_supply_Oo",
+    "70 riv_capacity_1",
+    "73 riv_able_share",
+    "75 riv_gain_mean"
+   ],
+   "present": "own: yes; rivals: partially",
+   "directness": "own direct; rivals only through their exclusion from riv_capacity / riv_able_share / riv_gain_mean on overseas lots when blocked",
+   "quality": "own strong (direct); rival overseas slot counts absent; overseas lots are identified (lot_is_overseas / mkt_overseas_contested within-progress ρ with the price needed -0.31 / -0.31)",
+   "timeAvailable": "always",
+   "category": "C",
+   "categoryReason": "own overseas state is direct; rivals' overseas capacity is not encoded"
+  },
+  {
+   "id": "squad_slots",
+   "mechanism": "Squad-slot competition",
+   "relevantInformation": "own squad slots; rivals' remaining squad slots",
+   "features": [
+    "16 self_slots_left",
+    "49 self_bench",
+    "25 self_xi_empty",
+    "76 riv_free_slots_share"
+   ],
+   "present": "own: yes; rivals: coarse",
+   "directness": "own direct; rivals as the share with ≥ 1 free slot",
+   "quality": "own strong; rival slot counts reduced to one binary-per-rival share",
+   "timeAvailable": "always",
+   "category": "C",
+   "categoryReason": "own slot state is direct (A); rivals' slot state is coarsened to 'any slot left'"
+  },
+  {
+   "id": "price_inflation",
+   "mechanism": "Price inflation",
+   "relevantInformation": "recent prices relative to fair value (and what future prices will be)",
+   "features": [
+    "64 mkt_recent_price_ratio",
+    "77 riv_recent_spend",
+    "65 mkt_recent_sold_share"
+   ],
+   "present": "yes (recent); future prices partially",
+   "directness": "direct (20-lot window, pooled over all buyers including self)",
+   "quality": "recent inflation is literally encoded; it tracks the price needed on the current lot moderately (ρ 0.35); realised FUTURE star prices differ by room type (between-room share 0.26) but the best single feature tracks them at |ρ| 0.28",
+   "timeAvailable": "window of 20 lots; empty at the first lot",
+   "category": "A",
+   "categoryReason": "recent price/fair is an explicit feature; its horizon (20 lots, pooled) limits it as a forecast"
+  },
+  {
+   "id": "requirement_timing",
+   "mechanism": "Requirement timing",
+   "relevantInformation": "own unmet requirements, how many suitable players remain, whether this is a final opportunity",
+   "features": [
+    "32 self_need_keeper",
+    "33 self_need_bowling",
+    "34 self_need_indians",
+    "35 self_need_players",
+    "28 self_status_keeper",
+    "29 self_status_bowling",
+    "30 self_status_indians",
+    "31 self_status_players",
+    "45 self_final_opportunity",
+    "41 self_fills_keeper",
+    "53 mkt_supply_Wi",
+    "54 mkt_supply_Wo",
+    "55 mkt_supply_Bi",
+    "56 mkt_supply_Bo",
+    "1 main_progress",
+    "2 lots_left_in_phase"
+   ],
+   "present": "yes",
+   "directness": "direct",
+   "quality": "strong (own needs, planner statuses and supply are exact)",
+   "timeAvailable": "always",
+   "category": "A",
+   "categoryReason": "own requirement state and remaining supply are encoded directly"
+  },
+  {
+   "id": "purse_depletion",
+   "mechanism": "Purse depletion",
+   "relevantInformation": "own purse, completion reserve, max safe bid, pace",
+   "features": [
+    "15 self_purse",
+    "37 self_max_safe_purse",
+    "38 self_max_safe_fv",
+    "36 self_reserve_if_passed",
+    "46 self_pace_gap"
+   ],
+   "present": "yes",
+   "directness": "direct",
+   "quality": "strong (self_purse ρ 1.00); self_max_safe_fv clipped at 5 in 56% of decisions (only while the purse is large)",
+   "timeAvailable": "always",
+   "category": "A",
+   "categoryReason": "encoded directly"
+  },
+  {
+   "id": "reauction_pressure",
+   "mechanism": "Re-auction pressure",
+   "relevantInformation": "whether the re-auction has started, how many unsold players return, who can still buy them",
+   "features": [
+    "0 phase_reauction",
+    "3 returning_count",
+    "2 lots_left_in_phase",
+    "53 mkt_supply_Wi",
+    "54 mkt_supply_Wo",
+    "66 riv_purse_max",
+    "76 riv_free_slots_share",
+    "36 self_reserve_if_passed"
+   ],
+   "present": "yes (supply); partially (competitors)",
+   "directness": "supply direct; competitors via purse aggregates and free-slot share",
+   "quality": "returning supply exact; competitor capacity coarse",
+   "timeAvailable": "throughout the main round (returning pool grows) and in the re-auction",
+   "category": "B",
+   "categoryReason": "the returning pool is explicit; who will compete for it is inferable only from aggregates"
+  },
+  {
+   "id": "final_path",
+   "mechanism": "Final-path risk",
+   "relevantInformation": "approaching the point where only forced bids can still complete the XI, and whether those bids will win",
+   "features": [
+    "45 self_final_opportunity",
+    "28 self_status_keeper",
+    "31 self_status_players",
+    "59 mkt_scarcity_keeper",
+    "36 self_reserve_if_passed",
+    "38 self_max_safe_fv",
+    "15 self_purse",
+    "74 riv_fills_share"
+   ],
+   "present": "partially",
+   "directness": "the approach is direct; the outcome of forced bids depends on non-needing rivals (absent)",
+   "quality": "forced keeper bids are well separated from other keeper-need decisions by single features (self_purse separation 0.85, mkt_scarcity_keeper 0.81); the rivals who won the lost forced bids mostly did not need a keeper (see stockpiling)",
+   "timeAvailable": "approach visible as it happens",
+   "category": "C",
+   "categoryReason": "the approach to the final path is observable; the risk that forced bids fail is not"
+  }
+ ],
+ "categoryDefinitions": {
+  "A": "directly observable — the observation explicitly contains the required state",
+  "B": "indirectly observable — inferable from several existing features",
+  "C": "partially observable — some components visible, a critical component missing / coarsened",
+  "D": "not observable — the policy cannot distinguish the relevant situations"
+ },
+ "categorySummary": {
+  "A": [
+   "Rival purse pressure",
+   "Price inflation",
+   "Requirement timing",
+   "Purse depletion"
+  ],
+  "B": [
+   "Opponent aggressiveness",
+   "Rival keeper demand",
+   "Re-auction pressure"
+  ],
+  "C": [
+   "Early star competition",
+   "Multiple aggressive opponents",
+   "Rival role demand",
+   "Rival keeper stockpiling",
+   "Overseas competition",
+   "Squad-slot competition",
+   "Final-path risk"
+  ],
+  "D": []
+ }
+}

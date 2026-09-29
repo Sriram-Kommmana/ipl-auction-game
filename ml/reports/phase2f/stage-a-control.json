@@ -1,0 +1,1217 @@
+{
+ "meta": {
+  "phase": "2F",
+  "status": "PILOT — evaluation of experimental stage_b_pilot exports; no production change, nothing committed",
+  "contract": {
+   "env": "IplAuctionEnv-v2",
+   "obsHash": "629b25783f833af7",
+   "actHash": "5f72f510c48b1f46",
+   "gamma": 1,
+   "shield": "act-v3 (unchanged)",
+   "reward": "ΔBestXI/11/10, −2 incomplete XI (unchanged)"
+  },
+  "design": {
+   "snapshotShare": 0.5,
+   "pool": "15 frozen Stage-A exports (5 algorithms × 3 seeds, incl. the learner's own algorithm)",
+   "ruleBots": "4 frozen rule seats always + RL seats on rule fallback (≥ 4/9)",
+   "init": "warm start from each seed's frozen Stage-A final checkpoint; fresh optimizer; D3QN/QR-DQN ε constant at the Stage-A final value, empty replay",
+   "seeds": "run seeds 101/102/103 ← Stage-A seeds 1/2/3 (train split only)",
+   "budget": "497,664 learner decisions per seed (ES: first generation boundary at or after it)",
+   "checkpoints": "98,304 / 245,760 / 497,664 decisions",
+   "evaluation": "c100/c250: validation entries 0–99; c500: all 500 (Phase 2E.0 protocol)"
+  }
+ },
+ "anchors": {
+  "ppo": {
+   "mean": 92.595,
+   "sd": 0.082
+  },
+  "qrdqn": {
+   "mean": 91.853,
+   "sd": 0.089
+  },
+  "d3qn": {
+   "mean": 91.49,
+   "sd": 0.191
+  },
+  "es": {
+   "mean": 91.068,
+   "sd": 0.044
+  },
+  "a2c": {
+   "mean": 90.427,
+   "sd": 0.046
+  }
+ },
+ "trainerValidation": {
+  "ppo:s101": [
+   {
+    "decisions": 98304,
+    "xi": 92.408,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 4.032554231869767e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 92.301,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 5.296312519220692e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 92.407,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 6.076064591908903e-06,
+     "argmaxAgreement": 1.0
+    }
+   }
+  ],
+  "ppo:s102": [
+   {
+    "decisions": 98304,
+    "xi": 92.637,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 5.029489654972963e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 92.548,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 6.452648950272533e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 92.504,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 6.7181120915194015e-06,
+     "argmaxAgreement": 1.0
+    }
+   }
+  ],
+  "ppo:s103": [
+   {
+    "decisions": 98304,
+    "xi": 92.516,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 5.2014768190389304e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 92.494,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 4.689888577047441e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 92.223,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 6.419217037034741e-06,
+     "argmaxAgreement": 1.0
+    }
+   }
+  ],
+  "a2c:s101": [
+   {
+    "decisions": 98304,
+    "xi": 90.417,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.0255756870414245e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 90.128,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.394667875853628e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 90.082,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.2150229511398436e-06,
+     "argmaxAgreement": 1.0
+    }
+   }
+  ],
+  "a2c:s102": [
+   {
+    "decisions": 98304,
+    "xi": 90.047,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.7542907944090302e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 90.284,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.2879477400140615e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 90.286,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.5966869000294537e-06,
+     "argmaxAgreement": 1.0
+    }
+   }
+  ],
+  "a2c:s103": [
+   {
+    "decisions": 98304,
+    "xi": 90.262,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.2338306740744542e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 89.615,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.4057114161580841e-06,
+     "argmaxAgreement": 1.0
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 89.69,
+    "legalXI": 1,
+    "parity": {
+     "states": 256,
+     "maxAbsScoreDiff": 1.3517450736522107e-06,
+     "argmaxAgreement": 1.0
+    }
+   }
+  ],
+  "d3qn:s101": [
+   {
+    "decisions": 98304,
+    "xi": 89.867,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 88.211,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsScoreDiff": 1.9539925233402755e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 86.529,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   }
+  ],
+  "d3qn:s102": [
+   {
+    "decisions": 98304,
+    "xi": 91.27,
+    "legalXI": 1,
+    "parity": {
+     "states": 327,
+     "maxAbsScoreDiff": 2.4868995751603507e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 7,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 88.97,
+    "legalXI": 1,
+    "parity": {
+     "states": 327,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 7,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 88.903,
+    "legalXI": 1,
+    "parity": {
+     "states": 329,
+     "maxAbsScoreDiff": 2.1316282072803006e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 9,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   }
+  ],
+  "d3qn:s103": [
+   {
+    "decisions": 98304,
+    "xi": 89.324,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 89.311,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsScoreDiff": 1.9539925233402755e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 90.981,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsScoreDiff": 2.3092638912203256e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   }
+  ],
+  "qrdqn:s101": [
+   {
+    "decisions": 98304,
+    "xi": 89.669,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsRawDiff": 5.329070518200751e-15,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 91.237,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsRawDiff": 7.105427357601002e-15,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 91.568,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsRawDiff": 5.329070518200751e-15,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   }
+  ],
+  "qrdqn:s102": [
+   {
+    "decisions": 98304,
+    "xi": 88.813,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsRawDiff": 7.105427357601002e-15,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 91.054,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsRawDiff": 7.105427357601002e-15,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 91.401,
+    "legalXI": 1,
+    "parity": {
+     "states": 384,
+     "maxAbsRawDiff": 5.329070518200751e-15,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 64,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   }
+  ],
+  "qrdqn:s103": [
+   {
+    "decisions": 98304,
+    "xi": 91.34,
+    "legalXI": 1,
+    "parity": {
+     "states": 320,
+     "maxAbsRawDiff": 5.329070518200751e-15,
+     "maxAbsScoreDiff": 4.440892098500626e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 0,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 245760,
+    "xi": 91.423,
+    "legalXI": 1,
+    "parity": {
+     "states": 320,
+     "maxAbsRawDiff": 5.329070518200751e-15,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 0,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   },
+   {
+    "decisions": 497664,
+    "xi": 91.137,
+    "legalXI": 1,
+    "parity": {
+     "states": 325,
+     "maxAbsRawDiff": 7.105427357601002e-15,
+     "maxAbsScoreDiff": 3.552713678800501e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     },
+     "composition": {
+      "regular": 256,
+      "reauction": 5,
+      "lowPurse": 32,
+      "highPurse": 32
+     }
+    }
+   }
+  ],
+  "es:s101": [
+   {
+    "decisions": 102723,
+    "xi": 90.693,
+    "legalXI": 1,
+    "parity": {
+     "states": 52,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   },
+   {
+    "decisions": 246467,
+    "xi": 90.807,
+    "legalXI": 1,
+    "parity": {
+     "states": 46,
+     "maxAbsScoreDiff": 5.329070518200751e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   },
+   {
+    "decisions": 502843,
+    "xi": 90.778,
+    "legalXI": 1,
+    "parity": {
+     "states": 80,
+     "maxAbsScoreDiff": 8.881784197001252e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   }
+  ],
+  "es:s102": [
+   {
+    "decisions": 99863,
+    "xi": 90.934,
+    "legalXI": 1,
+    "parity": {
+     "states": 95,
+     "maxAbsScoreDiff": 9.325873406851315e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   },
+   {
+    "decisions": 249229,
+    "xi": 90.765,
+    "legalXI": 1,
+    "parity": {
+     "states": 100,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   },
+   {
+    "decisions": 502565,
+    "xi": 90.756,
+    "legalXI": 1,
+    "parity": {
+     "states": 95,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   }
+  ],
+  "es:s103": [
+   {
+    "decisions": 101112,
+    "xi": 90.921,
+    "legalXI": 1,
+    "parity": {
+     "states": 115,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   },
+   {
+    "decisions": 247116,
+    "xi": 90.763,
+    "legalXI": 1,
+    "parity": {
+     "states": 114,
+     "maxAbsScoreDiff": 7.105427357601002e-15,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   },
+   {
+    "decisions": 499984,
+    "xi": 90.745,
+    "legalXI": 1,
+    "parity": {
+     "states": 116,
+     "maxAbsScoreDiff": 1.0658141036401503e-14,
+     "argmaxAgreement": 1.0,
+     "byMask": {
+      "real": 1.0,
+      "passOnly": 1.0,
+      "single": 1.0,
+      "allLegal": 1.0
+     }
+    }
+   }
+  ]
+ },
+ "harness": {
+  "c100": {
+   "ppo": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 92.4548,
+     "sd": 0.1142
+    },
+    "xiStageA": {
+     "mean": 92.5276,
+     "sd": 0.1186
+    },
+    "xiDiffBminusA": {
+     "mean": -0.0727,
+     "sd": 0.0237,
+     "ci95": [
+      -0.1255,
+      -0.0221
+     ]
+    }
+   },
+   "a2c": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.2397,
+     "sd": 0.1585
+    },
+    "xiStageA": {
+     "mean": 90.4027,
+     "sd": 0.09
+    },
+    "xiDiffBminusA": {
+     "mean": -0.163,
+     "sd": 0.2377,
+     "ci95": [
+      -0.2364,
+      -0.0888
+     ]
+    }
+   },
+   "d3qn": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.0515,
+     "sd": 1.1168
+    },
+    "xiStageA": {
+     "mean": 91.4603,
+     "sd": 0.1783
+    },
+    "xiDiffBminusA": {
+     "mean": -1.4088,
+     "sd": 0.9452,
+     "ci95": [
+      -1.5903,
+      -1.222
+     ]
+    }
+   },
+   "qrdqn": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 89.8212,
+     "sd": 1.3455
+    },
+    "xiStageA": {
+     "mean": 91.8682,
+     "sd": 0.1102
+    },
+    "xiDiffBminusA": {
+     "mean": -2.047,
+     "sd": 1.236,
+     "ci95": [
+      -2.1836,
+      -1.909
+     ]
+    }
+   },
+   "es": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.7385,
+     "sd": 0.1066
+    },
+    "xiStageA": {
+     "mean": 90.9906,
+     "sd": 0.0184
+    },
+    "xiDiffBminusA": {
+     "mean": -0.2521,
+     "sd": 0.0983,
+     "ci95": [
+      -0.3752,
+      -0.1233
+     ]
+    }
+   }
+  },
+  "c250": {
+   "ppo": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 92.4103,
+     "sd": 0.1442
+    },
+    "xiStageA": {
+     "mean": 92.5276,
+     "sd": 0.1186
+    },
+    "xiDiffBminusA": {
+     "mean": -0.1173,
+     "sd": 0.1043,
+     "ci95": [
+      -0.1727,
+      -0.0567
+     ]
+    }
+   },
+   "a2c": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.0618,
+     "sd": 0.3229
+    },
+    "xiStageA": {
+     "mean": 90.4027,
+     "sd": 0.09
+    },
+    "xiDiffBminusA": {
+     "mean": -0.3409,
+     "sd": 0.2639,
+     "ci95": [
+      -0.4542,
+      -0.2245
+     ]
+    }
+   },
+   "d3qn": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 88.8218,
+     "sd": 0.4816
+    },
+    "xiStageA": {
+     "mean": 91.4603,
+     "sd": 0.1783
+    },
+    "xiDiffBminusA": {
+     "mean": -2.6385,
+     "sd": 0.5257,
+     "ci95": [
+      -2.7882,
+      -2.4951
+     ]
+    }
+   },
+   "qrdqn": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 91.21,
+     "sd": 0.1667
+    },
+    "xiStageA": {
+     "mean": 91.8682,
+     "sd": 0.1102
+    },
+    "xiDiffBminusA": {
+     "mean": -0.6582,
+     "sd": 0.0699,
+     "ci95": [
+      -0.7582,
+      -0.5597
+     ]
+    }
+   },
+   "es": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.6673,
+     "sd": 0.0087
+    },
+    "xiStageA": {
+     "mean": 90.9906,
+     "sd": 0.0184
+    },
+    "xiDiffBminusA": {
+     "mean": -0.3233,
+     "sd": 0.0271,
+     "ci95": [
+      -0.4615,
+      -0.1684
+     ]
+    }
+   }
+  },
+  "c500": {
+   "ppo": {
+    "n": 1500,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 92.3782,
+     "sd": 0.1425
+    },
+    "xiStageA": {
+     "mean": 92.5947,
+     "sd": 0.0816
+    },
+    "xiDiffBminusA": {
+     "mean": -0.2165,
+     "sd": 0.0974,
+     "ci95": [
+      -0.24,
+      -0.1927
+     ]
+    }
+   },
+   "a2c": {
+    "n": 1500,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.0195,
+     "sd": 0.3026
+    },
+    "xiStageA": {
+     "mean": 90.427,
+     "sd": 0.046
+    },
+    "xiDiffBminusA": {
+     "mean": -0.4076,
+     "sd": 0.2697,
+     "ci95": [
+      -0.4605,
+      -0.3535
+     ]
+    }
+   },
+   "d3qn": {
+    "n": 1500,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 88.8045,
+     "sd": 2.2279
+    },
+    "xiStageA": {
+     "mean": 91.4896,
+     "sd": 0.1912
+    },
+    "xiDiffBminusA": {
+     "mean": -2.6852,
+     "sd": 2.2887,
+     "ci95": [
+      -2.7655,
+      -2.6028
+     ]
+    }
+   },
+   "qrdqn": {
+    "n": 1500,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 91.3687,
+     "sd": 0.2171
+    },
+    "xiStageA": {
+     "mean": 91.8534,
+     "sd": 0.0895
+    },
+    "xiDiffBminusA": {
+     "mean": -0.4847,
+     "sd": 0.2994,
+     "ci95": [
+      -0.5229,
+      -0.4454
+     ]
+    }
+   },
+   "es": {
+    "n": 1500,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.7599,
+     "sd": 0.0168
+    },
+    "xiStageA": {
+     "mean": 91.0679,
+     "sd": 0.0441
+    },
+    "xiDiffBminusA": {
+     "mean": -0.308,
+     "sd": 0.0407,
+     "ci95": [
+      -0.3798,
+      -0.2393
+     ]
+    }
+   }
+  },
+  "c500_first100": {
+   "ppo": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 92.3661,
+     "sd": 0.1244
+    },
+    "xiStageA": {
+     "mean": 92.5276,
+     "sd": 0.1186
+    },
+    "xiDiffBminusA": {
+     "mean": -0.1615,
+     "sd": 0.0942,
+     "ci95": [
+      -0.2152,
+      -0.1021
+     ]
+    }
+   },
+   "a2c": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.0252,
+     "sd": 0.2935
+    },
+    "xiStageA": {
+     "mean": 90.4027,
+     "sd": 0.09
+    },
+    "xiDiffBminusA": {
+     "mean": -0.3776,
+     "sd": 0.2136,
+     "ci95": [
+      -0.4936,
+      -0.2673
+     ]
+    }
+   },
+   "d3qn": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 88.7476,
+     "sd": 2.2333
+    },
+    "xiStageA": {
+     "mean": 91.4603,
+     "sd": 0.1783
+    },
+    "xiDiffBminusA": {
+     "mean": -2.7127,
+     "sd": 2.2811,
+     "ci95": [
+      -2.8973,
+      -2.5233
+     ]
+    }
+   },
+   "qrdqn": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 91.3485,
+     "sd": 0.1794
+    },
+    "xiStageA": {
+     "mean": 91.8682,
+     "sd": 0.1102
+    },
+    "xiDiffBminusA": {
+     "mean": -0.5197,
+     "sd": 0.2795,
+     "ci95": [
+      -0.607,
+      -0.4312
+     ]
+    }
+   },
+   "es": {
+    "n": 300,
+    "seeds": 3,
+    "xiStageB": {
+     "mean": 90.6448,
+     "sd": 0.0741
+    },
+    "xiStageA": {
+     "mean": 90.9906,
+     "sd": 0.0184
+    },
+    "xiDiffBminusA": {
+     "mean": -0.3458,
+     "sd": 0.0876,
+     "ci95": [
+      -0.5022,
+      -0.2015
+     ]
+    }
+   }
+  }
+ }
+}

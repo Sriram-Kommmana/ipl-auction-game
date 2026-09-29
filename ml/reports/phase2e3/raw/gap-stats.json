@@ -1,0 +1,2333 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "rows": 2659482,
+  "note": "descriptive statistics only; no model trained or fitted; obs-v2 untouched"
+ },
+ "early": {
+  "futureStarPriceTerciles": [
+   1.113,
+   1.275
+  ],
+  "labels": {
+   "future-aggressive vs future-passive room (realised star price/fair, lots 33–162, top vs bottom tercile)": [
+    {
+     "bin": "lot 1",
+     "rows": 8190,
+     "bestExisting": {
+      "feature": "mkt_equivalent_left",
+      "separation": 0.056
+     },
+     "top3Existing": [
+      {
+       "feature": "mkt_equivalent_left",
+       "separation": 0.056
+      },
+      {
+       "feature": "mkt_same_role_left",
+       "separation": 0.045
+      },
+      {
+       "feature": "self_fills_bowling",
+       "separation": 0.043
+      }
+     ],
+     "candidates": {
+      "partic5": null,
+      "partic20": null,
+      "bids5": null,
+      "bids20": null,
+      "overpay13": 0.0,
+      "overpay15": 0.0,
+      "starBuyers2": 0.0,
+      "buyersSoFar": 0.0,
+      "cumStarPF": null,
+      "wMaxRivSpend": 0.0,
+      "wBuyers": 0.0,
+      "aheadPace15": 0.0,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": null,
+      "partic20": null,
+      "bids5": null,
+      "bids20": null,
+      "overpay13": 0.0,
+      "overpay15": 0.0,
+      "starBuyers2": 0.0,
+      "buyersSoFar": 0.0,
+      "cumStarPF": null,
+      "wMaxRivSpend": 0.0,
+      "wBuyers": 0.0,
+      "aheadPace15": 0.0,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 0.888
+    },
+    {
+     "bin": "lots 2–5",
+     "rows": 32760,
+     "bestExisting": {
+      "feature": "mkt_recent_price_ratio",
+      "separation": 0.399
+     },
+     "top3Existing": [
+      {
+       "feature": "mkt_recent_price_ratio",
+       "separation": 0.399
+      },
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.154
+      },
+      {
+       "feature": "riv_xi_max",
+       "separation": 0.137
+      }
+     ],
+     "candidates": {
+      "partic5": 0.042,
+      "partic20": 0.042,
+      "bids5": 0.087,
+      "bids20": 0.087,
+      "overpay13": 0.042,
+      "overpay15": 0.008,
+      "starBuyers2": 0.133,
+      "buyersSoFar": 0.111,
+      "cumStarPF": 0.396,
+      "wMaxRivSpend": 0.036,
+      "wBuyers": 0.111,
+      "aheadPace15": 0.012,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.121,
+      "partic20": 0.121,
+      "bids5": 0.055,
+      "bids20": 0.055,
+      "overpay13": 0.037,
+      "overpay15": 0.031,
+      "starBuyers2": 0.071,
+      "buyersSoFar": 0.127,
+      "cumStarPF": 0.13,
+      "wMaxRivSpend": 0.131,
+      "wBuyers": 0.127,
+      "aheadPace15": 0.109,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 0.888
+    },
+    {
+     "bin": "lots 6–16",
+     "rows": 90090,
+     "bestExisting": {
+      "feature": "self_pace_gap",
+      "separation": 0.289
+     },
+     "top3Existing": [
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.289
+      },
+      {
+       "feature": "self_max_safe_purse",
+       "separation": 0.264
+      },
+      {
+       "feature": "self_need_indians",
+       "separation": 0.257
+      }
+     ],
+     "candidates": {
+      "partic5": 0.041,
+      "partic20": 0.039,
+      "bids5": 0.07,
+      "bids20": 0.031,
+      "overpay13": 0.024,
+      "overpay15": 0.06,
+      "starBuyers2": 0.005,
+      "buyersSoFar": 0.178,
+      "cumStarPF": 0.08,
+      "wMaxRivSpend": 0.004,
+      "wBuyers": 0.178,
+      "aheadPace15": 0.026,
+      "capGe2": 0.001
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.052,
+      "partic20": 0.05,
+      "bids5": 0.104,
+      "bids20": 0.075,
+      "overpay13": 0.097,
+      "overpay15": 0.101,
+      "starBuyers2": 0.119,
+      "buyersSoFar": 0.147,
+      "cumStarPF": 0.128,
+      "wMaxRivSpend": 0.131,
+      "wBuyers": 0.147,
+      "aheadPace15": 0.147,
+      "capGe2": 0.002
+     },
+     "identityOracle_rlRivals": 0.888
+    },
+    {
+     "bin": "lots 17–32",
+     "rows": 130984,
+     "bestExisting": {
+      "feature": "riv_recent_spend",
+      "separation": 0.69
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.69
+      },
+      {
+       "feature": "riv_purse_mean",
+       "separation": 0.628
+      },
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.599
+      }
+     ],
+     "candidates": {
+      "partic5": 0.077,
+      "partic20": 0.067,
+      "bids5": 0.097,
+      "bids20": 0.135,
+      "overpay13": 0.216,
+      "overpay15": 0.153,
+      "starBuyers2": 0.629,
+      "buyersSoFar": 0.368,
+      "cumStarPF": 0.643,
+      "wMaxRivSpend": 0.146,
+      "wBuyers": 0.385,
+      "aheadPace15": 0.591,
+      "capGe2": 0.052
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.098,
+      "partic20": 0.103,
+      "bids5": 0.07,
+      "bids20": 0.128,
+      "overpay13": 0.257,
+      "overpay15": 0.195,
+      "starBuyers2": 0.343,
+      "buyersSoFar": 0.395,
+      "cumStarPF": 0.348,
+      "wMaxRivSpend": 0.422,
+      "wBuyers": 0.288,
+      "aheadPace15": 0.222,
+      "capGe2": 0.096
+     },
+     "identityOracle_rlRivals": 0.888
+    },
+    {
+     "bin": "lots 33–65",
+     "rows": 265973,
+     "bestExisting": {
+      "feature": "riv_purse_mean",
+      "separation": 0.662
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_purse_mean",
+       "separation": 0.662
+      },
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.656
+      },
+      {
+       "feature": "self_max_safe_purse",
+       "separation": 0.652
+      }
+     ],
+     "candidates": {
+      "partic5": 0.045,
+      "partic20": 0.033,
+      "bids5": 0.015,
+      "bids20": 0.045,
+      "overpay13": 0.006,
+      "overpay15": 0.113,
+      "starBuyers2": 0.76,
+      "buyersSoFar": 0.104,
+      "cumStarPF": 0.714,
+      "wMaxRivSpend": 0.275,
+      "wBuyers": 0.162,
+      "aheadPace15": 0.804,
+      "capGe2": 0.108
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.122,
+      "partic20": 0.154,
+      "bids5": 0.177,
+      "bids20": 0.158,
+      "overpay13": 0.249,
+      "overpay15": 0.198,
+      "starBuyers2": 0.506,
+      "buyersSoFar": 0.107,
+      "cumStarPF": 0.502,
+      "wMaxRivSpend": 0.15,
+      "wBuyers": 0.115,
+      "aheadPace15": 0.546,
+      "capGe2": 0.263
+     },
+     "identityOracle_rlRivals": 0.889
+    }
+   ],
+   "C4 D3QN/QR-DQN room vs Stage-A room": [
+    {
+     "bin": "lot 1",
+     "rows": 3480,
+     "bestExisting": {
+      "feature": "phase_reauction",
+      "separation": 0.0
+     },
+     "top3Existing": [
+      {
+       "feature": "phase_reauction",
+       "separation": 0.0
+      },
+      {
+       "feature": "main_progress",
+       "separation": 0.0
+      },
+      {
+       "feature": "lots_left_in_phase",
+       "separation": 0.0
+      }
+     ],
+     "candidates": {
+      "partic5": null,
+      "partic20": null,
+      "bids5": null,
+      "bids20": null,
+      "overpay13": 0.0,
+      "overpay15": 0.0,
+      "starBuyers2": 0.0,
+      "buyersSoFar": 0.0,
+      "cumStarPF": null,
+      "wMaxRivSpend": 0.0,
+      "wBuyers": 0.0,
+      "aheadPace15": 0.0,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": null,
+      "partic20": null,
+      "bids5": null,
+      "bids20": null,
+      "overpay13": 0.0,
+      "overpay15": 0.0,
+      "starBuyers2": 0.0,
+      "buyersSoFar": 0.0,
+      "cumStarPF": null,
+      "wMaxRivSpend": 0.0,
+      "wBuyers": 0.0,
+      "aheadPace15": 0.0,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 1.0
+    },
+    {
+     "bin": "lots 2–5",
+     "rows": 13920,
+     "bestExisting": {
+      "feature": "mkt_recent_price_ratio",
+      "separation": 0.67
+     },
+     "top3Existing": [
+      {
+       "feature": "mkt_recent_price_ratio",
+       "separation": 0.67
+      },
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.295
+      },
+      {
+       "feature": "riv_xi_max",
+       "separation": 0.226
+      }
+     ],
+     "candidates": {
+      "partic5": 0.03,
+      "partic20": 0.03,
+      "bids5": 0.154,
+      "bids20": 0.154,
+      "overpay13": 0.039,
+      "overpay15": 0.035,
+      "starBuyers2": 0.178,
+      "buyersSoFar": 0.222,
+      "cumStarPF": 0.635,
+      "wMaxRivSpend": 0.104,
+      "wBuyers": 0.222,
+      "aheadPace15": 0.054,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.147,
+      "partic20": 0.147,
+      "bids5": 0.178,
+      "bids20": 0.178,
+      "overpay13": 0.073,
+      "overpay15": 0.045,
+      "starBuyers2": 0.135,
+      "buyersSoFar": 0.211,
+      "cumStarPF": 0.185,
+      "wMaxRivSpend": 0.292,
+      "wBuyers": 0.211,
+      "aheadPace15": 0.186,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 1.0
+    },
+    {
+     "bin": "lots 6–16",
+     "rows": 38280,
+     "bestExisting": {
+      "feature": "self_need_indians",
+      "separation": 0.344
+     },
+     "top3Existing": [
+      {
+       "feature": "self_need_indians",
+       "separation": 0.344
+      },
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.343
+      },
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.325
+      }
+     ],
+     "candidates": {
+      "partic5": 0.038,
+      "partic20": 0.058,
+      "bids5": 0.132,
+      "bids20": 0.039,
+      "overpay13": 0.182,
+      "overpay15": 0.239,
+      "starBuyers2": 0.014,
+      "buyersSoFar": 0.131,
+      "cumStarPF": 0.187,
+      "wMaxRivSpend": 0.079,
+      "wBuyers": 0.131,
+      "aheadPace15": 0.059,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.089,
+      "partic20": 0.096,
+      "bids5": 0.119,
+      "bids20": 0.061,
+      "overpay13": 0.151,
+      "overpay15": 0.198,
+      "starBuyers2": 0.2,
+      "buyersSoFar": 0.138,
+      "cumStarPF": 0.345,
+      "wMaxRivSpend": 0.132,
+      "wBuyers": 0.138,
+      "aheadPace15": 0.159,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 1.0
+    },
+    {
+     "bin": "lots 17–32",
+     "rows": 55374,
+     "bestExisting": {
+      "feature": "riv_recent_spend",
+      "separation": 0.964
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.964
+      },
+      {
+       "feature": "riv_purse_mean",
+       "separation": 0.921
+      },
+      {
+       "feature": "riv_purse_min",
+       "separation": 0.9
+      }
+     ],
+     "candidates": {
+      "partic5": 0.007,
+      "partic20": 0.051,
+      "bids5": 0.186,
+      "bids20": 0.233,
+      "overpay13": 0.195,
+      "overpay15": 0.291,
+      "starBuyers2": 0.808,
+      "buyersSoFar": 0.416,
+      "cumStarPF": 0.981,
+      "wMaxRivSpend": 0.947,
+      "wBuyers": 0.394,
+      "aheadPace15": 0.76,
+      "capGe2": 0.017
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.302,
+      "partic20": 0.298,
+      "bids5": 0.126,
+      "bids20": 0.117,
+      "overpay13": 0.334,
+      "overpay15": 0.338,
+      "starBuyers2": 0.394,
+      "buyersSoFar": 0.503,
+      "cumStarPF": 0.915,
+      "wMaxRivSpend": 0.638,
+      "wBuyers": 0.206,
+      "aheadPace15": 0.094,
+      "capGe2": 0.001
+     },
+     "identityOracle_rlRivals": 1.0
+    },
+    {
+     "bin": "lots 33–65",
+     "rows": 107472,
+     "bestExisting": {
+      "feature": "riv_purse_min",
+      "separation": 0.985
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_purse_min",
+       "separation": 0.985
+      },
+      {
+       "feature": "riv_purse_std",
+       "separation": 0.949
+      },
+      {
+       "feature": "riv_purse_mean",
+       "separation": 0.945
+      }
+     ],
+     "candidates": {
+      "partic5": 0.125,
+      "partic20": 0.144,
+      "bids5": 0.041,
+      "bids20": 0.009,
+      "overpay13": 0.009,
+      "overpay15": 0.346,
+      "starBuyers2": 0.906,
+      "buyersSoFar": 0.012,
+      "cumStarPF": 0.999,
+      "wMaxRivSpend": 0.542,
+      "wBuyers": 0.025,
+      "aheadPace15": 0.946,
+      "capGe2": 0.071
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.127,
+      "partic20": 0.233,
+      "bids5": 0.264,
+      "bids20": 0.201,
+      "overpay13": 0.243,
+      "overpay15": 0.428,
+      "starBuyers2": 0.798,
+      "buyersSoFar": 0.113,
+      "cumStarPF": 0.991,
+      "wMaxRivSpend": 0.217,
+      "wBuyers": 0.28,
+      "aheadPace15": 0.54,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 1.0
+    }
+   ],
+   "C4 D3QN/QR-DQN room vs C4 PPO room": [
+    {
+     "bin": "lot 1",
+     "rows": 4320,
+     "bestExisting": {
+      "feature": "phase_reauction",
+      "separation": 0.0
+     },
+     "top3Existing": [
+      {
+       "feature": "phase_reauction",
+       "separation": 0.0
+      },
+      {
+       "feature": "main_progress",
+       "separation": 0.0
+      },
+      {
+       "feature": "lots_left_in_phase",
+       "separation": 0.0
+      }
+     ],
+     "candidates": {
+      "partic5": null,
+      "partic20": null,
+      "bids5": null,
+      "bids20": null,
+      "overpay13": 0.0,
+      "overpay15": 0.0,
+      "starBuyers2": 0.0,
+      "buyersSoFar": 0.0,
+      "cumStarPF": null,
+      "wMaxRivSpend": 0.0,
+      "wBuyers": 0.0,
+      "aheadPace15": 0.0,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": null,
+      "partic20": null,
+      "bids5": null,
+      "bids20": null,
+      "overpay13": 0.0,
+      "overpay15": 0.0,
+      "starBuyers2": 0.0,
+      "buyersSoFar": 0.0,
+      "cumStarPF": null,
+      "wMaxRivSpend": 0.0,
+      "wBuyers": 0.0,
+      "aheadPace15": 0.0,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 0.0
+    },
+    {
+     "bin": "lots 2–5",
+     "rows": 17280,
+     "bestExisting": {
+      "feature": "self_pace_gap",
+      "separation": 0.102
+     },
+     "top3Existing": [
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.102
+      },
+      {
+       "feature": "self_max_safe_purse",
+       "separation": 0.073
+      },
+      {
+       "feature": "self_xi_strength",
+       "separation": 0.07
+      }
+     ],
+     "candidates": {
+      "partic5": 0.039,
+      "partic20": 0.039,
+      "bids5": 0.009,
+      "bids20": 0.009,
+      "overpay13": 0.01,
+      "overpay15": 0.012,
+      "starBuyers2": 0.023,
+      "buyersSoFar": 0.072,
+      "cumStarPF": 0.044,
+      "wMaxRivSpend": 0.003,
+      "wBuyers": 0.072,
+      "aheadPace15": 0.008,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.058,
+      "partic20": 0.058,
+      "bids5": 0.023,
+      "bids20": 0.023,
+      "overpay13": 0.042,
+      "overpay15": 0.028,
+      "starBuyers2": 0.049,
+      "buyersSoFar": 0.062,
+      "cumStarPF": 0.066,
+      "wMaxRivSpend": 0.055,
+      "wBuyers": 0.062,
+      "aheadPace15": 0.045,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 0.0
+    },
+    {
+     "bin": "lots 6–16",
+     "rows": 47520,
+     "bestExisting": {
+      "feature": "riv_recent_spend",
+      "separation": 0.669
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.669
+      },
+      {
+       "feature": "mkt_recent_price_ratio",
+       "separation": 0.58
+      },
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.556
+      }
+     ],
+     "candidates": {
+      "partic5": 0.044,
+      "partic20": 0.065,
+      "bids5": 0.136,
+      "bids20": 0.115,
+      "overpay13": 0.283,
+      "overpay15": 0.258,
+      "starBuyers2": 0.28,
+      "buyersSoFar": 0.547,
+      "cumStarPF": 0.559,
+      "wMaxRivSpend": 0.192,
+      "wBuyers": 0.547,
+      "aheadPace15": 0.268,
+      "capGe2": 0.0
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.106,
+      "partic20": 0.141,
+      "bids5": 0.065,
+      "bids20": 0.033,
+      "overpay13": 0.107,
+      "overpay15": 0.083,
+      "starBuyers2": 0.165,
+      "buyersSoFar": 0.424,
+      "cumStarPF": 0.22,
+      "wMaxRivSpend": 0.192,
+      "wBuyers": 0.424,
+      "aheadPace15": 0.152,
+      "capGe2": 0.0
+     },
+     "identityOracle_rlRivals": 0.0
+    },
+    {
+     "bin": "lots 17–32",
+     "rows": 68068,
+     "bestExisting": {
+      "feature": "riv_recent_spend",
+      "separation": 0.967
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_recent_spend",
+       "separation": 0.967
+      },
+      {
+       "feature": "mkt_recent_price_ratio",
+       "separation": 0.959
+      },
+      {
+       "feature": "riv_purse_mean",
+       "separation": 0.925
+      }
+     ],
+     "candidates": {
+      "partic5": 0.162,
+      "partic20": 0.121,
+      "bids5": 0.158,
+      "bids20": 0.201,
+      "overpay13": 0.783,
+      "overpay15": 0.844,
+      "starBuyers2": 0.863,
+      "buyersSoFar": 0.728,
+      "cumStarPF": 0.971,
+      "wMaxRivSpend": 0.811,
+      "wBuyers": 0.725,
+      "aheadPace15": 0.815,
+      "capGe2": 0.016
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.129,
+      "partic20": 0.14,
+      "bids5": 0.069,
+      "bids20": 0.102,
+      "overpay13": 0.586,
+      "overpay15": 0.625,
+      "starBuyers2": 0.491,
+      "buyersSoFar": 0.636,
+      "cumStarPF": 0.784,
+      "wMaxRivSpend": 0.128,
+      "wBuyers": 0.448,
+      "aheadPace15": 0.239,
+      "capGe2": 0.003
+     },
+     "identityOracle_rlRivals": 0.0
+    },
+    {
+     "bin": "lots 33–65",
+     "rows": 121464,
+     "bestExisting": {
+      "feature": "riv_purse_mean",
+      "separation": 0.985
+     },
+     "top3Existing": [
+      {
+       "feature": "riv_purse_mean",
+       "separation": 0.985
+      },
+      {
+       "feature": "self_pace_gap",
+       "separation": 0.908
+      },
+      {
+       "feature": "self_purse",
+       "separation": 0.904
+      }
+     ],
+     "candidates": {
+      "partic5": 0.477,
+      "partic20": 0.398,
+      "bids5": 0.097,
+      "bids20": 0.058,
+      "overpay13": 0.927,
+      "overpay15": 0.914,
+      "starBuyers2": 0.919,
+      "buyersSoFar": 0.838,
+      "cumStarPF": 0.991,
+      "wMaxRivSpend": 0.402,
+      "wBuyers": 0.654,
+      "aheadPace15": 0.888,
+      "capGe2": 0.07
+     },
+     "candidatesWithinBestExistingDeciles": {
+      "partic5": 0.782,
+      "partic20": 0.842,
+      "bids5": 0.204,
+      "bids20": 0.3,
+      "overpay13": 0.928,
+      "overpay15": 0.888,
+      "starBuyers2": 0.553,
+      "buyersSoFar": 0.65,
+      "cumStarPF": 0.946,
+      "wMaxRivSpend": 0.461,
+      "wBuyers": 0.656,
+      "aheadPace15": 0.303,
+      "capGe2": 0.009
+     },
+     "identityOracle_rlRivals": 0.0
+    }
+   ]
+  },
+  "lot1": {
+   "rows": 15600,
+   "maxAbsDiffOfAnyCandidateAcrossConditionsSameEntryLearner": 0.0,
+   "maxAbsDiffObsAcrossConditionsSameEntryLearner": 0.0
+  }
+ },
+ "multi": {
+  "pairs": 195678,
+  "aliasedRivalBlockLe0.05": 11882,
+  "aliasedFull80Le0.05": 11187,
+  "candidates": {
+   "overpay13": {
+    "pairedShareC4Higher": 0.293,
+    "pairedShareC4Lower": 0.352,
+    "sepC4vsC1_allPairs": 0.033,
+    "sepC4vsC1_aliasedRivalBlock": 0.008,
+    "trackRlBiddersWithinProgress": 0.088,
+    "betweenCellShareGivenRivalBlock": 0.695,
+    "withinCellSepC4vsC1": 0.323
+   },
+   "overpay15": {
+    "pairedShareC4Higher": 0.23,
+    "pairedShareC4Lower": 0.318,
+    "sepC4vsC1_allPairs": 0.091,
+    "sepC4vsC1_aliasedRivalBlock": 0.023,
+    "trackRlBiddersWithinProgress": 0.109,
+    "betweenCellShareGivenRivalBlock": 0.556,
+    "withinCellSepC4vsC1": 0.258
+   },
+   "starBuyers2": {
+    "pairedShareC4Higher": 0.385,
+    "pairedShareC4Lower": 0.157,
+    "sepC4vsC1_allPairs": 0.085,
+    "sepC4vsC1_aliasedRivalBlock": 0.005,
+    "trackRlBiddersWithinProgress": 0.278,
+    "betweenCellShareGivenRivalBlock": 0.9,
+    "withinCellSepC4vsC1": 0.299
+   },
+   "buyersSoFar": {
+    "pairedShareC4Higher": 0.144,
+    "pairedShareC4Lower": 0.178,
+    "sepC4vsC1_allPairs": 0.011,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.059,
+    "betweenCellShareGivenRivalBlock": 0.93,
+    "withinCellSepC4vsC1": 0.18
+   },
+   "aheadPace15": {
+    "pairedShareC4Higher": 0.463,
+    "pairedShareC4Lower": 0.16,
+    "sepC4vsC1_allPairs": 0.26,
+    "sepC4vsC1_aliasedRivalBlock": 0.006,
+    "trackRlBiddersWithinProgress": 0.379,
+    "betweenCellShareGivenRivalBlock": 0.796,
+    "withinCellSepC4vsC1": 0.344
+   },
+   "aheadPace30": {
+    "pairedShareC4Higher": 0.217,
+    "pairedShareC4Lower": 0.114,
+    "sepC4vsC1_allPairs": 0.006,
+    "sepC4vsC1_aliasedRivalBlock": 0.003,
+    "trackRlBiddersWithinProgress": 0.267,
+    "betweenCellShareGivenRivalBlock": 0.894,
+    "withinCellSepC4vsC1": 0.147
+   },
+   "wMaxRivSpend": {
+    "pairedShareC4Higher": 0.429,
+    "pairedShareC4Lower": 0.495,
+    "sepC4vsC1_allPairs": 0.037,
+    "sepC4vsC1_aliasedRivalBlock": 0.002,
+    "trackRlBiddersWithinProgress": 0.198,
+    "betweenCellShareGivenRivalBlock": 0.872,
+    "withinCellSepC4vsC1": 0.227
+   },
+   "wBuyers": {
+    "pairedShareC4Higher": 0.275,
+    "pairedShareC4Lower": 0.337,
+    "sepC4vsC1_allPairs": 0.017,
+    "sepC4vsC1_aliasedRivalBlock": 0.001,
+    "trackRlBiddersWithinProgress": 0.095,
+    "betweenCellShareGivenRivalBlock": 0.727,
+    "withinCellSepC4vsC1": 0.244
+   },
+   "partic5": {
+    "pairedShareC4Higher": 0.292,
+    "pairedShareC4Lower": 0.205,
+    "sepC4vsC1_allPairs": 0.031,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.228,
+    "betweenCellShareGivenRivalBlock": 0.852,
+    "withinCellSepC4vsC1": 0.192
+   },
+   "partic20": {
+    "pairedShareC4Higher": 0.345,
+    "pairedShareC4Lower": 0.248,
+    "sepC4vsC1_allPairs": 0.025,
+    "sepC4vsC1_aliasedRivalBlock": 0.003,
+    "trackRlBiddersWithinProgress": 0.242,
+    "betweenCellShareGivenRivalBlock": 0.917,
+    "withinCellSepC4vsC1": 0.224
+   },
+   "bids5": {
+    "pairedShareC4Higher": 0.462,
+    "pairedShareC4Lower": 0.456,
+    "sepC4vsC1_allPairs": 0.008,
+    "sepC4vsC1_aliasedRivalBlock": 0.009,
+    "trackRlBiddersWithinProgress": 0.161,
+    "betweenCellShareGivenRivalBlock": 0.34,
+    "withinCellSepC4vsC1": 0.156
+   },
+   "bids20": {
+    "pairedShareC4Higher": 0.446,
+    "pairedShareC4Lower": 0.497,
+    "sepC4vsC1_allPairs": 0.0,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.178,
+    "betweenCellShareGivenRivalBlock": 0.387,
+    "withinCellSepC4vsC1": 0.166
+   },
+   "capGe1_5": {
+    "pairedShareC4Higher": 0.088,
+    "pairedShareC4Lower": 0.143,
+    "sepC4vsC1_allPairs": 0.045,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.164,
+    "betweenCellShareGivenRivalBlock": 0.733,
+    "withinCellSepC4vsC1": 0.133
+   },
+   "capGe2": {
+    "pairedShareC4Higher": 0.095,
+    "pairedShareC4Lower": 0.148,
+    "sepC4vsC1_allPairs": 0.05,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.139,
+    "betweenCellShareGivenRivalBlock": 0.747,
+    "withinCellSepC4vsC1": 0.138
+   },
+   "capGe3": {
+    "pairedShareC4Higher": 0.107,
+    "pairedShareC4Lower": 0.157,
+    "sepC4vsC1_allPairs": 0.057,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.099,
+    "betweenCellShareGivenRivalBlock": 0.757,
+    "withinCellSepC4vsC1": 0.142
+   },
+   "capGe5": {
+    "pairedShareC4Higher": 0.122,
+    "pairedShareC4Lower": 0.174,
+    "sepC4vsC1_allPairs": 0.06,
+    "sepC4vsC1_aliasedRivalBlock": 0.0,
+    "trackRlBiddersWithinProgress": 0.042,
+    "betweenCellShareGivenRivalBlock": 0.729,
+    "withinCellSepC4vsC1": 0.146
+   }
+  },
+  "distributionCandidate_sortedPurses": {
+   "aliasedPairs_vectorDiffers>0.05": 0.079,
+   "allPairs_vectorDiffers>0.05": 0.803
+  },
+  "existingWithinCellSepC4vsC1": {
+   "riv_purse_std": 0.235,
+   "riv_purse_min": 0.293,
+   "riv_recent_spend": 0.207,
+   "mkt_recent_price_ratio": 0.404,
+   "riv_able_share": 0.124
+  },
+  "existingBestTrackRlBidders": 0.251,
+  "identityOracle": "C1 vs C4 differ by construction in the number of RL-controlled seats (1 vs 4): hidden policy identity, constant in production (5 RL + 4 rule seats)",
+  "rlBiddersDiffer2plusShare": 0.864
+ },
+ "keeper": {
+  "rows": 298803,
+  "labelRate_absorbedByNonNeedingRival": 0.096,
+  "labelRate_wonByAnyRival": 0.743,
+  "cells": 179,
+  "cellsWithRivalsNeeding": 538,
+  "candidates": {
+   "kContestAll": {
+    "withinCellSep_absorbedByNonNeeding": 0.092,
+    "signed": 0.077,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.633,
+    "withinCellSep_wonByAnyRival": 0.138
+   },
+   "kContestNoNeed": {
+    "withinCellSep_absorbedByNonNeeding": 0.366,
+    "signed": 0.362,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.795,
+    "withinCellSep_wonByAnyRival": 0.191
+   },
+   "kContestNoNeedFair": {
+    "withinCellSep_absorbedByNonNeeding": 0.358,
+    "signed": 0.35,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.781,
+    "withinCellSep_wonByAnyRival": 0.187
+   },
+   "kContestNeed": {
+    "withinCellSep_absorbedByNonNeeding": 0.295,
+    "signed": -0.288,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.966,
+    "withinCellSep_wonByAnyRival": 0.15
+   },
+   "kStockExcess": {
+    "withinCellSep_absorbedByNonNeeding": 0.076,
+    "signed": -0.015,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.952,
+    "withinCellSep_wonByAnyRival": 0.064
+   },
+   "kStock2": {
+    "withinCellSep_absorbedByNonNeeding": 0.066,
+    "signed": -0.015,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.914,
+    "withinCellSep_wonByAnyRival": 0.054
+   },
+   "kHistExtraBuyers": {
+    "withinCellSep_absorbedByNonNeeding": 0.066,
+    "signed": -0.015,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.914,
+    "withinCellSep_wonByAnyRival": 0.054
+   },
+   "kW20Extra": {
+    "withinCellSep_absorbedByNonNeeding": 0.074,
+    "signed": -0.011,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.796,
+    "withinCellSep_wonByAnyRival": 0.062
+   },
+   "kW20Buys": {
+    "withinCellSep_absorbedByNonNeeding": 0.343,
+    "signed": 0.265,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.853,
+    "withinCellSep_wonByAnyRival": 0.154
+   },
+   "capGe2": {
+    "withinCellSep_absorbedByNonNeeding": 0.093,
+    "signed": 0.022,
+    "cells": 154,
+    "betweenCellShareGivenControls+rivalsNeeding": 0.733,
+    "withinCellSep_wonByAnyRival": 0.15
+   }
+  },
+  "existing": {
+   "phase_reauction": 0.0,
+   "main_progress": 0.268,
+   "lots_left_in_phase": 0.271,
+   "returning_count": 0.129,
+   "set_index": 0.017,
+   "purse_scale": 0.224,
+   "lot_is_batsman": 0.0,
+   "lot_is_bowler": 0.0,
+   "lot_is_all_rounder": 0.0,
+   "lot_is_keeper": 0.0,
+   "lot_is_overseas": 0.182,
+   "lot_rating": 0.309,
+   "lot_is_star": 0.086,
+   "lot_base_price": 0.209,
+   "lot_fair_value": 0.313,
+   "self_purse": 0.116,
+   "self_slots_left": 0.135,
+   "self_overseas_slots_left": 0.13,
+   "self_class_Wi": 0.0,
+   "self_class_Wo": 0.0,
+   "self_class_Bi": 0.114,
+   "self_class_Bo": 0.109,
+   "self_class_Oi": 0.087,
+   "self_class_Oo": 0.086,
+   "self_xi_strength": 0.097,
+   "self_xi_empty": 0.038,
+   "self_xi_floor": 0.0,
+   "self_xi_overseas": 0.081,
+   "self_status_keeper": 0.072,
+   "self_status_bowling": 0.003,
+   "self_status_indians": 0.018,
+   "self_status_players": 0.072,
+   "self_need_keeper": 0.0,
+   "self_need_bowling": 0.022,
+   "self_need_indians": 0.046,
+   "self_need_players": 0.038,
+   "self_reserve_if_passed": 0.217,
+   "self_max_safe_purse": 0.134,
+   "self_max_safe_fv": 0.144,
+   "self_xi_gain_share": 0.03,
+   "self_xi_gain": 0.322,
+   "self_fills_keeper": 0.0,
+   "self_fills_bowling": 0.0,
+   "self_fills_indians": 0.146,
+   "self_unlocks": 0.0,
+   "self_final_opportunity": 0.0,
+   "self_pace_gap": 0.172,
+   "self_upgrades_left": 0.117,
+   "self_typical_upgrade": 0.0,
+   "self_bench": 0.103,
+   "mkt_equivalent_left": 0.333,
+   "mkt_better_left": 0.288,
+   "mkt_same_role_left": 0.319,
+   "mkt_supply_Wi": 0.238,
+   "mkt_supply_Wo": 0.265,
+   "mkt_supply_Bi": 0.177,
+   "mkt_supply_Bo": 0.206,
+   "mkt_supply_Oi": 0.273,
+   "mkt_supply_Oo": 0.246,
+   "mkt_scarcity_keeper": 0.339,
+   "mkt_scarcity_bowling": 0.0,
+   "mkt_scarcity_indians": 0.0,
+   "mkt_overseas_contested": 0.136,
+   "mkt_premium_passed": 0.278,
+   "mkt_recent_price_ratio": 0.167,
+   "mkt_recent_sold_share": 0.096,
+   "riv_purse_max": 0.091,
+   "riv_purse_mean": 0.26,
+   "riv_purse_min": 0.191,
+   "riv_purse_std": 0.216,
+   "riv_capacity_1": 0.011,
+   "riv_capacity_2": 0.03,
+   "riv_capacity_3": 0.042,
+   "riv_able_share": 0.1,
+   "riv_fills_share": 0.0,
+   "riv_gain_mean": 0.161,
+   "riv_free_slots_share": 0.057,
+   "riv_recent_spend": 0.15,
+   "riv_xi_mean": 0.224,
+   "riv_xi_max": 0.174
+  },
+  "bestExisting": [
+   {
+    "feature": "mkt_scarcity_keeper",
+    "withinCellSep": 0.339
+   },
+   {
+    "feature": "mkt_equivalent_left",
+    "withinCellSep": 0.333
+   },
+   {
+    "feature": "self_xi_gain",
+    "withinCellSep": 0.322
+   },
+   {
+    "feature": "mkt_same_role_left",
+    "withinCellSep": 0.319
+   },
+   {
+    "feature": "lot_fair_value",
+    "withinCellSep": 0.313
+   },
+   {
+    "feature": "lot_rating",
+    "withinCellSep": 0.309
+   }
+  ],
+  "stateAvsB": {
+   "definition": "few rivals need a keeper (≤ 1); State A: ≤ 2 non-needing rivals able to buy the lot at base; State B: ≥ 5",
+   "rowsA": 2619,
+   "rowsB": 36325,
+   "absorbedByNonNeeding_A": 0.068,
+   "absorbedByNonNeeding_B": 0.243,
+   "existingFeatureSepAvsB": [
+    {
+     "feature": "riv_able_share",
+     "sep": 0.997
+    },
+    {
+     "feature": "riv_capacity_3",
+     "sep": 0.819
+    },
+    {
+     "feature": "riv_free_slots_share",
+     "sep": 0.639
+    },
+    {
+     "feature": "riv_recent_spend",
+     "sep": 0.638
+    },
+    {
+     "feature": "mkt_recent_sold_share",
+     "sep": 0.546
+    },
+    {
+     "feature": "lot_is_overseas",
+     "sep": 0.52
+    }
+   ]
+  },
+  "absorptionByNonNeedingContestants": [
+   {
+    "kContestNoNeed": 0,
+    "rows": 456,
+    "rate": 0.0
+   },
+   {
+    "kContestNoNeed": 1,
+    "rows": 738,
+    "rate": 0.065
+   },
+   {
+    "kContestNoNeed": 2,
+    "rows": 1425,
+    "rate": 0.092
+   },
+   {
+    "kContestNoNeed": 3,
+    "rows": 3411,
+    "rate": 0.133
+   },
+   {
+    "kContestNoNeed": 4,
+    "rows": 6977,
+    "rate": 0.148
+   },
+   {
+    "kContestNoNeed": 5,
+    "rows": 12647,
+    "rate": 0.186
+   },
+   {
+    "kContestNoNeed": 6,
+    "rows": 7764,
+    "rate": 0.266
+   },
+   {
+    "kContestNoNeed": 7,
+    "rows": 6759,
+    "rate": 0.251
+   },
+   {
+    "kContestNoNeed": 8,
+    "rows": 7036,
+    "rate": 0.278
+   },
+   {
+    "kContestNoNeed": 9,
+    "rows": 2119,
+    "rate": 0.361
+   }
+  ],
+  "findings": [
+   {
+    "k": 490,
+    "learner": "ppo:s2",
+    "opponent": "d3qn:s1",
+    "seat": 4,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.851,
+     "kContestNoNeedFair": 0.86,
+     "kHistExtraBuyers": 0.944,
+     "kStockExcess": 0.667,
+     "kContestAll": 0.619,
+     "mkt_scarcity_keeper": 0.539,
+     "riv_fills_share": 0.225,
+     "riv_free_slots_share": 0.784,
+     "self_purse": 0.266
+    },
+    "medianValue": {
+     "kContestNoNeed": 6.0,
+     "kContestNoNeedFair": 5.0,
+     "kHistExtraBuyers": 7.0,
+     "kStockExcess": 10.0,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 27,
+    "learner": "ppo:s2",
+    "opponent": "d3qn:s3",
+    "seat": 9,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.745,
+     "kContestNoNeedFair": 0.847,
+     "kHistExtraBuyers": 0.905,
+     "kStockExcess": 0.769,
+     "kContestAll": 0.542,
+     "mkt_scarcity_keeper": 0.682,
+     "riv_fills_share": 0.225,
+     "riv_free_slots_share": 0.788,
+     "self_purse": 0.466
+    },
+    "medianValue": {
+     "kContestNoNeed": 5.0,
+     "kContestNoNeedFair": 5.0,
+     "kHistExtraBuyers": 6.0,
+     "kStockExcess": 11.0,
+     "kContestAll": 5.0
+    }
+   },
+   {
+    "k": 244,
+    "learner": "ppo:s2",
+    "opponent": "qrdqn:s2",
+    "seat": 0,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.688,
+     "kContestNoNeedFair": 0.73,
+     "kHistExtraBuyers": 0.717,
+     "kStockExcess": 0.768,
+     "kContestAll": 0.623,
+     "mkt_scarcity_keeper": 0.517,
+     "riv_fills_share": 0.636,
+     "riv_free_slots_share": 0.561,
+     "self_purse": 0.891
+    },
+    "medianValue": {
+     "kContestNoNeed": 5.0,
+     "kContestNoNeedFair": 5.0,
+     "kHistExtraBuyers": 5.0,
+     "kStockExcess": 8.5,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 285,
+    "learner": "ppo:s2",
+    "opponent": "qrdqn:s2",
+    "seat": 9,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.373,
+     "kContestNoNeedFair": 0.378,
+     "kHistExtraBuyers": 0.494,
+     "kStockExcess": 0.494,
+     "kContestAll": 0.321,
+     "mkt_scarcity_keeper": 0.424,
+     "riv_fills_share": 0.49,
+     "riv_free_slots_share": 0.222,
+     "self_purse": 0.326
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.0,
+     "kContestNoNeedFair": 3.5,
+     "kHistExtraBuyers": 5.0,
+     "kStockExcess": 7.5,
+     "kContestAll": 5.0
+    }
+   },
+   {
+    "k": 342,
+    "learner": "a2c:s1",
+    "opponent": "ppo:s3",
+    "seat": 2,
+    "mechanism": "M2",
+    "medianPercentile": {
+     "kContestNoNeed": 0.636,
+     "kContestNoNeedFair": 0.647,
+     "kHistExtraBuyers": 0.804,
+     "kStockExcess": 0.757,
+     "kContestAll": 0.563,
+     "mkt_scarcity_keeper": 0.089,
+     "riv_fills_share": 0.408,
+     "riv_free_slots_share": 0.407,
+     "self_purse": 0.021
+    },
+    "medianValue": {
+     "kContestNoNeed": 6.5,
+     "kContestNoNeedFair": 6.5,
+     "kHistExtraBuyers": 5.5,
+     "kStockExcess": 7.0,
+     "kContestAll": 8.5
+    }
+   },
+   {
+    "k": 445,
+    "learner": "a2c:s1",
+    "opponent": "ppo:s3",
+    "seat": 3,
+    "mechanism": "M2",
+    "medianPercentile": {
+     "kContestNoNeed": 0.648,
+     "kContestNoNeedFair": 0.659,
+     "kHistExtraBuyers": 0.908,
+     "kStockExcess": 0.953,
+     "kContestAll": 0.558,
+     "mkt_scarcity_keeper": 0.154,
+     "riv_fills_share": 0.388,
+     "riv_free_slots_share": 0.5,
+     "self_purse": 0.06
+    },
+    "medianValue": {
+     "kContestNoNeed": 7.0,
+     "kContestNoNeedFair": 7.0,
+     "kHistExtraBuyers": 7.0,
+     "kStockExcess": 8.5,
+     "kContestAll": 8.5
+    }
+   },
+   {
+    "k": 308,
+    "learner": "a2c:s2",
+    "opponent": "ppo:s3",
+    "seat": 0,
+    "mechanism": "M2",
+    "medianPercentile": {
+     "kContestNoNeed": 0.265,
+     "kContestNoNeedFair": 0.282,
+     "kHistExtraBuyers": 0.725,
+     "kStockExcess": 0.968,
+     "kContestAll": 0.302,
+     "mkt_scarcity_keeper": 0.03,
+     "riv_fills_share": 0.595,
+     "riv_free_slots_share": 0.043,
+     "self_purse": 0.009
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.5,
+     "kContestNoNeedFair": 3.0,
+     "kHistExtraBuyers": 6.0,
+     "kStockExcess": 11.5,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 25,
+    "learner": "d3qn:s1",
+    "opponent": "qrdqn:s2",
+    "seat": 0,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.528,
+     "kContestNoNeedFair": 0.606,
+     "kHistExtraBuyers": 0.407,
+     "kStockExcess": 0.353,
+     "kContestAll": 0.62,
+     "mkt_scarcity_keeper": 0.385,
+     "riv_fills_share": 0.659,
+     "riv_free_slots_share": 0.822,
+     "self_purse": 0.071
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.0,
+     "kContestNoNeedFair": 4.0,
+     "kHistExtraBuyers": 4.0,
+     "kStockExcess": 7.0,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 34,
+    "learner": "d3qn:s1",
+    "opponent": "qrdqn:s2",
+    "seat": 8,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.543,
+     "kContestNoNeedFair": 0.64,
+     "kHistExtraBuyers": 0.767,
+     "kStockExcess": 0.727,
+     "kContestAll": 0.581,
+     "mkt_scarcity_keeper": 0.175,
+     "riv_fills_share": 0.547,
+     "riv_free_slots_share": 0.527,
+     "self_purse": 0.141
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.5,
+     "kContestNoNeedFair": 4.5,
+     "kHistExtraBuyers": 6.0,
+     "kStockExcess": 11.0,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 142,
+    "learner": "d3qn:s1",
+    "opponent": "qrdqn:s2",
+    "seat": 2,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.607,
+     "kContestNoNeedFair": 0.606,
+     "kHistExtraBuyers": 0.151,
+     "kStockExcess": 0.353,
+     "kContestAll": 0.62,
+     "mkt_scarcity_keeper": 0.353,
+     "riv_fills_share": 0.636,
+     "riv_free_slots_share": 0.787,
+     "self_purse": 0.298
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.0,
+     "kContestNoNeedFair": 4.0,
+     "kHistExtraBuyers": 3.0,
+     "kStockExcess": 5.0,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 262,
+    "learner": "d3qn:s1",
+    "opponent": "qrdqn:s2",
+    "seat": 0,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.267,
+     "kContestNoNeedFair": 0.307,
+     "kHistExtraBuyers": 0.222,
+     "kStockExcess": 0.64,
+     "kContestAll": 0.499,
+     "mkt_scarcity_keeper": 0.17,
+     "riv_fills_share": 0.691,
+     "riv_free_slots_share": 0.48,
+     "self_purse": 0.423
+    },
+    "medianValue": {
+     "kContestNoNeed": 3.0,
+     "kContestNoNeedFair": 3.0,
+     "kHistExtraBuyers": 4.0,
+     "kStockExcess": 11.0,
+     "kContestAll": 5.0
+    }
+   },
+   {
+    "k": 253,
+    "learner": "qrdqn:s2",
+    "opponent": "ppo:s1",
+    "seat": 2,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.729,
+     "kContestNoNeedFair": 0.775,
+     "kHistExtraBuyers": 0.924,
+     "kStockExcess": 0.832,
+     "kContestAll": 0.643,
+     "mkt_scarcity_keeper": 0.48,
+     "riv_fills_share": 0.376,
+     "riv_free_slots_share": 0.339,
+     "self_purse": 0.547
+    },
+    "medianValue": {
+     "kContestNoNeed": 7.0,
+     "kContestNoNeedFair": 7.0,
+     "kHistExtraBuyers": 7.0,
+     "kStockExcess": 9.0,
+     "kContestAll": 8.0
+    }
+   },
+   {
+    "k": 275,
+    "learner": "qrdqn:s2",
+    "opponent": "ppo:s1",
+    "seat": 9,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.833,
+     "kContestNoNeedFair": 0.817,
+     "kHistExtraBuyers": 0.759,
+     "kStockExcess": 0.92,
+     "kContestAll": 0.907,
+     "mkt_scarcity_keeper": 0.45,
+     "riv_fills_share": 0.374,
+     "riv_free_slots_share": 0.624,
+     "self_purse": 0.254
+    },
+    "medianValue": {
+     "kContestNoNeed": 8.0,
+     "kContestNoNeedFair": 8.0,
+     "kHistExtraBuyers": 7.0,
+     "kStockExcess": 10.0,
+     "kContestAll": 9.0
+    }
+   },
+   {
+    "k": 424,
+    "learner": "qrdqn:s2",
+    "opponent": "ppo:s2",
+    "seat": 9,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.652,
+     "kContestNoNeedFair": 0.578,
+     "kHistExtraBuyers": 0.788,
+     "kStockExcess": 0.742,
+     "kContestAll": 0.621,
+     "mkt_scarcity_keeper": 0.488,
+     "riv_fills_share": 0.4,
+     "riv_free_slots_share": 0.161,
+     "self_purse": 0.566
+    },
+    "medianValue": {
+     "kContestNoNeed": 6.0,
+     "kContestNoNeedFair": 6.0,
+     "kHistExtraBuyers": 8.0,
+     "kStockExcess": 10.0,
+     "kContestAll": 8.0
+    }
+   },
+   {
+    "k": 433,
+    "learner": "qrdqn:s2",
+    "opponent": "ppo:s2",
+    "seat": 7,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.848,
+     "kContestNoNeedFair": 0.859,
+     "kHistExtraBuyers": 0.498,
+     "kStockExcess": 0.327,
+     "kContestAll": 0.776,
+     "mkt_scarcity_keeper": 0.727,
+     "riv_fills_share": 0.4,
+     "riv_free_slots_share": 0.532,
+     "self_purse": 0.212
+    },
+    "medianValue": {
+     "kContestNoNeed": 8.0,
+     "kContestNoNeedFair": 8.0,
+     "kHistExtraBuyers": 4.0,
+     "kStockExcess": 4.0,
+     "kContestAll": 8.0
+    }
+   },
+   {
+    "k": 308,
+    "learner": "es:s1",
+    "opponent": "ppo:s3",
+    "seat": 0,
+    "mechanism": "M2",
+    "medianPercentile": {
+     "kContestNoNeed": 0.24,
+     "kContestNoNeedFair": 0.246,
+     "kHistExtraBuyers": 0.516,
+     "kStockExcess": 0.945,
+     "kContestAll": 0.338,
+     "mkt_scarcity_keeper": 0.03,
+     "riv_fills_share": 0.595,
+     "riv_free_slots_share": 0.044,
+     "self_purse": 0.009
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.0,
+     "kContestNoNeedFair": 3.5,
+     "kHistExtraBuyers": 6.0,
+     "kStockExcess": 11.0,
+     "kContestAll": 6.5
+    }
+   },
+   {
+    "k": 77,
+    "learner": "es:s2",
+    "opponent": "ppo:s3",
+    "seat": 4,
+    "mechanism": "M2",
+    "medianPercentile": {
+     "kContestNoNeed": 0.623,
+     "kContestNoNeedFair": 0.58,
+     "kHistExtraBuyers": 0.881,
+     "kStockExcess": 0.926,
+     "kContestAll": 0.587,
+     "mkt_scarcity_keeper": 0.183,
+     "riv_fills_share": 0.369,
+     "riv_free_slots_share": 0.33,
+     "self_purse": 0.417
+    },
+    "medianValue": {
+     "kContestNoNeed": 7.0,
+     "kContestNoNeedFair": 6.0,
+     "kHistExtraBuyers": 6.0,
+     "kStockExcess": 6.5,
+     "kContestAll": 8.0
+    }
+   },
+   {
+    "k": 180,
+    "learner": "es:s3",
+    "opponent": "ppo:s3",
+    "seat": 3,
+    "mechanism": "M2",
+    "medianPercentile": {
+     "kContestNoNeed": 0.594,
+     "kContestNoNeedFair": 0.537,
+     "kHistExtraBuyers": 0.598,
+     "kStockExcess": 0.663,
+     "kContestAll": 0.526,
+     "mkt_scarcity_keeper": 0.018,
+     "riv_fills_share": 0.453,
+     "riv_free_slots_share": 0.387,
+     "self_purse": 0.003
+    },
+    "medianValue": {
+     "kContestNoNeed": 6.0,
+     "kContestNoNeedFair": 5.0,
+     "kHistExtraBuyers": 1.5,
+     "kStockExcess": 2.5,
+     "kContestAll": 8.0
+    }
+   },
+   {
+    "k": 132,
+    "learner": "es:s1",
+    "opponent": "qrdqn:s2",
+    "seat": 3,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.528,
+     "kContestNoNeedFair": 0.607,
+     "kHistExtraBuyers": 0.469,
+     "kStockExcess": 0.493,
+     "kContestAll": 0.753,
+     "mkt_scarcity_keeper": 0.297,
+     "riv_fills_share": 0.76,
+     "riv_free_slots_share": 0.226,
+     "self_purse": 0.213
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.0,
+     "kContestNoNeedFair": 4.0,
+     "kHistExtraBuyers": 5.0,
+     "kStockExcess": 7.0,
+     "kContestAll": 6.0
+    }
+   },
+   {
+    "k": 278,
+    "learner": "es:s2",
+    "opponent": "qrdqn:s2",
+    "seat": 1,
+    "mechanism": "M1",
+    "medianPercentile": {
+     "kContestNoNeed": 0.528,
+     "kContestNoNeedFair": 0.606,
+     "kHistExtraBuyers": 0.495,
+     "kStockExcess": 0.495,
+     "kContestAll": 0.501,
+     "mkt_scarcity_keeper": 0.565,
+     "riv_fills_share": 0.5,
+     "riv_free_slots_share": 0.212,
+     "self_purse": 0.349
+    },
+    "medianValue": {
+     "kContestNoNeed": 4.0,
+     "kContestNoNeedFair": 4.0,
+     "kHistExtraBuyers": 4.0,
+     "kStockExcess": 7.0,
+     "kContestAll": 6.0
+    }
+   }
+  ],
+  "findingsMedianPercentileByMechanism": {
+   "M1:kContestNoNeed": 0.629,
+   "M1:kContestNoNeedFair": 0.623,
+   "M1:kHistExtraBuyers": 0.607,
+   "M1:kStockExcess": 0.653,
+   "M1:kContestAll": 0.62,
+   "M1:mkt_scarcity_keeper": 0.465,
+   "M1:riv_fills_share": 0.495,
+   "M1:riv_free_slots_share": 0.53,
+   "M1:self_purse": 0.312,
+   "M2:kContestNoNeed": 0.609,
+   "M2:kContestNoNeedFair": 0.558,
+   "M2:kHistExtraBuyers": 0.764,
+   "M2:kStockExcess": 0.935,
+   "M2:kContestAll": 0.542,
+   "M2:mkt_scarcity_keeper": 0.059,
+   "M2:riv_fills_share": 0.43,
+   "M2:riv_free_slots_share": 0.359,
+   "M2:self_purse": 0.015
+  }
+ },
+ "saturation": {
+  "priceNeededToWin": {
+   "share>5xFair": 0.0003,
+   "share>3xFair": 0.0056,
+   "p99": 3.0
+  },
+  "salePriceToFair": {
+   "share>5": 0.0,
+   "share>3": 0.002,
+   "p99": 2.5
+  },
+  "riv_capacity_1": {
+   "rawPercentiles": {
+    "1": 5.87,
+    "5": 8.98,
+    "25": 14.48,
+    "50": 31.65,
+    "75": 65.81,
+    "95": 278.27
+   },
+   "shareAtClip": 0.993,
+   "shareRawBelow2": 0.004,
+   "trackPriceNeeded_raw(log)": 0.08,
+   "trackPriceNeeded_clipped": -0.0,
+   "shareClippedWhilePriceNeeded>5": 0.0003
+  },
+  "riv_capacity_2": {
+   "rawPercentiles": {
+    "1": 3.3,
+    "5": 7.8,
+    "25": 13.47,
+    "50": 28.3,
+    "75": 54.6,
+    "95": 236.22
+   },
+   "shareAtClip": 0.984,
+   "shareRawBelow2": 0.008,
+   "trackPriceNeeded_raw(log)": 0.093,
+   "trackPriceNeeded_clipped": 0.0,
+   "shareClippedWhilePriceNeeded>5": 0.0003
+  },
+  "riv_capacity_3": {
+   "rawPercentiles": {
+    "1": 0.0,
+    "5": 6.88,
+    "25": 12.85,
+    "50": 26.61,
+    "75": 52.1,
+    "95": 222.58
+   },
+   "shareAtClip": 0.974,
+   "shareRawBelow2": 0.015,
+   "trackPriceNeeded_raw(log)": 0.097,
+   "trackPriceNeeded_clipped": 0.003,
+   "shareClippedWhilePriceNeeded>5": 0.0003
+  },
+  "mkt_scarcity_bowling": {
+   "rawPercentiles": {
+    "1": 10.5,
+    "5": 13.33,
+    "25": 15.46,
+    "50": 21.88,
+    "75": 40.0,
+    "95": 81.0
+   },
+   "shareAtClip": 0.997,
+   "decisionsWithOwnNeed": 984452,
+   "shareAtClipWhenOwnNeed": 1.0,
+   "minRawWhenOwnNeed": 3.73,
+   "shareRawBelow2WhenOwnNeed": 0.0
+  },
+  "mkt_scarcity_indians": {
+   "rawPercentiles": {
+    "1": 9.18,
+    "5": 10.18,
+    "25": 11.85,
+    "50": 15.25,
+    "75": 21.5,
+    "95": 66.0
+   },
+   "shareAtClip": 0.998,
+   "decisionsWithOwnNeed": 1227904,
+   "shareAtClipWhenOwnNeed": 1.0,
+   "minRawWhenOwnNeed": 5.09,
+   "shareRawBelow2WhenOwnNeed": 0.0
+  },
+  "mkt_scarcity_keeper": {
+   "rawPercentiles": {
+    "1": 1.12,
+    "5": 2.12,
+    "25": 4.0,
+    "50": 4.88,
+    "75": 4.88,
+    "95": 4.88
+   },
+   "shareAtClip": 0.041,
+   "decisionsWithOwnNeed": 1040362,
+   "shareAtClipWhenOwnNeed": 0.008,
+   "minRawWhenOwnNeed": 0.0,
+   "shareRawBelow2WhenOwnNeed": 0.0195
+  },
+  "phase2e0FindingsByMissingRequirement": "all 20 findings are missing-keeper XIs (Phase 2E.1 keeper-failures.json)"
+ },
+ "counterfactual": {
+  "definition": {
+   "similarPairs": "pairs of captured decisions on the same entry / phase / lot, from different (episode, seat), with the current 80 features within L∞ ≤ 0.05",
+   "test": "for each candidate: share of similar pairs where the candidate differs by ≥ its threshold; the outcome-difference rate when it differs vs when it does not (lift = ratio)"
+  },
+  "similarPairs": 5538516,
+  "similarKeeperPairs": 889318,
+  "tests": {
+   "keeper lot absorbed by a non-needing rival (one yes, one no)": {
+    "pairs": 889318,
+    "outcomeDiffRate": 0.0039,
+    "candidates": {
+     "kContestNoNeed": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "kContestNoNeedFair": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "kHistExtraBuyers": {
+      "threshold": 1,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 1
+     },
+     "kStockExcess": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "kContestAll": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "overpay13": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0027,
+      "outcomeDiffRate_candidateDiffers": 0.0273,
+      "outcomeDiffRate_candidateSame": 0.0038,
+      "lift": 7.11,
+      "pairsCandidateDiffers": 2382
+     },
+     "starBuyers2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0002,
+      "outcomeDiffRate_candidateDiffers": 0.027,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": 6.94,
+      "pairsCandidateDiffers": 148
+     },
+     "aheadPace15": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0008,
+      "outcomeDiffRate_candidateDiffers": 0.0148,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": 3.8,
+      "pairsCandidateDiffers": 743
+     },
+     "wMaxRivSpend": {
+      "threshold": 0.1,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "partic5": {
+      "threshold": 1.0,
+      "shareCandidateDiffers": 0.0112,
+      "outcomeDiffRate_candidateDiffers": 0.0,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": 0.0,
+      "pairsCandidateDiffers": 9950
+     },
+     "partic20": {
+      "threshold": 0.5,
+      "shareCandidateDiffers": 0.0187,
+      "outcomeDiffRate_candidateDiffers": 0.0258,
+      "outcomeDiffRate_candidateSame": 0.0035,
+      "lift": 7.4,
+      "pairsCandidateDiffers": 16635
+     },
+     "bids20": {
+      "threshold": 5.0,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 25
+     },
+     "capGe2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0039,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     }
+    }
+   },
+   "price needed to win differs ≥ 0.5 × fair": {
+    "pairs": 5538516,
+    "outcomeDiffRate": 0.0252,
+    "candidates": {
+     "kContestNoNeed": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": null,
+      "pairsCandidateDiffers": 6
+     },
+     "kContestNoNeedFair": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": null,
+      "pairsCandidateDiffers": 2
+     },
+     "kHistExtraBuyers": {
+      "threshold": 1,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": null,
+      "pairsCandidateDiffers": 5
+     },
+     "kStockExcess": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "kContestAll": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": 0.0851,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": 3.38,
+      "pairsCandidateDiffers": 47
+     },
+     "overpay13": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0029,
+      "outcomeDiffRate_candidateDiffers": 0.1365,
+      "outcomeDiffRate_candidateSame": 0.0249,
+      "lift": 5.49,
+      "pairsCandidateDiffers": 16261
+     },
+     "starBuyers2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0002,
+      "outcomeDiffRate_candidateDiffers": 0.1168,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": 4.64,
+      "pairsCandidateDiffers": 1318
+     },
+     "aheadPace15": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0008,
+      "outcomeDiffRate_candidateDiffers": 0.1205,
+      "outcomeDiffRate_candidateSame": 0.0251,
+      "lift": 4.79,
+      "pairsCandidateDiffers": 4690
+     },
+     "wMaxRivSpend": {
+      "threshold": 0.1,
+      "shareCandidateDiffers": 0.0003,
+      "outcomeDiffRate_candidateDiffers": 0.0428,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": 1.7,
+      "pairsCandidateDiffers": 1682
+     },
+     "partic5": {
+      "threshold": 1.0,
+      "shareCandidateDiffers": 0.0102,
+      "outcomeDiffRate_candidateDiffers": 0.0224,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": 0.89,
+      "pairsCandidateDiffers": 56659
+     },
+     "partic20": {
+      "threshold": 0.5,
+      "shareCandidateDiffers": 0.0189,
+      "outcomeDiffRate_candidateDiffers": 0.0319,
+      "outcomeDiffRate_candidateSame": 0.0251,
+      "lift": 1.27,
+      "pairsCandidateDiffers": 104847
+     },
+     "bids20": {
+      "threshold": 5.0,
+      "shareCandidateDiffers": 0.0004,
+      "outcomeDiffRate_candidateDiffers": 0.09,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": 3.57,
+      "pairsCandidateDiffers": 2390
+     },
+     "capGe2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": 0.1333,
+      "outcomeDiffRate_candidateSame": 0.0252,
+      "lift": 5.29,
+      "pairsCandidateDiffers": 30
+     }
+    }
+   },
+   "RL rivals bidding differ ≥ 2": {
+    "pairs": 5538516,
+    "outcomeDiffRate": 0.3399,
+    "candidates": {
+     "kContestNoNeed": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": null,
+      "pairsCandidateDiffers": 6
+     },
+     "kContestNoNeedFair": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": null,
+      "pairsCandidateDiffers": 2
+     },
+     "kHistExtraBuyers": {
+      "threshold": 1,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": null,
+      "pairsCandidateDiffers": 5
+     },
+     "kStockExcess": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "kContestAll": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": 0.1915,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": 0.56,
+      "pairsCandidateDiffers": 47
+     },
+     "overpay13": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0029,
+      "outcomeDiffRate_candidateDiffers": 0.2401,
+      "outcomeDiffRate_candidateSame": 0.3402,
+      "lift": 0.71,
+      "pairsCandidateDiffers": 16261
+     },
+     "starBuyers2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0002,
+      "outcomeDiffRate_candidateDiffers": 0.4856,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": 1.43,
+      "pairsCandidateDiffers": 1318
+     },
+     "aheadPace15": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0008,
+      "outcomeDiffRate_candidateDiffers": 0.4712,
+      "outcomeDiffRate_candidateSame": 0.3398,
+      "lift": 1.39,
+      "pairsCandidateDiffers": 4690
+     },
+     "wMaxRivSpend": {
+      "threshold": 0.1,
+      "shareCandidateDiffers": 0.0003,
+      "outcomeDiffRate_candidateDiffers": 0.047,
+      "outcomeDiffRate_candidateSame": 0.34,
+      "lift": 0.14,
+      "pairsCandidateDiffers": 1682
+     },
+     "partic5": {
+      "threshold": 1.0,
+      "shareCandidateDiffers": 0.0102,
+      "outcomeDiffRate_candidateDiffers": 0.2576,
+      "outcomeDiffRate_candidateSame": 0.3408,
+      "lift": 0.76,
+      "pairsCandidateDiffers": 56659
+     },
+     "partic20": {
+      "threshold": 0.5,
+      "shareCandidateDiffers": 0.0189,
+      "outcomeDiffRate_candidateDiffers": 0.2043,
+      "outcomeDiffRate_candidateSame": 0.3426,
+      "lift": 0.6,
+      "pairsCandidateDiffers": 104847
+     },
+     "bids20": {
+      "threshold": 5.0,
+      "shareCandidateDiffers": 0.0004,
+      "outcomeDiffRate_candidateDiffers": 0.2075,
+      "outcomeDiffRate_candidateSame": 0.34,
+      "lift": 0.61,
+      "pairsCandidateDiffers": 2390
+     },
+     "capGe2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": 0.0,
+      "outcomeDiffRate_candidateSame": 0.3399,
+      "lift": 0.0,
+      "pairsCandidateDiffers": 30
+     }
+    }
+   },
+   "lot won by this seat in one, not the other": {
+    "pairs": 5538516,
+    "outcomeDiffRate": 0.0954,
+    "candidates": {
+     "kContestNoNeed": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": null,
+      "pairsCandidateDiffers": 6
+     },
+     "kContestNoNeedFair": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": null,
+      "pairsCandidateDiffers": 2
+     },
+     "kHistExtraBuyers": {
+      "threshold": 1,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": null,
+      "pairsCandidateDiffers": 5
+     },
+     "kStockExcess": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": null,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": null,
+      "pairsCandidateDiffers": 0
+     },
+     "kContestAll": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": 0.0638,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": 0.67,
+      "pairsCandidateDiffers": 47
+     },
+     "overpay13": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0029,
+      "outcomeDiffRate_candidateDiffers": 0.1913,
+      "outcomeDiffRate_candidateSame": 0.0951,
+      "lift": 2.01,
+      "pairsCandidateDiffers": 16261
+     },
+     "starBuyers2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0002,
+      "outcomeDiffRate_candidateDiffers": 0.1722,
+      "outcomeDiffRate_candidateSame": 0.0953,
+      "lift": 1.81,
+      "pairsCandidateDiffers": 1318
+     },
+     "aheadPace15": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0008,
+      "outcomeDiffRate_candidateDiffers": 0.1646,
+      "outcomeDiffRate_candidateSame": 0.0953,
+      "lift": 1.73,
+      "pairsCandidateDiffers": 4690
+     },
+     "wMaxRivSpend": {
+      "threshold": 0.1,
+      "shareCandidateDiffers": 0.0003,
+      "outcomeDiffRate_candidateDiffers": 0.0262,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": 0.27,
+      "pairsCandidateDiffers": 1682
+     },
+     "partic5": {
+      "threshold": 1.0,
+      "shareCandidateDiffers": 0.0102,
+      "outcomeDiffRate_candidateDiffers": 0.1189,
+      "outcomeDiffRate_candidateSame": 0.0951,
+      "lift": 1.25,
+      "pairsCandidateDiffers": 56659
+     },
+     "partic20": {
+      "threshold": 0.5,
+      "shareCandidateDiffers": 0.0189,
+      "outcomeDiffRate_candidateDiffers": 0.1454,
+      "outcomeDiffRate_candidateSame": 0.0944,
+      "lift": 1.54,
+      "pairsCandidateDiffers": 104847
+     },
+     "bids20": {
+      "threshold": 5.0,
+      "shareCandidateDiffers": 0.0004,
+      "outcomeDiffRate_candidateDiffers": 0.2301,
+      "outcomeDiffRate_candidateSame": 0.0953,
+      "lift": 2.41,
+      "pairsCandidateDiffers": 2390
+     },
+     "capGe2": {
+      "threshold": 2,
+      "shareCandidateDiffers": 0.0,
+      "outcomeDiffRate_candidateDiffers": 0.0667,
+      "outcomeDiffRate_candidateSame": 0.0954,
+      "lift": 0.7,
+      "pairsCandidateDiffers": 30
+     }
+    }
+   }
+  }
+ }
+}

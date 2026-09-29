@@ -1,0 +1,342 @@
+{
+ "seeds": {
+  "training": "run seeds 101/102/103 (train split, episode seeds via ipl_rl.common.seeding.episode_seed); warm start from Stage-A seeds 1/2/3",
+  "evaluation": "validation manifest entries 0–99 (c100, c250) and 0–499 (c500); test split never used"
+ },
+ "configHashes": {
+  "ppo:s101": "0761e6cc87fe1867",
+  "ppo:s102": "9aad10f245088b2f",
+  "ppo:s103": "896fd215463802b3",
+  "a2c:s101": "9b61644bd932a0f6",
+  "a2c:s102": "2a2ec3e096f394cf",
+  "a2c:s103": "17d5b5429d38e9f4",
+  "d3qn:s101": "fc35a88cc82c14ca",
+  "d3qn:s102": "39dd3a323919395f",
+  "d3qn:s103": "39b7347c8eab25ec",
+  "qrdqn:s101": "e7fede88b33171af",
+  "qrdqn:s102": "b64e52c33b00bba8",
+  "qrdqn:s103": "eee59c11ef98a4f6",
+  "es:s101": "ab359de1aff3e0b0",
+  "es:s102": "d402a2d5e23fd20e",
+  "es:s103": "9d6eacc25e40fafe"
+ },
+ "warmStart": {
+  "ppo:s101": {
+   "export": "ppo:s1",
+   "sha256": "682bdc89e91fb53f4a1d67139644aed13c774bb2de3023997f32c2f10e5c38b3"
+  },
+  "ppo:s102": {
+   "export": "ppo:s2",
+   "sha256": "7f994d8c6f12c06331c5e3e6833331304124f0dd9f7b39d0f6e294d4e0d33bd8"
+  },
+  "ppo:s103": {
+   "export": "ppo:s3",
+   "sha256": "934677cd7d2e392e31cc6394819151a0554ef37116a583f6ad62e40a923c1b7c"
+  },
+  "a2c:s101": {
+   "export": "a2c:s1",
+   "sha256": "65c334b9819d44580435de491613c32e1c320484d75e9d2c236f6d44aa353ca9"
+  },
+  "a2c:s102": {
+   "export": "a2c:s2",
+   "sha256": "0fe82a251dc13b9ed5d116aada2a28ce8fe1e5bc4f37b79dd5436d57f3849282"
+  },
+  "a2c:s103": {
+   "export": "a2c:s3",
+   "sha256": "b40ff73d9bb48e5c3fc774166a3028e20b337841cb76eb45f51e64fe2399628b"
+  },
+  "d3qn:s101": {
+   "export": "d3qn:s1",
+   "sha256": "cd08b5b99c8a26280e15be265653f04fde7c5dff80b3ce17f873731c26a137c1"
+  },
+  "d3qn:s102": {
+   "export": "d3qn:s2",
+   "sha256": "2fc2a8ab70753302c0f77af8591a4d8d7c2fa511e7882294374fef3c2d65fa08"
+  },
+  "d3qn:s103": {
+   "export": "d3qn:s3",
+   "sha256": "99f2d1eb0a67d6180e8fa7a14a2257c8e53d9f1bb226c9a559c42baac4a92df5"
+  },
+  "qrdqn:s101": {
+   "export": "qrdqn:s1",
+   "sha256": "b8e5772b7f3267359e652c0328c8cee5a214fc5cb692cd4edebabf9766db2daf"
+  },
+  "qrdqn:s102": {
+   "export": "qrdqn:s2",
+   "sha256": "682f057048920721e88811c148d43bd0d6f888e96798c9b83544430c43bd61a9"
+  },
+  "qrdqn:s103": {
+   "export": "qrdqn:s3",
+   "sha256": "3f2f5e0b090df5250b1331f87cc8ae64c09d7811ae88ceca7f66b996e5c842ba"
+  },
+  "es:s101": {
+   "export": "es:s1",
+   "sha256": "cce63f2e26dff91cbc075950c3af78911389e5656368e1278f2c7f1e9e2e8ce1"
+  },
+  "es:s102": {
+   "export": "es:s2",
+   "sha256": "9004a4eac6ba441791bd54a0ed300daff4b9bd118357b038ac5f031ee91d7921"
+  },
+  "es:s103": {
+   "export": "es:s3",
+   "sha256": "9d1473eb5fb2591f52def8ffb4b951e3840e3afba2daa3c36b370643eabb11b7"
+  }
+ },
+ "checkpointPolicies": {
+  "ppo:s101@c100": {
+   "policy": "runs/stage_b/ppo/s101/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "2763c3dc5d9ba4b45d777a182d32588a14ceb01369c588532add3f5def568c69"
+  },
+  "ppo:s102@c100": {
+   "policy": "runs/stage_b/ppo/s102/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "3e0bc5df0ae186a013b13d43af87b015846bb8cb60520f46d7a00e494b321335"
+  },
+  "ppo:s103@c100": {
+   "policy": "runs/stage_b/ppo/s103/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "08091ae8f21a3789a8e2b58a07935b1b4ebfc95dc210d0c0b9c9fafd0d1e80e4"
+  },
+  "a2c:s101@c100": {
+   "policy": "runs/stage_b/a2c/s101/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "fb047c35bd98711072301d1528b40d6c9102ffe65a5fd6da8d0c46a02b7e5c65"
+  },
+  "a2c:s102@c100": {
+   "policy": "runs/stage_b/a2c/s102/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "78a346448f1624cb0e7a2e74fefdddcac0e98c159087d14797db2bec5a8452a0"
+  },
+  "a2c:s103@c100": {
+   "policy": "runs/stage_b/a2c/s103/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "6d40addf735f43aa23d7f9fce28f576d9982327a546bdffbad4ebbc5e76af8ba"
+  },
+  "d3qn:s101@c100": {
+   "policy": "runs/stage_b/d3qn/s101/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "ae032d1492120d428d1aff6faf64f88612a8f160e1ac9c55b6b618788960d28f"
+  },
+  "d3qn:s102@c100": {
+   "policy": "runs/stage_b/d3qn/s102/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "55d038b5d4903af5b83a8bfdeaaf01ba8fe98bfe7f49f6fc160019bec2890950"
+  },
+  "d3qn:s103@c100": {
+   "policy": "runs/stage_b/d3qn/s103/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "2721de3f2634e08bb73f817b3a28007c8b4031b7efec8d6153c42bc09394c515"
+  },
+  "qrdqn:s101@c100": {
+   "policy": "runs/stage_b/qrdqn/s101/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "4a00dfd6cf51590cc91870ce893e365b0c4fd11b72f61760a5aa1e7338bc5594"
+  },
+  "qrdqn:s102@c100": {
+   "policy": "runs/stage_b/qrdqn/s102/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "c1a57e600ea51f5e584eed063f01fa4f4d1905aea7f18dcbc97d57a27ea96ae9"
+  },
+  "qrdqn:s103@c100": {
+   "policy": "runs/stage_b/qrdqn/s103/checkpoints/update_0016/policy.json",
+   "decisions": 98304,
+   "sha256": "1d90dd979cbc5d63c230f088f36e2cc0997c7ee233d831b1d9e0fb2ce09adc26"
+  },
+  "es:s101@c100": {
+   "policy": "runs/stage_b/es/s101/checkpoints/gen_0016/policy.json",
+   "decisions": 102723,
+   "sha256": "44d2563aad0086bf495837a550c89fb0ff906785df2c9b5d87ea9104baef9792"
+  },
+  "es:s102@c100": {
+   "policy": "runs/stage_b/es/s102/checkpoints/gen_0014/policy.json",
+   "decisions": 99863,
+   "sha256": "32582e4becbeccb73fa72dc1597df4d579fbc461a36209db9311398da77ac75a"
+  },
+  "es:s103@c100": {
+   "policy": "runs/stage_b/es/s103/checkpoints/gen_0016/policy.json",
+   "decisions": 101112,
+   "sha256": "c72312143d2ca55969c6acb892b1a37afa7e2c94fe7af42b10eb2705972690c3"
+  },
+  "ppo:s101@c250": {
+   "policy": "runs/stage_b/ppo/s101/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "1b5acec5aff8814ada102e08a91670414da6ee781d9533772de4bba4764746e0"
+  },
+  "ppo:s102@c250": {
+   "policy": "runs/stage_b/ppo/s102/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "6c723b50e61377f8aac2d5673e6db9201df66231aeab18f47dd2e66693866c5a"
+  },
+  "ppo:s103@c250": {
+   "policy": "runs/stage_b/ppo/s103/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "1ca68f18261e3cc29605c3d5a37aaa50223721ef2e44a0a8a80df3295a5faa95"
+  },
+  "a2c:s101@c250": {
+   "policy": "runs/stage_b/a2c/s101/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "b58edca6a113a120adc324521a9d77e4ac7be0d33328446b9d46feb518a6e156"
+  },
+  "a2c:s102@c250": {
+   "policy": "runs/stage_b/a2c/s102/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "f5dfda9a42b75d286c5477a05fa1d950f8d45248d0215edb3af7b3573442188f"
+  },
+  "a2c:s103@c250": {
+   "policy": "runs/stage_b/a2c/s103/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "1e5bcf6b7c5ca4fba67c4efa4fd3ffee5f439c1503cf7e3cef3e9957cacef3ba"
+  },
+  "d3qn:s101@c250": {
+   "policy": "runs/stage_b/d3qn/s101/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "40c1d3b1c0fb859bd18d863c41294a85c69a495e00358d5c479c102358832948"
+  },
+  "d3qn:s102@c250": {
+   "policy": "runs/stage_b/d3qn/s102/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "55992bfc4530981351330e546110e89dde6a1dd0c39469bbc7f0742ba04607b7"
+  },
+  "d3qn:s103@c250": {
+   "policy": "runs/stage_b/d3qn/s103/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "d49b5121329bee08db0cba16dff816c80518f7a354ae6dc986b94b8933933095"
+  },
+  "qrdqn:s101@c250": {
+   "policy": "runs/stage_b/qrdqn/s101/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "d94fbfa8b070a219801f18b009baa4bcc17cbe71788a71738616199216a64067"
+  },
+  "qrdqn:s102@c250": {
+   "policy": "runs/stage_b/qrdqn/s102/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "b21d1df8fb657aeec8cfd2fb4d882ae9af30c3246ba3685b05bd84bd4576fe64"
+  },
+  "qrdqn:s103@c250": {
+   "policy": "runs/stage_b/qrdqn/s103/checkpoints/update_0040/policy.json",
+   "decisions": 245760,
+   "sha256": "a8229c94efa48353888d0098c722d2c8b77ebf7c40dbfbd19cebb049ae31525c"
+  },
+  "es:s101@c250": {
+   "policy": "runs/stage_b/es/s101/checkpoints/gen_0039/policy.json",
+   "decisions": 246467,
+   "sha256": "0c0caa4d6eb2bb8ea180c2ece14f81821a8858d0f75af448dc2e129872da2b19"
+  },
+  "es:s102@c250": {
+   "policy": "runs/stage_b/es/s102/checkpoints/gen_0036/policy.json",
+   "decisions": 249229,
+   "sha256": "57de161ad832f98a6b445d835c0bc57e9e6e0829e1cc4f1e386d2b0fe36b3304"
+  },
+  "es:s103@c250": {
+   "policy": "runs/stage_b/es/s103/checkpoints/gen_0040/policy.json",
+   "decisions": 247116,
+   "sha256": "5db1891259c345f4fcb3dac601fd2a0918cf014e8c168455eed9d54f94d14ad2"
+  },
+  "ppo:s101@c500": {
+   "policy": "runs/stage_b/ppo/s101/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "046934cd482ca96367cfef2cfb74d20807966d6d83f22cacb5e8e08294f24d39"
+  },
+  "ppo:s102@c500": {
+   "policy": "runs/stage_b/ppo/s102/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "389669d7123a4852ebd948781ae77ec77c9c431bc9b46fdb53d2f14ed77b533a"
+  },
+  "ppo:s103@c500": {
+   "policy": "runs/stage_b/ppo/s103/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "48c581c0189b9fda73ba5be63cb4f6b071e8859e59e224ab03291ed0a73f30ba"
+  },
+  "a2c:s101@c500": {
+   "policy": "runs/stage_b/a2c/s101/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "d27436e7ebab316c72eab4b9d08782c4ccf50c51bdb4b18fb4feb695e1bff2b9"
+  },
+  "a2c:s102@c500": {
+   "policy": "runs/stage_b/a2c/s102/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "45dd3f511a93ca467695f3dc7c64fa923a17449a2585251887a1dfed6ca69603"
+  },
+  "a2c:s103@c500": {
+   "policy": "runs/stage_b/a2c/s103/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "aa50424a74b23f72605bd11f9d82cba27e18105911f46b1db200f6b78483f786"
+  },
+  "d3qn:s101@c500": {
+   "policy": "runs/stage_b/d3qn/s101/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "9511ba8604254195a9d62b17c398682fd1799afa48bfa11e822557c27130c3e3"
+  },
+  "d3qn:s102@c500": {
+   "policy": "runs/stage_b/d3qn/s102/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "677df6a6d0a4f07baf1e21c365dceab8f061a7ad4806c10b52006e902233f38e"
+  },
+  "d3qn:s103@c500": {
+   "policy": "runs/stage_b/d3qn/s103/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "41cdeb4ae398dae7d0e82aa9538acc2de210ea31f85babc7aa964f9cce8baea7"
+  },
+  "qrdqn:s101@c500": {
+   "policy": "runs/stage_b/qrdqn/s101/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "3358e167a594377ee41939768c725e54dbab8e0b42e50929c44ed9bd22d4ccea"
+  },
+  "qrdqn:s102@c500": {
+   "policy": "runs/stage_b/qrdqn/s102/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "763ff00247e643cdd04f01f85107e8d85948a29af27e7012fc279f6714d2c70b"
+  },
+  "qrdqn:s103@c500": {
+   "policy": "runs/stage_b/qrdqn/s103/checkpoints/update_0081/policy.json",
+   "decisions": 497664,
+   "sha256": "6da0ee9f06da513efecb716c8731c5894829947cfd9304314d73153cea2bb7be"
+  },
+  "es:s101@c500": {
+   "policy": "runs/stage_b/es/s101/checkpoints/gen_0078/policy.json",
+   "decisions": 502843,
+   "sha256": "6c443b9e66584f55587d1252570f456c5ba48487db582a93541861db253423f7"
+  },
+  "es:s102@c500": {
+   "policy": "runs/stage_b/es/s102/checkpoints/gen_0072/policy.json",
+   "decisions": 502565,
+   "sha256": "099b7ddbf727d8379b8f9e284a2cf9605df3a4b53a826a0df673a70d31a3445e"
+  },
+  "es:s103@c500": {
+   "policy": "runs/stage_b/es/s103/checkpoints/gen_0081/policy.json",
+   "decisions": 499984,
+   "sha256": "3b57fc323e3b384c5995ec1c99f4f926eb69235254d0fb7d26312e5492ac0e45"
+  }
+ },
+ "evaluationDeterminism": {
+  "C4_rerun.jsonl": {
+   "episodes": 720,
+   "identicalToRecorded": 720
+  },
+  "C4_rerun_w13.jsonl": {
+   "episodes": 720,
+   "identicalToRecorded": 720
+  }
+ },
+ "evaluationDeterminismNote": "C4, 3 learners × 12 opponents × entries 0–19, re-run with 7 and 13 workers: every learner-action, auction and summary digest identical to the recorded run",
+ "trainingDeterminism": {
+  "a": {
+   "finalParamsDigest": "29c3f2cf2918ad5b",
+   "layersSha": "b4855cdb274590c6",
+   "decisions": 6144,
+   "episodes": 22
+  },
+  "b": {
+   "finalParamsDigest": "29c3f2cf2918ad5b",
+   "layersSha": "b4855cdb274590c6",
+   "decisions": 6144,
+   "episodes": 22
+  },
+  "identical": true
+ },
+ "trainingDeterminismNote": "PPO seed 101 Stage-B configuration, one update (6,144 decisions), trained twice: identical final parameters and exported layers",
+ "replayVerification": "15,600 c500 evaluation episodes replayed per decision; all digests reproduced",
+ "harnessCrossCheck": "Stage-A control through the cross-play harness equals the trainer own validation run exactly (PPO s101, 100 entries, max |dXI| = 0)",
+ "frozenHashes": "raw/hashes-pre.json (recorded before training), checked before training, before and after evaluation, and at the end (integrity-final.txt)"
+}

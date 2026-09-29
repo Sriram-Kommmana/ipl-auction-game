@@ -1,0 +1,32 @@
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · gamma 1 · 25 frozen + 19 extra files unchanged · 15 Stage-A exports + checkpoints unchanged
+c100 15 learners
+c250 15 learners
+c500 15 learners
+=== c100 A 2026-09-29T10:57:08+05:30
+EVALDONE A 1500 episodes 145s
+=== c100 S4 2026-09-29T10:59:34+05:30
+EVALDONE S4 1500 episodes 142s
+=== c100 C1 2026-09-29T11:01:58+05:30
+EVALDONE C1 18000 episodes 1591s
+=== c100 C4 2026-09-29T11:28:29+05:30
+EVALDONE C4 18000 episodes 1776s
+=== c250 A 2026-09-29T11:58:06+05:30
+EVALDONE A 1500 episodes 135s
+=== c250 S4 2026-09-29T12:00:22+05:30
+EVALDONE S4 1500 episodes 141s
+=== c250 C1 2026-09-29T12:02:44+05:30
+EVALDONE C1 18000 episodes 1576s
+=== c250 C4 2026-09-29T12:29:01+05:30
+EVALDONE C4 18000 episodes 1737s
+=== c500 A 2026-09-29T12:58:00+05:30
+EVALDONE A 7500 episodes 661s
+=== c500 S4 2026-09-29T13:09:02+05:30
+EVALDONE S4 7500 episodes 680s
+=== c500 C1 2026-09-29T13:20:23+05:30
+EVALDONE C1 90000 episodes 7790s
+=== c500 C4 2026-09-29T15:30:14+05:30
+EVALDONE C4 90000 episodes 8664s
+=== replay c500 2026-09-29T17:54:40+05:30
+REPLAYDONE 15600 episodes, 2877571 rows, all digests verified, 1499s
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · gamma 1 · 25 frozen + 19 extra files unchanged · 15 Stage-A exports + checkpoints unchanged
+RUNEVALDONE

@@ -1,0 +1,3116 @@
+{
+ "definition": {
+  "pairing": "Stage-B c500 episode vs the frozen Stage-A export of the same algorithm and seed index, same condition, opponent export and entry (40 Phase 2E.2 entries)",
+  "earlyStarBidShare": "share of the learner's star decisions before 30% of the main round where it bid (cap \u2265 base)",
+  "keeperPassAffordableNeeded": "keeper-lot decisions with an unmet keeper need, maxSafeBid \u2265 base, and action PASS",
+  "expensiveLateBuys": "purchases at \u2265 75% main-round progress (or re-auction) at \u2265 1.5 \u00d7 fair value",
+  "purseAtFirstCritical": "own purse share at the first decision whose shield state is CRITICAL or IMPOSSIBLE"
+ },
+ "episodes": {
+  "stageB": 15600,
+  "stageA": 15600,
+  "paired": 15600
+ },
+ "byCondition": {
+  "A": {
+   "ppo": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 8.525,
+     "stageBsd": 0.6629,
+     "stageA": 6.7583,
+     "pairedDiff": 1.7667,
+     "totalB": 1023.0,
+     "totalA": 811.0
+    },
+    "starsBy20": {
+     "stageB": 9.2,
+     "stageBsd": 0.467,
+     "stageA": 7.5917,
+     "pairedDiff": 1.6083,
+     "totalB": 1104.0,
+     "totalA": 911.0
+    },
+    "starsBy30": {
+     "stageB": 10.3,
+     "stageBsd": 0.1521,
+     "stageA": 9.6667,
+     "pairedDiff": 0.6333,
+     "totalB": 1236.0,
+     "totalA": 1160.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 22.8667,
+     "stageBsd": 0.2036,
+     "stageA": 23.2917,
+     "pairedDiff": -0.425,
+     "totalB": 2744.0,
+     "totalA": 2795.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9935,
+     "stageBsd": 0.0048,
+     "stageA": 0.9569,
+     "pairedDiff": 0.0366,
+     "totalB": 119.2,
+     "totalA": 114.8
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 12.4083,
+     "stageBsd": 0.0629,
+     "stageA": 12.625,
+     "pairedDiff": -0.2167,
+     "totalB": 1489.0,
+     "totalA": 1515.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.1,
+     "stageBsd": 0.1323,
+     "stageA": 0.1417,
+     "pairedDiff": -0.0417,
+     "totalB": 12.0,
+     "totalA": 17.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.4083,
+     "stageBsd": 0.3617,
+     "stageA": 1.4667,
+     "pairedDiff": -0.0583,
+     "totalB": 169.0,
+     "totalA": 176.0
+    },
+    "keeperWins": {
+     "stageB": 2.3417,
+     "stageBsd": 1.0324,
+     "stageA": 1.7417,
+     "pairedDiff": 0.6,
+     "totalB": 281.0,
+     "totalA": 209.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0866,
+     "stageBsd": 0.0552,
+     "stageA": 0.0941,
+     "pairedDiff": -0.0075,
+     "totalB": 10.4,
+     "totalA": 11.3
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0417,
+     "stageBsd": 0.0722,
+     "stageA": 0.025,
+     "pairedDiff": 0.0167,
+     "totalB": 5.0,
+     "totalA": 3.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.0656,
+     "stageBsd": 0.02,
+     "stageA": 0.9831,
+     "pairedDiff": 0.0825,
+     "totalB": 127.9,
+     "totalA": 118.0
+    }
+   },
+   "a2c": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 8.2167,
+     "stageBsd": 0.2323,
+     "stageA": 8.9,
+     "pairedDiff": -0.6833,
+     "totalB": 986.0,
+     "totalA": 1068.0
+    },
+    "starsBy20": {
+     "stageB": 8.2333,
+     "stageBsd": 0.2268,
+     "stageA": 8.95,
+     "pairedDiff": -0.7167,
+     "totalB": 988.0,
+     "totalA": 1074.0
+    },
+    "starsBy30": {
+     "stageB": 8.2333,
+     "stageBsd": 0.2268,
+     "stageA": 8.95,
+     "pairedDiff": -0.7167,
+     "totalB": 988.0,
+     "totalA": 1074.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 19.225,
+     "stageBsd": 1.0627,
+     "stageA": 18.65,
+     "pairedDiff": 0.575,
+     "totalB": 2307.0,
+     "totalA": 2238.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9159,
+     "stageBsd": 0.0344,
+     "stageA": 0.9292,
+     "pairedDiff": -0.0134,
+     "totalB": 109.9,
+     "totalA": 111.5
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 9.2167,
+     "stageBsd": 1.0707,
+     "stageA": 8.275,
+     "pairedDiff": 0.9417,
+     "totalB": 1106.0,
+     "totalA": 993.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.2333,
+     "stageBsd": 0.1465,
+     "stageA": 0.1583,
+     "pairedDiff": 0.075,
+     "totalB": 28.0,
+     "totalA": 19.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.9583,
+     "stageBsd": 0.4141,
+     "stageA": 2.0833,
+     "pairedDiff": -0.125,
+     "totalB": 235.0,
+     "totalA": 250.0
+    },
+    "keeperWins": {
+     "stageB": 1.3333,
+     "stageBsd": 0.052,
+     "stageA": 1.3083,
+     "pairedDiff": 0.025,
+     "totalB": 160.0,
+     "totalA": 157.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.2577,
+     "stageBsd": 0.0794,
+     "stageA": 0.2479,
+     "pairedDiff": 0.0099,
+     "totalB": 30.9,
+     "totalA": 29.7
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0083,
+     "pairedDiff": -0.0083,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0036,
+     "stageBsd": 0.0015,
+     "stageA": 0.0031,
+     "pairedDiff": 0.0005,
+     "totalB": 0.4,
+     "totalA": 0.4
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.1451,
+     "stageBsd": 0.0565,
+     "stageA": 1.1424,
+     "pairedDiff": 0.0027,
+     "totalB": 137.4,
+     "totalA": 137.1
+    }
+   },
+   "d3qn": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 4.9833,
+     "stageBsd": 4.0253,
+     "stageA": 9.2583,
+     "pairedDiff": -4.275,
+     "totalB": 598.0,
+     "totalA": 1111.0
+    },
+    "starsBy20": {
+     "stageB": 5.425,
+     "stageBsd": 3.9807,
+     "stageA": 9.5083,
+     "pairedDiff": -4.0833,
+     "totalB": 651.0,
+     "totalA": 1141.0
+    },
+    "starsBy30": {
+     "stageB": 5.8917,
+     "stageBsd": 3.8767,
+     "stageA": 9.6667,
+     "pairedDiff": -3.775,
+     "totalB": 707.0,
+     "totalA": 1160.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 21.2333,
+     "stageBsd": 2.0902,
+     "stageA": 19.2417,
+     "pairedDiff": 1.9917,
+     "totalB": 2548.0,
+     "totalA": 2309.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.6748,
+     "stageBsd": 0.4485,
+     "stageA": 0.9568,
+     "pairedDiff": -0.2819,
+     "totalB": 81.0,
+     "totalA": 114.8
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 7.8583,
+     "stageBsd": 7.084,
+     "stageA": 8.7333,
+     "pairedDiff": -0.875,
+     "totalB": 943.0,
+     "totalA": 1048.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.1667,
+     "stageBsd": 0.1465,
+     "stageA": 0.4417,
+     "pairedDiff": -0.275,
+     "totalB": 20.0,
+     "totalA": 53.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.8417,
+     "stageBsd": 0.5064,
+     "stageA": 1.0417,
+     "pairedDiff": -0.2,
+     "totalB": 101.0,
+     "totalA": 125.0
+    },
+    "keeperWins": {
+     "stageB": 2.3583,
+     "stageBsd": 1.8414,
+     "stageA": 1.3833,
+     "pairedDiff": 0.975,
+     "totalB": 283.0,
+     "totalA": 166.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0707,
+     "stageBsd": 0.0424,
+     "stageA": 0.0833,
+     "pairedDiff": -0.0127,
+     "totalB": 8.5,
+     "totalA": 10.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.6168,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 1.9,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 3.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.025,
+     "stageBsd": 0.0433,
+     "stageA": 0.0,
+     "pairedDiff": 0.025,
+     "totalB": 3.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0001,
+     "stageBsd": 0.0002,
+     "stageA": 0.0,
+     "pairedDiff": 0.0001,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0417,
+     "stageBsd": 0.0722,
+     "stageA": 0.0,
+     "pairedDiff": 0.0417,
+     "totalB": 5.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 0.785,
+     "stageBsd": 0.4718,
+     "stageA": 1.2623,
+     "pairedDiff": -0.4774,
+     "totalB": 94.2,
+     "totalA": 151.5
+    }
+   },
+   "qrdqn": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 8.5667,
+     "stageBsd": 0.5033,
+     "stageA": 9.0333,
+     "pairedDiff": -0.4667,
+     "totalB": 1028.0,
+     "totalA": 1084.0
+    },
+    "starsBy20": {
+     "stageB": 8.9917,
+     "stageBsd": 0.4876,
+     "stageA": 9.5833,
+     "pairedDiff": -0.5917,
+     "totalB": 1079.0,
+     "totalA": 1150.0
+    },
+    "starsBy30": {
+     "stageB": 9.425,
+     "stageBsd": 0.3122,
+     "stageA": 10.0,
+     "pairedDiff": -0.575,
+     "totalB": 1131.0,
+     "totalA": 1200.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 20.6083,
+     "stageBsd": 0.6227,
+     "stageA": 21.1583,
+     "pairedDiff": -0.55,
+     "totalB": 2473.0,
+     "totalA": 2539.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9669,
+     "stageBsd": 0.0445,
+     "stageA": 0.9588,
+     "pairedDiff": 0.0081,
+     "totalB": 116.0,
+     "totalA": 115.1
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 10.4667,
+     "stageBsd": 1.6623,
+     "stageA": 10.2083,
+     "pairedDiff": 0.2583,
+     "totalB": 1256.0,
+     "totalA": 1225.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0144,
+     "stageA": 0.475,
+     "pairedDiff": -0.4583,
+     "totalB": 2.0,
+     "totalA": 57.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.975,
+     "stageBsd": 0.5679,
+     "stageA": 1.2083,
+     "pairedDiff": -0.2333,
+     "totalB": 117.0,
+     "totalA": 145.0
+    },
+    "keeperWins": {
+     "stageB": 1.35,
+     "stageBsd": 0.05,
+     "stageA": 1.5167,
+     "pairedDiff": -0.1667,
+     "totalB": 162.0,
+     "totalA": 182.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0625,
+     "stageBsd": 0.0353,
+     "stageA": 0.0914,
+     "pairedDiff": -0.0288,
+     "totalB": 7.5,
+     "totalA": 11.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0043,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0002,
+     "pairedDiff": -0.0002,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "starCapFair": {
+     "stageB": 1.1289,
+     "stageBsd": 0.0676,
+     "stageA": 1.1076,
+     "pairedDiff": 0.0213,
+     "totalB": 135.5,
+     "totalA": 132.9
+    }
+   },
+   "es": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 9.7917,
+     "stageBsd": 0.0804,
+     "stageA": 9.725,
+     "pairedDiff": 0.0667,
+     "totalB": 1175.0,
+     "totalA": 1167.0
+    },
+    "starsBy20": {
+     "stageB": 9.8583,
+     "stageBsd": 0.0946,
+     "stageA": 10.0,
+     "pairedDiff": -0.1417,
+     "totalB": 1183.0,
+     "totalA": 1200.0
+    },
+    "starsBy30": {
+     "stageB": 9.8583,
+     "stageBsd": 0.0946,
+     "stageA": 10.0,
+     "pairedDiff": -0.1417,
+     "totalB": 1183.0,
+     "totalA": 1200.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 19.0667,
+     "stageBsd": 0.5058,
+     "stageA": 19.175,
+     "pairedDiff": -0.1083,
+     "totalB": 2288.0,
+     "totalA": 2301.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9525,
+     "stageBsd": 0.0428,
+     "stageA": 0.9355,
+     "pairedDiff": 0.017,
+     "totalB": 114.3,
+     "totalA": 112.3
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 8.2167,
+     "stageBsd": 1.4147,
+     "stageA": 7.8417,
+     "pairedDiff": 0.375,
+     "totalB": 986.0,
+     "totalA": 941.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.1417,
+     "stageBsd": 0.1377,
+     "stageA": 0.1167,
+     "pairedDiff": 0.025,
+     "totalB": 17.0,
+     "totalA": 14.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.7083,
+     "stageBsd": 0.1377,
+     "stageA": 1.9,
+     "pairedDiff": -0.1917,
+     "totalB": 205.0,
+     "totalA": 228.0
+    },
+    "keeperWins": {
+     "stageB": 1.35,
+     "stageBsd": 0.0,
+     "stageA": 1.2917,
+     "pairedDiff": 0.0583,
+     "totalB": 162.0,
+     "totalA": 155.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1907,
+     "stageBsd": 0.0016,
+     "stageA": 0.1867,
+     "pairedDiff": 0.004,
+     "totalB": 22.9,
+     "totalA": 22.4
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0144,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0011,
+     "stageBsd": 0.001,
+     "stageA": 0.0013,
+     "pairedDiff": -0.0003,
+     "totalB": 0.1,
+     "totalA": 0.2
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.1351,
+     "stageBsd": 0.0147,
+     "stageA": 1.1174,
+     "pairedDiff": 0.0178,
+     "totalB": 136.2,
+     "totalA": 134.1
+    }
+   }
+  },
+  "C1": {
+   "ppo": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 4.2118,
+     "stageBsd": 1.4247,
+     "stageA": 2.4111,
+     "pairedDiff": 1.8007,
+     "totalB": 6065.0,
+     "totalA": 3472.0
+    },
+    "starsBy20": {
+     "stageB": 4.9222,
+     "stageBsd": 1.365,
+     "stageA": 3.1299,
+     "pairedDiff": 1.7924,
+     "totalB": 7088.0,
+     "totalA": 4507.0
+    },
+    "starsBy30": {
+     "stageB": 6.8403,
+     "stageBsd": 1.1979,
+     "stageA": 5.7319,
+     "pairedDiff": 1.1083,
+     "totalB": 9850.0,
+     "totalA": 8254.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 23.2979,
+     "stageBsd": 0.0575,
+     "stageA": 23.3424,
+     "pairedDiff": -0.0444,
+     "totalB": 33549.0,
+     "totalA": 33613.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9951,
+     "stageBsd": 0.0036,
+     "stageA": 0.9704,
+     "pairedDiff": 0.0247,
+     "totalB": 1433.0,
+     "totalA": 1397.4
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 16.3431,
+     "stageBsd": 1.1699,
+     "stageA": 16.9181,
+     "pairedDiff": -0.575,
+     "totalB": 23534.0,
+     "totalA": 24362.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.4646,
+     "stageBsd": 0.3247,
+     "stageA": 0.4521,
+     "pairedDiff": 0.0125,
+     "totalB": 669.0,
+     "totalA": 651.0
+    },
+    "keeperBidLost": {
+     "stageB": 2.441,
+     "stageBsd": 0.5564,
+     "stageA": 2.5097,
+     "pairedDiff": -0.0688,
+     "totalB": 3515.0,
+     "totalA": 3614.0
+    },
+    "keeperWins": {
+     "stageB": 3.4188,
+     "stageBsd": 1.6206,
+     "stageA": 2.7299,
+     "pairedDiff": 0.6889,
+     "totalB": 4923.0,
+     "totalA": 3931.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1913,
+     "stageBsd": 0.0605,
+     "stageA": 0.2146,
+     "pairedDiff": -0.0233,
+     "totalB": 275.4,
+     "totalA": 309.0
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0424,
+     "stageBsd": 0.056,
+     "stageA": 0.0361,
+     "pairedDiff": 0.0063,
+     "totalB": 61.0,
+     "totalA": 52.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": -0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.1325,
+     "stageBsd": 0.0511,
+     "stageA": 1.0262,
+     "pairedDiff": 0.1063,
+     "totalB": 1630.8,
+     "totalA": 1477.7
+    }
+   },
+   "a2c": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 6.2285,
+     "stageBsd": 0.6845,
+     "stageA": 5.7986,
+     "pairedDiff": 0.4299,
+     "totalB": 8969.0,
+     "totalA": 8350.0
+    },
+    "starsBy20": {
+     "stageB": 6.5708,
+     "stageBsd": 0.4896,
+     "stageA": 6.4597,
+     "pairedDiff": 0.1111,
+     "totalB": 9462.0,
+     "totalA": 9302.0
+    },
+    "starsBy30": {
+     "stageB": 6.6,
+     "stageBsd": 0.4504,
+     "stageA": 6.5257,
+     "pairedDiff": 0.0743,
+     "totalB": 9504.0,
+     "totalA": 9397.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 20.1118,
+     "stageBsd": 1.2137,
+     "stageA": 19.8264,
+     "pairedDiff": 0.2854,
+     "totalB": 28961.0,
+     "totalA": 28550.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9183,
+     "stageBsd": 0.0351,
+     "stageA": 0.9312,
+     "pairedDiff": -0.0129,
+     "totalB": 1322.4,
+     "totalA": 1340.9
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 11.7451,
+     "stageBsd": 1.6628,
+     "stageA": 11.8208,
+     "pairedDiff": -0.0757,
+     "totalB": 16913.0,
+     "totalA": 17022.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.4285,
+     "stageBsd": 0.1224,
+     "stageA": 0.5653,
+     "pairedDiff": -0.1368,
+     "totalB": 617.0,
+     "totalA": 814.0
+    },
+    "keeperBidLost": {
+     "stageB": 2.984,
+     "stageBsd": 0.5515,
+     "stageA": 3.5236,
+     "pairedDiff": -0.5396,
+     "totalB": 4297.0,
+     "totalA": 5074.0
+    },
+    "keeperWins": {
+     "stageB": 1.3972,
+     "stageBsd": 0.0584,
+     "stageA": 1.4167,
+     "pairedDiff": -0.0194,
+     "totalB": 2012.0,
+     "totalA": 2040.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.4623,
+     "stageBsd": 0.0988,
+     "stageA": 0.5668,
+     "pairedDiff": -0.1045,
+     "totalB": 665.8,
+     "totalA": 816.2
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0104,
+     "stageBsd": 0.0055,
+     "stageA": 0.0208,
+     "pairedDiff": -0.0104,
+     "totalB": 15.0,
+     "totalA": 30.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.003,
+     "stageBsd": 0.0002,
+     "stageA": 0.0035,
+     "pairedDiff": 0.0,
+     "totalB": 0.1,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.7523,
+     "stageBsd": 0.0,
+     "stageA": 0.7523,
+     "pairedDiff": 0.0,
+     "totalB": 15.0,
+     "totalA": 13.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0139,
+     "stageBsd": 0.0052,
+     "stageA": 0.0125,
+     "pairedDiff": 0.0014,
+     "totalB": 20.0,
+     "totalA": 18.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.006,
+     "stageBsd": 0.0013,
+     "stageA": 0.0072,
+     "pairedDiff": -0.0012,
+     "totalB": 8.6,
+     "totalA": 10.4
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0007,
+     "pairedDiff": -0.0007,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "starCapFair": {
+     "stageB": 1.1929,
+     "stageBsd": 0.0397,
+     "stageA": 1.1827,
+     "pairedDiff": 0.0101,
+     "totalB": 1717.7,
+     "totalA": 1703.1
+    }
+   },
+   "d3qn": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 3.0535,
+     "stageBsd": 2.4834,
+     "stageA": 7.0333,
+     "pairedDiff": -3.9799,
+     "totalB": 4397.0,
+     "totalA": 10128.0
+    },
+    "starsBy20": {
+     "stageB": 3.3806,
+     "stageBsd": 2.6297,
+     "stageA": 7.4743,
+     "pairedDiff": -4.0938,
+     "totalB": 4868.0,
+     "totalA": 10763.0
+    },
+    "starsBy30": {
+     "stageB": 4.0347,
+     "stageBsd": 2.7119,
+     "stageA": 7.75,
+     "pairedDiff": -3.7153,
+     "totalB": 5810.0,
+     "totalA": 11160.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 22.1687,
+     "stageBsd": 1.2955,
+     "stageA": 20.3882,
+     "pairedDiff": 1.7806,
+     "totalB": 31923.0,
+     "totalA": 29359.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.6889,
+     "stageBsd": 0.4569,
+     "stageA": 0.946,
+     "pairedDiff": -0.2571,
+     "totalB": 992.0,
+     "totalA": 1362.2
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 10.9181,
+     "stageBsd": 7.912,
+     "stageA": 11.4979,
+     "pairedDiff": -0.5799,
+     "totalB": 15722.0,
+     "totalA": 16557.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.4903,
+     "stageBsd": 0.4289,
+     "stageA": 0.5736,
+     "pairedDiff": -0.0833,
+     "totalB": 706.0,
+     "totalA": 826.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.9569,
+     "stageBsd": 0.754,
+     "stageA": 1.6222,
+     "pairedDiff": -0.6653,
+     "totalB": 1378.0,
+     "totalA": 2336.0
+    },
+    "keeperWins": {
+     "stageB": 2.6229,
+     "stageBsd": 2.4491,
+     "stageA": 1.2979,
+     "pairedDiff": 1.325,
+     "totalB": 3777.0,
+     "totalA": 1869.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.125,
+     "stageBsd": 0.1132,
+     "stageA": 0.1739,
+     "pairedDiff": -0.0489,
+     "totalB": 179.9,
+     "totalA": 250.4
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0271,
+     "stageBsd": 0.0399,
+     "stageA": 0.0056,
+     "pairedDiff": 0.0215,
+     "totalB": 39.0,
+     "totalA": 8.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.6065,
+     "stageBsd": null,
+     "stageA": 0.0035,
+     "pairedDiff": null,
+     "totalB": 1.8,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": null,
+     "stageA": 0.7936,
+     "pairedDiff": null,
+     "totalB": 3.0,
+     "totalA": 4.8
+    },
+    "reachedCritical": {
+     "stageB": 0.0021,
+     "stageBsd": 0.0036,
+     "stageA": 0.0042,
+     "pairedDiff": -0.0021,
+     "totalB": 3.0,
+     "totalA": 6.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0007,
+     "pairedDiff": -0.0007,
+     "totalB": 0.0,
+     "totalA": 1.1
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0028,
+     "stageBsd": 0.0048,
+     "stageA": 0.0021,
+     "pairedDiff": 0.0007,
+     "totalB": 4.0,
+     "totalA": 3.0
+    },
+    "starCapFair": {
+     "stageB": 0.7785,
+     "stageBsd": 0.5021,
+     "stageA": 1.1686,
+     "pairedDiff": -0.3901,
+     "totalB": 1121.0,
+     "totalA": 1682.8
+    }
+   },
+   "qrdqn": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 4.8549,
+     "stageBsd": 0.0698,
+     "stageA": 6.6361,
+     "pairedDiff": -1.7812,
+     "totalB": 6991.0,
+     "totalA": 9556.0
+    },
+    "starsBy20": {
+     "stageB": 5.3563,
+     "stageBsd": 0.1781,
+     "stageA": 7.275,
+     "pairedDiff": -1.9187,
+     "totalB": 7713.0,
+     "totalA": 10476.0
+    },
+    "starsBy30": {
+     "stageB": 6.5465,
+     "stageBsd": 0.3112,
+     "stageA": 7.7806,
+     "pairedDiff": -1.234,
+     "totalB": 9427.0,
+     "totalA": 11204.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 22.5153,
+     "stageBsd": 0.6437,
+     "stageA": 22.1417,
+     "pairedDiff": 0.3736,
+     "totalB": 32422.0,
+     "totalA": 31884.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9834,
+     "stageBsd": 0.0249,
+     "stageA": 0.9703,
+     "pairedDiff": 0.0131,
+     "totalB": 1416.2,
+     "totalA": 1397.3
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 15.5896,
+     "stageBsd": 0.3084,
+     "stageA": 13.6903,
+     "pairedDiff": 1.8993,
+     "totalB": 22449.0,
+     "totalA": 19714.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0104,
+     "stageBsd": 0.013,
+     "stageA": 0.4979,
+     "pairedDiff": -0.4875,
+     "totalB": 15.0,
+     "totalA": 717.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.016,
+     "stageBsd": 0.5339,
+     "stageA": 1.2549,
+     "pairedDiff": -0.2389,
+     "totalB": 1463.0,
+     "totalA": 1807.0
+    },
+    "keeperWins": {
+     "stageB": 1.1465,
+     "stageBsd": 0.0148,
+     "stageA": 1.6299,
+     "pairedDiff": -0.4833,
+     "totalB": 1651.0,
+     "totalA": 2347.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0706,
+     "stageBsd": 0.0277,
+     "stageA": 0.0968,
+     "pairedDiff": -0.0263,
+     "totalB": 101.6,
+     "totalA": 139.4
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0056,
+     "stageBsd": 0.0052,
+     "stageA": 0.0118,
+     "pairedDiff": -0.0063,
+     "totalB": 8.0,
+     "totalA": 17.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0043,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 18.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0125,
+     "pairedDiff": -0.0125,
+     "totalB": 0.0,
+     "totalA": 18.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0001,
+     "stageBsd": 0.0001,
+     "stageA": 0.0004,
+     "pairedDiff": -0.0003,
+     "totalB": 0.2,
+     "totalA": 0.6
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0007,
+     "pairedDiff": -0.0007,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0146,
+     "pairedDiff": -0.0146,
+     "totalB": 0.0,
+     "totalA": 21.0
+    },
+    "starCapFair": {
+     "stageB": 1.1469,
+     "stageBsd": 0.0268,
+     "stageA": 1.1424,
+     "pairedDiff": 0.0045,
+     "totalB": 1651.5,
+     "totalA": 1645.0
+    }
+   },
+   "es": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 6.0021,
+     "stageBsd": 0.1126,
+     "stageA": 4.9153,
+     "pairedDiff": 1.0868,
+     "totalB": 8643.0,
+     "totalA": 7078.0
+    },
+    "starsBy20": {
+     "stageB": 6.9535,
+     "stageBsd": 0.0867,
+     "stageA": 6.1264,
+     "pairedDiff": 0.8271,
+     "totalB": 10013.0,
+     "totalA": 8822.0
+    },
+    "starsBy30": {
+     "stageB": 7.1007,
+     "stageBsd": 0.0826,
+     "stageA": 6.5417,
+     "pairedDiff": 0.559,
+     "totalB": 10225.0,
+     "totalA": 9420.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 19.6125,
+     "stageBsd": 0.18,
+     "stageA": 19.616,
+     "pairedDiff": -0.0035,
+     "totalB": 28242.0,
+     "totalA": 28247.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9692,
+     "stageBsd": 0.033,
+     "stageA": 0.9641,
+     "pairedDiff": 0.0051,
+     "totalB": 1395.7,
+     "totalA": 1388.4
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 11.8458,
+     "stageBsd": 0.5341,
+     "stageA": 12.2944,
+     "pairedDiff": -0.4486,
+     "totalB": 17058.0,
+     "totalA": 17704.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.6438,
+     "stageBsd": 0.6459,
+     "stageA": 0.3688,
+     "pairedDiff": 0.275,
+     "totalB": 927.0,
+     "totalA": 531.0
+    },
+    "keeperBidLost": {
+     "stageB": 3.434,
+     "stageBsd": 0.2028,
+     "stageA": 4.2396,
+     "pairedDiff": -0.8056,
+     "totalB": 4945.0,
+     "totalA": 6105.0
+    },
+    "keeperWins": {
+     "stageB": 1.3986,
+     "stageBsd": 0.184,
+     "stageA": 1.4361,
+     "pairedDiff": -0.0375,
+     "totalB": 2014.0,
+     "totalA": 2068.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.4978,
+     "stageBsd": 0.0152,
+     "stageA": 0.5967,
+     "pairedDiff": -0.0989,
+     "totalB": 716.8,
+     "totalA": 859.2
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0146,
+     "stageBsd": 0.0095,
+     "stageA": 0.0104,
+     "pairedDiff": 0.0042,
+     "totalB": 21.0,
+     "totalA": 15.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0025,
+     "stageBsd": 0.0012,
+     "stageA": 0.0035,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.8665,
+     "stageBsd": 0.0862,
+     "stageA": 0.7688,
+     "pairedDiff": 0.0,
+     "totalB": 14.7,
+     "totalA": 11.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0118,
+     "stageBsd": 0.0134,
+     "stageA": 0.0104,
+     "pairedDiff": 0.0014,
+     "totalB": 17.0,
+     "totalA": 15.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0042,
+     "stageBsd": 0.003,
+     "stageA": 0.0046,
+     "pairedDiff": -0.0004,
+     "totalB": 6.0,
+     "totalA": 6.6
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0007,
+     "stageBsd": 0.0012,
+     "stageA": 0.0,
+     "pairedDiff": 0.0007,
+     "totalB": 1.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0069,
+     "stageBsd": 0.012,
+     "stageA": 0.0007,
+     "pairedDiff": 0.0063,
+     "totalB": 10.0,
+     "totalA": 1.0
+    },
+    "starCapFair": {
+     "stageB": 1.2224,
+     "stageBsd": 0.0183,
+     "stageA": 1.2051,
+     "pairedDiff": 0.0173,
+     "totalB": 1760.3,
+     "totalA": 1735.3
+    }
+   }
+  },
+  "C4": {
+   "ppo": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 2.6917,
+     "stageBsd": 1.4198,
+     "stageA": 1.2847,
+     "pairedDiff": 1.4069,
+     "totalB": 3876.0,
+     "totalA": 1850.0
+    },
+    "starsBy20": {
+     "stageB": 2.7972,
+     "stageBsd": 1.4772,
+     "stageA": 1.3069,
+     "pairedDiff": 1.4903,
+     "totalB": 4028.0,
+     "totalA": 1882.0
+    },
+    "starsBy30": {
+     "stageB": 3.4271,
+     "stageBsd": 1.7151,
+     "stageA": 1.9236,
+     "pairedDiff": 1.5035,
+     "totalB": 4935.0,
+     "totalA": 2770.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 23.3299,
+     "stageBsd": 0.0349,
+     "stageA": 23.3472,
+     "pairedDiff": -0.0174,
+     "totalB": 33595.0,
+     "totalA": 33620.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9996,
+     "stageBsd": 0.0,
+     "stageA": 0.9889,
+     "pairedDiff": 0.0108,
+     "totalB": 1439.5,
+     "totalA": 1424.0
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 19.8944,
+     "stageBsd": 1.7447,
+     "stageA": 21.166,
+     "pairedDiff": -1.2715,
+     "totalB": 28648.0,
+     "totalA": 30479.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.6347,
+     "stageBsd": 0.3763,
+     "stageA": 0.7326,
+     "pairedDiff": -0.0979,
+     "totalB": 914.0,
+     "totalA": 1055.0
+    },
+    "keeperBidLost": {
+     "stageB": 2.3826,
+     "stageBsd": 0.381,
+     "stageA": 2.8451,
+     "pairedDiff": -0.4625,
+     "totalB": 3431.0,
+     "totalA": 4097.0
+    },
+    "keeperWins": {
+     "stageB": 4.5014,
+     "stageBsd": 2.1123,
+     "stageA": 3.2847,
+     "pairedDiff": 1.2167,
+     "totalB": 6482.0,
+     "totalA": 4730.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.3011,
+     "stageBsd": 0.0902,
+     "stageA": 0.3838,
+     "pairedDiff": -0.0827,
+     "totalB": 433.5,
+     "totalA": 552.7
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.2236,
+     "stageBsd": 0.2115,
+     "stageA": 0.1174,
+     "pairedDiff": 0.1062,
+     "totalB": 322.0,
+     "totalA": 169.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.1687,
+     "stageBsd": 0.0682,
+     "stageA": 1.0314,
+     "pairedDiff": 0.1373,
+     "totalB": 1682.9,
+     "totalA": 1485.2
+    }
+   },
+   "a2c": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 5.6278,
+     "stageBsd": 0.5979,
+     "stageA": 4.9757,
+     "pairedDiff": 0.6521,
+     "totalB": 8104.0,
+     "totalA": 7165.0
+    },
+    "starsBy20": {
+     "stageB": 5.7111,
+     "stageBsd": 0.5527,
+     "stageA": 5.0681,
+     "pairedDiff": 0.6431,
+     "totalB": 8224.0,
+     "totalA": 7298.0
+    },
+    "starsBy30": {
+     "stageB": 5.8431,
+     "stageBsd": 0.505,
+     "stageA": 5.2313,
+     "pairedDiff": 0.6118,
+     "totalB": 8414.0,
+     "totalA": 7533.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 20.0125,
+     "stageBsd": 1.1575,
+     "stageA": 19.2375,
+     "pairedDiff": 0.775,
+     "totalB": 28818.0,
+     "totalA": 27702.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9437,
+     "stageBsd": 0.0306,
+     "stageA": 0.9655,
+     "pairedDiff": -0.0218,
+     "totalB": 1358.9,
+     "totalA": 1390.3
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 12.9736,
+     "stageBsd": 1.9477,
+     "stageA": 13.3222,
+     "pairedDiff": -0.3486,
+     "totalB": 18682.0,
+     "totalA": 19184.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.491,
+     "stageBsd": 0.188,
+     "stageA": 0.5167,
+     "pairedDiff": -0.0257,
+     "totalB": 707.0,
+     "totalA": 744.0
+    },
+    "keeperBidLost": {
+     "stageB": 3.5729,
+     "stageBsd": 0.5322,
+     "stageA": 4.291,
+     "pairedDiff": -0.7181,
+     "totalB": 5145.0,
+     "totalA": 6179.0
+    },
+    "keeperWins": {
+     "stageB": 1.2382,
+     "stageBsd": 0.0396,
+     "stageA": 1.2028,
+     "pairedDiff": 0.0354,
+     "totalB": 1783.0,
+     "totalA": 1732.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.5371,
+     "stageBsd": 0.064,
+     "stageA": 0.6252,
+     "pairedDiff": -0.087,
+     "totalB": 773.5,
+     "totalA": 898.4
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0299,
+     "stageBsd": 0.0067,
+     "stageA": 0.0201,
+     "pairedDiff": 0.0097,
+     "totalB": 43.0,
+     "totalA": 29.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0031,
+     "stageBsd": 0.0005,
+     "stageA": 0.002,
+     "pairedDiff": 0.0,
+     "totalB": 0.1,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.8036,
+     "stageBsd": 0.0179,
+     "stageA": 0.8812,
+     "pairedDiff": 0.0,
+     "totalB": 14.5,
+     "totalA": 11.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0125,
+     "stageBsd": 0.0042,
+     "stageA": 0.009,
+     "pairedDiff": 0.0035,
+     "totalB": 18.0,
+     "totalA": 13.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0067,
+     "stageBsd": 0.0019,
+     "stageA": 0.0062,
+     "pairedDiff": 0.0005,
+     "totalB": 9.7,
+     "totalA": 8.9
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0014,
+     "stageBsd": 0.0012,
+     "stageA": 0.0035,
+     "pairedDiff": -0.0021,
+     "totalB": 2.0,
+     "totalA": 5.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0056,
+     "stageBsd": 0.0043,
+     "stageA": 0.0139,
+     "pairedDiff": -0.0083,
+     "totalB": 8.0,
+     "totalA": 20.0
+    },
+    "starCapFair": {
+     "stageB": 1.2543,
+     "stageBsd": 0.0016,
+     "stageA": 1.2692,
+     "pairedDiff": -0.0149,
+     "totalB": 1806.2,
+     "totalA": 1827.6
+    }
+   },
+   "d3qn": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 2.7625,
+     "stageBsd": 1.5785,
+     "stageA": 6.3826,
+     "pairedDiff": -3.6201,
+     "totalB": 3978.0,
+     "totalA": 9191.0
+    },
+    "starsBy20": {
+     "stageB": 2.8944,
+     "stageBsd": 1.5899,
+     "stageA": 6.6556,
+     "pairedDiff": -3.7611,
+     "totalB": 4168.0,
+     "totalA": 9584.0
+    },
+    "starsBy30": {
+     "stageB": 3.1424,
+     "stageBsd": 1.5685,
+     "stageA": 7.0076,
+     "pairedDiff": -3.8653,
+     "totalB": 4525.0,
+     "totalA": 10091.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 22.1,
+     "stageBsd": 1.0824,
+     "stageA": 20.5208,
+     "pairedDiff": 1.5792,
+     "totalB": 31824.0,
+     "totalA": 29550.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.7157,
+     "stageBsd": 0.4448,
+     "stageA": 0.9603,
+     "pairedDiff": -0.2446,
+     "totalB": 1030.7,
+     "totalA": 1382.9
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 12.391,
+     "stageBsd": 8.5575,
+     "stageA": 12.6792,
+     "pairedDiff": -0.2882,
+     "totalB": 17843.0,
+     "totalA": 18258.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.3097,
+     "stageBsd": 0.2877,
+     "stageA": 0.8479,
+     "pairedDiff": -0.5382,
+     "totalB": 446.0,
+     "totalA": 1221.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.8743,
+     "stageBsd": 0.659,
+     "stageA": 2.2972,
+     "pairedDiff": -1.4229,
+     "totalB": 1259.0,
+     "totalA": 3308.0
+    },
+    "keeperWins": {
+     "stageB": 2.8799,
+     "stageBsd": 3.0431,
+     "stageA": 1.2465,
+     "pairedDiff": 1.6333,
+     "totalB": 4147.0,
+     "totalA": 1795.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1045,
+     "stageBsd": 0.0877,
+     "stageA": 0.2905,
+     "pairedDiff": -0.186,
+     "totalB": 150.5,
+     "totalA": 418.3
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.1215,
+     "stageBsd": 0.1997,
+     "stageA": 0.0146,
+     "pairedDiff": 0.1069,
+     "totalB": 175.0,
+     "totalA": 21.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.6053,
+     "stageBsd": 0.4381,
+     "stageA": 0.0031,
+     "pairedDiff": null,
+     "totalB": 23.6,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": 0.0,
+     "stageA": 0.9498,
+     "pairedDiff": null,
+     "totalB": 39.0,
+     "totalA": 8.5
+    },
+    "reachedCritical": {
+     "stageB": 0.0271,
+     "stageBsd": 0.0451,
+     "stageA": 0.0063,
+     "pairedDiff": 0.0208,
+     "totalB": 39.0,
+     "totalA": 9.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0002,
+     "stageBsd": 0.0002,
+     "stageA": 0.0014,
+     "pairedDiff": -0.0012,
+     "totalB": 0.3,
+     "totalA": 2.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0604,
+     "stageBsd": 0.1028,
+     "stageA": 0.0056,
+     "pairedDiff": 0.0549,
+     "totalB": 87.0,
+     "totalA": 8.0
+    },
+    "starCapFair": {
+     "stageB": 0.8208,
+     "stageBsd": 0.4673,
+     "stageA": 1.2404,
+     "pairedDiff": -0.4196,
+     "totalB": 1181.9,
+     "totalA": 1786.1
+    }
+   },
+   "qrdqn": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 4.1139,
+     "stageBsd": 0.4047,
+     "stageA": 5.609,
+     "pairedDiff": -1.4951,
+     "totalB": 5924.0,
+     "totalA": 8077.0
+    },
+    "starsBy20": {
+     "stageB": 4.3847,
+     "stageBsd": 0.3442,
+     "stageA": 6.1431,
+     "pairedDiff": -1.7583,
+     "totalB": 6314.0,
+     "totalA": 8846.0
+    },
+    "starsBy30": {
+     "stageB": 5.034,
+     "stageBsd": 0.4157,
+     "stageA": 6.7451,
+     "pairedDiff": -1.7111,
+     "totalB": 7249.0,
+     "totalA": 9713.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 22.1924,
+     "stageBsd": 0.364,
+     "stageA": 21.9076,
+     "pairedDiff": 0.2847,
+     "totalB": 31957.0,
+     "totalA": 31547.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9851,
+     "stageBsd": 0.0211,
+     "stageA": 0.9777,
+     "pairedDiff": 0.0074,
+     "totalB": 1418.5,
+     "totalA": 1407.9
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 16.8264,
+     "stageBsd": 0.8631,
+     "stageA": 14.6653,
+     "pairedDiff": 2.1611,
+     "totalB": 24230.0,
+     "totalA": 21118.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0257,
+     "stageBsd": 0.0375,
+     "stageA": 0.6125,
+     "pairedDiff": -0.5868,
+     "totalB": 37.0,
+     "totalA": 882.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.0319,
+     "stageBsd": 0.5891,
+     "stageA": 1.5354,
+     "pairedDiff": -0.5035,
+     "totalB": 1486.0,
+     "totalA": 2211.0
+    },
+    "keeperWins": {
+     "stageB": 1.1542,
+     "stageBsd": 0.024,
+     "stageA": 1.484,
+     "pairedDiff": -0.3299,
+     "totalB": 1662.0,
+     "totalA": 2137.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0938,
+     "stageBsd": 0.0464,
+     "stageA": 0.1558,
+     "pairedDiff": -0.0618,
+     "totalB": 135.1,
+     "totalA": 223.7
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0271,
+     "stageBsd": 0.0157,
+     "stageA": 0.0222,
+     "pairedDiff": 0.0049,
+     "totalB": 39.0,
+     "totalA": 32.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0044,
+     "stageBsd": null,
+     "stageA": 0.0058,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.1
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.7539,
+     "stageBsd": null,
+     "stageA": 0.9975,
+     "pairedDiff": null,
+     "totalB": 1.5,
+     "totalA": 23.9
+    },
+    "reachedCritical": {
+     "stageB": 0.0014,
+     "stageBsd": 0.0024,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0153,
+     "totalB": 2.0,
+     "totalA": 24.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0003,
+     "stageBsd": 0.0002,
+     "stageA": 0.0013,
+     "pairedDiff": -0.0011,
+     "totalB": 0.4,
+     "totalA": 1.9
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0035,
+     "pairedDiff": -0.0035,
+     "totalB": 0.0,
+     "totalA": 5.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0007,
+     "stageBsd": 0.0012,
+     "stageA": 0.0222,
+     "pairedDiff": -0.0215,
+     "totalB": 1.0,
+     "totalA": 32.0
+    },
+    "starCapFair": {
+     "stageB": 1.1585,
+     "stageBsd": 0.0448,
+     "stageA": 1.2107,
+     "pairedDiff": -0.0522,
+     "totalB": 1668.2,
+     "totalA": 1743.3
+    }
+   },
+   "es": {
+    "pairedEpisodes": 1440,
+    "starsBy10": {
+     "stageB": 4.2347,
+     "stageBsd": 0.1587,
+     "stageA": 3.3014,
+     "pairedDiff": 0.9333,
+     "totalB": 6098.0,
+     "totalA": 4754.0
+    },
+    "starsBy20": {
+     "stageB": 4.3701,
+     "stageBsd": 0.1667,
+     "stageA": 3.3958,
+     "pairedDiff": 0.9743,
+     "totalB": 6293.0,
+     "totalA": 4890.0
+    },
+    "starsBy30": {
+     "stageB": 4.7028,
+     "stageBsd": 0.1669,
+     "stageA": 3.7618,
+     "pairedDiff": 0.941,
+     "totalB": 6772.0,
+     "totalA": 5417.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 19.4278,
+     "stageBsd": 0.1359,
+     "stageA": 19.5896,
+     "pairedDiff": -0.1618,
+     "totalB": 27976.0,
+     "totalA": 28209.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9893,
+     "stageBsd": 0.01,
+     "stageA": 0.9908,
+     "pairedDiff": -0.0015,
+     "totalB": 1424.7,
+     "totalA": 1426.8
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 14.5132,
+     "stageBsd": 0.0844,
+     "stageA": 15.6479,
+     "pairedDiff": -1.1347,
+     "totalB": 20899.0,
+     "totalA": 22533.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.5785,
+     "stageBsd": 0.5088,
+     "stageA": 0.2111,
+     "pairedDiff": 0.3674,
+     "totalB": 833.0,
+     "totalA": 304.0
+    },
+    "keeperBidLost": {
+     "stageB": 4.7389,
+     "stageBsd": 0.1927,
+     "stageA": 5.2736,
+     "pairedDiff": -0.5347,
+     "totalB": 6824.0,
+     "totalA": 7594.0
+    },
+    "keeperWins": {
+     "stageB": 1.2014,
+     "stageBsd": 0.0912,
+     "stageA": 1.1486,
+     "pairedDiff": 0.0528,
+     "totalB": 1730.0,
+     "totalA": 1654.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.6777,
+     "stageBsd": 0.0068,
+     "stageA": 0.7009,
+     "pairedDiff": -0.0235,
+     "totalB": 975.2,
+     "totalA": 1007.1
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0201,
+     "stageBsd": 0.0156,
+     "stageA": 0.0271,
+     "pairedDiff": -0.0069,
+     "totalB": 29.0,
+     "totalA": 39.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0016,
+     "stageBsd": 0.0008,
+     "stageA": 0.0023,
+     "pairedDiff": 0.0002,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.9421,
+     "stageBsd": 0.1014,
+     "stageA": 0.8975,
+     "pairedDiff": 0.0077,
+     "totalB": 12.2,
+     "totalA": 8.1
+    },
+    "reachedCritical": {
+     "stageB": 0.009,
+     "stageBsd": 0.0107,
+     "stageA": 0.0063,
+     "pairedDiff": 0.0028,
+     "totalB": 13.0,
+     "totalA": 9.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0034,
+     "stageBsd": 0.0019,
+     "stageA": 0.003,
+     "pairedDiff": 0.0004,
+     "totalB": 4.8,
+     "totalA": 4.3
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0007,
+     "stageBsd": 0.0012,
+     "stageA": 0.0021,
+     "pairedDiff": -0.0014,
+     "totalB": 1.0,
+     "totalA": 3.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.009,
+     "stageBsd": 0.0122,
+     "stageA": 0.0069,
+     "pairedDiff": 0.0021,
+     "totalB": 13.0,
+     "totalA": 10.0
+    },
+    "starCapFair": {
+     "stageB": 1.3071,
+     "stageBsd": 0.0121,
+     "stageA": 1.2691,
+     "pairedDiff": 0.038,
+     "totalB": 1882.2,
+     "totalA": 1827.5
+    }
+   }
+  },
+  "S4": {
+   "ppo": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 0.9583,
+     "stageBsd": 0.3987,
+     "stageA": 0.4833,
+     "pairedDiff": 0.475,
+     "totalB": 115.0,
+     "totalA": 58.0
+    },
+    "starsBy20": {
+     "stageB": 0.9833,
+     "stageBsd": 0.4216,
+     "stageA": 0.4833,
+     "pairedDiff": 0.5,
+     "totalB": 118.0,
+     "totalA": 58.0
+    },
+    "starsBy30": {
+     "stageB": 2.225,
+     "stageBsd": 1.2124,
+     "stageA": 1.4833,
+     "pairedDiff": 0.7417,
+     "totalB": 267.0,
+     "totalA": 178.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 23.35,
+     "stageBsd": 0.0,
+     "stageA": 23.35,
+     "pairedDiff": 0.0,
+     "totalB": 2802.0,
+     "totalA": 2802.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 1.0,
+     "stageBsd": 0.0,
+     "stageA": 0.9921,
+     "pairedDiff": 0.0079,
+     "totalB": 120.0,
+     "totalA": 119.1
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 21.125,
+     "stageBsd": 1.2124,
+     "stageA": 21.6833,
+     "pairedDiff": -0.5583,
+     "totalB": 2535.0,
+     "totalA": 2602.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 1.1,
+     "stageBsd": 0.5426,
+     "stageA": 1.3,
+     "pairedDiff": -0.2,
+     "totalB": 132.0,
+     "totalA": 156.0
+    },
+    "keeperBidLost": {
+     "stageB": 3.75,
+     "stageBsd": 0.7013,
+     "stageA": 4.3417,
+     "pairedDiff": -0.5917,
+     "totalB": 450.0,
+     "totalA": 521.0
+    },
+    "keeperWins": {
+     "stageB": 5.3917,
+     "stageBsd": 2.2002,
+     "stageA": 4.2667,
+     "pairedDiff": 1.125,
+     "totalB": 647.0,
+     "totalA": 512.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.4931,
+     "stageBsd": 0.0656,
+     "stageA": 0.6056,
+     "pairedDiff": -0.1126,
+     "totalB": 59.2,
+     "totalA": 72.7
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.2333,
+     "stageBsd": 0.2962,
+     "stageA": 0.1833,
+     "pairedDiff": 0.05,
+     "totalB": 28.0,
+     "totalA": 22.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.1956,
+     "stageBsd": 0.0933,
+     "stageA": 1.025,
+     "pairedDiff": 0.1707,
+     "totalB": 143.5,
+     "totalA": 123.0
+    }
+   },
+   "a2c": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 3.9667,
+     "stageBsd": 0.8949,
+     "stageA": 2.7167,
+     "pairedDiff": 1.25,
+     "totalB": 476.0,
+     "totalA": 326.0
+    },
+    "starsBy20": {
+     "stageB": 4.325,
+     "stageBsd": 0.8047,
+     "stageA": 3.0333,
+     "pairedDiff": 1.2917,
+     "totalB": 519.0,
+     "totalA": 364.0
+    },
+    "starsBy30": {
+     "stageB": 4.5167,
+     "stageBsd": 0.6802,
+     "stageA": 3.3833,
+     "pairedDiff": 1.1333,
+     "totalB": 542.0,
+     "totalA": 406.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 21.225,
+     "stageBsd": 0.8789,
+     "stageA": 20.25,
+     "pairedDiff": 0.975,
+     "totalB": 2547.0,
+     "totalA": 2430.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9488,
+     "stageBsd": 0.0249,
+     "stageA": 0.9767,
+     "pairedDiff": -0.0279,
+     "totalB": 113.9,
+     "totalA": 117.2
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 15.5583,
+     "stageBsd": 1.3519,
+     "stageA": 16.3583,
+     "pairedDiff": -0.8,
+     "totalB": 1867.0,
+     "totalA": 1963.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.7167,
+     "stageBsd": 0.2554,
+     "stageA": 0.5417,
+     "pairedDiff": 0.175,
+     "totalB": 86.0,
+     "totalA": 65.0
+    },
+    "keeperBidLost": {
+     "stageB": 4.575,
+     "stageBsd": 0.704,
+     "stageA": 5.3083,
+     "pairedDiff": -0.7333,
+     "totalB": 549.0,
+     "totalA": 637.0
+    },
+    "keeperWins": {
+     "stageB": 1.3333,
+     "stageBsd": 0.0629,
+     "stageA": 1.1917,
+     "pairedDiff": 0.1417,
+     "totalB": 160.0,
+     "totalA": 143.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.6981,
+     "stageBsd": 0.0668,
+     "stageA": 0.744,
+     "pairedDiff": -0.0459,
+     "totalB": 83.8,
+     "totalA": 89.3
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0417,
+     "stageBsd": 0.0144,
+     "stageA": 0.025,
+     "pairedDiff": 0.0167,
+     "totalB": 5.0,
+     "totalA": 3.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0022,
+     "stageBsd": 0.0015,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 0.7523,
+     "stageBsd": 0.0,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 1.5,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0144,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0092,
+     "stageBsd": 0.0022,
+     "stageA": 0.0047,
+     "pairedDiff": 0.0045,
+     "totalB": 1.1,
+     "totalA": 0.6
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0083,
+     "stageBsd": 0.0144,
+     "stageA": 0.0,
+     "pairedDiff": 0.0083,
+     "totalB": 1.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.2999,
+     "stageBsd": 0.0481,
+     "stageA": 1.3137,
+     "pairedDiff": -0.0138,
+     "totalB": 156.0,
+     "totalA": 157.6
+    }
+   },
+   "d3qn": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 1.4583,
+     "stageBsd": 0.6146,
+     "stageA": 4.8833,
+     "pairedDiff": -3.425,
+     "totalB": 175.0,
+     "totalA": 586.0
+    },
+    "starsBy20": {
+     "stageB": 1.7167,
+     "stageBsd": 0.8232,
+     "stageA": 5.525,
+     "pairedDiff": -3.8083,
+     "totalB": 206.0,
+     "totalA": 663.0
+    },
+    "starsBy30": {
+     "stageB": 2.2667,
+     "stageBsd": 1.0153,
+     "stageA": 6.1083,
+     "pairedDiff": -3.8417,
+     "totalB": 272.0,
+     "totalA": 733.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 23.1167,
+     "stageBsd": 0.2376,
+     "stageA": 21.7167,
+     "pairedDiff": 1.4,
+     "totalB": 2774.0,
+     "totalA": 2606.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.7165,
+     "stageBsd": 0.4743,
+     "stageA": 0.9404,
+     "pairedDiff": -0.2239,
+     "totalB": 86.0,
+     "totalA": 112.8
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 14.2333,
+     "stageBsd": 9.8583,
+     "stageA": 14.2917,
+     "pairedDiff": -0.0583,
+     "totalB": 1708.0,
+     "totalA": 1715.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.325,
+     "stageBsd": 0.3382,
+     "stageA": 1.8417,
+     "pairedDiff": -1.5167,
+     "totalB": 39.0,
+     "totalA": 221.0
+    },
+    "keeperBidLost": {
+     "stageB": 0.9833,
+     "stageBsd": 0.7468,
+     "stageA": 2.8833,
+     "pairedDiff": -1.9,
+     "totalB": 118.0,
+     "totalA": 346.0
+    },
+    "keeperWins": {
+     "stageB": 3.1833,
+     "stageBsd": 3.5868,
+     "stageA": 1.275,
+     "pairedDiff": 1.9083,
+     "totalB": 382.0,
+     "totalA": 153.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.1241,
+     "stageBsd": 0.1119,
+     "stageA": 0.4368,
+     "pairedDiff": -0.3127,
+     "totalB": 14.9,
+     "totalA": 52.4
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.1333,
+     "stageBsd": 0.2309,
+     "stageA": 0.05,
+     "pairedDiff": 0.0833,
+     "totalB": 16.0,
+     "totalA": 6.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0013,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0083,
+     "pairedDiff": -0.0083,
+     "totalB": 0.0,
+     "totalA": 1.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0019,
+     "pairedDiff": -0.0019,
+     "totalB": 0.0,
+     "totalA": 0.2
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0333,
+     "pairedDiff": -0.0333,
+     "totalB": 0.0,
+     "totalA": 4.0
+    },
+    "starCapFair": {
+     "stageB": 0.7852,
+     "stageBsd": 0.498,
+     "stageA": 1.2341,
+     "pairedDiff": -0.4489,
+     "totalB": 94.2,
+     "totalA": 148.1
+    }
+   },
+   "qrdqn": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 2.45,
+     "stageBsd": 0.3363,
+     "stageA": 4.125,
+     "pairedDiff": -1.675,
+     "totalB": 294.0,
+     "totalA": 495.0
+    },
+    "starsBy20": {
+     "stageB": 2.7083,
+     "stageBsd": 0.3503,
+     "stageA": 5.05,
+     "pairedDiff": -2.3417,
+     "totalB": 325.0,
+     "totalA": 606.0
+    },
+    "starsBy30": {
+     "stageB": 3.9083,
+     "stageBsd": 0.3394,
+     "stageA": 5.9083,
+     "pairedDiff": -2.0,
+     "totalB": 469.0,
+     "totalA": 709.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 23.3083,
+     "stageBsd": 0.0382,
+     "stageA": 22.9,
+     "pairedDiff": 0.4083,
+     "totalB": 2797.0,
+     "totalA": 2748.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9908,
+     "stageBsd": 0.0159,
+     "stageA": 0.9839,
+     "pairedDiff": 0.007,
+     "totalB": 118.9,
+     "totalA": 118.1
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 19.1917,
+     "stageBsd": 0.5027,
+     "stageA": 16.6167,
+     "pairedDiff": 2.575,
+     "totalB": 2303.0,
+     "totalA": 1994.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.6083,
+     "pairedDiff": -0.5917,
+     "totalB": 2.0,
+     "totalA": 73.0
+    },
+    "keeperBidLost": {
+     "stageB": 1.025,
+     "stageBsd": 0.6741,
+     "stageA": 1.825,
+     "pairedDiff": -0.8,
+     "totalB": 123.0,
+     "totalA": 219.0
+    },
+    "keeperWins": {
+     "stageB": 1.1583,
+     "stageBsd": 0.1377,
+     "stageA": 1.3583,
+     "pairedDiff": -0.2,
+     "totalB": 139.0,
+     "totalA": 163.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.0787,
+     "stageBsd": 0.0612,
+     "stageA": 0.1793,
+     "pairedDiff": -0.1005,
+     "totalB": 9.4,
+     "totalA": 21.5
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0583,
+     "pairedDiff": -0.0583,
+     "totalB": 0.0,
+     "totalA": 7.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 0.0063,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": null,
+     "stageBsd": null,
+     "stageA": 1.0,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0001,
+     "stageBsd": 0.0001,
+     "stageA": 0.0019,
+     "pairedDiff": -0.0018,
+     "totalB": 0.0,
+     "totalA": 0.2
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0167,
+     "pairedDiff": -0.0167,
+     "totalB": 0.0,
+     "totalA": 2.0
+    },
+    "starCapFair": {
+     "stageB": 1.1688,
+     "stageBsd": 0.022,
+     "stageA": 1.2879,
+     "pairedDiff": -0.1191,
+     "totalB": 140.3,
+     "totalA": 154.6
+    }
+   },
+   "es": {
+    "pairedEpisodes": 120,
+    "starsBy10": {
+     "stageB": 1.2667,
+     "stageBsd": 0.732,
+     "stageA": 0.5667,
+     "pairedDiff": 0.7,
+     "totalB": 152.0,
+     "totalA": 68.0
+    },
+    "starsBy20": {
+     "stageB": 1.675,
+     "stageBsd": 0.8411,
+     "stageA": 1.0083,
+     "pairedDiff": 0.6667,
+     "totalB": 201.0,
+     "totalA": 121.0
+    },
+    "starsBy30": {
+     "stageB": 2.3833,
+     "stageBsd": 0.9866,
+     "stageA": 1.625,
+     "pairedDiff": 0.7583,
+     "totalB": 286.0,
+     "totalA": 195.0
+    },
+    "earlyStarDecisions": {
+     "stageB": 20.2583,
+     "stageBsd": 0.2962,
+     "stageA": 20.2917,
+     "pairedDiff": -0.0333,
+     "totalB": 2431.0,
+     "totalA": 2435.0
+    },
+    "earlyStarBidShare": {
+     "stageB": 0.9991,
+     "stageBsd": 0.0015,
+     "stageA": 1.0,
+     "pairedDiff": -0.0009,
+     "totalB": 119.9,
+     "totalA": 120.0
+    },
+    "earlyStarLostAfterBid": {
+     "stageB": 17.8583,
+     "stageBsd": 0.879,
+     "stageA": 18.6667,
+     "pairedDiff": -0.8083,
+     "totalB": 2143.0,
+     "totalA": 2240.0
+    },
+    "keeperPassAffordableNeeded": {
+     "stageB": 0.5583,
+     "stageBsd": 0.8202,
+     "stageA": 0.05,
+     "pairedDiff": 0.5083,
+     "totalB": 67.0,
+     "totalA": 6.0
+    },
+    "keeperBidLost": {
+     "stageB": 5.8917,
+     "stageBsd": 0.3753,
+     "stageA": 6.8167,
+     "pairedDiff": -0.925,
+     "totalB": 707.0,
+     "totalA": 818.0
+    },
+    "keeperWins": {
+     "stageB": 1.05,
+     "stageBsd": 0.0661,
+     "stageA": 1.0,
+     "pairedDiff": 0.05,
+     "totalB": 126.0,
+     "totalA": 120.0
+    },
+    "firstKeeperWinProgress": {
+     "stageB": 0.7652,
+     "stageBsd": 0.0296,
+     "stageA": 0.7698,
+     "pairedDiff": -0.0046,
+     "totalB": 91.8,
+     "totalA": 92.4
+    },
+    "expensiveLateBuys": {
+     "stageB": 0.0333,
+     "stageBsd": 0.0289,
+     "stageA": 0.0167,
+     "pairedDiff": 0.0167,
+     "totalB": 4.0,
+     "totalA": 2.0
+    },
+    "purseAtFirstCritical": {
+     "stageB": 0.0012,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "progressAtFirstCritical": {
+     "stageB": 1.0,
+     "stageBsd": null,
+     "stageA": null,
+     "pairedDiff": null,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "reachedCritical": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "forcedDecisionShare": {
+     "stageB": 0.0022,
+     "stageBsd": 0.0027,
+     "stageA": 0.0001,
+     "pairedDiff": 0.002,
+     "totalB": 0.3,
+     "totalA": 0.0
+    },
+    "finalPathDecisions": {
+     "stageB": 0.0,
+     "stageBsd": 0.0,
+     "stageA": 0.0,
+     "pairedDiff": 0.0,
+     "totalB": 0.0,
+     "totalA": 0.0
+    },
+    "lateShieldForced": {
+     "stageB": 0.0167,
+     "stageBsd": 0.0289,
+     "stageA": 0.0,
+     "pairedDiff": 0.0167,
+     "totalB": 2.0,
+     "totalA": 0.0
+    },
+    "starCapFair": {
+     "stageB": 1.3548,
+     "stageBsd": 0.0129,
+     "stageA": 1.29,
+     "pairedDiff": 0.0648,
+     "totalB": 162.6,
+     "totalA": 154.8
+    }
+   }
+  }
+ },
+ "responsiveness": {
+  "stageB": {
+   "ppo": {
+    "mkt_recent_price_ratio": 0.065,
+    "riv_recent_spend": 0.133,
+    "riv_purse_mean": -0.014,
+    "riv_purse_min": 0.046,
+    "riv_purse_std": 0.016,
+    "self_purse": 0.077
+   },
+   "a2c": {
+    "mkt_recent_price_ratio": 0.22,
+    "riv_recent_spend": 0.18,
+    "riv_purse_mean": -0.157,
+    "riv_purse_min": -0.132,
+    "riv_purse_std": 0.216,
+    "self_purse": 0.402
+   },
+   "d3qn": {
+    "mkt_recent_price_ratio": 0.127,
+    "riv_recent_spend": 0.038,
+    "riv_purse_mean": 0.002,
+    "riv_purse_min": 0.032,
+    "riv_purse_std": 0.032,
+    "self_purse": -0.306
+   },
+   "qrdqn": {
+    "mkt_recent_price_ratio": 0.101,
+    "riv_recent_spend": 0.107,
+    "riv_purse_mean": -0.069,
+    "riv_purse_min": -0.043,
+    "riv_purse_std": 0.109,
+    "self_purse": 0.177
+   },
+   "es": {
+    "mkt_recent_price_ratio": 0.216,
+    "riv_recent_spend": 0.135,
+    "riv_purse_mean": -0.226,
+    "riv_purse_min": -0.135,
+    "riv_purse_std": 0.281,
+    "self_purse": 0.405
+   }
+  },
+  "stageA": {
+   "ppo": {
+    "mkt_recent_price_ratio": 0.071,
+    "riv_recent_spend": 0.139,
+    "riv_purse_mean": -0.021,
+    "riv_purse_min": 0.039,
+    "riv_purse_std": 0.027,
+    "self_purse": 0.117
+   },
+   "a2c": {
+    "mkt_recent_price_ratio": 0.275,
+    "riv_recent_spend": 0.161,
+    "riv_purse_mean": -0.222,
+    "riv_purse_min": -0.178,
+    "riv_purse_std": 0.289,
+    "self_purse": 0.443
+   },
+   "d3qn": {
+    "mkt_recent_price_ratio": 0.084,
+    "riv_recent_spend": 0.112,
+    "riv_purse_mean": -0.036,
+    "riv_purse_min": -0.058,
+    "riv_purse_std": 0.153,
+    "self_purse": 0.262
+   },
+   "qrdqn": {
+    "mkt_recent_price_ratio": 0.079,
+    "riv_recent_spend": 0.162,
+    "riv_purse_mean": -0.112,
+    "riv_purse_min": -0.083,
+    "riv_purse_std": 0.144,
+    "self_purse": 0.24
+   },
+   "es": {
+    "mkt_recent_price_ratio": 0.181,
+    "riv_recent_spend": 0.072,
+    "riv_purse_mean": -0.172,
+    "riv_purse_min": -0.091,
+    "riv_purse_std": 0.223,
+    "self_purse": 0.305
+   }
+  }
+ },
+ "sameLotAggressiveRoom": {
+  "stageB": {
+   "ppo": {
+    "pairs": 7814,
+    "meanDeltaCapFair": -0.0097,
+    "spearman_dCap_dRecentPrice": 0.036,
+    "spearman_dCap_dOwnPurse": 0.079
+   },
+   "a2c": {
+    "pairs": 9261,
+    "meanDeltaCapFair": 0.0608,
+    "spearman_dCap_dRecentPrice": 0.244,
+    "spearman_dCap_dOwnPurse": 0.376
+   },
+   "d3qn": {
+    "pairs": 11564,
+    "meanDeltaCapFair": 0.0172,
+    "spearman_dCap_dRecentPrice": -0.064,
+    "spearman_dCap_dOwnPurse": 0.019
+   },
+   "qrdqn": {
+    "pairs": 3965,
+    "meanDeltaCapFair": 0.0833,
+    "spearman_dCap_dRecentPrice": -0.092,
+    "spearman_dCap_dOwnPurse": 0.13
+   },
+   "es": {
+    "pairs": 5556,
+    "meanDeltaCapFair": 0.0057,
+    "spearman_dCap_dRecentPrice": 0.11,
+    "spearman_dCap_dOwnPurse": 0.112
+   }
+  },
+  "stageA": {
+   "ppo": {
+    "pairs": 7952,
+    "meanDeltaCapFair": -0.0083,
+    "spearman_dCap_dRecentPrice": 0.002,
+    "spearman_dCap_dOwnPurse": 0.008
+   },
+   "a2c": {
+    "pairs": 6573,
+    "meanDeltaCapFair": 0.0228,
+    "spearman_dCap_dRecentPrice": 0.216,
+    "spearman_dCap_dOwnPurse": 0.251
+   },
+   "d3qn": {
+    "pairs": 4394,
+    "meanDeltaCapFair": 0.1029,
+    "spearman_dCap_dRecentPrice": -0.045,
+    "spearman_dCap_dOwnPurse": 0.216
+   },
+   "qrdqn": {
+    "pairs": 5731,
+    "meanDeltaCapFair": 0.1037,
+    "spearman_dCap_dRecentPrice": -0.119,
+    "spearman_dCap_dOwnPurse": 0.177
+   },
+   "es": {
+    "pairs": 5443,
+    "meanDeltaCapFair": 0.0008,
+    "spearman_dCap_dRecentPrice": 0.1,
+    "spearman_dCap_dOwnPurse": 0.024
+   }
+  }
+ }
+}

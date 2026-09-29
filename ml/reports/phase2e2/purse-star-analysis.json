@@ -1,0 +1,145 @@
+{
+ "meta": {
+  "phase": "2E.2",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (replay_obs.mjs); no model trained, fitted or modified",
+  "rows": 2659482,
+  "learnerRows": 2186930,
+  "opponentRows": 472552,
+  "episodes": 15600,
+  "entries": [
+   25,
+   27,
+   34,
+   36,
+   77,
+   95,
+   123,
+   132,
+   139,
+   142,
+   172,
+   180,
+   184,
+   185,
+   224,
+   235,
+   244,
+   245,
+   253,
+   262,
+   275,
+   278,
+   285,
+   302,
+   308,
+   316,
+   342,
+   368,
+   376,
+   378,
+   419,
+   424,
+   431,
+   433,
+   445,
+   446,
+   457,
+   463,
+   465,
+   490
+  ],
+  "thresholds": {
+   "aliasTight": 0.02,
+   "aliasLoose": 0.05,
+   "featureDiffers": 0.01,
+   "materialPrice": 0.5,
+   "materialKeeperStock": 2,
+   "materialNoNeedBuyers": 3,
+   "similarState": "|Δ own purse share| ≤ 0.05, |Δ squad| ≤ 1, |Δ overseas| ≤ 1, same keeper need",
+   "capHidden": 5.0,
+   "spearmanStrong": 0.5,
+   "spearmanWeak": 0.2
+  }
+ },
+ "definition": {
+  "remainingStars": "star lots (rating ≥ 90) later in the same entry's main-round order",
+  "futureStarPrice": "mean price / fair value of the star lots sold after this decision in the same episode (hidden: realised future prices)",
+  "roomType": "condition × opponent algorithm"
+ },
+ "remainingStars_tracking": [
+  {
+   "feature": "mkt_premium_passed",
+   "withinProgressSpearman": -0.876
+  },
+  {
+   "feature": "lots_left_in_phase",
+   "withinProgressSpearman": 0.842
+  },
+  {
+   "feature": "riv_purse_mean",
+   "withinProgressSpearman": 0.476
+  },
+  {
+   "feature": "self_upgrades_left",
+   "withinProgressSpearman": 0.324
+  },
+  {
+   "feature": "self_pace_gap",
+   "withinProgressSpearman": 0.163
+  },
+  {
+   "feature": "mkt_recent_price_ratio",
+   "withinProgressSpearman": 0.147
+  }
+ ],
+ "futureStarPrice_tracking_mainBefore50pct": [
+  {
+   "feature": "self_pace_gap",
+   "withinProgressSpearman": -0.279
+  },
+  {
+   "feature": "self_max_safe_fv",
+   "withinProgressSpearman": 0.262
+  },
+  {
+   "feature": "riv_purse_mean",
+   "withinProgressSpearman": -0.162
+  },
+  {
+   "feature": "self_reserve_if_passed",
+   "withinProgressSpearman": 0.14
+  },
+  {
+   "feature": "riv_recent_spend",
+   "withinProgressSpearman": 0.136
+  },
+  {
+   "feature": "self_typical_upgrade",
+   "withinProgressSpearman": -0.105
+  },
+  {
+   "feature": "self_upgrades_left",
+   "withinProgressSpearman": 0.1
+  },
+  {
+   "feature": "mkt_recent_price_ratio",
+   "withinProgressSpearman": 0.05
+  }
+ ],
+ "futureStarPrice_betweenRoomTypeShare": 0.259,
+ "futureStarPrice_byRoomType": {
+  "A": 1.037,
+  "C1:ppo": 1.1,
+  "C1:d3qn": 1.173,
+  "C1:qrdqn": 1.181,
+  "C4:ppo": 1.244,
+  "C4:es": 1.239,
+  "C4:a2c": 1.243,
+  "C4:d3qn": 1.404,
+  "C4:qrdqn": 1.422,
+  "S4": 1.285
+ },
+ "starsInFirst10pct": 0.348,
+ "starsInFirst30pct": 0.508,
+ "meanStarsPerEntry": 46.0
+}

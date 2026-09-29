@@ -1,0 +1,859 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "stateInventory": [
+  {
+   "information": "opponent bid behaviour on past lots (who bid, how far)",
+   "status": "available internally but not exposed",
+   "where": "resolveLot sees every cap and runs the ladder; history keeps only winner, price, number of raises; obs has pooled price/fair, sold share and rival spend over 20 lots"
+  },
+  {
+   "information": "opponent willingness to pay for the CURRENT lot",
+   "status": "genuinely unavailable at the decision point",
+   "where": "each seat's cap is private and chosen simultaneously; using it would be future leakage"
+  },
+  {
+   "information": "current demand (which rivals need which role)",
+   "status": "derivable from existing state; partly exposed",
+   "where": "public squads → riv_fills_share (pooled), mkt_scarcity_* (rivals needing in the denominator)"
+  },
+  {
+   "information": "opponent remaining purse",
+   "status": "observable (4 statistics); per-rival values derivable",
+   "where": "riv_purse_max/mean/min/std; ctx.rivals[].purseLeft"
+  },
+  {
+   "information": "player-level competition (who gains, who can afford)",
+   "status": "derivable; partly exposed",
+   "where": "riv_gain_mean, riv_able_share, riv_capacity_1–3 (saturated)"
+  },
+  {
+   "information": "historical bidding behaviour",
+   "status": "pooled over 20 lots exposed; per-rival history derivable from public results; ladder participation internal",
+   "where": "mkt_recent_price_ratio, mkt_recent_sold_share, riv_recent_spend; extras.recent carries winnerTeamId"
+  },
+  {
+   "information": "opponent policy identity / type",
+   "status": "available internally (training rooms) — hidden policy identity",
+   "where": "entry.seats[].type; constant in production (fixed lineup)"
+  }
+ ],
+ "lot1": {
+  "rows": 15600,
+  "maxAbsDiffOfAnyCandidateAcrossConditionsSameEntryLearner": 0.0,
+  "maxAbsDiffObsAcrossConditionsSameEntryLearner": 0.0,
+  "finding": "every observation feature AND every candidate (history, breadth, per-rival, capacity) is bit-identical across A / C1 / C4 / S4 at lot 1 for the same entry and learner — nothing in the environment's public or history state differs yet"
+ },
+ "separationByLotBin": {
+  "future-aggressive vs future-passive room (realised star price/fair, lots 33–162, top vs bottom tercile)": [
+   {
+    "bin": "lot 1",
+    "rows": 8190,
+    "bestExisting": {
+     "feature": "mkt_equivalent_left",
+     "separation": 0.056
+    },
+    "top3Existing": [
+     {
+      "feature": "mkt_equivalent_left",
+      "separation": 0.056
+     },
+     {
+      "feature": "mkt_same_role_left",
+      "separation": 0.045
+     },
+     {
+      "feature": "self_fills_bowling",
+      "separation": 0.043
+     }
+    ],
+    "candidates": {
+     "partic5": null,
+     "partic20": null,
+     "bids5": null,
+     "bids20": null,
+     "overpay13": 0.0,
+     "overpay15": 0.0,
+     "starBuyers2": 0.0,
+     "buyersSoFar": 0.0,
+     "cumStarPF": null,
+     "wMaxRivSpend": 0.0,
+     "wBuyers": 0.0,
+     "aheadPace15": 0.0,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": null,
+     "partic20": null,
+     "bids5": null,
+     "bids20": null,
+     "overpay13": 0.0,
+     "overpay15": 0.0,
+     "starBuyers2": 0.0,
+     "buyersSoFar": 0.0,
+     "cumStarPF": null,
+     "wMaxRivSpend": 0.0,
+     "wBuyers": 0.0,
+     "aheadPace15": 0.0,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 0.888
+   },
+   {
+    "bin": "lots 2–5",
+    "rows": 32760,
+    "bestExisting": {
+     "feature": "mkt_recent_price_ratio",
+     "separation": 0.399
+    },
+    "top3Existing": [
+     {
+      "feature": "mkt_recent_price_ratio",
+      "separation": 0.399
+     },
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.154
+     },
+     {
+      "feature": "riv_xi_max",
+      "separation": 0.137
+     }
+    ],
+    "candidates": {
+     "partic5": 0.042,
+     "partic20": 0.042,
+     "bids5": 0.087,
+     "bids20": 0.087,
+     "overpay13": 0.042,
+     "overpay15": 0.008,
+     "starBuyers2": 0.133,
+     "buyersSoFar": 0.111,
+     "cumStarPF": 0.396,
+     "wMaxRivSpend": 0.036,
+     "wBuyers": 0.111,
+     "aheadPace15": 0.012,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.121,
+     "partic20": 0.121,
+     "bids5": 0.055,
+     "bids20": 0.055,
+     "overpay13": 0.037,
+     "overpay15": 0.031,
+     "starBuyers2": 0.071,
+     "buyersSoFar": 0.127,
+     "cumStarPF": 0.13,
+     "wMaxRivSpend": 0.131,
+     "wBuyers": 0.127,
+     "aheadPace15": 0.109,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 0.888
+   },
+   {
+    "bin": "lots 6–16",
+    "rows": 90090,
+    "bestExisting": {
+     "feature": "self_pace_gap",
+     "separation": 0.289
+    },
+    "top3Existing": [
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.289
+     },
+     {
+      "feature": "self_max_safe_purse",
+      "separation": 0.264
+     },
+     {
+      "feature": "self_need_indians",
+      "separation": 0.257
+     }
+    ],
+    "candidates": {
+     "partic5": 0.041,
+     "partic20": 0.039,
+     "bids5": 0.07,
+     "bids20": 0.031,
+     "overpay13": 0.024,
+     "overpay15": 0.06,
+     "starBuyers2": 0.005,
+     "buyersSoFar": 0.178,
+     "cumStarPF": 0.08,
+     "wMaxRivSpend": 0.004,
+     "wBuyers": 0.178,
+     "aheadPace15": 0.026,
+     "capGe2": 0.001
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.052,
+     "partic20": 0.05,
+     "bids5": 0.104,
+     "bids20": 0.075,
+     "overpay13": 0.097,
+     "overpay15": 0.101,
+     "starBuyers2": 0.119,
+     "buyersSoFar": 0.147,
+     "cumStarPF": 0.128,
+     "wMaxRivSpend": 0.131,
+     "wBuyers": 0.147,
+     "aheadPace15": 0.147,
+     "capGe2": 0.002
+    },
+    "identityOracle_rlRivals": 0.888
+   },
+   {
+    "bin": "lots 17–32",
+    "rows": 130984,
+    "bestExisting": {
+     "feature": "riv_recent_spend",
+     "separation": 0.69
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.69
+     },
+     {
+      "feature": "riv_purse_mean",
+      "separation": 0.628
+     },
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.599
+     }
+    ],
+    "candidates": {
+     "partic5": 0.077,
+     "partic20": 0.067,
+     "bids5": 0.097,
+     "bids20": 0.135,
+     "overpay13": 0.216,
+     "overpay15": 0.153,
+     "starBuyers2": 0.629,
+     "buyersSoFar": 0.368,
+     "cumStarPF": 0.643,
+     "wMaxRivSpend": 0.146,
+     "wBuyers": 0.385,
+     "aheadPace15": 0.591,
+     "capGe2": 0.052
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.098,
+     "partic20": 0.103,
+     "bids5": 0.07,
+     "bids20": 0.128,
+     "overpay13": 0.257,
+     "overpay15": 0.195,
+     "starBuyers2": 0.343,
+     "buyersSoFar": 0.395,
+     "cumStarPF": 0.348,
+     "wMaxRivSpend": 0.422,
+     "wBuyers": 0.288,
+     "aheadPace15": 0.222,
+     "capGe2": 0.096
+    },
+    "identityOracle_rlRivals": 0.888
+   },
+   {
+    "bin": "lots 33–65",
+    "rows": 265973,
+    "bestExisting": {
+     "feature": "riv_purse_mean",
+     "separation": 0.662
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_purse_mean",
+      "separation": 0.662
+     },
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.656
+     },
+     {
+      "feature": "self_max_safe_purse",
+      "separation": 0.652
+     }
+    ],
+    "candidates": {
+     "partic5": 0.045,
+     "partic20": 0.033,
+     "bids5": 0.015,
+     "bids20": 0.045,
+     "overpay13": 0.006,
+     "overpay15": 0.113,
+     "starBuyers2": 0.76,
+     "buyersSoFar": 0.104,
+     "cumStarPF": 0.714,
+     "wMaxRivSpend": 0.275,
+     "wBuyers": 0.162,
+     "aheadPace15": 0.804,
+     "capGe2": 0.108
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.122,
+     "partic20": 0.154,
+     "bids5": 0.177,
+     "bids20": 0.158,
+     "overpay13": 0.249,
+     "overpay15": 0.198,
+     "starBuyers2": 0.506,
+     "buyersSoFar": 0.107,
+     "cumStarPF": 0.502,
+     "wMaxRivSpend": 0.15,
+     "wBuyers": 0.115,
+     "aheadPace15": 0.546,
+     "capGe2": 0.263
+    },
+    "identityOracle_rlRivals": 0.889
+   }
+  ],
+  "C4 D3QN/QR-DQN room vs Stage-A room": [
+   {
+    "bin": "lot 1",
+    "rows": 3480,
+    "bestExisting": {
+     "feature": "phase_reauction",
+     "separation": 0.0
+    },
+    "top3Existing": [
+     {
+      "feature": "phase_reauction",
+      "separation": 0.0
+     },
+     {
+      "feature": "main_progress",
+      "separation": 0.0
+     },
+     {
+      "feature": "lots_left_in_phase",
+      "separation": 0.0
+     }
+    ],
+    "candidates": {
+     "partic5": null,
+     "partic20": null,
+     "bids5": null,
+     "bids20": null,
+     "overpay13": 0.0,
+     "overpay15": 0.0,
+     "starBuyers2": 0.0,
+     "buyersSoFar": 0.0,
+     "cumStarPF": null,
+     "wMaxRivSpend": 0.0,
+     "wBuyers": 0.0,
+     "aheadPace15": 0.0,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": null,
+     "partic20": null,
+     "bids5": null,
+     "bids20": null,
+     "overpay13": 0.0,
+     "overpay15": 0.0,
+     "starBuyers2": 0.0,
+     "buyersSoFar": 0.0,
+     "cumStarPF": null,
+     "wMaxRivSpend": 0.0,
+     "wBuyers": 0.0,
+     "aheadPace15": 0.0,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 1.0
+   },
+   {
+    "bin": "lots 2–5",
+    "rows": 13920,
+    "bestExisting": {
+     "feature": "mkt_recent_price_ratio",
+     "separation": 0.67
+    },
+    "top3Existing": [
+     {
+      "feature": "mkt_recent_price_ratio",
+      "separation": 0.67
+     },
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.295
+     },
+     {
+      "feature": "riv_xi_max",
+      "separation": 0.226
+     }
+    ],
+    "candidates": {
+     "partic5": 0.03,
+     "partic20": 0.03,
+     "bids5": 0.154,
+     "bids20": 0.154,
+     "overpay13": 0.039,
+     "overpay15": 0.035,
+     "starBuyers2": 0.178,
+     "buyersSoFar": 0.222,
+     "cumStarPF": 0.635,
+     "wMaxRivSpend": 0.104,
+     "wBuyers": 0.222,
+     "aheadPace15": 0.054,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.147,
+     "partic20": 0.147,
+     "bids5": 0.178,
+     "bids20": 0.178,
+     "overpay13": 0.073,
+     "overpay15": 0.045,
+     "starBuyers2": 0.135,
+     "buyersSoFar": 0.211,
+     "cumStarPF": 0.185,
+     "wMaxRivSpend": 0.292,
+     "wBuyers": 0.211,
+     "aheadPace15": 0.186,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 1.0
+   },
+   {
+    "bin": "lots 6–16",
+    "rows": 38280,
+    "bestExisting": {
+     "feature": "self_need_indians",
+     "separation": 0.344
+    },
+    "top3Existing": [
+     {
+      "feature": "self_need_indians",
+      "separation": 0.344
+     },
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.343
+     },
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.325
+     }
+    ],
+    "candidates": {
+     "partic5": 0.038,
+     "partic20": 0.058,
+     "bids5": 0.132,
+     "bids20": 0.039,
+     "overpay13": 0.182,
+     "overpay15": 0.239,
+     "starBuyers2": 0.014,
+     "buyersSoFar": 0.131,
+     "cumStarPF": 0.187,
+     "wMaxRivSpend": 0.079,
+     "wBuyers": 0.131,
+     "aheadPace15": 0.059,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.089,
+     "partic20": 0.096,
+     "bids5": 0.119,
+     "bids20": 0.061,
+     "overpay13": 0.151,
+     "overpay15": 0.198,
+     "starBuyers2": 0.2,
+     "buyersSoFar": 0.138,
+     "cumStarPF": 0.345,
+     "wMaxRivSpend": 0.132,
+     "wBuyers": 0.138,
+     "aheadPace15": 0.159,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 1.0
+   },
+   {
+    "bin": "lots 17–32",
+    "rows": 55374,
+    "bestExisting": {
+     "feature": "riv_recent_spend",
+     "separation": 0.964
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.964
+     },
+     {
+      "feature": "riv_purse_mean",
+      "separation": 0.921
+     },
+     {
+      "feature": "riv_purse_min",
+      "separation": 0.9
+     }
+    ],
+    "candidates": {
+     "partic5": 0.007,
+     "partic20": 0.051,
+     "bids5": 0.186,
+     "bids20": 0.233,
+     "overpay13": 0.195,
+     "overpay15": 0.291,
+     "starBuyers2": 0.808,
+     "buyersSoFar": 0.416,
+     "cumStarPF": 0.981,
+     "wMaxRivSpend": 0.947,
+     "wBuyers": 0.394,
+     "aheadPace15": 0.76,
+     "capGe2": 0.017
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.302,
+     "partic20": 0.298,
+     "bids5": 0.126,
+     "bids20": 0.117,
+     "overpay13": 0.334,
+     "overpay15": 0.338,
+     "starBuyers2": 0.394,
+     "buyersSoFar": 0.503,
+     "cumStarPF": 0.915,
+     "wMaxRivSpend": 0.638,
+     "wBuyers": 0.206,
+     "aheadPace15": 0.094,
+     "capGe2": 0.001
+    },
+    "identityOracle_rlRivals": 1.0
+   },
+   {
+    "bin": "lots 33–65",
+    "rows": 107472,
+    "bestExisting": {
+     "feature": "riv_purse_min",
+     "separation": 0.985
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_purse_min",
+      "separation": 0.985
+     },
+     {
+      "feature": "riv_purse_std",
+      "separation": 0.949
+     },
+     {
+      "feature": "riv_purse_mean",
+      "separation": 0.945
+     }
+    ],
+    "candidates": {
+     "partic5": 0.125,
+     "partic20": 0.144,
+     "bids5": 0.041,
+     "bids20": 0.009,
+     "overpay13": 0.009,
+     "overpay15": 0.346,
+     "starBuyers2": 0.906,
+     "buyersSoFar": 0.012,
+     "cumStarPF": 0.999,
+     "wMaxRivSpend": 0.542,
+     "wBuyers": 0.025,
+     "aheadPace15": 0.946,
+     "capGe2": 0.071
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.127,
+     "partic20": 0.233,
+     "bids5": 0.264,
+     "bids20": 0.201,
+     "overpay13": 0.243,
+     "overpay15": 0.428,
+     "starBuyers2": 0.798,
+     "buyersSoFar": 0.113,
+     "cumStarPF": 0.991,
+     "wMaxRivSpend": 0.217,
+     "wBuyers": 0.28,
+     "aheadPace15": 0.54,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 1.0
+   }
+  ],
+  "C4 D3QN/QR-DQN room vs C4 PPO room": [
+   {
+    "bin": "lot 1",
+    "rows": 4320,
+    "bestExisting": {
+     "feature": "phase_reauction",
+     "separation": 0.0
+    },
+    "top3Existing": [
+     {
+      "feature": "phase_reauction",
+      "separation": 0.0
+     },
+     {
+      "feature": "main_progress",
+      "separation": 0.0
+     },
+     {
+      "feature": "lots_left_in_phase",
+      "separation": 0.0
+     }
+    ],
+    "candidates": {
+     "partic5": null,
+     "partic20": null,
+     "bids5": null,
+     "bids20": null,
+     "overpay13": 0.0,
+     "overpay15": 0.0,
+     "starBuyers2": 0.0,
+     "buyersSoFar": 0.0,
+     "cumStarPF": null,
+     "wMaxRivSpend": 0.0,
+     "wBuyers": 0.0,
+     "aheadPace15": 0.0,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": null,
+     "partic20": null,
+     "bids5": null,
+     "bids20": null,
+     "overpay13": 0.0,
+     "overpay15": 0.0,
+     "starBuyers2": 0.0,
+     "buyersSoFar": 0.0,
+     "cumStarPF": null,
+     "wMaxRivSpend": 0.0,
+     "wBuyers": 0.0,
+     "aheadPace15": 0.0,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 0.0
+   },
+   {
+    "bin": "lots 2–5",
+    "rows": 17280,
+    "bestExisting": {
+     "feature": "self_pace_gap",
+     "separation": 0.102
+    },
+    "top3Existing": [
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.102
+     },
+     {
+      "feature": "self_max_safe_purse",
+      "separation": 0.073
+     },
+     {
+      "feature": "self_xi_strength",
+      "separation": 0.07
+     }
+    ],
+    "candidates": {
+     "partic5": 0.039,
+     "partic20": 0.039,
+     "bids5": 0.009,
+     "bids20": 0.009,
+     "overpay13": 0.01,
+     "overpay15": 0.012,
+     "starBuyers2": 0.023,
+     "buyersSoFar": 0.072,
+     "cumStarPF": 0.044,
+     "wMaxRivSpend": 0.003,
+     "wBuyers": 0.072,
+     "aheadPace15": 0.008,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.058,
+     "partic20": 0.058,
+     "bids5": 0.023,
+     "bids20": 0.023,
+     "overpay13": 0.042,
+     "overpay15": 0.028,
+     "starBuyers2": 0.049,
+     "buyersSoFar": 0.062,
+     "cumStarPF": 0.066,
+     "wMaxRivSpend": 0.055,
+     "wBuyers": 0.062,
+     "aheadPace15": 0.045,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 0.0
+   },
+   {
+    "bin": "lots 6–16",
+    "rows": 47520,
+    "bestExisting": {
+     "feature": "riv_recent_spend",
+     "separation": 0.669
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.669
+     },
+     {
+      "feature": "mkt_recent_price_ratio",
+      "separation": 0.58
+     },
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.556
+     }
+    ],
+    "candidates": {
+     "partic5": 0.044,
+     "partic20": 0.065,
+     "bids5": 0.136,
+     "bids20": 0.115,
+     "overpay13": 0.283,
+     "overpay15": 0.258,
+     "starBuyers2": 0.28,
+     "buyersSoFar": 0.547,
+     "cumStarPF": 0.559,
+     "wMaxRivSpend": 0.192,
+     "wBuyers": 0.547,
+     "aheadPace15": 0.268,
+     "capGe2": 0.0
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.106,
+     "partic20": 0.141,
+     "bids5": 0.065,
+     "bids20": 0.033,
+     "overpay13": 0.107,
+     "overpay15": 0.083,
+     "starBuyers2": 0.165,
+     "buyersSoFar": 0.424,
+     "cumStarPF": 0.22,
+     "wMaxRivSpend": 0.192,
+     "wBuyers": 0.424,
+     "aheadPace15": 0.152,
+     "capGe2": 0.0
+    },
+    "identityOracle_rlRivals": 0.0
+   },
+   {
+    "bin": "lots 17–32",
+    "rows": 68068,
+    "bestExisting": {
+     "feature": "riv_recent_spend",
+     "separation": 0.967
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_recent_spend",
+      "separation": 0.967
+     },
+     {
+      "feature": "mkt_recent_price_ratio",
+      "separation": 0.959
+     },
+     {
+      "feature": "riv_purse_mean",
+      "separation": 0.925
+     }
+    ],
+    "candidates": {
+     "partic5": 0.162,
+     "partic20": 0.121,
+     "bids5": 0.158,
+     "bids20": 0.201,
+     "overpay13": 0.783,
+     "overpay15": 0.844,
+     "starBuyers2": 0.863,
+     "buyersSoFar": 0.728,
+     "cumStarPF": 0.971,
+     "wMaxRivSpend": 0.811,
+     "wBuyers": 0.725,
+     "aheadPace15": 0.815,
+     "capGe2": 0.016
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.129,
+     "partic20": 0.14,
+     "bids5": 0.069,
+     "bids20": 0.102,
+     "overpay13": 0.586,
+     "overpay15": 0.625,
+     "starBuyers2": 0.491,
+     "buyersSoFar": 0.636,
+     "cumStarPF": 0.784,
+     "wMaxRivSpend": 0.128,
+     "wBuyers": 0.448,
+     "aheadPace15": 0.239,
+     "capGe2": 0.003
+    },
+    "identityOracle_rlRivals": 0.0
+   },
+   {
+    "bin": "lots 33–65",
+    "rows": 121464,
+    "bestExisting": {
+     "feature": "riv_purse_mean",
+     "separation": 0.985
+    },
+    "top3Existing": [
+     {
+      "feature": "riv_purse_mean",
+      "separation": 0.985
+     },
+     {
+      "feature": "self_pace_gap",
+      "separation": 0.908
+     },
+     {
+      "feature": "self_purse",
+      "separation": 0.904
+     }
+    ],
+    "candidates": {
+     "partic5": 0.477,
+     "partic20": 0.398,
+     "bids5": 0.097,
+     "bids20": 0.058,
+     "overpay13": 0.927,
+     "overpay15": 0.914,
+     "starBuyers2": 0.919,
+     "buyersSoFar": 0.838,
+     "cumStarPF": 0.991,
+     "wMaxRivSpend": 0.402,
+     "wBuyers": 0.654,
+     "aheadPace15": 0.888,
+     "capGe2": 0.07
+    },
+    "candidatesWithinBestExistingDeciles": {
+     "partic5": 0.782,
+     "partic20": 0.842,
+     "bids5": 0.204,
+     "bids20": 0.3,
+     "overpay13": 0.928,
+     "overpay15": 0.888,
+     "starBuyers2": 0.553,
+     "buyersSoFar": 0.65,
+     "cumStarPF": 0.946,
+     "wMaxRivSpend": 0.461,
+     "wBuyers": 0.656,
+     "aheadPace15": 0.303,
+     "capGe2": 0.009
+    },
+    "identityOracle_rlRivals": 0.0
+   }
+  ]
+ },
+ "case": {
+  "lot 1": "B — the environment does not yet contain opponent behavioural history; no observation can distinguish the rooms (only hidden policy identity could, and it is excluded)",
+  "lots 2–20": "C is tested and not supported: before lot 21 the 20-lot window already IS the whole history (cumulative price/fair identical to mkt_recent_price_ratio in 100%); the existing window separates C4 D3QN/QR-DQN rooms from Stage A at 0.67 already in lots 2–5; the best compact history candidates add ≤ 0.29 inside deciles of that feature",
+  "after ~lot 16": "the existing features separate the rooms at 0.964 (riv_recent_spend) in lots 17–32; the frozen policies do not respond to them (Phase 2E.2) — D: a training / generalisation question, not an observation question"
+ },
+ "conclusion": "This cannot be solved by observation alone at lot 1, because the required state is not yet determined by the environment. From the second lot the relevant history is already exposed by the existing window; no compact history candidate adds material separation in lots 2–16."
+}

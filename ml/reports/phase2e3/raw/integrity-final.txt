@@ -1,0 +1,10 @@
+Phase 2E.3 final integrity check — 2026-09-29T06:16:45+05:30
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · 25 frozen files unchanged (and clean vs git HEAD) · 15 exports + checkpoints unchanged
+--- git status (whole repo)
+?? ml/ipl_rl/diagnosis/
+?? ml/reports/phase2e1/
+?? ml/reports/phase2e2/
+?? ml/reports/phase2e3/
+--- tracked changes vs HEAD (must be empty)
+--- Phase 2E.1 / 2E.2 deliverables and scripts modified after Phase 2E.3 began (reference: replay_cand.mjs, first 2E.3 file) — must be empty
+(end)

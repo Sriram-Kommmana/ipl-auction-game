@@ -1,0 +1,34 @@
+{
+ "result": "B",
+ "name": "PARTIALLY SUFFICIENT",
+ "implication": "Stage-B design requires a targeted observation-spec discussion before training.",
+ "notChosen": {
+  "A": "not sufficient for every problem: opponent propensity is invisible at the start of the auction (24% of stars are sold in lots 1–16), the number of aggressive rivals and non-needing keeper demand are not encoded, and five features are clipped at 5 in ≥ 97% of decisions (riv_capacity_1–3, mkt_scarcity_bowling, mkt_scarcity_indians)",
+  "C": "no major mechanism depends ENTIRELY on absent information: room-level aggressiveness is encoded after ~5–10% of the main round and the frozen policies still do not respond to it; every M1 keeper failure passed on an affordable keeper that filled a visible need, so the failure was avoidable with observable information",
+  "D": "the existing replays were sufficient to establish, feature by feature, what is present, absent, aggregated or saturated; what they cannot establish (whether a retrained policy WOULD use the information) is a learning question, not an information question"
+ },
+ "evidence": {
+  "present": [
+   "own purse / squad / overseas / requirement state and remaining supply (direct)",
+   "rival purse summaries (direct)",
+   "rival keeper demand (indirect, strong)",
+   "room-level opponent pressure after ~5–10% of lots (separation ≥ 0.9)",
+   "rival keeper holdings (≈ 91% inferable from supply depletion)"
+  ],
+  "missingOrCoarsened": [
+   "opponent bidding propensity before sales reveal it (first lot identical to Stage A by construction)",
+   "count / identity of aggressive rivals (aggregates only)",
+   "willingness of rivals that do not need a keeper to buy one",
+   "buyer identity in the 20-lot history",
+   "saturated features: riv_capacity_1–3 (99% / 98% / 97% at 5), mkt_scarcity_bowling (100%), mkt_scarcity_indians (100%)"
+  ],
+  "presentButUnused": "the frozen caps respond to own purse, not to opponent-direct features that do separate the rooms; 66% (S4) and 58% (C4 D3QN/QR-DQN) of Stage-B learner observations lie outside the Stage-A range in at least one opponent-direct feature — consistent with a policy that never saw these values during Stage-A training"
+ },
+ "residualUncertainty": [
+  "Whether a policy trained on Stage-B data would exploit the present signals cannot be established without training (out of scope).",
+  "Keeper findings: 20 cases; conclusions about non-needing demand rest on 35 + 40 lost forced bids.",
+  "Replays cover 40 of 500 validation entries (19 with a finding; high stratum over-represented 20/40).",
+  "Correlation thresholds (strong ≥ 0.5, weak ≥ 0.2) and the aliasing tolerance (L∞ ≤ 0.02) are conventions; the JSON files carry the raw values."
+ ],
+ "doesNotPrescribe": "This gate classifies the frozen observation contract only. It does not specify which features to add or change; that is the Stage-B design discussion."
+}

@@ -1,0 +1,1468 @@
+{
+ "meta": {
+  "phase": "2F",
+  "status": "PILOT — evaluation of experimental stage_b_pilot exports; no production change, nothing committed",
+  "contract": {
+   "env": "IplAuctionEnv-v2",
+   "obsHash": "629b25783f833af7",
+   "actHash": "5f72f510c48b1f46",
+   "gamma": 1,
+   "shield": "act-v3 (unchanged)",
+   "reward": "ΔBestXI/11/10, −2 incomplete XI (unchanged)"
+  },
+  "design": {
+   "snapshotShare": 0.5,
+   "pool": "15 frozen Stage-A exports (5 algorithms × 3 seeds, incl. the learner's own algorithm)",
+   "ruleBots": "4 frozen rule seats always + RL seats on rule fallback (≥ 4/9)",
+   "init": "warm start from each seed's frozen Stage-A final checkpoint; fresh optimizer; D3QN/QR-DQN ε constant at the Stage-A final value, empty replay",
+   "seeds": "run seeds 101/102/103 ← Stage-A seeds 1/2/3 (train split only)",
+   "budget": "497,664 learner decisions per seed (ES: first generation boundary at or after it)",
+   "checkpoints": "98,304 / 245,760 / 497,664 decisions",
+   "evaluation": "c100/c250: validation entries 0–99; c500: all 500 (Phase 2E.0 protocol)"
+  }
+ },
+ "runs": [
+  {
+   "algo": "ppo",
+   "seed": 101,
+   "status": "completed",
+   "configHash": "0761e6cc87fe1867",
+   "decisions": 497664,
+   "episodes": 2439,
+   "wallSeconds": 550.8,
+   "decisionsPerSec": 903.5,
+   "warmStart": "ppo:s1",
+   "warmStartSha256": "682bdc89e91fb53f4a1d67139644aed13c774bb2de3023997f32c2f10e5c38b3",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 1.9537,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2171,
+   "ownAlgorithmSeatShare": 0.2059,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 92.408,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 4.032554231869767e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 92.301,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 5.296312519220692e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 92.407,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 6.076064591908903e-06,
+      "argmaxAgreement": 1.0
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "ppo",
+   "seed": 102,
+   "status": "completed",
+   "configHash": "9aad10f245088b2f",
+   "decisions": 497664,
+   "episodes": 2120,
+   "wallSeconds": 593.7,
+   "decisionsPerSec": 838.2,
+   "warmStart": "ppo:s2",
+   "warmStartSha256": "7f994d8c6f12c06331c5e3e6833331304124f0dd9f7b39d0f6e294d4e0d33bd8",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0297,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2255,
+   "ownAlgorithmSeatShare": 0.2022,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 92.637,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 5.029489654972963e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 92.548,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 6.452648950272533e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 92.504,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 6.7181120915194015e-06,
+      "argmaxAgreement": 1.0
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "ppo",
+   "seed": 103,
+   "status": "completed",
+   "configHash": "896fd215463802b3",
+   "decisions": 497664,
+   "episodes": 2650,
+   "wallSeconds": 603.5,
+   "decisionsPerSec": 824.6,
+   "warmStart": "ppo:s3",
+   "warmStartSha256": "934677cd7d2e392e31cc6394819151a0554ef37116a583f6ad62e40a923c1b7c",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0166,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2241,
+   "ownAlgorithmSeatShare": 0.1993,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 92.516,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 5.2014768190389304e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 92.494,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 4.689888577047441e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 92.223,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 6.419217037034741e-06,
+      "argmaxAgreement": 1.0
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "a2c",
+   "seed": 101,
+   "status": "completed",
+   "configHash": "9b61644bd932a0f6",
+   "decisions": 497664,
+   "episodes": 4602,
+   "wallSeconds": 739.1,
+   "decisionsPerSec": 673.3,
+   "warmStart": "a2c:s1",
+   "warmStartSha256": "65c334b9819d44580435de491613c32e1c320484d75e9d2c236f6d44aa353ca9",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 1.9957,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2217,
+   "ownAlgorithmSeatShare": 0.2024,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 90.417,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.0255756870414245e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 90.128,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.394667875853628e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 90.082,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.2150229511398436e-06,
+      "argmaxAgreement": 1.0
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "a2c",
+   "seed": 102,
+   "status": "completed",
+   "configHash": "2a2ec3e096f394cf",
+   "decisions": 497664,
+   "episodes": 4911,
+   "wallSeconds": 737.4,
+   "decisionsPerSec": 674.9,
+   "warmStart": "a2c:s2",
+   "warmStartSha256": "0fe82a251dc13b9ed5d116aada2a28ce8fe1e5bc4f37b79dd5436d57f3849282",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0086,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2232,
+   "ownAlgorithmSeatShare": 0.1999,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 90.047,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.7542907944090302e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 90.284,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.2879477400140615e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 90.286,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.5966869000294537e-06,
+      "argmaxAgreement": 1.0
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "a2c",
+   "seed": 103,
+   "status": "completed",
+   "configHash": "17d5b5429d38e9f4",
+   "decisions": 497664,
+   "episodes": 5909,
+   "wallSeconds": 821.6,
+   "decisionsPerSec": 605.8,
+   "warmStart": "a2c:s3",
+   "warmStartSha256": "b40ff73d9bb48e5c3fc774166a3028e20b337841cb76eb45f51e64fe2399628b",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0037,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2226,
+   "ownAlgorithmSeatShare": 0.2046,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 90.262,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.2338306740744542e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 89.615,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.4057114161580841e-06,
+      "argmaxAgreement": 1.0
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 89.69,
+     "legalXI": 1,
+     "parity": {
+      "states": 256,
+      "maxAbsScoreDiff": 1.3517450736522107e-06,
+      "argmaxAgreement": 1.0
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "d3qn",
+   "seed": 101,
+   "status": "completed",
+   "configHash": "fc35a88cc82c14ca",
+   "decisions": 497664,
+   "episodes": 5006,
+   "wallSeconds": 1181.0,
+   "decisionsPerSec": 421.4,
+   "warmStart": "d3qn:s1",
+   "warmStartSha256": "cd08b5b99c8a26280e15be265653f04fde7c5dff80b3ce17f873731c26a137c1",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 1.9948,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2216,
+   "ownAlgorithmSeatShare": 0.1978,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 89.867,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsScoreDiff": 2.1316282072803006e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 88.211,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsScoreDiff": 1.9539925233402755e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 86.529,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsScoreDiff": 2.3092638912203256e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "d3qn",
+   "seed": 102,
+   "status": "completed",
+   "configHash": "39dd3a323919395f",
+   "decisions": 497664,
+   "episodes": 4956,
+   "wallSeconds": 1168.5,
+   "decisionsPerSec": 425.9,
+   "warmStart": "d3qn:s2",
+   "warmStartSha256": "2fc2a8ab70753302c0f77af8591a4d8d7c2fa511e7882294374fef3c2d65fa08",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0079,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2231,
+   "ownAlgorithmSeatShare": 0.2004,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 91.27,
+     "legalXI": 1,
+     "parity": {
+      "states": 327,
+      "maxAbsScoreDiff": 2.4868995751603507e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 7,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 88.97,
+     "legalXI": 1,
+     "parity": {
+      "states": 327,
+      "maxAbsScoreDiff": 2.3092638912203256e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 7,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 88.903,
+     "legalXI": 1,
+     "parity": {
+      "states": 329,
+      "maxAbsScoreDiff": 2.1316282072803006e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 9,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "d3qn",
+   "seed": 103,
+   "status": "completed",
+   "configHash": "39b7347c8eab25ec",
+   "decisions": 497664,
+   "episodes": 5251,
+   "wallSeconds": 1193.7,
+   "decisionsPerSec": 416.9,
+   "warmStart": "d3qn:s3",
+   "warmStartSha256": "99f2d1eb0a67d6180e8fa7a14a2257c8e53d9f1bb226c9a559c42baac4a92df5",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0131,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2237,
+   "ownAlgorithmSeatShare": 0.193,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 89.324,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsScoreDiff": 2.3092638912203256e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 89.311,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsScoreDiff": 1.9539925233402755e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 90.981,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsScoreDiff": 2.3092638912203256e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "qrdqn",
+   "seed": 101,
+   "status": "completed",
+   "configHash": "e7fede88b33171af",
+   "decisions": 497664,
+   "episodes": 3776,
+   "wallSeconds": 1314.0,
+   "decisionsPerSec": 378.7,
+   "warmStart": "qrdqn:s1",
+   "warmStartSha256": "b8e5772b7f3267359e652c0328c8cee5a214fc5cb692cd4edebabf9766db2daf",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 1.9828,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2203,
+   "ownAlgorithmSeatShare": 0.1983,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 89.669,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsRawDiff": 5.329070518200751e-15,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 91.237,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsRawDiff": 7.105427357601002e-15,
+      "maxAbsScoreDiff": 5.329070518200751e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 91.568,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsRawDiff": 5.329070518200751e-15,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "qrdqn",
+   "seed": 102,
+   "status": "completed",
+   "configHash": "b64e52c33b00bba8",
+   "decisions": 497664,
+   "episodes": 3928,
+   "wallSeconds": 1319.3,
+   "decisionsPerSec": 377.2,
+   "warmStart": "qrdqn:s2",
+   "warmStartSha256": "682f057048920721e88811c148d43bd0d6f888e96798c9b83544430c43bd61a9",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0132,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2237,
+   "ownAlgorithmSeatShare": 0.1946,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 88.813,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsRawDiff": 7.105427357601002e-15,
+      "maxAbsScoreDiff": 5.329070518200751e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 91.054,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsRawDiff": 7.105427357601002e-15,
+      "maxAbsScoreDiff": 5.329070518200751e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 91.401,
+     "legalXI": 1,
+     "parity": {
+      "states": 384,
+      "maxAbsRawDiff": 5.329070518200751e-15,
+      "maxAbsScoreDiff": 5.329070518200751e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 64,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "qrdqn",
+   "seed": 103,
+   "status": "completed",
+   "configHash": "eee59c11ef98a4f6",
+   "decisions": 497664,
+   "episodes": 4346,
+   "wallSeconds": 1384.1,
+   "decisionsPerSec": 359.5,
+   "warmStart": "qrdqn:s3",
+   "warmStartSha256": "3f2f5e0b090df5250b1331f87cc8ae64c09d7811ae88ceca7f66b996e5c842ba",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0246,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.225,
+   "ownAlgorithmSeatShare": 0.1965,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 98304,
+     "xi": 91.34,
+     "legalXI": 1,
+     "parity": {
+      "states": 320,
+      "maxAbsRawDiff": 5.329070518200751e-15,
+      "maxAbsScoreDiff": 4.440892098500626e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 0,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 245760,
+     "xi": 91.423,
+     "legalXI": 1,
+     "parity": {
+      "states": 320,
+      "maxAbsRawDiff": 5.329070518200751e-15,
+      "maxAbsScoreDiff": 5.329070518200751e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 0,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    },
+    {
+     "decisions": 497664,
+     "xi": 91.137,
+     "legalXI": 1,
+     "parity": {
+      "states": 325,
+      "maxAbsRawDiff": 7.105427357601002e-15,
+      "maxAbsScoreDiff": 3.552713678800501e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      },
+      "composition": {
+       "regular": 256,
+       "reauction": 5,
+       "lowPurse": 32,
+       "highPurse": 32
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "es",
+   "seed": 101,
+   "status": "completed",
+   "configHash": "ab359de1aff3e0b0",
+   "decisions": 502843,
+   "episodes": 4992,
+   "wallSeconds": 686.8,
+   "decisionsPerSec": 732.2,
+   "warmStart": "es:s1",
+   "warmStartSha256": "cce63f2e26dff91cbc075950c3af78911389e5656368e1278f2c7f1e9e2e8ce1",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 1.9576,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2175,
+   "ownAlgorithmSeatShare": 0.2064,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 102723,
+     "xi": 90.693,
+     "legalXI": 1,
+     "parity": {
+      "states": 52,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    },
+    {
+     "decisions": 246467,
+     "xi": 90.807,
+     "legalXI": 1,
+     "parity": {
+      "states": 46,
+      "maxAbsScoreDiff": 5.329070518200751e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    },
+    {
+     "decisions": 502843,
+     "xi": 90.778,
+     "legalXI": 1,
+     "parity": {
+      "states": 80,
+      "maxAbsScoreDiff": 8.881784197001252e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "es",
+   "seed": 102,
+   "status": "completed",
+   "configHash": "d402a2d5e23fd20e",
+   "decisions": 502565,
+   "episodes": 4608,
+   "wallSeconds": 650.9,
+   "decisionsPerSec": 772.1,
+   "warmStart": "es:s2",
+   "warmStartSha256": "9004a4eac6ba441791bd54a0ed300daff4b9bd118357b038ac5f031ee91d7921",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.018,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2242,
+   "ownAlgorithmSeatShare": 0.2018,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 99863,
+     "xi": 90.934,
+     "legalXI": 1,
+     "parity": {
+      "states": 95,
+      "maxAbsScoreDiff": 9.325873406851315e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    },
+    {
+     "decisions": 249229,
+     "xi": 90.765,
+     "legalXI": 1,
+     "parity": {
+      "states": 100,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    },
+    {
+     "decisions": 502565,
+     "xi": 90.756,
+     "legalXI": 1,
+     "parity": {
+      "states": 95,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  },
+  {
+   "algo": "es",
+   "seed": 103,
+   "status": "completed",
+   "configHash": "9d6eacc25e40fafe",
+   "decisions": 499984,
+   "episodes": 5184,
+   "wallSeconds": 689.8,
+   "decisionsPerSec": 724.9,
+   "warmStart": "es:s3",
+   "warmStartSha256": "9d1473eb5fb2591f52def8ffb4b951e3840e3afba2daa3c36b370643eabb11b7",
+   "learnerIncompleteXiTrainingEpisodes": 0,
+   "meanSnapshotsPerRoom": 2.0206,
+   "ruleShareMin": 0.4444,
+   "rlOpponentSeatShare": 0.2245,
+   "ownAlgorithmSeatShare": 0.2092,
+   "seedsAllTrain": true,
+   "validationOrTestPlayed": 0,
+   "stageAControlValidation": [
+    {
+     "decisions": 101112,
+     "xi": 90.921,
+     "legalXI": 1,
+     "parity": {
+      "states": 115,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    },
+    {
+     "decisions": 247116,
+     "xi": 90.763,
+     "legalXI": 1,
+     "parity": {
+      "states": 114,
+      "maxAbsScoreDiff": 7.105427357601002e-15,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    },
+    {
+     "decisions": 499984,
+     "xi": 90.745,
+     "legalXI": 1,
+     "parity": {
+      "states": 116,
+      "maxAbsScoreDiff": 1.0658141036401503e-14,
+      "argmaxAgreement": 1.0,
+      "byMask": {
+       "real": 1.0,
+       "passOnly": 1.0,
+       "single": 1.0,
+       "allLegal": 1.0
+      }
+     }
+    }
+   ],
+   "verificationProblems": []
+  }
+ ],
+ "totals": {
+  "runs": 15,
+  "completed": 15,
+  "trainingDecisions": 7477360,
+  "trainingEpisodes": 64678,
+  "hardStops": 0,
+  "fallbacks": 0,
+  "learnerIncompleteXiTrainingEpisodes": 0,
+  "evaluationEpisodes": {
+   "c100": 39000,
+   "c250": 39000,
+   "c500": 195000
+  },
+  "replayedEpisodes": 15600
+ },
+ "budgetNote": "ES used ~10.2M decisions in Stage A, so 500k is ~5% of its Stage-A budget vs 25% for PPO/A2C/D3QN/QR-DQN (2M).",
+ "headline_c500": {
+  "ppo": {
+   "A": {
+    "xiDiffBminusA": {
+     "mean": -0.2165,
+     "sd": 0.0974,
+     "ci95": [
+      -0.24,
+      -0.1927
+     ]
+    }
+   },
+   "C1": {
+    "xiDiffBminusA": {
+     "mean": 0.3535,
+     "sd": 0.214,
+     "ci95": [
+      0.3365,
+      0.371
+     ]
+    },
+    "transferStageB": -1.3758,
+    "transferStageA": -1.9459,
+    "transferImprovement": {
+     "mean": 0.5701,
+     "sd": 0.1333,
+     "ci95": [
+      0.5452,
+      0.597
+     ]
+    }
+   },
+   "C4": {
+    "xiDiffBminusA": {
+     "mean": 0.3603,
+     "sd": 0.1438,
+     "ci95": [
+      0.3444,
+      0.376
+     ]
+    },
+    "transferStageB": -1.7433,
+    "transferStageA": -2.3202,
+    "transferImprovement": {
+     "mean": 0.5769,
+     "sd": 0.064,
+     "ci95": [
+      0.5478,
+      0.6052
+     ]
+    }
+   },
+   "S4": {
+    "xiDiffBminusA": {
+     "mean": 0.3158,
+     "sd": 0.2577,
+     "ci95": [
+      0.2759,
+      0.3596
+     ]
+    },
+    "transferStageB": -1.895,
+    "transferStageA": -2.4273,
+    "transferImprovement": {
+     "mean": 0.5323,
+     "sd": 0.1642,
+     "ci95": [
+      0.4831,
+      0.5851
+     ]
+    }
+   }
+  },
+  "a2c": {
+   "A": {
+    "xiDiffBminusA": {
+     "mean": -0.4076,
+     "sd": 0.2697,
+     "ci95": [
+      -0.4605,
+      -0.3535
+     ]
+    }
+   },
+   "C1": {
+    "xiDiffBminusA": {
+     "mean": 0.3098,
+     "sd": 0.361,
+     "ci95": [
+      0.2823,
+      0.3381
+     ]
+    },
+    "transferStageB": -2.0709,
+    "transferStageA": -2.7883,
+    "transferImprovement": {
+     "mean": 0.7174,
+     "sd": 0.4404,
+     "ci95": [
+      0.6674,
+      0.7698
+     ]
+    }
+   },
+   "C4": {
+    "xiDiffBminusA": {
+     "mean": 0.5772,
+     "sd": 0.4258,
+     "ci95": [
+      0.554,
+      0.6002
+     ]
+    },
+    "transferStageB": -2.7329,
+    "transferStageA": -3.7176,
+    "transferImprovement": {
+     "mean": 0.9847,
+     "sd": 0.592,
+     "ci95": [
+      0.929,
+      1.0407
+     ]
+    }
+   },
+   "S4": {
+    "xiDiffBminusA": {
+     "mean": 0.7468,
+     "sd": 0.5104,
+     "ci95": [
+      0.7028,
+      0.7936
+     ]
+    },
+    "transferStageB": -3.9892,
+    "transferStageA": -5.1436,
+    "transferImprovement": {
+     "mean": 1.1544,
+     "sd": 0.6465,
+     "ci95": [
+      1.088,
+      1.229
+     ]
+    }
+   }
+  },
+  "d3qn": {
+   "A": {
+    "xiDiffBminusA": {
+     "mean": -2.6852,
+     "sd": 2.2887,
+     "ci95": [
+      -2.7655,
+      -2.6028
+     ]
+    }
+   },
+   "C1": {
+    "xiDiffBminusA": {
+     "mean": -1.6576,
+     "sd": 1.3251,
+     "ci95": [
+      -1.6972,
+      -1.6177
+     ]
+    },
+    "transferStageB": -1.5691,
+    "transferStageA": -2.5966,
+    "transferImprovement": {
+     "mean": 1.0275,
+     "sd": 1.0968,
+     "ci95": [
+      0.9497,
+      1.1022
+     ]
+    }
+   },
+   "C4": {
+    "xiDiffBminusA": {
+     "mean": -1.3351,
+     "sd": 1.0972,
+     "ci95": [
+      -1.3783,
+      -1.2929
+     ]
+    },
+    "transferStageB": -1.9388,
+    "transferStageA": -3.2888,
+    "transferImprovement": {
+     "mean": 1.3501,
+     "sd": 2.2457,
+     "ci95": [
+      1.2668,
+      1.4328
+     ]
+    }
+   },
+   "S4": {
+    "xiDiffBminusA": {
+     "mean": -0.4892,
+     "sd": 0.3481,
+     "ci95": [
+      -0.5721,
+      -0.4076
+     ]
+    },
+    "transferStageB": -2.6239,
+    "transferStageA": -4.8199,
+    "transferImprovement": {
+     "mean": 2.196,
+     "sd": 1.9598,
+     "ci95": [
+      2.0879,
+      2.3065
+     ]
+    }
+   }
+  },
+  "qrdqn": {
+   "A": {
+    "xiDiffBminusA": {
+     "mean": -0.4847,
+     "sd": 0.2994,
+     "ci95": [
+      -0.5229,
+      -0.4454
+     ]
+    }
+   },
+   "C1": {
+    "xiDiffBminusA": {
+     "mean": 0.161,
+     "sd": 0.3316,
+     "ci95": [
+      0.1359,
+      0.1866
+     ]
+    },
+    "transferStageB": -1.8109,
+    "transferStageA": -2.4566,
+    "transferImprovement": {
+     "mean": 0.6457,
+     "sd": 0.2011,
+     "ci95": [
+      0.6021,
+      0.688
+     ]
+    }
+   },
+   "C4": {
+    "xiDiffBminusA": {
+     "mean": 0.1299,
+     "sd": 0.3301,
+     "ci95": [
+      0.1048,
+      0.1556
+     ]
+    },
+    "transferStageB": -2.6155,
+    "transferStageA": -3.2301,
+    "transferImprovement": {
+     "mean": 0.6146,
+     "sd": 0.0614,
+     "ci95": [
+      0.5737,
+      0.6599
+     ]
+    }
+   },
+   "S4": {
+    "xiDiffBminusA": {
+     "mean": 0.7952,
+     "sd": 0.3269,
+     "ci95": [
+      0.741,
+      0.8486
+     ]
+    },
+    "transferStageB": -3.0614,
+    "transferStageA": -4.3413,
+    "transferImprovement": {
+     "mean": 1.2799,
+     "sd": 0.05,
+     "ci95": [
+      1.2115,
+      1.3456
+     ]
+    }
+   }
+  },
+  "es": {
+   "A": {
+    "xiDiffBminusA": {
+     "mean": -0.308,
+     "sd": 0.0407,
+     "ci95": [
+      -0.3798,
+      -0.2393
+     ]
+    }
+   },
+   "C1": {
+    "xiDiffBminusA": {
+     "mean": 0.2181,
+     "sd": 0.1606,
+     "ci95": [
+      0.1897,
+      0.2456
+     ]
+    },
+    "transferStageB": -2.8416,
+    "transferStageA": -3.3677,
+    "transferImprovement": {
+     "mean": 0.5261,
+     "sd": 0.1501,
+     "ci95": [
+      0.4608,
+      0.5925
+     ]
+    }
+   },
+   "C4": {
+    "xiDiffBminusA": {
+     "mean": 0.4755,
+     "sd": 0.3129,
+     "ci95": [
+      0.4501,
+      0.501
+     ]
+    },
+    "transferStageB": -4.2714,
+    "transferStageA": -5.0548,
+    "transferImprovement": {
+     "mean": 0.7835,
+     "sd": 0.2912,
+     "ci95": [
+      0.7093,
+      0.8537
+     ]
+    }
+   },
+   "S4": {
+    "xiDiffBminusA": {
+     "mean": 0.79,
+     "sd": 0.0735,
+     "ci95": [
+      0.7195,
+      0.8637
+     ]
+    },
+    "transferStageB": -5.7307,
+    "transferStageA": -6.8287,
+    "transferImprovement": {
+     "mean": 1.098,
+     "sd": 0.0405,
+     "ci95": [
+      0.9996,
+      1.1934
+     ]
+    }
+   }
+  }
+ },
+ "gate": {
+  "result": "B",
+  "name": "MIXED / PROMISING",
+  "implication": "Analyze the failure mechanisms before deciding whether to continue, tune, or redesign. Do NOT automatically launch full training."
+ }
+}

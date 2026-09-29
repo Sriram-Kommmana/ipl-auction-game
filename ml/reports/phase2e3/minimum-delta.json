@@ -1,0 +1,122 @@
+{
+ "meta": {
+  "phase": "2E.3",
+  "status": "DESIGN PROPOSAL ONLY — obs-v2 (629b25783f833af7) unchanged; nothing implemented, trained or committed",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (15,600 episodes, 40 entries, 2,659,482 decision rows; same rows as Phase 2E.2)"
+ },
+ "classificationRules": {
+  "KEEP": "existing feature sufficient",
+  "TRANSFORM": "useful information lost by the current representation",
+  "ADD": "required information not represented",
+  "DO NOT ADD": "unnecessary, redundant, speculative, impossible or leaking"
+ },
+ "delta": [
+  {
+   "item": "Gap 1 — early opponent aggression",
+   "classification": "DO NOT ADD",
+   "candidates": [
+    "rlRivals",
+    "partic5 / partic20",
+    "bids5 / bids20",
+    "cumPF",
+    "cumStarPF"
+   ],
+   "reason": "lot 1: nothing in the environment differs yet (Case B); lots 2–20: the window already is the full history and the history candidates add little; later: the information is present and unused (Case D). Identity is hidden policy information and constant in production."
+  },
+  {
+   "item": "Gap 2 — number / distribution of aggressive opponents",
+   "classification": "DO NOT ADD",
+   "candidates": [
+    "aheadPace15 / aheadPace30",
+    "overpay13 / overpay15 / starBuyers2",
+    "wMaxRivSpend / wBuyers / buyersSoFar",
+    "rival purse vector (sorted, 9 values)",
+    "capGe*"
+   ],
+   "reason": "no public statistic separates one vs four aggressive copies where the current rival block aliases them; elsewhere the best counts add no more than existing features left out of the same cells"
+  },
+  {
+   "item": "Gap 3 — non-needing keeper competition",
+   "classification": "KEEP",
+   "candidates": [
+    "kContestNoNeed / kContestNoNeedFair",
+    "kContestAll",
+    "kStockExcess / kStock2",
+    "kHistExtraBuyers / kW20Extra",
+    "kW20Buys"
+   ],
+   "reason": "the breadth of potential competition is already carried by riv_able_share / riv_free_slots_share with the need features; the non-needing count is 93% determined by them and separates no better than existing mkt_scarcity_keeper; no candidate separates the dangerous M1 decisions (median percentile ~0.6); the failures trace to policy passes on affordable needed keepers and to the shield's need-based criticality"
+  },
+  {
+   "item": "Gap 4 — saturated features (riv_capacity_1–3, mkt_scarcity_bowling, mkt_scarcity_indians)",
+   "classification": "KEEP",
+   "candidates": [
+    "capacity unclipped (log)",
+    "scarcity unclipped (bowling / Indians)"
+   ],
+   "reason": "the clip removes only values above 5, a range that never mattered in these rooms (price needed > 5 × fair in 0.03% of decisions; no scarcity below 3.7 with an own need)"
+  }
+ ],
+ "proposedObservationDelta": {
+  "ADD": [],
+  "TRANSFORM": [],
+  "size": 0
+ },
+ "retainedForReviewerAwareness": [
+  {
+   "candidate": "partic5 / partic20",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "between-cell share given rival block + price ratio 0.931; within-cell separation of ≥ 3 RL bidders 0.312; differs in 1.9% of near-identical-observation pairs (lift 1.27 for price needed); early separation ≤ 0.06 (lots 2–16)",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "bids5 / bids20",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "differs in 0.04% of near-identical pairs; early separation ≤ 0.15; tracks ≥ 3 RL bidders at 0.178",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "cumStarPF",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "lots 2–5: 0.635 vs best existing 0.67 (mkt_recent_price_ratio); adds inside deciles of that feature 0.185 (lots 2–5) / 0.915 (lots 17–32) — after the existing features already separate at 0.964",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "wMaxRivSpend / wBuyers / buyersSoFar",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "between-cell 0.879; within-cell C4 vs C1 0.207; differs in 0.03% of near-identical pairs (lift 1.7)",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "overpay13 / overpay15 / starBuyers2",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "within-cell C4 vs C1 0.32 / 0.271 / 0.266 vs existing features left out of the cells: riv_xi_max 0.28, self_pace_gap 0.223; in pairs whose rival block is aliased: 0.008 / 0.023 / 0.005; differs in 0.29% of near-identical pairs",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "aheadPace15 / aheadPace30",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "tracks RL bidders 0.379 (best existing 0.25); between-cell 0.82; within-cell C4 vs C1 0.29 (riv_xi_max, outside the cells, 0.28); aliased rival block 0.006; differs in 0.08% of near-identical pairs",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "rival purse vector (sorted, 9 values)",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "differs by > 0.05 in 8% of C1/C4 pairs whose rival block is aliased — the distribution does not carry the one-vs-four difference there",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "kContestNoNeed / kContestNoNeedFair",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "between-cell share 0.928 given controls + riv_able_share + riv_free_slots_share + riv_fills_share; within those cells it separates 'absorbed by a non-needing rival' at 0.455 — the same as existing mkt_scarcity_keeper (0.443) and mkt_equivalent_left (0.431); differs in 0 of 889,318 near-identical keeper pairs; median percentile at the M1 dangerous decisions 0.629 (0.5 = typical of safe)",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  },
+  {
+   "candidate": "kW20Buys",
+   "class": "PARTIAL NOVELTY",
+   "evidence": "within fine cells 0.446 (= mkt_scarcity_keeper 0.443); between-cell 0.89",
+   "classRule": "not redundant, and adds within-cell separation ≥ 0.10 somewhere — but does not resolve observational aliasing (differs in < 5% of near-identical-observation pairs) and does not beat existing features left out of the same cells"
+  }
+ ],
+ "note": "No feature index, observation version or hash is assigned; nothing is implemented."
+}

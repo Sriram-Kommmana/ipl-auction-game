@@ -1,0 +1,1515 @@
+{
+ "behaviourTables": {
+  "ppo": [
+   {
+    "metric": "bid rate",
+    "A": 0.4363,
+    "C1": 0.4294,
+    "C4": 0.4623,
+    "S4": 0.4467,
+    "changeS4minusA": 0.0104,
+    "relChangeS4": 0.0239
+   },
+   {
+    "metric": "price/fair",
+    "A": 0.7895,
+    "C1": 0.8591,
+    "C4": 0.8493,
+    "S4": 0.8585,
+    "changeS4minusA": 0.069,
+    "relChangeS4": 0.0875
+   },
+   {
+    "metric": "cap/fair",
+    "A": 0.7473,
+    "C1": 0.7907,
+    "C4": 0.8135,
+    "S4": 0.8092,
+    "changeS4minusA": 0.0619,
+    "relChangeS4": 0.0828
+   },
+   {
+    "metric": "stars",
+    "A": 10.7253,
+    "C1": 8.5923,
+    "C4": 8.4408,
+    "S4": 8.7973,
+    "changeS4minusA": -1.928,
+    "relChangeS4": -0.1798
+   },
+   {
+    "metric": "marginal purchases",
+    "A": 0.176,
+    "C1": 0.7674,
+    "C4": 1.3408,
+    "S4": 1.2853,
+    "changeS4minusA": 1.1093,
+    "relChangeS4": 6.303
+   },
+   {
+    "metric": "squad size",
+    "A": 16.62,
+    "C1": 16.6867,
+    "C4": 18.3024,
+    "S4": 18.184,
+    "changeS4minusA": 1.564,
+    "relChangeS4": 0.0941
+   },
+   {
+    "metric": "purse remaining (share)",
+    "A": 0.0012,
+    "C1": 0.0017,
+    "C4": 0.0134,
+    "S4": 0.0065,
+    "changeS4minusA": 0.0053,
+    "relChangeS4": 4.4892
+   },
+   {
+    "metric": "overseas count",
+    "A": 6.2527,
+    "C1": 5.9107,
+    "C4": 6.2397,
+    "S4": 6.344,
+    "changeS4minusA": 0.0913,
+    "relChangeS4": 0.0146
+   },
+   {
+    "metric": "re-auction purchases",
+    "A": 0.052,
+    "C1": 0.2521,
+    "C4": 0.5325,
+    "S4": 0.5733,
+    "changeS4minusA": 0.5213,
+    "relChangeS4": 10.0256
+   },
+   {
+    "metric": "keeper completion progress",
+    "A": 0.0857,
+    "C1": 0.2363,
+    "C4": 0.3843,
+    "S4": 0.5669,
+    "changeS4minusA": 0.4812,
+    "relChangeS4": 5.615
+   },
+   {
+    "metric": "bowling completion progress",
+    "A": 0.2459,
+    "C1": 0.3137,
+    "C4": 0.4357,
+    "S4": 0.4257,
+    "changeS4minusA": 0.1798,
+    "relChangeS4": 0.7313
+   },
+   {
+    "metric": "Indian completion progress",
+    "A": 0.232,
+    "C1": 0.446,
+    "C4": 0.5052,
+    "S4": 0.562,
+    "changeS4minusA": 0.33,
+    "relChangeS4": 1.4223
+   },
+   {
+    "metric": "shield activations / episode",
+    "A": 0.0,
+    "C1": 0.0019,
+    "C4": 0.0048,
+    "S4": 0.0013,
+    "changeS4minusA": 0.0013,
+    "relChangeS4": null
+   },
+   {
+    "metric": "forced bids / episode",
+    "A": 0.0,
+    "C1": 0.0019,
+    "C4": 0.0048,
+    "S4": 0.0013,
+    "changeS4minusA": 0.0013,
+    "relChangeS4": null
+   },
+   {
+    "metric": "decisions / episode",
+    "A": 158.7727,
+    "C1": 214.1104,
+    "C4": 245.9372,
+    "S4": 258.5253,
+    "changeS4minusA": 99.7527,
+    "relChangeS4": 0.6283
+   }
+  ],
+  "a2c": [
+   {
+    "metric": "bid rate",
+    "A": 0.8387,
+    "C1": 0.8534,
+    "C4": 0.8864,
+    "S4": 0.9167,
+    "changeS4minusA": 0.0781,
+    "relChangeS4": 0.0931
+   },
+   {
+    "metric": "price/fair",
+    "A": 1.1121,
+    "C1": 1.1913,
+    "C4": 1.1917,
+    "S4": 1.2592,
+    "changeS4minusA": 0.1471,
+    "relChangeS4": 0.1323
+   },
+   {
+    "metric": "cap/fair",
+    "A": 1.0522,
+    "C1": 1.1131,
+    "C4": 1.1696,
+    "S4": 1.2083,
+    "changeS4minusA": 0.1562,
+    "relChangeS4": 0.1484
+   },
+   {
+    "metric": "stars",
+    "A": 9.1147,
+    "C1": 6.5768,
+    "C4": 5.3903,
+    "S4": 3.3453,
+    "changeS4minusA": -5.7693,
+    "relChangeS4": -0.633
+   },
+   {
+    "metric": "marginal purchases",
+    "A": 0.514,
+    "C1": 1.1924,
+    "C4": 2.1506,
+    "S4": 2.6913,
+    "changeS4minusA": 2.1773,
+    "relChangeS4": 4.2361
+   },
+   {
+    "metric": "squad size",
+    "A": 15.6747,
+    "C1": 18.4943,
+    "C4": 21.1989,
+    "S4": 23.118,
+    "changeS4minusA": 7.4433,
+    "relChangeS4": 0.4749
+   },
+   {
+    "metric": "purse remaining (share)",
+    "A": 0.0003,
+    "C1": 0.0009,
+    "C4": 0.0297,
+    "S4": 0.0217,
+    "changeS4minusA": 0.0213,
+    "relChangeS4": 62.1049
+   },
+   {
+    "metric": "overseas count",
+    "A": 5.1727,
+    "C1": 6.2799,
+    "C4": 6.9635,
+    "S4": 7.7453,
+    "changeS4minusA": 2.5727,
+    "relChangeS4": 0.4974
+   },
+   {
+    "metric": "re-auction purchases",
+    "A": 0.0007,
+    "C1": 0.0021,
+    "C4": 0.0018,
+    "S4": 0.0,
+    "changeS4minusA": -0.0007,
+    "relChangeS4": -1.0
+   },
+   {
+    "metric": "keeper completion progress",
+    "A": 0.219,
+    "C1": 0.5349,
+    "C4": 0.6015,
+    "S4": 0.7438,
+    "changeS4minusA": 0.5248,
+    "relChangeS4": 2.3962
+   },
+   {
+    "metric": "bowling completion progress",
+    "A": 0.069,
+    "C1": 0.1108,
+    "C4": 0.1098,
+    "S4": 0.1377,
+    "changeS4minusA": 0.0687,
+    "relChangeS4": 0.9946
+   },
+   {
+    "metric": "Indian completion progress",
+    "A": 0.064,
+    "C1": 0.1092,
+    "C4": 0.1005,
+    "S4": 0.113,
+    "changeS4minusA": 0.0491,
+    "relChangeS4": 0.7671
+   },
+   {
+    "metric": "shield activations / episode",
+    "A": 0.25,
+    "C1": 0.7072,
+    "C4": 0.5088,
+    "S4": 0.5613,
+    "changeS4minusA": 0.3113,
+    "relChangeS4": 1.2453
+   },
+   {
+    "metric": "forced bids / episode",
+    "A": 0.25,
+    "C1": 0.7072,
+    "C4": 0.5088,
+    "S4": 0.5613,
+    "changeS4minusA": 0.3113,
+    "relChangeS4": 1.2453
+   },
+   {
+    "metric": "decisions / episode",
+    "A": 74.6313,
+    "C1": 88.7697,
+    "C4": 93.7303,
+    "S4": 104.1033,
+    "changeS4minusA": 29.472,
+    "relChangeS4": 0.3949
+   }
+  ],
+  "d3qn": [
+   {
+    "metric": "bid rate",
+    "A": 0.7902,
+    "C1": 0.8135,
+    "C4": 0.8328,
+    "S4": 0.8005,
+    "changeS4minusA": 0.0103,
+    "relChangeS4": 0.0131
+   },
+   {
+    "metric": "price/fair",
+    "A": 1.0945,
+    "C1": 1.1824,
+    "C4": 1.178,
+    "S4": 1.2493,
+    "changeS4minusA": 0.1549,
+    "relChangeS4": 0.1415
+   },
+   {
+    "metric": "cap/fair",
+    "A": 1.0691,
+    "C1": 0.9586,
+    "C4": 0.9651,
+    "S4": 0.9566,
+    "changeS4minusA": -0.1125,
+    "relChangeS4": -0.1052
+   },
+   {
+    "metric": "stars",
+    "A": 9.852,
+    "C1": 7.8177,
+    "C4": 7.2681,
+    "S4": 6.2133,
+    "changeS4minusA": -3.6387,
+    "relChangeS4": -0.3693
+   },
+   {
+    "metric": "marginal purchases",
+    "A": 0.2873,
+    "C1": 0.7056,
+    "C4": 0.9734,
+    "S4": 0.8993,
+    "changeS4minusA": 0.612,
+    "relChangeS4": 2.1299
+   },
+   {
+    "metric": "squad size",
+    "A": 16.5113,
+    "C1": 15.2907,
+    "C4": 16.5839,
+    "S4": 15.9413,
+    "changeS4minusA": -0.57,
+    "relChangeS4": -0.0345
+   },
+   {
+    "metric": "purse remaining (share)",
+    "A": 0.0011,
+    "C1": 0.0008,
+    "C4": 0.0053,
+    "S4": 0.0009,
+    "changeS4minusA": -0.0001,
+    "relChangeS4": -0.1367
+   },
+   {
+    "metric": "overseas count",
+    "A": 5.0613,
+    "C1": 4.7918,
+    "C4": 5.2298,
+    "S4": 5.4333,
+    "changeS4minusA": 0.372,
+    "relChangeS4": 0.0735
+   },
+   {
+    "metric": "re-auction purchases",
+    "A": 0.1607,
+    "C1": 0.1497,
+    "C4": 0.0984,
+    "S4": 0.148,
+    "changeS4minusA": -0.0127,
+    "relChangeS4": -0.0788
+   },
+   {
+    "metric": "keeper completion progress",
+    "A": 0.0731,
+    "C1": 0.1695,
+    "C4": 0.2507,
+    "S4": 0.4011,
+    "changeS4minusA": 0.328,
+    "relChangeS4": 4.4895
+   },
+   {
+    "metric": "bowling completion progress",
+    "A": 0.0842,
+    "C1": 0.1275,
+    "C4": 0.1406,
+    "S4": 0.164,
+    "changeS4minusA": 0.0799,
+    "relChangeS4": 0.9486
+   },
+   {
+    "metric": "Indian completion progress",
+    "A": 0.0821,
+    "C1": 0.1494,
+    "C4": 0.1913,
+    "S4": 0.2894,
+    "changeS4minusA": 0.2073,
+    "relChangeS4": 2.5257
+   },
+   {
+    "metric": "shield activations / episode",
+    "A": 0.0147,
+    "C1": 0.1161,
+    "C4": 0.1859,
+    "S4": 0.4293,
+    "changeS4minusA": 0.4147,
+    "relChangeS4": 28.2727
+   },
+   {
+    "metric": "forced bids / episode",
+    "A": 0.0147,
+    "C1": 0.1161,
+    "C4": 0.1859,
+    "S4": 0.4293,
+    "changeS4minusA": 0.4147,
+    "relChangeS4": 28.2727
+   },
+   {
+    "metric": "decisions / episode",
+    "A": 91.5473,
+    "C1": 100.9333,
+    "C4": 110.8887,
+    "S4": 126.2413,
+    "changeS4minusA": 34.694,
+    "relChangeS4": 0.379
+   }
+  ],
+  "qrdqn": [
+   {
+    "metric": "bid rate",
+    "A": 0.6524,
+    "C1": 0.7263,
+    "C4": 0.7586,
+    "S4": 0.7904,
+    "changeS4minusA": 0.1381,
+    "relChangeS4": 0.2116
+   },
+   {
+    "metric": "price/fair",
+    "A": 0.9791,
+    "C1": 1.0356,
+    "C4": 1.0782,
+    "S4": 1.1363,
+    "changeS4minusA": 0.1572,
+    "relChangeS4": 0.1606
+   },
+   {
+    "metric": "cap/fair",
+    "A": 0.9681,
+    "C1": 0.8869,
+    "C4": 0.9164,
+    "S4": 0.906,
+    "changeS4minusA": -0.0621,
+    "relChangeS4": -0.0641
+   },
+   {
+    "metric": "stars",
+    "A": 10.1853,
+    "C1": 7.8466,
+    "C4": 6.9324,
+    "S4": 5.9787,
+    "changeS4minusA": -4.2067,
+    "relChangeS4": -0.413
+   },
+   {
+    "metric": "marginal purchases",
+    "A": 0.2987,
+    "C1": 0.6877,
+    "C4": 1.0048,
+    "S4": 0.9433,
+    "changeS4minusA": 0.6447,
+    "relChangeS4": 2.1585
+   },
+   {
+    "metric": "squad size",
+    "A": 16.1673,
+    "C1": 15.8861,
+    "C4": 16.7451,
+    "S4": 16.042,
+    "changeS4minusA": -0.1253,
+    "relChangeS4": -0.0078
+   },
+   {
+    "metric": "purse remaining (share)",
+    "A": 0.0009,
+    "C1": 0.0011,
+    "C4": 0.0031,
+    "S4": 0.0011,
+    "changeS4minusA": 0.0003,
+    "relChangeS4": 0.3217
+   },
+   {
+    "metric": "overseas count",
+    "A": 5.5413,
+    "C1": 5.7971,
+    "C4": 5.964,
+    "S4": 6.1553,
+    "changeS4minusA": 0.614,
+    "relChangeS4": 0.1108
+   },
+   {
+    "metric": "re-auction purchases",
+    "A": 0.2427,
+    "C1": 0.1384,
+    "C4": 0.0859,
+    "S4": 0.1007,
+    "changeS4minusA": -0.142,
+    "relChangeS4": -0.5852
+   },
+   {
+    "metric": "keeper completion progress",
+    "A": 0.0726,
+    "C1": 0.1147,
+    "C4": 0.1528,
+    "S4": 0.1972,
+    "changeS4minusA": 0.1246,
+    "relChangeS4": 1.716
+   },
+   {
+    "metric": "bowling completion progress",
+    "A": 0.1218,
+    "C1": 0.1822,
+    "C4": 0.1936,
+    "S4": 0.2155,
+    "changeS4minusA": 0.0937,
+    "relChangeS4": 0.7692
+   },
+   {
+    "metric": "Indian completion progress",
+    "A": 0.1116,
+    "C1": 0.2246,
+    "C4": 0.2412,
+    "S4": 0.3151,
+    "changeS4minusA": 0.2036,
+    "relChangeS4": 1.8248
+   },
+   {
+    "metric": "shield activations / episode",
+    "A": 0.0353,
+    "C1": 0.1086,
+    "C4": 0.1622,
+    "S4": 0.2867,
+    "changeS4minusA": 0.2513,
+    "relChangeS4": 7.1132
+   },
+   {
+    "metric": "forced bids / episode",
+    "A": 0.0353,
+    "C1": 0.1086,
+    "C4": 0.1622,
+    "S4": 0.2867,
+    "changeS4minusA": 0.2513,
+    "relChangeS4": 7.1132
+   },
+   {
+    "metric": "decisions / episode",
+    "A": 116.5987,
+    "C1": 124.8388,
+    "C4": 129.9431,
+    "S4": 133.8093,
+    "changeS4minusA": 17.2107,
+    "relChangeS4": 0.1476
+   }
+  ],
+  "es": [
+   {
+    "metric": "bid rate",
+    "A": 0.8573,
+    "C1": 0.8822,
+    "C4": 0.946,
+    "S4": 0.9953,
+    "changeS4minusA": 0.138,
+    "relChangeS4": 0.1609
+   },
+   {
+    "metric": "price/fair",
+    "A": 1.0473,
+    "C1": 1.0926,
+    "C4": 1.1072,
+    "S4": 1.1265,
+    "changeS4minusA": 0.0792,
+    "relChangeS4": 0.0756
+   },
+   {
+    "metric": "cap/fair",
+    "A": 1.0903,
+    "C1": 1.163,
+    "C4": 1.2569,
+    "S4": 1.2807,
+    "changeS4minusA": 0.1905,
+    "relChangeS4": 0.1747
+   },
+   {
+    "metric": "stars",
+    "A": 10.0807,
+    "C1": 6.6461,
+    "C4": 4.4748,
+    "S4": 1.9113,
+    "changeS4minusA": -8.1693,
+    "relChangeS4": -0.8104
+   },
+   {
+    "metric": "marginal purchases",
+    "A": 0.6233,
+    "C1": 1.7234,
+    "C4": 3.0842,
+    "S4": 4.0273,
+    "changeS4minusA": 3.404,
+    "relChangeS4": 5.461
+   },
+   {
+    "metric": "squad size",
+    "A": 15.8207,
+    "C1": 20.286,
+    "C4": 23.0755,
+    "S4": 24.8547,
+    "changeS4minusA": 9.034,
+    "relChangeS4": 0.571
+   },
+   {
+    "metric": "purse remaining (share)",
+    "A": 0.0004,
+    "C1": 0.0048,
+    "C4": 0.1187,
+    "S4": 0.1779,
+    "changeS4minusA": 0.1774,
+    "relChangeS4": 403.5092
+   },
+   {
+    "metric": "overseas count",
+    "A": 5.758,
+    "C1": 7.4196,
+    "C4": 7.6604,
+    "S4": 8.0,
+    "changeS4minusA": 2.242,
+    "relChangeS4": 0.3894
+   },
+   {
+    "metric": "re-auction purchases",
+    "A": 0.038,
+    "C1": 0.0377,
+    "C4": 0.0252,
+    "S4": 0.0,
+    "changeS4minusA": -0.038,
+    "relChangeS4": -1.0
+   },
+   {
+    "metric": "keeper completion progress",
+    "A": 0.2135,
+    "C1": 0.6017,
+    "C4": 0.6967,
+    "S4": 0.7742,
+    "changeS4minusA": 0.5607,
+    "relChangeS4": 2.6256
+   },
+   {
+    "metric": "bowling completion progress",
+    "A": 0.0748,
+    "C1": 0.1419,
+    "C4": 0.1577,
+    "S4": 0.1778,
+    "changeS4minusA": 0.103,
+    "relChangeS4": 1.377
+   },
+   {
+    "metric": "Indian completion progress",
+    "A": 0.1132,
+    "C1": 0.2281,
+    "C4": 0.2637,
+    "S4": 0.3161,
+    "changeS4minusA": 0.2029,
+    "relChangeS4": 1.7927
+   },
+   {
+    "metric": "shield activations / episode",
+    "A": 0.226,
+    "C1": 0.5341,
+    "C4": 0.2302,
+    "S4": 0.068,
+    "changeS4minusA": -0.158,
+    "relChangeS4": -0.6991
+   },
+   {
+    "metric": "forced bids / episode",
+    "A": 0.226,
+    "C1": 0.5341,
+    "C4": 0.2302,
+    "S4": 0.068,
+    "changeS4minusA": -0.158,
+    "relChangeS4": -0.6991
+   },
+   {
+    "metric": "decisions / episode",
+    "A": 85.5433,
+    "C1": 100.0941,
+    "C4": 103.255,
+    "S4": 111.2653,
+    "changeS4minusA": 25.722,
+    "relChangeS4": 0.3007
+   }
+  ]
+ },
+ "actionDistributions": {
+  "ppo": {
+   "A": {
+    "passShare": 0.5713,
+    "topAction": 4,
+    "topActionShareOfBids": 0.2001,
+    "FV_1.25ShareOfBids": 0.0637,
+    "MAX_SAFEShareOfBids": 0.001,
+    "shares": [
+     0.5713,
+     0.0565,
+     0.0143,
+     0.021,
+     0.0858,
+     0.0135,
+     0.0296,
+     0.0226,
+     0.0193,
+     0.0452,
+     0.0366,
+     0.0268,
+     0.0273,
+     0.0031,
+     0.0163,
+     0.01,
+     0.0002,
+     0.0003,
+     0.0001,
+     0.0004
+    ]
+   },
+   "C1": {
+    "passShare": 0.5788,
+    "topAction": 4,
+    "topActionShareOfBids": 0.1849,
+    "FV_1.25ShareOfBids": 0.0651,
+    "MAX_SAFEShareOfBids": 0.0004,
+    "shares": [
+     0.5788,
+     0.0339,
+     0.0201,
+     0.0247,
+     0.0779,
+     0.0147,
+     0.0234,
+     0.0161,
+     0.0267,
+     0.0499,
+     0.0371,
+     0.0268,
+     0.0274,
+     0.01,
+     0.0211,
+     0.0095,
+     0.0008,
+     0.0005,
+     0.0004,
+     0.0002
+    ]
+   },
+   "C4": {
+    "passShare": 0.5538,
+    "topAction": 4,
+    "topActionShareOfBids": 0.1713,
+    "FV_1.25ShareOfBids": 0.0555,
+    "MAX_SAFEShareOfBids": 0.0003,
+    "shares": [
+     0.5538,
+     0.0343,
+     0.0199,
+     0.0267,
+     0.0764,
+     0.0151,
+     0.0227,
+     0.0142,
+     0.0295,
+     0.0565,
+     0.045,
+     0.0315,
+     0.0248,
+     0.0109,
+     0.0249,
+     0.011,
+     0.0011,
+     0.001,
+     0.0007,
+     0.0002
+    ]
+   },
+   "S4": {
+    "passShare": 0.5633,
+    "topAction": 4,
+    "topActionShareOfBids": 0.1691,
+    "FV_1.25ShareOfBids": 0.0489,
+    "MAX_SAFEShareOfBids": 0.0001,
+    "shares": [
+     0.5633,
+     0.0346,
+     0.0203,
+     0.0277,
+     0.0738,
+     0.0148,
+     0.0226,
+     0.0127,
+     0.0314,
+     0.0536,
+     0.0462,
+     0.0287,
+     0.0214,
+     0.0092,
+     0.0257,
+     0.011,
+     0.0015,
+     0.001,
+     0.0006,
+     0.0
+    ]
+   }
+  },
+  "a2c": {
+   "A": {
+    "passShare": 0.1747,
+    "topAction": 12,
+    "topActionShareOfBids": 0.2074,
+    "FV_1.25ShareOfBids": 0.2074,
+    "MAX_SAFEShareOfBids": 0.0,
+    "shares": [
+     0.1747,
+     0.1471,
+     0.0339,
+     0.0204,
+     0.0304,
+     0.018,
+     0.0267,
+     0.0238,
+     0.0167,
+     0.0165,
+     0.0241,
+     0.0489,
+     0.1712,
+     0.1393,
+     0.0756,
+     0.0309,
+     0.0014,
+     0.0001,
+     0.0003,
+     0.0
+    ]
+   },
+   "C1": {
+    "passShare": 0.1518,
+    "topAction": 12,
+    "topActionShareOfBids": 0.2386,
+    "FV_1.25ShareOfBids": 0.2386,
+    "MAX_SAFEShareOfBids": 0.0,
+    "shares": [
+     0.1518,
+     0.124,
+     0.0236,
+     0.0155,
+     0.0241,
+     0.0147,
+     0.0204,
+     0.02,
+     0.014,
+     0.0138,
+     0.0231,
+     0.0485,
+     0.2024,
+     0.1681,
+     0.0826,
+     0.0482,
+     0.0037,
+     0.0004,
+     0.0009,
+     0.0
+    ]
+   },
+   "C4": {
+    "passShare": 0.109,
+    "topAction": 12,
+    "topActionShareOfBids": 0.3129,
+    "FV_1.25ShareOfBids": 0.3129,
+    "MAX_SAFEShareOfBids": 0.0,
+    "shares": [
+     0.109,
+     0.0933,
+     0.0159,
+     0.011,
+     0.0199,
+     0.0116,
+     0.0181,
+     0.0184,
+     0.0137,
+     0.013,
+     0.0237,
+     0.0535,
+     0.2788,
+     0.1776,
+     0.0868,
+     0.0505,
+     0.0036,
+     0.0005,
+     0.001,
+     0.0
+    ]
+   },
+   "S4": {
+    "passShare": 0.0907,
+    "topAction": 12,
+    "topActionShareOfBids": 0.3073,
+    "FV_1.25ShareOfBids": 0.3073,
+    "MAX_SAFEShareOfBids": 0.0,
+    "shares": [
+     0.0907,
+     0.0884,
+     0.0136,
+     0.0091,
+     0.0193,
+     0.0102,
+     0.0185,
+     0.0176,
+     0.0137,
+     0.0122,
+     0.0242,
+     0.0559,
+     0.2795,
+     0.1901,
+     0.0924,
+     0.0587,
+     0.0043,
+     0.0006,
+     0.0012,
+     0.0
+    ]
+   }
+  },
+  "d3qn": {
+   "A": {
+    "passShare": 0.2691,
+    "topAction": 1,
+    "topActionShareOfBids": 0.437,
+    "FV_1.25ShareOfBids": 0.0003,
+    "MAX_SAFEShareOfBids": 0.0035,
+    "shares": [
+     0.2691,
+     0.3194,
+     0.018,
+     0.0178,
+     0.0,
+     0.0056,
+     0.0533,
+     0.0013,
+     0.0062,
+     0.0632,
+     0.0001,
+     0.0531,
+     0.0002,
+     0.0287,
+     0.1212,
+     0.0001,
+     0.0083,
+     0.0024,
+     0.0294,
+     0.0026
+    ]
+   },
+   "C1": {
+    "passShare": 0.2331,
+    "topAction": 1,
+    "topActionShareOfBids": 0.3942,
+    "FV_1.25ShareOfBids": 0.0008,
+    "MAX_SAFEShareOfBids": 0.0005,
+    "shares": [
+     0.2331,
+     0.3023,
+     0.0207,
+     0.024,
+     0.0001,
+     0.0126,
+     0.0654,
+     0.0017,
+     0.0081,
+     0.0804,
+     0.0002,
+     0.0646,
+     0.0006,
+     0.0393,
+     0.1158,
+     0.0001,
+     0.0071,
+     0.0034,
+     0.0202,
+     0.0004
+    ]
+   },
+   "C4": {
+    "passShare": 0.1903,
+    "topAction": 1,
+    "topActionShareOfBids": 0.3877,
+    "FV_1.25ShareOfBids": 0.0007,
+    "MAX_SAFEShareOfBids": 0.0005,
+    "shares": [
+     0.1903,
+     0.3139,
+     0.0192,
+     0.0238,
+     0.0001,
+     0.0199,
+     0.0707,
+     0.0013,
+     0.0092,
+     0.0802,
+     0.0002,
+     0.0696,
+     0.0005,
+     0.0387,
+     0.1314,
+     0.0001,
+     0.0073,
+     0.0035,
+     0.0195,
+     0.0004
+    ]
+   },
+   "S4": {
+    "passShare": 0.2323,
+    "topAction": 1,
+    "topActionShareOfBids": 0.3636,
+    "FV_1.25ShareOfBids": 0.0005,
+    "MAX_SAFEShareOfBids": 0.0003,
+    "shares": [
+     0.2323,
+     0.2791,
+     0.0119,
+     0.0277,
+     0.0002,
+     0.0118,
+     0.0664,
+     0.001,
+     0.0087,
+     0.101,
+     0.0002,
+     0.0633,
+     0.0004,
+     0.043,
+     0.1236,
+     0.0001,
+     0.0047,
+     0.0037,
+     0.0206,
+     0.0002
+    ]
+   }
+  },
+  "qrdqn": {
+   "A": {
+    "passShare": 0.4166,
+    "topAction": 8,
+    "topActionShareOfBids": 0.1622,
+    "FV_1.25ShareOfBids": 0.056,
+    "MAX_SAFEShareOfBids": 0.0002,
+    "shares": [
+     0.4166,
+     0.0853,
+     0.0048,
+     0.0152,
+     0.0519,
+     0.0083,
+     0.0244,
+     0.0242,
+     0.0946,
+     0.0893,
+     0.039,
+     0.0065,
+     0.0327,
+     0.0509,
+     0.0094,
+     0.0244,
+     0.0058,
+     0.0146,
+     0.002,
+     0.0001
+    ]
+   },
+   "C1": {
+    "passShare": 0.3075,
+    "topAction": 1,
+    "topActionShareOfBids": 0.1225,
+    "FV_1.25ShareOfBids": 0.0544,
+    "MAX_SAFEShareOfBids": 0.0007,
+    "shares": [
+     0.3075,
+     0.0848,
+     0.0277,
+     0.0405,
+     0.0482,
+     0.0218,
+     0.0671,
+     0.0712,
+     0.0649,
+     0.0773,
+     0.0235,
+     0.0046,
+     0.0377,
+     0.0598,
+     0.0154,
+     0.0221,
+     0.0067,
+     0.0144,
+     0.0041,
+     0.0005
+    ]
+   },
+   "C4": {
+    "passShare": 0.2605,
+    "topAction": 1,
+    "topActionShareOfBids": 0.1192,
+    "FV_1.25ShareOfBids": 0.0696,
+    "MAX_SAFEShareOfBids": 0.001,
+    "shares": [
+     0.2605,
+     0.0882,
+     0.034,
+     0.0346,
+     0.0548,
+     0.034,
+     0.0603,
+     0.082,
+     0.0611,
+     0.0649,
+     0.026,
+     0.0058,
+     0.0514,
+     0.0647,
+     0.0197,
+     0.0278,
+     0.0104,
+     0.0141,
+     0.0051,
+     0.0007
+    ]
+   },
+   "S4": {
+    "passShare": 0.2232,
+    "topAction": 1,
+    "topActionShareOfBids": 0.1307,
+    "FV_1.25ShareOfBids": 0.0744,
+    "MAX_SAFEShareOfBids": 0.0008,
+    "shares": [
+     0.2232,
+     0.1015,
+     0.0505,
+     0.0464,
+     0.04,
+     0.0331,
+     0.0655,
+     0.0857,
+     0.0591,
+     0.0491,
+     0.024,
+     0.0034,
+     0.0578,
+     0.0756,
+     0.0219,
+     0.027,
+     0.0101,
+     0.0161,
+     0.0093,
+     0.0006
+    ]
+   }
+  },
+  "es": {
+   "A": {
+    "passShare": 0.1991,
+    "topAction": 12,
+    "topActionShareOfBids": 0.6209,
+    "FV_1.25ShareOfBids": 0.6209,
+    "MAX_SAFEShareOfBids": 0.0001,
+    "shares": [
+     0.1991,
+     0.0814,
+     0.0091,
+     0.0281,
+     0.0155,
+     0.031,
+     0.0094,
+     0.0123,
+     0.0028,
+     0.0003,
+     0.0108,
+     0.0017,
+     0.4973,
+     0.0962,
+     0.0012,
+     0.0001,
+     0.0017,
+     0.0013,
+     0.0007,
+     0.0001
+    ]
+   },
+   "C1": {
+    "passShare": 0.1647,
+    "topAction": 12,
+    "topActionShareOfBids": 0.7224,
+    "FV_1.25ShareOfBids": 0.7224,
+    "MAX_SAFEShareOfBids": 0.0001,
+    "shares": [
+     0.1647,
+     0.0625,
+     0.0048,
+     0.0119,
+     0.0049,
+     0.021,
+     0.005,
+     0.0044,
+     0.0028,
+     0.0007,
+     0.0077,
+     0.001,
+     0.6034,
+     0.0982,
+     0.0014,
+     0.0001,
+     0.0036,
+     0.0017,
+     0.0004,
+     0.0001
+    ]
+   },
+   "C4": {
+    "passShare": 0.0657,
+    "topAction": 12,
+    "topActionShareOfBids": 0.8056,
+    "FV_1.25ShareOfBids": 0.8056,
+    "MAX_SAFEShareOfBids": 0.0002,
+    "shares": [
+     0.0657,
+     0.0309,
+     0.0018,
+     0.004,
+     0.0018,
+     0.0057,
+     0.0018,
+     0.0014,
+     0.0013,
+     0.0003,
+     0.0036,
+     0.0006,
+     0.7526,
+     0.1199,
+     0.0012,
+     0.0,
+     0.0037,
+     0.0028,
+     0.0009,
+     0.0002
+    ]
+   },
+   "S4": {
+    "passShare": 0.0047,
+    "topAction": 12,
+    "topActionShareOfBids": 0.8583,
+    "FV_1.25ShareOfBids": 0.8583,
+    "MAX_SAFEShareOfBids": 0.0002,
+    "shares": [
+     0.0047,
+     0.0153,
+     0.0001,
+     0.0001,
+     0.0008,
+     0.0025,
+     0.0008,
+     0.0003,
+     0.0002,
+     0.0002,
+     0.0015,
+     0.0002,
+     0.8543,
+     0.1094,
+     0.0012,
+     0.0,
+     0.0042,
+     0.0037,
+     0.0002,
+     0.0002
+    ]
+   }
+  }
+ },
+ "sameLotAdaptation": {
+  "C1": {
+   "ppo": {
+    "pairedLots": 287116,
+    "meanDeltaCapFair": 0.1105,
+    "identicalCapShare": 0.596,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 51017,
+     "meanDeltaCapFair": -0.0042,
+     "identicalCapShare": 0.7812
+    },
+    "differentPurse": {
+     "lots": 236099,
+     "meanDeltaCapFair": 0.1353
+    },
+    "corrDeltaCapWithDeltaPurse": 0.3015811245561566
+   },
+   "a2c": {
+    "pairedLots": 146373,
+    "meanDeltaCapFair": 0.1768,
+    "identicalCapShare": 0.5125,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 60230,
+     "meanDeltaCapFair": 0.0487,
+     "identicalCapShare": 0.573
+    },
+    "differentPurse": {
+     "lots": 86143,
+     "meanDeltaCapFair": 0.2664
+    },
+    "corrDeltaCapWithDeltaPurse": 0.4342135325755752
+   },
+   "d3qn": {
+    "pairedLots": 137882,
+    "meanDeltaCapFair": 0.0502,
+    "identicalCapShare": 0.6494,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 87972,
+     "meanDeltaCapFair": 0.0459,
+     "identicalCapShare": 0.7033
+    },
+    "differentPurse": {
+     "lots": 49910,
+     "meanDeltaCapFair": 0.0577
+    },
+    "corrDeltaCapWithDeltaPurse": 0.2460295513230506
+   },
+   "qrdqn": {
+    "pairedLots": 220569,
+    "meanDeltaCapFair": 0.0833,
+    "identicalCapShare": 0.5533,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 139420,
+     "meanDeltaCapFair": 0.0586,
+     "identicalCapShare": 0.6823
+    },
+    "differentPurse": {
+     "lots": 81149,
+     "meanDeltaCapFair": 0.1257
+    },
+    "corrDeltaCapWithDeltaPurse": 0.2831420137104491
+   },
+   "es": {
+    "pairedLots": 135020,
+    "meanDeltaCapFair": 0.1089,
+    "identicalCapShare": 0.6662,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 58795,
+     "meanDeltaCapFair": 0.0483,
+     "identicalCapShare": 0.6411
+    },
+    "differentPurse": {
+     "lots": 76225,
+     "meanDeltaCapFair": 0.1557
+    },
+    "corrDeltaCapWithDeltaPurse": 0.28558553598580616
+   }
+  },
+  "C4": {
+   "ppo": {
+    "pairedLots": 293602,
+    "meanDeltaCapFair": 0.217,
+    "identicalCapShare": 0.4539,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 32904,
+     "meanDeltaCapFair": 0.0023,
+     "identicalCapShare": 0.861
+    },
+    "differentPurse": {
+     "lots": 260698,
+     "meanDeltaCapFair": 0.2441
+    },
+    "corrDeltaCapWithDeltaPurse": 0.4169884116207537
+   },
+   "a2c": {
+    "pairedLots": 141013,
+    "meanDeltaCapFair": 0.2512,
+    "identicalCapShare": 0.475,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 33855,
+     "meanDeltaCapFair": 0.0057,
+     "identicalCapShare": 0.6697
+    },
+    "differentPurse": {
+     "lots": 107158,
+     "meanDeltaCapFair": 0.3288
+    },
+    "corrDeltaCapWithDeltaPurse": 0.44393354400392065
+   },
+   "d3qn": {
+    "pairedLots": 135821,
+    "meanDeltaCapFair": 0.0914,
+    "identicalCapShare": 0.5721,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 69909,
+     "meanDeltaCapFair": 0.0837,
+     "identicalCapShare": 0.6578
+    },
+    "differentPurse": {
+     "lots": 65912,
+     "meanDeltaCapFair": 0.0995
+    },
+    "corrDeltaCapWithDeltaPurse": 0.23697804494257185
+   },
+   "qrdqn": {
+    "pairedLots": 208011,
+    "meanDeltaCapFair": 0.1155,
+    "identicalCapShare": 0.4741,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 106628,
+     "meanDeltaCapFair": 0.0633,
+     "identicalCapShare": 0.6725
+    },
+    "differentPurse": {
+     "lots": 101383,
+     "meanDeltaCapFair": 0.1703
+    },
+    "corrDeltaCapWithDeltaPurse": 0.29911804652449653
+   },
+   "es": {
+    "pairedLots": 125411,
+    "meanDeltaCapFair": 0.1656,
+    "identicalCapShare": 0.6312,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 27879,
+     "meanDeltaCapFair": -0.0207,
+     "identicalCapShare": 0.6924
+    },
+    "differentPurse": {
+     "lots": 97532,
+     "meanDeltaCapFair": 0.2189
+    },
+    "corrDeltaCapWithDeltaPurse": 0.3050152601152367
+   }
+  },
+  "S4": {
+   "ppo": {
+    "pairedLots": 231945,
+    "meanDeltaCapFair": 0.1203,
+    "identicalCapShare": 0.5872,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 32177,
+     "meanDeltaCapFair": -0.0225,
+     "identicalCapShare": 0.8025
+    },
+    "differentPurse": {
+     "lots": 199768,
+     "meanDeltaCapFair": 0.1433
+    },
+    "corrDeltaCapWithDeltaPurse": 0.25836795074425234
+   },
+   "a2c": {
+    "pairedLots": 100124,
+    "meanDeltaCapFair": 0.3151,
+    "identicalCapShare": 0.456,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 22998,
+     "meanDeltaCapFair": 0.114,
+     "identicalCapShare": 0.6178
+    },
+    "differentPurse": {
+     "lots": 77126,
+     "meanDeltaCapFair": 0.3751
+    },
+    "corrDeltaCapWithDeltaPurse": 0.32871096940703676
+   },
+   "d3qn": {
+    "pairedLots": 115295,
+    "meanDeltaCapFair": 0.0674,
+    "identicalCapShare": 0.672,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 49492,
+     "meanDeltaCapFair": 0.052,
+     "identicalCapShare": 0.7098
+    },
+    "differentPurse": {
+     "lots": 65803,
+     "meanDeltaCapFair": 0.0789
+    },
+    "corrDeltaCapWithDeltaPurse": 0.11910440539899646
+   },
+   "qrdqn": {
+    "pairedLots": 146128,
+    "meanDeltaCapFair": 0.1585,
+    "identicalCapShare": 0.3362,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 58652,
+     "meanDeltaCapFair": 0.0844,
+     "identicalCapShare": 0.5007
+    },
+    "differentPurse": {
+     "lots": 87476,
+     "meanDeltaCapFair": 0.2082
+    },
+    "corrDeltaCapWithDeltaPurse": 0.2060066318236897
+   },
+   "es": {
+    "pairedLots": 106504,
+    "meanDeltaCapFair": 0.2665,
+    "identicalCapShare": 0.6561,
+    "similarPurse(|\u0394purse share|<0.05)": {
+     "lots": 10681,
+     "meanDeltaCapFair": 0.0119,
+     "identicalCapShare": 0.9513
+    },
+    "differentPurse": {
+     "lots": 95823,
+     "meanDeltaCapFair": 0.2949
+    },
+    "corrDeltaCapWithDeltaPurse": 0.039982088669287444
+   }
+  }
+ },
+ "note": "sameLotAdaptation pairs the learner's decision on the SAME player in the SAME auction entry between the Stage-A control and the Stage-B room (main round, lots decided in both). With a similar own purse share, an unchanged cap indicates the policy's offer is insensitive to the new opponents; a changed cap indicates a response to other state features (opponent-related observation features, squad/needs)."
+}

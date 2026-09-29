@@ -1,0 +1,160 @@
+{
+ "labels": {
+  "YES": "sufficient evidence of observability",
+  "PARTIAL": "some relevant information exists",
+  "NO": "relevant information is absent",
+  "UNKNOWN": "data insufficient"
+ },
+ "note": "No numeric scores, no ranking. Mechanism rows map category A/B → YES, C → PARTIAL, D → NO.",
+ "scorecard": [
+  {
+   "problem": "Loss of early star contests",
+   "observable": "PARTIAL",
+   "confidence": "high",
+   "evidence": "First learner decision bit-identical to Stage A in every Stage-B episode (7,200 C4 episodes; divergence at lot 1–2 of 323). Room-level separation < 0.5 before ~5% of the main round, ≥ 0.9 from 5–10% (riv_purse_min). 24% of stars are sold in lots 1–16. Early star price/fair: Stage A 1.153, C4 1.465, S4 1.451. Lot-level price needed tracked at best |ρ| 0.26.",
+   "missingInformation": "any signal of the opponents' bidding propensity before sales reveal it; per-lot competing-bid strength beyond pooled aggregates (the three capacity features are saturated)"
+  },
+  {
+   "problem": "Bids change with purse rather than opponent behaviour",
+   "observable": "YES",
+   "confidence": "medium",
+   "evidence": "Room-level opponent pressure is encoded after the first ~5–10% of lots (separation 0.99 / 0.95 / 0.95 for riv_purse_min / _std / _mean at 10–20%). The frozen caps move with the own purse (C4 same-lot Spearman ΔCap~ΔownPurse 0.07–0.38) and barely with the recent price ratio (-0.15 to +0.15). 58% of learner observations in C4 D3QN/QR-DQN rooms have an opponent-direct feature outside the Stage-A 0.5–99.5% range.",
+   "missingInformation": "nothing structural at room level; lot-level competition is only weakly encoded (see early stars)"
+  },
+  {
+   "problem": "Pressure from multiple aggressive RL opponents",
+   "observable": "PARTIAL",
+   "confidence": "medium",
+   "evidence": "RL rivals bidding on the lot tracked at best |ρ| 0.25. 5% of same-lot C1/C4 pairs with ≥ 2 more RL bidders have all rival + window features within 0.02. Rival features are symmetric aggregates (max/mean/min/std, top-3 capacities clipped at 5 in 97%+ of decisions).",
+   "missingInformation": "count / identity of aggressive rivals; per-rival purse and recent spend; buyer identity in the 20-lot window"
+  },
+  {
+   "problem": "Squad / overseas slots filling while purse remains",
+   "observable": "YES",
+   "confidence": "high",
+   "evidence": "Own squad slots, overseas slots, purse, bench, XI state and remaining upgrades are direct features (self_slots_left, self_overseas_slots_left, self_purse, self_bench, self_xi_*, self_upgrades_left).",
+   "missingInformation": "rivals' overseas / squad-slot counts (not needed to see the own-state problem)"
+  },
+  {
+   "problem": "Wicketkeeper completion failures when rivals stockpile keepers",
+   "observable": "PARTIAL",
+   "confidence": "medium",
+   "evidence": "M1 (14 cases): all 299 passes were on affordable keepers that filled the own need (203 of them went unsold); planner status NEED visible; shield keeper state SAFE in 80% of decisions. Observed keeper features at the dangerous decisions were typical of matched safe decisions (median percentiles 0.24–0.56); the nearest safe decision is within 0.05 in the keeper sub-space for only 12%. Holdings are 91% inferable; non-needing demand is not encoded (lost forced bids: 0.34 needing vs 5.0 non-needing able rivals). M2 (6 cases): purse / overseas exhaustion is directly visible.",
+   "missingInformation": "willingness / capacity of rivals that do NOT need a keeper to buy one; per-rival keeper holdings; which rival bought recent keepers"
+  },
+  {
+   "problem": "Later requirement completion and greater shield dependence",
+   "observable": "PARTIAL",
+   "confidence": "medium",
+   "evidence": "Own needs, statuses, supply and final-opportunity flags are direct; forced keeper bids are separable from other keeper-need decisions by self_purse (0.85) and mkt_scarcity_keeper. Rival demand for bowling / Indians is effectively invisible (scarcity features clipped at 5 in 100% of decisions); the shield's contestant count and non-needing demand are not encoded.",
+   "missingInformation": "competition for requirement players from rivals that do not need them; unsaturated bowling / Indian scarcity"
+  },
+  {
+   "problem": "Seed-specific weaknesses",
+   "observable": "UNKNOWN",
+   "confidence": "low",
+   "evidence": "All three training seeds of an algorithm receive the identical 80-feature observation; seed differences are differences in learned behaviour, which this data cannot attribute to information content.",
+   "missingInformation": "not an observation question on the available data"
+  }
+ ],
+ "mechanisms": [
+  {
+   "mechanism": "Early star competition",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "weak — best within-progress |ρ| with the price needed to win on early star lots 0.26 (mkt_recent_price_ratio); riv_capacity_1–3 sit at the clip value 5 in 100% of decisions before 30% progress",
+   "missing": "the lot and the rivals' purses are visible, but the component that decides the contest — how aggressively these opponents bid — is invisible before any sale and only weakly reflected lot by lot afterwards"
+  },
+  {
+   "mechanism": "Opponent aggressiveness",
+   "category": "B",
+   "observable": "YES",
+   "quality": "room level strong: C4 D3QN/QR-DQN rooms vs Stage A separation 0.99 (riv_purse_min) / 0.95 (riv_purse_std) at 10–20% progress; lot level moderate at best (within-progress |ρ| 0.35, paired Δ-tracking ≤ 0.39)",
+   "missing": "not a single feature, but the combination of rival-purse statistics and the window separates aggressive rooms from Stage-A rooms almost perfectly after the early lots"
+  },
+  {
+   "mechanism": "Multiple aggressive opponents",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "weak — number of RL rivals bidding tracked at best |ρ| 0.25; C1 vs C4 separation ≤ 0.30 (riv_purse_std) in the first 20%; 5% of C1/C4 pairs with ≥ 2 more RL bidders have all 17 rival/window features within 0.02",
+   "missing": "the observation carries max/mean/min/std of purses and the top-3 capacities (saturated), never a count or identity of aggressive rivals"
+  },
+  {
+   "mechanism": "Rival purse pressure",
+   "category": "A",
+   "observable": "YES",
+   "quality": "strong for the summaries (mean rival purse ρ = 1.00; 0 of 69,820,347 pairs with a ≥ 0.10 purse gap are aliased); the purse-minus-completion-cost capacities are clipped at 5 in 99% / 97% of decisions (riv_capacity_1 / _3)",
+   "missing": "directly encoded; only the per-rival distribution beyond four statistics and the (saturated) capacities is lost"
+  },
+  {
+   "mechanism": "Rival role demand",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "keeper demand strong (riv_fills_share ρ 0.78 on keeper lots); bowling / Indian demand effectively invisible: mkt_scarcity_bowling / _indians sit at the clip value 5 in 100% / 100% of decisions; riv_fills_share pools keeper, bowling, Indians and squad-count needs",
+   "missing": "visible for keepers, saturated / pooled for the other requirements"
+  },
+  {
+   "mechanism": "Rival keeper demand",
+   "category": "B",
+   "observable": "YES",
+   "quality": "strong (mkt_scarcity_keeper ρ -0.69; between-cell share of 'rivals needing a keeper' 0.999)",
+   "missing": "recoverable from scarcity × supply × own need"
+  },
+  {
+   "mechanism": "Rival keeper stockpiling",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "holdings level largely inferable: 91% (max held by one rival), 94% (rivals holding ≥ 2) and 90% (non-needing rivals able to buy) of the variance lies between cells of the observed keeper features; the WILLINGNESS of non-needing rivals to buy is not encoded anywhere (the planner, the shield and the observation count only rivals that NEED a keeper) — at the M1 forced bids that were lost, 0.34 rivals needed a keeper on average vs 5.0 non-needing rivals able to buy",
+   "missing": "how many keepers rivals hold is largely inferable; whether non-needing rivals will contest the remaining keepers is not observable"
+  },
+  {
+   "mechanism": "Overseas competition",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "own strong (direct); rival overseas slot counts absent; overseas lots are identified (lot_is_overseas / mkt_overseas_contested within-progress ρ with the price needed -0.31 / -0.31)",
+   "missing": "own overseas state is direct; rivals' overseas capacity is not encoded"
+  },
+  {
+   "mechanism": "Squad-slot competition",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "own strong; rival slot counts reduced to one binary-per-rival share",
+   "missing": "own slot state is direct (A); rivals' slot state is coarsened to 'any slot left'"
+  },
+  {
+   "mechanism": "Price inflation",
+   "category": "A",
+   "observable": "YES",
+   "quality": "recent inflation is literally encoded; it tracks the price needed on the current lot moderately (ρ 0.35); realised FUTURE star prices differ by room type (between-room share 0.26) but the best single feature tracks them at |ρ| 0.28",
+   "missing": "recent price/fair is an explicit feature; its horizon (20 lots, pooled) limits it as a forecast"
+  },
+  {
+   "mechanism": "Requirement timing",
+   "category": "A",
+   "observable": "YES",
+   "quality": "strong (own needs, planner statuses and supply are exact)",
+   "missing": "own requirement state and remaining supply are encoded directly"
+  },
+  {
+   "mechanism": "Purse depletion",
+   "category": "A",
+   "observable": "YES",
+   "quality": "strong (self_purse ρ 1.00); self_max_safe_fv clipped at 5 in 56% of decisions (only while the purse is large)",
+   "missing": "encoded directly"
+  },
+  {
+   "mechanism": "Re-auction pressure",
+   "category": "B",
+   "observable": "YES",
+   "quality": "returning supply exact; competitor capacity coarse",
+   "missing": "the returning pool is explicit; who will compete for it is inferable only from aggregates"
+  },
+  {
+   "mechanism": "Final-path risk",
+   "category": "C",
+   "observable": "PARTIAL",
+   "quality": "forced keeper bids are well separated from other keeper-need decisions by single features (self_purse separation 0.85, mkt_scarcity_keeper 0.81); the rivals who won the lost forced bids mostly did not need a keeper (see stockpiling)",
+   "missing": "the approach to the final path is observable; the risk that forced bids fail is not"
+  }
+ ]
+}

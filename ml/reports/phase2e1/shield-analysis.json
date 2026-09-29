@@ -1,0 +1,532 @@
+{
+ "byAlgorithm": {
+  "ppo": {
+   "A": {
+    "episodes": 1500,
+    "decisions": 238159,
+    "activationRatePerDecision": 0.0,
+    "forcedPerEpisode": 0.0,
+    "episodesWithForcedBid": 0.0,
+    "keeperForcedPerEpisode": 0.0,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 0,
+    "forcedLost": 0,
+    "forcedWinRate": null,
+    "stateShare": {
+     "SAFE": 1.0,
+     "WARNING": 0.0,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 0.0,
+    "episodesWithAnyNonSafeState": 0.0
+   },
+   "C1": {
+    "episodes": 18000,
+    "decisions": 3853987,
+    "activationRatePerDecision": 0.0,
+    "forcedPerEpisode": 0.0019,
+    "episodesWithForcedBid": 0.0014,
+    "keeperForcedPerEpisode": 0.0007,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 26,
+    "forcedLost": 8,
+    "forcedWinRate": 0.7647,
+    "stateShare": {
+     "SAFE": 1.0,
+     "WARNING": 0.0,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 0.1667,
+    "episodesWithAnyNonSafeState": 0.0001
+   },
+   "C4": {
+    "episodes": 18000,
+    "decisions": 4426870,
+    "activationRatePerDecision": 0.0,
+    "forcedPerEpisode": 0.0048,
+    "episodesWithForcedBid": 0.0026,
+    "keeperForcedPerEpisode": 0.0027,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 48,
+    "forcedLost": 39,
+    "forcedWinRate": 0.5517,
+    "stateShare": {
+     "SAFE": 1.0,
+     "WARNING": 0.0,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 0.4722,
+    "episodesWithAnyNonSafeState": 0.0007
+   },
+   "S4": {
+    "episodes": 1500,
+    "decisions": 387788,
+    "activationRatePerDecision": 0.0,
+    "forcedPerEpisode": 0.0013,
+    "episodesWithForcedBid": 0.0013,
+    "keeperForcedPerEpisode": 0.0,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 2,
+    "forcedLost": 0,
+    "forcedWinRate": 1.0,
+    "stateShare": {
+     "SAFE": 1.0,
+     "WARNING": 0.0,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 0.0,
+    "episodesWithAnyNonSafeState": 0.0007
+   }
+  },
+  "a2c": {
+   "A": {
+    "episodes": 1500,
+    "decisions": 111947,
+    "activationRatePerDecision": 0.0033,
+    "forcedPerEpisode": 0.25,
+    "episodesWithForcedBid": 0.1147,
+    "keeperForcedPerEpisode": 0.25,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 172,
+    "forcedLost": 203,
+    "forcedWinRate": 0.4587,
+    "stateShare": {
+     "SAFE": 0.9987,
+     "WARNING": 0.0012,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 57.3333,
+    "episodesWithAnyNonSafeState": 0.056
+   },
+   "C1": {
+    "episodes": 18000,
+    "decisions": 1597854,
+    "activationRatePerDecision": 0.008,
+    "forcedPerEpisode": 0.7072,
+    "episodesWithForcedBid": 0.3145,
+    "keeperForcedPerEpisode": 0.6929,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 5691,
+    "forcedLost": 7039,
+    "forcedWinRate": 0.4471,
+    "stateShare": {
+     "SAFE": 0.9973,
+     "WARNING": 0.0026,
+     "CRITICAL": 0.0002,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 156.25,
+    "episodesWithAnyNonSafeState": 0.1462
+   },
+   "C4": {
+    "episodes": 18000,
+    "decisions": 1687146,
+    "activationRatePerDecision": 0.0054,
+    "forcedPerEpisode": 0.5088,
+    "episodesWithForcedBid": 0.2041,
+    "keeperForcedPerEpisode": 0.4951,
+    "finalPathForcedTotal": 8,
+    "finalPathWon": 5,
+    "forcedWon": 3701,
+    "forcedLost": 5458,
+    "forcedWinRate": 0.4041,
+    "stateShare": {
+     "SAFE": 0.9973,
+     "WARNING": 0.0026,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 7,
+    "keeperClosedByForcedBidPer500": 100.6944,
+    "episodesWithAnyNonSafeState": 0.1161
+   },
+   "S4": {
+    "episodes": 1500,
+    "decisions": 156155,
+    "activationRatePerDecision": 0.0054,
+    "forcedPerEpisode": 0.5613,
+    "episodesWithForcedBid": 0.228,
+    "keeperForcedPerEpisode": 0.5613,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 342,
+    "forcedLost": 500,
+    "forcedWinRate": 0.4062,
+    "stateShare": {
+     "SAFE": 0.9975,
+     "WARNING": 0.0024,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 114.0,
+    "episodesWithAnyNonSafeState": 0.1327
+   }
+  },
+  "d3qn": {
+   "A": {
+    "episodes": 1500,
+    "decisions": 137321,
+    "activationRatePerDecision": 0.0002,
+    "forcedPerEpisode": 0.0147,
+    "episodesWithForcedBid": 0.01,
+    "keeperForcedPerEpisode": 0.0133,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 15,
+    "forcedLost": 7,
+    "forcedWinRate": 0.6818,
+    "stateShare": {
+     "SAFE": 0.9998,
+     "WARNING": 0.0002,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 3,
+    "keeperClosedByForcedBidPer500": 5.0,
+    "episodesWithAnyNonSafeState": 0.0047
+   },
+   "C1": {
+    "episodes": 18000,
+    "decisions": 1816800,
+    "activationRatePerDecision": 0.0012,
+    "forcedPerEpisode": 0.1161,
+    "episodesWithForcedBid": 0.0502,
+    "keeperForcedPerEpisode": 0.0928,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 936,
+    "forcedLost": 1154,
+    "forcedWinRate": 0.4478,
+    "stateShare": {
+     "SAFE": 0.9994,
+     "WARNING": 0.0005,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 58,
+    "keeperClosedByForcedBidPer500": 22.5278,
+    "episodesWithAnyNonSafeState": 0.0231
+   },
+   "C4": {
+    "episodes": 18000,
+    "decisions": 1995997,
+    "activationRatePerDecision": 0.0017,
+    "forcedPerEpisode": 0.1859,
+    "episodesWithForcedBid": 0.0723,
+    "keeperForcedPerEpisode": 0.1553,
+    "finalPathForcedTotal": 3,
+    "finalPathWon": 3,
+    "forcedWon": 1361,
+    "forcedLost": 1986,
+    "forcedWinRate": 0.4066,
+    "stateShare": {
+     "SAFE": 0.9984,
+     "WARNING": 0.0015,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 114,
+    "keeperClosedByForcedBidPer500": 32.7778,
+    "episodesWithAnyNonSafeState": 0.0455
+   },
+   "S4": {
+    "episodes": 1500,
+    "decisions": 189362,
+    "activationRatePerDecision": 0.0034,
+    "forcedPerEpisode": 0.4293,
+    "episodesWithForcedBid": 0.168,
+    "keeperForcedPerEpisode": 0.3373,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 273,
+    "forcedLost": 371,
+    "forcedWinRate": 0.4239,
+    "stateShare": {
+     "SAFE": 0.9966,
+     "WARNING": 0.0033,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 24,
+    "keeperClosedByForcedBidPer500": 80.6667,
+    "episodesWithAnyNonSafeState": 0.1053
+   }
+  },
+  "qrdqn": {
+   "A": {
+    "episodes": 1500,
+    "decisions": 174898,
+    "activationRatePerDecision": 0.0003,
+    "forcedPerEpisode": 0.0353,
+    "episodesWithForcedBid": 0.0193,
+    "keeperForcedPerEpisode": 0.034,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 29,
+    "forcedLost": 24,
+    "forcedWinRate": 0.5472,
+    "stateShare": {
+     "SAFE": 0.9995,
+     "WARNING": 0.0005,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 7,
+    "keeperClosedByForcedBidPer500": 9.6667,
+    "episodesWithAnyNonSafeState": 0.0133
+   },
+   "C1": {
+    "episodes": 18000,
+    "decisions": 2247099,
+    "activationRatePerDecision": 0.0009,
+    "forcedPerEpisode": 0.1086,
+    "episodesWithForcedBid": 0.0498,
+    "keeperForcedPerEpisode": 0.0841,
+    "finalPathForcedTotal": 3,
+    "finalPathWon": 3,
+    "forcedWon": 940,
+    "forcedLost": 1015,
+    "forcedWinRate": 0.4808,
+    "stateShare": {
+     "SAFE": 0.9992,
+     "WARNING": 0.0007,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 183,
+    "keeperClosedByForcedBidPer500": 22.3611,
+    "episodesWithAnyNonSafeState": 0.0308
+   },
+   "C4": {
+    "episodes": 18000,
+    "decisions": 2338976,
+    "activationRatePerDecision": 0.0012,
+    "forcedPerEpisode": 0.1622,
+    "episodesWithForcedBid": 0.0702,
+    "keeperForcedPerEpisode": 0.1396,
+    "finalPathForcedTotal": 12,
+    "finalPathWon": 8,
+    "forcedWon": 1292,
+    "forcedLost": 1628,
+    "forcedWinRate": 0.4425,
+    "stateShare": {
+     "SAFE": 0.9984,
+     "WARNING": 0.0014,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 258,
+    "keeperClosedByForcedBidPer500": 32.5278,
+    "episodesWithAnyNonSafeState": 0.0484
+   },
+   "S4": {
+    "episodes": 1500,
+    "decisions": 200714,
+    "activationRatePerDecision": 0.0021,
+    "forcedPerEpisode": 0.2867,
+    "episodesWithForcedBid": 0.1027,
+    "keeperForcedPerEpisode": 0.1933,
+    "finalPathForcedTotal": 1,
+    "finalPathWon": 1,
+    "forcedWon": 160,
+    "forcedLost": 270,
+    "forcedWinRate": 0.3721,
+    "stateShare": {
+     "SAFE": 0.9982,
+     "WARNING": 0.0017,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 16,
+    "keeperClosedByForcedBidPer500": 43.3333,
+    "episodesWithAnyNonSafeState": 0.0633
+   }
+  },
+  "es": {
+   "A": {
+    "episodes": 1500,
+    "decisions": 128315,
+    "activationRatePerDecision": 0.0026,
+    "forcedPerEpisode": 0.226,
+    "episodesWithForcedBid": 0.1067,
+    "keeperForcedPerEpisode": 0.226,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 160,
+    "forcedLost": 179,
+    "forcedWinRate": 0.472,
+    "stateShare": {
+     "SAFE": 0.9991,
+     "WARNING": 0.0009,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 53.3333,
+    "episodesWithAnyNonSafeState": 0.0513
+   },
+   "C1": {
+    "episodes": 18000,
+    "decisions": 1801693,
+    "activationRatePerDecision": 0.0053,
+    "forcedPerEpisode": 0.5341,
+    "episodesWithForcedBid": 0.2347,
+    "keeperForcedPerEpisode": 0.5228,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 4262,
+    "forcedLost": 5351,
+    "forcedWinRate": 0.4434,
+    "stateShare": {
+     "SAFE": 0.998,
+     "WARNING": 0.0018,
+     "CRITICAL": 0.0001,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 1,
+    "keeperClosedByForcedBidPer500": 117.0278,
+    "episodesWithAnyNonSafeState": 0.1146
+   },
+   "C4": {
+    "episodes": 18000,
+    "decisions": 1858590,
+    "activationRatePerDecision": 0.0022,
+    "forcedPerEpisode": 0.2302,
+    "episodesWithForcedBid": 0.1017,
+    "keeperForcedPerEpisode": 0.224,
+    "finalPathForcedTotal": 4,
+    "finalPathWon": 1,
+    "forcedWon": 1853,
+    "forcedLost": 2291,
+    "forcedWinRate": 0.4472,
+    "stateShare": {
+     "SAFE": 0.9989,
+     "WARNING": 0.001,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 3,
+    "keeperClosedByForcedBidPer500": 50.4167,
+    "episodesWithAnyNonSafeState": 0.056
+   },
+   "S4": {
+    "episodes": 1500,
+    "decisions": 166898,
+    "activationRatePerDecision": 0.0006,
+    "forcedPerEpisode": 0.068,
+    "episodesWithForcedBid": 0.0273,
+    "keeperForcedPerEpisode": 0.068,
+    "finalPathForcedTotal": 0,
+    "finalPathWon": 0,
+    "forcedWon": 41,
+    "forcedLost": 61,
+    "forcedWinRate": 0.402,
+    "stateShare": {
+     "SAFE": 0.9998,
+     "WARNING": 0.0002,
+     "CRITICAL": 0.0,
+     "IMPOSSIBLE": 0.0
+    },
+    "reauctionForced": 0,
+    "keeperClosedByForcedBidPer500": 13.6667,
+    "episodesWithAnyNonSafeState": 0.014
+   }
+  }
+ },
+ "finalPathForcedBids": {
+  "StageA": 0,
+  "StageB": 31,
+  "byCell": [
+   {
+    "cond": "C1",
+    "learner": "qrdqn",
+    "opponent": "ppo",
+    "finalPathForcedBids": 1,
+    "won": 1,
+    "episodes": 1
+   },
+   {
+    "cond": "C1",
+    "learner": "qrdqn",
+    "opponent": "es",
+    "finalPathForcedBids": 2,
+    "won": 2,
+    "episodes": 2
+   },
+   {
+    "cond": "C4",
+    "learner": "a2c",
+    "opponent": "ppo",
+    "finalPathForcedBids": 8,
+    "won": 5,
+    "episodes": 8
+   },
+   {
+    "cond": "C4",
+    "learner": "d3qn",
+    "opponent": "ppo",
+    "finalPathForcedBids": 2,
+    "won": 2,
+    "episodes": 2
+   },
+   {
+    "cond": "C4",
+    "learner": "d3qn",
+    "opponent": "qrdqn",
+    "finalPathForcedBids": 1,
+    "won": 1,
+    "episodes": 1
+   },
+   {
+    "cond": "C4",
+    "learner": "qrdqn",
+    "opponent": "ppo",
+    "finalPathForcedBids": 9,
+    "won": 5,
+    "episodes": 9
+   },
+   {
+    "cond": "C4",
+    "learner": "qrdqn",
+    "opponent": "d3qn",
+    "finalPathForcedBids": 3,
+    "won": 3,
+    "episodes": 3
+   },
+   {
+    "cond": "C4",
+    "learner": "es",
+    "opponent": "ppo",
+    "finalPathForcedBids": 4,
+    "won": 1,
+    "episodes": 4
+   },
+   {
+    "cond": "S4",
+    "learner": "qrdqn",
+    "opponent": "S4 room",
+    "finalPathForcedBids": 1,
+    "won": 1,
+    "episodes": 1
+   }
+  ]
+ }
+}

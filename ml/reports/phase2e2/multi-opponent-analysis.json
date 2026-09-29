@@ -1,0 +1,495 @@
+{
+ "meta": {
+  "phase": "2E.2",
+  "source": "digest-verified read-only replays of recorded Phase 2E.0 episodes (replay_obs.mjs); no model trained, fitted or modified",
+  "rows": 2659482,
+  "learnerRows": 2186930,
+  "opponentRows": 472552,
+  "episodes": 15600,
+  "entries": [
+   25,
+   27,
+   34,
+   36,
+   77,
+   95,
+   123,
+   132,
+   139,
+   142,
+   172,
+   180,
+   184,
+   185,
+   224,
+   235,
+   244,
+   245,
+   253,
+   262,
+   275,
+   278,
+   285,
+   302,
+   308,
+   316,
+   342,
+   368,
+   376,
+   378,
+   419,
+   424,
+   431,
+   433,
+   445,
+   446,
+   457,
+   463,
+   465,
+   490
+  ],
+  "thresholds": {
+   "aliasTight": 0.02,
+   "aliasLoose": 0.05,
+   "featureDiffers": 0.01,
+   "materialPrice": 0.5,
+   "materialKeeperStock": 2,
+   "materialNoNeedBuyers": 3,
+   "similarState": "|Δ own purse share| ≤ 0.05, |Δ squad| ≤ 1, |Δ overseas| ≤ 1, same keeper need",
+   "capHidden": 5.0,
+   "spearmanStrong": 0.5,
+   "spearmanWeak": 0.2
+  }
+ },
+ "definition": "Same learner, same opponent export, same entry, same lot: one copy (C1) vs four copies (C4). Rival block = the 14 riv_* features + the 3 window features.",
+ "pairs": 837067,
+ "similarStatePairs": 195678,
+ "similarState_rivalBlockLeTight": 0.047,
+ "rlBiddersDiffer2plus": 169090,
+ "rlBiddersDiffer2plus_rivalBlockLeTight": 0.054,
+ "rlBiddersDiffer2plus_rivalBlockLeLoose": 0.069,
+ "rlBiddersDiffer2plus_fullLeTight": 0.053,
+ "meanRlBidders": {
+  "C1": 0.756,
+  "C4": 3.397
+ },
+ "meanNeedToWin": {
+  "C1": 1.36,
+  "C4": 1.386
+ },
+ "topDifferingFeatures": [
+  {
+   "feature": "riv_recent_spend",
+   "index": 77,
+   "channel": "direct",
+   "shareDiffering": 0.961,
+   "meanAbsDiff": 0.3808
+  },
+  {
+   "feature": "mkt_recent_price_ratio",
+   "index": 64,
+   "channel": "direct",
+   "shareDiffering": 0.949,
+   "meanAbsDiff": 0.1744
+  },
+  {
+   "feature": "riv_purse_std",
+   "index": 69,
+   "channel": "direct",
+   "shareDiffering": 0.842,
+   "meanAbsDiff": 0.0471
+  },
+  {
+   "feature": "riv_purse_mean",
+   "index": 67,
+   "channel": "direct",
+   "shareDiffering": 0.832,
+   "meanAbsDiff": 0.0669
+  },
+  {
+   "feature": "riv_xi_max",
+   "index": 79,
+   "channel": "direct",
+   "shareDiffering": 0.796,
+   "meanAbsDiff": 0.0758
+  },
+  {
+   "feature": "self_pace_gap",
+   "index": 46,
+   "channel": "own",
+   "shareDiffering": 0.777,
+   "meanAbsDiff": 0.1534
+  },
+  {
+   "feature": "self_purse",
+   "index": 15,
+   "channel": "own",
+   "shareDiffering": 0.775,
+   "meanAbsDiff": 0.1531
+  },
+  {
+   "feature": "self_max_safe_purse",
+   "index": 37,
+   "channel": "own",
+   "shareDiffering": 0.774,
+   "meanAbsDiff": 0.1516
+  },
+  {
+   "feature": "self_slots_left",
+   "index": 16,
+   "channel": "own",
+   "shareDiffering": 0.754,
+   "meanAbsDiff": 0.0822
+  },
+  {
+   "feature": "self_xi_strength",
+   "index": 24,
+   "channel": "own",
+   "shareDiffering": 0.719,
+   "meanAbsDiff": 0.117
+  }
+ ],
+ "byOpponent": {
+  "ppo": {
+   "pairs": 28205,
+   "meanDeltaRlBidders": 2.314,
+   "meanDeltaNeedToWin": -0.186,
+   "rlBiddersDiffer2plus_rivalBlockLeTight": 0.09,
+   "medianRivalBlockLinf": 0.2545
+  },
+  "a2c": {
+   "pairs": 42659,
+   "meanDeltaRlBidders": 2.708,
+   "meanDeltaNeedToWin": 0.129,
+   "rlBiddersDiffer2plus_rivalBlockLeTight": 0.051,
+   "medianRivalBlockLinf": 0.2896
+  },
+  "d3qn": {
+   "pairs": 29711,
+   "meanDeltaRlBidders": 2.623,
+   "meanDeltaNeedToWin": 0.048,
+   "rlBiddersDiffer2plus_rivalBlockLeTight": 0.065,
+   "medianRivalBlockLinf": 0.3333
+  },
+  "qrdqn": {
+   "pairs": 30528,
+   "meanDeltaRlBidders": 2.561,
+   "meanDeltaNeedToWin": 0.057,
+   "rlBiddersDiffer2plus_rivalBlockLeTight": 0.066,
+   "medianRivalBlockLinf": 0.3333
+  },
+  "es": {
+   "pairs": 64575,
+   "meanDeltaRlBidders": 2.785,
+   "meanDeltaNeedToWin": 0.025,
+   "rlBiddersDiffer2plus_rivalBlockLeTight": 0.031,
+   "medianRivalBlockLinf": 0.25
+  }
+ },
+ "separationC4vsC1": {
+  "riv_purse_std": [
+   {
+    "progress": "0–2%",
+    "sep": 0.018
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.205
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.299
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.248
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.112
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.56
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.54
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.311
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.25
+   }
+  ],
+  "riv_purse_min": [
+   {
+    "progress": "0–2%",
+    "sep": 0.005
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.141
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.305
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.341
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.54
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.302
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.021
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.176
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.067
+   }
+  ],
+  "riv_purse_mean": [
+   {
+    "progress": "0–2%",
+    "sep": 0.077
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.025
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.047
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.029
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.202
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.468
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.783
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.474
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.378
+   }
+  ],
+  "riv_capacity_1": [
+   {
+    "progress": "0–2%",
+    "sep": 0.0
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.0
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.0
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.0
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.0
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.0
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.004
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.025
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.007
+   }
+  ],
+  "riv_capacity_3": [
+   {
+    "progress": "0–2%",
+    "sep": 0.0
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.0
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.0
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.0
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.0
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.004
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.053
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.09
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.071
+   }
+  ],
+  "riv_able_share": [
+   {
+    "progress": "0–2%",
+    "sep": 0.0
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.001
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.037
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.115
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.264
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.253
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.64
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.685
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.738
+   }
+  ],
+  "riv_recent_spend": [
+   {
+    "progress": "0–2%",
+    "sep": 0.125
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.022
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.106
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.004
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.486
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.139
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.14
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.305
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.183
+   }
+  ],
+  "mkt_recent_price_ratio": [
+   {
+    "progress": "0–2%",
+    "sep": 0.34
+   },
+   {
+    "progress": "2–5%",
+    "sep": 0.211
+   },
+   {
+    "progress": "5–10%",
+    "sep": 0.029
+   },
+   {
+    "progress": "10–20%",
+    "sep": 0.234
+   },
+   {
+    "progress": "20–30%",
+    "sep": 0.549
+   },
+   {
+    "progress": "30–50%",
+    "sep": 0.393
+   },
+   {
+    "progress": "50–75%",
+    "sep": 0.091
+   },
+   {
+    "progress": "75–100%",
+    "sep": 0.263
+   },
+   {
+    "progress": "re-auction",
+    "sep": 0.303
+   }
+  ]
+ }
+}

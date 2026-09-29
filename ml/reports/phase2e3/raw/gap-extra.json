@@ -1,0 +1,140 @@
+{
+ "keeper": {
+  "rows": 298803,
+  "cells": 6716,
+  "candidates": {
+   "kContestNoNeed": {
+    "betweenCellShare": 0.928,
+    "withinCellSep": 0.455,
+    "signed": 0.449,
+    "cellsUsed": 187
+   },
+   "kContestNoNeedFair": {
+    "betweenCellShare": 0.936,
+    "withinCellSep": 0.445,
+    "signed": 0.439,
+    "cellsUsed": 187
+   },
+   "kContestAll": {
+    "betweenCellShare": 0.911,
+    "withinCellSep": 0.039,
+    "signed": 0.028,
+    "cellsUsed": 187
+   },
+   "kHistExtraBuyers": {
+    "betweenCellShare": 0.915,
+    "withinCellSep": 0.038,
+    "signed": -0.011,
+    "cellsUsed": 187
+   },
+   "kW20Buys": {
+    "betweenCellShare": 0.89,
+    "withinCellSep": 0.446,
+    "signed": 0.393,
+    "cellsUsed": 187
+   }
+  },
+  "existingOutsideCells": {
+   "mkt_scarcity_keeper": 0.443,
+   "mkt_equivalent_left": 0.431,
+   "riv_gain_mean": 0.094,
+   "riv_purse_mean": 0.286,
+   "riv_capacity_3": 0.024,
+   "mkt_recent_price_ratio": 0.159,
+   "self_xi_gain": 0.303
+  },
+  "rivAbleCount_vs_kContestAll_spearman": 0.947,
+  "rivAbleCount_vs_kContestNoNeedFair_spearman": -0.59,
+  "shareRowsRivAbleCountEqualsContestAll": 0.74,
+  "dangerousSeatRows": 467,
+  "dangerousVsSafe_withinFineCells": {
+   "kContestNoNeed": null,
+   "kHistExtraBuyers": null,
+   "kStockExcess": null
+  },
+  "dangerousVsSafe_withinFineCells_existing": {
+   "self_purse": null,
+   "mkt_scarcity_keeper": null,
+   "self_overseas_slots_left": null,
+   "self_slots_left": null
+  }
+ },
+ "multi": {
+  "rows": 2023632,
+  "cells": 29101,
+  "candidates": {
+   "aheadPace15": {
+    "betweenCellShare": 0.82,
+    "withinCellSep_C4vsC1": 0.29,
+    "withinCellSep_rlBidders≥3": 0.232
+   },
+   "aheadPace30": {
+    "betweenCellShare": 0.904,
+    "withinCellSep_C4vsC1": 0.106,
+    "withinCellSep_rlBidders≥3": 0.099
+   },
+   "starBuyers2": {
+    "betweenCellShare": 0.905,
+    "withinCellSep_C4vsC1": 0.266,
+    "withinCellSep_rlBidders≥3": 0.22
+   },
+   "overpay13": {
+    "betweenCellShare": 0.799,
+    "withinCellSep_C4vsC1": 0.32,
+    "withinCellSep_rlBidders≥3": 0.27
+   },
+   "overpay15": {
+    "betweenCellShare": 0.734,
+    "withinCellSep_C4vsC1": 0.271,
+    "withinCellSep_rlBidders≥3": 0.23
+   },
+   "wMaxRivSpend": {
+    "betweenCellShare": 0.879,
+    "withinCellSep_C4vsC1": 0.207,
+    "withinCellSep_rlBidders≥3": 0.182
+   },
+   "partic20": {
+    "betweenCellShare": 0.931,
+    "withinCellSep_C4vsC1": 0.231,
+    "withinCellSep_rlBidders≥3": 0.312
+   },
+   "capGe2": {
+    "betweenCellShare": 0.971,
+    "withinCellSep_C4vsC1": 0.018,
+    "withinCellSep_rlBidders≥3": 0.023
+   }
+  },
+  "existingNotInCells": {
+   "riv_xi_max": {
+    "withinCellSep_C4vsC1": 0.28,
+    "withinCellSep_rlBidders≥3": 0.223
+   },
+   "riv_xi_mean": {
+    "withinCellSep_C4vsC1": 0.241,
+    "withinCellSep_rlBidders≥3": 0.192
+   },
+   "self_pace_gap": {
+    "withinCellSep_C4vsC1": 0.223,
+    "withinCellSep_rlBidders≥3": 0.203
+   },
+   "mkt_recent_sold_share": {
+    "withinCellSep_C4vsC1": 0.033,
+    "withinCellSep_rlBidders≥3": 0.069
+   },
+   "riv_purse_max": {
+    "withinCellSep_C4vsC1": 0.155,
+    "withinCellSep_rlBidders≥3": 0.132
+   },
+   "riv_gain_mean": {
+    "withinCellSep_C4vsC1": 0.087,
+    "withinCellSep_rlBidders≥3": 0.1
+   }
+  },
+  "hiddenIdentity_withinCellSep_C4vsC1_note": "rlRivals (count of RL-controlled seats) separates C1 vs C4 perfectly by construction — hidden policy identity, constant in production"
+ },
+ "early": {
+  "rows": 296279,
+  "cumPF_equals_windowPriceRatio_share": 1.0,
+  "note": "before lot 21 the 20-lot window IS the whole public history; any cumulative-history statistic of price/fair is identical to mkt_recent_price_ratio there"
+ }
+}

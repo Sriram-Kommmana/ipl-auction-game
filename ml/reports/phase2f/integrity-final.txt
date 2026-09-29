@@ -1,0 +1,26 @@
+Phase 2F final integrity check — 2026-09-29T18:28:24+05:30
+--- Phase 2F frozen record (recorded before training: ml/reports/phase2f/raw/hashes-pre.json)
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · gamma 1 · 25 frozen + 19 extra files unchanged · 15 Stage-A exports + checkpoints unchanged
+--- Phase 2E.0 frozen record
+HASHES OK: obs 629b25783f833af7 · act 5f72f510c48b1f46 · 25 frozen files unchanged (and clean vs git HEAD) · 15 exports + checkpoints unchanged
+--- Stage-A run directories modified during Phase 2F (must be empty)
+--- production / shared / apps tracked changes vs HEAD (must be empty)
+--- all tracked changes vs HEAD (Stage-B hooks only)
+warning: in the working copy of 'ml/ipl_rl/bridge.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ml/ipl_rl/common/vec_env.py', LF will be replaced by CRLF the next time Git touches it
+ ml/ipl_rl/algos/a2c.py       |  9 +++++----
+ ml/ipl_rl/algos/d3qn.py      |  9 +++++----
+ ml/ipl_rl/algos/openai_es.py | 17 +++++++++++++----
+ ml/ipl_rl/algos/ppo.py       |  9 +++++----
+ ml/ipl_rl/algos/qr_dqn.py    |  9 +++++----
+ ml/ipl_rl/bridge.py          |  9 +++++----
+ ml/ipl_rl/common/vec_env.py  |  6 ++++--
+ 7 files changed, 42 insertions(+), 26 deletions(-)
+--- untracked
+?? ml/ipl_rl/diagnosis/
+?? ml/ipl_rl/stage_b/
+?? ml/reports/phase2e1/
+?? ml/reports/phase2e2/
+?? ml/reports/phase2e3/
+?? ml/reports/phase2f/
+(end)
