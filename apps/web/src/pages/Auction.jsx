@@ -243,6 +243,9 @@ const Auction = ({ managerNotice }) => {
             >
               <div className={`h-3 ${lastResult.status === 'sold' ? 'hazard' : 'bg-line-strong'}`} />
               <div className="px-8 pt-6 pb-8">
+                <p className="font-mono font-bold text-xs tracking-[0.5em] text-bone/40">
+                  {lastResult.status === 'sold' ? 'HAMMER DOWN' : 'NO BIDS'}
+                </p>
                 <p className={`font-display text-7xl uppercase leading-none mt-1 ${
                   lastResult.status === 'sold' ? 'text-red glow-red' : 'text-bone/35'
                 }`}>

@@ -72,6 +72,7 @@ const PostAuction = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-city flex flex-col items-center justify-center px-4 gap-5">
+        <p className="font-mono font-bold text-red tracking-[0.4em]">ERROR</p>
         <p className="font-mono text-sm text-bone/80 text-center border-l-2 border-red bg-red/10 px-4 py-3 max-w-md">
           ! {error}
         </p>

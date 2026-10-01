@@ -414,7 +414,7 @@ img {
 
 /* Registration marks, bottom-left */
 .hero-left::after {
-    content: "N°001";
+    content: "N°001 / BIDDING OPEN";
     position: absolute;
     bottom: 2rem;
     left: 4rem;
@@ -661,7 +661,7 @@ img {
 
 /* Vertical mono ticker on the right edge */
 .hero-right::after {
-    content: "LOT 018";
+    content: "LOT 018 — LIVE BIDDING — LOT 018";
     position: absolute;
     right: 6px;
     top: 50%;
