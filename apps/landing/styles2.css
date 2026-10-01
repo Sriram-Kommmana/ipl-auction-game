@@ -1,12 +1,12 @@
 /* =====================================================================
    CRICKET AUCTION — LANDING
-   Dystopian Japanese Cyberpunk × Neo-Brutalist Swiss Editorial
+   Dystopian Cyberpunk × Neo-Brutalist Swiss Editorial
    Palette matches the game app (apps/web/src/index.css):
      RED + BLACK + OFF-WHITE ("bone"), cyan/amber only as tiny accents.
    Layout (widths, flex/grid, breakpoints) is unchanged from the
    original — only color, type, borders and decoration are restyled.
-   Decorative Japanese text lives in CSS pseudo-elements on purpose:
-   it's visual only and never pollutes the indexed page text (SEO).
+   Decorative labels live in CSS pseudo-elements on purpose: they're
+   visual only and never pollute the indexed page text (SEO).
    ===================================================================== */
 
 /* ================= RESET ================= */
@@ -35,7 +35,6 @@
     --font-display: "Anton", Impact, sans-serif;
     --font-body: "Archivo", system-ui, sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, monospace;
-    --font-jp: "Noto Sans JP", sans-serif;
 
     --container-width: 1200px;
     --transition: 0.25s ease;
@@ -116,7 +115,7 @@ body::after {
 }
 
 .page-transition::after {
-    content: "LOADING // 読込中";
+    content: "LOADING";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -237,17 +236,6 @@ img {
     color: var(--red);
 }
 
-.logo::after {
-    content: "競売";
-    font-family: var(--font-jp);
-    font-weight: 900;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: rgba(239, 233, 221, 0.35);
-    margin-left: 0.6rem;
-    padding-left: 0.6rem;
-    border-left: 1px solid var(--line-strong);
-}
 
 /* ================= NAV LINKS ================= */
 
@@ -384,12 +372,6 @@ img {
     }
 }
 
-@media (max-width: 380px) {
-    .logo::after {
-        display: none;
-    }
-}
-
 .main-layout {
     display: flex;
     flex-direction: column;
@@ -432,7 +414,7 @@ img {
 
 /* Registration marks, bottom-left */
 .hero-left::after {
-    content: "N°001 / 入札開始";
+    content: "N°001";
     position: absolute;
     bottom: 2rem;
     left: 4rem;
@@ -649,25 +631,6 @@ img {
     pointer-events: none;
 }
 
-/* Giant vertical katakana stamped into the red slab (behind the player) */
-.hero::before {
-    content: "オークション";
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    font-family: var(--font-jp);
-    font-weight: 900;
-    font-size: clamp(4rem, 9vh, 7rem);
-    line-height: 1;
-    letter-spacing: 0.05em;
-    color: rgba(0, 0, 0, 0.28);
-    z-index: 3;
-    pointer-events: none;
-    user-select: none;
-}
-
 .hero-player {
     position: relative;
     height: 98%;
@@ -698,7 +661,7 @@ img {
 
 /* Vertical mono ticker on the right edge */
 .hero-right::after {
-    content: "LOT 018 — 現在入札中 — LOT 018";
+    content: "LOT 018";
     position: absolute;
     right: 6px;
     top: 50%;
@@ -757,15 +720,6 @@ img {
     letter-spacing: 0.25em;
     color: var(--bone);
     margin-bottom: 1.5rem;
-}
-
-.live-badge::after {
-    content: "入札";
-    margin-left: auto;
-    font-family: var(--font-jp);
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: rgba(239, 233, 221, 0.3);
 }
 
 @keyframes pulse {
@@ -882,8 +836,7 @@ img {
         height: 250px;
     }
 
-    /* Katakana stamp + side ticker would overlap stacked content — hide */
-    .hero::before,
+    /* Side ticker would overlap stacked content — hide */
     .hero-right::after,
     .hero-side-text {
         display: none;
@@ -995,11 +948,11 @@ img {
     margin-bottom: 1rem;
 }
 
-/* Japanese kicker above each heading */
+/* Kicker above each heading */
 .section-heading1::before,
 .section-heading::before {
     display: block;
-    font-family: var(--font-jp);
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.7rem;
     letter-spacing: 0.5em;
@@ -1008,11 +961,11 @@ img {
 }
 
 .section-heading1::before {
-    content: "遊び方 // HOW TO PLAY";
+    content: "HOW TO PLAY";
 }
 
 .section-heading::before {
-    content: "仕組み // THE SYSTEM";
+    content: "THE SYSTEM";
 }
 
 .heading-line {
@@ -1160,21 +1113,6 @@ img {
     border-top: 1px solid var(--line);
     position: relative;
     overflow: hidden;
-}
-
-/* Huge faint kanji watermark */
-.auction-logic::before {
-    content: "戦略";
-    position: absolute;
-    right: -2rem;
-    top: 3rem;
-    font-family: var(--font-jp);
-    font-weight: 900;
-    font-size: clamp(8rem, 20vw, 16rem);
-    line-height: 1;
-    color: rgba(239, 233, 221, 0.02);
-    pointer-events: none;
-    user-select: none;
 }
 
 .auction-container {
@@ -1330,11 +1268,11 @@ img {
 }
 
 .footer-links::before {
-    content: "NAVIGATE // 案内";
+    content: "NAVIGATE";
 }
 
 .footer-socials::before {
-    content: "CONNECT // 接続";
+    content: "CONNECT";
 }
 
 .footer-links a,

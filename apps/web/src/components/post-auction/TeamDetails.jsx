@@ -21,7 +21,6 @@ const TeamDetails = ({ team }) => {
       <div className="section-head">
         <span className="section-num">05</span>
         <h2 className="section-title">Squad Details</h2>
-        <span className="section-jp">選手一覧</span>
       </div>
 
       {team.squad.length === 0 ? (

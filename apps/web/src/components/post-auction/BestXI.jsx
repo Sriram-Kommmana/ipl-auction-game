@@ -23,7 +23,6 @@ const BestXI = ({ team }) => {
       <div className="section-head">
         <span className="section-num">06</span>
         <h2 className="section-title">Best XI</h2>
-        <span className="section-jp">最強布陣</span>
       </div>
 
       {xi.length === 0 ? (

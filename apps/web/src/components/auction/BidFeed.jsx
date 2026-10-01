@@ -26,7 +26,6 @@ const BidFeed = () => {
         <div className="section-head">
           <span className="section-num">02</span>
           <h2 className="section-title">Bid Feed</h2>
-          <span className="section-jp">入札記録</span>
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 text-center py-4">No bids yet on this player</p>
       </div>
@@ -38,7 +37,6 @@ const BidFeed = () => {
       <div className="section-head">
         <span className="section-num">02</span>
         <h2 className="section-title">Bid Feed</h2>
-        <span className="section-jp">入札記録</span>
       </div>
       <div className="space-y-1.5 flex-1 min-h-0 overflow-y-auto pr-1">
         {/* initial={false} — don't replay entrance animations for items

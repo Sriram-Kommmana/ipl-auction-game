@@ -24,7 +24,6 @@ const TeamGrid = () => {
       <div className="section-head">
         <span className="section-num">01</span>
         <h2 className="section-title">Choose Your Team</h2>
-        <span className="section-jp">チーム選択</span>
       </div>
       {!isConnected && (
         <p className="font-mono text-xs text-red border-l-2 border-red bg-red/10 px-3 py-2 mb-3">

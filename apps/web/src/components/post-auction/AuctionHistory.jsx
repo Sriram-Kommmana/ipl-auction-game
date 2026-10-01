@@ -27,7 +27,6 @@ const AuctionHistory = ({ history }) => {
       <div className="section-head">
         <span className="section-num">07</span>
         <h2 className="section-title">Auction History</h2>
-        <span className="section-jp">入札履歴</span>
       </div>
 
       <div className="flex items-center justify-between mb-3 flex-wrap gap-3">

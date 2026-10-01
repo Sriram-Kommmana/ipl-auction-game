@@ -11,7 +11,6 @@ const PlayerList = () => {
         <span className="section-num">02</span>
         <h2 className="section-title">Players</h2>
         <span className="font-mono text-xs text-red">[{String(players.length).padStart(2, '0')}]</span>
-        <span className="section-jp">選手</span>
       </div>
       <div className="space-y-1.5">
         {players.map((p) => {

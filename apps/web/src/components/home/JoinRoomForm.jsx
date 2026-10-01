@@ -157,7 +157,6 @@ const JoinRoomForm = ({ initialRoomId = '' }) => {
         <div className="mt-8 pt-6 border-t border-dashed border-line-strong">
           <div className="flex items-baseline justify-between mb-3">
             <p className="label-mono text-bone/70">Continue Playing</p>
-            <p className="font-jp text-[10px] tracking-[0.3em] text-bone/25">続行</p>
           </div>
           <div className="space-y-2">
             {recents.map((recent) => (

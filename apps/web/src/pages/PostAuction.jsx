@@ -64,7 +64,7 @@ const PostAuction = () => {
       <div className="min-h-screen bg-city flex flex-col items-center justify-center gap-4">
         <Spinner size={36} />
         <p className="font-display text-3xl uppercase tracking-wide text-bone/60">Finalizing results…</p>
-        <p className="label-mono">集計中 // Compiling ledger</p>
+        <p className="label-mono">Compiling ledger</p>
       </div>
     )
   }
@@ -72,7 +72,6 @@ const PostAuction = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-city flex flex-col items-center justify-center px-4 gap-5">
-        <p className="font-jp font-black text-red tracking-[0.4em]">エラー</p>
         <p className="font-mono text-sm text-bone/80 text-center border-l-2 border-red bg-red/10 px-4 py-3 max-w-md">
           ! {error}
         </p>
@@ -91,14 +90,6 @@ const PostAuction = () => {
 
   return (
     <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8 overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none select-none absolute -right-6 top-72 sm:top-6 font-jp font-black
-                   text-[8rem] sm:text-[13rem] leading-none text-bone/[0.025]"
-      >
-        結果
-      </div>
-
       <div className="relative max-w-5xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <button
@@ -114,7 +105,7 @@ const PostAuction = () => {
         <div className="pb-6 border-b-2 border-bone">
           <div className="flex items-center gap-3 mb-2">
             <span className="h-2 w-2 bg-red" />
-            <p className="label-mono text-bone/60">Hammer down // 終了 // Final ledger</p>
+            <p className="label-mono text-bone/60">Hammer down // Final ledger</p>
           </div>
           <h1 className="font-display uppercase leading-[0.85] text-bone text-6xl sm:text-8xl">
             Auction <span className="text-red glow-red">Results</span>
@@ -129,7 +120,6 @@ const PostAuction = () => {
           <div className="section-head">
             <span className="section-num">04</span>
             <h2 className="section-title">View Team</h2>
-            <span className="section-jp">チーム詳細</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {results.teams.map((t) => (

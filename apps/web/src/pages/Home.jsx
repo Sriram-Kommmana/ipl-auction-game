@@ -34,7 +34,7 @@ const Home = () => {
             ← Back to Home
           </a>
 
-          <p className="label-mono text-red mb-3">■ Session detected // 再接続</p>
+          <p className="label-mono text-red mb-3">■ Session detected</p>
           <h1 className="font-display text-7xl sm:text-8xl uppercase leading-[0.85] text-bone">
             Welcome<br />
             <span className="text-red glow-red">Back.</span>
@@ -116,7 +116,7 @@ const Home = () => {
         {/* ── Right: form terminal ── */}
         <div className="panel shadow-brutal">
           <div className="flex items-center justify-between px-4 py-2 border-b border-line bg-void">
-            <span className="label-mono">Terminal // 入札端末</span>
+            <span className="label-mono">Terminal</span>
             <span className="flex gap-1.5">
               <span className="h-1.5 w-1.5 bg-red" />
               <span className="h-1.5 w-1.5 bg-bone/30" />
@@ -150,18 +150,10 @@ const Home = () => {
   )
 }
 
-// Shared backdrop for both Home states: grid + red horizon, plus a giant
-// vertical katakana watermark and a slow scan beam.
+// Shared backdrop for both Home states: grid + red horizon, plus a slow
+// scan beam.
 const HomeShell = ({ children }) => (
   <div className="relative min-h-screen overflow-hidden flex items-center justify-center px-4 py-12 bg-city">
-    <div
-      aria-hidden
-      className="pointer-events-none select-none absolute right-2 sm:right-6 top-1/2 -translate-y-1/2
-                 font-jp font-black text-[5.5rem] sm:text-[9rem] leading-none text-bone/[0.035]
-                 [writing-mode:vertical-rl]"
-    >
-      オークション
-    </div>
     <div
       aria-hidden
       className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-red/0 via-red/[0.05] to-red/0 animate-scan"

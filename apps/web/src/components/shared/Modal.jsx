@@ -25,9 +25,6 @@ const Modal = ({
           <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
             {danger ? '⚠ Warning' : 'System'}
           </span>
-          <span className="font-jp text-[10px] tracking-[0.3em] opacity-70">
-            {danger ? '警告' : '確認'}
-          </span>
         </div>
         <div className="p-5">
           {title && <h2 className="font-display text-2xl uppercase tracking-wide text-bone mb-2">{title}</h2>}

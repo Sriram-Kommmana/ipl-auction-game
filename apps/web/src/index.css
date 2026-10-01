@@ -1,6 +1,6 @@
 /* apps/web/src/index.css
    ─────────────────────────────────────────────────────────────────────
-   DESIGN SYSTEM — Dystopian Japanese Cyberpunk × Neo-Brutalist Swiss
+   DESIGN SYSTEM — Dystopian Cyberpunk × Neo-Brutalist Swiss
    Core palette: RED + BLACK + OFF-WHITE ("bone").
    Support accents (used sparingly, for state only):
      cyan  → live / online / "yours" / success
@@ -34,7 +34,6 @@
   --font-display: "Anton", "Bebas Neue", Impact, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-jp: "Noto Sans JP", sans-serif;
 
   --animate-blink: blink 1s steps(2, start) infinite;
   --animate-scan: scan 7s linear infinite;
@@ -247,7 +246,7 @@ body {
     color: rgb(239 233 221 / 0.5);
   }
 
-  /* Section heading row: "01 / TITLE ———— カタカナ" */
+  /* Section heading row: "01 / TITLE" */
   .section-head {
     display: flex;
     align-items: baseline;
@@ -270,21 +269,6 @@ body {
     text-transform: uppercase;
     color: var(--color-bone);
     white-space: nowrap;
-  }
-  .section-jp {
-    margin-left: auto;
-    font-family: var(--font-jp);
-    font-weight: 700;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    color: rgb(239 233 221 / 0.28);
-    white-space: nowrap;
-  }
-  /* Tiny phones: drop the decorative JP caption so titles never wrap */
-  @media (max-width: 399px) {
-    .section-jp {
-      display: none;
-    }
   }
 
   /* Team chip — square, bold, uses inline backgroundColor for team color */

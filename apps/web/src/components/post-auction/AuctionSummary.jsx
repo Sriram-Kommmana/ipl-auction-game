@@ -36,7 +36,6 @@ const AuctionSummary = ({ results }) => {
       <div className="section-head">
         <span className="section-num">01</span>
         <h2 className="section-title">Auction Summary</h2>
-        <span className="section-jp">概要</span>
       </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-5 border-l border-t border-line mb-5">
@@ -51,7 +50,7 @@ const AuctionSummary = ({ results }) => {
       {mostExpensive && (
         <div className="bg-red/10 border border-red/40 border-l-4 border-l-red px-4 py-3 flex items-center justify-between flex-wrap gap-2">
           <div>
-            <p className="label-mono text-red">★ Most Expensive Buy // 最高額</p>
+            <p className="label-mono text-red">★ Most Expensive Buy</p>
             <p className="font-display text-3xl uppercase tracking-wide text-bone mt-1">{mostExpensive.playerName}</p>
           </div>
           <div className="flex items-center gap-2">

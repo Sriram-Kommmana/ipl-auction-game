@@ -19,7 +19,6 @@ const TopPurchases = ({ teams }) => {
       <div className="section-head">
         <span className="section-num">03</span>
         <h2 className="section-title">Top Purchases</h2>
-        <span className="section-jp">高額契約</span>
       </div>
 
       {top10.length === 0 ? (

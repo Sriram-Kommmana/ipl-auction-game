@@ -1,6 +1,6 @@
 /* =====================================================================
    CRICKET AUCTION — PLAYER LIST
-   Dystopian Japanese Cyberpunk × Neo-Brutalist Swiss Editorial
+   Dystopian Cyberpunk × Neo-Brutalist Swiss Editorial
    Same tokens as styles2.css / the game app. Layout unchanged.
    ===================================================================== */
 
@@ -29,7 +29,6 @@
     --font-display: "Anton", Impact, sans-serif;
     --font-body: "Archivo", system-ui, sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, monospace;
-    --font-jp: "Noto Sans JP", sans-serif;
 
     --container-width: 1200px;
     --transition: 0.25s ease;
@@ -130,7 +129,7 @@ button {
 }
 
 .page-transition::after {
-    content: "LOADING // 読込中";
+    content: "LOADING";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -217,18 +216,6 @@ button {
 
 .logo span:last-child {
     color: var(--red);
-}
-
-.logo::after {
-    content: "競売";
-    font-family: var(--font-jp);
-    font-weight: 900;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: rgba(239, 233, 221, 0.35);
-    margin-left: 0.6rem;
-    padding-left: 0.6rem;
-    border-left: 1px solid var(--line-strong);
 }
 
 /* ================= NAV LINKS ================= */
@@ -360,12 +347,6 @@ button {
     }
 }
 
-@media (max-width: 380px) {
-    .logo::after {
-        display: none;
-    }
-}
-
 /* ================= PAGE HEADER ================= */
 
 .page-header {
@@ -374,11 +355,11 @@ button {
     position: relative;
 }
 
-/* Japanese kicker */
+/* Kicker */
 .page-header::before {
-    content: "選手名簿 // PLAYER REGISTRY";
+    content: "PLAYER REGISTRY";
     display: block;
-    font-family: var(--font-jp);
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.7rem;
     letter-spacing: 0.5em;

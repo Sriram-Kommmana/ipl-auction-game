@@ -19,7 +19,7 @@ const CurrentBid = () => {
     <div className="panel p-2.5 text-center">
       <div className="flex items-center justify-center gap-2">
         <span className="h-1.5 w-1.5 bg-red animate-blink" />
-        <p className="label-mono">Current Bid // 現在価格</p>
+        <p className="label-mono">Current Bid</p>
       </div>
 
       {/* Keyed by currentBid — every new bid amount re-mounts this element,

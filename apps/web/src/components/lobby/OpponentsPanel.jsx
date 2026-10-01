@@ -25,7 +25,6 @@ const OpponentsPanel = () => (
     <div className="section-head">
       <span className="section-num">02</span>
       <h2 className="section-title">Opponents</h2>
-      <span className="section-jp">対戦相手</span>
     </div>
     <div className="space-y-4">
       <Group title="Rule-based" kind="rule" personas={RULE_PERSONAS} />

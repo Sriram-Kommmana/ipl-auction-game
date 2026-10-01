@@ -27,7 +27,6 @@ const PurseTracker = () => {
         <div className="section-head">
           <span className="section-num">01</span>
           <h2 className="section-title">Purse Tracker</h2>
-          <span className="section-jp">残高</span>
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/30 text-center py-4">No teams have joined yet</p>
       </div>
@@ -40,7 +39,6 @@ const PurseTracker = () => {
         <span className="section-num">01</span>
         <h2 className="section-title">Purse Tracker</h2>
         <span className="font-mono text-[10px] text-red">[{String(sorted.length).padStart(2, '0')} ACTIVE]</span>
-        <span className="section-jp">残高</span>
       </div>
       <div className="space-y-2 flex-1 min-h-0 overflow-y-auto pr-1">
         {sorted.map((team) => {

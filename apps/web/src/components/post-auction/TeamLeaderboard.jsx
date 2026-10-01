@@ -12,7 +12,6 @@ const TeamLeaderboard = ({ teams }) => {
       <div className="section-head">
         <span className="section-num">02</span>
         <h2 className="section-title">Leaderboard</h2>
-        <span className="section-jp">順位</span>
       </div>
       <p className="font-mono text-[10px] leading-relaxed text-bone/40 -mt-2 mb-3">
         Ranked by XI strength — the average rating of the best legal playing XI
