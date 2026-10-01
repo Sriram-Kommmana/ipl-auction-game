@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cricket Auction — Live IPL-Style Auction Game With Friends</title>
-    <meta name="description" content="Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.">
+    <title>Cricket Auction — IPL Auction Game With Friends or vs AI</title>
+    <meta name="description" content="Free IPL-style cricket auction game. Bid live on 323 players with friends or solo against 9 AI franchises, manage your purse and build the best XI. No login.">
     <link rel="canonical" href="https://cricket-auction.example.com/">
     <meta name="robots" content="index, follow, max-image-preview:large">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cricket Auction">
     <meta property="og:url" content="https://cricket-auction.example.com/">
-    <meta property="og:title" content="Cricket Auction — Live IPL-Style Auction Game With Friends">
-    <meta property="og:description" content="Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.">
+    <meta property="og:title" content="Cricket Auction — IPL Auction Game With Friends or vs AI">
+    <meta property="og:description" content="Free IPL-style cricket auction game. Bid live on 323 players with friends or solo against 9 AI franchises, manage your purse and build the best XI. No login.">
     <meta property="og:image" content="https://cricket-auction.example.com/assets/og-cover.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Cricket Auction — create a room, claim a franchise and outbid your friends live">
+    <meta property="og:image:alt" content="Cricket Auction — claim a franchise and outbid your friends or nine AI rivals live">
     <meta property="og:locale" content="en_IN">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cricket Auction — Live IPL-Style Auction Game With Friends">
-    <meta name="twitter:description" content="Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.">
+    <meta name="twitter:title" content="Cricket Auction — IPL Auction Game With Friends or vs AI">
+    <meta name="twitter:description" content="Free IPL-style cricket auction game. Bid live on 323 players with friends or solo against 9 AI franchises, manage your purse and build the best XI. No login.">
     <meta name="twitter:image" content="https://cricket-auction.example.com/assets/og-cover.jpg">
-    <meta name="twitter:image:alt" content="Cricket Auction — create a room, claim a franchise and outbid your friends live">
+    <meta name="twitter:image:alt" content="Cricket Auction — claim a franchise and outbid your friends or nine AI rivals live">
     <meta name="twitter:creator" content="@kommana_sriram">
 
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -48,7 +48,7 @@
           "@id": "https://cricket-auction.example.com/#website",
           "url": "https://cricket-auction.example.com/",
           "name": "Cricket Auction",
-          "description": "Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.",
+          "description": "Free IPL-style cricket auction game. Bid live on 323 players with friends or solo against 9 AI franchises, manage your purse and build the best XI. No login.",
           "inLanguage": "en"
         },
         {
@@ -56,18 +56,88 @@
           "@id": "https://cricket-auction.example.com/#game",
           "name": "Cricket Auction",
           "url": "https://cricket-auction.example.com/",
-          "description": "Host a real-time IPL-style cricket auction with friends. Create a room, claim a franchise, bid on 300+ players and build your dream XI. No login needed.",
+          "description": "Free IPL-style cricket auction game. Bid live on 323 players with friends or solo against 9 AI franchises, manage your purse and build the best XI. No login.",
           "image": "https://cricket-auction.example.com/assets/og-cover.jpg",
           "inLanguage": "en",
-          "genre": ["Sports", "Strategy", "Multiplayer"],
+          "genre": ["Sports", "Strategy", "Multiplayer", "Single-player"],
           "gamePlatform": "Web browser",
-          "playMode": "MultiPlayer",
+          "playMode": ["MultiPlayer", "SinglePlayer"],
           "applicationCategory": "GameApplication",
           "operatingSystem": "Any browser",
-          "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+          "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 10 },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock" },
           "author": { "@type": "Person", "name": "Sriram Kommana", "url": "https://github.com/Sriram-Kommmana" },
           "isPartOf": { "@id": "https://cricket-auction.example.com/#website" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://cricket-auction.example.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Cricket Auction free to play?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Cricket Auction is completely free and runs in your web browser. There is nothing to download and no account or login to create."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I play an IPL auction game alone?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Choose Solo vs AI when you create a room. You pick one franchise and nine AI managers, four rule-based and five trained with reinforcement learning, bid against you for every player."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many friends can play together?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Up to 10 managers, one for each franchise. Create a private room, then share the room code and its 4-digit PIN with your friends."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which players are in the auction?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The pool has 323 cricketers, each with a role, a base price and ratings for batting, power hitting, bowling, technique and clutch. The full player list is on the player list page."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much money does each team get?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each franchise starts with ₹125 crore by default. The host can set the purse anywhere from ₹50 crore to ₹500 crore when creating the room."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is the winner decided?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "By Best XI strength: the average rating of the strongest playing XI a squad can field, with at least one wicketkeeper, five bowling options and no more than four overseas players."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to unsold players?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They return in a re-auction round once the main auction ends, so every franchise gets a final chance to complete its squad."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this the official IPL auction?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Cricket Auction is an independent fan-made game inspired by the IPL auction. It is not affiliated with or endorsed by the IPL or the BCCI."
+              }
+            }
+          ]
         }
       ]
     }
@@ -294,7 +364,13 @@
 
                     </div>
 
-                    <!-- STEPS -->
+                    <p class="how-intro">
+                        Cricket Auction is a free IPL-style auction game you play in your browser. Run a live auction against friends in a private room, or play solo against nine AI franchises. Either way you bid on 323 real cricketers, manage your purse and build the strongest playing XI.
+                    </p>
+
+                    <!-- MODE 1: FRIENDS -->
+                    <h3 class="how-mode"><span>01</span> PLAY WITH FRIENDS</h3>
+
                     <div class="how-grid">
 
                         <!-- STEP 1 -->
@@ -317,12 +393,12 @@
                                 >
                             </div>
 
-                            <h3>
+                            <h4>
                                 CREATE ROOM
-                            </h3>
+                            </h4>
 
                             <p>
-                                Create your private auction room.
+                                Open a private auction room with a 4-digit room PIN.
                             </p>
 
                         </div>
@@ -347,12 +423,12 @@
                                 >
                             </div>
 
-                            <h3>
+                            <h4>
                                 INVITE FRIENDS
-                            </h3>
+                            </h4>
 
                             <p>
-                                Share room ID and password.
+                                Share the room code and PIN. Up to 10 managers can join.
                             </p>
 
                         </div>
@@ -377,12 +453,12 @@
                                 >
                             </div>
 
-                            <h3>
+                            <h4>
                                 START AUCTION
-                            </h3>
+                            </h4>
 
                             <p>
-                                Begin live player bidding.
+                                Everyone claims a franchise, then the host starts the bidding.
                             </p>
 
                         </div>
@@ -407,12 +483,12 @@
                                 >
                             </div>
 
-                            <h3>
+                            <h4>
                                 BID LIVE
-                            </h3>
+                            </h4>
 
                             <p>
-                                Compete and build your squad.
+                                Outbid your friends before the 30-second clock runs out.
                             </p>
 
                         </div>
@@ -437,12 +513,169 @@
                                 >
                             </div>
 
-                            <h3>
+                            <h4>
                                 WIN TEAM
-                            </h3>
+                            </h4>
 
                             <p>
-                                Create your dream XI.
+                                The squad with the strongest Best XI tops the table.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MODE 2: SOLO VS AI -->
+                    <h3 class="how-mode"><span>02</span> PLAY SOLO VS AI</h3>
+
+                    <div class="how-grid">
+
+                        <!-- STEP 1 -->
+                        <div class="how-card">
+
+                            <div class="step-number">
+                                01
+                            </div>
+
+                            <div class="how-icon">
+                                <img
+                                    src="assets/opened-door-aperture-svgrepo-com.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style="filter: invert(1);"
+                                >
+                            </div>
+
+                            <h4>
+                                CHOOSE SOLO
+                            </h4>
+
+                            <p>
+                                Pick Solo vs AI. No room PIN, no waiting for friends.
+                            </p>
+
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div class="how-card">
+
+                            <div class="step-number">
+                                02
+                            </div>
+
+                            <div class="how-icon">
+                                <img
+                                    src="assets/meeting-svgrepo-com.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style="filter: invert(1);"
+                                >
+                            </div>
+
+                            <h4>
+                                PICK YOUR TEAM
+                            </h4>
+
+                            <p>
+                                Claim your franchise. Nine AI managers take the rest.
+                            </p>
+
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div class="how-card">
+
+                            <div class="step-number">
+                                03
+                            </div>
+
+                            <div class="how-icon">
+                                <img
+                                    src="assets/gavel-svgrepo-com.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style="filter: invert(1);"
+                                >
+                            </div>
+
+                            <h4>
+                                FACE 9 AI RIVALS
+                            </h4>
+
+                            <p>
+                                Rule-based and reinforcement-learning bots, each with its own style.
+                            </p>
+
+                        </div>
+
+                        <!-- STEP 4 -->
+                        <div class="how-card">
+
+                            <div class="step-number">
+                                04
+                            </div>
+
+                            <div class="how-icon">
+                                <img
+                                    src="assets/rupee-svgrepo-com.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style="filter: invert(1);"
+                                >
+                            </div>
+
+                            <h4>
+                                BID OR PASS
+                            </h4>
+
+                            <p>
+                                Raise the price or hit Pass. The AI settles the war in seconds.
+                            </p>
+
+                        </div>
+
+                        <!-- STEP 5 -->
+                        <div class="how-card">
+
+                            <div class="step-number">
+                                05
+                            </div>
+
+                            <div class="how-icon">
+                                <img
+                                    src="assets/trophy-free-material-6-svgrepo-com.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                    width="64"
+                                    height="64"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style="filter: invert(1);"
+                                >
+                            </div>
+
+                            <h4>
+                                BEAT THE AI
+                            </h4>
+
+                            <p>
+                                Finish above nine AI franchises on Best XI strength.
                             </p>
 
                         </div>
@@ -571,6 +804,333 @@
 
                             <p>
                                 Feel the excitement of a live cricket auction as player prices rise, budgets shrink, and every decision shapes the final squad.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ITEM 06 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            06
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Play Solo Against AI Franchises
+                            </h3>
+
+                            <p>
+                                No friends online? Start a solo room and take on nine AI managers. Four are rule-based personalities (Moneyball, Star Chaser, Balanced Builder and The Opportunist) and five are reinforcement-learning bots trained by playing simulated auctions (Aggressor, Bargain Hunter, Fast Starter, Price Pusher and Adaptive). Each one values players differently, so no two auctions play out the same way.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM 07 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            07
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Purse, Squad Size and Overseas Limits
+                            </h3>
+
+                            <p>
+                                Every franchise starts with a ₹125 crore purse by default, and the host can set anything from ₹50 crore to ₹500 crore. A squad holds up to 25 players, including at most 8 overseas players. Each player starts at their base price, and bids rise by ₹10 lakh below ₹2 crore, ₹20 lakh up to ₹3 crore and ₹50 lakh after that.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM 08 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            08
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                The Bidding Clock
+                            </h3>
+
+                            <p>
+                                Every player goes under the hammer with a countdown: 30 seconds with friends and 10 seconds in solo mode. Each new bid resets the clock, so there is always time to respond. In solo mode you can hit Pass to sit a player out, and the lot closes about a second after the last bid.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM 09 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            09
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Marquee Sets and the Re-Auction
+                            </h3>
+
+                            <p>
+                                Players come up set by set, starting with the marquee stars, in a shuffled order within each set. Anyone who goes unsold gets a second chance in a re-auction round at the end, a good moment to pick up bargains and fill gaps in your squad.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM 10 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            10
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                How the Winner Is Decided
+                            </h3>
+
+                            <p>
+                                The leaderboard ranks teams by Best XI strength: the average rating of the best playing XI your squad can field. That XI needs at least one wicketkeeper, at least five bowling options and no more than four overseas players. A slot you cannot fill counts as zero, so buying one superstar and stopping never wins.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM 11 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            11
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Host Controls, Chat and Reconnects
+                            </h3>
+
+                            <p>
+                                The host can pause and resume the auction or skip a player, and everyone in the room can chat live. No account is needed. If you refresh or lose your connection, rejoin from the home screen and pick up where you left off.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= FAQ ================= -->
+
+            <section class="auction-logic faq-section" id="faq">
+
+                <div class="auction-container">
+
+                    <div class="section-heading faq-heading">
+
+                        <h2>FREQUENTLY ASKED QUESTIONS</h2>
+
+                        <div class="heading-line"></div>
+
+                    </div>
+
+                    <!-- ITEM Q1 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q1
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Is Cricket Auction free to play?
+                            </h3>
+
+                            <p>
+                                Yes. Cricket Auction is completely free and runs in your web browser. There is nothing to download and no account or login to create.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q2 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q2
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Can I play an IPL auction game alone?
+                            </h3>
+
+                            <p>
+                                Yes. Choose Solo vs AI when you create a room. You pick one franchise and nine AI managers, four rule-based and five trained with reinforcement learning, bid against you for every player.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q3 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q3
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                How many friends can play together?
+                            </h3>
+
+                            <p>
+                                Up to 10 managers, one for each franchise. Create a private room, then share the room code and its 4-digit PIN with your friends.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q4 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q4
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Which players are in the auction?
+                            </h3>
+
+                            <p>
+                                The pool has 323 cricketers, each with a role, a base price and ratings for batting, power hitting, bowling, technique and clutch. The full player list is on <a href="players.html">player list page</a>.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q5 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q5
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                How much money does each team get?
+                            </h3>
+
+                            <p>
+                                Each franchise starts with ₹125 crore by default. The host can set the purse anywhere from ₹50 crore to ₹500 crore when creating the room.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q6 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q6
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                How is the winner decided?
+                            </h3>
+
+                            <p>
+                                By Best XI strength: the average rating of the strongest playing XI a squad can field, with at least one wicketkeeper, five bowling options and no more than four overseas players.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q7 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q7
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                What happens to unsold players?
+                            </h3>
+
+                            <p>
+                                They return in a re-auction round once the main auction ends, so every franchise gets a final chance to complete its squad.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM Q8 -->
+
+                    <div class="logic-item">
+
+                        <div class="logic-number">
+                            Q8
+                        </div>
+
+                        <div class="logic-content">
+
+                            <h3>
+                                Is this the official IPL auction?
+                            </h3>
+
+                            <p>
+                                No. Cricket Auction is an independent fan-made game inspired by the IPL auction. It is not affiliated with or endorsed by the IPL or the BCCI.
                             </p>
 
                         </div>

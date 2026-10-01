@@ -993,6 +993,49 @@ img {
     content: "THE SYSTEM";
 }
 
+.section-heading.faq-heading::before {
+    content: "QUESTIONS // ANSWERS";
+}
+
+/* One-paragraph summary under "HOW IT WORKS" */
+.how-intro {
+    max-width: 62ch;
+    margin: -0.5rem auto 3rem;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(239, 233, 221, 0.62);
+}
+
+/* "01  PLAY WITH FRIENDS ————" label above each row of step cards */
+.how-mode {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--bone);
+}
+
+.how-mode span {
+    color: var(--red);
+}
+
+.how-mode::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line-strong);
+}
+
+.how-grid + .how-mode {
+    margin-top: 3.5rem;
+}
+
 .heading-line {
     width: 80px;
     height: 4px;
@@ -1082,7 +1125,7 @@ img {
 
 /* ================= TITLE ================= */
 
-.how-card h3 {
+.how-card h4 {
     font-family: var(--font-display);
     font-weight: 400;
     font-size: 1.45rem;
@@ -1193,6 +1236,17 @@ img {
     line-height: 1.85;
     color: rgba(239, 233, 221, 0.62);
     max-width: 62ch;
+}
+
+.logic-content a {
+    color: var(--bone);
+    text-decoration: underline;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
+}
+
+.logic-content a:hover {
+    color: var(--red);
 }
 
 /* ================= HOVER ================= */
