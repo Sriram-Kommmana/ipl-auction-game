@@ -772,6 +772,49 @@ img {
     padding: 0.25rem 0.5rem;
 }
 
+/* ================= PLAYER STATS ================= */
+
+.player-stats {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+}
+
+.stat-row dt {
+    color: rgba(239, 233, 221, 0.5);
+}
+
+.stat-row dd {
+    display: grid;
+    grid-template-columns: 1fr 1.8rem;
+    align-items: center;
+    gap: 0.6rem;
+    text-align: right;
+    color: rgba(239, 233, 221, 0.8);
+}
+
+/* Track + fill in one element: the fill is a red gradient stop at --v */
+.stat-bar {
+    height: 4px;
+    background: linear-gradient(var(--red), var(--red)) no-repeat left / var(--v) 100%,
+        rgba(239, 233, 221, 0.1);
+    animation: stat-fill 0.9s ease-out both;
+}
+
+@keyframes stat-fill {
+    from {
+        background-size: 0 100%, auto;
+    }
+}
+
 /* ================= BID ================= */
 
 .bid-label {
@@ -788,24 +831,6 @@ img {
     font-size: clamp(2.2rem, 4vw, 3.4rem);
     letter-spacing: 0.02em;
     color: var(--bone);
-}
-
-/* ================= BUTTON ================= */
-
-.view-auction-btn {
-    width: 100%;
-    padding: 1rem;
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    letter-spacing: 0.1em;
-    border: 2px solid var(--bone);
-    color: var(--bone);
-    transition: background var(--transition), color var(--transition), border-color var(--transition);
-}
-
-.view-auction-btn:hover {
-    background: var(--red);
-    border-color: var(--red);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -1330,7 +1355,8 @@ img {
     body,
     .logo::before,
     .live-dot,
-    .hero-content {
+    .hero-content,
+    .stat-bar {
         animation: none !important;
     }
 }
