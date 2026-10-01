@@ -10,7 +10,7 @@ const STATUS_STYLES = {
 
 const FILTERS = ['all', 'sold', 'unsold', 'skipped']
 
-const AuctionHistory = ({ history }) => {
+const AuctionHistory = ({ history, num = '08' }) => {
   const [query, setQuery] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
 
@@ -25,7 +25,7 @@ const AuctionHistory = ({ history }) => {
   return (
     <div className="panel p-4 sm:p-6">
       <div className="section-head">
-        <span className="section-num">07</span>
+        <span className="section-num">{num}</span>
         <h2 className="section-title">Auction History</h2>
       </div>
 

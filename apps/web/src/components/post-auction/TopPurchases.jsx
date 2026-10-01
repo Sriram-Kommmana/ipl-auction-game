@@ -3,7 +3,7 @@ import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 
 const RANK_STYLES = ['text-amber', 'text-bone', 'text-red']
 
-const TopPurchases = ({ teams }) => {
+const TopPurchases = ({ teams, num = '03' }) => {
   // Reads from each team's FINAL squad (not history) — a player appears
   // exactly once here regardless of skip/re-auction history, so slNo is
   // a safe, unique key.
@@ -17,7 +17,7 @@ const TopPurchases = ({ teams }) => {
   return (
     <div className="panel p-4 sm:p-6">
       <div className="section-head">
-        <span className="section-num">03</span>
+        <span className="section-num">{num}</span>
         <h2 className="section-title">Top Purchases</h2>
       </div>
 

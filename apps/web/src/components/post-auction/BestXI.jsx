@@ -12,16 +12,17 @@ const ROLE_SHORT = {
 // (packages/shared/src/scoring.js): best total rating under the playing-XI
 // rules — max 4 overseas, at least 1 keeper and 5 bowling options. Roles
 // the squad can't cover show up as empty slots.
-const BestXI = ({ team }) => {
+const BestXI = ({ team, num = '06' }) => {
   const result = useMemo(() => (team ? selectBestXI(team.squad) : null), [team])
   const xi = result?.players ?? []
+  const impact = team?.squad.find((p) => p.slNo === team.ranking?.impactPlayer) ?? null
 
   if (!team) return null
 
   return (
     <div className="panel p-4 sm:p-6">
       <div className="section-head">
-        <span className="section-num">06</span>
+        <span className="section-num">{num}</span>
         <h2 className="section-title">Best XI</h2>
       </div>
 
@@ -57,8 +58,21 @@ const BestXI = ({ team }) => {
               <span className="font-mono text-[11px] text-bone/30 shrink-0">★ 0</span>
             </div>
           ))}
+          <div className="row flex items-center justify-between text-sm px-3 py-2 !border-amber/30 border-dashed">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-mono text-[10px] text-bone/30 w-5 shrink-0">12</span>
+              <span className="font-mono text-[10px] font-bold border border-amber/60 text-amber px-1.5 py-0.5 shrink-0 min-w-12 text-center">
+                IMP
+              </span>
+              <span className={`truncate ${impact ? 'text-bone' : 'text-bone/40'}`}>
+                {impact ? impact.playerName : 'No eligible Impact Player'}
+              </span>
+            </div>
+            <span className="font-mono text-[11px] text-amber/80 shrink-0">★ {impact?.rating ?? 0}</span>
+          </div>
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone/45 text-right pt-1">
             XI strength <span className="text-amber">{result.strength}</span>
+            {team.ranking && <> · Matchday (XI + IMP) <span className="text-amber">{team.ranking.matchday}</span></>}
           </p>
         </div>
       )}

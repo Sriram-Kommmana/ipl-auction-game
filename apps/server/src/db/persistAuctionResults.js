@@ -2,7 +2,7 @@ import redis from '../redis/client.js'
 import Player from './models/Player.js'
 import AuctionResult from './models/AuctionResult.js'
 import Room from './models/Room.js'
-import { teamStrength } from '@ipl-auction/shared'
+import { rankSquads, teamStrength } from '@ipl-auction/shared'
 
 // teamRating is the strength of the best playing XI the squad can field
 // (max 4 overseas, a keeper, 5 bowling options; empty slots count as 0) —
@@ -158,11 +158,11 @@ const persistAuctionResults = async (roomId) => {
 
     const auctionResult = {
         roomId,
-        version:     2,   // v2: teamRating = best-XI strength; bot owners recorded
+        version:     3,   // v2: teamRating = best-XI strength; bot owners recorded. v3: teams in final rank order, each with its squad ranking
         mode:        room.mode || 'multiplayer',
         startedAt:   new Date(Number(room.startedAt)   * 1000),
         completedAt: new Date(Number(room.completedAt) * 1000),
-        teams,
+        teams:       rankSquads(teams),
         history
     }
 

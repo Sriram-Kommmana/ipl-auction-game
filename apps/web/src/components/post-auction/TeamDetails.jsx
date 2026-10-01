@@ -6,7 +6,7 @@ const ROLE_LABELS = {
   BOWLER: 'Bowlers'
 }
 
-const TeamDetails = ({ team }) => {
+const TeamDetails = ({ team, num = '05' }) => {
   if (!team) return null
 
   const grouped = ROLE_ORDER
@@ -19,8 +19,21 @@ const TeamDetails = ({ team }) => {
   return (
     <div className="panel p-4 sm:p-6">
       <div className="section-head">
-        <span className="section-num">05</span>
+        <span className="section-num">{num}</span>
         <h2 className="section-title">Squad Details</h2>
+      </div>
+
+      <div className="grid grid-cols-3 border-l border-t border-line mb-4">
+        {[
+          ['Players', `${team.playerCount} · ${team.overseasCount} OS`],
+          ['Spent', `₹${team.purseSpent}L`],
+          ['Left', `₹${team.purseLeft}L`]
+        ].map(([label, value]) => (
+          <div key={label} className="border-r border-b border-line px-3 py-2">
+            <p className="label-mono">{label}</p>
+            <p className="num text-xl text-bone mt-1 leading-none whitespace-nowrap">{value}</p>
+          </div>
+        ))}
       </div>
 
       {team.squad.length === 0 ? (

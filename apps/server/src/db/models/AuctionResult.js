@@ -18,6 +18,24 @@ const squadPlayerSchema = new mongoose.Schema({
     stats:       statsSchema
 }, { _id: false })
 
+// Squad ranking at the moment the auction ended (v3) — see
+// packages/shared/src/squadRanking.js for what each number means.
+const rankingSchema = new mongoose.Schema({
+    rank:         Number,
+    tied:         Boolean,
+    decidedBy:    { type: String, default: null },
+    score:        Number,
+    xiStrength:   Number,
+    matchday:     Number,
+    injuryCover:  Number,
+    balance:      Number,
+    batting:      Number,
+    bowling:      Number,
+    emptySlots:   Number,
+    xi:           [Number],
+    impactPlayer: { type: Number, default: null }
+}, { _id: false })
+
 const teamSchema = new mongoose.Schema({
     teamId:        String,
     teamName:      String,
@@ -31,6 +49,7 @@ const teamSchema = new mongoose.Schema({
     playerCount:   Number,
     overseasCount: Number,
     teamRating:    Number,   // best-XI strength (v2; v1 was avg squad rating)
+    ranking:       { type: rankingSchema, default: null },   // v3
     squad:         [squadPlayerSchema]
 }, { _id: false })
 

@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { computeAwards, rankSquads } from '@ipl-auction/shared'
 import { getAuctionResults } from '../lib/api'
+import { findMyTeamId } from '../lib/results'
 import { useLeaveRoom } from '../hooks/useLeaveRoom'
 import { TEAMS_BY_ID, teamChipStyle } from '../constants/teams'
 import AuctionSummary from '../components/post-auction/AuctionSummary'
@@ -9,6 +11,11 @@ import TeamDetails from '../components/post-auction/TeamDetails'
 import BestXI from '../components/post-auction/BestXI'
 import TopPurchases from '../components/post-auction/TopPurchases'
 import AuctionHistory from '../components/post-auction/AuctionHistory'
+import AllSquads from '../components/post-auction/AllSquads'
+import YourFinish from '../components/post-auction/YourFinish'
+import ChampionBanner from '../components/post-auction/ChampionBanner'
+import AuctionAwards from '../components/post-auction/AuctionAwards'
+import ShareResultsButton from '../components/post-auction/ShareResultsButton'
 import Spinner from '../components/shared/Spinner'
 
 const MAX_RETRIES = 5
@@ -53,11 +60,12 @@ const PostAuction = () => {
     }
   }, [roomId])
 
-  useEffect(() => {
-    if (results && !selectedTeamId) {
-      setSelectedTeamId(results.teams[0]?.teamId ?? null)
-    }
-  }, [results, selectedTeamId])
+  // Ranked here with the shared algorithm (also what the server saved), so
+  // results saved before the Squad Score existed rank the same way.
+  const teams = useMemo(() => (results ? rankSquads(results.teams) : []), [results])
+  const myTeamId = useMemo(() => (results ? findMyTeamId(results.teams, roomId) : null), [results, roomId])
+  // Presentation only — reads the ranking, never changes it.
+  const awards = useMemo(() => computeAwards(teams), [teams])
 
   if (isLoading) {
     return (
@@ -87,12 +95,15 @@ const PostAuction = () => {
     )
   }
 
-  const selectedTeam = results.teams.find((t) => t.teamId === selectedTeamId) || null
+  // View Team opens on your team, or the winner for spectators.
+  const activeTeamId = selectedTeamId ?? myTeamId ?? teams[0]?.teamId ?? null
+  const selectedTeam = teams.find((t) => t.teamId === activeTeamId) || null
+  const myTeam = teams.find((t) => t.teamId === myTeamId) || null
 
   return (
     <div className="relative min-h-screen bg-city px-4 py-8 sm:px-8 overflow-hidden">
       <div className="relative max-w-5xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3 flex-wrap">
           <button
             type="button"
             onClick={leaveRoom}
@@ -100,36 +111,48 @@ const PostAuction = () => {
           >
             ← Back to Home
           </button>
-          <span className="label-mono">Room {roomId}</span>
+          <div className="flex items-center gap-3">
+            <span className="label-mono">Room {roomId}</span>
+            <ShareResultsButton roomId={roomId} />
+          </div>
         </div>
 
+        {/* 1. Auction complete + champion */}
         <div className="pb-6 border-b-2 border-bone">
           <div className="flex items-center gap-3 mb-2">
             <span className="h-2 w-2 bg-red" />
-            <p className="label-mono text-bone/60">Hammer down // Final ledger</p>
+            <p className="label-mono text-bone/60">Auction complete // Final ledger</p>
           </div>
           <h1 className="font-display uppercase leading-[0.85] text-bone text-6xl sm:text-8xl">
             Auction <span className="text-red glow-red">Results</span>
           </h1>
         </div>
 
-        <AuctionSummary results={results} />
-        <TeamLeaderboard teams={results.teams} />
-        <TopPurchases teams={results.teams} />
+        <ChampionBanner champions={awards.champion?.teams} myTeamId={myTeamId} />
+
+        {/* 2. Awards  3. Final standings  4. Your result */}
+        <AuctionAwards awards={awards} myTeamId={myTeamId} num="01" />
+        <TeamLeaderboard teams={teams} myTeamId={myTeamId} num="02" />
+        <YourFinish team={myTeam} teamCount={teams.length} />
+
+        {/* 5. All squads, then the single-team breakdown */}
+        <AllSquads teams={teams} myTeamId={myTeamId} num="03" />
 
         <div>
           <div className="section-head">
             <span className="section-num">04</span>
-            <h2 className="section-title">View Team</h2>
+            <h2 className="section-title">Team Breakdown</h2>
           </div>
           <div className="flex flex-wrap gap-2">
-            {results.teams.map((t) => (
+            {teams.map((t) => (
               <button
                 key={t.teamId}
                 type="button"
                 onClick={() => setSelectedTeamId(t.teamId)}
+                title={t.teamId === myTeamId ? 'Your team' : undefined}
                 className={`team-chip !text-xs !px-3 !py-2 transition-all
-                  ${selectedTeamId === t.teamId
+                  ${t.teamId === myTeamId ? 'ring-1 ring-cyan ring-offset-2 ring-offset-carbon' : ''}
+                  ${activeTeamId === t.teamId
                     ? 'outline-2 outline-offset-2 outline-bone -translate-y-0.5'
                     : 'opacity-50 hover:opacity-100'}`}
                 style={teamChipStyle(TEAMS_BY_ID[t.teamId])}
@@ -141,11 +164,15 @@ const PostAuction = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <TeamDetails team={selectedTeam} />
-          <BestXI team={selectedTeam} />
+          <TeamDetails team={selectedTeam} num="05" />
+          <BestXI team={selectedTeam} num="06" />
         </div>
 
-        <AuctionHistory history={results.history} />
+        <AuctionSummary results={results} num="07" />
+        <TopPurchases teams={teams} num="08" />
+
+        {/* 6. Auction history */}
+        <AuctionHistory history={results.history} num="09" />
       </div>
     </div>
   )

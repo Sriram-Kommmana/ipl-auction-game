@@ -5,6 +5,8 @@
 
 export * from './rules.js'
 export * from './scoring.js'
+export * from './squadRanking.js'
+export * from './auctionAwards.js'
 export * from './valuation.js'
 export * from './pool.js'
 export * from './observation.js'
