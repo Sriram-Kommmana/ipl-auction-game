@@ -1,5 +1,4 @@
 import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
-import AiBadge from '../shared/AiBadge'
 
 // Podium tints — gold / bone / red for the top three, muted after that
 const RANK_STYLES = ['text-amber', 'text-bone', 'text-red']
@@ -37,7 +36,6 @@ const TeamLeaderboard = ({ teams }) => {
                 <div className="min-w-0">
                   <p className="font-display text-base sm:text-lg uppercase tracking-wide text-bone truncate leading-tight">{team.teamName}</p>
                   <p className="font-mono text-[11px] text-bone/45 truncate flex items-center gap-1.5">
-                    {team.isBot && <AiBadge kind={team.botKind} persona={team.botPersona} />}
                     {team.ownerNickname}
                     <span className="sm:hidden"> · {team.playerCount} PLR · {team.overseasCount} OS</span>
                   </p>

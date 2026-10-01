@@ -2,7 +2,6 @@ import { useMemo } from 'react'
 import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 import { useRoomStore } from '../../store/roomStore'
 import { useSessionStore } from '../../store/sessionStore'
-import AiBadge from '../shared/AiBadge'
 
 const PurseTracker = () => {
   const teams = useRoomStore((s) => s.teams)
@@ -62,7 +61,6 @@ const PurseTracker = () => {
                 <div className="min-w-0">
                   {nickname && (
                     <p className={`flex items-center gap-1.5 text-xs leading-tight min-w-0 ${isMine ? 'text-cyan' : 'text-bone/80'}`}>
-                      {owner?.isBot && <AiBadge kind={owner.botKind} persona={owner.botPersona} />}
                       <span className="truncate">{nickname}</span>
                     </p>
                   )}

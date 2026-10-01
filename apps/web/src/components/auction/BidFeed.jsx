@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 import { useAuctionStore } from '../../store/auctionStore'
 import { useRoomStore } from '../../store/roomStore'
-import AiBadge from '../shared/AiBadge'
 
 const BidFeed = () => {
   const bidFeed = useAuctionStore((s) => s.bidFeed)
@@ -67,7 +66,6 @@ const BidFeed = () => {
                   <span className="team-chip shrink-0" style={teamChipStyle(team)}>
                     {entry.teamId}
                   </span>
-                  {owner?.isBot && <AiBadge kind={owner.botKind} persona={owner.botPersona} />}
                   {nickname && <span className="font-mono text-[11px] text-bone/50 truncate">{nickname}</span>}
                 </div>
                 <span className="num text-lg text-bone shrink-0">₹{entry.bid}L</span>

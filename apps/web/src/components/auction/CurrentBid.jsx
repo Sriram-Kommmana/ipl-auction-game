@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { TEAMS_BY_ID, teamChipStyle } from '../../constants/teams'
 import { useAuctionStore } from '../../store/auctionStore'
 import { useRoomStore } from '../../store/roomStore'
-import AiBadge from '../shared/AiBadge'
 
 const CurrentBid = () => {
   const currentBid = useAuctionStore((s) => s.currentBid)
@@ -45,7 +44,6 @@ const CurrentBid = () => {
               <span className="team-chip" style={teamChipStyle(team)}>{team.teamId}</span>
               {ownerNickname && (
                 <span className="font-mono text-[11px] text-bone bg-raised border border-line px-2 flex items-center gap-1.5">
-                  {owner?.isBot && <AiBadge kind={owner.botKind} persona={owner.botPersona} />}
                   {ownerNickname}
                 </span>
               )}
