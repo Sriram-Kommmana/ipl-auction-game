@@ -773,6 +773,25 @@ tbody tr:hover {
     color: var(--red);
 }
 
-.footer-legal a.footer-support {
+/* Small "buy me a coffee" button in the footer. Opens Razorpay's hosted
+   Payment Page in a new tab — no payment code or keys live on this site. */
+.coffee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--amber);
+    border: 1px solid rgba(255, 176, 32, 0.5);
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.coffee-btn:hover {
+    color: var(--void);
+    background: var(--amber);
+    border-color: var(--amber);
 }
