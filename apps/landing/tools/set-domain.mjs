@@ -3,11 +3,18 @@
 //   node tools/set-domain.mjs cricketauction.in
 //   node tools/set-domain.mjs cricketauction.in --dry
 //   node tools/set-domain.mjs cricketauction.in --app play.cricketauction.in
+//   node tools/set-domain.mjs cricketauction.in --email hi@cricketauction.in --pay https://rzp.io/rzp/abc
 //
 // The static pages need absolute URLs in three places that cannot be
 // relative — canonical tags, og:image/og:url, and the sitemap — plus the
 // two CTA links and the stats API call that still point at localhost. This
 // rewrites all of them together so none gets forgotten on deploy day.
+//
+// deploy/deploy.sh runs it on a throwaway copy of this folder, so the
+// committed files keep their localhost/example values for development.
+// --email and --pay fill in the policy pages' contact address and the
+// footer's Razorpay link; without --pay the coffee button is removed rather
+// than shipped pointing at the placeholder.
 //
 // Re-runnable: the last-applied values are recorded in tools/.domain, so
 // changing the domain later works exactly the same way.
@@ -24,10 +31,15 @@ const STATE = join(here, '.domain')
 const DEFAULTS = {
     site: 'https://cricket-auction.example.com',
     app: 'http://localhost:5173',
-    api: 'http://localhost:3001'
+    api: 'http://localhost:3001',
+    email: 'contact@cricket-auction.example.com',
+    pay: 'https://rzp.io/rzp/YOUR-PAYMENT-PAGE'
 }
 
-const TARGETS = ['index.html', 'players.html', 'robots.txt', 'sitemap.xml']
+const TARGETS = [
+    'index.html', 'players.html', 'robots.txt', 'sitemap.xml',
+    'contact.html', 'terms.html', 'privacy.html', 'refund-policy.html'
+]
 
 const args = process.argv.slice(2)
 const dry = args.includes('--dry')
@@ -42,8 +54,10 @@ if (!domain) {
     console.error(`Usage: node tools/set-domain.mjs <domain> [--app host] [--api host] [--dry]
 
   <domain>   bare apex, e.g. cricketauction.in (no protocol, no trailing slash)
-  --app      host for the game client   (default: app.<domain>)
+  --app      host for the game client   (default: play.<domain>)
   --api      host for the API server    (default: api.<domain>)
+  --email    contact address shown on the policy pages
+  --pay      Razorpay Payment Page URL (without it the coffee button is removed)
   --dry      report what would change, write nothing`)
     process.exit(1)
 }
@@ -53,13 +67,21 @@ if (/^https?:\/\//.test(domain) || domain.endsWith('/')) {
     process.exit(1)
 }
 
+const prev = existsSync(STATE) ? { ...DEFAULTS, ...JSON.parse(await readFile(STATE, 'utf8')) } : DEFAULTS
+
 const next = {
     site: `https://${domain}`,
-    app: `https://${flag('app') || `app.${domain}`}`,
-    api: `https://${flag('api') || `api.${domain}`}`
+    app: `https://${flag('app') || `play.${domain}`}`,
+    api: `https://${flag('api') || `api.${domain}`}`,
+    email: flag('email') || prev.email,
+    pay: flag('pay') || prev.pay
 }
 
-const prev = existsSync(STATE) ? JSON.parse(await readFile(STATE, 'utf8')) : DEFAULTS
+// The coffee button is a single line in each page; drop it while it still
+// points at the placeholder.
+const dropPlaceholderPay = (text) => next.pay === DEFAULTS.pay
+    ? text.split('\n').filter((line) => !line.includes(DEFAULTS.pay)).join('\n')
+    : text
 
 const run = async () => {
     let totalHits = 0
@@ -70,7 +92,8 @@ const run = async () => {
         let updated = original
         const hits = []
 
-        for (const key of ['site', 'app', 'api']) {
+        // email before site: the placeholder address contains the site host
+        for (const key of ['email', 'pay', 'site', 'app', 'api']) {
             const from = prev[key]
             const to = next[key]
             if (from === to) continue
@@ -79,6 +102,12 @@ const run = async () => {
                 updated = updated.split(from).join(to)
                 hits.push(`${count}x ${from} -> ${to}`)
             }
+        }
+
+        const withoutPay = dropPlaceholderPay(updated)
+        if (withoutPay !== updated) {
+            updated = withoutPay
+            hits.push('removed coffee button (no --pay URL yet)')
         }
 
         if (!hits.length) {
@@ -110,15 +139,14 @@ Landing site now points at ${next.site}
 
 Still to set by hand (they live outside this folder):
 
-  apps/web/.env       VITE_SERVER_URL=${next.api}
+  web build env       VITE_SERVER_URL=${next.api}
                       VITE_LANDING_URL=${next.site}
                       (baked in at build time — rebuild after changing)
 
-  apps/server/.env    CLIENT_URL=${next.app}
+  server env          CLIENT_URL=${next.app}
                       (no trailing slash; compared literally by CORS)
 
-  apps/server/src/index.js
-                      the Socket.IO cors origin is still "*"
+On the production server deploy/deploy.sh sets all of these for you.
 `)
 }
 

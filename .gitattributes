@@ -1,0 +1,4 @@
+# Deploy scripts and server config run on Linux — keep LF everywhere,
+# including Windows checkouts.
+*.sh            text eol=lf
+deploy/**       text eol=lf

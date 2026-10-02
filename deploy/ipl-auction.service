@@ -1,0 +1,38 @@
+# systemd unit for the game server (Express + Socket.IO + bots).
+# Installed to /etc/systemd/system/ by deploy/setup-server.sh.
+#
+#   sudo systemctl status ipl-auction
+#   sudo journalctl -u ipl-auction -f        # live logs
+
+[Unit]
+Description=Cricket Auction game server
+After=network-online.target redis-server.service mongod.service
+Wants=network-online.target redis-server.service mongod.service
+
+[Service]
+Type=simple
+User=ipl
+Group=ipl
+WorkingDirectory=/opt/ipl-auction/apps/server
+# PORT, REDIS_URL, MONGODB_URI, CLIENT_URL — written once by setup-server.sh.
+# dotenv never overrides these, and no .env file exists on the server.
+EnvironmentFile=/etc/ipl-auction/server.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node src/index.js
+Restart=always
+RestartSec=3
+# Running auctions live in this process (timers, bot schedules); give it a
+# moment to finish writes on stop/restart.
+TimeoutStopSec=10
+
+# Hardening: the server only needs to read its code and talk to localhost.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectControlGroups=true
+ReadOnlyPaths=/opt/ipl-auction
+
+[Install]
+WantedBy=multi-user.target

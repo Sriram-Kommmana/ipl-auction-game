@@ -2,9 +2,10 @@
 import { io } from 'socket.io-client'
 
 // transports intentionally left unspecified (not forced to ['websocket']):
-// production target is Hetzner VPS behind Cloudflare SSL, and Socket.IO's
-// default polling-then-upgrade behavior is what gracefully handles a
-// reverse-proxy layer if WebSocket upgrade isn't perfectly configured there.
+// production runs behind a reverse proxy (Caddy on an AWS server, see
+// docs/deployment.md), and Socket.IO's default polling-then-upgrade
+// behavior is what gracefully handles a proxy layer if WebSocket upgrade
+// isn't perfectly configured there.
 // Revisit once WS upgrade is confirmed working end-to-end in production.
 const socket = io(import.meta.env.VITE_SERVER_URL, {
   autoConnect: false,

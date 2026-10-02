@@ -7,17 +7,23 @@ is committed, so deploying stays a file copy.
 
 Run them from `apps/landing`.
 
-## `set-domain.mjs` — run this before deploying
+## `set-domain.mjs` — run automatically on deploy
 
 ```
-node tools/set-domain.mjs cricketauction.in
+node tools/set-domain.mjs cricketauction.in --email hi@cricketauction.in --pay https://rzp.io/rzp/abc
 ```
 
 The repo ships with the placeholder host `cricket-auction.example.com` and
 with the two CTA buttons and the stats API still pointing at `localhost`.
 This rewrites all of them — canonical tags, `og:url`, `og:image`,
-`robots.txt`, `sitemap.xml`, the Enter/Create buttons and `STATS_API` — and
-prints the `.env` values you still need to set by hand.
+`robots.txt`, `sitemap.xml`, the policy pages, the Enter/Create buttons and
+`STATS_API` — plus the contact email (`--email`) and the Razorpay link
+(`--pay`; without it the coffee button is removed). Hosts default to
+`play.<domain>` for the game and `api.<domain>` for the server.
+
+`deploy/deploy.sh` runs it on a temporary copy of this folder on every
+deploy, so the committed files keep their development values and you never
+need to run it by hand.
 
 Add `--dry` to see what would change. It is re-runnable: the last applied
 values are recorded in `tools/.domain`.
@@ -83,6 +89,5 @@ referenced by any page, so nothing downloads them.
 
 ## A note on this folder
 
-`apps/landing` is the web root, so `/tools/` is publicly reachable once
-deployed. It is disallowed in `robots.txt`; if you would rather it not be
-served at all, block the path in the reverse proxy.
+`apps/landing` is the source of the web root. `deploy/deploy.sh` leaves this folder out of what it publishes, so
+`/tools/` is never served in production.

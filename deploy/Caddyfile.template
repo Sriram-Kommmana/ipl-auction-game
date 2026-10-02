@@ -1,0 +1,61 @@
+# Caddy config — rendered to /etc/caddy/Caddyfile by setup-server.sh, which
+# replaces __DOMAIN__. Caddy fetches and renews the HTTPS certificates
+# itself once the DNS records point at this server.
+#
+#   __DOMAIN__        static landing page   /var/www/ipl-auction/landing
+#   play.__DOMAIN__   game app (React SPA)  /var/www/ipl-auction/web
+#   api.__DOMAIN__    game server           127.0.0.1:3001 (REST + Socket.IO)
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "DENY"
+		-Server
+	}
+}
+
+www.__DOMAIN__ {
+	redir https://__DOMAIN__{uri} permanent
+}
+
+__DOMAIN__ {
+	import security_headers
+	root * /var/www/ipl-auction/landing
+	encode zstd gzip
+
+	# Images, fonts and icons rarely change; pages and CSS/JS revalidate.
+	@media path *.webp *.png *.jpg *.jpeg *.svg *.ico *.woff2
+	header @media Cache-Control "public, max-age=604800"
+	@pages not path *.webp *.png *.jpg *.jpeg *.svg *.ico *.woff2
+	header @pages Cache-Control "no-cache"
+
+	file_server
+}
+
+play.__DOMAIN__ {
+	import security_headers
+	root * /var/www/ipl-auction/web
+	encode zstd gzip
+
+	# Vite fingerprints everything under /assets — cache it forever.
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+
+	# index.html must always revalidate so a deploy reaches players at once.
+	@spa not path /assets/*
+	header @spa Cache-Control "no-cache"
+
+	# Client-side routes (/lobby/X, /auction/X, /results/X) all load the SPA.
+	try_files {path} /index.html
+
+	file_server
+}
+
+api.__DOMAIN__ {
+	import security_headers
+	encode zstd gzip
+	# Socket.IO's WebSocket upgrade is proxied automatically.
+	reverse_proxy 127.0.0.1:3001
+}
