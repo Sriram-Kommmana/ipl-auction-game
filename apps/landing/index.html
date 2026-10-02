@@ -1141,6 +1141,44 @@
 
             </section>
 
+            <!-- ================= SUPPORT ================= -->
+            <!-- Voluntary support via Razorpay's hosted Payment Page.
+                 REPLACE the href below (and the footer link) with your
+                 live Payment Page URL — search for "YOUR-PAYMENT-PAGE". -->
+
+            <section class="support-section" id="support" aria-labelledby="support-title">
+
+                <div class="support-card">
+
+                    <div class="support-copy">
+
+                        <h2 id="support-title">ENJOYING THE <span>GAME?</span></h2>
+
+                        <p>
+                            Cricket Auction is free, has no ads and needs no login, and it will stay that way.
+                            It is built and run by one developer. If you had fun outbidding your friends or the
+                            AI franchises, you can chip in for a coffee to help with server costs and new features.
+                        </p>
+
+                    </div>
+
+                    <div class="support-action">
+
+                        <a href="https://rzp.io/rzp/YOUR-PAYMENT-PAGE" class="primary-btn support-btn" target="_blank" rel="noopener">
+                            ☕ BUY ME A COFFEE
+                        </a>
+
+                        <p class="support-note">
+                            Completely optional. Payments are processed securely by Razorpay
+                            (UPI, cards, net banking). See our <a href="refund-policy.html">refund policy</a>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
         </main>
 
         <footer class="footer">
@@ -1164,6 +1202,7 @@
                     <a href="index.html">Home</a>
                     <a href="players.html">Player List</a>
                     <a href="#how-to-play">How To Play</a>
+                    <a href="#support" class="footer-support">☕ Support</a>
 
                 </div>
 
@@ -1178,6 +1217,13 @@
             </div>
 
             <div class="footer-bottom">
+
+                <nav class="footer-legal" aria-label="Policies">
+                    <a href="contact.html">Contact</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="refund-policy.html">Refunds</a>
+                </nav>
 
                 <p>
                     Designed & Developed with ❤️ by <span class="creator">Sriram</span>
@@ -1272,6 +1318,32 @@
             });
     })();
 </script>
+<script>
+    /* ================= THANK-YOU TOAST =================
+       Set the Razorpay Payment Page's "redirect after payment" URL to
+       https://<your-domain>/?thanks=1 and supporters land back here with
+       a short thank-you. The flag is stripped from the address bar so a
+       refresh or a shared link doesn't show it again. */
+    (() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("thanks") !== "1") return;
+
+        params.delete("thanks");
+        const query = params.toString();
+        history.replaceState(null, "", window.location.pathname + (query ? `?${query}` : "") + window.location.hash);
+
+        const toast = document.createElement("div");
+        toast.className = "thanks-toast";
+        toast.setAttribute("role", "status");
+        toast.innerHTML = '<span>☕ Thank you for supporting Cricket Auction!</span>' +
+            '<button type="button" aria-label="Dismiss">✕</button>';
+        document.body.appendChild(toast);
+
+        const close = () => toast.remove();
+        toast.querySelector("button").addEventListener("click", close);
+        setTimeout(close, 8000);
+    })();
+</script>
 </body>
 <script>
     const transition =
@@ -1282,6 +1354,10 @@
         link.addEventListener("click", e => {
 
             const href = link.getAttribute("href");
+
+            /* New-tab links (Razorpay, socials) and ctrl/cmd-clicks keep
+               their normal browser behaviour. */
+            if (link.target === "_blank" || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
 
             if(href && !href.startsWith("#")) {
                 e.preventDefault();

@@ -750,3 +750,29 @@ tbody tr:hover {
         animation: none !important;
     }
 }
+
+/* Policy links + support link (same look as the home page footer) */
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
+.footer-legal a {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(239, 233, 221, 0.5);
+    transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--red);
+}
+
+.footer-legal a.footer-support {
+    color: var(--amber);
+}

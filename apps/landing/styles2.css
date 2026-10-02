@@ -1405,6 +1405,311 @@ img {
     }
 }
 
+/* ================= SUPPORT THE DEVELOPER ================= */
+/* Voluntary Razorpay payment. The link opens Razorpay's hosted Payment
+   Page in a new tab — no payment code or keys live on this site. */
+
+.support-section {
+    padding: 5rem 4rem;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 4rem; /* clear the sticky navbar on #support links */
+}
+
+.support-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 3rem;
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--red);
+    position: relative;
+}
+
+.support-card::before {
+    content: "SUPPORT // DEVELOPER";
+    display: block;
+    position: absolute;
+    top: -0.55rem;
+    left: 2rem;
+    padding: 0 0.6rem;
+    background: var(--void);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+}
+
+.support-copy h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.support-copy h2 span {
+    color: var(--red);
+}
+
+.support-copy p {
+    line-height: 1.8;
+    color: rgba(239, 233, 221, 0.62);
+    max-width: 58ch;
+}
+
+.support-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.support-btn {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.support-note {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    color: rgba(239, 233, 221, 0.45);
+    max-width: 30ch;
+}
+
+.support-note a {
+    color: rgba(239, 233, 221, 0.75);
+    text-decoration: underline;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
+}
+
+.support-note a:hover {
+    color: var(--red);
+}
+
+@media (max-width: 900px) {
+    .support-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .support-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.5rem 1.5rem 2rem;
+        gap: 2rem;
+    }
+
+    .support-card::before {
+        left: 1rem;
+        letter-spacing: 0.3em;
+    }
+}
+
+@media (max-width: 400px) {
+    .support-btn {
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Footer: support link stands out from the plain nav links */
+.footer-links a.footer-support {
+    color: var(--amber);
+}
+
+/* Footer: policy links row (required for payment-gateway verification) */
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
+.footer-legal a {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(239, 233, 221, 0.5);
+    transition: color 0.2s ease;
+}
+
+.footer-legal a:hover,
+.footer-legal a[aria-current="page"] {
+    color: var(--red);
+}
+
+/* Thank-you toast after Razorpay redirects back with ?thanks=1 */
+.thanks-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    z-index: 8000;
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--amber);
+    box-shadow: 5px 5px 0 0 var(--amber);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    color: var(--bone);
+}
+
+.thanks-toast button {
+    color: rgba(239, 233, 221, 0.6);
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0.25rem;
+}
+
+.thanks-toast button:hover {
+    color: var(--red);
+}
+
+/* ================= POLICY PAGES ================= */
+/* contact.html, terms.html, privacy.html, refund-policy.html */
+
+.legal-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+}
+
+.legal-page .legal-kicker {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+}
+
+.legal-page h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.legal-page .legal-updated {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: rgba(239, 233, 221, 0.45);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--bone);
+}
+
+.legal-page h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 2.5rem 0 0.8rem;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--red);
+}
+
+.legal-page p,
+.legal-page li {
+    line-height: 1.85;
+    color: rgba(239, 233, 221, 0.68);
+}
+
+.legal-page p + p {
+    margin-top: 0.9rem;
+}
+
+.legal-page ul {
+    list-style: none;
+    margin-top: 0.6rem;
+}
+
+.legal-page li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-top: 0.45rem;
+}
+
+.legal-page li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 0.6rem;
+    height: 2px;
+    background: var(--red);
+}
+
+.legal-page strong {
+    color: var(--bone);
+    font-weight: 600;
+}
+
+.legal-page a {
+    color: var(--bone);
+    text-decoration: underline;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+}
+
+.legal-page a:hover {
+    color: var(--red);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    border-left: 1px solid var(--line-strong);
+    border-top: 1px solid var(--line-strong);
+    margin-top: 1.5rem;
+}
+
+.contact-grid > div {
+    padding: 1.25rem;
+    border-right: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+    background: var(--panel);
+    min-width: 0;
+}
+
+.contact-grid dt {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+}
+
+.contact-grid dd {
+    color: var(--bone);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
 @media (prefers-reduced-motion: reduce) {
     body,
     .logo::before,

@@ -8,4 +8,20 @@
     <loc>https://cricket-auction.example.com/players.html</loc>
     <lastmod>2026-09-21</lastmod>
   </url>
+  <url>
+    <loc>https://cricket-auction.example.com/contact.html</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://cricket-auction.example.com/terms.html</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://cricket-auction.example.com/privacy.html</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://cricket-auction.example.com/refund-policy.html</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
 </urlset>

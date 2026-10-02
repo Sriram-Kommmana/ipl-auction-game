@@ -6,6 +6,9 @@ document.querySelectorAll("a").forEach(link => {
 
         const href = link.getAttribute("href");
 
+        /* New-tab links and ctrl/cmd-clicks keep their normal behaviour. */
+        if (link.target === "_blank" || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+
         if(href && !href.startsWith("#")) {
 
             e.preventDefault();
