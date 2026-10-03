@@ -109,6 +109,19 @@ if ! command -v mongod >/dev/null; then
     apt-get install -yq mongodb-org
 fi
 
+# MongoDB 8 refuses to start on Linux 6.19–7.0.13 (SERVER-121912): its
+# bundled TCMalloc relies on rseq behaviour those kernels changed, and
+# Ubuntu 24.04's rolling cloud kernel is in that range. Letting glibc own
+# rseq makes TCMalloc fall back from per-CPU caches — a small throughput
+# cost that a game this size never notices. Harmless on fixed kernels;
+# remove once MongoDB ships a patched TCMalloc.
+mkdir -p /etc/systemd/system/mongod.service.d
+cat > /etc/systemd/system/mongod.service.d/kernel-rseq.conf <<'EOF'
+[Service]
+Environment=GLIBC_TUNABLES=glibc.pthread.rseq=1
+EOF
+systemctl daemon-reload
+
 write_mongod_conf() {   # write_mongod_conf <auth: true|false>
     cat > /etc/mongod.conf <<EOF
 # Managed by deploy/setup-server.sh
