@@ -81,6 +81,9 @@ find "$WEB_ROOT/web/assets" -type f -mtime +14 -delete
 say "Preparing the landing page"
 stage=$(mktemp -d)
 trap 'rm -rf "$stage"' EXIT
+# mktemp -d creates a 0700 folder and rsync -a below copies that mode onto
+# the web root — Caddy then can't read it and serves 403 for every page.
+chmod 755 "$stage"
 cp -r apps/landing/. "$stage/"
 node "$stage/tools/set-domain.mjs" "$DOMAIN" \
     --app "play.$DOMAIN" --api "api.$DOMAIN" \
